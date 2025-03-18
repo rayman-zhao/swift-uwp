@@ -3,18 +3,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-windowsfoundation",
+    name: "swift-uwp",
     products: [
-        .library(name: "WindowsFoundation", type: .static, targets: ["WindowsFoundation"]),
+        .library(name: "UWP", type: .static, targets: ["UWP"]),
     ],
     dependencies: [
         .package(url: "https://github.com/rayman-zhao/swift-cwinrt", branch: "main"),
+        .package(url: "https://github.com/rayman-zhao/swift-windowsfoundation", branch: "main"),
     ],
     targets: [
         .target(
-            name: "WindowsFoundation",
+            name: "UWP",
             dependencies: [
                 .product(name: "CWinRT", package: "swift-cwinrt"),
+                .product(name: "WindowsFoundation", package: "swift-windowsfoundation"),
             ]
         ),
     ]
