@@ -4,5 +4,257 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Networking_Connectivity {
+    public enum AttributedNetworkUsageBridge: AbiBridge {
+        public typealias SwiftProjection = AttributedNetworkUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage>?) -> AttributedNetworkUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ConnectionCostBridge: AbiBridge {
+        public typealias SwiftProjection = ConnectionCost
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost>?) -> ConnectionCost? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ConnectionProfileBridge: AbiBridge {
+        public typealias SwiftProjection = ConnectionProfile
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile>?) -> ConnectionProfile? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ConnectivityIntervalBridge: AbiBridge {
+        public typealias SwiftProjection = ConnectivityInterval
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval>?) -> ConnectivityInterval? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DataPlanStatusBridge: AbiBridge {
+        public typealias SwiftProjection = DataPlanStatus
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus>?) -> DataPlanStatus? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DataPlanUsageBridge: AbiBridge {
+        public typealias SwiftProjection = DataPlanUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage>?) -> DataPlanUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DataUsageBridge: AbiBridge {
+        public typealias SwiftProjection = DataUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage>?) -> DataUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum IPInformationBridge: AbiBridge {
+        public typealias SwiftProjection = IPInformation
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation>?) -> IPInformation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NetworkAdapterBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkAdapter
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter>?) -> NetworkAdapter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NetworkItemBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkItem
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem>?) -> NetworkItem? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NetworkSecuritySettingsBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkSecuritySettings
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings>?) -> NetworkSecuritySettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum NetworkUsageBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage>?) -> NetworkUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ProviderNetworkUsageBridge: AbiBridge {
+        public typealias SwiftProjection = ProviderNetworkUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage>?) -> ProviderNetworkUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum WlanConnectionProfileDetailsBridge: AbiBridge {
+        public typealias SwiftProjection = WlanConnectionProfileDetails
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails>?) -> WlanConnectionProfileDetails? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum WwanConnectionProfileDetailsBridge: AbiBridge {
+        public typealias SwiftProjection = WwanConnectionProfileDetails
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails>?) -> WwanConnectionProfileDetails? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension NetworkUsageStates: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates
+    public static func from(abi: ABI) -> Self {
+        .init(roaming: abi.Roaming, shared: abi.Shared)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class AttributedNetworkUsageMaker: MakeFromAbi {
+    public typealias SwiftType = AttributedNetworkUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AttributedNetworkUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ConnectionCostMaker: MakeFromAbi {
+    public typealias SwiftType = ConnectionCost
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ConnectionCost(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ConnectionProfileMaker: MakeFromAbi {
+    public typealias SwiftType = ConnectionProfile
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ConnectionProfile(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ConnectivityIntervalMaker: MakeFromAbi {
+    public typealias SwiftType = ConnectivityInterval
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ConnectivityInterval(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DataPlanStatusMaker: MakeFromAbi {
+    public typealias SwiftType = DataPlanStatus
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPlanStatus(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DataPlanUsageMaker: MakeFromAbi {
+    public typealias SwiftType = DataPlanUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPlanUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DataUsageMaker: MakeFromAbi {
+    public typealias SwiftType = DataUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class IPInformationMaker: MakeFromAbi {
+    public typealias SwiftType = IPInformation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return IPInformation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NetworkAdapterMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkAdapter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkAdapter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NetworkItemMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NetworkSecuritySettingsMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkSecuritySettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkSecuritySettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NetworkUsageMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ProviderNetworkUsageMaker: MakeFromAbi {
+    public typealias SwiftType = ProviderNetworkUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ProviderNetworkUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WlanConnectionProfileDetailsMaker: MakeFromAbi {
+    public typealias SwiftType = WlanConnectionProfileDetails
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WlanConnectionProfileDetails(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WwanConnectionProfileDetailsMaker: MakeFromAbi {
+    public typealias SwiftType = WwanConnectionProfileDetails
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WwanConnectionProfileDetails(fromAbi: abi)
+    }
 }

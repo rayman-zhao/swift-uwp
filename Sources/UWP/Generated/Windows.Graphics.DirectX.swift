@@ -365,5 +365,5 @@ extension UWP.DirectXPixelFormat {
         __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat_V408
     }
 }
-extension UWP.DirectXPixelFormat: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DirectXPixelFormat: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

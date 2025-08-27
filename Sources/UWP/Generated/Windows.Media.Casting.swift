@@ -24,12 +24,6 @@ public final class CastingConnection : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingConnection>?) -> CastingConnection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -40,33 +34,33 @@ public final class CastingConnection : WinRTClass, WindowsFoundation.IClosable {
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection.requeststartcastingasync)
     public func requestStartCastingAsync(_ value: CastingSource!) throws -> WindowsFoundation.AnyIAsyncOperation<CastingConnectionErrorStatus>! {
-        try _default.RequestStartCastingAsyncImpl(value)
+        try _default.RequestStartCastingAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection.disconnectasync)
     public func disconnectAsync() throws -> WindowsFoundation.AnyIAsyncOperation<CastingConnectionErrorStatus>! {
-        try _default.DisconnectAsyncImpl()
+        try _default.DisconnectAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection.device)
     public var device : CastingDevice! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection.source)
     public var source : CastingSource! {
-        get { try! _default.get_SourceImpl() }
-        set { try! _default.put_SourceImpl(newValue) }
+        get { try! _default.get_Source() }
+        set { try! _default.put_Source(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection.state)
     public var state : CastingConnectionState {
-        get { try! _default.get_StateImpl() }
+        get { try! _default.get_State() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection.erroroccurred)
@@ -74,10 +68,10 @@ public final class CastingConnection : WinRTClass, WindowsFoundation.IClosable {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ErrorOccurredImpl($0)
+          return try! this.add_ErrorOccurred($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ErrorOccurredImpl($0)
+         try? self?._default.remove_ErrorOccurred($0)
        }
       )
     }()
@@ -87,10 +81,10 @@ public final class CastingConnection : WinRTClass, WindowsFoundation.IClosable {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_StateChangedImpl($0)
+          return try! this.add_StateChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_StateChangedImpl($0)
+         try? self?._default.remove_StateChanged($0)
        }
       )
     }()
@@ -115,24 +109,18 @@ public final class CastingConnectionErrorOccurredEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs>?) -> CastingConnectionErrorOccurredEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnectionerroroccurredeventargs.errorstatus)
     public var errorStatus : CastingConnectionErrorStatus {
-        get { try! _default.get_ErrorStatusImpl() }
+        get { try! _default.get_ErrorStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnectionerroroccurredeventargs.message)
     public var message : String {
-        get { try! _default.get_MessageImpl() }
+        get { try! _default.get_Message() }
     }
 
     deinit {
@@ -154,60 +142,54 @@ public final class CastingDevice : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevice>?) -> CastingDevice? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICastingDeviceStatics: __ABI_Windows_Media_Casting.ICastingDeviceStatics = try! RoGetActivationFactory(HString("Windows.Media.Casting.CastingDevice"))
+    private static let _ICastingDeviceStatics: __ABI_Windows_Media_Casting.ICastingDeviceStatics = try! RoGetActivationFactory("Windows.Media.Casting.CastingDevice")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.getdeviceselector)
-    public static func getDeviceSelector(_ type: CastingPlaybackTypes) -> String {
-        return try! _ICastingDeviceStatics.GetDeviceSelectorImpl(type)
+    public static func getDeviceSelector(_ type: CastingPlaybackTypes) throws -> String {
+        return try _ICastingDeviceStatics.GetDeviceSelector(type)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.getdeviceselectorfromcastingsourceasync)
-    public static func getDeviceSelectorFromCastingSourceAsync(_ castingSource: CastingSource!) -> WindowsFoundation.AnyIAsyncOperation<String>! {
-        return try! _ICastingDeviceStatics.GetDeviceSelectorFromCastingSourceAsyncImpl(castingSource)
+    public static func getDeviceSelectorFromCastingSourceAsync(_ castingSource: CastingSource!) throws -> WindowsFoundation.AnyIAsyncOperation<String>! {
+        return try _ICastingDeviceStatics.GetDeviceSelectorFromCastingSourceAsync(castingSource)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.fromidasync)
-    public static func fromIdAsync(_ value: String) -> WindowsFoundation.AnyIAsyncOperation<CastingDevice?>! {
-        return try! _ICastingDeviceStatics.FromIdAsyncImpl(value)
+    public static func fromIdAsync(_ value: String) throws -> WindowsFoundation.AnyIAsyncOperation<CastingDevice?>! {
+        return try _ICastingDeviceStatics.FromIdAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.deviceinfosupportscastingasync)
-    public static func deviceInfoSupportsCastingAsync(_ device: UWP.DeviceInformation!) -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        return try! _ICastingDeviceStatics.DeviceInfoSupportsCastingAsyncImpl(device)
+    public static func deviceInfoSupportsCastingAsync(_ device: UWP.DeviceInformation!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
+        return try _ICastingDeviceStatics.DeviceInfoSupportsCastingAsync(device)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.getsupportedcastingplaybacktypesasync)
     public func getSupportedCastingPlaybackTypesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<CastingPlaybackTypes>! {
-        try _default.GetSupportedCastingPlaybackTypesAsyncImpl()
+        try _default.GetSupportedCastingPlaybackTypesAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.createcastingconnection)
     public func createCastingConnection() throws -> CastingConnection! {
-        try _default.CreateCastingConnectionImpl()
+        try _default.CreateCastingConnection()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.friendlyname)
     public var friendlyName : String {
-        get { try! _default.get_FriendlyNameImpl() }
+        get { try! _default.get_FriendlyName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.icon)
     public var icon : UWP.AnyIRandomAccessStreamWithContentType! {
-        get { try! _default.get_IconImpl() }
+        get { try! _default.get_Icon() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice.id)
     public var id : String {
-        get { try! _default.get_IdImpl() }
+        get { try! _default.get_Id() }
     }
 
     deinit {
@@ -229,43 +211,38 @@ public final class CastingDevicePicker : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker>?) -> CastingDevicePicker? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Casting.CastingDevicePicker")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Casting.CastingDevicePicker")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.show)
     public func show(_ selection: WindowsFoundation.Rect) throws {
-        try _default.ShowImpl(selection)
+        try _default.Show(selection)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.show)
     public func show(_ selection: WindowsFoundation.Rect, _ preferredPlacement: UWP.Placement) throws {
-        try _default.ShowWithPlacementImpl(selection, preferredPlacement)
+        try _default.ShowWithPlacement(selection, preferredPlacement)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.hide)
     public func hide() throws {
-        try _default.HideImpl()
+        try _default.Hide()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.appearance)
     public var appearance : UWP.DevicePickerAppearance! {
-        get { try! _default.get_AppearanceImpl() }
+        get { try! _default.get_Appearance() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.filter)
     public var filter : CastingDevicePickerFilter! {
-        get { try! _default.get_FilterImpl() }
+        get { try! _default.get_Filter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker.castingdevicepickerdismissed)
@@ -273,10 +250,10 @@ public final class CastingDevicePicker : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CastingDevicePickerDismissedImpl($0)
+          return try! this.add_CastingDevicePickerDismissed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CastingDevicePickerDismissedImpl($0)
+         try? self?._default.remove_CastingDevicePickerDismissed($0)
        }
       )
     }()
@@ -286,10 +263,10 @@ public final class CastingDevicePicker : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_CastingDeviceSelectedImpl($0)
+          return try! this.add_CastingDeviceSelected($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_CastingDeviceSelectedImpl($0)
+         try? self?._default.remove_CastingDeviceSelected($0)
        }
       )
     }()
@@ -313,37 +290,31 @@ public final class CastingDevicePickerFilter : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter>?) -> CastingDevicePickerFilter? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepickerfilter.supportedcastingsources)
     public var supportedCastingSources : WindowsFoundation.AnyIVector<CastingSource?>! {
-        get { try! _default.get_SupportedCastingSourcesImpl() }
+        get { try! _default.get_SupportedCastingSources() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepickerfilter.supportsaudio)
     public var supportsAudio : Bool {
-        get { try! _default.get_SupportsAudioImpl() }
-        set { try! _default.put_SupportsAudioImpl(newValue) }
+        get { try! _default.get_SupportsAudio() }
+        set { try! _default.put_SupportsAudio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepickerfilter.supportspictures)
     public var supportsPictures : Bool {
-        get { try! _default.get_SupportsPicturesImpl() }
-        set { try! _default.put_SupportsPicturesImpl(newValue) }
+        get { try! _default.get_SupportsPictures() }
+        set { try! _default.put_SupportsPictures(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepickerfilter.supportsvideo)
     public var supportsVideo : Bool {
-        get { try! _default.get_SupportsVideoImpl() }
-        set { try! _default.put_SupportsVideoImpl(newValue) }
+        get { try! _default.get_SupportsVideo() }
+        set { try! _default.put_SupportsVideo(newValue) }
     }
 
     deinit {
@@ -365,19 +336,13 @@ public final class CastingDeviceSelectedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs>?) -> CastingDeviceSelectedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdeviceselectedeventargs.selectedcastingdevice)
     public var selectedCastingDevice : CastingDevice! {
-        get { try! _default.get_SelectedCastingDeviceImpl() }
+        get { try! _default.get_SelectedCastingDevice() }
     }
 
     deinit {
@@ -399,20 +364,14 @@ public final class CastingSource : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingSource>?) -> CastingSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingsource.preferredsourceuri)
     public var preferredSourceUri : WindowsFoundation.Uri! {
-        get { try! _default.get_PreferredSourceUriImpl() }
-        set { try! _default.put_PreferredSourceUriImpl(newValue) }
+        get { try! _default.get_PreferredSourceUri() }
+        set { try! _default.put_PreferredSourceUri(newValue) }
     }
 
     deinit {
@@ -443,7 +402,7 @@ extension UWP.CastingConnectionErrorStatus {
         __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_Unknown
     }
 }
-extension UWP.CastingConnectionErrorStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CastingConnectionErrorStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CastingConnectionState {
     public static var disconnected : UWP.CastingConnectionState {
@@ -462,7 +421,7 @@ extension UWP.CastingConnectionState {
         __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Connecting
     }
 }
-extension UWP.CastingConnectionState: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CastingConnectionState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CastingPlaybackTypes {
     public static var none : UWP.CastingPlaybackTypes {
@@ -478,5 +437,5 @@ extension UWP.CastingPlaybackTypes {
         __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_Picture
     }
 }
-extension UWP.CastingPlaybackTypes: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CastingPlaybackTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -248,26 +248,27 @@ private var IID___x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationMod
     .init(Data1: 0xD1636099, Data2: 0x65DF, Data3: 0x45AE, Data4: ( 0x8C,0xEF,0xDC,0x0B,0x53,0xFD,0xC2,0xBB ))// D1636099-65DF-45AE-8CEF-DC0B53FDC2BB
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Media_Playback {
     public class ICurrentMediaPlaybackItemChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs }
 
-        internal func get_NewItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_NewItem() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewItem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
-        internal func get_OldItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_OldItem() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldItem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
     }
@@ -275,7 +276,7 @@ public enum __ABI_Windows_Media_Playback {
     public class ICurrentMediaPlaybackItemChangedEventArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs2 }
 
-        internal func get_ReasonImpl() throws -> UWP.MediaPlaybackItemChangedReason {
+        public func get_Reason() throws -> UWP.MediaPlaybackItemChangedReason {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlaybackItemChangedReason = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Reason(pThis, &value))
@@ -288,16 +289,16 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreak: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak }
 
-        internal func get_PlaybackListImpl() throws -> UWP.MediaPlaybackList? {
+        public func get_PlaybackList() throws -> UWP.MediaPlaybackList? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackList(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackListBridge.from(abi: value)
         }
 
-        internal func get_PresentationPositionImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_PresentationPosition() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PresentationPosition(pThis, &valueAbi))
@@ -306,7 +307,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_InsertionMethodImpl() throws -> UWP.MediaBreakInsertionMethod {
+        public func get_InsertionMethod() throws -> UWP.MediaBreakInsertionMethod {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaBreakInsertionMethod = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InsertionMethod(pThis, &value))
@@ -314,16 +315,16 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_CustomPropertiesImpl() throws -> WindowsFoundation.ValueSet? {
+        public func get_CustomProperties() throws -> WindowsFoundation.ValueSet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation_Collections.ValueSetBridge.from(abi: value)
         }
 
-        internal func get_CanStartImpl() throws -> Bool {
+        public func get_CanStart() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanStart(pThis, &value))
@@ -331,7 +332,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_CanStartImpl(_ value: Bool) throws {
+        public func put_CanStart(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CanStart(pThis, .init(from: value)))
             }
@@ -342,13 +343,13 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreakEndedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakEndedEventArgs }
 
-        internal func get_MediaBreakImpl() throws -> UWP.MediaBreak? {
+        public func get_MediaBreak() throws -> UWP.MediaBreak? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakEndedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaBreak(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakBridge.from(abi: value)
         }
 
     }
@@ -356,7 +357,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreakFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakFactory }
 
-        internal func CreateImpl(_ insertionMethod: UWP.MediaBreakInsertionMethod) throws -> IMediaBreak {
+        public func Create(_ insertionMethod: UWP.MediaBreakInsertionMethod) throws -> IMediaBreak {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, insertionMethod, &resultAbi))
@@ -365,7 +366,7 @@ public enum __ABI_Windows_Media_Playback {
             return IMediaBreak(result!)
         }
 
-        internal func CreateWithPresentationPositionImpl(_ insertionMethod: UWP.MediaBreakInsertionMethod, _ presentationPosition: WindowsFoundation.TimeSpan) throws -> IMediaBreak {
+        public func CreateWithPresentationPosition(_ insertionMethod: UWP.MediaBreakInsertionMethod, _ presentationPosition: WindowsFoundation.TimeSpan) throws -> IMediaBreak {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithPresentationPosition(pThis, insertionMethod, .from(swift: presentationPosition), &resultAbi))
@@ -379,7 +380,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreakManager: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager }
 
-        internal func add_BreaksSeekedOverImpl(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakSeekedOverEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_BreaksSeekedOver(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakSeekedOverEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakManager___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakSeekedOverEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -389,13 +390,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BreaksSeekedOverImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BreaksSeekedOver(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BreaksSeekedOver(pThis, token))
             }
         }
 
-        internal func add_BreakStartedImpl(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakStartedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_BreakStarted(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakStartedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakManager___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakStartedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -405,13 +406,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BreakStartedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BreakStarted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BreakStarted(pThis, token))
             }
         }
 
-        internal func add_BreakEndedImpl(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakEndedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_BreakEnded(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakEndedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakManager___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakEndedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -421,13 +422,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BreakEndedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BreakEnded(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BreakEnded(pThis, token))
             }
         }
 
-        internal func add_BreakSkippedImpl(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakSkippedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_BreakSkipped(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakSkippedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakManager___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakSkippedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -437,37 +438,37 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BreakSkippedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BreakSkipped(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BreakSkipped(pThis, token))
             }
         }
 
-        internal func get_CurrentBreakImpl() throws -> UWP.MediaBreak? {
+        public func get_CurrentBreak() throws -> UWP.MediaBreak? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentBreak(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakBridge.from(abi: value)
         }
 
-        internal func get_PlaybackSessionImpl() throws -> UWP.MediaPlaybackSession? {
+        public func get_PlaybackSession() throws -> UWP.MediaPlaybackSession? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackSession(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackSessionBridge.from(abi: value)
         }
 
-        internal func PlayBreakImpl(_ value: UWP.MediaBreak?) throws {
+        public func PlayBreak(_ value: UWP.MediaBreak?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.PlayBreak(pThis, RawPointer(value)))
             }
         }
 
-        internal func SkipCurrentBreakImpl() throws {
+        public func SkipCurrentBreak() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SkipCurrentBreak(pThis))
             }
@@ -478,7 +479,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreakSchedule: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule }
 
-        internal func add_ScheduleChangedImpl(_ handler: TypedEventHandler<UWP.MediaBreakSchedule?, Any?>?) throws -> EventRegistrationToken {
+        public func add_ScheduleChanged(_ handler: TypedEventHandler<UWP.MediaBreakSchedule?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakSchedule_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -488,25 +489,25 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_ScheduleChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ScheduleChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ScheduleChanged(pThis, token))
             }
         }
 
-        internal func InsertMidrollBreakImpl(_ mediaBreak: UWP.MediaBreak?) throws {
+        public func InsertMidrollBreak(_ mediaBreak: UWP.MediaBreak?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.InsertMidrollBreak(pThis, RawPointer(mediaBreak)))
             }
         }
 
-        internal func RemoveMidrollBreakImpl(_ mediaBreak: UWP.MediaBreak?) throws {
+        public func RemoveMidrollBreak(_ mediaBreak: UWP.MediaBreak?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveMidrollBreak(pThis, RawPointer(mediaBreak)))
             }
         }
 
-        internal func get_MidrollBreaksImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaBreak?>? {
+        public func get_MidrollBreaks() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaBreak?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MidrollBreaks(pThis, &valueAbi))
@@ -515,43 +516,43 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_PrerollBreakImpl(_ value: UWP.MediaBreak?) throws {
+        public func put_PrerollBreak(_ value: UWP.MediaBreak?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PrerollBreak(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_PrerollBreakImpl() throws -> UWP.MediaBreak? {
+        public func get_PrerollBreak() throws -> UWP.MediaBreak? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrerollBreak(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakBridge.from(abi: value)
         }
 
-        internal func put_PostrollBreakImpl(_ value: UWP.MediaBreak?) throws {
+        public func put_PostrollBreak(_ value: UWP.MediaBreak?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PostrollBreak(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_PostrollBreakImpl() throws -> UWP.MediaBreak? {
+        public func get_PostrollBreak() throws -> UWP.MediaBreak? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PostrollBreak(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakBridge.from(abi: value)
         }
 
-        internal func get_PlaybackItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_PlaybackItem() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackItem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
     }
@@ -559,7 +560,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreakSeekedOverEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs }
 
-        internal func get_SeekedOverBreaksImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaBreak?>? {
+        public func get_SeekedOverBreaks() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaBreak?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SeekedOverBreaks(pThis, &valueAbi))
@@ -568,7 +569,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CPlayback__CMediaBreakWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_OldPositionImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_OldPosition() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldPosition(pThis, &value))
@@ -576,7 +577,7 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func get_NewPositionImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_NewPosition() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewPosition(pThis, &value))
@@ -589,13 +590,13 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreakSkippedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSkippedEventArgs }
 
-        internal func get_MediaBreakImpl() throws -> UWP.MediaBreak? {
+        public func get_MediaBreak() throws -> UWP.MediaBreak? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSkippedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaBreak(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakBridge.from(abi: value)
         }
 
     }
@@ -603,13 +604,13 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaBreakStartedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakStartedEventArgs }
 
-        internal func get_MediaBreakImpl() throws -> UWP.MediaBreak? {
+        public func get_MediaBreak() throws -> UWP.MediaBreak? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakStartedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaBreak(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakBridge.from(abi: value)
         }
 
     }
@@ -617,7 +618,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaItemDisplayProperties: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties }
 
-        internal func get_TypeImpl() throws -> UWP.MediaPlaybackType {
+        public func get_Type() throws -> UWP.MediaPlaybackType {
             var value: __x_ABI_CWindows_CMedia_CMediaPlaybackType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -625,46 +626,46 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_TypeImpl(_ value: UWP.MediaPlaybackType) throws {
+        public func put_Type(_ value: UWP.MediaPlaybackType) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Type(pThis, value))
             }
         }
 
-        internal func get_MusicPropertiesImpl() throws -> UWP.MusicDisplayProperties? {
+        public func get_MusicProperties() throws -> UWP.MusicDisplayProperties? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MusicProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media.MusicDisplayPropertiesBridge.from(abi: value)
         }
 
-        internal func get_VideoPropertiesImpl() throws -> UWP.VideoDisplayProperties? {
+        public func get_VideoProperties() throws -> UWP.VideoDisplayProperties? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media.VideoDisplayPropertiesBridge.from(abi: value)
         }
 
-        internal func get_ThumbnailImpl() throws -> UWP.RandomAccessStreamReference? {
+        public func get_Thumbnail() throws -> UWP.RandomAccessStreamReference? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thumbnail(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Storage_Streams.RandomAccessStreamReferenceBridge.from(abi: value)
         }
 
-        internal func put_ThumbnailImpl(_ value: UWP.RandomAccessStreamReference?) throws {
+        public func put_Thumbnail(_ value: UWP.RandomAccessStreamReference?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Thumbnail(pThis, RawPointer(value)))
             }
         }
 
-        internal func ClearAllImpl() throws {
+        public func ClearAll() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAll(pThis))
             }
@@ -675,7 +676,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManager: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager }
 
-        internal func get_IsEnabledImpl() throws -> Bool {
+        public func get_IsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabled(pThis, &value))
@@ -683,112 +684,112 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_IsEnabledImpl(_ value: Bool) throws {
+        public func put_IsEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_MediaPlayerImpl() throws -> UWP.MediaPlayer? {
+        public func get_MediaPlayer() throws -> UWP.MediaPlayer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaPlayer(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlayerBridge.from(abi: value)
         }
 
-        internal func get_PlayBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_PlayBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlayBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_PauseBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_PauseBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PauseBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_NextBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_NextBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NextBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_PreviousBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_PreviousBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreviousBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_FastForwardBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_FastForwardBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FastForwardBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_RewindBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_RewindBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RewindBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_ShuffleBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_ShuffleBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShuffleBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_AutoRepeatModeBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_AutoRepeatModeBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoRepeatModeBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_PositionBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_PositionBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func get_RateBehaviorImpl() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
+        public func get_RateBehavior() throws -> UWP.MediaPlaybackCommandManagerCommandBehavior? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RateBehavior(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerCommandBehaviorBridge.from(abi: value)
         }
 
-        internal func add_PlayReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPlayReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PlayReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPlayReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerPlayReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -798,13 +799,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PlayReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PlayReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlayReceived(pThis, token))
             }
         }
 
-        internal func add_PauseReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPauseReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PauseReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPauseReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerPauseReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -814,13 +815,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PauseReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PauseReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PauseReceived(pThis, token))
             }
         }
 
-        internal func add_NextReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerNextReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_NextReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerNextReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerNextReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -830,13 +831,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_NextReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_NextReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_NextReceived(pThis, token))
             }
         }
 
-        internal func add_PreviousReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPreviousReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PreviousReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPreviousReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerPreviousReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -846,13 +847,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PreviousReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PreviousReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PreviousReceived(pThis, token))
             }
         }
 
-        internal func add_FastForwardReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerFastForwardReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_FastForwardReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerFastForwardReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerFastForwardReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -862,13 +863,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_FastForwardReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_FastForwardReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_FastForwardReceived(pThis, token))
             }
         }
 
-        internal func add_RewindReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerRewindReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RewindReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerRewindReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerRewindReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -878,13 +879,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_RewindReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RewindReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RewindReceived(pThis, token))
             }
         }
 
-        internal func add_ShuffleReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerShuffleReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ShuffleReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerShuffleReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerShuffleReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -894,13 +895,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_ShuffleReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ShuffleReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShuffleReceived(pThis, token))
             }
         }
 
-        internal func add_AutoRepeatModeReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_AutoRepeatModeReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -910,13 +911,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_AutoRepeatModeReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_AutoRepeatModeReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AutoRepeatModeReceived(pThis, token))
             }
         }
 
-        internal func add_PositionReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPositionReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PositionReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerPositionReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerPositionReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -926,13 +927,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PositionReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PositionReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PositionReceived(pThis, token))
             }
         }
 
-        internal func add_RateReceivedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerRateReceivedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RateReceived(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManager?, UWP.MediaPlaybackCommandManagerRateReceivedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManager___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerRateReceivedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -942,7 +943,7 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_RateReceivedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_RateReceived(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RateReceived(pThis, token))
             }
@@ -953,7 +954,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -961,13 +962,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_AutoRepeatModeImpl() throws -> UWP.MediaPlaybackAutoRepeatMode {
+        public func get_AutoRepeatMode() throws -> UWP.MediaPlaybackAutoRepeatMode {
             var value: __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoRepeatMode(pThis, &value))
@@ -975,13 +976,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -989,16 +990,16 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerCommandBehavior: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior }
 
-        internal func get_CommandManagerImpl() throws -> UWP.MediaPlaybackCommandManager? {
+        public func get_CommandManager() throws -> UWP.MediaPlaybackCommandManager? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandManager(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerBridge.from(abi: value)
         }
 
-        internal func get_IsEnabledImpl() throws -> Bool {
+        public func get_IsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabled(pThis, &value))
@@ -1006,7 +1007,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_EnablingRuleImpl() throws -> UWP.MediaCommandEnablingRule {
+        public func get_EnablingRule() throws -> UWP.MediaCommandEnablingRule {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaCommandEnablingRule = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnablingRule(pThis, &value))
@@ -1014,13 +1015,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_EnablingRuleImpl(_ value: UWP.MediaCommandEnablingRule) throws {
+        public func put_EnablingRule(_ value: UWP.MediaCommandEnablingRule) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnablingRule(pThis, value))
             }
         }
 
-        internal func add_IsEnabledChangedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManagerCommandBehavior?, Any?>?) throws -> EventRegistrationToken {
+        public func add_IsEnabledChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackCommandManagerCommandBehavior?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackCommandManagerCommandBehavior_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1030,7 +1031,7 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_IsEnabledChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_IsEnabledChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_IsEnabledChanged(pThis, token))
             }
@@ -1041,7 +1042,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerFastForwardReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1049,19 +1050,19 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1069,7 +1070,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerNextReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1077,19 +1078,19 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1097,7 +1098,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerPauseReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1105,19 +1106,19 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1125,7 +1126,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerPlayReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1133,19 +1134,19 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1153,7 +1154,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerPositionReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1161,13 +1162,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Position() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -1175,13 +1176,13 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1189,7 +1190,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerPreviousReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1197,19 +1198,19 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1217,7 +1218,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerRateReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1225,13 +1226,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PlaybackRateImpl() throws -> Double {
+        public func get_PlaybackRate() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackRate(pThis, &value))
@@ -1239,13 +1240,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1253,7 +1254,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerRewindReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1261,19 +1262,19 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1281,7 +1282,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackCommandManagerShuffleReceivedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs }
 
-        internal func get_HandledImpl() throws -> Bool {
+        public func get_Handled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Handled(pThis, &value))
@@ -1289,13 +1290,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_HandledImpl(_ value: Bool) throws {
+        public func put_Handled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IsShuffleRequestedImpl() throws -> Bool {
+        public func get_IsShuffleRequested() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsShuffleRequested(pThis, &value))
@@ -1303,13 +1304,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
         }
 
     }
@@ -1317,7 +1318,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItem: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem }
 
-        internal func add_AudioTracksChangedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackItem?, WindowsFoundation.AnyIVectorChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_AudioTracksChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackItem?, WindowsFoundation.AnyIVectorChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItem___x_ABI_C__F__CIVectorChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1327,13 +1328,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_AudioTracksChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_AudioTracksChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AudioTracksChanged(pThis, token))
             }
         }
 
-        internal func add_VideoTracksChangedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackItem?, WindowsFoundation.AnyIVectorChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_VideoTracksChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackItem?, WindowsFoundation.AnyIVectorChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItem___x_ABI_C__F__CIVectorChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1343,13 +1344,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_VideoTracksChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_VideoTracksChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_VideoTracksChanged(pThis, token))
             }
         }
 
-        internal func add_TimedMetadataTracksChangedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackItem?, WindowsFoundation.AnyIVectorChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_TimedMetadataTracksChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackItem?, WindowsFoundation.AnyIVectorChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItem___x_ABI_C__F__CIVectorChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1359,46 +1360,46 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_TimedMetadataTracksChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_TimedMetadataTracksChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TimedMetadataTracksChanged(pThis, token))
             }
         }
 
-        internal func get_SourceImpl() throws -> UWP.MediaSource? {
+        public func get_Source() throws -> UWP.MediaSource? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Core.MediaSourceBridge.from(abi: value)
         }
 
-        internal func get_AudioTracksImpl() throws -> UWP.MediaPlaybackAudioTrackList? {
+        public func get_AudioTracks() throws -> UWP.MediaPlaybackAudioTrackList? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioTracks(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackAudioTrackListBridge.from(abi: value)
         }
 
-        internal func get_VideoTracksImpl() throws -> UWP.MediaPlaybackVideoTrackList? {
+        public func get_VideoTracks() throws -> UWP.MediaPlaybackVideoTrackList? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoTracks(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackVideoTrackListBridge.from(abi: value)
         }
 
-        internal func get_TimedMetadataTracksImpl() throws -> UWP.MediaPlaybackTimedMetadataTrackList? {
+        public func get_TimedMetadataTracks() throws -> UWP.MediaPlaybackTimedMetadataTrackList? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TimedMetadataTracks(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackTimedMetadataTrackListBridge.from(abi: value)
         }
 
     }
@@ -1406,16 +1407,16 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItem2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2 }
 
-        internal func get_BreakScheduleImpl() throws -> UWP.MediaBreakSchedule? {
+        public func get_BreakSchedule() throws -> UWP.MediaBreakSchedule? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BreakSchedule(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakScheduleBridge.from(abi: value)
         }
 
-        internal func get_StartTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_StartTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartTime(pThis, &value))
@@ -1423,7 +1424,7 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func get_DurationLimitImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_DurationLimit() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DurationLimit(pThis, &valueAbi))
@@ -1432,7 +1433,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_CanSkipImpl() throws -> Bool {
+        public func get_CanSkip() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanSkip(pThis, &value))
@@ -1440,22 +1441,22 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_CanSkipImpl(_ value: Bool) throws {
+        public func put_CanSkip(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CanSkip(pThis, .init(from: value)))
             }
         }
 
-        internal func GetDisplayPropertiesImpl() throws -> UWP.MediaItemDisplayProperties? {
+        public func GetDisplayProperties() throws -> UWP.MediaItemDisplayProperties? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDisplayProperties(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaItemDisplayPropertiesBridge.from(abi: value)
         }
 
-        internal func ApplyDisplayPropertiesImpl(_ value: UWP.MediaItemDisplayProperties?) throws {
+        public func ApplyDisplayProperties(_ value: UWP.MediaItemDisplayProperties?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ApplyDisplayProperties(pThis, RawPointer(value)))
             }
@@ -1466,7 +1467,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItem3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem3 }
 
-        internal func get_IsDisabledInPlaybackListImpl() throws -> Bool {
+        public func get_IsDisabledInPlaybackList() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDisabledInPlaybackList(pThis, &value))
@@ -1474,13 +1475,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_IsDisabledInPlaybackListImpl(_ value: Bool) throws {
+        public func put_IsDisabledInPlaybackList(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsDisabledInPlaybackList(pThis, .init(from: value)))
             }
         }
 
-        internal func get_TotalDownloadProgressImpl() throws -> Double {
+        public func get_TotalDownloadProgress() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TotalDownloadProgress(pThis, &value))
@@ -1488,7 +1489,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_AutoLoadedDisplayPropertiesImpl() throws -> UWP.AutoLoadedDisplayPropertyKind {
+        public func get_AutoLoadedDisplayProperties() throws -> UWP.AutoLoadedDisplayPropertyKind {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CAutoLoadedDisplayPropertyKind = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoLoadedDisplayProperties(pThis, &value))
@@ -1496,7 +1497,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_AutoLoadedDisplayPropertiesImpl(_ value: UWP.AutoLoadedDisplayPropertyKind) throws {
+        public func put_AutoLoadedDisplayProperties(_ value: UWP.AutoLoadedDisplayPropertyKind) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AutoLoadedDisplayProperties(pThis, value))
             }
@@ -1507,7 +1508,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItemError: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemError }
 
-        internal func get_ErrorCodeImpl() throws -> UWP.MediaPlaybackItemErrorCode {
+        public func get_ErrorCode() throws -> UWP.MediaPlaybackItemErrorCode {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlaybackItemErrorCode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemError.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ErrorCode(pThis, &value))
@@ -1515,7 +1516,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_ExtendedErrorImpl() throws -> HRESULT {
+        public func get_ExtendedError() throws -> HRESULT {
             var value: HRESULT = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemError.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
@@ -1528,7 +1529,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItemFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFactory }
 
-        internal func CreateImpl(_ source: UWP.MediaSource?) throws -> IMediaPlaybackItem {
+        public func Create(_ source: UWP.MediaSource?) throws -> IMediaPlaybackItem {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(source), &valueAbi))
@@ -1542,7 +1543,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItemFactory2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFactory2 }
 
-        internal func CreateWithStartTimeImpl(_ source: UWP.MediaSource?, _ startTime: WindowsFoundation.TimeSpan) throws -> IMediaPlaybackItem {
+        public func CreateWithStartTime(_ source: UWP.MediaSource?, _ startTime: WindowsFoundation.TimeSpan) throws -> IMediaPlaybackItem {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFactory2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithStartTime(pThis, RawPointer(source), .from(swift: startTime), &resultAbi))
@@ -1551,7 +1552,7 @@ public enum __ABI_Windows_Media_Playback {
             return IMediaPlaybackItem(result!)
         }
 
-        internal func CreateWithStartTimeAndDurationLimitImpl(_ source: UWP.MediaSource?, _ startTime: WindowsFoundation.TimeSpan, _ durationLimit: WindowsFoundation.TimeSpan) throws -> IMediaPlaybackItem {
+        public func CreateWithStartTimeAndDurationLimit(_ source: UWP.MediaSource?, _ startTime: WindowsFoundation.TimeSpan, _ durationLimit: WindowsFoundation.TimeSpan) throws -> IMediaPlaybackItem {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFactory2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithStartTimeAndDurationLimit(pThis, RawPointer(source), .from(swift: startTime), .from(swift: durationLimit), &resultAbi))
@@ -1565,22 +1566,22 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItemFailedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFailedEventArgs }
 
-        internal func get_ItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_Item() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFailedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Item(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
-        internal func get_ErrorImpl() throws -> UWP.MediaPlaybackItemError? {
+        public func get_Error() throws -> UWP.MediaPlaybackItemError? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFailedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Error(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemErrorBridge.from(abi: value)
         }
 
     }
@@ -1588,13 +1589,13 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItemOpenedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemOpenedEventArgs }
 
-        internal func get_ItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_Item() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemOpenedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Item(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
     }
@@ -1602,13 +1603,13 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackItemStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemStatics }
 
-        internal func FindFromMediaSourceImpl(_ source: UWP.MediaSource?) throws -> UWP.MediaPlaybackItem? {
+        public func FindFromMediaSource(_ source: UWP.MediaSource?) throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.FindFromMediaSource(pThis, RawPointer(source), &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
     }
@@ -1616,7 +1617,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackList: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList }
 
-        internal func add_ItemFailedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackList?, UWP.MediaPlaybackItemFailedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ItemFailed(_ handler: TypedEventHandler<UWP.MediaPlaybackList?, UWP.MediaPlaybackItemFailedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackList___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItemFailedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1626,13 +1627,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_ItemFailedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ItemFailed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ItemFailed(pThis, token))
             }
         }
 
-        internal func add_CurrentItemChangedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackList?, UWP.CurrentMediaPlaybackItemChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_CurrentItemChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackList?, UWP.CurrentMediaPlaybackItemChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackList___x_ABI_CWindows__CMedia__CPlayback__CCurrentMediaPlaybackItemChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1642,13 +1643,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_CurrentItemChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_CurrentItemChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CurrentItemChanged(pThis, token))
             }
         }
 
-        internal func add_ItemOpenedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackList?, UWP.MediaPlaybackItemOpenedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_ItemOpened(_ handler: TypedEventHandler<UWP.MediaPlaybackList?, UWP.MediaPlaybackItemOpenedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackList___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItemOpenedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -1658,13 +1659,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_ItemOpenedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_ItemOpened(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ItemOpened(pThis, token))
             }
         }
 
-        internal func get_ItemsImpl() throws -> WindowsFoundation.AnyIObservableVector<UWP.MediaPlaybackItem?>? {
+        public func get_Items() throws -> WindowsFoundation.AnyIObservableVector<UWP.MediaPlaybackItem?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &valueAbi))
@@ -1673,7 +1674,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIObservableVector_1___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItemWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_AutoRepeatEnabledImpl() throws -> Bool {
+        public func get_AutoRepeatEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoRepeatEnabled(pThis, &value))
@@ -1681,13 +1682,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_AutoRepeatEnabledImpl(_ value: Bool) throws {
+        public func put_AutoRepeatEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AutoRepeatEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ShuffleEnabledImpl() throws -> Bool {
+        public func get_ShuffleEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShuffleEnabled(pThis, &value))
@@ -1695,22 +1696,22 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_ShuffleEnabledImpl(_ value: Bool) throws {
+        public func put_ShuffleEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ShuffleEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CurrentItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_CurrentItem() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentItem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
-        internal func get_CurrentItemIndexImpl() throws -> UInt32 {
+        public func get_CurrentItemIndex() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentItemIndex(pThis, &value))
@@ -1718,31 +1719,31 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func MoveNextImpl() throws -> UWP.MediaPlaybackItem? {
+        public func MoveNext() throws -> UWP.MediaPlaybackItem? {
             let (item) = try ComPtrs.initialize { itemAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &itemAbi))
                 }
             }
-            return .from(abi: item)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: item)
         }
 
-        internal func MovePreviousImpl() throws -> UWP.MediaPlaybackItem? {
+        public func MovePrevious() throws -> UWP.MediaPlaybackItem? {
             let (item) = try ComPtrs.initialize { itemAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.MovePrevious(pThis, &itemAbi))
                 }
             }
-            return .from(abi: item)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: item)
         }
 
-        internal func MoveToImpl(_ itemIndex: UInt32) throws -> UWP.MediaPlaybackItem? {
+        public func MoveTo(_ itemIndex: UInt32) throws -> UWP.MediaPlaybackItem? {
             let (item) = try ComPtrs.initialize { itemAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.MoveTo(pThis, itemIndex, &itemAbi))
                 }
             }
-            return .from(abi: item)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: item)
         }
 
     }
@@ -1750,7 +1751,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackList2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2 }
 
-        internal func get_MaxPrefetchTimeImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_MaxPrefetchTime() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPrefetchTime(pThis, &valueAbi))
@@ -1759,7 +1760,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_MaxPrefetchTimeImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_MaxPrefetchTime(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2.self) { pThis in
@@ -1767,22 +1768,22 @@ public enum __ABI_Windows_Media_Playback {
             }
         }
 
-        internal func get_StartingItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_StartingItem() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartingItem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
-        internal func put_StartingItemImpl(_ value: UWP.MediaPlaybackItem?) throws {
+        public func put_StartingItem(_ value: UWP.MediaPlaybackItem?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartingItem(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ShuffledItemsImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaPlaybackItem?>? {
+        public func get_ShuffledItems() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaPlaybackItem?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShuffledItems(pThis, &valueAbi))
@@ -1791,7 +1792,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItemWrapper.unwrapFrom(abi: value)
         }
 
-        internal func SetShuffledItemsImpl(_ value: WindowsFoundation.AnyIIterable<UWP.MediaPlaybackItem?>?) throws {
+        public func SetShuffledItems(_ value: WindowsFoundation.AnyIIterable<UWP.MediaPlaybackItem?>?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackItemWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2.self) { pThis in
@@ -1804,7 +1805,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackList3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList3 }
 
-        internal func get_MaxPlayedItemsToKeepOpenImpl() throws -> UInt32? {
+        public func get_MaxPlayedItemsToKeepOpen() throws -> UInt32? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPlayedItemsToKeepOpen(pThis, &valueAbi))
@@ -1813,7 +1814,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_MaxPlayedItemsToKeepOpenImpl(_ value: UInt32?) throws {
+        public func put_MaxPlayedItemsToKeepOpen(_ value: UInt32?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList3.self) { pThis in
@@ -1826,7 +1827,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackSession: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession }
 
-        internal func add_PlaybackStateChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_PlaybackStateChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1836,13 +1837,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PlaybackStateChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PlaybackStateChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlaybackStateChanged(pThis, token))
             }
         }
 
-        internal func add_PlaybackRateChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_PlaybackRateChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1852,13 +1853,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PlaybackRateChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PlaybackRateChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlaybackRateChanged(pThis, token))
             }
         }
 
-        internal func add_SeekCompletedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_SeekCompleted(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1868,13 +1869,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_SeekCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SeekCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SeekCompleted(pThis, token))
             }
         }
 
-        internal func add_BufferingStartedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_BufferingStarted(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1884,13 +1885,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BufferingStartedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BufferingStarted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BufferingStarted(pThis, token))
             }
         }
 
-        internal func add_BufferingEndedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_BufferingEnded(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1900,13 +1901,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BufferingEndedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BufferingEnded(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BufferingEnded(pThis, token))
             }
         }
 
-        internal func add_BufferingProgressChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_BufferingProgressChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1916,13 +1917,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BufferingProgressChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BufferingProgressChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BufferingProgressChanged(pThis, token))
             }
         }
 
-        internal func add_DownloadProgressChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_DownloadProgressChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1932,13 +1933,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_DownloadProgressChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_DownloadProgressChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DownloadProgressChanged(pThis, token))
             }
         }
 
-        internal func add_NaturalDurationChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_NaturalDurationChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1948,13 +1949,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_NaturalDurationChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_NaturalDurationChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_NaturalDurationChanged(pThis, token))
             }
         }
 
-        internal func add_PositionChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_PositionChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1964,13 +1965,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PositionChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PositionChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PositionChanged(pThis, token))
             }
         }
 
-        internal func add_NaturalVideoSizeChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_NaturalVideoSizeChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -1980,22 +1981,22 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_NaturalVideoSizeChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_NaturalVideoSizeChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_NaturalVideoSizeChanged(pThis, token))
             }
         }
 
-        internal func get_MediaPlayerImpl() throws -> UWP.MediaPlayer? {
+        public func get_MediaPlayer() throws -> UWP.MediaPlayer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaPlayer(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlayerBridge.from(abi: value)
         }
 
-        internal func get_NaturalDurationImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_NaturalDuration() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalDuration(pThis, &value))
@@ -2003,7 +2004,7 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Position() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -2011,13 +2012,13 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func put_PositionImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Position(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_PlaybackStateImpl() throws -> UWP.MediaPlaybackState {
+        public func get_PlaybackState() throws -> UWP.MediaPlaybackState {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlaybackState = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackState(pThis, &value))
@@ -2025,7 +2026,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_CanSeekImpl() throws -> Bool {
+        public func get_CanSeek() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanSeek(pThis, &value))
@@ -2033,7 +2034,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_CanPauseImpl() throws -> Bool {
+        public func get_CanPause() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanPause(pThis, &value))
@@ -2041,7 +2042,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_IsProtectedImpl() throws -> Bool {
+        public func get_IsProtected() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsProtected(pThis, &value))
@@ -2049,7 +2050,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_PlaybackRateImpl() throws -> Double {
+        public func get_PlaybackRate() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackRate(pThis, &value))
@@ -2057,13 +2058,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_PlaybackRateImpl(_ value: Double) throws {
+        public func put_PlaybackRate(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackRate(pThis, value))
             }
         }
 
-        internal func get_BufferingProgressImpl() throws -> Double {
+        public func get_BufferingProgress() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BufferingProgress(pThis, &value))
@@ -2071,7 +2072,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_DownloadProgressImpl() throws -> Double {
+        public func get_DownloadProgress() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DownloadProgress(pThis, &value))
@@ -2079,7 +2080,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_NaturalVideoHeightImpl() throws -> UInt32 {
+        public func get_NaturalVideoHeight() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalVideoHeight(pThis, &value))
@@ -2087,7 +2088,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_NaturalVideoWidthImpl() throws -> UInt32 {
+        public func get_NaturalVideoWidth() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalVideoWidth(pThis, &value))
@@ -2095,7 +2096,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_NormalizedSourceRectImpl() throws -> WindowsFoundation.Rect {
+        public func get_NormalizedSourceRect() throws -> WindowsFoundation.Rect {
             var value: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NormalizedSourceRect(pThis, &value))
@@ -2103,13 +2104,13 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func put_NormalizedSourceRectImpl(_ value: WindowsFoundation.Rect) throws {
+        public func put_NormalizedSourceRect(_ value: WindowsFoundation.Rect) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NormalizedSourceRect(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_StereoscopicVideoPackingModeImpl() throws -> UWP.StereoscopicVideoPackingMode {
+        public func get_StereoscopicVideoPackingMode() throws -> UWP.StereoscopicVideoPackingMode {
             var value: __x_ABI_CWindows_CMedia_CMediaProperties_CStereoscopicVideoPackingMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StereoscopicVideoPackingMode(pThis, &value))
@@ -2117,7 +2118,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_StereoscopicVideoPackingModeImpl(_ value: UWP.StereoscopicVideoPackingMode) throws {
+        public func put_StereoscopicVideoPackingMode(_ value: UWP.StereoscopicVideoPackingMode) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StereoscopicVideoPackingMode(pThis, value))
             }
@@ -2128,7 +2129,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackSession2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2 }
 
-        internal func add_BufferedRangesChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_BufferedRangesChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2138,13 +2139,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BufferedRangesChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BufferedRangesChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BufferedRangesChanged(pThis, token))
             }
         }
 
-        internal func add_PlayedRangesChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_PlayedRangesChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2154,13 +2155,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PlayedRangesChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PlayedRangesChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlayedRangesChanged(pThis, token))
             }
         }
 
-        internal func add_SeekableRangesChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_SeekableRangesChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2170,13 +2171,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_SeekableRangesChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SeekableRangesChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SeekableRangesChanged(pThis, token))
             }
         }
 
-        internal func add_SupportedPlaybackRatesChangedImpl(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
+        public func add_SupportedPlaybackRatesChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackSession_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2186,22 +2187,22 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_SupportedPlaybackRatesChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SupportedPlaybackRatesChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SupportedPlaybackRatesChanged(pThis, token))
             }
         }
 
-        internal func get_SphericalVideoProjectionImpl() throws -> UWP.MediaPlaybackSphericalVideoProjection? {
+        public func get_SphericalVideoProjection() throws -> UWP.MediaPlaybackSphericalVideoProjection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SphericalVideoProjection(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackSphericalVideoProjectionBridge.from(abi: value)
         }
 
-        internal func get_IsMirroringImpl() throws -> Bool {
+        public func get_IsMirroring() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMirroring(pThis, &value))
@@ -2209,13 +2210,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_IsMirroringImpl(_ value: Bool) throws {
+        public func put_IsMirroring(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsMirroring(pThis, .init(from: value)))
             }
         }
 
-        internal func GetBufferedRangesImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaTimeRange>? {
+        public func GetBufferedRanges() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaTimeRange>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetBufferedRanges(pThis, &valueAbi))
@@ -2224,7 +2225,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CMediaTimeRangeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetPlayedRangesImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaTimeRange>? {
+        public func GetPlayedRanges() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaTimeRange>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetPlayedRanges(pThis, &valueAbi))
@@ -2233,7 +2234,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CMediaTimeRangeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetSeekableRangesImpl() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaTimeRange>? {
+        public func GetSeekableRanges() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaTimeRange>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSeekableRanges(pThis, &valueAbi))
@@ -2242,7 +2243,7 @@ public enum __ABI_Windows_Media_Playback {
             return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CMediaTimeRangeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func IsSupportedPlaybackRateRangeImpl(_ rate1: Double, _ rate2: Double) throws -> Bool {
+        public func IsSupportedPlaybackRateRange(_ rate1: Double, _ rate2: Double) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupportedPlaybackRateRange(pThis, rate1, rate2, &value))
@@ -2255,7 +2256,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackSession3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession3 }
 
-        internal func get_PlaybackRotationImpl() throws -> UWP.MediaRotation {
+        public func get_PlaybackRotation() throws -> UWP.MediaRotation {
             var value: __x_ABI_CWindows_CMedia_CMediaProperties_CMediaRotation = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackRotation(pThis, &value))
@@ -2263,19 +2264,19 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_PlaybackRotationImpl(_ value: UWP.MediaRotation) throws {
+        public func put_PlaybackRotation(_ value: UWP.MediaRotation) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackRotation(pThis, value))
             }
         }
 
-        internal func GetOutputDegradationPolicyStateImpl() throws -> UWP.MediaPlaybackSessionOutputDegradationPolicyState? {
+        public func GetOutputDegradationPolicyState() throws -> UWP.MediaPlaybackSessionOutputDegradationPolicyState? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetOutputDegradationPolicyState(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackSessionOutputDegradationPolicyStateBridge.from(abi: value)
         }
 
     }
@@ -2283,7 +2284,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackSessionOutputDegradationPolicyState: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSessionOutputDegradationPolicyState }
 
-        internal func get_VideoConstrictionReasonImpl() throws -> UWP.MediaPlaybackSessionVideoConstrictionReason {
+        public func get_VideoConstrictionReason() throws -> UWP.MediaPlaybackSessionVideoConstrictionReason {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlaybackSessionVideoConstrictionReason = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSessionOutputDegradationPolicyState.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoConstrictionReason(pThis, &value))
@@ -2331,7 +2332,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackSphericalVideoProjection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection }
 
-        internal func get_IsEnabledImpl() throws -> Bool {
+        public func get_IsEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabled(pThis, &value))
@@ -2339,13 +2340,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_IsEnabledImpl(_ value: Bool) throws {
+        public func put_IsEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_FrameFormatImpl() throws -> UWP.SphericalVideoFrameFormat {
+        public func get_FrameFormat() throws -> UWP.SphericalVideoFrameFormat {
             var value: __x_ABI_CWindows_CMedia_CMediaProperties_CSphericalVideoFrameFormat = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameFormat(pThis, &value))
@@ -2353,13 +2354,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_FrameFormatImpl(_ value: UWP.SphericalVideoFrameFormat) throws {
+        public func put_FrameFormat(_ value: UWP.SphericalVideoFrameFormat) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FrameFormat(pThis, value))
             }
         }
 
-        internal func get_HorizontalFieldOfViewInDegreesImpl() throws -> Double {
+        public func get_HorizontalFieldOfViewInDegrees() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalFieldOfViewInDegrees(pThis, &value))
@@ -2367,13 +2368,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_HorizontalFieldOfViewInDegreesImpl(_ value: Double) throws {
+        public func put_HorizontalFieldOfViewInDegrees(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalFieldOfViewInDegrees(pThis, value))
             }
         }
 
-        internal func get_ViewOrientationImpl() throws -> WindowsFoundation.Quaternion {
+        public func get_ViewOrientation() throws -> WindowsFoundation.Quaternion {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ViewOrientation(pThis, &value))
@@ -2381,13 +2382,13 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func put_ViewOrientationImpl(_ value: WindowsFoundation.Quaternion) throws {
+        public func put_ViewOrientation(_ value: WindowsFoundation.Quaternion) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ViewOrientation(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_ProjectionModeImpl() throws -> UWP.SphericalVideoProjectionMode {
+        public func get_ProjectionMode() throws -> UWP.SphericalVideoProjectionMode {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CSphericalVideoProjectionMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProjectionMode(pThis, &value))
@@ -2395,7 +2396,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_ProjectionModeImpl(_ value: UWP.SphericalVideoProjectionMode) throws {
+        public func put_ProjectionMode(_ value: UWP.SphericalVideoProjectionMode) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ProjectionMode(pThis, value))
             }
@@ -2406,7 +2407,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlaybackTimedMetadataTrackList: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackTimedMetadataTrackList }
 
-        internal func add_PresentationModeChangedImpl(_ handler: TypedEventHandler<UWP.MediaPlaybackTimedMetadataTrackList?, UWP.TimedMetadataPresentationModeChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PresentationModeChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackTimedMetadataTrackList?, UWP.TimedMetadataPresentationModeChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlaybackTimedMetadataTrackList___x_ABI_CWindows__CMedia__CPlayback__CTimedMetadataPresentationModeChangedEventArgsWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -2416,13 +2417,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PresentationModeChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PresentationModeChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackTimedMetadataTrackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PresentationModeChanged(pThis, token))
             }
         }
 
-        internal func GetPresentationModeImpl(_ index: UInt32) throws -> UWP.TimedMetadataTrackPresentationMode {
+        public func GetPresentationMode(_ index: UInt32) throws -> UWP.TimedMetadataTrackPresentationMode {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CTimedMetadataTrackPresentationMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackTimedMetadataTrackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPresentationMode(pThis, index, &value))
@@ -2430,7 +2431,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func SetPresentationModeImpl(_ index: UInt32, _ value: UWP.TimedMetadataTrackPresentationMode) throws {
+        public func SetPresentationMode(_ index: UInt32, _ value: UWP.TimedMetadataTrackPresentationMode) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackTimedMetadataTrackList.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetPresentationMode(pThis, index, value))
             }
@@ -2441,7 +2442,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayer: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer }
 
-        internal func get_AutoPlayImpl() throws -> Bool {
+        public func get_AutoPlay() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoPlay(pThis, &value))
@@ -2449,13 +2450,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_AutoPlayImpl(_ value: Bool) throws {
+        public func put_AutoPlay(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AutoPlay(pThis, .init(from: value)))
             }
         }
 
-        internal func get_NaturalDurationImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_NaturalDuration() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalDuration(pThis, &value))
@@ -2463,7 +2464,7 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func get_PositionImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Position() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -2471,13 +2472,13 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func put_PositionImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_Position(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_BufferingProgressImpl() throws -> Double {
+        public func get_BufferingProgress() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BufferingProgress(pThis, &value))
@@ -2485,7 +2486,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_CurrentStateImpl() throws -> UWP.MediaPlayerState {
+        public func get_CurrentState() throws -> UWP.MediaPlayerState {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlayerState = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentState(pThis, &value))
@@ -2493,7 +2494,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_CanSeekImpl() throws -> Bool {
+        public func get_CanSeek() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanSeek(pThis, &value))
@@ -2501,7 +2502,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_CanPauseImpl() throws -> Bool {
+        public func get_CanPause() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanPause(pThis, &value))
@@ -2509,7 +2510,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_IsLoopingEnabledImpl() throws -> Bool {
+        public func get_IsLoopingEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsLoopingEnabled(pThis, &value))
@@ -2517,13 +2518,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_IsLoopingEnabledImpl(_ value: Bool) throws {
+        public func put_IsLoopingEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsLoopingEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IsProtectedImpl() throws -> Bool {
+        public func get_IsProtected() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsProtected(pThis, &value))
@@ -2531,7 +2532,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_IsMutedImpl() throws -> Bool {
+        public func get_IsMuted() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMuted(pThis, &value))
@@ -2539,13 +2540,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_IsMutedImpl(_ value: Bool) throws {
+        public func put_IsMuted(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsMuted(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PlaybackRateImpl() throws -> Double {
+        public func get_PlaybackRate() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackRate(pThis, &value))
@@ -2553,13 +2554,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_PlaybackRateImpl(_ value: Double) throws {
+        public func put_PlaybackRate(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackRate(pThis, value))
             }
         }
 
-        internal func get_VolumeImpl() throws -> Double {
+        public func get_Volume() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Volume(pThis, &value))
@@ -2567,22 +2568,22 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_VolumeImpl(_ value: Double) throws {
+        public func put_Volume(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Volume(pThis, value))
             }
         }
 
-        internal func get_PlaybackMediaMarkersImpl() throws -> UWP.PlaybackMediaMarkerSequence? {
+        public func get_PlaybackMediaMarkers() throws -> UWP.PlaybackMediaMarkerSequence? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackMediaMarkers(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.PlaybackMediaMarkerSequenceBridge.from(abi: value)
         }
 
-        internal func add_MediaOpenedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_MediaOpened(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2592,13 +2593,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_MediaOpenedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_MediaOpened(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_MediaOpened(pThis, token))
             }
         }
 
-        internal func add_MediaEndedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_MediaEnded(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2608,13 +2609,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_MediaEndedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_MediaEnded(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_MediaEnded(pThis, token))
             }
         }
 
-        internal func add_MediaFailedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, UWP.MediaPlayerFailedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_MediaFailed(_ value: TypedEventHandler<UWP.MediaPlayer?, UWP.MediaPlayerFailedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayerFailedEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2624,13 +2625,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_MediaFailedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_MediaFailed(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_MediaFailed(pThis, token))
             }
         }
 
-        internal func add_CurrentStateChangedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_CurrentStateChanged(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2640,13 +2641,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_CurrentStateChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_CurrentStateChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CurrentStateChanged(pThis, token))
             }
         }
 
-        internal func add_PlaybackMediaMarkerReachedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, UWP.PlaybackMediaMarkerReachedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_PlaybackMediaMarkerReached(_ value: TypedEventHandler<UWP.MediaPlayer?, UWP.PlaybackMediaMarkerReachedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer___x_ABI_CWindows__CMedia__CPlayback__CPlaybackMediaMarkerReachedEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2656,13 +2657,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_PlaybackMediaMarkerReachedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_PlaybackMediaMarkerReached(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlaybackMediaMarkerReached(pThis, token))
             }
         }
 
-        internal func add_MediaPlayerRateChangedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, UWP.MediaPlayerRateChangedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_MediaPlayerRateChanged(_ value: TypedEventHandler<UWP.MediaPlayer?, UWP.MediaPlayerRateChangedEventArgs?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayerRateChangedEventArgsWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2672,13 +2673,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_MediaPlayerRateChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_MediaPlayerRateChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_MediaPlayerRateChanged(pThis, token))
             }
         }
 
-        internal func add_VolumeChangedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_VolumeChanged(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2688,13 +2689,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_VolumeChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_VolumeChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_VolumeChanged(pThis, token))
             }
         }
 
-        internal func add_SeekCompletedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_SeekCompleted(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2704,13 +2705,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_SeekCompletedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SeekCompleted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SeekCompleted(pThis, token))
             }
         }
 
-        internal func add_BufferingStartedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_BufferingStarted(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2720,13 +2721,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BufferingStartedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BufferingStarted(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BufferingStarted(pThis, token))
             }
         }
 
-        internal func add_BufferingEndedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_BufferingEnded(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2736,25 +2737,25 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_BufferingEndedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_BufferingEnded(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_BufferingEnded(pThis, token))
             }
         }
 
-        internal func PlayImpl() throws {
+        public func Play() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Play(pThis))
             }
         }
 
-        internal func PauseImpl() throws {
+        public func Pause() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Pause(pThis))
             }
         }
 
-        internal func SetUriSourceImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func SetUriSource(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetUriSource(pThis, RawPointer(value)))
             }
@@ -2765,16 +2766,16 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayer2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer2 }
 
-        internal func get_SystemMediaTransportControlsImpl() throws -> UWP.SystemMediaTransportControls? {
+        public func get_SystemMediaTransportControls() throws -> UWP.SystemMediaTransportControls? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemMediaTransportControls(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media.SystemMediaTransportControlsBridge.from(abi: value)
         }
 
-        internal func get_AudioCategoryImpl() throws -> UWP.MediaPlayerAudioCategory {
+        public func get_AudioCategory() throws -> UWP.MediaPlayerAudioCategory {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlayerAudioCategory = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioCategory(pThis, &value))
@@ -2782,13 +2783,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_AudioCategoryImpl(_ value: UWP.MediaPlayerAudioCategory) throws {
+        public func put_AudioCategory(_ value: UWP.MediaPlayerAudioCategory) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AudioCategory(pThis, value))
             }
         }
 
-        internal func get_AudioDeviceTypeImpl() throws -> UWP.MediaPlayerAudioDeviceType {
+        public func get_AudioDeviceType() throws -> UWP.MediaPlayerAudioDeviceType {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlayerAudioDeviceType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioDeviceType(pThis, &value))
@@ -2796,7 +2797,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_AudioDeviceTypeImpl(_ value: UWP.MediaPlayerAudioDeviceType) throws {
+        public func put_AudioDeviceType(_ value: UWP.MediaPlayerAudioDeviceType) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AudioDeviceType(pThis, value))
             }
@@ -2807,7 +2808,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayer3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3 }
 
-        internal func add_IsMutedChangedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_IsMutedChanged(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2817,13 +2818,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_IsMutedChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_IsMutedChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_IsMutedChanged(pThis, token))
             }
         }
 
-        internal func add_SourceChangedImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_SourceChanged(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2833,13 +2834,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_SourceChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SourceChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SourceChanged(pThis, token))
             }
         }
 
-        internal func get_AudioBalanceImpl() throws -> Double {
+        public func get_AudioBalance() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioBalance(pThis, &value))
@@ -2847,13 +2848,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_AudioBalanceImpl(_ value: Double) throws {
+        public func put_AudioBalance(_ value: Double) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AudioBalance(pThis, value))
             }
         }
 
-        internal func get_RealTimePlaybackImpl() throws -> Bool {
+        public func get_RealTimePlayback() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RealTimePlayback(pThis, &value))
@@ -2861,13 +2862,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_RealTimePlaybackImpl(_ value: Bool) throws {
+        public func put_RealTimePlayback(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RealTimePlayback(pThis, .init(from: value)))
             }
         }
 
-        internal func get_StereoscopicVideoRenderModeImpl() throws -> UWP.StereoscopicVideoRenderMode {
+        public func get_StereoscopicVideoRenderMode() throws -> UWP.StereoscopicVideoRenderMode {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CStereoscopicVideoRenderMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StereoscopicVideoRenderMode(pThis, &value))
@@ -2875,61 +2876,61 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func put_StereoscopicVideoRenderModeImpl(_ value: UWP.StereoscopicVideoRenderMode) throws {
+        public func put_StereoscopicVideoRenderMode(_ value: UWP.StereoscopicVideoRenderMode) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StereoscopicVideoRenderMode(pThis, value))
             }
         }
 
-        internal func get_BreakManagerImpl() throws -> UWP.MediaBreakManager? {
+        public func get_BreakManager() throws -> UWP.MediaBreakManager? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_BreakManager(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaBreakManagerBridge.from(abi: value)
         }
 
-        internal func get_CommandManagerImpl() throws -> UWP.MediaPlaybackCommandManager? {
+        public func get_CommandManager() throws -> UWP.MediaPlaybackCommandManager? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandManager(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackCommandManagerBridge.from(abi: value)
         }
 
-        internal func get_AudioDeviceImpl() throws -> UWP.DeviceInformation? {
+        public func get_AudioDevice() throws -> UWP.DeviceInformation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioDevice(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationBridge.from(abi: value)
         }
 
-        internal func put_AudioDeviceImpl(_ value: UWP.DeviceInformation?) throws {
+        public func put_AudioDevice(_ value: UWP.DeviceInformation?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AudioDevice(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_TimelineControllerImpl() throws -> UWP.MediaTimelineController? {
+        public func get_TimelineController() throws -> UWP.MediaTimelineController? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TimelineController(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media.MediaTimelineControllerBridge.from(abi: value)
         }
 
-        internal func put_TimelineControllerImpl(_ value: UWP.MediaTimelineController?) throws {
+        public func put_TimelineController(_ value: UWP.MediaTimelineController?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TimelineController(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_TimelineControllerPositionOffsetImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_TimelineControllerPositionOffset() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TimelineControllerPositionOffset(pThis, &value))
@@ -2937,40 +2938,40 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func put_TimelineControllerPositionOffsetImpl(_ value: WindowsFoundation.TimeSpan) throws {
+        public func put_TimelineControllerPositionOffset(_ value: WindowsFoundation.TimeSpan) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TimelineControllerPositionOffset(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_PlaybackSessionImpl() throws -> UWP.MediaPlaybackSession? {
+        public func get_PlaybackSession() throws -> UWP.MediaPlaybackSession? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackSession(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackSessionBridge.from(abi: value)
         }
 
-        internal func StepForwardOneFrameImpl() throws {
+        public func StepForwardOneFrame() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StepForwardOneFrame(pThis))
             }
         }
 
-        internal func StepBackwardOneFrameImpl() throws {
+        public func StepBackwardOneFrame() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StepBackwardOneFrame(pThis))
             }
         }
 
-        internal func GetAsCastingSourceImpl() throws -> UWP.CastingSource? {
+        public func GetAsCastingSource() throws -> UWP.CastingSource? {
             let (returnValue) = try ComPtrs.initialize { returnValueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetAsCastingSource(pThis, &returnValueAbi))
                 }
             }
-            return .from(abi: returnValue)
+            return __IMPL_Windows_Media_Casting.CastingSourceBridge.from(abi: returnValue)
         }
 
     }
@@ -2978,19 +2979,19 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayer4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer4 }
 
-        internal func SetSurfaceSizeImpl(_ size: WindowsFoundation.Size) throws {
+        public func SetSurfaceSize(_ size: WindowsFoundation.Size) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetSurfaceSize(pThis, .from(swift: size)))
             }
         }
 
-        internal func GetSurfaceImpl(_ compositor: UWP.Compositor?) throws -> UWP.MediaPlayerSurface? {
+        public func GetSurface(_ compositor: UWP.Compositor?) throws -> UWP.MediaPlayerSurface? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSurface(pThis, RawPointer(compositor), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Media_Playback.MediaPlayerSurfaceBridge.from(abi: result)
         }
 
     }
@@ -2998,7 +2999,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayer5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer5 }
 
-        internal func add_VideoFrameAvailableImpl(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_VideoFrameAvailable(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let valueWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -3008,13 +3009,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_VideoFrameAvailableImpl(_ token: EventRegistrationToken) throws {
+        public func remove_VideoFrameAvailable(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_VideoFrameAvailable(pThis, token))
             }
         }
 
-        internal func get_IsVideoFrameServerEnabledImpl() throws -> Bool {
+        public func get_IsVideoFrameServerEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsVideoFrameServerEnabled(pThis, &value))
@@ -3022,13 +3023,13 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func put_IsVideoFrameServerEnabledImpl(_ value: Bool) throws {
+        public func put_IsVideoFrameServerEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsVideoFrameServerEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func CopyFrameToVideoSurfaceImpl(_ destination: UWP.AnyIDirect3DSurface?) throws {
+        public func CopyFrameToVideoSurface(_ destination: UWP.AnyIDirect3DSurface?) throws {
             let destinationWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(destination)
             let _destination = try! destinationWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer5.self) { pThis in
@@ -3036,7 +3037,7 @@ public enum __ABI_Windows_Media_Playback {
             }
         }
 
-        internal func CopyFrameToVideoSurfaceWithTargetRectangleImpl(_ destination: UWP.AnyIDirect3DSurface?, _ targetRectangle: WindowsFoundation.Rect) throws {
+        public func CopyFrameToVideoSurfaceWithTargetRectangle(_ destination: UWP.AnyIDirect3DSurface?, _ targetRectangle: WindowsFoundation.Rect) throws {
             let destinationWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(destination)
             let _destination = try! destinationWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer5.self) { pThis in
@@ -3044,7 +3045,7 @@ public enum __ABI_Windows_Media_Playback {
             }
         }
 
-        internal func CopyFrameToStereoscopicVideoSurfacesImpl(_ destinationLeftEye: UWP.AnyIDirect3DSurface?, _ destinationRightEye: UWP.AnyIDirect3DSurface?) throws {
+        public func CopyFrameToStereoscopicVideoSurfaces(_ destinationLeftEye: UWP.AnyIDirect3DSurface?, _ destinationRightEye: UWP.AnyIDirect3DSurface?) throws {
             let destinationLeftEyeWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(destinationLeftEye)
             let _destinationLeftEye = try! destinationLeftEyeWrapper?.toABI { $0 }
             let destinationRightEyeWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(destinationRightEye)
@@ -3059,7 +3060,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayer6: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer6 }
 
-        internal func add_SubtitleFrameChangedImpl(_ handler: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
+        public func add_SubtitleFrameChanged(_ handler: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
             var token: EventRegistrationToken = .init()
             let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CPlayback__CMediaPlayer_IInspectableWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -3069,13 +3070,13 @@ public enum __ABI_Windows_Media_Playback {
             return token
         }
 
-        internal func remove_SubtitleFrameChangedImpl(_ token: EventRegistrationToken) throws {
+        public func remove_SubtitleFrameChanged(_ token: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer6.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SubtitleFrameChanged(pThis, token))
             }
         }
 
-        internal func RenderSubtitlesToSurfaceImpl(_ destination: UWP.AnyIDirect3DSurface?) throws -> Bool {
+        public func RenderSubtitlesToSurface(_ destination: UWP.AnyIDirect3DSurface?) throws -> Bool {
             var result: boolean = 0
             let destinationWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(destination)
             let _destination = try! destinationWrapper?.toABI { $0 }
@@ -3085,7 +3086,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: result)
         }
 
-        internal func RenderSubtitlesToSurfaceWithTargetRectangleImpl(_ destination: UWP.AnyIDirect3DSurface?, _ targetRectangle: WindowsFoundation.Rect) throws -> Bool {
+        public func RenderSubtitlesToSurfaceWithTargetRectangle(_ destination: UWP.AnyIDirect3DSurface?, _ targetRectangle: WindowsFoundation.Rect) throws -> Bool {
             var result: boolean = 0
             let destinationWrapper = __ABI_Windows_Graphics_DirectX_Direct3D11.IDirect3DSurfaceWrapper(destination)
             let _destination = try! destinationWrapper?.toABI { $0 }
@@ -3100,13 +3101,13 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayer7: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer7 }
 
-        internal func get_AudioStateMonitorImpl() throws -> UWP.AudioStateMonitor? {
+        public func get_AudioStateMonitor() throws -> UWP.AudioStateMonitor? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer7.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioStateMonitor(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: value)
         }
 
     }
@@ -3114,7 +3115,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayerEffects: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerEffects }
 
-        internal func AddAudioEffectImpl(_ activatableClassId: String, _ effectOptional: Bool, _ configuration: WindowsFoundation.AnyIPropertySet?) throws {
+        public func AddAudioEffect(_ activatableClassId: String, _ effectOptional: Bool, _ configuration: WindowsFoundation.AnyIPropertySet?) throws {
             let _activatableClassId = try! HString(activatableClassId)
             let configurationWrapper = __ABI_Windows_Foundation_Collections.IPropertySetWrapper(configuration)
             let _configuration = try! configurationWrapper?.toABI { $0 }
@@ -3123,7 +3124,7 @@ public enum __ABI_Windows_Media_Playback {
             }
         }
 
-        internal func RemoveAllEffectsImpl() throws {
+        public func RemoveAllEffects() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerEffects.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAllEffects(pThis))
             }
@@ -3134,7 +3135,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayerEffects2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerEffects2 }
 
-        internal func AddVideoEffectImpl(_ activatableClassId: String, _ effectOptional: Bool, _ effectConfiguration: WindowsFoundation.AnyIPropertySet?) throws {
+        public func AddVideoEffect(_ activatableClassId: String, _ effectOptional: Bool, _ effectConfiguration: WindowsFoundation.AnyIPropertySet?) throws {
             let _activatableClassId = try! HString(activatableClassId)
             let effectConfigurationWrapper = __ABI_Windows_Foundation_Collections.IPropertySetWrapper(effectConfiguration)
             let _effectConfiguration = try! effectConfigurationWrapper?.toABI { $0 }
@@ -3148,7 +3149,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayerFailedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs }
 
-        internal func get_ErrorImpl() throws -> UWP.MediaPlayerError {
+        public func get_Error() throws -> UWP.MediaPlayerError {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CMediaPlayerError = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Error(pThis, &value))
@@ -3156,7 +3157,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_ExtendedErrorCodeImpl() throws -> HRESULT {
+        public func get_ExtendedErrorCode() throws -> HRESULT {
             var value: HRESULT = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedErrorCode(pThis, &value))
@@ -3164,7 +3165,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_ErrorMessageImpl() throws -> String {
+        public func get_ErrorMessage() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ErrorMessage(pThis, &value))
@@ -3177,7 +3178,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayerRateChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerRateChangedEventArgs }
 
-        internal func get_NewRateImpl() throws -> Double {
+        public func get_NewRate() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerRateChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewRate(pThis, &value))
@@ -3190,22 +3191,22 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayerSource: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource }
 
-        internal func get_ProtectionManagerImpl() throws -> UWP.MediaProtectionManager? {
+        public func get_ProtectionManager() throws -> UWP.MediaProtectionManager? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProtectionManager(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Protection.MediaProtectionManagerBridge.from(abi: value)
         }
 
-        internal func put_ProtectionManagerImpl(_ value: UWP.MediaProtectionManager?) throws {
+        public func put_ProtectionManager(_ value: UWP.MediaProtectionManager?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ProtectionManager(pThis, RawPointer(value)))
             }
         }
 
-        internal func SetFileSourceImpl(_ file: UWP.AnyIStorageFile?) throws {
+        public func SetFileSource(_ file: UWP.AnyIStorageFile?) throws {
             let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
             let _file = try! fileWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource.self) { pThis in
@@ -3213,7 +3214,7 @@ public enum __ABI_Windows_Media_Playback {
             }
         }
 
-        internal func SetStreamSourceImpl(_ stream: UWP.AnyIRandomAccessStream?) throws {
+        public func SetStreamSource(_ stream: UWP.AnyIRandomAccessStream?) throws {
             let streamWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(stream)
             let _stream = try! streamWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource.self) { pThis in
@@ -3221,7 +3222,7 @@ public enum __ABI_Windows_Media_Playback {
             }
         }
 
-        internal func SetMediaSourceImpl(_ source: UWP.AnyIMediaSource?) throws {
+        public func SetMediaSource(_ source: UWP.AnyIMediaSource?) throws {
             let sourceWrapper = __ABI_Windows_Media_Core.IMediaSourceWrapper(source)
             let _source = try! sourceWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource.self) { pThis in
@@ -3234,7 +3235,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayerSource2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource2 }
 
-        internal func get_SourceImpl() throws -> UWP.AnyIMediaPlaybackSource? {
+        public func get_Source() throws -> UWP.AnyIMediaPlaybackSource? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
@@ -3243,7 +3244,7 @@ public enum __ABI_Windows_Media_Playback {
             return __ABI_Windows_Media_Playback.IMediaPlaybackSourceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_SourceImpl(_ value: UWP.AnyIMediaPlaybackSource?) throws {
+        public func put_Source(_ value: UWP.AnyIMediaPlaybackSource?) throws {
             let valueWrapper = __ABI_Windows_Media_Playback.IMediaPlaybackSourceWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource2.self) { pThis in
@@ -3256,7 +3257,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IMediaPlayerSurface: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface }
 
-        internal func get_CompositionSurfaceImpl() throws -> UWP.AnyICompositionSurface? {
+        public func get_CompositionSurface() throws -> UWP.AnyICompositionSurface? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompositionSurface(pThis, &valueAbi))
@@ -3265,22 +3266,22 @@ public enum __ABI_Windows_Media_Playback {
             return __ABI_Windows_UI_Composition.ICompositionSurfaceWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_CompositorImpl() throws -> UWP.Compositor? {
+        public func get_Compositor() throws -> UWP.Compositor? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Compositor(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Composition.CompositorBridge.from(abi: value)
         }
 
-        internal func get_MediaPlayerImpl() throws -> UWP.MediaPlayer? {
+        public func get_MediaPlayer() throws -> UWP.MediaPlayer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaPlayer(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlayerBridge.from(abi: value)
         }
 
     }
@@ -3288,7 +3289,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IPlaybackMediaMarker: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker }
 
-        internal func get_TimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Time() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Time(pThis, &value))
@@ -3296,7 +3297,7 @@ public enum __ABI_Windows_Media_Playback {
             return .from(abi: value)
         }
 
-        internal func get_MediaMarkerTypeImpl() throws -> String {
+        public func get_MediaMarkerType() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaMarkerType(pThis, &value))
@@ -3304,7 +3305,7 @@ public enum __ABI_Windows_Media_Playback {
             return .init(from: value)
         }
 
-        internal func get_TextImpl() throws -> String {
+        public func get_Text() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
@@ -3317,7 +3318,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IPlaybackMediaMarkerFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerFactory }
 
-        internal func CreateFromTimeImpl(_ value: WindowsFoundation.TimeSpan) throws -> IPlaybackMediaMarker {
+        public func CreateFromTime(_ value: WindowsFoundation.TimeSpan) throws -> IPlaybackMediaMarker {
             let (marker) = try ComPtrs.initialize { markerAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromTime(pThis, .from(swift: value), &markerAbi))
@@ -3326,7 +3327,7 @@ public enum __ABI_Windows_Media_Playback {
             return IPlaybackMediaMarker(marker!)
         }
 
-        internal func CreateImpl(_ value: WindowsFoundation.TimeSpan, _ mediaMarketType: String, _ text: String) throws -> IPlaybackMediaMarker {
+        public func Create(_ value: WindowsFoundation.TimeSpan, _ mediaMarketType: String, _ text: String) throws -> IPlaybackMediaMarker {
             let (marker) = try ComPtrs.initialize { markerAbi in
                 let _mediaMarketType = try! HString(mediaMarketType)
                 let _text = try! HString(text)
@@ -3342,13 +3343,13 @@ public enum __ABI_Windows_Media_Playback {
     public class IPlaybackMediaMarkerReachedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerReachedEventArgs }
 
-        internal func get_PlaybackMediaMarkerImpl() throws -> UWP.PlaybackMediaMarker? {
+        public func get_PlaybackMediaMarker() throws -> UWP.PlaybackMediaMarker? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerReachedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackMediaMarker(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.PlaybackMediaMarkerBridge.from(abi: value)
         }
 
     }
@@ -3356,7 +3357,7 @@ public enum __ABI_Windows_Media_Playback {
     public class IPlaybackMediaMarkerSequence: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence }
 
-        internal func get_SizeImpl() throws -> UInt32 {
+        public func get_Size() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -3364,13 +3365,13 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func InsertImpl(_ value: UWP.PlaybackMediaMarker?) throws {
+        public func Insert(_ value: UWP.PlaybackMediaMarker?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Insert(pThis, RawPointer(value)))
             }
         }
 
-        internal func ClearImpl() throws {
+        public func Clear() throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
             }
@@ -3381,16 +3382,16 @@ public enum __ABI_Windows_Media_Playback {
     public class ITimedMetadataPresentationModeChangedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs }
 
-        internal func get_TrackImpl() throws -> UWP.TimedMetadataTrack? {
+        public func get_Track() throws -> UWP.TimedMetadataTrack? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Track(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Core.TimedMetadataTrackBridge.from(abi: value)
         }
 
-        internal func get_OldPresentationModeImpl() throws -> UWP.TimedMetadataTrackPresentationMode {
+        public func get_OldPresentationMode() throws -> UWP.TimedMetadataTrackPresentationMode {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CTimedMetadataTrackPresentationMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldPresentationMode(pThis, &value))
@@ -3398,7 +3399,7 @@ public enum __ABI_Windows_Media_Playback {
             return value
         }
 
-        internal func get_NewPresentationModeImpl() throws -> UWP.TimedMetadataTrackPresentationMode {
+        public func get_NewPresentationMode() throws -> UWP.TimedMetadataTrackPresentationMode {
             var value: __x_ABI_CWindows_CMedia_CPlayback_CTimedMetadataTrackPresentationMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewPresentationMode(pThis, &value))

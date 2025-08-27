@@ -58,24 +58,19 @@ public final class AdvancedPhotoCaptureSettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoCaptureSettings>?) -> AdvancedPhotoCaptureSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Devices.AdvancedPhotoCaptureSettings")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Devices.AdvancedPhotoCaptureSettings")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.advancedphotocapturesettings.mode)
     public var mode : AdvancedPhotoMode {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     deinit {
@@ -97,34 +92,28 @@ public final class AdvancedPhotoControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoControl>?) -> AdvancedPhotoControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.advancedphotocontrol.configure)
     public func configure(_ settings: AdvancedPhotoCaptureSettings!) throws {
-        try _default.ConfigureImpl(settings)
+        try _default.Configure(settings)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.advancedphotocontrol.mode)
     public var mode : AdvancedPhotoMode {
-        get { try! _default.get_ModeImpl() }
+        get { try! _default.get_Mode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.advancedphotocontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.advancedphotocontrol.supportedmodes)
     public var supportedModes : WindowsFoundation.AnyIVectorView<AdvancedPhotoMode>! {
-        get { try! _default.get_SupportedModesImpl() }
+        get { try! _default.get_SupportedModes() }
     }
 
     deinit {
@@ -146,12 +135,6 @@ public final class AudioDeviceController : WinRTClass, IMediaDeviceController {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIAudioDeviceController>?) -> AudioDeviceController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -162,29 +145,29 @@ public final class AudioDeviceController : WinRTClass, IMediaDeviceController {
     private lazy var _IMediaDeviceController: __ABI_Windows_Media_Devices.IMediaDeviceController! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.audiodevicecontroller.getavailablemediastreamproperties)
     public func getAvailableMediaStreamProperties(_ mediaStreamType: UWP.MediaStreamType) throws -> WindowsFoundation.AnyIVectorView<UWP.AnyIMediaEncodingProperties?>! {
-        try _IMediaDeviceController.GetAvailableMediaStreamPropertiesImpl(mediaStreamType)
+        try _IMediaDeviceController.GetAvailableMediaStreamProperties(mediaStreamType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.audiodevicecontroller.getmediastreamproperties)
     public func getMediaStreamProperties(_ mediaStreamType: UWP.MediaStreamType) throws -> UWP.AnyIMediaEncodingProperties! {
-        try _IMediaDeviceController.GetMediaStreamPropertiesImpl(mediaStreamType)
+        try _IMediaDeviceController.GetMediaStreamProperties(mediaStreamType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.audiodevicecontroller.setmediastreampropertiesasync)
     public func setMediaStreamPropertiesAsync(_ mediaStreamType: UWP.MediaStreamType, _ mediaEncodingProperties: UWP.AnyIMediaEncodingProperties!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IMediaDeviceController.SetMediaStreamPropertiesAsyncImpl(mediaStreamType, mediaEncodingProperties)
+        try _IMediaDeviceController.SetMediaStreamPropertiesAsync(mediaStreamType, mediaEncodingProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.audiodevicecontroller.muted)
     public var muted : Bool {
-        get { try! _default.get_MutedImpl() }
-        set { try! _default.put_MutedImpl(newValue) }
+        get { try! _default.get_Muted() }
+        set { try! _default.put_Muted(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.audiodevicecontroller.volumepercent)
     public var volumePercent : Float {
-        get { try! _default.get_VolumePercentImpl() }
-        set { try! _default.put_VolumePercentImpl(newValue) }
+        get { try! _default.get_VolumePercent() }
+        set { try! _default.put_VolumePercent(newValue) }
     }
 
     deinit {
@@ -207,44 +190,38 @@ public final class ExposureCompensationControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIExposureCompensationControl>?) -> ExposureCompensationControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.setvalueasync)
     public func setValueAsync(_ value: Float) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetValueAsyncImpl(value)
+        try _default.SetValueAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.max)
     public var max : Float {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.min)
     public var min : Float {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.step)
     public var step : Float {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.value)
     public var value : Float {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     deinit {
@@ -266,54 +243,48 @@ public final class ExposureControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIExposureControl>?) -> ExposureControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.setautoasync)
     public func setAutoAsync(_ value: Bool) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetAutoAsyncImpl(value)
+        try _default.SetAutoAsync(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.setvalueasync)
     public func setValueAsync(_ shutterDuration: WindowsFoundation.TimeSpan) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetValueAsyncImpl(shutterDuration)
+        try _default.SetValueAsync(shutterDuration)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.auto)
     public var auto : Bool {
-        get { try! _default.get_AutoImpl() }
+        get { try! _default.get_Auto() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.max)
     public var max : WindowsFoundation.TimeSpan {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.min)
     public var min : WindowsFoundation.TimeSpan {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.step)
     public var step : WindowsFoundation.TimeSpan {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol.value)
     public var value : WindowsFoundation.TimeSpan {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     deinit {
@@ -335,25 +306,19 @@ public final class ExposurePriorityVideoControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIExposurePriorityVideoControl>?) -> ExposurePriorityVideoControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurepriorityvideocontrol.enabled)
     public var enabled : Bool {
-        get { try! _default.get_EnabledImpl() }
-        set { try! _default.put_EnabledImpl(newValue) }
+        get { try! _default.get_Enabled() }
+        set { try! _default.put_Enabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurepriorityvideocontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -375,65 +340,59 @@ public final class FlashControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIFlashControl>?) -> FlashControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.auto)
     public var auto : Bool {
-        get { try! _default.get_AutoImpl() }
-        set { try! _default.put_AutoImpl(newValue) }
+        get { try! _default.get_Auto() }
+        set { try! _default.put_Auto(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.enabled)
     public var enabled : Bool {
-        get { try! _default.get_EnabledImpl() }
-        set { try! _default.put_EnabledImpl(newValue) }
+        get { try! _default.get_Enabled() }
+        set { try! _default.put_Enabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.powerpercent)
     public var powerPercent : Float {
-        get { try! _default.get_PowerPercentImpl() }
-        set { try! _default.put_PowerPercentImpl(newValue) }
+        get { try! _default.get_PowerPercent() }
+        set { try! _default.put_PowerPercent(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.powersupported)
     public var powerSupported : Bool {
-        get { try! _default.get_PowerSupportedImpl() }
+        get { try! _default.get_PowerSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.redeyereduction)
     public var redEyeReduction : Bool {
-        get { try! _default.get_RedEyeReductionImpl() }
-        set { try! _default.put_RedEyeReductionImpl(newValue) }
+        get { try! _default.get_RedEyeReduction() }
+        set { try! _default.put_RedEyeReduction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.redeyereductionsupported)
     public var redEyeReductionSupported : Bool {
-        get { try! _default.get_RedEyeReductionSupportedImpl() }
+        get { try! _default.get_RedEyeReductionSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     private lazy var _IFlashControl2: __ABI_Windows_Media_Devices.IFlashControl2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.assistantlightenabled)
     public var assistantLightEnabled : Bool {
-        get { try! _IFlashControl2.get_AssistantLightEnabledImpl() }
-        set { try! _IFlashControl2.put_AssistantLightEnabledImpl(newValue) }
+        get { try! _IFlashControl2.get_AssistantLightEnabled() }
+        set { try! _IFlashControl2.put_AssistantLightEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol.assistantlightsupported)
     public var assistantLightSupported : Bool {
-        get { try! _IFlashControl2.get_AssistantLightSupportedImpl() }
+        get { try! _IFlashControl2.get_AssistantLightSupported() }
     }
 
     deinit {
@@ -456,120 +415,114 @@ public final class FocusControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIFocusControl>?) -> FocusControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.setpresetasync)
     public func setPresetAsync(_ preset: FocusPreset) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetPresetAsyncImpl(preset)
+        try _default.SetPresetAsync(preset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.setpresetasync)
     public func setPresetAsync(_ preset: FocusPreset, _ completeBeforeFocus: Bool) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetPresetWithCompletionOptionAsyncImpl(preset, completeBeforeFocus)
+        try _default.SetPresetWithCompletionOptionAsync(preset, completeBeforeFocus)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.setvalueasync)
     public func setValueAsync(_ focus: UInt32) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetValueAsyncImpl(focus)
+        try _default.SetValueAsync(focus)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusasync)
     public func focusAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.FocusAsyncImpl()
+        try _default.FocusAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.max)
     public var max : UInt32 {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.min)
     public var min : UInt32 {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.preset)
     public var preset : FocusPreset {
-        get { try! _default.get_PresetImpl() }
+        get { try! _default.get_Preset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.step)
     public var step : UInt32 {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.supportedpresets)
     public var supportedPresets : WindowsFoundation.AnyIVectorView<FocusPreset>! {
-        get { try! _default.get_SupportedPresetsImpl() }
+        get { try! _default.get_SupportedPresets() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.value)
     public var value : UInt32 {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     private lazy var _IFocusControl2: __ABI_Windows_Media_Devices.IFocusControl2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.unlockasync)
     public func unlockAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IFocusControl2.UnlockAsyncImpl()
+        try _IFocusControl2.UnlockAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.lockasync)
     public func lockAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IFocusControl2.LockAsyncImpl()
+        try _IFocusControl2.LockAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.configure)
     public func configure(_ settings: FocusSettings!) throws {
-        try _IFocusControl2.ConfigureImpl(settings)
+        try _IFocusControl2.Configure(settings)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focuschangedsupported)
     public var focusChangedSupported : Bool {
-        get { try! _IFocusControl2.get_FocusChangedSupportedImpl() }
+        get { try! _IFocusControl2.get_FocusChangedSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.focusstate)
     public var focusState : MediaCaptureFocusState {
-        get { try! _IFocusControl2.get_FocusStateImpl() }
+        get { try! _IFocusControl2.get_FocusState() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.mode)
     public var mode : FocusMode {
-        get { try! _IFocusControl2.get_ModeImpl() }
+        get { try! _IFocusControl2.get_Mode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.supportedfocusdistances)
     public var supportedFocusDistances : WindowsFoundation.AnyIVectorView<ManualFocusDistance>! {
-        get { try! _IFocusControl2.get_SupportedFocusDistancesImpl() }
+        get { try! _IFocusControl2.get_SupportedFocusDistances() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.supportedfocusmodes)
     public var supportedFocusModes : WindowsFoundation.AnyIVectorView<FocusMode>! {
-        get { try! _IFocusControl2.get_SupportedFocusModesImpl() }
+        get { try! _IFocusControl2.get_SupportedFocusModes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.supportedfocusranges)
     public var supportedFocusRanges : WindowsFoundation.AnyIVectorView<AutoFocusRange>! {
-        get { try! _IFocusControl2.get_SupportedFocusRangesImpl() }
+        get { try! _IFocusControl2.get_SupportedFocusRanges() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol.waitforfocussupported)
     public var waitForFocusSupported : Bool {
-        get { try! _IFocusControl2.get_WaitForFocusSupportedImpl() }
+        get { try! _IFocusControl2.get_WaitForFocusSupported() }
     }
 
     deinit {
@@ -592,54 +545,49 @@ public final class FocusSettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIFocusSettings>?) -> FocusSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Devices.FocusSettings")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Devices.FocusSettings")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focussettings.autofocusrange)
     public var autoFocusRange : AutoFocusRange {
-        get { try! _default.get_AutoFocusRangeImpl() }
-        set { try! _default.put_AutoFocusRangeImpl(newValue) }
+        get { try! _default.get_AutoFocusRange() }
+        set { try! _default.put_AutoFocusRange(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focussettings.disabledriverfallback)
     public var disableDriverFallback : Bool {
-        get { try! _default.get_DisableDriverFallbackImpl() }
-        set { try! _default.put_DisableDriverFallbackImpl(newValue) }
+        get { try! _default.get_DisableDriverFallback() }
+        set { try! _default.put_DisableDriverFallback(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focussettings.distance)
     public var distance : ManualFocusDistance? {
-        get { try! _default.get_DistanceImpl() }
-        set { try! _default.put_DistanceImpl(newValue) }
+        get { try! _default.get_Distance() }
+        set { try! _default.put_Distance(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focussettings.mode)
     public var mode : FocusMode {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focussettings.value)
     public var value : UInt32? {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focussettings.waitforfocus)
     public var waitForFocus : Bool {
-        get { try! _default.get_WaitForFocusImpl() }
-        set { try! _default.put_WaitForFocusImpl(newValue) }
+        get { try! _default.get_WaitForFocus() }
+        set { try! _default.put_WaitForFocus(newValue) }
     }
 
     deinit {
@@ -661,30 +609,24 @@ public final class HdrVideoControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIHdrVideoControl>?) -> HdrVideoControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.hdrvideocontrol.mode)
     public var mode : HdrVideoMode {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.hdrvideocontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.hdrvideocontrol.supportedmodes)
     public var supportedModes : WindowsFoundation.AnyIVectorView<HdrVideoMode>! {
-        get { try! _default.get_SupportedModesImpl() }
+        get { try! _default.get_SupportedModes() }
     }
 
     deinit {
@@ -706,51 +648,45 @@ public final class InfraredTorchControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIInfraredTorchControl>?) -> InfraredTorchControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol.currentmode)
     public var currentMode : InfraredTorchMode {
-        get { try! _default.get_CurrentModeImpl() }
-        set { try! _default.put_CurrentModeImpl(newValue) }
+        get { try! _default.get_CurrentMode() }
+        set { try! _default.put_CurrentMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol.issupported)
     public var isSupported : Bool {
-        get { try! _default.get_IsSupportedImpl() }
+        get { try! _default.get_IsSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol.maxpower)
     public var maxPower : Int32 {
-        get { try! _default.get_MaxPowerImpl() }
+        get { try! _default.get_MaxPower() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol.minpower)
     public var minPower : Int32 {
-        get { try! _default.get_MinPowerImpl() }
+        get { try! _default.get_MinPower() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol.power)
     public var power : Int32 {
-        get { try! _default.get_PowerImpl() }
-        set { try! _default.put_PowerImpl(newValue) }
+        get { try! _default.get_Power() }
+        set { try! _default.put_Power(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol.powerstep)
     public var powerStep : Int32 {
-        get { try! _default.get_PowerStepImpl() }
+        get { try! _default.get_PowerStep() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol.supportedmodes)
     public var supportedModes : WindowsFoundation.AnyIVectorView<InfraredTorchMode>! {
-        get { try! _default.get_SupportedModesImpl() }
+        get { try! _default.get_SupportedModes() }
     }
 
     deinit {
@@ -772,70 +708,64 @@ public final class IsoSpeedControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIIsoSpeedControl>?) -> IsoSpeedControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.setpresetasync)
     public func setPresetAsync(_ preset: IsoSpeedPreset) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetPresetAsyncImpl(preset)
+        try _default.SetPresetAsync(preset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.preset)
     public var preset : IsoSpeedPreset {
-        get { try! _default.get_PresetImpl() }
+        get { try! _default.get_Preset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.supportedpresets)
     public var supportedPresets : WindowsFoundation.AnyIVectorView<IsoSpeedPreset>! {
-        get { try! _default.get_SupportedPresetsImpl() }
+        get { try! _default.get_SupportedPresets() }
     }
 
     private lazy var _IIsoSpeedControl2: __ABI_Windows_Media_Devices.IIsoSpeedControl2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.setvalueasync)
     public func setValueAsync(_ isoSpeed: UInt32) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IIsoSpeedControl2.SetValueAsyncImpl(isoSpeed)
+        try _IIsoSpeedControl2.SetValueAsync(isoSpeed)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.setautoasync)
     public func setAutoAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IIsoSpeedControl2.SetAutoAsyncImpl()
+        try _IIsoSpeedControl2.SetAutoAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.auto)
     public var auto : Bool {
-        get { try! _IIsoSpeedControl2.get_AutoImpl() }
+        get { try! _IIsoSpeedControl2.get_Auto() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.max)
     public var max : UInt32 {
-        get { try! _IIsoSpeedControl2.get_MaxImpl() }
+        get { try! _IIsoSpeedControl2.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.min)
     public var min : UInt32 {
-        get { try! _IIsoSpeedControl2.get_MinImpl() }
+        get { try! _IIsoSpeedControl2.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.step)
     public var step : UInt32 {
-        get { try! _IIsoSpeedControl2.get_StepImpl() }
+        get { try! _IIsoSpeedControl2.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol.value)
     public var value : UInt32 {
-        get { try! _IIsoSpeedControl2.get_ValueImpl() }
+        get { try! _IIsoSpeedControl2.get_Value() }
     }
 
     deinit {
@@ -858,47 +788,41 @@ public final class LowLagPhotoControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoControl>?) -> LowLagPhotoControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotocontrol.gethighestconcurrentframerate)
     public func getHighestConcurrentFrameRate(_ captureProperties: UWP.AnyIMediaEncodingProperties!) throws -> UWP.MediaRatio! {
-        try _default.GetHighestConcurrentFrameRateImpl(captureProperties)
+        try _default.GetHighestConcurrentFrameRate(captureProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotocontrol.getcurrentframerate)
     public func getCurrentFrameRate() throws -> UWP.MediaRatio! {
-        try _default.GetCurrentFrameRateImpl()
+        try _default.GetCurrentFrameRate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotocontrol.desiredthumbnailsize)
     public var desiredThumbnailSize : UInt32 {
-        get { try! _default.get_DesiredThumbnailSizeImpl() }
-        set { try! _default.put_DesiredThumbnailSizeImpl(newValue) }
+        get { try! _default.get_DesiredThumbnailSize() }
+        set { try! _default.put_DesiredThumbnailSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotocontrol.hardwareacceleratedthumbnailsupported)
     public var hardwareAcceleratedThumbnailSupported : UInt32 {
-        get { try! _default.get_HardwareAcceleratedThumbnailSupportedImpl() }
+        get { try! _default.get_HardwareAcceleratedThumbnailSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotocontrol.thumbnailenabled)
     public var thumbnailEnabled : Bool {
-        get { try! _default.get_ThumbnailEnabledImpl() }
-        set { try! _default.put_ThumbnailEnabledImpl(newValue) }
+        get { try! _default.get_ThumbnailEnabled() }
+        set { try! _default.put_ThumbnailEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotocontrol.thumbnailformat)
     public var thumbnailFormat : UWP.MediaThumbnailFormat {
-        get { try! _default.get_ThumbnailFormatImpl() }
-        set { try! _default.put_ThumbnailFormatImpl(newValue) }
+        get { try! _default.get_ThumbnailFormat() }
+        set { try! _default.put_ThumbnailFormat(newValue) }
     }
 
     deinit {
@@ -920,74 +844,68 @@ public final class LowLagPhotoSequenceControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoSequenceControl>?) -> LowLagPhotoSequenceControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.gethighestconcurrentframerate)
     public func getHighestConcurrentFrameRate(_ captureProperties: UWP.AnyIMediaEncodingProperties!) throws -> UWP.MediaRatio! {
-        try _default.GetHighestConcurrentFrameRateImpl(captureProperties)
+        try _default.GetHighestConcurrentFrameRate(captureProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.getcurrentframerate)
     public func getCurrentFrameRate() throws -> UWP.MediaRatio! {
-        try _default.GetCurrentFrameRateImpl()
+        try _default.GetCurrentFrameRate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.desiredthumbnailsize)
     public var desiredThumbnailSize : UInt32 {
-        get { try! _default.get_DesiredThumbnailSizeImpl() }
-        set { try! _default.put_DesiredThumbnailSizeImpl(newValue) }
+        get { try! _default.get_DesiredThumbnailSize() }
+        set { try! _default.put_DesiredThumbnailSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.hardwareacceleratedthumbnailsupported)
     public var hardwareAcceleratedThumbnailSupported : UInt32 {
-        get { try! _default.get_HardwareAcceleratedThumbnailSupportedImpl() }
+        get { try! _default.get_HardwareAcceleratedThumbnailSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.maxpastphotos)
     public var maxPastPhotos : UInt32 {
-        get { try! _default.get_MaxPastPhotosImpl() }
+        get { try! _default.get_MaxPastPhotos() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.maxphotospersecond)
     public var maxPhotosPerSecond : Float {
-        get { try! _default.get_MaxPhotosPerSecondImpl() }
+        get { try! _default.get_MaxPhotosPerSecond() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.pastphotolimit)
     public var pastPhotoLimit : UInt32 {
-        get { try! _default.get_PastPhotoLimitImpl() }
-        set { try! _default.put_PastPhotoLimitImpl(newValue) }
+        get { try! _default.get_PastPhotoLimit() }
+        set { try! _default.put_PastPhotoLimit(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.photospersecondlimit)
     public var photosPerSecondLimit : Float {
-        get { try! _default.get_PhotosPerSecondLimitImpl() }
-        set { try! _default.put_PhotosPerSecondLimitImpl(newValue) }
+        get { try! _default.get_PhotosPerSecondLimit() }
+        set { try! _default.put_PhotosPerSecondLimit(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.thumbnailenabled)
     public var thumbnailEnabled : Bool {
-        get { try! _default.get_ThumbnailEnabledImpl() }
-        set { try! _default.put_ThumbnailEnabledImpl(newValue) }
+        get { try! _default.get_ThumbnailEnabled() }
+        set { try! _default.put_ThumbnailEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol.thumbnailformat)
     public var thumbnailFormat : UWP.MediaThumbnailFormat {
-        get { try! _default.get_ThumbnailFormatImpl() }
-        set { try! _default.put_ThumbnailFormatImpl(newValue) }
+        get { try! _default.get_ThumbnailFormat() }
+        set { try! _default.put_ThumbnailFormat(newValue) }
     }
 
     deinit {
@@ -1009,39 +927,33 @@ public final class MediaDeviceControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControl>?) -> MediaDeviceControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrol.trygetvalue)
     public func tryGetValue(_ value: inout Double) throws -> Bool {
-        try _default.TryGetValueImpl(&value)
+        try _default.TryGetValue(&value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrol.trysetvalue)
     public func trySetValue(_ value: Double) throws -> Bool {
-        try _default.TrySetValueImpl(value)
+        try _default.TrySetValue(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrol.trygetauto)
     public func tryGetAuto(_ value: inout Bool) throws -> Bool {
-        try _default.TryGetAutoImpl(&value)
+        try _default.TryGetAuto(&value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrol.trysetauto)
     public func trySetAuto(_ value: Bool) throws -> Bool {
-        try _default.TrySetAutoImpl(value)
+        try _default.TrySetAuto(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrol.capabilities)
     public var capabilities : MediaDeviceControlCapabilities! {
-        get { try! _default.get_CapabilitiesImpl() }
+        get { try! _default.get_Capabilities() }
     }
 
     deinit {
@@ -1063,44 +975,38 @@ public final class MediaDeviceControlCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControlCapabilities>?) -> MediaDeviceControlCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrolcapabilities.automodesupported)
     public var autoModeSupported : Bool {
-        get { try! _default.get_AutoModeSupportedImpl() }
+        get { try! _default.get_AutoModeSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrolcapabilities.default)
     public var `default` : Double {
-        get { try! _default.get_DefaultImpl() }
+        get { try! _default.get_Default() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrolcapabilities.max)
     public var max : Double {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrolcapabilities.min)
     public var min : Double {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrolcapabilities.step)
     public var step : Double {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrolcapabilities.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -1122,30 +1028,24 @@ public final class OpticalImageStabilizationControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIOpticalImageStabilizationControl>?) -> OpticalImageStabilizationControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.opticalimagestabilizationcontrol.mode)
     public var mode : OpticalImageStabilizationMode {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.opticalimagestabilizationcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.opticalimagestabilizationcontrol.supportedmodes)
     public var supportedModes : WindowsFoundation.AnyIVectorView<OpticalImageStabilizationMode>! {
-        get { try! _default.get_SupportedModesImpl() }
+        get { try! _default.get_SupportedModes() }
     }
 
     deinit {
@@ -1167,31 +1067,25 @@ public final class PhotoConfirmationControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIPhotoConfirmationControl>?) -> PhotoConfirmationControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.photoconfirmationcontrol.enabled)
     public var enabled : Bool {
-        get { try! _default.get_EnabledImpl() }
-        set { try! _default.put_EnabledImpl(newValue) }
+        get { try! _default.get_Enabled() }
+        set { try! _default.put_Enabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.photoconfirmationcontrol.pixelformat)
     public var pixelFormat : UWP.MediaPixelFormat {
-        get { try! _default.get_PixelFormatImpl() }
-        set { try! _default.put_PixelFormatImpl(newValue) }
+        get { try! _default.get_PixelFormat() }
+        set { try! _default.put_PixelFormat(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.photoconfirmationcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -1213,61 +1107,56 @@ public final class RegionOfInterest : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIRegionOfInterest>?) -> RegionOfInterest? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Devices.RegionOfInterest")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Devices.RegionOfInterest")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest.autoexposureenabled)
     public var autoExposureEnabled : Bool {
-        get { try! _default.get_AutoExposureEnabledImpl() }
-        set { try! _default.put_AutoExposureEnabledImpl(newValue) }
+        get { try! _default.get_AutoExposureEnabled() }
+        set { try! _default.put_AutoExposureEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest.autofocusenabled)
     public var autoFocusEnabled : Bool {
-        get { try! _default.get_AutoFocusEnabledImpl() }
-        set { try! _default.put_AutoFocusEnabledImpl(newValue) }
+        get { try! _default.get_AutoFocusEnabled() }
+        set { try! _default.put_AutoFocusEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest.autowhitebalanceenabled)
     public var autoWhiteBalanceEnabled : Bool {
-        get { try! _default.get_AutoWhiteBalanceEnabledImpl() }
-        set { try! _default.put_AutoWhiteBalanceEnabledImpl(newValue) }
+        get { try! _default.get_AutoWhiteBalanceEnabled() }
+        set { try! _default.put_AutoWhiteBalanceEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest.bounds)
     public var bounds : WindowsFoundation.Rect {
-        get { try! _default.get_BoundsImpl() }
-        set { try! _default.put_BoundsImpl(newValue) }
+        get { try! _default.get_Bounds() }
+        set { try! _default.put_Bounds(newValue) }
     }
 
     private lazy var _IRegionOfInterest2: __ABI_Windows_Media_Devices.IRegionOfInterest2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest.boundsnormalized)
     public var boundsNormalized : Bool {
-        get { try! _IRegionOfInterest2.get_BoundsNormalizedImpl() }
-        set { try! _IRegionOfInterest2.put_BoundsNormalizedImpl(newValue) }
+        get { try! _IRegionOfInterest2.get_BoundsNormalized() }
+        set { try! _IRegionOfInterest2.put_BoundsNormalized(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest.type)
     public var type : RegionOfInterestType {
-        get { try! _IRegionOfInterest2.get_TypeImpl() }
-        set { try! _IRegionOfInterest2.put_TypeImpl(newValue) }
+        get { try! _IRegionOfInterest2.get_Type() }
+        set { try! _IRegionOfInterest2.put_Type(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest.weight)
     public var weight : UInt32 {
-        get { try! _IRegionOfInterest2.get_WeightImpl() }
-        set { try! _IRegionOfInterest2.put_WeightImpl(newValue) }
+        get { try! _IRegionOfInterest2.get_Weight() }
+        set { try! _IRegionOfInterest2.put_Weight(newValue) }
     }
 
     deinit {
@@ -1290,49 +1179,43 @@ public final class RegionsOfInterestControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIRegionsOfInterestControl>?) -> RegionsOfInterestControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.setregionsasync)
     public func setRegionsAsync(_ regions: WindowsFoundation.AnyIIterable<RegionOfInterest?>!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetRegionsAsyncImpl(regions)
+        try _default.SetRegionsAsync(regions)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.setregionsasync)
     public func setRegionsAsync(_ regions: WindowsFoundation.AnyIIterable<RegionOfInterest?>!, _ lockValues: Bool) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetRegionsWithLockAsyncImpl(regions, lockValues)
+        try _default.SetRegionsWithLockAsync(regions, lockValues)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.clearregionsasync)
     public func clearRegionsAsync() throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ClearRegionsAsyncImpl()
+        try _default.ClearRegionsAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.autoexposuresupported)
     public var autoExposureSupported : Bool {
-        get { try! _default.get_AutoExposureSupportedImpl() }
+        get { try! _default.get_AutoExposureSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.autofocussupported)
     public var autoFocusSupported : Bool {
-        get { try! _default.get_AutoFocusSupportedImpl() }
+        get { try! _default.get_AutoFocusSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.autowhitebalancesupported)
     public var autoWhiteBalanceSupported : Bool {
-        get { try! _default.get_AutoWhiteBalanceSupportedImpl() }
+        get { try! _default.get_AutoWhiteBalanceSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol.maxregions)
     public var maxRegions : UInt32 {
-        get { try! _default.get_MaxRegionsImpl() }
+        get { try! _default.get_MaxRegions() }
     }
 
     deinit {
@@ -1354,29 +1237,23 @@ public final class SceneModeControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CISceneModeControl>?) -> SceneModeControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.scenemodecontrol.setvalueasync)
     public func setValueAsync(_ sceneMode: CaptureSceneMode) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetValueAsyncImpl(sceneMode)
+        try _default.SetValueAsync(sceneMode)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.scenemodecontrol.supportedmodes)
     public var supportedModes : WindowsFoundation.AnyIVectorView<CaptureSceneMode>! {
-        get { try! _default.get_SupportedModesImpl() }
+        get { try! _default.get_SupportedModes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.scenemodecontrol.value)
     public var value : CaptureSceneMode {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     deinit {
@@ -1398,36 +1275,30 @@ public final class TorchControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CITorchControl>?) -> TorchControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.torchcontrol.enabled)
     public var enabled : Bool {
-        get { try! _default.get_EnabledImpl() }
-        set { try! _default.put_EnabledImpl(newValue) }
+        get { try! _default.get_Enabled() }
+        set { try! _default.put_Enabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.torchcontrol.powerpercent)
     public var powerPercent : Float {
-        get { try! _default.get_PowerPercentImpl() }
-        set { try! _default.put_PowerPercentImpl(newValue) }
+        get { try! _default.get_PowerPercent() }
+        set { try! _default.put_PowerPercent(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.torchcontrol.powersupported)
     public var powerSupported : Bool {
-        get { try! _default.get_PowerSupportedImpl() }
+        get { try! _default.get_PowerSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.torchcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -1449,12 +1320,6 @@ public final class VideoDeviceController : WinRTClass, IMediaDeviceController {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceController>?) -> VideoDeviceController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1465,226 +1330,236 @@ public final class VideoDeviceController : WinRTClass, IMediaDeviceController {
     private lazy var _IMediaDeviceController: __ABI_Windows_Media_Devices.IMediaDeviceController! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.getavailablemediastreamproperties)
     public func getAvailableMediaStreamProperties(_ mediaStreamType: UWP.MediaStreamType) throws -> WindowsFoundation.AnyIVectorView<UWP.AnyIMediaEncodingProperties?>! {
-        try _IMediaDeviceController.GetAvailableMediaStreamPropertiesImpl(mediaStreamType)
+        try _IMediaDeviceController.GetAvailableMediaStreamProperties(mediaStreamType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.getmediastreamproperties)
     public func getMediaStreamProperties(_ mediaStreamType: UWP.MediaStreamType) throws -> UWP.AnyIMediaEncodingProperties! {
-        try _IMediaDeviceController.GetMediaStreamPropertiesImpl(mediaStreamType)
+        try _IMediaDeviceController.GetMediaStreamProperties(mediaStreamType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.setmediastreampropertiesasync)
     public func setMediaStreamPropertiesAsync(_ mediaStreamType: UWP.MediaStreamType, _ mediaEncodingProperties: UWP.AnyIMediaEncodingProperties!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _IMediaDeviceController.SetMediaStreamPropertiesAsyncImpl(mediaStreamType, mediaEncodingProperties)
+        try _IMediaDeviceController.SetMediaStreamPropertiesAsync(mediaStreamType, mediaEncodingProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.trysetpowerlinefrequency)
     public func trySetPowerlineFrequency(_ value: UWP.PowerlineFrequency) throws -> Bool {
-        try _default.TrySetPowerlineFrequencyImpl(value)
+        try _default.TrySetPowerlineFrequency(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.trygetpowerlinefrequency)
     public func tryGetPowerlineFrequency(_ value: inout UWP.PowerlineFrequency) throws -> Bool {
-        try _default.TryGetPowerlineFrequencyImpl(&value)
+        try _default.TryGetPowerlineFrequency(&value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.backlightcompensation)
     public var backlightCompensation : MediaDeviceControl! {
-        get { try! _default.get_BacklightCompensationImpl() }
+        get { try! _default.get_BacklightCompensation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.brightness)
     public var brightness : MediaDeviceControl! {
-        get { try! _default.get_BrightnessImpl() }
+        get { try! _default.get_Brightness() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.contrast)
     public var contrast : MediaDeviceControl! {
-        get { try! _default.get_ContrastImpl() }
+        get { try! _default.get_Contrast() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.exposure)
     public var exposure : MediaDeviceControl! {
-        get { try! _default.get_ExposureImpl() }
+        get { try! _default.get_Exposure() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.focus)
     public var focus : MediaDeviceControl! {
-        get { try! _default.get_FocusImpl() }
+        get { try! _default.get_Focus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.hue)
     public var hue : MediaDeviceControl! {
-        get { try! _default.get_HueImpl() }
+        get { try! _default.get_Hue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.pan)
     public var pan : MediaDeviceControl! {
-        get { try! _default.get_PanImpl() }
+        get { try! _default.get_Pan() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.roll)
     public var roll : MediaDeviceControl! {
-        get { try! _default.get_RollImpl() }
+        get { try! _default.get_Roll() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.tilt)
     public var tilt : MediaDeviceControl! {
-        get { try! _default.get_TiltImpl() }
+        get { try! _default.get_Tilt() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.whitebalance)
     public var whiteBalance : MediaDeviceControl! {
-        get { try! _default.get_WhiteBalanceImpl() }
+        get { try! _default.get_WhiteBalance() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.zoom)
     public var zoom : MediaDeviceControl! {
-        get { try! _default.get_ZoomImpl() }
+        get { try! _default.get_Zoom() }
     }
 
     private lazy var _IAdvancedVideoCaptureDeviceController: __ABI_Windows_Media_Devices.IAdvancedVideoCaptureDeviceController! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.setdeviceproperty)
     public func setDeviceProperty(_ propertyId: String, _ propertyValue: Any!) throws {
-        try _IAdvancedVideoCaptureDeviceController.SetDevicePropertyImpl(propertyId, propertyValue)
+        try _IAdvancedVideoCaptureDeviceController.SetDeviceProperty(propertyId, propertyValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.getdeviceproperty)
     public func getDeviceProperty(_ propertyId: String) throws -> Any! {
-        try _IAdvancedVideoCaptureDeviceController.GetDevicePropertyImpl(propertyId)
+        try _IAdvancedVideoCaptureDeviceController.GetDeviceProperty(propertyId)
     }
 
     private lazy var _IAdvancedVideoCaptureDeviceController2: __ABI_Windows_Media_Devices.IAdvancedVideoCaptureDeviceController2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.exposurecompensationcontrol)
     public var exposureCompensationControl : ExposureCompensationControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_ExposureCompensationControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_ExposureCompensationControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.exposurecontrol)
     public var exposureControl : ExposureControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_ExposureControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_ExposureControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.flashcontrol)
     public var flashControl : FlashControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_FlashControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_FlashControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.focuscontrol)
     public var focusControl : FocusControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_FocusControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_FocusControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.isospeedcontrol)
     public var isoSpeedControl : IsoSpeedControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_IsoSpeedControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_IsoSpeedControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.lowlagphoto)
     public var lowLagPhoto : LowLagPhotoControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_LowLagPhotoImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_LowLagPhoto() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.lowlagphotosequence)
     public var lowLagPhotoSequence : LowLagPhotoSequenceControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_LowLagPhotoSequenceImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_LowLagPhotoSequence() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.primaryuse)
     public var primaryUse : CaptureUse {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_PrimaryUseImpl() }
-        set { try! _IAdvancedVideoCaptureDeviceController2.put_PrimaryUseImpl(newValue) }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_PrimaryUse() }
+        set { try! _IAdvancedVideoCaptureDeviceController2.put_PrimaryUse(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.regionsofinterestcontrol)
     public var regionsOfInterestControl : RegionsOfInterestControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_RegionsOfInterestControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_RegionsOfInterestControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.scenemodecontrol)
     public var sceneModeControl : SceneModeControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_SceneModeControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_SceneModeControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.torchcontrol)
     public var torchControl : TorchControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_TorchControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_TorchControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.whitebalancecontrol)
     public var whiteBalanceControl : WhiteBalanceControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController2.get_WhiteBalanceControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController2.get_WhiteBalanceControl() }
     }
 
     private lazy var _IAdvancedVideoCaptureDeviceController3: __ABI_Windows_Media_Devices.IAdvancedVideoCaptureDeviceController3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.photoconfirmationcontrol)
     public var photoConfirmationControl : PhotoConfirmationControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController3.get_PhotoConfirmationControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController3.get_PhotoConfirmationControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.variablephotosequencecontroller)
     public var variablePhotoSequenceController : UWP.VariablePhotoSequenceController! {
-        get { try! _IAdvancedVideoCaptureDeviceController3.get_VariablePhotoSequenceControllerImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController3.get_VariablePhotoSequenceController() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.zoomcontrol)
     public var zoomControl : ZoomControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController3.get_ZoomControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController3.get_ZoomControl() }
     }
 
     private lazy var _IAdvancedVideoCaptureDeviceController4: __ABI_Windows_Media_Devices.IAdvancedVideoCaptureDeviceController4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.advancedphotocontrol)
     public var advancedPhotoControl : AdvancedPhotoControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController4.get_AdvancedPhotoControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController4.get_AdvancedPhotoControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.desiredoptimization)
     public var desiredOptimization : MediaCaptureOptimization {
-        get { try! _IAdvancedVideoCaptureDeviceController4.get_DesiredOptimizationImpl() }
-        set { try! _IAdvancedVideoCaptureDeviceController4.put_DesiredOptimizationImpl(newValue) }
+        get { try! _IAdvancedVideoCaptureDeviceController4.get_DesiredOptimization() }
+        set { try! _IAdvancedVideoCaptureDeviceController4.put_DesiredOptimization(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.exposurepriorityvideocontrol)
     public var exposurePriorityVideoControl : ExposurePriorityVideoControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController4.get_ExposurePriorityVideoControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController4.get_ExposurePriorityVideoControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.hdrvideocontrol)
     public var hdrVideoControl : HdrVideoControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController4.get_HdrVideoControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController4.get_HdrVideoControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.opticalimagestabilizationcontrol)
     public var opticalImageStabilizationControl : OpticalImageStabilizationControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController4.get_OpticalImageStabilizationControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController4.get_OpticalImageStabilizationControl() }
     }
 
     private lazy var _IAdvancedVideoCaptureDeviceController5: __ABI_Windows_Media_Devices.IAdvancedVideoCaptureDeviceController5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.getdevicepropertybyid)
     public func getDevicePropertyById(_ propertyId: String, _ maxPropertyValueSize: UInt32?) throws -> VideoDeviceControllerGetDevicePropertyResult! {
-        try _IAdvancedVideoCaptureDeviceController5.GetDevicePropertyByIdImpl(propertyId, maxPropertyValueSize)
+        try _IAdvancedVideoCaptureDeviceController5.GetDevicePropertyById(propertyId, maxPropertyValueSize)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.setdevicepropertybyid)
     public func setDevicePropertyById(_ propertyId: String, _ propertyValue: Any!) throws -> VideoDeviceControllerSetDevicePropertyStatus {
-        try _IAdvancedVideoCaptureDeviceController5.SetDevicePropertyByIdImpl(propertyId, propertyValue)
+        try _IAdvancedVideoCaptureDeviceController5.SetDevicePropertyById(propertyId, propertyValue)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.getdevicepropertybyextendedid)
+    public func getDevicePropertyByExtendedId(_ extendedPropertyId: [UInt8], _ maxPropertyValueSize: UInt32?) throws -> VideoDeviceControllerGetDevicePropertyResult! {
+        try _IAdvancedVideoCaptureDeviceController5.GetDevicePropertyByExtendedId(extendedPropertyId, maxPropertyValueSize)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.setdevicepropertybyextendedid)
+    public func setDevicePropertyByExtendedId(_ extendedPropertyId: [UInt8], _ propertyValue: [UInt8]) throws -> VideoDeviceControllerSetDevicePropertyStatus {
+        try _IAdvancedVideoCaptureDeviceController5.SetDevicePropertyByExtendedId(extendedPropertyId, propertyValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.id)
     public var id : String {
-        get { try! _IAdvancedVideoCaptureDeviceController5.get_IdImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController5.get_Id() }
     }
 
     private lazy var _IAdvancedVideoCaptureDeviceController6: __ABI_Windows_Media_Devices.IAdvancedVideoCaptureDeviceController6! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.videotemporaldenoisingcontrol)
     public var videoTemporalDenoisingControl : VideoTemporalDenoisingControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController6.get_VideoTemporalDenoisingControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController6.get_VideoTemporalDenoisingControl() }
     }
 
     private lazy var _IAdvancedVideoCaptureDeviceController7: __ABI_Windows_Media_Devices.IAdvancedVideoCaptureDeviceController7! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller.infraredtorchcontrol)
     public var infraredTorchControl : InfraredTorchControl! {
-        get { try! _IAdvancedVideoCaptureDeviceController7.get_InfraredTorchControlImpl() }
+        get { try! _IAdvancedVideoCaptureDeviceController7.get_InfraredTorchControl() }
     }
 
     deinit {
@@ -1714,24 +1589,18 @@ public final class VideoDeviceControllerGetDevicePropertyResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceControllerGetDevicePropertyResult>?) -> VideoDeviceControllerGetDevicePropertyResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontrollergetdevicepropertyresult.status)
     public var status : VideoDeviceControllerGetDevicePropertyStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontrollergetdevicepropertyresult.value)
     public var value : Any! {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     deinit {
@@ -1753,30 +1622,24 @@ public final class VideoTemporalDenoisingControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIVideoTemporalDenoisingControl>?) -> VideoTemporalDenoisingControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videotemporaldenoisingcontrol.mode)
     public var mode : VideoTemporalDenoisingMode {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videotemporaldenoisingcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videotemporaldenoisingcontrol.supportedmodes)
     public var supportedModes : WindowsFoundation.AnyIVectorView<VideoTemporalDenoisingMode>! {
-        get { try! _default.get_SupportedModesImpl() }
+        get { try! _default.get_SupportedModes() }
     }
 
     deinit {
@@ -1798,54 +1661,48 @@ public final class WhiteBalanceControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIWhiteBalanceControl>?) -> WhiteBalanceControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.setpresetasync)
     public func setPresetAsync(_ preset: ColorTemperaturePreset) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetPresetAsyncImpl(preset)
+        try _default.SetPresetAsync(preset)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.setvalueasync)
     public func setValueAsync(_ temperature: UInt32) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetValueAsyncImpl(temperature)
+        try _default.SetValueAsync(temperature)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.max)
     public var max : UInt32 {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.min)
     public var min : UInt32 {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.preset)
     public var preset : ColorTemperaturePreset {
-        get { try! _default.get_PresetImpl() }
+        get { try! _default.get_Preset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.step)
     public var step : UInt32 {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol.value)
     public var value : UInt32 {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     deinit {
@@ -1867,56 +1724,50 @@ public final class ZoomControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIZoomControl>?) -> ZoomControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.max)
     public var max : Float {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.min)
     public var min : Float {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.step)
     public var step : Float {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.value)
     public var value : Float {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     private lazy var _IZoomControl2: __ABI_Windows_Media_Devices.IZoomControl2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.configure)
     public func configure(_ settings: ZoomSettings!) throws {
-        try _IZoomControl2.ConfigureImpl(settings)
+        try _IZoomControl2.Configure(settings)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.mode)
     public var mode : ZoomTransitionMode {
-        get { try! _IZoomControl2.get_ModeImpl() }
+        get { try! _IZoomControl2.get_Mode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol.supportedmodes)
     public var supportedModes : WindowsFoundation.AnyIVectorView<ZoomTransitionMode>! {
-        get { try! _IZoomControl2.get_SupportedModesImpl() }
+        get { try! _IZoomControl2.get_SupportedModes() }
     }
 
     deinit {
@@ -1939,30 +1790,25 @@ public final class ZoomSettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIZoomSettings>?) -> ZoomSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Devices.ZoomSettings")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Devices.ZoomSettings")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomsettings.mode)
     public var mode : ZoomTransitionMode {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomsettings.value)
     public var value : Float {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -2006,7 +1852,7 @@ extension UWP.AdvancedPhotoMode {
         __x_ABI_CWindows_CMedia_CDevices_CAdvancedPhotoMode_LowLight
     }
 }
-extension UWP.AdvancedPhotoMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AdvancedPhotoMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioDeviceRole {
     public static var `default` : UWP.AudioDeviceRole {
@@ -2016,7 +1862,7 @@ extension UWP.AudioDeviceRole {
         __x_ABI_CWindows_CMedia_CDevices_CAudioDeviceRole_Communications
     }
 }
-extension UWP.AudioDeviceRole: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioDeviceRole: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AutoFocusRange {
     public static var fullRange : UWP.AutoFocusRange {
@@ -2029,7 +1875,7 @@ extension UWP.AutoFocusRange {
         __x_ABI_CWindows_CMedia_CDevices_CAutoFocusRange_Normal
     }
 }
-extension UWP.AutoFocusRange: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AutoFocusRange: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CaptureSceneMode {
     public static var auto : UWP.CaptureSceneMode {
@@ -2072,7 +1918,7 @@ extension UWP.CaptureSceneMode {
         __x_ABI_CWindows_CMedia_CDevices_CCaptureSceneMode_Backlit
     }
 }
-extension UWP.CaptureSceneMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CaptureSceneMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.CaptureUse {
     public static var none : UWP.CaptureUse {
@@ -2085,7 +1931,7 @@ extension UWP.CaptureUse {
         __x_ABI_CWindows_CMedia_CDevices_CCaptureUse_Video
     }
 }
-extension UWP.CaptureUse: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CaptureUse: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ColorTemperaturePreset {
     public static var auto : UWP.ColorTemperaturePreset {
@@ -2113,7 +1959,7 @@ extension UWP.ColorTemperaturePreset {
         __x_ABI_CWindows_CMedia_CDevices_CColorTemperaturePreset_Candlelight
     }
 }
-extension UWP.ColorTemperaturePreset: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ColorTemperaturePreset: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.FocusMode {
     public static var auto : UWP.FocusMode {
@@ -2129,7 +1975,7 @@ extension UWP.FocusMode {
         __x_ABI_CWindows_CMedia_CDevices_CFocusMode_Manual
     }
 }
-extension UWP.FocusMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.FocusMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.FocusPreset {
     public static var auto : UWP.FocusPreset {
@@ -2151,7 +1997,7 @@ extension UWP.FocusPreset {
         __x_ABI_CWindows_CMedia_CDevices_CFocusPreset_AutoHyperfocal
     }
 }
-extension UWP.FocusPreset: @retroactive Hashable, @retroactive Codable {}
+extension UWP.FocusPreset: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.HdrVideoMode {
     public static var off : UWP.HdrVideoMode {
@@ -2164,7 +2010,7 @@ extension UWP.HdrVideoMode {
         __x_ABI_CWindows_CMedia_CDevices_CHdrVideoMode_Auto
     }
 }
-extension UWP.HdrVideoMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HdrVideoMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.InfraredTorchMode {
     public static var off : UWP.InfraredTorchMode {
@@ -2177,7 +2023,7 @@ extension UWP.InfraredTorchMode {
         __x_ABI_CWindows_CMedia_CDevices_CInfraredTorchMode_AlternatingFrameIllumination
     }
 }
-extension UWP.InfraredTorchMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.InfraredTorchMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.IsoSpeedPreset {
     public static var auto : UWP.IsoSpeedPreset {
@@ -2217,7 +2063,7 @@ extension UWP.IsoSpeedPreset {
         __x_ABI_CWindows_CMedia_CDevices_CIsoSpeedPreset_Iso25600
     }
 }
-extension UWP.IsoSpeedPreset: @retroactive Hashable, @retroactive Codable {}
+extension UWP.IsoSpeedPreset: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ManualFocusDistance {
     public static var infinity : UWP.ManualFocusDistance {
@@ -2230,7 +2076,7 @@ extension UWP.ManualFocusDistance {
         __x_ABI_CWindows_CMedia_CDevices_CManualFocusDistance_Nearest
     }
 }
-extension UWP.ManualFocusDistance: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ManualFocusDistance: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaCaptureFocusState {
     public static var uninitialized : UWP.MediaCaptureFocusState {
@@ -2249,7 +2095,7 @@ extension UWP.MediaCaptureFocusState {
         __x_ABI_CWindows_CMedia_CDevices_CMediaCaptureFocusState_Failed
     }
 }
-extension UWP.MediaCaptureFocusState: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaCaptureFocusState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaCaptureOptimization {
     public static var `default` : UWP.MediaCaptureOptimization {
@@ -2274,7 +2120,7 @@ extension UWP.MediaCaptureOptimization {
         __x_ABI_CWindows_CMedia_CDevices_CMediaCaptureOptimization_PowerAndQuality
     }
 }
-extension UWP.MediaCaptureOptimization: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaCaptureOptimization: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.OpticalImageStabilizationMode {
     public static var off : UWP.OpticalImageStabilizationMode {
@@ -2287,7 +2133,7 @@ extension UWP.OpticalImageStabilizationMode {
         __x_ABI_CWindows_CMedia_CDevices_COpticalImageStabilizationMode_Auto
     }
 }
-extension UWP.OpticalImageStabilizationMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.OpticalImageStabilizationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.RegionOfInterestType {
     public static var unknown : UWP.RegionOfInterestType {
@@ -2297,7 +2143,7 @@ extension UWP.RegionOfInterestType {
         __x_ABI_CWindows_CMedia_CDevices_CRegionOfInterestType_Face
     }
 }
-extension UWP.RegionOfInterestType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.RegionOfInterestType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.VideoDeviceControllerGetDevicePropertyStatus {
     public static var success : UWP.VideoDeviceControllerGetDevicePropertyStatus {
@@ -2322,7 +2168,7 @@ extension UWP.VideoDeviceControllerGetDevicePropertyStatus {
         __x_ABI_CWindows_CMedia_CDevices_CVideoDeviceControllerGetDevicePropertyStatus_MaxPropertyValueSizeRequired
     }
 }
-extension UWP.VideoDeviceControllerGetDevicePropertyStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.VideoDeviceControllerGetDevicePropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.VideoDeviceControllerSetDevicePropertyStatus {
     public static var success : UWP.VideoDeviceControllerSetDevicePropertyStatus {
@@ -2344,7 +2190,7 @@ extension UWP.VideoDeviceControllerSetDevicePropertyStatus {
         __x_ABI_CWindows_CMedia_CDevices_CVideoDeviceControllerSetDevicePropertyStatus_NotInControl
     }
 }
-extension UWP.VideoDeviceControllerSetDevicePropertyStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.VideoDeviceControllerSetDevicePropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.VideoTemporalDenoisingMode {
     public static var off : UWP.VideoTemporalDenoisingMode {
@@ -2357,7 +2203,7 @@ extension UWP.VideoTemporalDenoisingMode {
         __x_ABI_CWindows_CMedia_CDevices_CVideoTemporalDenoisingMode_Auto
     }
 }
-extension UWP.VideoTemporalDenoisingMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.VideoTemporalDenoisingMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ZoomTransitionMode {
     public static var auto : UWP.ZoomTransitionMode {
@@ -2370,5 +2216,5 @@ extension UWP.ZoomTransitionMode {
         __x_ABI_CWindows_CMedia_CDevices_CZoomTransitionMode_Smooth
     }
 }
-extension UWP.ZoomTransitionMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ZoomTransitionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

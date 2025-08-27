@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_Effects {
     public enum IAudioEffectDefinitionBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition
@@ -30,14 +31,22 @@ public enum __IMPL_Windows_Media_Effects {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition.activatableclassid)
         fileprivate var activatableClassId : String {
-            get { try! _default.get_ActivatableClassIdImpl() }
+            get { try! _default.get_ActivatableClassId() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition.properties)
         fileprivate var properties : WindowsFoundation.AnyIPropertySet! {
-            get { try! _default.get_PropertiesImpl() }
+            get { try! _default.get_Properties() }
         }
 
     }
 
+}
+@_spi(WinRTInternal)
+public class IAudioEffectDefinitionMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIAudioEffectDefinition
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Effects.IAudioEffectDefinition = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Effects.IAudioEffectDefinitionBridge.from(abi: RawPointer(swiftAbi))!
+    }
 }

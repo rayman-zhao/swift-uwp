@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_Playback {
     public enum IMediaPlaybackSourceBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSource
@@ -30,4 +31,652 @@ public enum __IMPL_Windows_Media_Playback {
 
     }
 
+    public enum CurrentMediaPlaybackItemChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CurrentMediaPlaybackItemChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs>?) -> CurrentMediaPlaybackItemChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaBreakBridge: AbiBridge {
+        public typealias SwiftProjection = MediaBreak
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak>?) -> MediaBreak? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaBreakEndedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaBreakEndedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakEndedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakEndedEventArgs>?) -> MediaBreakEndedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaBreakManagerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaBreakManager
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager>?) -> MediaBreakManager? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaBreakScheduleBridge: AbiBridge {
+        public typealias SwiftProjection = MediaBreakSchedule
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule>?) -> MediaBreakSchedule? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaBreakSeekedOverEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaBreakSeekedOverEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs>?) -> MediaBreakSeekedOverEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaBreakSkippedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaBreakSkippedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSkippedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSkippedEventArgs>?) -> MediaBreakSkippedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaBreakStartedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaBreakStartedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakStartedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakStartedEventArgs>?) -> MediaBreakStartedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaItemDisplayPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = MediaItemDisplayProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties>?) -> MediaItemDisplayProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackAudioTrackListBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackAudioTrackList
+        public typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CAudioTrack
+        public static func from(abi: ComPtr<__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CAudioTrack>?) -> MediaPlaybackAudioTrackList? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManager
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager>?) -> MediaPlaybackCommandManager? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs>?) -> MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerCommandBehaviorBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerCommandBehavior
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior>?) -> MediaPlaybackCommandManagerCommandBehavior? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerFastForwardReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerFastForwardReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs>?) -> MediaPlaybackCommandManagerFastForwardReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerNextReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerNextReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs>?) -> MediaPlaybackCommandManagerNextReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerPauseReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerPauseReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs>?) -> MediaPlaybackCommandManagerPauseReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerPlayReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerPlayReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs>?) -> MediaPlaybackCommandManagerPlayReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerPositionReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerPositionReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs>?) -> MediaPlaybackCommandManagerPositionReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerPreviousReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerPreviousReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs>?) -> MediaPlaybackCommandManagerPreviousReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerRateReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerRateReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs>?) -> MediaPlaybackCommandManagerRateReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerRewindReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerRewindReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs>?) -> MediaPlaybackCommandManagerRewindReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackCommandManagerShuffleReceivedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackCommandManagerShuffleReceivedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs>?) -> MediaPlaybackCommandManagerShuffleReceivedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackItemBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackItem
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem>?) -> MediaPlaybackItem? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackItemErrorBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackItemError
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemError
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemError>?) -> MediaPlaybackItemError? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackItemFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackItemFailedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFailedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFailedEventArgs>?) -> MediaPlaybackItemFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackItemOpenedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackItemOpenedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemOpenedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemOpenedEventArgs>?) -> MediaPlaybackItemOpenedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackListBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackList
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList>?) -> MediaPlaybackList? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackSessionBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackSession
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession>?) -> MediaPlaybackSession? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackSessionOutputDegradationPolicyStateBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackSessionOutputDegradationPolicyState
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSessionOutputDegradationPolicyState
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSessionOutputDegradationPolicyState>?) -> MediaPlaybackSessionOutputDegradationPolicyState? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackSphericalVideoProjectionBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackSphericalVideoProjection
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection>?) -> MediaPlaybackSphericalVideoProjection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackTimedMetadataTrackListBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackTimedMetadataTrackList
+        public typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CTimedMetadataTrack
+        public static func from(abi: ComPtr<__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CTimedMetadataTrack>?) -> MediaPlaybackTimedMetadataTrackList? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlaybackVideoTrackListBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlaybackVideoTrackList
+        public typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CVideoTrack
+        public static func from(abi: ComPtr<__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CVideoTrack>?) -> MediaPlaybackVideoTrackList? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlayerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlayer
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer>?) -> MediaPlayer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlayerFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlayerFailedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs>?) -> MediaPlayerFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlayerRateChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlayerRateChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerRateChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerRateChangedEventArgs>?) -> MediaPlayerRateChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPlayerSurfaceBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPlayerSurface
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface>?) -> MediaPlayerSurface? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PlaybackMediaMarkerBridge: AbiBridge {
+        public typealias SwiftProjection = PlaybackMediaMarker
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker>?) -> PlaybackMediaMarker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PlaybackMediaMarkerReachedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PlaybackMediaMarkerReachedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerReachedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerReachedEventArgs>?) -> PlaybackMediaMarkerReachedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PlaybackMediaMarkerSequenceBridge: AbiBridge {
+        public typealias SwiftProjection = PlaybackMediaMarkerSequence
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence>?) -> PlaybackMediaMarkerSequence? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TimedMetadataPresentationModeChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = TimedMetadataPresentationModeChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs>?) -> TimedMetadataPresentationModeChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IMediaPlaybackSourceMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIMediaPlaybackSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Playback.IMediaPlaybackSource = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Playback.IMediaPlaybackSourceBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class CurrentMediaPlaybackItemChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CurrentMediaPlaybackItemChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CurrentMediaPlaybackItemChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaBreakMaker: MakeFromAbi {
+    public typealias SwiftType = MediaBreak
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaBreak(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaBreakEndedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaBreakEndedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaBreakEndedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaBreakManagerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaBreakManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaBreakManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaBreakScheduleMaker: MakeFromAbi {
+    public typealias SwiftType = MediaBreakSchedule
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaBreakSchedule(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaBreakSeekedOverEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaBreakSeekedOverEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaBreakSeekedOverEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaBreakSkippedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaBreakSkippedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaBreakSkippedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaBreakStartedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaBreakStartedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaBreakStartedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaItemDisplayPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = MediaItemDisplayProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaItemDisplayProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackAudioTrackListMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackAudioTrackList
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackAudioTrackList(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerCommandBehaviorMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerCommandBehavior
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerCommandBehavior(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerFastForwardReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerFastForwardReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerFastForwardReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerNextReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerNextReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerNextReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerPauseReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerPauseReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerPauseReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerPlayReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerPlayReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerPlayReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerPositionReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerPositionReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerPositionReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerPreviousReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerPreviousReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerPreviousReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerRateReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerRateReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerRateReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerRewindReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerRewindReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerRewindReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackCommandManagerShuffleReceivedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackCommandManagerShuffleReceivedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackCommandManagerShuffleReceivedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackItemMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackItemErrorMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackItemError
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackItemError(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackItemFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackItemFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackItemFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackItemOpenedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackItemOpenedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackItemOpenedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackListMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackList
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackList(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackSessionMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackSession
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackSession(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackSessionOutputDegradationPolicyStateMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackSessionOutputDegradationPolicyState
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackSessionOutputDegradationPolicyState(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackSphericalVideoProjectionMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackSphericalVideoProjection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackSphericalVideoProjection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackTimedMetadataTrackListMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackTimedMetadataTrackList
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackTimedMetadataTrackList(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlaybackVideoTrackListMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlaybackVideoTrackList
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlaybackVideoTrackList(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlayerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlayer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlayer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlayerFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlayerFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlayerFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlayerRateChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlayerRateChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlayerRateChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPlayerSurfaceMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPlayerSurface
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPlayerSurface(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PlaybackMediaMarkerMaker: MakeFromAbi {
+    public typealias SwiftType = PlaybackMediaMarker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PlaybackMediaMarker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PlaybackMediaMarkerReachedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PlaybackMediaMarkerReachedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PlaybackMediaMarkerReachedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PlaybackMediaMarkerSequenceMaker: MakeFromAbi {
+    public typealias SwiftType = PlaybackMediaMarkerSequence
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PlaybackMediaMarkerSequence(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TimedMetadataPresentationModeChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = TimedMetadataPresentationModeChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TimedMetadataPresentationModeChangedEventArgs(fromAbi: abi)
+    }
 }

@@ -24,24 +24,18 @@ public final class DepthMediaFrameFormat : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat>?) -> DepthMediaFrameFormat? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.depthmediaframeformat.depthscaleinmeters)
     public var depthScaleInMeters : Double {
-        get { try! _default.get_DepthScaleInMetersImpl() }
+        get { try! _default.get_DepthScaleInMeters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.depthmediaframeformat.videoformat)
     public var videoFormat : VideoMediaFrameFormat! {
-        get { try! _default.get_VideoFormatImpl() }
+        get { try! _default.get_VideoFormat() }
     }
 
     deinit {
@@ -63,45 +57,39 @@ public final class MediaFrameFormat : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat>?) -> MediaFrameFormat? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframeformat.framerate)
     public var frameRate : UWP.MediaRatio! {
-        get { try! _default.get_FrameRateImpl() }
+        get { try! _default.get_FrameRate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframeformat.majortype)
     public var majorType : String {
-        get { try! _default.get_MajorTypeImpl() }
+        get { try! _default.get_MajorType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframeformat.properties)
     public var properties : WindowsFoundation.AnyIMapView<Foundation.UUID, Any?>! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframeformat.subtype)
     public var subtype : String {
-        get { try! _default.get_SubtypeImpl() }
+        get { try! _default.get_Subtype() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframeformat.videoformat)
     public var videoFormat : VideoMediaFrameFormat! {
-        get { try! _default.get_VideoFormatImpl() }
+        get { try! _default.get_VideoFormat() }
     }
 
     private lazy var _IMediaFrameFormat2: __ABI_Windows_Media_Capture_Frames.IMediaFrameFormat2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframeformat.audioencodingproperties)
     public var audioEncodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IMediaFrameFormat2.get_AudioEncodingPropertiesImpl() }
+        get { try! _IMediaFrameFormat2.get_AudioEncodingProperties() }
     }
 
     deinit {
@@ -124,44 +112,38 @@ public final class MediaFrameSource : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource>?) -> MediaFrameSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.setformatasync)
     public func setFormatAsync(_ format: MediaFrameFormat!) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.SetFormatAsyncImpl(format)
+        try _default.SetFormatAsync(format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.trygetcameraintrinsics)
     public func tryGetCameraIntrinsics(_ format: MediaFrameFormat!) throws -> UWP.CameraIntrinsics! {
-        try _default.TryGetCameraIntrinsicsImpl(format)
+        try _default.TryGetCameraIntrinsics(format)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.controller)
     public var controller : MediaFrameSourceController! {
-        get { try! _default.get_ControllerImpl() }
+        get { try! _default.get_Controller() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.currentformat)
     public var currentFormat : MediaFrameFormat! {
-        get { try! _default.get_CurrentFormatImpl() }
+        get { try! _default.get_CurrentFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.info)
     public var info : MediaFrameSourceInfo! {
-        get { try! _default.get_InfoImpl() }
+        get { try! _default.get_Info() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.supportedformats)
     public var supportedFormats : WindowsFoundation.AnyIVectorView<MediaFrameFormat?>! {
-        get { try! _default.get_SupportedFormatsImpl() }
+        get { try! _default.get_SupportedFormats() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource.formatchanged)
@@ -169,10 +151,10 @@ public final class MediaFrameSource : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_FormatChangedImpl($0)
+          return try! this.add_FormatChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_FormatChangedImpl($0)
+         try? self?._default.remove_FormatChanged($0)
        }
       )
     }()
@@ -196,36 +178,40 @@ public final class MediaFrameSourceController : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController>?) -> MediaFrameSourceController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcecontroller.getpropertyasync)
     public func getPropertyAsync(_ propertyId: String) throws -> WindowsFoundation.AnyIAsyncOperation<MediaFrameSourceGetPropertyResult?>! {
-        try _default.GetPropertyAsyncImpl(propertyId)
+        try _default.GetPropertyAsync(propertyId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcecontroller.setpropertyasync)
     public func setPropertyAsync(_ propertyId: String, _ propertyValue: Any!) throws -> WindowsFoundation.AnyIAsyncOperation<MediaFrameSourceSetPropertyStatus>! {
-        try _default.SetPropertyAsyncImpl(propertyId, propertyValue)
+        try _default.SetPropertyAsync(propertyId, propertyValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcecontroller.videodevicecontroller)
     public var videoDeviceController : UWP.VideoDeviceController! {
-        get { try! _default.get_VideoDeviceControllerImpl() }
+        get { try! _default.get_VideoDeviceController() }
     }
 
     private lazy var _IMediaFrameSourceController2: __ABI_Windows_Media_Capture_Frames.IMediaFrameSourceController2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcecontroller.getpropertybyextendedidasync)
+    public func getPropertyByExtendedIdAsync(_ extendedPropertyId: [UInt8], _ maxPropertyValueSize: UInt32?) throws -> WindowsFoundation.AnyIAsyncOperation<MediaFrameSourceGetPropertyResult?>! {
+        try _IMediaFrameSourceController2.GetPropertyByExtendedIdAsync(extendedPropertyId, maxPropertyValueSize)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcecontroller.setpropertybyextendedidasync)
+    public func setPropertyByExtendedIdAsync(_ extendedPropertyId: [UInt8], _ propertyValue: [UInt8]) throws -> WindowsFoundation.AnyIAsyncOperation<MediaFrameSourceSetPropertyStatus>! {
+        try _IMediaFrameSourceController2.SetPropertyByExtendedIdAsync(extendedPropertyId, propertyValue)
+    }
+
     private lazy var _IMediaFrameSourceController3: __ABI_Windows_Media_Capture_Frames.IMediaFrameSourceController3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcecontroller.audiodevicecontroller)
     public var audioDeviceController : UWP.AudioDeviceController! {
-        get { try! _IMediaFrameSourceController3.get_AudioDeviceControllerImpl() }
+        get { try! _IMediaFrameSourceController3.get_AudioDeviceController() }
     }
 
     deinit {
@@ -249,24 +235,18 @@ public final class MediaFrameSourceGetPropertyResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult>?) -> MediaFrameSourceGetPropertyResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegetpropertyresult.status)
     public var status : MediaFrameSourceGetPropertyStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegetpropertyresult.value)
     public var value : Any! {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     deinit {
@@ -288,45 +268,39 @@ public final class MediaFrameSourceGroup : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup>?) -> MediaFrameSourceGroup? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IMediaFrameSourceGroupStatics: __ABI_Windows_Media_Capture_Frames.IMediaFrameSourceGroupStatics = try! RoGetActivationFactory(HString("Windows.Media.Capture.Frames.MediaFrameSourceGroup"))
+    private static let _IMediaFrameSourceGroupStatics: __ABI_Windows_Media_Capture_Frames.IMediaFrameSourceGroupStatics = try! RoGetActivationFactory("Windows.Media.Capture.Frames.MediaFrameSourceGroup")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.findallasync)
-    public static func findAllAsync() -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<MediaFrameSourceGroup?>?>! {
-        return try! _IMediaFrameSourceGroupStatics.FindAllAsyncImpl()
+    public static func findAllAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<MediaFrameSourceGroup?>?>! {
+        return try _IMediaFrameSourceGroupStatics.FindAllAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.fromidasync)
-    public static func fromIdAsync(_ id: String) -> WindowsFoundation.AnyIAsyncOperation<MediaFrameSourceGroup?>! {
-        return try! _IMediaFrameSourceGroupStatics.FromIdAsyncImpl(id)
+    public static func fromIdAsync(_ id: String) throws -> WindowsFoundation.AnyIAsyncOperation<MediaFrameSourceGroup?>! {
+        return try _IMediaFrameSourceGroupStatics.FromIdAsync(id)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.getdeviceselector)
-    public static func getDeviceSelector() -> String {
-        return try! _IMediaFrameSourceGroupStatics.GetDeviceSelectorImpl()
+    public static func getDeviceSelector() throws -> String {
+        return try _IMediaFrameSourceGroupStatics.GetDeviceSelector()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.displayname)
     public var displayName : String {
-        get { try! _default.get_DisplayNameImpl() }
+        get { try! _default.get_DisplayName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.id)
     public var id : String {
-        get { try! _default.get_IdImpl() }
+        get { try! _default.get_Id() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup.sourceinfos)
     public var sourceInfos : WindowsFoundation.AnyIVectorView<MediaFrameSourceInfo?>! {
-        get { try! _default.get_SourceInfosImpl() }
+        get { try! _default.get_SourceInfos() }
     }
 
     deinit {
@@ -348,60 +322,54 @@ public final class MediaFrameSourceInfo : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo>?) -> MediaFrameSourceInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.coordinatesystem)
     public var coordinateSystem : UWP.SpatialCoordinateSystem! {
-        get { try! _default.get_CoordinateSystemImpl() }
+        get { try! _default.get_CoordinateSystem() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.deviceinformation)
     public var deviceInformation : UWP.DeviceInformation! {
-        get { try! _default.get_DeviceInformationImpl() }
+        get { try! _default.get_DeviceInformation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.id)
     public var id : String {
-        get { try! _default.get_IdImpl() }
+        get { try! _default.get_Id() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.mediastreamtype)
     public var mediaStreamType : UWP.MediaStreamType {
-        get { try! _default.get_MediaStreamTypeImpl() }
+        get { try! _default.get_MediaStreamType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.properties)
     public var properties : WindowsFoundation.AnyIMapView<Foundation.UUID, Any?>! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.sourcegroup)
     public var sourceGroup : MediaFrameSourceGroup! {
-        get { try! _default.get_SourceGroupImpl() }
+        get { try! _default.get_SourceGroup() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.sourcekind)
     public var sourceKind : MediaFrameSourceKind {
-        get { try! _default.get_SourceKindImpl() }
+        get { try! _default.get_SourceKind() }
     }
 
     private lazy var _IMediaFrameSourceInfo2: __ABI_Windows_Media_Capture_Frames.IMediaFrameSourceInfo2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.profileid)
     public var profileId : String {
-        get { try! _IMediaFrameSourceInfo2.get_ProfileIdImpl() }
+        get { try! _IMediaFrameSourceInfo2.get_ProfileId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo.videoprofilemediadescription)
     public var videoProfileMediaDescription : WindowsFoundation.AnyIVectorView<UWP.MediaCaptureVideoProfileMediaDescription?>! {
-        get { try! _IMediaFrameSourceInfo2.get_VideoProfileMediaDescriptionImpl() }
+        get { try! _IMediaFrameSourceInfo2.get_VideoProfileMediaDescription() }
     }
 
     deinit {
@@ -424,34 +392,28 @@ public final class VideoMediaFrameFormat : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat>?) -> VideoMediaFrameFormat? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.videomediaframeformat.depthformat)
     public var depthFormat : DepthMediaFrameFormat! {
-        get { try! _default.get_DepthFormatImpl() }
+        get { try! _default.get_DepthFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.videomediaframeformat.height)
     public var height : UInt32 {
-        get { try! _default.get_HeightImpl() }
+        get { try! _default.get_Height() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.videomediaframeformat.mediaframeformat)
     public var mediaFrameFormat : MediaFrameFormat! {
-        get { try! _default.get_MediaFrameFormatImpl() }
+        get { try! _default.get_MediaFrameFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.videomediaframeformat.width)
     public var width : UInt32 {
-        get { try! _default.get_WidthImpl() }
+        get { try! _default.get_Width() }
     }
 
     deinit {
@@ -479,7 +441,7 @@ extension UWP.MediaFrameSourceGetPropertyStatus {
         __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_MaxPropertyValueSizeRequired
     }
 }
-extension UWP.MediaFrameSourceGetPropertyStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaFrameSourceGetPropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaFrameSourceKind {
     public static var custom : UWP.MediaFrameSourceKind {
@@ -501,7 +463,7 @@ extension UWP.MediaFrameSourceKind {
         __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Image
     }
 }
-extension UWP.MediaFrameSourceKind: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaFrameSourceKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaFrameSourceSetPropertyStatus {
     public static var success : UWP.MediaFrameSourceSetPropertyStatus {
@@ -523,5 +485,5 @@ extension UWP.MediaFrameSourceSetPropertyStatus {
         __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_NotInControl
     }
 }
-extension UWP.MediaFrameSourceSetPropertyStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaFrameSourceSetPropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

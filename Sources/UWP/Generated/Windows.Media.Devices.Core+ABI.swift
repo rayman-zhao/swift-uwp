@@ -76,11 +76,12 @@ private var IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceCo
     .init(Data1: 0x7FBFF880, Data2: 0xED8C, Data3: 0x43FD, Data4: ( 0xA7,0xC3,0xB3,0x58,0x09,0xE4,0x22,0x9A ))// 7FBFF880-ED8C-43FD-A7C3-B35809E4229A
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Media_Devices_Core {
     public class ICameraIntrinsics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics }
 
-        internal func get_FocalLengthImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_FocalLength() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocalLength(pThis, &value))
@@ -88,7 +89,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: value)
         }
 
-        internal func get_PrincipalPointImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_PrincipalPoint() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrincipalPoint(pThis, &value))
@@ -96,7 +97,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: value)
         }
 
-        internal func get_RadialDistortionImpl() throws -> WindowsFoundation.Vector3 {
+        public func get_RadialDistortion() throws -> WindowsFoundation.Vector3 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RadialDistortion(pThis, &value))
@@ -104,7 +105,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: value)
         }
 
-        internal func get_TangentialDistortionImpl() throws -> WindowsFoundation.Vector2 {
+        public func get_TangentialDistortion() throws -> WindowsFoundation.Vector2 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TangentialDistortion(pThis, &value))
@@ -112,7 +113,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: value)
         }
 
-        internal func get_ImageWidthImpl() throws -> UInt32 {
+        public func get_ImageWidth() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ImageWidth(pThis, &value))
@@ -120,7 +121,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_ImageHeightImpl() throws -> UInt32 {
+        public func get_ImageHeight() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ImageHeight(pThis, &value))
@@ -128,7 +129,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func ProjectOntoFrameImpl(_ coordinate: WindowsFoundation.Vector3) throws -> WindowsFoundation.Point {
+        public func ProjectOntoFrame(_ coordinate: WindowsFoundation.Vector3) throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ProjectOntoFrame(pThis, .from(swift: coordinate), &result))
@@ -136,7 +137,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: result)
         }
 
-        internal func UnprojectAtUnitDepthImpl(_ pixelCoordinate: WindowsFoundation.Point) throws -> WindowsFoundation.Vector2 {
+        public func UnprojectAtUnitDepth(_ pixelCoordinate: WindowsFoundation.Point) throws -> WindowsFoundation.Vector2 {
             var result: __x_ABI_CWindows_CFoundation_CNumerics_CVector2 = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.UnprojectAtUnitDepth(pThis, .from(swift: pixelCoordinate), &result))
@@ -144,12 +145,34 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: result)
         }
 
+        public func ProjectManyOntoFrame(_ coordinates: [WindowsFoundation.Vector3], _ results: inout [WindowsFoundation.Point]) throws {
+            try coordinates.toABI { _coordinates in
+                try results.toABI { _results in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ProjectManyOntoFrame(pThis, _coordinates.count, _coordinates.start, _results.count, _results.start))
+                }
+                results = .from(abi: _results)
+            }
+            }
+        }
+
+        public func UnprojectPixelsAtUnitDepth(_ pixelCoordinates: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Vector2]) throws {
+            try pixelCoordinates.toABI { _pixelCoordinates in
+                try results.toABI { _results in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.UnprojectPixelsAtUnitDepth(pThis, _pixelCoordinates.count, _pixelCoordinates.start, _results.count, _results.start))
+                }
+                results = .from(abi: _results)
+            }
+            }
+        }
+
     }
 
     public class ICameraIntrinsics2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2 }
 
-        internal func get_UndistortedProjectionTransformImpl() throws -> WindowsFoundation.Matrix4x4 {
+        public func get_UndistortedProjectionTransform() throws -> WindowsFoundation.Matrix4x4 {
             var value: __x_ABI_CWindows_CFoundation_CNumerics_CMatrix4x4 = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndistortedProjectionTransform(pThis, &value))
@@ -157,7 +180,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: value)
         }
 
-        internal func DistortPointImpl(_ input: WindowsFoundation.Point) throws -> WindowsFoundation.Point {
+        public func DistortPoint(_ input: WindowsFoundation.Point) throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DistortPoint(pThis, .from(swift: input), &result))
@@ -165,7 +188,18 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: result)
         }
 
-        internal func UndistortPointImpl(_ input: WindowsFoundation.Point) throws -> WindowsFoundation.Point {
+        public func DistortPoints(_ inputs: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Point]) throws {
+            try inputs.toABI { _inputs in
+                try results.toABI { _results in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DistortPoints(pThis, _inputs.count, _inputs.start, _results.count, _results.start))
+                }
+                results = .from(abi: _results)
+            }
+            }
+        }
+
+        public func UndistortPoint(_ input: WindowsFoundation.Point) throws -> WindowsFoundation.Point {
             var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.UndistortPoint(pThis, .from(swift: input), &result))
@@ -173,12 +207,23 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: result)
         }
 
+        public func UndistortPoints(_ inputs: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Point]) throws {
+            try inputs.toABI { _inputs in
+                try results.toABI { _results in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.UndistortPoints(pThis, _inputs.count, _inputs.start, _results.count, _results.start))
+                }
+                results = .from(abi: _results)
+            }
+            }
+        }
+
     }
 
     public class ICameraIntrinsicsFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsicsFactory }
 
-        internal func CreateImpl(_ focalLength: WindowsFoundation.Vector2, _ principalPoint: WindowsFoundation.Vector2, _ radialDistortion: WindowsFoundation.Vector3, _ tangentialDistortion: WindowsFoundation.Vector2, _ imageWidth: UInt32, _ imageHeight: UInt32) throws -> ICameraIntrinsics {
+        public func Create(_ focalLength: WindowsFoundation.Vector2, _ principalPoint: WindowsFoundation.Vector2, _ radialDistortion: WindowsFoundation.Vector3, _ tangentialDistortion: WindowsFoundation.Vector2, _ imageWidth: UInt32, _ imageHeight: UInt32) throws -> ICameraIntrinsics {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsicsFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, .from(swift: focalLength), .from(swift: principalPoint), .from(swift: radialDistortion), .from(swift: tangentialDistortion), imageWidth, imageHeight, &resultAbi))
@@ -192,43 +237,43 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameControlCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities }
 
-        internal func get_ExposureImpl() throws -> UWP.FrameExposureCapabilities? {
+        public func get_Exposure() throws -> UWP.FrameExposureCapabilities? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Exposure(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameExposureCapabilitiesBridge.from(abi: value)
         }
 
-        internal func get_ExposureCompensationImpl() throws -> UWP.FrameExposureCompensationCapabilities? {
+        public func get_ExposureCompensation() throws -> UWP.FrameExposureCompensationCapabilities? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExposureCompensation(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameExposureCompensationCapabilitiesBridge.from(abi: value)
         }
 
-        internal func get_IsoSpeedImpl() throws -> UWP.FrameIsoSpeedCapabilities? {
+        public func get_IsoSpeed() throws -> UWP.FrameIsoSpeedCapabilities? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsoSpeed(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameIsoSpeedCapabilitiesBridge.from(abi: value)
         }
 
-        internal func get_FocusImpl() throws -> UWP.FrameFocusCapabilities? {
+        public func get_Focus() throws -> UWP.FrameFocusCapabilities? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Focus(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameFocusCapabilitiesBridge.from(abi: value)
         }
 
-        internal func get_PhotoConfirmationSupportedImpl() throws -> Bool {
+        public func get_PhotoConfirmationSupported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PhotoConfirmationSupported(pThis, &value))
@@ -241,13 +286,13 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameControlCapabilities2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities2 }
 
-        internal func get_FlashImpl() throws -> UWP.FrameFlashCapabilities? {
+        public func get_Flash() throws -> UWP.FrameFlashCapabilities? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Flash(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameFlashCapabilitiesBridge.from(abi: value)
         }
 
     }
@@ -255,43 +300,43 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController }
 
-        internal func get_ExposureControlImpl() throws -> UWP.FrameExposureControl? {
+        public func get_ExposureControl() throws -> UWP.FrameExposureControl? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExposureControl(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameExposureControlBridge.from(abi: value)
         }
 
-        internal func get_ExposureCompensationControlImpl() throws -> UWP.FrameExposureCompensationControl? {
+        public func get_ExposureCompensationControl() throws -> UWP.FrameExposureCompensationControl? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExposureCompensationControl(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameExposureCompensationControlBridge.from(abi: value)
         }
 
-        internal func get_IsoSpeedControlImpl() throws -> UWP.FrameIsoSpeedControl? {
+        public func get_IsoSpeedControl() throws -> UWP.FrameIsoSpeedControl? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsoSpeedControl(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameIsoSpeedControlBridge.from(abi: value)
         }
 
-        internal func get_FocusControlImpl() throws -> UWP.FrameFocusControl? {
+        public func get_FocusControl() throws -> UWP.FrameFocusControl? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocusControl(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameFocusControlBridge.from(abi: value)
         }
 
-        internal func get_PhotoConfirmationEnabledImpl() throws -> Bool? {
+        public func get_PhotoConfirmationEnabled() throws -> Bool? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PhotoConfirmationEnabled(pThis, &valueAbi))
@@ -300,7 +345,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return UWP.__x_ABI_C__FIReference_1_booleanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_PhotoConfirmationEnabledImpl(_ value: Bool?) throws {
+        public func put_PhotoConfirmationEnabled(_ value: Bool?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_booleanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController.self) { pThis in
@@ -313,13 +358,13 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameController2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController2 }
 
-        internal func get_FlashControlImpl() throws -> UWP.FrameFlashControl? {
+        public func get_FlashControl() throws -> UWP.FrameFlashControl? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlashControl(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameFlashControlBridge.from(abi: value)
         }
 
     }
@@ -327,7 +372,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameExposureCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities }
 
-        internal func get_SupportedImpl() throws -> Bool {
+        public func get_Supported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Supported(pThis, &value))
@@ -335,7 +380,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func get_MinImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Min() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Min(pThis, &value))
@@ -343,7 +388,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: value)
         }
 
-        internal func get_MaxImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Max() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Max(pThis, &value))
@@ -351,7 +396,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .from(abi: value)
         }
 
-        internal func get_StepImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_Step() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Step(pThis, &value))
@@ -364,7 +409,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameExposureCompensationCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities }
 
-        internal func get_SupportedImpl() throws -> Bool {
+        public func get_Supported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Supported(pThis, &value))
@@ -372,7 +417,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func get_MinImpl() throws -> Float {
+        public func get_Min() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Min(pThis, &value))
@@ -380,7 +425,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_MaxImpl() throws -> Float {
+        public func get_Max() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Max(pThis, &value))
@@ -388,7 +433,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_StepImpl() throws -> Float {
+        public func get_Step() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Step(pThis, &value))
@@ -401,7 +446,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameExposureCompensationControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationControl }
 
-        internal func get_ValueImpl() throws -> Float? {
+        public func get_Value() throws -> Float? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
@@ -410,7 +455,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return UWP.__x_ABI_C__FIReference_1_floatWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: Float?) throws {
+        public func put_Value(_ value: Float?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_floatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationControl.self) { pThis in
@@ -423,7 +468,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameExposureControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl }
 
-        internal func get_AutoImpl() throws -> Bool {
+        public func get_Auto() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Auto(pThis, &value))
@@ -431,13 +476,13 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func put_AutoImpl(_ value: Bool) throws {
+        public func put_Auto(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Auto(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ValueImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_Value() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
@@ -446,7 +491,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_Value(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl.self) { pThis in
@@ -459,7 +504,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameFlashCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashCapabilities }
 
-        internal func get_SupportedImpl() throws -> Bool {
+        public func get_Supported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Supported(pThis, &value))
@@ -467,7 +512,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func get_RedEyeReductionSupportedImpl() throws -> Bool {
+        public func get_RedEyeReductionSupported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RedEyeReductionSupported(pThis, &value))
@@ -475,7 +520,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func get_PowerSupportedImpl() throws -> Bool {
+        public func get_PowerSupported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PowerSupported(pThis, &value))
@@ -488,7 +533,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameFlashControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl }
 
-        internal func get_ModeImpl() throws -> UWP.FrameFlashMode {
+        public func get_Mode() throws -> UWP.FrameFlashMode {
             var value: __x_ABI_CWindows_CMedia_CDevices_CCore_CFrameFlashMode = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mode(pThis, &value))
@@ -496,13 +541,13 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func put_ModeImpl(_ value: UWP.FrameFlashMode) throws {
+        public func put_Mode(_ value: UWP.FrameFlashMode) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Mode(pThis, value))
             }
         }
 
-        internal func get_AutoImpl() throws -> Bool {
+        public func get_Auto() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Auto(pThis, &value))
@@ -510,13 +555,13 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func put_AutoImpl(_ value: Bool) throws {
+        public func put_Auto(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Auto(pThis, .init(from: value)))
             }
         }
 
-        internal func get_RedEyeReductionImpl() throws -> Bool {
+        public func get_RedEyeReduction() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RedEyeReduction(pThis, &value))
@@ -524,13 +569,13 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func put_RedEyeReductionImpl(_ value: Bool) throws {
+        public func put_RedEyeReduction(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RedEyeReduction(pThis, .init(from: value)))
             }
         }
 
-        internal func get_PowerPercentImpl() throws -> Float {
+        public func get_PowerPercent() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PowerPercent(pThis, &value))
@@ -538,7 +583,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func put_PowerPercentImpl(_ value: Float) throws {
+        public func put_PowerPercent(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PowerPercent(pThis, value))
             }
@@ -549,7 +594,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameFocusCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities }
 
-        internal func get_SupportedImpl() throws -> Bool {
+        public func get_Supported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Supported(pThis, &value))
@@ -557,7 +602,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func get_MinImpl() throws -> UInt32 {
+        public func get_Min() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Min(pThis, &value))
@@ -565,7 +610,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_MaxImpl() throws -> UInt32 {
+        public func get_Max() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Max(pThis, &value))
@@ -573,7 +618,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_StepImpl() throws -> UInt32 {
+        public func get_Step() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Step(pThis, &value))
@@ -586,7 +631,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameFocusControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusControl }
 
-        internal func get_ValueImpl() throws -> UInt32? {
+        public func get_Value() throws -> UInt32? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
@@ -595,7 +640,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: UInt32?) throws {
+        public func put_Value(_ value: UInt32?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusControl.self) { pThis in
@@ -608,7 +653,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameIsoSpeedCapabilities: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities }
 
-        internal func get_SupportedImpl() throws -> Bool {
+        public func get_Supported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Supported(pThis, &value))
@@ -616,7 +661,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func get_MinImpl() throws -> UInt32 {
+        public func get_Min() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Min(pThis, &value))
@@ -624,7 +669,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_MaxImpl() throws -> UInt32 {
+        public func get_Max() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Max(pThis, &value))
@@ -632,7 +677,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_StepImpl() throws -> UInt32 {
+        public func get_Step() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Step(pThis, &value))
@@ -645,7 +690,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IFrameIsoSpeedControl: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl }
 
-        internal func get_AutoImpl() throws -> Bool {
+        public func get_Auto() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Auto(pThis, &value))
@@ -653,13 +698,13 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func put_AutoImpl(_ value: Bool) throws {
+        public func put_Auto(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Auto(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ValueImpl() throws -> UInt32? {
+        public func get_Value() throws -> UInt32? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
@@ -668,7 +713,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ValueImpl(_ value: UInt32?) throws {
+        public func put_Value(_ value: UInt32?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl.self) { pThis in
@@ -681,7 +726,7 @@ public enum __ABI_Windows_Media_Devices_Core {
     public class IVariablePhotoSequenceController: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController }
 
-        internal func get_SupportedImpl() throws -> Bool {
+        public func get_Supported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Supported(pThis, &value))
@@ -689,7 +734,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return .init(from: value)
         }
 
-        internal func get_MaxPhotosPerSecondImpl() throws -> Float {
+        public func get_MaxPhotosPerSecond() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPhotosPerSecond(pThis, &value))
@@ -697,7 +742,7 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func get_PhotosPerSecondLimitImpl() throws -> Float {
+        public func get_PhotosPerSecondLimit() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PhotosPerSecondLimit(pThis, &value))
@@ -705,13 +750,13 @@ public enum __ABI_Windows_Media_Devices_Core {
             return value
         }
 
-        internal func put_PhotosPerSecondLimitImpl(_ value: Float) throws {
+        public func put_PhotosPerSecondLimit(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PhotosPerSecondLimit(pThis, value))
             }
         }
 
-        internal func GetHighestConcurrentFrameRateImpl(_ captureProperties: UWP.AnyIMediaEncodingProperties?) throws -> UWP.MediaRatio? {
+        public func GetHighestConcurrentFrameRate(_ captureProperties: UWP.AnyIMediaEncodingProperties?) throws -> UWP.MediaRatio? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let capturePropertiesWrapper = __ABI_Windows_Media_MediaProperties.IMediaEncodingPropertiesWrapper(captureProperties)
                 let _captureProperties = try! capturePropertiesWrapper?.toABI { $0 }
@@ -719,28 +764,28 @@ public enum __ABI_Windows_Media_Devices_Core {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetHighestConcurrentFrameRate(pThis, _captureProperties, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_MediaProperties.MediaRatioBridge.from(abi: value)
         }
 
-        internal func GetCurrentFrameRateImpl() throws -> UWP.MediaRatio? {
+        public func GetCurrentFrameRate() throws -> UWP.MediaRatio? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentFrameRate(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_MediaProperties.MediaRatioBridge.from(abi: value)
         }
 
-        internal func get_FrameCapabilitiesImpl() throws -> UWP.FrameControlCapabilities? {
+        public func get_FrameCapabilities() throws -> UWP.FrameControlCapabilities? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameCapabilities(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Devices_Core.FrameControlCapabilitiesBridge.from(abi: value)
         }
 
-        internal func get_DesiredFrameControllersImpl() throws -> WindowsFoundation.AnyIVector<UWP.FrameController?>? {
+        public func get_DesiredFrameControllers() throws -> WindowsFoundation.AnyIVector<UWP.FrameController?>? {
             let (items) = try ComPtrs.initialize { itemsAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredFrameControllers(pThis, &itemsAbi))

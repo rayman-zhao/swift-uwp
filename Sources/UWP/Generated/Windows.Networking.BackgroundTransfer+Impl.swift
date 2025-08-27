@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Networking_BackgroundTransfer {
     public enum IBackgroundTransferOperationBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation
@@ -30,38 +31,38 @@ public enum __IMPL_Windows_Networking_BackgroundTransfer {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperation.getresultstreamat)
         fileprivate func getResultStreamAt(_ position: UInt64) throws -> UWP.AnyIInputStream! {
-            try _default.GetResultStreamAtImpl(position)
+            try _default.GetResultStreamAt(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperation.getresponseinformation)
         fileprivate func getResponseInformation() throws -> ResponseInformation! {
-            try _default.GetResponseInformationImpl()
+            try _default.GetResponseInformation()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperation.costpolicy)
         fileprivate var costPolicy : BackgroundTransferCostPolicy {
-            get { try! _default.get_CostPolicyImpl() }
-            set { try! _default.put_CostPolicyImpl(newValue) }
+            get { try! _default.get_CostPolicy() }
+            set { try! _default.put_CostPolicy(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperation.group)
         fileprivate var group : String {
-            get { try! _default.get_GroupImpl() }
+            get { try! _default.get_Group() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperation.guid)
         fileprivate var guid : Foundation.UUID {
-            get { try! _default.get_GuidImpl() }
+            get { try! _default.get_Guid() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperation.method)
         fileprivate var method : String {
-            get { try! _default.get_MethodImpl() }
+            get { try! _default.get_Method() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperation.requesteduri)
         fileprivate var requestedUri : WindowsFoundation.Uri! {
-            get { try! _default.get_RequestedUriImpl() }
+            get { try! _default.get_RequestedUri() }
         }
 
     }
@@ -91,10 +92,112 @@ public enum __IMPL_Windows_Networking_BackgroundTransfer {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.ibackgroundtransferoperationpriority.priority)
         fileprivate var priority : BackgroundTransferPriority {
-            get { try! _default.get_PriorityImpl() }
-            set { try! _default.put_PriorityImpl(newValue) }
+            get { try! _default.get_Priority() }
+            set { try! _default.put_Priority(newValue) }
         }
 
     }
 
+    public enum BackgroundTransferGroupBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundTransferGroup
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup>?) -> BackgroundTransferGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BackgroundTransferRangesDownloadedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundTransferRangesDownloadedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs>?) -> BackgroundTransferRangesDownloadedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DownloadOperationBridge: AbiBridge {
+        public typealias SwiftProjection = DownloadOperation
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation>?) -> DownloadOperation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ResponseInformationBridge: AbiBridge {
+        public typealias SwiftProjection = ResponseInformation
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation>?) -> ResponseInformation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension BackgroundDownloadProgress: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundDownloadProgress
+    public static func from(abi: ABI) -> Self {
+        .init(bytesReceived: abi.BytesReceived, totalBytesToReceive: abi.TotalBytesToReceive, status: abi.Status, hasResponseChanged: .init(from: abi.HasResponseChanged), hasRestarted: .init(from: abi.HasRestarted))
+    }
+    public func toABI() -> ABI {
+        __ABI_Windows_Networking_BackgroundTransfer._ABI_BackgroundDownloadProgress(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+extension BackgroundTransferFileRange: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferFileRange
+    public static func from(abi: ABI) -> Self {
+        .init(offset: abi.Offset, length: abi.Length)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class IBackgroundTransferOperationMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundTransferOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferOperation = try! abi.QueryInterface()
+        return __IMPL_Windows_Networking_BackgroundTransfer.IBackgroundTransferOperationBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class IBackgroundTransferOperationPriorityMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundTransferOperationPriority
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferOperationPriority = try! abi.QueryInterface()
+        return __IMPL_Windows_Networking_BackgroundTransfer.IBackgroundTransferOperationPriorityBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundTransferGroupMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundTransferGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundTransferGroup(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BackgroundTransferRangesDownloadedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundTransferRangesDownloadedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundTransferRangesDownloadedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DownloadOperationMaker: MakeFromAbi {
+    public typealias SwiftType = DownloadOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DownloadOperation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ResponseInformationMaker: MakeFromAbi {
+    public typealias SwiftType = ResponseInformation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ResponseInformation(fromAbi: abi)
+    }
 }

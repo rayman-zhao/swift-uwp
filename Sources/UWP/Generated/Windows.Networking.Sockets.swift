@@ -17,5 +17,5 @@ extension UWP.SocketSslErrorSeverity {
         __x_ABI_CWindows_CNetworking_CSockets_CSocketSslErrorSeverity_Fatal
     }
 }
-extension UWP.SocketSslErrorSeverity: @retroactive Hashable, @retroactive Codable {}
+extension UWP.SocketSslErrorSeverity: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

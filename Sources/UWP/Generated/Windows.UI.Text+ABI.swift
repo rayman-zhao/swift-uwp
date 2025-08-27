@@ -52,11 +52,12 @@ private var IID___x_ABI_CWindows_CUI_CText_CITextSelection: WindowsFoundation.II
     .init(Data1: 0xA6D36724, Data2: 0xF28F, Data3: 0x430A, Data4: ( 0xB2,0xCF,0xC3,0x43,0x67,0x1E,0xC0,0xE9 ))// A6D36724-F28F-430A-B2CF-C343671EC0E9
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI_Text {
     public class IContentLinkInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIContentLinkInfo }
 
-        internal func get_IdImpl() throws -> UInt32 {
+        public func get_Id() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
@@ -64,13 +65,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        internal func put_IdImpl(_ value: UInt32) throws {
+        public func put_Id(_ value: UInt32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Id(pThis, value))
             }
         }
 
-        internal func get_DisplayTextImpl() throws -> String {
+        public func get_DisplayText() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayText(pThis, &value))
@@ -78,14 +79,14 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        internal func put_DisplayTextImpl(_ value: String) throws {
+        public func put_DisplayText(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisplayText(pThis, _value.get()))
             }
         }
 
-        internal func get_SecondaryTextImpl() throws -> String {
+        public func get_SecondaryText() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SecondaryText(pThis, &value))
@@ -93,29 +94,29 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        internal func put_SecondaryTextImpl(_ value: String) throws {
+        public func put_SecondaryText(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SecondaryText(pThis, _value.get()))
             }
         }
 
-        internal func get_UriImpl() throws -> WindowsFoundation.Uri? {
+        public func get_Uri() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Uri(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_UriImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_Uri(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Uri(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_LinkContentKindImpl() throws -> String {
+        public func get_LinkContentKind() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LinkContentKind(pThis, &value))
@@ -123,7 +124,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        internal func put_LinkContentKindImpl(_ value: String) throws {
+        public func put_LinkContentKind(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LinkContentKind(pThis, _value.get()))
@@ -140,7 +141,7 @@ public enum __ABI_Windows_UI_Text {
     public class IFontWeightsStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIFontWeightsStatics }
 
-        internal func get_BlackImpl() throws -> UWP.FontWeight {
+        public func get_Black() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Black(pThis, &value))
@@ -148,7 +149,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_BoldImpl() throws -> UWP.FontWeight {
+        public func get_Bold() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bold(pThis, &value))
@@ -156,7 +157,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ExtraBlackImpl() throws -> UWP.FontWeight {
+        public func get_ExtraBlack() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraBlack(pThis, &value))
@@ -164,7 +165,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ExtraBoldImpl() throws -> UWP.FontWeight {
+        public func get_ExtraBold() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraBold(pThis, &value))
@@ -172,7 +173,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ExtraLightImpl() throws -> UWP.FontWeight {
+        public func get_ExtraLight() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraLight(pThis, &value))
@@ -180,7 +181,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_LightImpl() throws -> UWP.FontWeight {
+        public func get_Light() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Light(pThis, &value))
@@ -188,7 +189,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_MediumImpl() throws -> UWP.FontWeight {
+        public func get_Medium() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Medium(pThis, &value))
@@ -196,7 +197,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_NormalImpl() throws -> UWP.FontWeight {
+        public func get_Normal() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Normal(pThis, &value))
@@ -204,7 +205,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_SemiBoldImpl() throws -> UWP.FontWeight {
+        public func get_SemiBold() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SemiBold(pThis, &value))
@@ -212,7 +213,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_SemiLightImpl() throws -> UWP.FontWeight {
+        public func get_SemiLight() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SemiLight(pThis, &value))
@@ -220,7 +221,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_ThinImpl() throws -> UWP.FontWeight {
+        public func get_Thin() throws -> UWP.FontWeight {
             var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thin(pThis, &value))
@@ -233,16 +234,16 @@ public enum __ABI_Windows_UI_Text {
     public class IRichEditTextRange: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIRichEditTextRange }
 
-        internal func get_ContentLinkInfoImpl() throws -> UWP.ContentLinkInfo? {
+        public func get_ContentLinkInfo() throws -> UWP.ContentLinkInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIRichEditTextRange.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentLinkInfo(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_UI_Text.ContentLinkInfoBridge.from(abi: value)
         }
 
-        internal func put_ContentLinkInfoImpl(_ value: UWP.ContentLinkInfo?) throws {
+        public func put_ContentLinkInfo(_ value: UWP.ContentLinkInfo?) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIRichEditTextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentLinkInfo(pThis, RawPointer(value)))
             }
@@ -253,7 +254,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextCharacterFormat: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextCharacterFormat }
 
-        open func get_AllCapsImpl() throws -> UWP.FormatEffect {
+        open func get_AllCaps() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllCaps(pThis, &value))
@@ -261,13 +262,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_AllCapsImpl(_ value: UWP.FormatEffect) throws {
+        open func put_AllCaps(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AllCaps(pThis, value))
             }
         }
 
-        open func get_BackgroundColorImpl() throws -> UWP.Color {
+        open func get_BackgroundColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundColor(pThis, &value))
@@ -275,13 +276,13 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        open func put_BackgroundColorImpl(_ value: UWP.Color) throws {
+        open func put_BackgroundColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_BackgroundColor(pThis, .from(swift: value)))
             }
         }
 
-        open func get_BoldImpl() throws -> UWP.FormatEffect {
+        open func get_Bold() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bold(pThis, &value))
@@ -289,13 +290,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_BoldImpl(_ value: UWP.FormatEffect) throws {
+        open func put_Bold(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Bold(pThis, value))
             }
         }
 
-        open func get_FontStretchImpl() throws -> UWP.FontStretch {
+        open func get_FontStretch() throws -> UWP.FontStretch {
             var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStretch(pThis, &value))
@@ -303,13 +304,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_FontStretchImpl(_ value: UWP.FontStretch) throws {
+        open func put_FontStretch(_ value: UWP.FontStretch) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStretch(pThis, value))
             }
         }
 
-        open func get_FontStyleImpl() throws -> UWP.FontStyle {
+        open func get_FontStyle() throws -> UWP.FontStyle {
             var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStyle(pThis, &value))
@@ -317,13 +318,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_FontStyleImpl(_ value: UWP.FontStyle) throws {
+        open func put_FontStyle(_ value: UWP.FontStyle) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStyle(pThis, value))
             }
         }
 
-        open func get_ForegroundColorImpl() throws -> UWP.Color {
+        open func get_ForegroundColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForegroundColor(pThis, &value))
@@ -331,13 +332,13 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        open func put_ForegroundColorImpl(_ value: UWP.Color) throws {
+        open func put_ForegroundColor(_ value: UWP.Color) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForegroundColor(pThis, .from(swift: value)))
             }
         }
 
-        open func get_HiddenImpl() throws -> UWP.FormatEffect {
+        open func get_Hidden() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Hidden(pThis, &value))
@@ -345,13 +346,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_HiddenImpl(_ value: UWP.FormatEffect) throws {
+        open func put_Hidden(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Hidden(pThis, value))
             }
         }
 
-        open func get_ItalicImpl() throws -> UWP.FormatEffect {
+        open func get_Italic() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Italic(pThis, &value))
@@ -359,13 +360,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ItalicImpl(_ value: UWP.FormatEffect) throws {
+        open func put_Italic(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Italic(pThis, value))
             }
         }
 
-        open func get_KerningImpl() throws -> Float {
+        open func get_Kerning() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kerning(pThis, &value))
@@ -373,13 +374,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_KerningImpl(_ value: Float) throws {
+        open func put_Kerning(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Kerning(pThis, value))
             }
         }
 
-        open func get_LanguageTagImpl() throws -> String {
+        open func get_LanguageTag() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LanguageTag(pThis, &value))
@@ -387,14 +388,14 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        open func put_LanguageTagImpl(_ value: String) throws {
+        open func put_LanguageTag(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_LanguageTag(pThis, _value.get()))
             }
         }
 
-        open func get_LinkTypeImpl() throws -> UWP.LinkType {
+        open func get_LinkType() throws -> UWP.LinkType {
             var value: __x_ABI_CWindows_CUI_CText_CLinkType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LinkType(pThis, &value))
@@ -402,7 +403,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func get_NameImpl() throws -> String {
+        open func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -410,14 +411,14 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        open func put_NameImpl(_ value: String) throws {
+        open func put_Name(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Name(pThis, _value.get()))
             }
         }
 
-        open func get_OutlineImpl() throws -> UWP.FormatEffect {
+        open func get_Outline() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Outline(pThis, &value))
@@ -425,13 +426,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_OutlineImpl(_ value: UWP.FormatEffect) throws {
+        open func put_Outline(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Outline(pThis, value))
             }
         }
 
-        open func get_PositionImpl() throws -> Float {
+        open func get_Position() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
@@ -439,13 +440,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_PositionImpl(_ value: Float) throws {
+        open func put_Position(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, value))
             }
         }
 
-        open func get_ProtectedTextImpl() throws -> UWP.FormatEffect {
+        open func get_ProtectedText() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProtectedText(pThis, &value))
@@ -453,13 +454,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ProtectedTextImpl(_ value: UWP.FormatEffect) throws {
+        open func put_ProtectedText(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ProtectedText(pThis, value))
             }
         }
 
-        open func get_SizeImpl() throws -> Float {
+        open func get_Size() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
@@ -467,13 +468,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_SizeImpl(_ value: Float) throws {
+        open func put_Size(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Size(pThis, value))
             }
         }
 
-        open func get_SmallCapsImpl() throws -> UWP.FormatEffect {
+        open func get_SmallCaps() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallCaps(pThis, &value))
@@ -481,13 +482,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_SmallCapsImpl(_ value: UWP.FormatEffect) throws {
+        open func put_SmallCaps(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SmallCaps(pThis, value))
             }
         }
 
-        open func get_SpacingImpl() throws -> Float {
+        open func get_Spacing() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Spacing(pThis, &value))
@@ -495,13 +496,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_SpacingImpl(_ value: Float) throws {
+        open func put_Spacing(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Spacing(pThis, value))
             }
         }
 
-        open func get_StrikethroughImpl() throws -> UWP.FormatEffect {
+        open func get_Strikethrough() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Strikethrough(pThis, &value))
@@ -509,13 +510,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_StrikethroughImpl(_ value: UWP.FormatEffect) throws {
+        open func put_Strikethrough(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Strikethrough(pThis, value))
             }
         }
 
-        open func get_SubscriptImpl() throws -> UWP.FormatEffect {
+        open func get_Subscript() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subscript(pThis, &value))
@@ -523,13 +524,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_SubscriptImpl(_ value: UWP.FormatEffect) throws {
+        open func put_Subscript(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Subscript(pThis, value))
             }
         }
 
-        open func get_SuperscriptImpl() throws -> UWP.FormatEffect {
+        open func get_Superscript() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Superscript(pThis, &value))
@@ -537,13 +538,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_SuperscriptImpl(_ value: UWP.FormatEffect) throws {
+        open func put_Superscript(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Superscript(pThis, value))
             }
         }
 
-        open func get_TextScriptImpl() throws -> UWP.TextScript {
+        open func get_TextScript() throws -> UWP.TextScript {
             var value: __x_ABI_CWindows_CUI_CText_CTextScript = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextScript(pThis, &value))
@@ -551,13 +552,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_TextScriptImpl(_ value: UWP.TextScript) throws {
+        open func put_TextScript(_ value: UWP.TextScript) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextScript(pThis, value))
             }
         }
 
-        open func get_UnderlineImpl() throws -> UWP.UnderlineType {
+        open func get_Underline() throws -> UWP.UnderlineType {
             var value: __x_ABI_CWindows_CUI_CText_CUnderlineType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Underline(pThis, &value))
@@ -565,13 +566,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_UnderlineImpl(_ value: UWP.UnderlineType) throws {
+        open func put_Underline(_ value: UWP.UnderlineType) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Underline(pThis, value))
             }
         }
 
-        open func get_WeightImpl() throws -> Int32 {
+        open func get_Weight() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Weight(pThis, &value))
@@ -579,13 +580,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_WeightImpl(_ value: Int32) throws {
+        open func put_Weight(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Weight(pThis, value))
             }
         }
 
-        open func SetCloneImpl(_ value: UWP.AnyITextCharacterFormat?) throws {
+        open func SetClone(_ value: UWP.AnyITextCharacterFormat?) throws {
             let valueWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
@@ -593,7 +594,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func GetCloneImpl() throws -> UWP.AnyITextCharacterFormat? {
+        open func GetClone() throws -> UWP.AnyITextCharacterFormat? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetClone(pThis, &resultAbi))
@@ -602,7 +603,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: result)
         }
 
-        open func IsEqualImpl(_ format: UWP.AnyITextCharacterFormat?) throws -> Bool {
+        open func IsEqual(_ format: UWP.AnyITextCharacterFormat?) throws -> Bool {
             var result: boolean = 0
             let formatWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(format)
             let _format = try! formatWrapper?.toABI { $0 }
@@ -977,7 +978,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyITextCharacterFormat? = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: ComPtr($1))
                 try __unwrapped__instance.setClone(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetClone: {
@@ -987,7 +988,7 @@ public enum __ABI_Windows_UI_Text {
                 let resultWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsEqual: {
@@ -997,7 +998,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.isEqual(format)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -1005,7 +1006,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextConstantsStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextConstantsStatics }
 
-        internal func get_AutoColorImpl() throws -> UWP.Color {
+        public func get_AutoColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoColor(pThis, &value))
@@ -1013,7 +1014,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_MinUnitCountImpl() throws -> Int32 {
+        public func get_MinUnitCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinUnitCount(pThis, &value))
@@ -1021,7 +1022,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        internal func get_MaxUnitCountImpl() throws -> Int32 {
+        public func get_MaxUnitCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxUnitCount(pThis, &value))
@@ -1029,7 +1030,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        internal func get_UndefinedColorImpl() throws -> UWP.Color {
+        public func get_UndefinedColor() throws -> UWP.Color {
             var value: __x_ABI_CWindows_CUI_CColor = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedColor(pThis, &value))
@@ -1037,7 +1038,7 @@ public enum __ABI_Windows_UI_Text {
             return .from(abi: value)
         }
 
-        internal func get_UndefinedFloatValueImpl() throws -> Float {
+        public func get_UndefinedFloatValue() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedFloatValue(pThis, &value))
@@ -1045,7 +1046,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        internal func get_UndefinedInt32ValueImpl() throws -> Int32 {
+        public func get_UndefinedInt32Value() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedInt32Value(pThis, &value))
@@ -1053,7 +1054,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        internal func get_UndefinedFontStretchImpl() throws -> UWP.FontStretch {
+        public func get_UndefinedFontStretch() throws -> UWP.FontStretch {
             var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedFontStretch(pThis, &value))
@@ -1061,7 +1062,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        internal func get_UndefinedFontStyleImpl() throws -> UWP.FontStyle {
+        public func get_UndefinedFontStyle() throws -> UWP.FontStyle {
             var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedFontStyle(pThis, &value))
@@ -1074,7 +1075,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextDocument: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextDocument }
 
-        open func get_CaretTypeImpl() throws -> UWP.CaretType {
+        open func get_CaretType() throws -> UWP.CaretType {
             var value: __x_ABI_CWindows_CUI_CText_CCaretType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretType(pThis, &value))
@@ -1082,13 +1083,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_CaretTypeImpl(_ value: UWP.CaretType) throws {
+        open func put_CaretType(_ value: UWP.CaretType) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CaretType(pThis, value))
             }
         }
 
-        open func get_DefaultTabStopImpl() throws -> Float {
+        open func get_DefaultTabStop() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultTabStop(pThis, &value))
@@ -1096,13 +1097,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_DefaultTabStopImpl(_ value: Float) throws {
+        open func put_DefaultTabStop(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DefaultTabStop(pThis, value))
             }
         }
 
-        open func get_SelectionImpl() throws -> UWP.AnyITextSelection? {
+        open func get_Selection() throws -> UWP.AnyITextSelection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Selection(pThis, &valueAbi))
@@ -1111,7 +1112,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextSelectionWrapper.unwrapFrom(abi: value)
         }
 
-        open func get_UndoLimitImpl() throws -> UInt32 {
+        open func get_UndoLimit() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndoLimit(pThis, &value))
@@ -1119,13 +1120,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_UndoLimitImpl(_ value: UInt32) throws {
+        open func put_UndoLimit(_ value: UInt32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UndoLimit(pThis, value))
             }
         }
 
-        open func CanCopyImpl() throws -> Bool {
+        open func CanCopy() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CanCopy(pThis, &result))
@@ -1133,7 +1134,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func CanPasteImpl() throws -> Bool {
+        open func CanPaste() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CanPaste(pThis, &result))
@@ -1141,7 +1142,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func CanRedoImpl() throws -> Bool {
+        open func CanRedo() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CanRedo(pThis, &result))
@@ -1149,7 +1150,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func CanUndoImpl() throws -> Bool {
+        open func CanUndo() throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CanUndo(pThis, &result))
@@ -1157,7 +1158,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func ApplyDisplayUpdatesImpl() throws -> Int32 {
+        open func ApplyDisplayUpdates() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ApplyDisplayUpdates(pThis, &result))
@@ -1165,7 +1166,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func BatchDisplayUpdatesImpl() throws -> Int32 {
+        open func BatchDisplayUpdates() throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.BatchDisplayUpdates(pThis, &result))
@@ -1173,19 +1174,19 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func BeginUndoGroupImpl() throws {
+        open func BeginUndoGroup() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.BeginUndoGroup(pThis))
             }
         }
 
-        open func EndUndoGroupImpl() throws {
+        open func EndUndoGroup() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EndUndoGroup(pThis))
             }
         }
 
-        open func GetDefaultCharacterFormatImpl() throws -> UWP.AnyITextCharacterFormat? {
+        open func GetDefaultCharacterFormat() throws -> UWP.AnyITextCharacterFormat? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDefaultCharacterFormat(pThis, &resultAbi))
@@ -1194,7 +1195,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: result)
         }
 
-        open func GetDefaultParagraphFormatImpl() throws -> UWP.AnyITextParagraphFormat? {
+        open func GetDefaultParagraphFormat() throws -> UWP.AnyITextParagraphFormat? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDefaultParagraphFormat(pThis, &resultAbi))
@@ -1203,7 +1204,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: result)
         }
 
-        open func GetRangeImpl(_ startPosition: Int32, _ endPosition: Int32) throws -> UWP.AnyITextRange? {
+        open func GetRange(_ startPosition: Int32, _ endPosition: Int32) throws -> UWP.AnyITextRange? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetRange(pThis, startPosition, endPosition, &resultAbi))
@@ -1212,7 +1213,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: result)
         }
 
-        open func GetRangeFromPointImpl(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions) throws -> UWP.AnyITextRange? {
+        open func GetRangeFromPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions) throws -> UWP.AnyITextRange? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetRangeFromPoint(pThis, .from(swift: point), options, &resultAbi))
@@ -1221,7 +1222,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: result)
         }
 
-        open func GetTextImpl(_ options: UWP.TextGetOptions, _ value: inout String) throws {
+        open func GetText(_ options: UWP.TextGetOptions, _ value: inout String) throws {
             var _value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetText(pThis, options, &_value))
@@ -1230,7 +1231,7 @@ public enum __ABI_Windows_UI_Text {
             WindowsDeleteString(_value)
         }
 
-        open func LoadFromStreamImpl(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+        open func LoadFromStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
             let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
@@ -1238,13 +1239,13 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func RedoImpl() throws {
+        open func Redo() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Redo(pThis))
             }
         }
 
-        open func SaveToStreamImpl(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+        open func SaveToStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
             let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
@@ -1252,7 +1253,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func SetDefaultCharacterFormatImpl(_ value: UWP.AnyITextCharacterFormat?) throws {
+        open func SetDefaultCharacterFormat(_ value: UWP.AnyITextCharacterFormat?) throws {
             let valueWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
@@ -1260,7 +1261,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func SetDefaultParagraphFormatImpl(_ value: UWP.AnyITextParagraphFormat?) throws {
+        open func SetDefaultParagraphFormat(_ value: UWP.AnyITextParagraphFormat?) throws {
             let valueWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
@@ -1268,14 +1269,14 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func SetTextImpl(_ options: UWP.TextSetOptions, _ value: String) throws {
+        open func SetText(_ options: UWP.TextSetOptions, _ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetText(pThis, options, _value.get()))
             }
         }
 
-        open func UndoImpl() throws {
+        open func Undo() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Undo(pThis))
             }
@@ -1367,7 +1368,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.canCopy()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         CanPaste: {
@@ -1376,7 +1377,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.canPaste()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         CanRedo: {
@@ -1385,7 +1386,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.canRedo()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         CanUndo: {
@@ -1394,7 +1395,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.canUndo()
                 $1?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ApplyDisplayUpdates: {
@@ -1403,7 +1404,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.applyDisplayUpdates()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         BatchDisplayUpdates: {
@@ -1412,7 +1413,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.batchDisplayUpdates()
                 $1?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         BeginUndoGroup: {
@@ -1420,7 +1421,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.beginUndoGroup()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         EndUndoGroup: {
@@ -1428,7 +1429,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.endUndoGroup()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetDefaultCharacterFormat: {
@@ -1438,7 +1439,7 @@ public enum __ABI_Windows_UI_Text {
                 let resultWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetDefaultParagraphFormat: {
@@ -1448,7 +1449,7 @@ public enum __ABI_Windows_UI_Text {
                 let resultWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetRange: {
@@ -1460,7 +1461,7 @@ public enum __ABI_Windows_UI_Text {
                 let resultWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(result)
                 resultWrapper?.copyTo($3)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetRangeFromPoint: {
@@ -1472,7 +1473,7 @@ public enum __ABI_Windows_UI_Text {
                 let resultWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(result)
                 resultWrapper?.copyTo($3)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetText: {
@@ -1483,7 +1484,7 @@ public enum __ABI_Windows_UI_Text {
                 try __unwrapped__instance.getText(options, &value)
                 $2?.initialize(to: try! HString(value).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         LoadFromStream: {
@@ -1493,7 +1494,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
                 try __unwrapped__instance.loadFromStream(options, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Redo: {
@@ -1501,7 +1502,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.redo()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SaveToStream: {
@@ -1511,7 +1512,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
                 try __unwrapped__instance.saveToStream(options, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetDefaultCharacterFormat: {
@@ -1520,7 +1521,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyITextCharacterFormat? = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: ComPtr($1))
                 try __unwrapped__instance.setDefaultCharacterFormat(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetDefaultParagraphFormat: {
@@ -1529,7 +1530,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyITextParagraphFormat? = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: ComPtr($1))
                 try __unwrapped__instance.setDefaultParagraphFormat(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetText: {
@@ -1539,7 +1540,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: String = .init(from: $2)
                 try __unwrapped__instance.setText(options, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Undo: {
@@ -1547,7 +1548,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.undo()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -1555,7 +1556,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextDocument2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextDocument2 }
 
-        internal func get_AlignmentIncludesTrailingWhitespaceImpl() throws -> Bool {
+        public func get_AlignmentIncludesTrailingWhitespace() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlignmentIncludesTrailingWhitespace(pThis, &value))
@@ -1563,13 +1564,13 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        internal func put_AlignmentIncludesTrailingWhitespaceImpl(_ value: Bool) throws {
+        public func put_AlignmentIncludesTrailingWhitespace(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AlignmentIncludesTrailingWhitespace(pThis, .init(from: value)))
             }
         }
 
-        internal func get_IgnoreTrailingCharacterSpacingImpl() throws -> Bool {
+        public func get_IgnoreTrailingCharacterSpacing() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IgnoreTrailingCharacterSpacing(pThis, &value))
@@ -1577,7 +1578,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        internal func put_IgnoreTrailingCharacterSpacingImpl(_ value: Bool) throws {
+        public func put_IgnoreTrailingCharacterSpacing(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IgnoreTrailingCharacterSpacing(pThis, .init(from: value)))
             }
@@ -1588,7 +1589,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextDocument3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextDocument3 }
 
-        internal func ClearUndoRedoHistoryImpl() throws {
+        public func ClearUndoRedoHistory() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearUndoRedoHistory(pThis))
             }
@@ -1599,7 +1600,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextParagraphFormat: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextParagraphFormat }
 
-        open func get_AlignmentImpl() throws -> UWP.ParagraphAlignment {
+        open func get_Alignment() throws -> UWP.ParagraphAlignment {
             var value: __x_ABI_CWindows_CUI_CText_CParagraphAlignment = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Alignment(pThis, &value))
@@ -1607,13 +1608,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_AlignmentImpl(_ value: UWP.ParagraphAlignment) throws {
+        open func put_Alignment(_ value: UWP.ParagraphAlignment) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Alignment(pThis, value))
             }
         }
 
-        open func get_FirstLineIndentImpl() throws -> Float {
+        open func get_FirstLineIndent() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstLineIndent(pThis, &value))
@@ -1621,7 +1622,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func get_KeepTogetherImpl() throws -> UWP.FormatEffect {
+        open func get_KeepTogether() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeepTogether(pThis, &value))
@@ -1629,13 +1630,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_KeepTogetherImpl(_ value: UWP.FormatEffect) throws {
+        open func put_KeepTogether(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeepTogether(pThis, value))
             }
         }
 
-        open func get_KeepWithNextImpl() throws -> UWP.FormatEffect {
+        open func get_KeepWithNext() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeepWithNext(pThis, &value))
@@ -1643,13 +1644,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_KeepWithNextImpl(_ value: UWP.FormatEffect) throws {
+        open func put_KeepWithNext(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeepWithNext(pThis, value))
             }
         }
 
-        open func get_LeftIndentImpl() throws -> Float {
+        open func get_LeftIndent() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LeftIndent(pThis, &value))
@@ -1657,7 +1658,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func get_LineSpacingImpl() throws -> Float {
+        open func get_LineSpacing() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacing(pThis, &value))
@@ -1665,7 +1666,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func get_LineSpacingRuleImpl() throws -> UWP.LineSpacingRule {
+        open func get_LineSpacingRule() throws -> UWP.LineSpacingRule {
             var value: __x_ABI_CWindows_CUI_CText_CLineSpacingRule = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacingRule(pThis, &value))
@@ -1673,7 +1674,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func get_ListAlignmentImpl() throws -> UWP.MarkerAlignment {
+        open func get_ListAlignment() throws -> UWP.MarkerAlignment {
             var value: __x_ABI_CWindows_CUI_CText_CMarkerAlignment = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListAlignment(pThis, &value))
@@ -1681,13 +1682,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ListAlignmentImpl(_ value: UWP.MarkerAlignment) throws {
+        open func put_ListAlignment(_ value: UWP.MarkerAlignment) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListAlignment(pThis, value))
             }
         }
 
-        open func get_ListLevelIndexImpl() throws -> Int32 {
+        open func get_ListLevelIndex() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListLevelIndex(pThis, &value))
@@ -1695,13 +1696,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ListLevelIndexImpl(_ value: Int32) throws {
+        open func put_ListLevelIndex(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListLevelIndex(pThis, value))
             }
         }
 
-        open func get_ListStartImpl() throws -> Int32 {
+        open func get_ListStart() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListStart(pThis, &value))
@@ -1709,13 +1710,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ListStartImpl(_ value: Int32) throws {
+        open func put_ListStart(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListStart(pThis, value))
             }
         }
 
-        open func get_ListStyleImpl() throws -> UWP.MarkerStyle {
+        open func get_ListStyle() throws -> UWP.MarkerStyle {
             var value: __x_ABI_CWindows_CUI_CText_CMarkerStyle = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListStyle(pThis, &value))
@@ -1723,13 +1724,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ListStyleImpl(_ value: UWP.MarkerStyle) throws {
+        open func put_ListStyle(_ value: UWP.MarkerStyle) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListStyle(pThis, value))
             }
         }
 
-        open func get_ListTabImpl() throws -> Float {
+        open func get_ListTab() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListTab(pThis, &value))
@@ -1737,13 +1738,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ListTabImpl(_ value: Float) throws {
+        open func put_ListTab(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListTab(pThis, value))
             }
         }
 
-        open func get_ListTypeImpl() throws -> UWP.MarkerType {
+        open func get_ListType() throws -> UWP.MarkerType {
             var value: __x_ABI_CWindows_CUI_CText_CMarkerType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListType(pThis, &value))
@@ -1751,13 +1752,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_ListTypeImpl(_ value: UWP.MarkerType) throws {
+        open func put_ListType(_ value: UWP.MarkerType) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListType(pThis, value))
             }
         }
 
-        open func get_NoLineNumberImpl() throws -> UWP.FormatEffect {
+        open func get_NoLineNumber() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NoLineNumber(pThis, &value))
@@ -1765,13 +1766,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_NoLineNumberImpl(_ value: UWP.FormatEffect) throws {
+        open func put_NoLineNumber(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NoLineNumber(pThis, value))
             }
         }
 
-        open func get_PageBreakBeforeImpl() throws -> UWP.FormatEffect {
+        open func get_PageBreakBefore() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PageBreakBefore(pThis, &value))
@@ -1779,13 +1780,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_PageBreakBeforeImpl(_ value: UWP.FormatEffect) throws {
+        open func put_PageBreakBefore(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_PageBreakBefore(pThis, value))
             }
         }
 
-        open func get_RightIndentImpl() throws -> Float {
+        open func get_RightIndent() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RightIndent(pThis, &value))
@@ -1793,13 +1794,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_RightIndentImpl(_ value: Float) throws {
+        open func put_RightIndent(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RightIndent(pThis, value))
             }
         }
 
-        open func get_RightToLeftImpl() throws -> UWP.FormatEffect {
+        open func get_RightToLeft() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RightToLeft(pThis, &value))
@@ -1807,13 +1808,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_RightToLeftImpl(_ value: UWP.FormatEffect) throws {
+        open func put_RightToLeft(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RightToLeft(pThis, value))
             }
         }
 
-        open func get_StyleImpl() throws -> UWP.ParagraphStyle {
+        open func get_Style() throws -> UWP.ParagraphStyle {
             var value: __x_ABI_CWindows_CUI_CText_CParagraphStyle = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Style(pThis, &value))
@@ -1821,13 +1822,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_StyleImpl(_ value: UWP.ParagraphStyle) throws {
+        open func put_Style(_ value: UWP.ParagraphStyle) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Style(pThis, value))
             }
         }
 
-        open func get_SpaceAfterImpl() throws -> Float {
+        open func get_SpaceAfter() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpaceAfter(pThis, &value))
@@ -1835,13 +1836,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_SpaceAfterImpl(_ value: Float) throws {
+        open func put_SpaceAfter(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpaceAfter(pThis, value))
             }
         }
 
-        open func get_SpaceBeforeImpl() throws -> Float {
+        open func get_SpaceBefore() throws -> Float {
             var value: FLOAT = 0.0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpaceBefore(pThis, &value))
@@ -1849,13 +1850,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_SpaceBeforeImpl(_ value: Float) throws {
+        open func put_SpaceBefore(_ value: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpaceBefore(pThis, value))
             }
         }
 
-        open func get_WidowControlImpl() throws -> UWP.FormatEffect {
+        open func get_WidowControl() throws -> UWP.FormatEffect {
             var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WidowControl(pThis, &value))
@@ -1863,13 +1864,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_WidowControlImpl(_ value: UWP.FormatEffect) throws {
+        open func put_WidowControl(_ value: UWP.FormatEffect) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_WidowControl(pThis, value))
             }
         }
 
-        open func get_TabCountImpl() throws -> Int32 {
+        open func get_TabCount() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TabCount(pThis, &value))
@@ -1877,25 +1878,25 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func AddTabImpl(_ position: Float, _ align: UWP.TabAlignment, _ leader: UWP.TabLeader) throws {
+        open func AddTab(_ position: Float, _ align: UWP.TabAlignment, _ leader: UWP.TabLeader) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.AddTab(pThis, position, align, leader))
             }
         }
 
-        open func ClearAllTabsImpl() throws {
+        open func ClearAllTabs() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAllTabs(pThis))
             }
         }
 
-        open func DeleteTabImpl(_ position: Float) throws {
+        open func DeleteTab(_ position: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DeleteTab(pThis, position))
             }
         }
 
-        open func GetCloneImpl() throws -> UWP.AnyITextParagraphFormat? {
+        open func GetClone() throws -> UWP.AnyITextParagraphFormat? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetClone(pThis, &resultAbi))
@@ -1904,13 +1905,13 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: result)
         }
 
-        open func GetTabImpl(_ index: Int32, _ position: inout Float, _ align: inout UWP.TabAlignment, _ leader: inout UWP.TabLeader) throws {
+        open func GetTab(_ index: Int32, _ position: inout Float, _ align: inout UWP.TabAlignment, _ leader: inout UWP.TabLeader) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetTab(pThis, index, &position, &align, &leader))
             }
         }
 
-        open func IsEqualImpl(_ format: UWP.AnyITextParagraphFormat?) throws -> Bool {
+        open func IsEqual(_ format: UWP.AnyITextParagraphFormat?) throws -> Bool {
             var result: boolean = 0
             let formatWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(format)
             let _format = try! formatWrapper?.toABI { $0 }
@@ -1920,7 +1921,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func SetCloneImpl(_ format: UWP.AnyITextParagraphFormat?) throws {
+        open func SetClone(_ format: UWP.AnyITextParagraphFormat?) throws {
             let formatWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(format)
             let _format = try! formatWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
@@ -1928,13 +1929,13 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func SetIndentsImpl(_ start: Float, _ left: Float, _ right: Float) throws {
+        open func SetIndents(_ start: Float, _ left: Float, _ right: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetIndents(pThis, start, left, right))
             }
         }
 
-        open func SetLineSpacingImpl(_ rule: UWP.LineSpacingRule, _ spacing: Float) throws {
+        open func SetLineSpacing(_ rule: UWP.LineSpacingRule, _ spacing: Float) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetLineSpacing(pThis, rule, spacing))
             }
@@ -2251,7 +2252,7 @@ public enum __ABI_Windows_UI_Text {
                 let leader: UWP.TabLeader = $3
                 try __unwrapped__instance.addTab(position, align, leader)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ClearAllTabs: {
@@ -2259,7 +2260,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.clearAllTabs()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         DeleteTab: {
@@ -2268,7 +2269,7 @@ public enum __ABI_Windows_UI_Text {
                 let position: Float = $1
                 try __unwrapped__instance.deleteTab(position)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetClone: {
@@ -2278,7 +2279,7 @@ public enum __ABI_Windows_UI_Text {
                 let resultWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetTab: {
@@ -2293,7 +2294,7 @@ public enum __ABI_Windows_UI_Text {
                 $3?.initialize(to: align)
                 $4?.initialize(to: leader)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsEqual: {
@@ -2303,7 +2304,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.isEqual(format)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetClone: {
@@ -2312,7 +2313,7 @@ public enum __ABI_Windows_UI_Text {
                 let format: UWP.AnyITextParagraphFormat? = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: ComPtr($1))
                 try __unwrapped__instance.setClone(format)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetIndents: {
@@ -2323,7 +2324,7 @@ public enum __ABI_Windows_UI_Text {
                 let right: Float = $3
                 try __unwrapped__instance.setIndents(start, left, right)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetLineSpacing: {
@@ -2333,7 +2334,7 @@ public enum __ABI_Windows_UI_Text {
                 let spacing: Float = $2
                 try __unwrapped__instance.setLineSpacing(rule, spacing)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -2341,7 +2342,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextRange: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextRange }
 
-        open func get_CharacterImpl() throws -> Character {
+        open func get_Character() throws -> Character {
             var value: WCHAR = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Character(pThis, &value))
@@ -2349,13 +2350,13 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        open func put_CharacterImpl(_ value: Character) throws {
+        open func put_Character(_ value: Character) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Character(pThis, .init(from: value)))
             }
         }
 
-        open func get_CharacterFormatImpl() throws -> UWP.AnyITextCharacterFormat? {
+        open func get_CharacterFormat() throws -> UWP.AnyITextCharacterFormat? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterFormat(pThis, &valueAbi))
@@ -2364,7 +2365,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: value)
         }
 
-        open func put_CharacterFormatImpl(_ value: UWP.AnyITextCharacterFormat?) throws {
+        open func put_CharacterFormat(_ value: UWP.AnyITextCharacterFormat?) throws {
             let valueWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
@@ -2372,7 +2373,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func get_FormattedTextImpl() throws -> UWP.AnyITextRange? {
+        open func get_FormattedText() throws -> UWP.AnyITextRange? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FormattedText(pThis, &valueAbi))
@@ -2381,7 +2382,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: value)
         }
 
-        open func put_FormattedTextImpl(_ value: UWP.AnyITextRange?) throws {
+        open func put_FormattedText(_ value: UWP.AnyITextRange?) throws {
             let valueWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
@@ -2389,7 +2390,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func get_EndPositionImpl() throws -> Int32 {
+        open func get_EndPosition() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EndPosition(pThis, &value))
@@ -2397,13 +2398,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_EndPositionImpl(_ value: Int32) throws {
+        open func put_EndPosition(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EndPosition(pThis, value))
             }
         }
 
-        open func get_GravityImpl() throws -> UWP.RangeGravity {
+        open func get_Gravity() throws -> UWP.RangeGravity {
             var value: __x_ABI_CWindows_CUI_CText_CRangeGravity = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Gravity(pThis, &value))
@@ -2411,13 +2412,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_GravityImpl(_ value: UWP.RangeGravity) throws {
+        open func put_Gravity(_ value: UWP.RangeGravity) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Gravity(pThis, value))
             }
         }
 
-        open func get_LengthImpl() throws -> Int32 {
+        open func get_Length() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Length(pThis, &value))
@@ -2425,7 +2426,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func get_LinkImpl() throws -> String {
+        open func get_Link() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Link(pThis, &value))
@@ -2433,14 +2434,14 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        open func put_LinkImpl(_ value: String) throws {
+        open func put_Link(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Link(pThis, _value.get()))
             }
         }
 
-        open func get_ParagraphFormatImpl() throws -> UWP.AnyITextParagraphFormat? {
+        open func get_ParagraphFormat() throws -> UWP.AnyITextParagraphFormat? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ParagraphFormat(pThis, &valueAbi))
@@ -2449,7 +2450,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: value)
         }
 
-        open func put_ParagraphFormatImpl(_ value: UWP.AnyITextParagraphFormat?) throws {
+        open func put_ParagraphFormat(_ value: UWP.AnyITextParagraphFormat?) throws {
             let valueWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
@@ -2457,7 +2458,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func get_StartPositionImpl() throws -> Int32 {
+        open func get_StartPosition() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartPosition(pThis, &value))
@@ -2465,13 +2466,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_StartPositionImpl(_ value: Int32) throws {
+        open func put_StartPosition(_ value: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartPosition(pThis, value))
             }
         }
 
-        open func get_StoryLengthImpl() throws -> Int32 {
+        open func get_StoryLength() throws -> Int32 {
             var value: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StoryLength(pThis, &value))
@@ -2479,7 +2480,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func get_TextImpl() throws -> String {
+        open func get_Text() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
@@ -2487,14 +2488,14 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: value)
         }
 
-        open func put_TextImpl(_ value: String) throws {
+        open func put_Text(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Text(pThis, _value.get()))
             }
         }
 
-        open func CanPasteImpl(_ format: Int32) throws -> Bool {
+        open func CanPaste(_ format: Int32) throws -> Bool {
             var result: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.CanPaste(pThis, format, &result))
@@ -2502,31 +2503,31 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func ChangeCaseImpl(_ value: UWP.LetterCase) throws {
+        open func ChangeCase(_ value: UWP.LetterCase) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ChangeCase(pThis, value))
             }
         }
 
-        open func CollapseImpl(_ value: Bool) throws {
+        open func Collapse(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Collapse(pThis, .init(from: value)))
             }
         }
 
-        open func CopyImpl() throws {
+        open func Copy() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Copy(pThis))
             }
         }
 
-        open func CutImpl() throws {
+        open func Cut() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Cut(pThis))
             }
         }
 
-        open func DeleteImpl(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+        open func Delete(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Delete(pThis, unit, count, &result))
@@ -2534,7 +2535,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func EndOfImpl(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+        open func EndOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EndOf(pThis, unit, .init(from: extend), &result))
@@ -2542,7 +2543,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func ExpandImpl(_ unit: UWP.TextRangeUnit) throws -> Int32 {
+        open func Expand(_ unit: UWP.TextRangeUnit) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Expand(pThis, unit, &result))
@@ -2550,7 +2551,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func FindTextImpl(_ value: String, _ scanLength: Int32, _ options: UWP.FindOptions) throws -> Int32 {
+        open func FindText(_ value: String, _ scanLength: Int32, _ options: UWP.FindOptions) throws -> Int32 {
             var result: INT32 = 0
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
@@ -2559,13 +2560,13 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func GetCharacterUtf32Impl(_ value: inout UInt32, _ offset: Int32) throws {
+        open func GetCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCharacterUtf32(pThis, &value, offset))
             }
         }
 
-        open func GetCloneImpl() throws -> UWP.AnyITextRange? {
+        open func GetClone() throws -> UWP.AnyITextRange? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetClone(pThis, &resultAbi))
@@ -2574,7 +2575,7 @@ public enum __ABI_Windows_UI_Text {
             return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: result)
         }
 
-        open func GetIndexImpl(_ unit: UWP.TextRangeUnit) throws -> Int32 {
+        open func GetIndex(_ unit: UWP.TextRangeUnit) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetIndex(pThis, unit, &result))
@@ -2582,7 +2583,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func GetPointImpl(_ horizontalAlign: UWP.HorizontalCharacterAlignment, _ verticalAlign: UWP.VerticalCharacterAlignment, _ options: UWP.PointOptions, _ point: inout WindowsFoundation.Point) throws {
+        open func GetPoint(_ horizontalAlign: UWP.HorizontalCharacterAlignment, _ verticalAlign: UWP.VerticalCharacterAlignment, _ options: UWP.PointOptions, _ point: inout WindowsFoundation.Point) throws {
             var _point: __x_ABI_CWindows_CFoundation_CPoint = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetPoint(pThis, horizontalAlign, verticalAlign, options, &_point))
@@ -2590,7 +2591,7 @@ public enum __ABI_Windows_UI_Text {
             point = .from(abi: _point)
         }
 
-        open func GetRectImpl(_ options: UWP.PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws {
+        open func GetRect(_ options: UWP.PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws {
             var _rect: __x_ABI_CWindows_CFoundation_CRect = .init()
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetRect(pThis, options, &_rect, &hit))
@@ -2598,7 +2599,7 @@ public enum __ABI_Windows_UI_Text {
             rect = .from(abi: _rect)
         }
 
-        open func GetTextImpl(_ options: UWP.TextGetOptions, _ value: inout String) throws {
+        open func GetText(_ options: UWP.TextGetOptions, _ value: inout String) throws {
             var _value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetText(pThis, options, &_value))
@@ -2607,7 +2608,7 @@ public enum __ABI_Windows_UI_Text {
             WindowsDeleteString(_value)
         }
 
-        open func GetTextViaStreamImpl(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+        open func GetTextViaStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
             let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
@@ -2615,7 +2616,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func InRangeImpl(_ range: UWP.AnyITextRange?) throws -> Bool {
+        open func InRange(_ range: UWP.AnyITextRange?) throws -> Bool {
             var result: boolean = 0
             let rangeWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(range)
             let _range = try! rangeWrapper?.toABI { $0 }
@@ -2625,7 +2626,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func InsertImageImpl(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: UWP.VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream?) throws {
+        open func InsertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: UWP.VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream?) throws {
             let _alternateText = try! HString(alternateText)
             let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
@@ -2634,7 +2635,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func InStoryImpl(_ range: UWP.AnyITextRange?) throws -> Bool {
+        open func InStory(_ range: UWP.AnyITextRange?) throws -> Bool {
             var result: boolean = 0
             let rangeWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(range)
             let _range = try! rangeWrapper?.toABI { $0 }
@@ -2644,7 +2645,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func IsEqualImpl(_ range: UWP.AnyITextRange?) throws -> Bool {
+        open func IsEqual(_ range: UWP.AnyITextRange?) throws -> Bool {
             var result: boolean = 0
             let rangeWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(range)
             let _range = try! rangeWrapper?.toABI { $0 }
@@ -2654,7 +2655,7 @@ public enum __ABI_Windows_UI_Text {
             return .init(from: result)
         }
 
-        open func MoveImpl(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+        open func Move(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Move(pThis, unit, count, &result))
@@ -2662,7 +2663,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func MoveEndImpl(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+        open func MoveEnd(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MoveEnd(pThis, unit, count, &result))
@@ -2670,7 +2671,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func MoveStartImpl(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+        open func MoveStart(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MoveStart(pThis, unit, count, &result))
@@ -2678,50 +2679,50 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func PasteImpl(_ format: Int32) throws {
+        open func Paste(_ format: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Paste(pThis, format))
             }
         }
 
-        open func ScrollIntoViewImpl(_ value: UWP.PointOptions) throws {
+        open func ScrollIntoView(_ value: UWP.PointOptions) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ScrollIntoView(pThis, value))
             }
         }
 
-        open func MatchSelectionImpl() throws {
+        open func MatchSelection() throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MatchSelection(pThis))
             }
         }
 
-        open func SetIndexImpl(_ unit: UWP.TextRangeUnit, _ index: Int32, _ extend: Bool) throws {
+        open func SetIndex(_ unit: UWP.TextRangeUnit, _ index: Int32, _ extend: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetIndex(pThis, unit, index, .init(from: extend)))
             }
         }
 
-        open func SetPointImpl(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions, _ extend: Bool) throws {
+        open func SetPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions, _ extend: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetPoint(pThis, .from(swift: point), options, .init(from: extend)))
             }
         }
 
-        open func SetRangeImpl(_ startPosition: Int32, _ endPosition: Int32) throws {
+        open func SetRange(_ startPosition: Int32, _ endPosition: Int32) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetRange(pThis, startPosition, endPosition))
             }
         }
 
-        open func SetTextImpl(_ options: UWP.TextSetOptions, _ value: String) throws {
+        open func SetText(_ options: UWP.TextSetOptions, _ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.SetText(pThis, options, _value.get()))
             }
         }
 
-        open func SetTextViaStreamImpl(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+        open func SetTextViaStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
             let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
@@ -2729,7 +2730,7 @@ public enum __ABI_Windows_UI_Text {
             }
         }
 
-        open func StartOfImpl(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+        open func StartOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.StartOf(pThis, unit, .init(from: extend), &result))
@@ -2917,7 +2918,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.canPaste(format)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ChangeCase: {
@@ -2926,7 +2927,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.LetterCase = $1
                 try __unwrapped__instance.changeCase(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Collapse: {
@@ -2935,7 +2936,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: Bool = .init(from: $1)
                 try __unwrapped__instance.collapse(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Copy: {
@@ -2943,7 +2944,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.copy()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Cut: {
@@ -2951,7 +2952,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.cut()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Delete: {
@@ -2962,7 +2963,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.delete(unit, count)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         EndOf: {
@@ -2973,7 +2974,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.endOf(unit, extend)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Expand: {
@@ -2983,7 +2984,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.expand(unit)
                 $2?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         FindText: {
@@ -2995,7 +2996,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.findText(value, scanLength, options)
                 $4?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetCharacterUtf32: {
@@ -3006,7 +3007,7 @@ public enum __ABI_Windows_UI_Text {
                 try __unwrapped__instance.getCharacterUtf32(&value, offset)
                 $1?.initialize(to: value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetClone: {
@@ -3016,7 +3017,7 @@ public enum __ABI_Windows_UI_Text {
                 let resultWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetIndex: {
@@ -3026,7 +3027,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.getIndex(unit)
                 $2?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetPoint: {
@@ -3039,7 +3040,7 @@ public enum __ABI_Windows_UI_Text {
                 try __unwrapped__instance.getPoint(horizontalAlign, verticalAlign, options, &point)
                 $4?.initialize(to: .from(swift: point))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetRect: {
@@ -3052,7 +3053,7 @@ public enum __ABI_Windows_UI_Text {
                 $2?.initialize(to: .from(swift: rect))
                 $3?.initialize(to: hit)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetText: {
@@ -3063,7 +3064,7 @@ public enum __ABI_Windows_UI_Text {
                 try __unwrapped__instance.getText(options, &value)
                 $2?.initialize(to: try! HString(value).detach())
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetTextViaStream: {
@@ -3073,7 +3074,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
                 try __unwrapped__instance.getTextViaStream(options, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         InRange: {
@@ -3083,7 +3084,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.inRange(range)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         InsertImage: {
@@ -3097,7 +3098,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($6))
                 try __unwrapped__instance.insertImage(width, height, ascent, verticalAlign, alternateText, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         InStory: {
@@ -3107,7 +3108,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.inStory(range)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         IsEqual: {
@@ -3117,7 +3118,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.isEqual(range)
                 $2?.initialize(to: .init(from: result))
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Move: {
@@ -3128,7 +3129,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.move(unit, count)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         MoveEnd: {
@@ -3139,7 +3140,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.moveEnd(unit, count)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         MoveStart: {
@@ -3150,7 +3151,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.moveStart(unit, count)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         Paste: {
@@ -3159,7 +3160,7 @@ public enum __ABI_Windows_UI_Text {
                 let format: Int32 = $1
                 try __unwrapped__instance.paste(format)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         ScrollIntoView: {
@@ -3168,7 +3169,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.PointOptions = $1
                 try __unwrapped__instance.scrollIntoView(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         MatchSelection: {
@@ -3176,7 +3177,7 @@ public enum __ABI_Windows_UI_Text {
                 guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 try __unwrapped__instance.matchSelection()
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetIndex: {
@@ -3187,7 +3188,7 @@ public enum __ABI_Windows_UI_Text {
                 let extend: Bool = .init(from: $3)
                 try __unwrapped__instance.setIndex(unit, index, extend)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetPoint: {
@@ -3198,7 +3199,7 @@ public enum __ABI_Windows_UI_Text {
                 let extend: Bool = .init(from: $3)
                 try __unwrapped__instance.setPoint(point, options, extend)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetRange: {
@@ -3208,7 +3209,7 @@ public enum __ABI_Windows_UI_Text {
                 let endPosition: Int32 = $2
                 try __unwrapped__instance.setRange(startPosition, endPosition)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetText: {
@@ -3218,7 +3219,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: String = .init(from: $2)
                 try __unwrapped__instance.setText(options, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         SetTextViaStream: {
@@ -3228,7 +3229,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
                 try __unwrapped__instance.setTextViaStream(options, value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         StartOf: {
@@ -3239,7 +3240,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.startOf(unit, extend)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -3247,7 +3248,7 @@ public enum __ABI_Windows_UI_Text {
     public class ITextSelection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextSelection }
 
-        open func get_OptionsImpl() throws -> UWP.SelectionOptions {
+        open func get_Options() throws -> UWP.SelectionOptions {
             var value: __x_ABI_CWindows_CUI_CText_CSelectionOptions = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Options(pThis, &value))
@@ -3255,13 +3256,13 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func put_OptionsImpl(_ value: UWP.SelectionOptions) throws {
+        open func put_Options(_ value: UWP.SelectionOptions) throws {
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Options(pThis, value))
             }
         }
 
-        open func get_TypeImpl() throws -> UWP.SelectionType {
+        open func get_Type() throws -> UWP.SelectionType {
             var value: __x_ABI_CWindows_CUI_CText_CSelectionType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -3269,7 +3270,7 @@ public enum __ABI_Windows_UI_Text {
             return value
         }
 
-        open func EndKeyImpl(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+        open func EndKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EndKey(pThis, unit, .init(from: extend), &result))
@@ -3277,7 +3278,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func HomeKeyImpl(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+        open func HomeKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.HomeKey(pThis, unit, .init(from: extend), &result))
@@ -3285,7 +3286,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func MoveDownImpl(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+        open func MoveDown(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MoveDown(pThis, unit, count, .init(from: extend), &result))
@@ -3293,7 +3294,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func MoveLeftImpl(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+        open func MoveLeft(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MoveLeft(pThis, unit, count, .init(from: extend), &result))
@@ -3301,7 +3302,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func MoveRightImpl(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+        open func MoveRight(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MoveRight(pThis, unit, count, .init(from: extend), &result))
@@ -3309,7 +3310,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func MoveUpImpl(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+        open func MoveUp(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
             var result: INT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MoveUp(pThis, unit, count, .init(from: extend), &result))
@@ -3317,7 +3318,7 @@ public enum __ABI_Windows_UI_Text {
             return result
         }
 
-        open func TypeTextImpl(_ value: String) throws {
+        open func TypeText(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TypeText(pThis, _value.get()))
@@ -3384,7 +3385,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.endKey(unit, extend)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         HomeKey: {
@@ -3395,7 +3396,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.homeKey(unit, extend)
                 $3?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         MoveDown: {
@@ -3407,7 +3408,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.moveDown(unit, count, extend)
                 $4?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         MoveLeft: {
@@ -3419,7 +3420,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.moveLeft(unit, count, extend)
                 $4?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         MoveRight: {
@@ -3431,7 +3432,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.moveRight(unit, count, extend)
                 $4?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         MoveUp: {
@@ -3443,7 +3444,7 @@ public enum __ABI_Windows_UI_Text {
                 let result = try __unwrapped__instance.moveUp(unit, count, extend)
                 $4?.initialize(to: result)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         TypeText: {
@@ -3452,7 +3453,7 @@ public enum __ABI_Windows_UI_Text {
                 let value: String = .init(from: $1)
                 try __unwrapped__instance.typeText(value)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 

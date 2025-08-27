@@ -44,11 +44,12 @@ private var IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInfor
     .init(Data1: 0xF8BB9A12, Data2: 0xF713, Data3: 0x4792, Data4: ( 0x8B,0x68,0xD9,0xD2,0x97,0xF9,0x1D,0x2E ))// F8BB9A12-F713-4792-8B68-D9D297F91D2E
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IBackgroundTransferGroup: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -56,7 +57,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .init(from: value)
         }
 
-        internal func get_TransferBehaviorImpl() throws -> UWP.BackgroundTransferBehavior {
+        public func get_TransferBehavior() throws -> UWP.BackgroundTransferBehavior {
             var value: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferBehavior = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransferBehavior(pThis, &value))
@@ -64,7 +65,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return value
         }
 
-        internal func put_TransferBehaviorImpl(_ value: UWP.BackgroundTransferBehavior) throws {
+        public func put_TransferBehavior(_ value: UWP.BackgroundTransferBehavior) throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_TransferBehavior(pThis, value))
             }
@@ -75,14 +76,14 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IBackgroundTransferGroupStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroupStatics }
 
-        internal func CreateGroupImpl(_ name: String) throws -> UWP.BackgroundTransferGroup? {
+        public func CreateGroup(_ name: String) throws -> UWP.BackgroundTransferGroup? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _name = try! HString(name)
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroupStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateGroup(pThis, _name.get(), &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_BackgroundTransfer.BackgroundTransferGroupBridge.from(abi: value)
         }
 
     }
@@ -90,7 +91,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IBackgroundTransferOperation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation }
 
-        open func get_GuidImpl() throws -> Foundation.UUID {
+        open func get_Guid() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Guid(pThis, &value))
@@ -98,16 +99,16 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .init(from: value)
         }
 
-        open func get_RequestedUriImpl() throws -> WindowsFoundation.Uri? {
+        open func get_RequestedUri() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedUri(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        open func get_MethodImpl() throws -> String {
+        open func get_Method() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Method(pThis, &value))
@@ -115,7 +116,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .init(from: value)
         }
 
-        open func get_GroupImpl() throws -> String {
+        open func get_Group() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Group(pThis, &value))
@@ -123,7 +124,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .init(from: value)
         }
 
-        open func get_CostPolicyImpl() throws -> UWP.BackgroundTransferCostPolicy {
+        open func get_CostPolicy() throws -> UWP.BackgroundTransferCostPolicy {
             var value: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferCostPolicy = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CostPolicy(pThis, &value))
@@ -131,13 +132,13 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return value
         }
 
-        open func put_CostPolicyImpl(_ value: UWP.BackgroundTransferCostPolicy) throws {
+        open func put_CostPolicy(_ value: UWP.BackgroundTransferCostPolicy) throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CostPolicy(pThis, value))
             }
         }
 
-        open func GetResultStreamAtImpl(_ position: UInt64) throws -> UWP.AnyIInputStream? {
+        open func GetResultStreamAt(_ position: UInt64) throws -> UWP.AnyIInputStream? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetResultStreamAt(pThis, position, &valueAbi))
@@ -146,13 +147,13 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return __ABI_Windows_Storage_Streams.IInputStreamWrapper.unwrapFrom(abi: value)
         }
 
-        open func GetResponseInformationImpl() throws -> UWP.ResponseInformation? {
+        open func GetResponseInformation() throws -> UWP.ResponseInformation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetResponseInformation(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_BackgroundTransfer.ResponseInformationBridge.from(abi: value)
         }
 
     }
@@ -235,7 +236,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
                 let valueWrapper = __ABI_Windows_Storage_Streams.IInputStreamWrapper(value)
                 valueWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         },
 
         GetResponseInformation: {
@@ -244,7 +245,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
                 let value = try __unwrapped__instance.getResponseInformation()
                 value?.copyTo($1)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 
@@ -252,7 +253,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IBackgroundTransferOperationPriority: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationPriority }
 
-        open func get_PriorityImpl() throws -> UWP.BackgroundTransferPriority {
+        open func get_Priority() throws -> UWP.BackgroundTransferPriority {
             var value: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferPriority = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationPriority.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Priority(pThis, &value))
@@ -260,7 +261,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return value
         }
 
-        open func put_PriorityImpl(_ value: UWP.BackgroundTransferPriority) throws {
+        open func put_Priority(_ value: UWP.BackgroundTransferPriority) throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationPriority.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Priority(pThis, value))
             }
@@ -315,7 +316,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IBackgroundTransferRangesDownloadedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs }
 
-        internal func get_WasDownloadRestartedImpl() throws -> Bool {
+        public func get_WasDownloadRestarted() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WasDownloadRestarted(pThis, &value))
@@ -323,7 +324,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .init(from: value)
         }
 
-        internal func get_AddedRangesImpl() throws -> WindowsFoundation.AnyIVector<UWP.BackgroundTransferFileRange>? {
+        public func get_AddedRanges() throws -> WindowsFoundation.AnyIVector<UWP.BackgroundTransferFileRange>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AddedRanges(pThis, &valueAbi))
@@ -332,13 +333,13 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CBackgroundTransferFileRangeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetDeferralImpl() throws -> WindowsFoundation.Deferral? {
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: result)
         }
 
     }
@@ -346,7 +347,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IDownloadOperation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation }
 
-        internal func get_ResultFileImpl() throws -> UWP.AnyIStorageFile? {
+        public func get_ResultFile() throws -> UWP.AnyIStorageFile? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResultFile(pThis, &valueAbi))
@@ -355,7 +356,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return __ABI_Windows_Storage.IStorageFileWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ProgressImpl() throws -> UWP.BackgroundDownloadProgress {
+        public func get_Progress() throws -> UWP.BackgroundDownloadProgress {
             var value: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundDownloadProgress = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Progress(pThis, &value))
@@ -363,7 +364,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .from(abi: value)
         }
 
-        internal func StartAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DownloadOperation?, UWP.DownloadOperation?>? {
+        public func StartAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DownloadOperation?, UWP.DownloadOperation?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.StartAsync(pThis, &operationAbi))
@@ -372,7 +373,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CDownloadOperation___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CDownloadOperationWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func AttachAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DownloadOperation?, UWP.DownloadOperation?>? {
+        public func AttachAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DownloadOperation?, UWP.DownloadOperation?>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.AttachAsync(pThis, &operationAbi))
@@ -381,13 +382,13 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CDownloadOperation___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CDownloadOperationWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func PauseImpl() throws {
+        public func Pause() throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Pause(pThis))
             }
         }
 
-        internal func ResumeImpl() throws {
+        public func Resume() throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Resume(pThis))
             }
@@ -398,13 +399,13 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IDownloadOperation2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation2 }
 
-        internal func get_TransferGroupImpl() throws -> UWP.BackgroundTransferGroup? {
+        public func get_TransferGroup() throws -> UWP.BackgroundTransferGroup? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransferGroup(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_BackgroundTransfer.BackgroundTransferGroupBridge.from(abi: value)
         }
 
     }
@@ -412,7 +413,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IDownloadOperation3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3 }
 
-        internal func get_IsRandomAccessRequiredImpl() throws -> Bool {
+        public func get_IsRandomAccessRequired() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRandomAccessRequired(pThis, &value))
@@ -420,13 +421,13 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .init(from: value)
         }
 
-        internal func put_IsRandomAccessRequiredImpl(_ value: Bool) throws {
+        public func put_IsRandomAccessRequired(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsRandomAccessRequired(pThis, .init(from: value)))
             }
         }
 
-        internal func GetResultRandomAccessStreamReferenceImpl() throws -> UWP.AnyIRandomAccessStreamReference? {
+        public func GetResultRandomAccessStreamReference() throws -> UWP.AnyIRandomAccessStreamReference? {
             let (stream) = try ComPtrs.initialize { streamAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetResultRandomAccessStreamReference(pThis, &streamAbi))
@@ -435,7 +436,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: stream)
         }
 
-        internal func GetDownloadedRangesImpl() throws -> WindowsFoundation.AnyIVector<UWP.BackgroundTransferFileRange>? {
+        public func GetDownloadedRanges() throws -> WindowsFoundation.AnyIVector<UWP.BackgroundTransferFileRange>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDownloadedRanges(pThis, &valueAbi))
@@ -444,7 +445,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CBackgroundTransferFileRangeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func add_RangesDownloadedImpl(_ eventHandler: TypedEventHandler<UWP.DownloadOperation?, UWP.BackgroundTransferRangesDownloadedEventArgs?>?) throws -> EventRegistrationToken {
+        public func add_RangesDownloaded(_ eventHandler: TypedEventHandler<UWP.DownloadOperation?, UWP.BackgroundTransferRangesDownloadedEventArgs?>?) throws -> EventRegistrationToken {
             var eventCookie: EventRegistrationToken = .init()
             let eventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CDownloadOperation___x_ABI_CWindows__CNetworking__CBackgroundTransfer__CBackgroundTransferRangesDownloadedEventArgsWrapper(eventHandler)
             let _eventHandler = try! eventHandlerWrapper?.toABI { $0 }
@@ -454,19 +455,19 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return eventCookie
         }
 
-        internal func remove_RangesDownloadedImpl(_ eventCookie: EventRegistrationToken) throws {
+        public func remove_RangesDownloaded(_ eventCookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RangesDownloaded(pThis, eventCookie))
             }
         }
 
-        internal func put_RequestedUriImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_RequestedUri(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RequestedUri(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_RecoverableWebErrorStatusesImpl() throws -> WindowsFoundation.AnyIVector<UWP.WebErrorStatus>? {
+        public func get_RecoverableWebErrorStatuses() throws -> WindowsFoundation.AnyIVector<UWP.WebErrorStatus>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RecoverableWebErrorStatuses(pThis, &valueAbi))
@@ -475,7 +476,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CWeb__CWebErrorStatusWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_CurrentWebErrorStatusImpl() throws -> UWP.WebErrorStatus? {
+        public func get_CurrentWebErrorStatus() throws -> UWP.WebErrorStatus? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentWebErrorStatus(pThis, &valueAbi))
@@ -489,7 +490,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IDownloadOperation4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation4 }
 
-        internal func MakeCurrentInTransferGroupImpl() throws {
+        public func MakeCurrentInTransferGroup() throws {
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation4.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.MakeCurrentInTransferGroup(pThis))
             }
@@ -500,7 +501,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
     public class IResponseInformation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation }
 
-        internal func get_IsResumableImpl() throws -> Bool {
+        public func get_IsResumable() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsResumable(pThis, &value))
@@ -508,16 +509,16 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return .init(from: value)
         }
 
-        internal func get_ActualUriImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ActualUri() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActualUri(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func get_StatusCodeImpl() throws -> UInt32 {
+        public func get_StatusCode() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StatusCode(pThis, &value))
@@ -525,7 +526,7 @@ public enum __ABI_Windows_Networking_BackgroundTransfer {
             return value
         }
 
-        internal func get_HeadersImpl() throws -> WindowsFoundation.AnyIMapView<String, String>? {
+        public func get_Headers() throws -> WindowsFoundation.AnyIMapView<String, String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Headers(pThis, &valueAbi))

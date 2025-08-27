@@ -36,12 +36,6 @@ public final class AudioBuffer : WinRTClass, WindowsFoundation.IClosable, Window
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIAudioBuffer>?) -> AudioBuffer? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -52,24 +46,24 @@ public final class AudioBuffer : WinRTClass, WindowsFoundation.IClosable, Window
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audiobuffer.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IMemoryBuffer: __ABI_Windows_Foundation.IMemoryBuffer! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audiobuffer.createreference)
     public func createReference() throws -> WindowsFoundation.AnyIMemoryBufferReference! {
-        try _IMemoryBuffer.CreateReferenceImpl()
+        try _IMemoryBuffer.CreateReference()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audiobuffer.capacity)
     public var capacity : UInt32 {
-        get { try! _default.get_CapacityImpl() }
+        get { try! _default.get_Capacity() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audiobuffer.length)
     public var length : UInt32 {
-        get { try! _default.get_LengthImpl() }
-        set { try! _default.put_LengthImpl(newValue) }
+        get { try! _default.get_Length() }
+        set { try! _default.put_Length(newValue) }
     }
 
     deinit {
@@ -93,12 +87,6 @@ public final class AudioFrame : WinRTClass, WindowsFoundation.IClosable, IMediaF
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIAudioFrame>?) -> AudioFrame? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -106,60 +94,60 @@ public final class AudioFrame : WinRTClass, WindowsFoundation.IClosable, IMediaF
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IAudioFrameFactory: __ABI_Windows_Media.IAudioFrameFactory = try! RoGetActivationFactory(HString("Windows.Media.AudioFrame"))
+    private static let _IAudioFrameFactory: __ABI_Windows_Media.IAudioFrameFactory = try! RoGetActivationFactory("Windows.Media.AudioFrame")
     public init(_ capacity: UInt32) {
-        super.init(try! Self._IAudioFrameFactory.CreateImpl(capacity))
+        super.init(try! Self._IAudioFrameFactory.Create(capacity))
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IMediaFrame: __ABI_Windows_Media.IMediaFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.duration)
     public var duration : WindowsFoundation.TimeSpan? {
-        get { try! _IMediaFrame.get_DurationImpl() }
-        set { try! _IMediaFrame.put_DurationImpl(newValue) }
+        get { try! _IMediaFrame.get_Duration() }
+        set { try! _IMediaFrame.put_Duration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.extendedproperties)
     public var extendedProperties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _IMediaFrame.get_ExtendedPropertiesImpl() }
+        get { try! _IMediaFrame.get_ExtendedProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.isdiscontinuous)
     public var isDiscontinuous : Bool {
-        get { try! _IMediaFrame.get_IsDiscontinuousImpl() }
-        set { try! _IMediaFrame.put_IsDiscontinuousImpl(newValue) }
+        get { try! _IMediaFrame.get_IsDiscontinuous() }
+        set { try! _IMediaFrame.put_IsDiscontinuous(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.isreadonly)
     public var isReadOnly : Bool {
-        get { try! _IMediaFrame.get_IsReadOnlyImpl() }
+        get { try! _IMediaFrame.get_IsReadOnly() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.relativetime)
     public var relativeTime : WindowsFoundation.TimeSpan? {
-        get { try! _IMediaFrame.get_RelativeTimeImpl() }
-        set { try! _IMediaFrame.put_RelativeTimeImpl(newValue) }
+        get { try! _IMediaFrame.get_RelativeTime() }
+        set { try! _IMediaFrame.put_RelativeTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.systemrelativetime)
     public var systemRelativeTime : WindowsFoundation.TimeSpan? {
-        get { try! _IMediaFrame.get_SystemRelativeTimeImpl() }
-        set { try! _IMediaFrame.put_SystemRelativeTimeImpl(newValue) }
+        get { try! _IMediaFrame.get_SystemRelativeTime() }
+        set { try! _IMediaFrame.put_SystemRelativeTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.type)
     public var type : String {
-        get { try! _IMediaFrame.get_TypeImpl() }
+        get { try! _IMediaFrame.get_Type() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe.lockbuffer)
     public func lockBuffer(_ mode: AudioBufferAccessMode) throws -> AudioBuffer! {
-        try _default.LockBufferImpl(mode)
+        try _default.LockBuffer(mode)
     }
 
     deinit {
@@ -183,19 +171,13 @@ public final class AutoRepeatModeChangeRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs>?) -> AutoRepeatModeChangeRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.autorepeatmodechangerequestedeventargs.requestedautorepeatmode)
     public var requestedAutoRepeatMode : MediaPlaybackAutoRepeatMode {
-        get { try! _default.get_RequestedAutoRepeatModeImpl() }
+        get { try! _default.get_RequestedAutoRepeatMode() }
     }
 
     deinit {
@@ -217,26 +199,20 @@ public final class ImageDisplayProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIImageDisplayProperties>?) -> ImageDisplayProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imagedisplayproperties.subtitle)
     public var subtitle : String {
-        get { try! _default.get_SubtitleImpl() }
-        set { try! _default.put_SubtitleImpl(newValue) }
+        get { try! _default.get_Subtitle() }
+        set { try! _default.put_Subtitle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imagedisplayproperties.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     deinit {
@@ -258,50 +234,45 @@ public final class MediaTimelineController : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIMediaTimelineController>?) -> MediaTimelineController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.MediaTimelineController")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.MediaTimelineController")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.start)
     public func start() throws {
-        try _default.StartImpl()
+        try _default.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.resume)
     public func resume() throws {
-        try _default.ResumeImpl()
+        try _default.Resume()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.pause)
     public func pause() throws {
-        try _default.PauseImpl()
+        try _default.Pause()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.clockrate)
     public var clockRate : Double {
-        get { try! _default.get_ClockRateImpl() }
-        set { try! _default.put_ClockRateImpl(newValue) }
+        get { try! _default.get_ClockRate() }
+        set { try! _default.put_ClockRate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.position)
     public var position : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PositionImpl() }
-        set { try! _default.put_PositionImpl(newValue) }
+        get { try! _default.get_Position() }
+        set { try! _default.put_Position(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.state)
     public var state : MediaTimelineControllerState {
-        get { try! _default.get_StateImpl() }
+        get { try! _default.get_State() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.positionchanged)
@@ -309,10 +280,10 @@ public final class MediaTimelineController : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PositionChangedImpl($0)
+          return try! this.add_PositionChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PositionChangedImpl($0)
+         try? self?._default.remove_PositionChanged($0)
        }
       )
     }()
@@ -322,10 +293,10 @@ public final class MediaTimelineController : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_StateChangedImpl($0)
+          return try! this.add_StateChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_StateChangedImpl($0)
+         try? self?._default.remove_StateChanged($0)
        }
       )
     }()
@@ -333,14 +304,14 @@ public final class MediaTimelineController : WinRTClass {
     private lazy var _IMediaTimelineController2: __ABI_Windows_Media.IMediaTimelineController2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.duration)
     public var duration : WindowsFoundation.TimeSpan? {
-        get { try! _IMediaTimelineController2.get_DurationImpl() }
-        set { try! _IMediaTimelineController2.put_DurationImpl(newValue) }
+        get { try! _IMediaTimelineController2.get_Duration() }
+        set { try! _IMediaTimelineController2.put_Duration(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.isloopingenabled)
     public var isLoopingEnabled : Bool {
-        get { try! _IMediaTimelineController2.get_IsLoopingEnabledImpl() }
-        set { try! _IMediaTimelineController2.put_IsLoopingEnabledImpl(newValue) }
+        get { try! _IMediaTimelineController2.get_IsLoopingEnabled() }
+        set { try! _IMediaTimelineController2.put_IsLoopingEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller.ended)
@@ -348,10 +319,10 @@ public final class MediaTimelineController : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IMediaTimelineController2 else { return .init() }
-          return try! this.add_EndedImpl($0)
+          return try! this.add_Ended($0)
         },
         remove: { [weak self] in
-         try? self?._IMediaTimelineController2.remove_EndedImpl($0)
+         try? self?._IMediaTimelineController2.remove_Ended($0)
        }
       )
     }()
@@ -361,10 +332,10 @@ public final class MediaTimelineController : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._IMediaTimelineController2 else { return .init() }
-          return try! this.add_FailedImpl($0)
+          return try! this.add_Failed($0)
         },
         remove: { [weak self] in
-         try? self?._IMediaTimelineController2.remove_FailedImpl($0)
+         try? self?._IMediaTimelineController2.remove_Failed($0)
        }
       )
     }()
@@ -389,19 +360,13 @@ public final class MediaTimelineControllerFailedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs>?) -> MediaTimelineControllerFailedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontrollerfailedeventargs.extendederror)
     public var extendedError : HRESULT {
-        get { try! _default.get_ExtendedErrorImpl() }
+        get { try! _default.get_ExtendedError() }
     }
 
     deinit {
@@ -423,57 +388,51 @@ public final class MusicDisplayProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIMusicDisplayProperties>?) -> MusicDisplayProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties.albumartist)
     public var albumArtist : String {
-        get { try! _default.get_AlbumArtistImpl() }
-        set { try! _default.put_AlbumArtistImpl(newValue) }
+        get { try! _default.get_AlbumArtist() }
+        set { try! _default.put_AlbumArtist(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties.artist)
     public var artist : String {
-        get { try! _default.get_ArtistImpl() }
-        set { try! _default.put_ArtistImpl(newValue) }
+        get { try! _default.get_Artist() }
+        set { try! _default.put_Artist(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     private lazy var _IMusicDisplayProperties2: __ABI_Windows_Media.IMusicDisplayProperties2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties.albumtitle)
     public var albumTitle : String {
-        get { try! _IMusicDisplayProperties2.get_AlbumTitleImpl() }
-        set { try! _IMusicDisplayProperties2.put_AlbumTitleImpl(newValue) }
+        get { try! _IMusicDisplayProperties2.get_AlbumTitle() }
+        set { try! _IMusicDisplayProperties2.put_AlbumTitle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties.genres)
     public var genres : WindowsFoundation.AnyIVector<String>! {
-        get { try! _IMusicDisplayProperties2.get_GenresImpl() }
+        get { try! _IMusicDisplayProperties2.get_Genres() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties.tracknumber)
     public var trackNumber : UInt32 {
-        get { try! _IMusicDisplayProperties2.get_TrackNumberImpl() }
-        set { try! _IMusicDisplayProperties2.put_TrackNumberImpl(newValue) }
+        get { try! _IMusicDisplayProperties2.get_TrackNumber() }
+        set { try! _IMusicDisplayProperties2.put_TrackNumber(newValue) }
     }
 
     private lazy var _IMusicDisplayProperties3: __ABI_Windows_Media.IMusicDisplayProperties3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties.albumtrackcount)
     public var albumTrackCount : UInt32 {
-        get { try! _IMusicDisplayProperties3.get_AlbumTrackCountImpl() }
-        set { try! _IMusicDisplayProperties3.put_AlbumTrackCountImpl(newValue) }
+        get { try! _IMusicDisplayProperties3.get_AlbumTrackCount() }
+        set { try! _IMusicDisplayProperties3.put_AlbumTrackCount(newValue) }
     }
 
     deinit {
@@ -497,19 +456,13 @@ public final class PlaybackPositionChangeRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs>?) -> PlaybackPositionChangeRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playbackpositionchangerequestedeventargs.requestedplaybackposition)
     public var requestedPlaybackPosition : WindowsFoundation.TimeSpan {
-        get { try! _default.get_RequestedPlaybackPositionImpl() }
+        get { try! _default.get_RequestedPlaybackPosition() }
     }
 
     deinit {
@@ -531,19 +484,13 @@ public final class PlaybackRateChangeRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs>?) -> PlaybackRateChangeRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playbackratechangerequestedeventargs.requestedplaybackrate)
     public var requestedPlaybackRate : Double {
-        get { try! _default.get_RequestedPlaybackRateImpl() }
+        get { try! _default.get_RequestedPlaybackRate() }
     }
 
     deinit {
@@ -565,19 +512,13 @@ public final class ShuffleEnabledChangeRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs>?) -> ShuffleEnabledChangeRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.shuffleenabledchangerequestedeventargs.requestedshuffleenabled)
     public var requestedShuffleEnabled : Bool {
-        get { try! _default.get_RequestedShuffleEnabledImpl() }
+        get { try! _default.get_RequestedShuffleEnabled() }
     }
 
     deinit {
@@ -599,102 +540,96 @@ public final class SystemMediaTransportControls : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControls>?) -> SystemMediaTransportControls? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ISystemMediaTransportControlsStatics: __ABI_Windows_Media.ISystemMediaTransportControlsStatics = try! RoGetActivationFactory(HString("Windows.Media.SystemMediaTransportControls"))
+    private static let _ISystemMediaTransportControlsStatics: __ABI_Windows_Media.ISystemMediaTransportControlsStatics = try! RoGetActivationFactory("Windows.Media.SystemMediaTransportControls")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.getforcurrentview)
-    public static func getForCurrentView() -> SystemMediaTransportControls! {
-        return try! _ISystemMediaTransportControlsStatics.GetForCurrentViewImpl()
+    public static func getForCurrentView() throws -> SystemMediaTransportControls! {
+        return try _ISystemMediaTransportControlsStatics.GetForCurrentView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.displayupdater)
     public var displayUpdater : SystemMediaTransportControlsDisplayUpdater! {
-        get { try! _default.get_DisplayUpdaterImpl() }
+        get { try! _default.get_DisplayUpdater() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.ischanneldownenabled)
     public var isChannelDownEnabled : Bool {
-        get { try! _default.get_IsChannelDownEnabledImpl() }
-        set { try! _default.put_IsChannelDownEnabledImpl(newValue) }
+        get { try! _default.get_IsChannelDownEnabled() }
+        set { try! _default.put_IsChannelDownEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.ischannelupenabled)
     public var isChannelUpEnabled : Bool {
-        get { try! _default.get_IsChannelUpEnabledImpl() }
-        set { try! _default.put_IsChannelUpEnabledImpl(newValue) }
+        get { try! _default.get_IsChannelUpEnabled() }
+        set { try! _default.put_IsChannelUpEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.isenabled)
     public var isEnabled : Bool {
-        get { try! _default.get_IsEnabledImpl() }
-        set { try! _default.put_IsEnabledImpl(newValue) }
+        get { try! _default.get_IsEnabled() }
+        set { try! _default.put_IsEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.isfastforwardenabled)
     public var isFastForwardEnabled : Bool {
-        get { try! _default.get_IsFastForwardEnabledImpl() }
-        set { try! _default.put_IsFastForwardEnabledImpl(newValue) }
+        get { try! _default.get_IsFastForwardEnabled() }
+        set { try! _default.put_IsFastForwardEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.isnextenabled)
     public var isNextEnabled : Bool {
-        get { try! _default.get_IsNextEnabledImpl() }
-        set { try! _default.put_IsNextEnabledImpl(newValue) }
+        get { try! _default.get_IsNextEnabled() }
+        set { try! _default.put_IsNextEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.ispauseenabled)
     public var isPauseEnabled : Bool {
-        get { try! _default.get_IsPauseEnabledImpl() }
-        set { try! _default.put_IsPauseEnabledImpl(newValue) }
+        get { try! _default.get_IsPauseEnabled() }
+        set { try! _default.put_IsPauseEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.isplayenabled)
     public var isPlayEnabled : Bool {
-        get { try! _default.get_IsPlayEnabledImpl() }
-        set { try! _default.put_IsPlayEnabledImpl(newValue) }
+        get { try! _default.get_IsPlayEnabled() }
+        set { try! _default.put_IsPlayEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.ispreviousenabled)
     public var isPreviousEnabled : Bool {
-        get { try! _default.get_IsPreviousEnabledImpl() }
-        set { try! _default.put_IsPreviousEnabledImpl(newValue) }
+        get { try! _default.get_IsPreviousEnabled() }
+        set { try! _default.put_IsPreviousEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.isrecordenabled)
     public var isRecordEnabled : Bool {
-        get { try! _default.get_IsRecordEnabledImpl() }
-        set { try! _default.put_IsRecordEnabledImpl(newValue) }
+        get { try! _default.get_IsRecordEnabled() }
+        set { try! _default.put_IsRecordEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.isrewindenabled)
     public var isRewindEnabled : Bool {
-        get { try! _default.get_IsRewindEnabledImpl() }
-        set { try! _default.put_IsRewindEnabledImpl(newValue) }
+        get { try! _default.get_IsRewindEnabled() }
+        set { try! _default.put_IsRewindEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.isstopenabled)
     public var isStopEnabled : Bool {
-        get { try! _default.get_IsStopEnabledImpl() }
-        set { try! _default.put_IsStopEnabledImpl(newValue) }
+        get { try! _default.get_IsStopEnabled() }
+        set { try! _default.put_IsStopEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.playbackstatus)
     public var playbackStatus : MediaPlaybackStatus {
-        get { try! _default.get_PlaybackStatusImpl() }
-        set { try! _default.put_PlaybackStatusImpl(newValue) }
+        get { try! _default.get_PlaybackStatus() }
+        set { try! _default.put_PlaybackStatus(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.soundlevel)
     public var soundLevel : SoundLevel {
-        get { try! _default.get_SoundLevelImpl() }
+        get { try! _default.get_SoundLevel() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.buttonpressed)
@@ -702,10 +637,10 @@ public final class SystemMediaTransportControls : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ButtonPressedImpl($0)
+          return try! this.add_ButtonPressed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ButtonPressedImpl($0)
+         try? self?._default.remove_ButtonPressed($0)
        }
       )
     }()
@@ -715,10 +650,10 @@ public final class SystemMediaTransportControls : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PropertyChangedImpl($0)
+          return try! this.add_PropertyChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PropertyChangedImpl($0)
+         try? self?._default.remove_PropertyChanged($0)
        }
       )
     }()
@@ -726,25 +661,25 @@ public final class SystemMediaTransportControls : WinRTClass {
     private lazy var _ISystemMediaTransportControls2: __ABI_Windows_Media.ISystemMediaTransportControls2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.updatetimelineproperties)
     public func updateTimelineProperties(_ timelineProperties: SystemMediaTransportControlsTimelineProperties!) throws {
-        try _ISystemMediaTransportControls2.UpdateTimelinePropertiesImpl(timelineProperties)
+        try _ISystemMediaTransportControls2.UpdateTimelineProperties(timelineProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.autorepeatmode)
     public var autoRepeatMode : MediaPlaybackAutoRepeatMode {
-        get { try! _ISystemMediaTransportControls2.get_AutoRepeatModeImpl() }
-        set { try! _ISystemMediaTransportControls2.put_AutoRepeatModeImpl(newValue) }
+        get { try! _ISystemMediaTransportControls2.get_AutoRepeatMode() }
+        set { try! _ISystemMediaTransportControls2.put_AutoRepeatMode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.playbackrate)
     public var playbackRate : Double {
-        get { try! _ISystemMediaTransportControls2.get_PlaybackRateImpl() }
-        set { try! _ISystemMediaTransportControls2.put_PlaybackRateImpl(newValue) }
+        get { try! _ISystemMediaTransportControls2.get_PlaybackRate() }
+        set { try! _ISystemMediaTransportControls2.put_PlaybackRate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.shuffleenabled)
     public var shuffleEnabled : Bool {
-        get { try! _ISystemMediaTransportControls2.get_ShuffleEnabledImpl() }
-        set { try! _ISystemMediaTransportControls2.put_ShuffleEnabledImpl(newValue) }
+        get { try! _ISystemMediaTransportControls2.get_ShuffleEnabled() }
+        set { try! _ISystemMediaTransportControls2.put_ShuffleEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols.autorepeatmodechangerequested)
@@ -752,10 +687,10 @@ public final class SystemMediaTransportControls : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._ISystemMediaTransportControls2 else { return .init() }
-          return try! this.add_AutoRepeatModeChangeRequestedImpl($0)
+          return try! this.add_AutoRepeatModeChangeRequested($0)
         },
         remove: { [weak self] in
-         try? self?._ISystemMediaTransportControls2.remove_AutoRepeatModeChangeRequestedImpl($0)
+         try? self?._ISystemMediaTransportControls2.remove_AutoRepeatModeChangeRequested($0)
        }
       )
     }()
@@ -765,10 +700,10 @@ public final class SystemMediaTransportControls : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._ISystemMediaTransportControls2 else { return .init() }
-          return try! this.add_PlaybackPositionChangeRequestedImpl($0)
+          return try! this.add_PlaybackPositionChangeRequested($0)
         },
         remove: { [weak self] in
-         try? self?._ISystemMediaTransportControls2.remove_PlaybackPositionChangeRequestedImpl($0)
+         try? self?._ISystemMediaTransportControls2.remove_PlaybackPositionChangeRequested($0)
        }
       )
     }()
@@ -778,10 +713,10 @@ public final class SystemMediaTransportControls : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._ISystemMediaTransportControls2 else { return .init() }
-          return try! this.add_PlaybackRateChangeRequestedImpl($0)
+          return try! this.add_PlaybackRateChangeRequested($0)
         },
         remove: { [weak self] in
-         try? self?._ISystemMediaTransportControls2.remove_PlaybackRateChangeRequestedImpl($0)
+         try? self?._ISystemMediaTransportControls2.remove_PlaybackRateChangeRequested($0)
        }
       )
     }()
@@ -791,10 +726,10 @@ public final class SystemMediaTransportControls : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._ISystemMediaTransportControls2 else { return .init() }
-          return try! this.add_ShuffleEnabledChangeRequestedImpl($0)
+          return try! this.add_ShuffleEnabledChangeRequested($0)
         },
         remove: { [weak self] in
-         try? self?._ISystemMediaTransportControls2.remove_ShuffleEnabledChangeRequestedImpl($0)
+         try? self?._ISystemMediaTransportControls2.remove_ShuffleEnabledChangeRequested($0)
        }
       )
     }()
@@ -819,19 +754,13 @@ public final class SystemMediaTransportControlsButtonPressedEventArgs : WinRTCla
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs>?) -> SystemMediaTransportControlsButtonPressedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsbuttonpressedeventargs.button)
     public var button : SystemMediaTransportControlsButton {
-        get { try! _default.get_ButtonImpl() }
+        get { try! _default.get_Button() }
     }
 
     deinit {
@@ -853,62 +782,56 @@ public final class SystemMediaTransportControlsDisplayUpdater : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater>?) -> SystemMediaTransportControlsDisplayUpdater? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.copyfromfileasync)
     public func copyFromFileAsync(_ type: MediaPlaybackType, _ source: UWP.StorageFile!) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>! {
-        try _default.CopyFromFileAsyncImpl(type, source)
+        try _default.CopyFromFileAsync(type, source)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.clearall)
     public func clearAll() throws {
-        try _default.ClearAllImpl()
+        try _default.ClearAll()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.update)
     public func update() throws {
-        try _default.UpdateImpl()
+        try _default.Update()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.appmediaid)
     public var appMediaId : String {
-        get { try! _default.get_AppMediaIdImpl() }
-        set { try! _default.put_AppMediaIdImpl(newValue) }
+        get { try! _default.get_AppMediaId() }
+        set { try! _default.put_AppMediaId(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.imageproperties)
     public var imageProperties : ImageDisplayProperties! {
-        get { try! _default.get_ImagePropertiesImpl() }
+        get { try! _default.get_ImageProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.musicproperties)
     public var musicProperties : MusicDisplayProperties! {
-        get { try! _default.get_MusicPropertiesImpl() }
+        get { try! _default.get_MusicProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.thumbnail)
     public var thumbnail : UWP.RandomAccessStreamReference! {
-        get { try! _default.get_ThumbnailImpl() }
-        set { try! _default.put_ThumbnailImpl(newValue) }
+        get { try! _default.get_Thumbnail() }
+        set { try! _default.put_Thumbnail(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.type)
     public var type : MediaPlaybackType {
-        get { try! _default.get_TypeImpl() }
-        set { try! _default.put_TypeImpl(newValue) }
+        get { try! _default.get_Type() }
+        set { try! _default.put_Type(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater.videoproperties)
     public var videoProperties : VideoDisplayProperties! {
-        get { try! _default.get_VideoPropertiesImpl() }
+        get { try! _default.get_VideoProperties() }
     }
 
     deinit {
@@ -930,19 +853,13 @@ public final class SystemMediaTransportControlsPropertyChangedEventArgs : WinRTC
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs>?) -> SystemMediaTransportControlsPropertyChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolspropertychangedeventargs.property)
     public var property : SystemMediaTransportControlsProperty {
-        get { try! _default.get_PropertyImpl() }
+        get { try! _default.get_Property() }
     }
 
     deinit {
@@ -964,48 +881,43 @@ public final class SystemMediaTransportControlsTimelineProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties>?) -> SystemMediaTransportControlsTimelineProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.SystemMediaTransportControlsTimelineProperties")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.SystemMediaTransportControlsTimelineProperties")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.endtime)
     public var endTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_EndTimeImpl() }
-        set { try! _default.put_EndTimeImpl(newValue) }
+        get { try! _default.get_EndTime() }
+        set { try! _default.put_EndTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.maxseektime)
     public var maxSeekTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_MaxSeekTimeImpl() }
-        set { try! _default.put_MaxSeekTimeImpl(newValue) }
+        get { try! _default.get_MaxSeekTime() }
+        set { try! _default.put_MaxSeekTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.minseektime)
     public var minSeekTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_MinSeekTimeImpl() }
-        set { try! _default.put_MinSeekTimeImpl(newValue) }
+        get { try! _default.get_MinSeekTime() }
+        set { try! _default.put_MinSeekTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.position)
     public var position : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PositionImpl() }
-        set { try! _default.put_PositionImpl(newValue) }
+        get { try! _default.get_Position() }
+        set { try! _default.put_Position(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties.starttime)
     public var startTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_StartTimeImpl() }
-        set { try! _default.put_StartTimeImpl(newValue) }
+        get { try! _default.get_StartTime() }
+        set { try! _default.put_StartTime(newValue) }
     }
 
     deinit {
@@ -1027,32 +939,26 @@ public final class VideoDisplayProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIVideoDisplayProperties>?) -> VideoDisplayProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.videodisplayproperties.subtitle)
     public var subtitle : String {
-        get { try! _default.get_SubtitleImpl() }
-        set { try! _default.put_SubtitleImpl(newValue) }
+        get { try! _default.get_Subtitle() }
+        set { try! _default.put_Subtitle(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.videodisplayproperties.title)
     public var title : String {
-        get { try! _default.get_TitleImpl() }
-        set { try! _default.put_TitleImpl(newValue) }
+        get { try! _default.get_Title() }
+        set { try! _default.put_Title(newValue) }
     }
 
     private lazy var _IVideoDisplayProperties2: __ABI_Windows_Media.IVideoDisplayProperties2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.videodisplayproperties.genres)
     public var genres : WindowsFoundation.AnyIVector<String>! {
-        get { try! _IVideoDisplayProperties2.get_GenresImpl() }
+        get { try! _IVideoDisplayProperties2.get_Genres() }
     }
 
     deinit {
@@ -1062,7 +968,7 @@ public final class VideoDisplayProperties : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange)
-public struct MediaTimeRange: Hashable, Codable {
+public struct MediaTimeRange: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange.start)
     public var start: WindowsFoundation.TimeSpan = .init()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange.end)
@@ -1071,9 +977,6 @@ public struct MediaTimeRange: Hashable, Codable {
     public init(start: WindowsFoundation.TimeSpan, end: WindowsFoundation.TimeSpan) {
         self.start = start
         self.end = end
-    }
-    public static func from(abi: __x_ABI_CWindows_CMedia_CMediaTimeRange) -> MediaTimeRange {
-        .init(start: .from(abi: abi.Start), end: .from(abi: abi.End))
     }
 }
 
@@ -1121,7 +1024,7 @@ extension UWP.AudioBufferAccessMode {
         __x_ABI_CWindows_CMedia_CAudioBufferAccessMode_Write
     }
 }
-extension UWP.AudioBufferAccessMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioBufferAccessMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioProcessing {
     public static var `default` : UWP.AudioProcessing {
@@ -1131,7 +1034,7 @@ extension UWP.AudioProcessing {
         __x_ABI_CWindows_CMedia_CAudioProcessing_Raw
     }
 }
-extension UWP.AudioProcessing: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioProcessing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaPlaybackAutoRepeatMode {
     public static var none : UWP.MediaPlaybackAutoRepeatMode {
@@ -1144,7 +1047,7 @@ extension UWP.MediaPlaybackAutoRepeatMode {
         __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode_List
     }
 }
-extension UWP.MediaPlaybackAutoRepeatMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaPlaybackAutoRepeatMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaPlaybackStatus {
     public static var closed : UWP.MediaPlaybackStatus {
@@ -1163,7 +1066,7 @@ extension UWP.MediaPlaybackStatus {
         __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Paused
     }
 }
-extension UWP.MediaPlaybackStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaPlaybackStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaPlaybackType {
     public static var unknown : UWP.MediaPlaybackType {
@@ -1179,7 +1082,7 @@ extension UWP.MediaPlaybackType {
         __x_ABI_CWindows_CMedia_CMediaPlaybackType_Image
     }
 }
-extension UWP.MediaPlaybackType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaPlaybackType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaTimelineControllerState {
     public static var paused : UWP.MediaTimelineControllerState {
@@ -1195,7 +1098,7 @@ extension UWP.MediaTimelineControllerState {
         __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Error
     }
 }
-extension UWP.MediaTimelineControllerState: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaTimelineControllerState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.SoundLevel {
     public static var muted : UWP.SoundLevel {
@@ -1208,7 +1111,7 @@ extension UWP.SoundLevel {
         __x_ABI_CWindows_CMedia_CSoundLevel_Full
     }
 }
-extension UWP.SoundLevel: @retroactive Hashable, @retroactive Codable {}
+extension UWP.SoundLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.SystemMediaTransportControlsButton {
     public static var play : UWP.SystemMediaTransportControlsButton {
@@ -1242,12 +1145,12 @@ extension UWP.SystemMediaTransportControlsButton {
         __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_ChannelDown
     }
 }
-extension UWP.SystemMediaTransportControlsButton: @retroactive Hashable, @retroactive Codable {}
+extension UWP.SystemMediaTransportControlsButton: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.SystemMediaTransportControlsProperty {
     public static var soundLevel : UWP.SystemMediaTransportControlsProperty {
         __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty_SoundLevel
     }
 }
-extension UWP.SystemMediaTransportControlsProperty: @retroactive Hashable, @retroactive Codable {}
+extension UWP.SystemMediaTransportControlsProperty: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

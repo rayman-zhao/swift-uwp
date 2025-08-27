@@ -42,12 +42,6 @@ public final class AudioDeviceInputNode : WinRTClass, WindowsFoundation.IClosabl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode>?) -> AudioDeviceInputNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -58,87 +52,87 @@ public final class AudioDeviceInputNode : WinRTClass, WindowsFoundation.IClosabl
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     private lazy var _IAudioInputNode: __ABI_Windows_Media_Audio.IAudioInputNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.AddOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.AddOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!, _ gain: Double) throws {
-        try _IAudioInputNode.AddOutgoingConnectionWithGainImpl(destination, gain)
+        try _IAudioInputNode.AddOutgoingConnectionWithGain(destination, gain)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.removeoutgoingconnection)
     public func removeOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.RemoveOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.RemoveOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.outgoingconnections)
     public var outgoingConnections : WindowsFoundation.AnyIVectorView<AudioGraphConnection?>! {
-        get { try! _IAudioInputNode.get_OutgoingConnectionsImpl() }
+        get { try! _IAudioInputNode.get_OutgoingConnections() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.device)
     public var device : UWP.DeviceInformation! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     private lazy var _IAudioInputNode2: __ABI_Windows_Media_Audio.IAudioInputNode2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode.emitter)
     public var emitter : AudioNodeEmitter! {
-        get { try! _IAudioInputNode2.get_EmitterImpl() }
+        get { try! _IAudioInputNode2.get_Emitter() }
     }
 
     deinit {
@@ -164,12 +158,6 @@ public final class AudioDeviceOutputNode : WinRTClass, WindowsFoundation.IClosab
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode>?) -> AudioDeviceOutputNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -180,67 +168,67 @@ public final class AudioDeviceOutputNode : WinRTClass, WindowsFoundation.IClosab
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.device)
     public var device : UWP.DeviceInformation! {
-        get { try! _default.get_DeviceImpl() }
+        get { try! _default.get_Device() }
     }
 
     private lazy var _IAudioNodeWithListener: __ABI_Windows_Media_Audio.IAudioNodeWithListener! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode.listener)
     public var listener : AudioNodeListener! {
-        get { try! _IAudioNodeWithListener.get_ListenerImpl() }
-        set { try! _IAudioNodeWithListener.put_ListenerImpl(newValue) }
+        get { try! _IAudioNodeWithListener.get_Listener() }
+        set { try! _IAudioNodeWithListener.put_Listener(newValue) }
     }
 
     deinit {
@@ -265,12 +253,6 @@ public final class AudioFileInputNode : WinRTClass, WindowsFoundation.IClosable,
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode>?) -> AudioFileInputNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -281,120 +263,120 @@ public final class AudioFileInputNode : WinRTClass, WindowsFoundation.IClosable,
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     private lazy var _IAudioInputNode: __ABI_Windows_Media_Audio.IAudioInputNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.AddOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.AddOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!, _ gain: Double) throws {
-        try _IAudioInputNode.AddOutgoingConnectionWithGainImpl(destination, gain)
+        try _IAudioInputNode.AddOutgoingConnectionWithGain(destination, gain)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.removeoutgoingconnection)
     public func removeOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.RemoveOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.RemoveOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.outgoingconnections)
     public var outgoingConnections : WindowsFoundation.AnyIVectorView<AudioGraphConnection?>! {
-        get { try! _IAudioInputNode.get_OutgoingConnectionsImpl() }
+        get { try! _IAudioInputNode.get_OutgoingConnections() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.seek)
     public func seek(_ position: WindowsFoundation.TimeSpan) throws {
-        try _default.SeekImpl(position)
+        try _default.Seek(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
+        get { try! _default.get_Duration() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.endtime)
     public var endTime : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_EndTimeImpl() }
-        set { try! _default.put_EndTimeImpl(newValue) }
+        get { try! _default.get_EndTime() }
+        set { try! _default.put_EndTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.loopcount)
     public var loopCount : Int32? {
-        get { try! _default.get_LoopCountImpl() }
-        set { try! _default.put_LoopCountImpl(newValue) }
+        get { try! _default.get_LoopCount() }
+        set { try! _default.put_LoopCount(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.playbackspeedfactor)
     public var playbackSpeedFactor : Double {
-        get { try! _default.get_PlaybackSpeedFactorImpl() }
-        set { try! _default.put_PlaybackSpeedFactorImpl(newValue) }
+        get { try! _default.get_PlaybackSpeedFactor() }
+        set { try! _default.put_PlaybackSpeedFactor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.position)
     public var position : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.sourcefile)
     public var sourceFile : UWP.StorageFile! {
-        get { try! _default.get_SourceFileImpl() }
+        get { try! _default.get_SourceFile() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.starttime)
     public var startTime : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_StartTimeImpl() }
-        set { try! _default.put_StartTimeImpl(newValue) }
+        get { try! _default.get_StartTime() }
+        set { try! _default.put_StartTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.filecompleted)
@@ -402,10 +384,10 @@ public final class AudioFileInputNode : WinRTClass, WindowsFoundation.IClosable,
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_FileCompletedImpl($0)
+          return try! this.add_FileCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_FileCompletedImpl($0)
+         try? self?._default.remove_FileCompleted($0)
        }
       )
     }()
@@ -413,7 +395,7 @@ public final class AudioFileInputNode : WinRTClass, WindowsFoundation.IClosable,
     private lazy var _IAudioInputNode2: __ABI_Windows_Media_Audio.IAudioInputNode2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode.emitter)
     public var emitter : AudioNodeEmitter! {
-        get { try! _IAudioInputNode2.get_EmitterImpl() }
+        get { try! _IAudioInputNode2.get_Emitter() }
     }
 
     deinit {
@@ -439,12 +421,6 @@ public final class AudioFileOutputNode : WinRTClass, WindowsFoundation.IClosable
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode>?) -> AudioFileOutputNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -455,70 +431,70 @@ public final class AudioFileOutputNode : WinRTClass, WindowsFoundation.IClosable
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.finalizeasync)
     public func finalizeAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.TranscodeFailureReason>! {
-        try _default.FinalizeAsyncImpl()
+        try _default.FinalizeAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.file)
     public var file : UWP.AnyIStorageFile! {
-        get { try! _default.get_FileImpl() }
+        get { try! _default.get_File() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode.fileencodingprofile)
     public var fileEncodingProfile : UWP.MediaEncodingProfile! {
-        get { try! _default.get_FileEncodingProfileImpl() }
+        get { try! _default.get_FileEncodingProfile() }
     }
 
     deinit {
@@ -542,19 +518,13 @@ public final class AudioFrameCompletedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs>?) -> AudioFrameCompletedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframecompletedeventargs.frame)
     public var frame : UWP.AudioFrame! {
-        get { try! _default.get_FrameImpl() }
+        get { try! _default.get_Frame() }
     }
 
     deinit {
@@ -576,12 +546,6 @@ public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode>?) -> AudioFrameInputNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -592,97 +556,97 @@ public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     private lazy var _IAudioInputNode: __ABI_Windows_Media_Audio.IAudioInputNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.AddOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.AddOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!, _ gain: Double) throws {
-        try _IAudioInputNode.AddOutgoingConnectionWithGainImpl(destination, gain)
+        try _IAudioInputNode.AddOutgoingConnectionWithGain(destination, gain)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.removeoutgoingconnection)
     public func removeOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.RemoveOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.RemoveOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.outgoingconnections)
     public var outgoingConnections : WindowsFoundation.AnyIVectorView<AudioGraphConnection?>! {
-        get { try! _IAudioInputNode.get_OutgoingConnectionsImpl() }
+        get { try! _IAudioInputNode.get_OutgoingConnections() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.addframe)
     public func addFrame(_ frame: UWP.AudioFrame!) throws {
-        try _default.AddFrameImpl(frame)
+        try _default.AddFrame(frame)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.discardqueuedframes)
     public func discardQueuedFrames() throws {
-        try _default.DiscardQueuedFramesImpl()
+        try _default.DiscardQueuedFrames()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.playbackspeedfactor)
     public var playbackSpeedFactor : Double {
-        get { try! _default.get_PlaybackSpeedFactorImpl() }
-        set { try! _default.put_PlaybackSpeedFactorImpl(newValue) }
+        get { try! _default.get_PlaybackSpeedFactor() }
+        set { try! _default.put_PlaybackSpeedFactor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.queuedsamplecount)
     public var queuedSampleCount : UInt64 {
-        get { try! _default.get_QueuedSampleCountImpl() }
+        get { try! _default.get_QueuedSampleCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.audioframecompleted)
@@ -690,10 +654,10 @@ public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_AudioFrameCompletedImpl($0)
+          return try! this.add_AudioFrameCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_AudioFrameCompletedImpl($0)
+         try? self?._default.remove_AudioFrameCompleted($0)
        }
       )
     }()
@@ -703,10 +667,10 @@ public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_QuantumStartedImpl($0)
+          return try! this.add_QuantumStarted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_QuantumStartedImpl($0)
+         try? self?._default.remove_QuantumStarted($0)
        }
       )
     }()
@@ -714,7 +678,7 @@ public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable
     private lazy var _IAudioInputNode2: __ABI_Windows_Media_Audio.IAudioInputNode2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode.emitter)
     public var emitter : AudioNodeEmitter! {
-        get { try! _IAudioInputNode2.get_EmitterImpl() }
+        get { try! _IAudioInputNode2.get_Emitter() }
     }
 
     deinit {
@@ -740,12 +704,6 @@ public final class AudioFrameOutputNode : WinRTClass, WindowsFoundation.IClosabl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode>?) -> AudioFrameOutputNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -756,60 +714,60 @@ public final class AudioFrameOutputNode : WinRTClass, WindowsFoundation.IClosabl
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode.getframe)
     public func getFrame() throws -> UWP.AudioFrame! {
-        try _default.GetFrameImpl()
+        try _default.GetFrame()
     }
 
     deinit {
@@ -833,12 +791,6 @@ public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraph>?) -> AudioGraph? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -846,126 +798,126 @@ public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IAudioGraphStatics: __ABI_Windows_Media_Audio.IAudioGraphStatics = try! RoGetActivationFactory(HString("Windows.Media.Audio.AudioGraph"))
+    private static let _IAudioGraphStatics: __ABI_Windows_Media_Audio.IAudioGraphStatics = try! RoGetActivationFactory("Windows.Media.Audio.AudioGraph")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createasync)
-    public static func createAsync(_ settings: AudioGraphSettings!) -> WindowsFoundation.AnyIAsyncOperation<CreateAudioGraphResult?>! {
-        return try! _IAudioGraphStatics.CreateAsyncImpl(settings)
+    public static func createAsync(_ settings: AudioGraphSettings!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioGraphResult?>! {
+        return try _IAudioGraphStatics.CreateAsync(settings)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createframeinputnode)
     public func createFrameInputNode() throws -> AudioFrameInputNode! {
-        try _default.CreateFrameInputNodeImpl()
+        try _default.CreateFrameInputNode()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createframeinputnode)
     public func createFrameInputNode(_ encodingProperties: UWP.AudioEncodingProperties!) throws -> AudioFrameInputNode! {
-        try _default.CreateFrameInputNodeWithFormatImpl(encodingProperties)
+        try _default.CreateFrameInputNodeWithFormat(encodingProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createdeviceinputnodeasync)
     public func createDeviceInputNodeAsync(_ category: UWP.MediaCategory) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioDeviceInputNodeResult?>! {
-        try _default.CreateDeviceInputNodeAsyncImpl(category)
+        try _default.CreateDeviceInputNodeAsync(category)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createdeviceinputnodeasync)
     public func createDeviceInputNodeAsync(_ category: UWP.MediaCategory, _ encodingProperties: UWP.AudioEncodingProperties!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioDeviceInputNodeResult?>! {
-        try _default.CreateDeviceInputNodeWithFormatAsyncImpl(category, encodingProperties)
+        try _default.CreateDeviceInputNodeWithFormatAsync(category, encodingProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createdeviceinputnodeasync)
     public func createDeviceInputNodeAsync(_ category: UWP.MediaCategory, _ encodingProperties: UWP.AudioEncodingProperties!, _ device: UWP.DeviceInformation!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioDeviceInputNodeResult?>! {
-        try _default.CreateDeviceInputNodeWithFormatOnDeviceAsyncImpl(category, encodingProperties, device)
+        try _default.CreateDeviceInputNodeWithFormatOnDeviceAsync(category, encodingProperties, device)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createframeoutputnode)
     public func createFrameOutputNode() throws -> AudioFrameOutputNode! {
-        try _default.CreateFrameOutputNodeImpl()
+        try _default.CreateFrameOutputNode()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createframeoutputnode)
     public func createFrameOutputNode(_ encodingProperties: UWP.AudioEncodingProperties!) throws -> AudioFrameOutputNode! {
-        try _default.CreateFrameOutputNodeWithFormatImpl(encodingProperties)
+        try _default.CreateFrameOutputNodeWithFormat(encodingProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createdeviceoutputnodeasync)
     public func createDeviceOutputNodeAsync() throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioDeviceOutputNodeResult?>! {
-        try _default.CreateDeviceOutputNodeAsyncImpl()
+        try _default.CreateDeviceOutputNodeAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createfileinputnodeasync)
     public func createFileInputNodeAsync(_ file: UWP.AnyIStorageFile!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioFileInputNodeResult?>! {
-        try _default.CreateFileInputNodeAsyncImpl(file)
+        try _default.CreateFileInputNodeAsync(file)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createfileoutputnodeasync)
     public func createFileOutputNodeAsync(_ file: UWP.AnyIStorageFile!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioFileOutputNodeResult?>! {
-        try _default.CreateFileOutputNodeAsyncImpl(file)
+        try _default.CreateFileOutputNodeAsync(file)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createfileoutputnodeasync)
     public func createFileOutputNodeAsync(_ file: UWP.AnyIStorageFile!, _ fileEncodingProfile: UWP.MediaEncodingProfile!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioFileOutputNodeResult?>! {
-        try _default.CreateFileOutputNodeWithFileProfileAsyncImpl(file, fileEncodingProfile)
+        try _default.CreateFileOutputNodeWithFileProfileAsync(file, fileEncodingProfile)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createsubmixnode)
     public func createSubmixNode() throws -> AudioSubmixNode! {
-        try _default.CreateSubmixNodeImpl()
+        try _default.CreateSubmixNode()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createsubmixnode)
     public func createSubmixNode(_ encodingProperties: UWP.AudioEncodingProperties!) throws -> AudioSubmixNode! {
-        try _default.CreateSubmixNodeWithFormatImpl(encodingProperties)
+        try _default.CreateSubmixNodeWithFormat(encodingProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.start)
     public func start() throws {
-        try _default.StartImpl()
+        try _default.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.stop)
     public func stop() throws {
-        try _default.StopImpl()
+        try _default.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.resetallnodes)
     public func resetAllNodes() throws {
-        try _default.ResetAllNodesImpl()
+        try _default.ResetAllNodes()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.completedquantumcount)
     public var completedQuantumCount : UInt64 {
-        get { try! _default.get_CompletedQuantumCountImpl() }
+        get { try! _default.get_CompletedQuantumCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _default.get_EncodingPropertiesImpl() }
+        get { try! _default.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.latencyinsamples)
     public var latencyInSamples : Int32 {
-        get { try! _default.get_LatencyInSamplesImpl() }
+        get { try! _default.get_LatencyInSamples() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.primaryrenderdevice)
     public var primaryRenderDevice : UWP.DeviceInformation! {
-        get { try! _default.get_PrimaryRenderDeviceImpl() }
+        get { try! _default.get_PrimaryRenderDevice() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.renderdeviceaudioprocessing)
     public var renderDeviceAudioProcessing : UWP.AudioProcessing {
-        get { try! _default.get_RenderDeviceAudioProcessingImpl() }
+        get { try! _default.get_RenderDeviceAudioProcessing() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.samplesperquantum)
     public var samplesPerQuantum : Int32 {
-        get { try! _default.get_SamplesPerQuantumImpl() }
+        get { try! _default.get_SamplesPerQuantum() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumprocessed)
@@ -973,10 +925,10 @@ public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_QuantumProcessedImpl($0)
+          return try! this.add_QuantumProcessed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_QuantumProcessedImpl($0)
+         try? self?._default.remove_QuantumProcessed($0)
        }
       )
     }()
@@ -986,10 +938,10 @@ public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_QuantumStartedImpl($0)
+          return try! this.add_QuantumStarted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_QuantumStartedImpl($0)
+         try? self?._default.remove_QuantumStarted($0)
        }
       )
     }()
@@ -999,10 +951,10 @@ public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_UnrecoverableErrorOccurredImpl($0)
+          return try! this.add_UnrecoverableErrorOccurred($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_UnrecoverableErrorOccurredImpl($0)
+         try? self?._default.remove_UnrecoverableErrorOccurred($0)
        }
       )
     }()
@@ -1010,38 +962,38 @@ public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
     private lazy var _IAudioGraph2: __ABI_Windows_Media_Audio.IAudioGraph2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createframeinputnode)
     public func createFrameInputNode(_ encodingProperties: UWP.AudioEncodingProperties!, _ emitter: AudioNodeEmitter!) throws -> AudioFrameInputNode! {
-        try _IAudioGraph2.CreateFrameInputNodeWithFormatAndEmitterImpl(encodingProperties, emitter)
+        try _IAudioGraph2.CreateFrameInputNodeWithFormatAndEmitter(encodingProperties, emitter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createdeviceinputnodeasync)
     public func createDeviceInputNodeAsync(_ category: UWP.MediaCategory, _ encodingProperties: UWP.AudioEncodingProperties!, _ device: UWP.DeviceInformation!, _ emitter: AudioNodeEmitter!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioDeviceInputNodeResult?>! {
-        try _IAudioGraph2.CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsyncImpl(category, encodingProperties, device, emitter)
+        try _IAudioGraph2.CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync(category, encodingProperties, device, emitter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createfileinputnodeasync)
     public func createFileInputNodeAsync(_ file: UWP.AnyIStorageFile!, _ emitter: AudioNodeEmitter!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateAudioFileInputNodeResult?>! {
-        try _IAudioGraph2.CreateFileInputNodeWithEmitterAsyncImpl(file, emitter)
+        try _IAudioGraph2.CreateFileInputNodeWithEmitterAsync(file, emitter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createsubmixnode)
     public func createSubmixNode(_ encodingProperties: UWP.AudioEncodingProperties!, _ emitter: AudioNodeEmitter!) throws -> AudioSubmixNode! {
-        try _IAudioGraph2.CreateSubmixNodeWithFormatAndEmitterImpl(encodingProperties, emitter)
+        try _IAudioGraph2.CreateSubmixNodeWithFormatAndEmitter(encodingProperties, emitter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createbatchupdater)
     public func createBatchUpdater() throws -> AudioGraphBatchUpdater! {
-        try _IAudioGraph2.CreateBatchUpdaterImpl()
+        try _IAudioGraph2.CreateBatchUpdater()
     }
 
     private lazy var _IAudioGraph3: __ABI_Windows_Media_Audio.IAudioGraph3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createmediasourceaudioinputnodeasync)
     public func createMediaSourceAudioInputNodeAsync(_ mediaSource: UWP.MediaSource!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateMediaSourceAudioInputNodeResult?>! {
-        try _IAudioGraph3.CreateMediaSourceAudioInputNodeAsyncImpl(mediaSource)
+        try _IAudioGraph3.CreateMediaSourceAudioInputNodeAsync(mediaSource)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph.createmediasourceaudioinputnodeasync)
     public func createMediaSourceAudioInputNodeAsync(_ mediaSource: UWP.MediaSource!, _ emitter: AudioNodeEmitter!) throws -> WindowsFoundation.AnyIAsyncOperation<CreateMediaSourceAudioInputNodeResult?>! {
-        try _IAudioGraph3.CreateMediaSourceAudioInputNodeWithEmitterAsyncImpl(mediaSource, emitter)
+        try _IAudioGraph3.CreateMediaSourceAudioInputNodeWithEmitterAsync(mediaSource, emitter)
     }
 
     deinit {
@@ -1066,12 +1018,6 @@ public final class AudioGraphBatchUpdater : WinRTClass, WindowsFoundation.IClosa
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CFoundation_CIClosable>?) -> AudioGraphBatchUpdater? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1081,7 +1027,7 @@ public final class AudioGraphBatchUpdater : WinRTClass, WindowsFoundation.IClosa
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographbatchupdater.close)
     public func close() throws {
-        try _default.CloseImpl()
+        try _default.Close()
     }
 
     deinit {
@@ -1103,25 +1049,19 @@ public final class AudioGraphConnection : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection>?) -> AudioGraphConnection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographconnection.destination)
     public var destination : AnyIAudioNode! {
-        get { try! _default.get_DestinationImpl() }
+        get { try! _default.get_Destination() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographconnection.gain)
     public var gain : Double {
-        get { try! _default.get_GainImpl() }
-        set { try! _default.put_GainImpl(newValue) }
+        get { try! _default.get_Gain() }
+        set { try! _default.put_Gain(newValue) }
     }
 
     deinit {
@@ -1143,62 +1083,56 @@ public final class AudioGraphSettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings>?) -> AudioGraphSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAudioGraphSettingsFactory: __ABI_Windows_Media_Audio.IAudioGraphSettingsFactory = try! RoGetActivationFactory(HString("Windows.Media.Audio.AudioGraphSettings"))
+    private static let _IAudioGraphSettingsFactory: __ABI_Windows_Media_Audio.IAudioGraphSettingsFactory = try! RoGetActivationFactory("Windows.Media.Audio.AudioGraphSettings")
     public init(_ audioRenderCategory: UWP.AudioRenderCategory) {
-        super.init(try! Self._IAudioGraphSettingsFactory.CreateImpl(audioRenderCategory))
+        super.init(try! Self._IAudioGraphSettingsFactory.Create(audioRenderCategory))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings.audiorendercategory)
     public var audioRenderCategory : UWP.AudioRenderCategory {
-        get { try! _default.get_AudioRenderCategoryImpl() }
-        set { try! _default.put_AudioRenderCategoryImpl(newValue) }
+        get { try! _default.get_AudioRenderCategory() }
+        set { try! _default.put_AudioRenderCategory(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings.desiredrenderdeviceaudioprocessing)
     public var desiredRenderDeviceAudioProcessing : UWP.AudioProcessing {
-        get { try! _default.get_DesiredRenderDeviceAudioProcessingImpl() }
-        set { try! _default.put_DesiredRenderDeviceAudioProcessingImpl(newValue) }
+        get { try! _default.get_DesiredRenderDeviceAudioProcessing() }
+        set { try! _default.put_DesiredRenderDeviceAudioProcessing(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings.desiredsamplesperquantum)
     public var desiredSamplesPerQuantum : Int32 {
-        get { try! _default.get_DesiredSamplesPerQuantumImpl() }
-        set { try! _default.put_DesiredSamplesPerQuantumImpl(newValue) }
+        get { try! _default.get_DesiredSamplesPerQuantum() }
+        set { try! _default.put_DesiredSamplesPerQuantum(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _default.get_EncodingPropertiesImpl() }
-        set { try! _default.put_EncodingPropertiesImpl(newValue) }
+        get { try! _default.get_EncodingProperties() }
+        set { try! _default.put_EncodingProperties(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings.primaryrenderdevice)
     public var primaryRenderDevice : UWP.DeviceInformation! {
-        get { try! _default.get_PrimaryRenderDeviceImpl() }
-        set { try! _default.put_PrimaryRenderDeviceImpl(newValue) }
+        get { try! _default.get_PrimaryRenderDevice() }
+        set { try! _default.put_PrimaryRenderDevice(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings.quantumsizeselectionmode)
     public var quantumSizeSelectionMode : QuantumSizeSelectionMode {
-        get { try! _default.get_QuantumSizeSelectionModeImpl() }
-        set { try! _default.put_QuantumSizeSelectionModeImpl(newValue) }
+        get { try! _default.get_QuantumSizeSelectionMode() }
+        set { try! _default.put_QuantumSizeSelectionMode(newValue) }
     }
 
     private lazy var _IAudioGraphSettings2: __ABI_Windows_Media_Audio.IAudioGraphSettings2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings.maxplaybackspeedfactor)
     public var maxPlaybackSpeedFactor : Double {
-        get { try! _IAudioGraphSettings2.get_MaxPlaybackSpeedFactorImpl() }
-        set { try! _IAudioGraphSettings2.put_MaxPlaybackSpeedFactorImpl(newValue) }
+        get { try! _IAudioGraphSettings2.get_MaxPlaybackSpeedFactor() }
+        set { try! _IAudioGraphSettings2.put_MaxPlaybackSpeedFactor(newValue) }
     }
 
     deinit {
@@ -1221,19 +1155,13 @@ public final class AudioGraphUnrecoverableErrorOccurredEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs>?) -> AudioGraphUnrecoverableErrorOccurredEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographunrecoverableerroroccurredeventargs.error)
     public var error : AudioGraphUnrecoverableError {
-        get { try! _default.get_ErrorImpl() }
+        get { try! _default.get_Error() }
     }
 
     deinit {
@@ -1255,81 +1183,76 @@ public final class AudioNodeEmitter : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter>?) -> AudioNodeEmitter? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Audio.AudioNodeEmitter")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Audio.AudioNodeEmitter")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IAudioNodeEmitterFactory: __ABI_Windows_Media_Audio.IAudioNodeEmitterFactory = try! RoGetActivationFactory(HString("Windows.Media.Audio.AudioNodeEmitter"))
+    private static let _IAudioNodeEmitterFactory: __ABI_Windows_Media_Audio.IAudioNodeEmitterFactory = try! RoGetActivationFactory("Windows.Media.Audio.AudioNodeEmitter")
     public init(_ shape: AudioNodeEmitterShape!, _ decayModel: AudioNodeEmitterDecayModel!, _ settings: AudioNodeEmitterSettings) {
-        super.init(try! Self._IAudioNodeEmitterFactory.CreateAudioNodeEmitterImpl(shape, decayModel, settings))
+        super.init(try! Self._IAudioNodeEmitterFactory.CreateAudioNodeEmitter(shape, decayModel, settings))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.decaymodel)
     public var decayModel : AudioNodeEmitterDecayModel! {
-        get { try! _default.get_DecayModelImpl() }
+        get { try! _default.get_DecayModel() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.direction)
     public var direction : WindowsFoundation.Vector3 {
-        get { try! _default.get_DirectionImpl() }
-        set { try! _default.put_DirectionImpl(newValue) }
+        get { try! _default.get_Direction() }
+        set { try! _default.put_Direction(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.distancescale)
     public var distanceScale : Double {
-        get { try! _default.get_DistanceScaleImpl() }
-        set { try! _default.put_DistanceScaleImpl(newValue) }
+        get { try! _default.get_DistanceScale() }
+        set { try! _default.put_DistanceScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.dopplerscale)
     public var dopplerScale : Double {
-        get { try! _default.get_DopplerScaleImpl() }
-        set { try! _default.put_DopplerScaleImpl(newValue) }
+        get { try! _default.get_DopplerScale() }
+        set { try! _default.put_DopplerScale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.dopplervelocity)
     public var dopplerVelocity : WindowsFoundation.Vector3 {
-        get { try! _default.get_DopplerVelocityImpl() }
-        set { try! _default.put_DopplerVelocityImpl(newValue) }
+        get { try! _default.get_DopplerVelocity() }
+        set { try! _default.put_DopplerVelocity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.gain)
     public var gain : Double {
-        get { try! _default.get_GainImpl() }
-        set { try! _default.put_GainImpl(newValue) }
+        get { try! _default.get_Gain() }
+        set { try! _default.put_Gain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.isdopplerdisabled)
     public var isDopplerDisabled : Bool {
-        get { try! _default.get_IsDopplerDisabledImpl() }
+        get { try! _default.get_IsDopplerDisabled() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.position)
     public var position : WindowsFoundation.Vector3 {
-        get { try! _default.get_PositionImpl() }
-        set { try! _default.put_PositionImpl(newValue) }
+        get { try! _default.get_Position() }
+        set { try! _default.put_Position(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.shape)
     public var shape : AudioNodeEmitterShape! {
-        get { try! _default.get_ShapeImpl() }
+        get { try! _default.get_Shape() }
     }
 
     private lazy var _IAudioNodeEmitter2: __ABI_Windows_Media_Audio.IAudioNodeEmitter2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter.spatialaudiomodel)
     public var spatialAudioModel : SpatialAudioModel {
-        get { try! _IAudioNodeEmitter2.get_SpatialAudioModelImpl() }
-        set { try! _IAudioNodeEmitter2.put_SpatialAudioModelImpl(newValue) }
+        get { try! _IAudioNodeEmitter2.get_SpatialAudioModel() }
+        set { try! _IAudioNodeEmitter2.put_SpatialAudioModel(newValue) }
     }
 
     deinit {
@@ -1352,29 +1275,23 @@ public final class AudioNodeEmitterConeProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties>?) -> AudioNodeEmitterConeProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterconeproperties.innerangle)
     public var innerAngle : Double {
-        get { try! _default.get_InnerAngleImpl() }
+        get { try! _default.get_InnerAngle() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterconeproperties.outerangle)
     public var outerAngle : Double {
-        get { try! _default.get_OuterAngleImpl() }
+        get { try! _default.get_OuterAngle() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterconeproperties.outeranglegain)
     public var outerAngleGain : Double {
-        get { try! _default.get_OuterAngleGainImpl() }
+        get { try! _default.get_OuterAngleGain() }
     }
 
     deinit {
@@ -1396,45 +1313,39 @@ public final class AudioNodeEmitterDecayModel : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel>?) -> AudioNodeEmitterDecayModel? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAudioNodeEmitterDecayModelStatics: __ABI_Windows_Media_Audio.IAudioNodeEmitterDecayModelStatics = try! RoGetActivationFactory(HString("Windows.Media.Audio.AudioNodeEmitterDecayModel"))
+    private static let _IAudioNodeEmitterDecayModelStatics: __ABI_Windows_Media_Audio.IAudioNodeEmitterDecayModelStatics = try! RoGetActivationFactory("Windows.Media.Audio.AudioNodeEmitterDecayModel")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel.createnatural)
-    public static func createNatural(_ minGain: Double, _ maxGain: Double, _ unityGainDistance: Double, _ cutoffDistance: Double) -> AudioNodeEmitterDecayModel! {
-        return try! _IAudioNodeEmitterDecayModelStatics.CreateNaturalImpl(minGain, maxGain, unityGainDistance, cutoffDistance)
+    public static func createNatural(_ minGain: Double, _ maxGain: Double, _ unityGainDistance: Double, _ cutoffDistance: Double) throws -> AudioNodeEmitterDecayModel! {
+        return try _IAudioNodeEmitterDecayModelStatics.CreateNatural(minGain, maxGain, unityGainDistance, cutoffDistance)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel.createcustom)
-    public static func createCustom(_ minGain: Double, _ maxGain: Double) -> AudioNodeEmitterDecayModel! {
-        return try! _IAudioNodeEmitterDecayModelStatics.CreateCustomImpl(minGain, maxGain)
+    public static func createCustom(_ minGain: Double, _ maxGain: Double) throws -> AudioNodeEmitterDecayModel! {
+        return try _IAudioNodeEmitterDecayModelStatics.CreateCustom(minGain, maxGain)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel.kind)
     public var kind : AudioNodeEmitterDecayKind {
-        get { try! _default.get_KindImpl() }
+        get { try! _default.get_Kind() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel.maxgain)
     public var maxGain : Double {
-        get { try! _default.get_MaxGainImpl() }
+        get { try! _default.get_MaxGain() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel.mingain)
     public var minGain : Double {
-        get { try! _default.get_MinGainImpl() }
+        get { try! _default.get_MinGain() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel.naturalproperties)
     public var naturalProperties : AudioNodeEmitterNaturalDecayModelProperties! {
-        get { try! _default.get_NaturalPropertiesImpl() }
+        get { try! _default.get_NaturalProperties() }
     }
 
     deinit {
@@ -1456,24 +1367,18 @@ public final class AudioNodeEmitterNaturalDecayModelProperties : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties>?) -> AudioNodeEmitterNaturalDecayModelProperties? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitternaturaldecaymodelproperties.cutoffdistance)
     public var cutoffDistance : Double {
-        get { try! _default.get_CutoffDistanceImpl() }
+        get { try! _default.get_CutoffDistance() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitternaturaldecaymodelproperties.unitygaindistance)
     public var unityGainDistance : Double {
-        get { try! _default.get_UnityGainDistanceImpl() }
+        get { try! _default.get_UnityGainDistance() }
     }
 
     deinit {
@@ -1495,35 +1400,29 @@ public final class AudioNodeEmitterShape : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape>?) -> AudioNodeEmitterShape? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAudioNodeEmitterShapeStatics: __ABI_Windows_Media_Audio.IAudioNodeEmitterShapeStatics = try! RoGetActivationFactory(HString("Windows.Media.Audio.AudioNodeEmitterShape"))
+    private static let _IAudioNodeEmitterShapeStatics: __ABI_Windows_Media_Audio.IAudioNodeEmitterShapeStatics = try! RoGetActivationFactory("Windows.Media.Audio.AudioNodeEmitterShape")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittershape.createcone)
-    public static func createCone(_ innerAngle: Double, _ outerAngle: Double, _ outerAngleGain: Double) -> AudioNodeEmitterShape! {
-        return try! _IAudioNodeEmitterShapeStatics.CreateConeImpl(innerAngle, outerAngle, outerAngleGain)
+    public static func createCone(_ innerAngle: Double, _ outerAngle: Double, _ outerAngleGain: Double) throws -> AudioNodeEmitterShape! {
+        return try _IAudioNodeEmitterShapeStatics.CreateCone(innerAngle, outerAngle, outerAngleGain)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittershape.createomnidirectional)
-    public static func createOmnidirectional() -> AudioNodeEmitterShape! {
-        return try! _IAudioNodeEmitterShapeStatics.CreateOmnidirectionalImpl()
+    public static func createOmnidirectional() throws -> AudioNodeEmitterShape! {
+        return try _IAudioNodeEmitterShapeStatics.CreateOmnidirectional()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittershape.coneproperties)
     public var coneProperties : AudioNodeEmitterConeProperties! {
-        get { try! _default.get_ConePropertiesImpl() }
+        get { try! _default.get_ConeProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittershape.kind)
     public var kind : AudioNodeEmitterShapeKind {
-        get { try! _default.get_KindImpl() }
+        get { try! _default.get_Kind() }
     }
 
     deinit {
@@ -1545,42 +1444,37 @@ public final class AudioNodeListener : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener>?) -> AudioNodeListener? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Audio.AudioNodeListener")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Audio.AudioNodeListener")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodelistener.dopplervelocity)
     public var dopplerVelocity : WindowsFoundation.Vector3 {
-        get { try! _default.get_DopplerVelocityImpl() }
-        set { try! _default.put_DopplerVelocityImpl(newValue) }
+        get { try! _default.get_DopplerVelocity() }
+        set { try! _default.put_DopplerVelocity(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodelistener.orientation)
     public var orientation : WindowsFoundation.Quaternion {
-        get { try! _default.get_OrientationImpl() }
-        set { try! _default.put_OrientationImpl(newValue) }
+        get { try! _default.get_Orientation() }
+        set { try! _default.put_Orientation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodelistener.position)
     public var position : WindowsFoundation.Vector3 {
-        get { try! _default.get_PositionImpl() }
-        set { try! _default.put_PositionImpl(newValue) }
+        get { try! _default.get_Position() }
+        set { try! _default.put_Position(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodelistener.speedofsound)
     public var speedOfSound : Double {
-        get { try! _default.get_SpeedOfSoundImpl() }
-        set { try! _default.put_SpeedOfSoundImpl(newValue) }
+        get { try! _default.get_SpeedOfSound() }
+        set { try! _default.put_SpeedOfSound(newValue) }
     }
 
     deinit {
@@ -1602,60 +1496,54 @@ public final class AudioStateMonitor : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor>?) -> AudioStateMonitor? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAudioStateMonitorStatics: __ABI_Windows_Media_Audio.IAudioStateMonitorStatics = try! RoGetActivationFactory(HString("Windows.Media.Audio.AudioStateMonitor"))
+    private static let _IAudioStateMonitorStatics: __ABI_Windows_Media_Audio.IAudioStateMonitorStatics = try! RoGetActivationFactory("Windows.Media.Audio.AudioStateMonitor")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforrendermonitoring)
-    public static func createForRenderMonitoring() -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForRenderMonitoringImpl()
+    public static func createForRenderMonitoring() throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForRenderMonitoring()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforrendermonitoring)
-    public static func createForRenderMonitoring(_ category: UWP.AudioRenderCategory) -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForRenderMonitoringWithCategoryImpl(category)
+    public static func createForRenderMonitoring(_ category: UWP.AudioRenderCategory) throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForRenderMonitoringWithCategory(category)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforrendermonitoring)
-    public static func createForRenderMonitoring(_ category: UWP.AudioRenderCategory, _ role: UWP.AudioDeviceRole) -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForRenderMonitoringWithCategoryAndDeviceRoleImpl(category, role)
+    public static func createForRenderMonitoring(_ category: UWP.AudioRenderCategory, _ role: UWP.AudioDeviceRole) throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForRenderMonitoringWithCategoryAndDeviceRole(category, role)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforrendermonitoringwithcategoryanddeviceid)
-    public static func createForRenderMonitoringWithCategoryAndDeviceId(_ category: UWP.AudioRenderCategory, _ deviceId: String) -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForRenderMonitoringWithCategoryAndDeviceIdImpl(category, deviceId)
+    public static func createForRenderMonitoringWithCategoryAndDeviceId(_ category: UWP.AudioRenderCategory, _ deviceId: String) throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForRenderMonitoringWithCategoryAndDeviceId(category, deviceId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforcapturemonitoring)
-    public static func createForCaptureMonitoring() -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForCaptureMonitoringImpl()
+    public static func createForCaptureMonitoring() throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForCaptureMonitoring()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforcapturemonitoring)
-    public static func createForCaptureMonitoring(_ category: UWP.MediaCategory) -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForCaptureMonitoringWithCategoryImpl(category)
+    public static func createForCaptureMonitoring(_ category: UWP.MediaCategory) throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForCaptureMonitoringWithCategory(category)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforcapturemonitoring)
-    public static func createForCaptureMonitoring(_ category: UWP.MediaCategory, _ role: UWP.AudioDeviceRole) -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForCaptureMonitoringWithCategoryAndDeviceRoleImpl(category, role)
+    public static func createForCaptureMonitoring(_ category: UWP.MediaCategory, _ role: UWP.AudioDeviceRole) throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForCaptureMonitoringWithCategoryAndDeviceRole(category, role)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.createforcapturemonitoringwithcategoryanddeviceid)
-    public static func createForCaptureMonitoringWithCategoryAndDeviceId(_ category: UWP.MediaCategory, _ deviceId: String) -> AudioStateMonitor! {
-        return try! _IAudioStateMonitorStatics.CreateForCaptureMonitoringWithCategoryAndDeviceIdImpl(category, deviceId)
+    public static func createForCaptureMonitoringWithCategoryAndDeviceId(_ category: UWP.MediaCategory, _ deviceId: String) throws -> AudioStateMonitor! {
+        return try _IAudioStateMonitorStatics.CreateForCaptureMonitoringWithCategoryAndDeviceId(category, deviceId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.soundlevel)
     public var soundLevel : UWP.SoundLevel {
-        get { try! _default.get_SoundLevelImpl() }
+        get { try! _default.get_SoundLevel() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor.soundlevelchanged)
@@ -1663,10 +1551,10 @@ public final class AudioStateMonitor : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_SoundLevelChangedImpl($0)
+          return try! this.add_SoundLevelChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_SoundLevelChangedImpl($0)
+         try? self?._default.remove_SoundLevelChanged($0)
        }
       )
     }()
@@ -1690,12 +1578,6 @@ public final class AudioSubmixNode : WinRTClass, WindowsFoundation.IClosable, IA
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode>?) -> AudioSubmixNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1706,81 +1588,81 @@ public final class AudioSubmixNode : WinRTClass, WindowsFoundation.IClosable, IA
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _default.AddOutgoingConnectionImpl(destination)
+        try _default.AddOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!, _ gain: Double) throws {
-        try _default.AddOutgoingConnectionWithGainImpl(destination, gain)
+        try _default.AddOutgoingConnectionWithGain(destination, gain)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.removeoutgoingconnection)
     public func removeOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _default.RemoveOutgoingConnectionImpl(destination)
+        try _default.RemoveOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.outgoingconnections)
     public var outgoingConnections : WindowsFoundation.AnyIVectorView<AudioGraphConnection?>! {
-        get { try! _default.get_OutgoingConnectionsImpl() }
+        get { try! _default.get_OutgoingConnections() }
     }
 
     private lazy var _IAudioInputNode2: __ABI_Windows_Media_Audio.IAudioInputNode2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode.emitter)
     public var emitter : AudioNodeEmitter! {
-        get { try! _IAudioInputNode2.get_EmitterImpl() }
+        get { try! _IAudioInputNode2.get_Emitter() }
     }
 
     deinit {
@@ -1805,30 +1687,24 @@ public final class CreateAudioDeviceInputNodeResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult>?) -> CreateAudioDeviceInputNodeResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceinputnoderesult.deviceinputnode)
     public var deviceInputNode : AudioDeviceInputNode! {
-        get { try! _default.get_DeviceInputNodeImpl() }
+        get { try! _default.get_DeviceInputNode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceinputnoderesult.status)
     public var status : AudioDeviceNodeCreationStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     private lazy var _ICreateAudioDeviceInputNodeResult2: __ABI_Windows_Media_Audio.ICreateAudioDeviceInputNodeResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceinputnoderesult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _ICreateAudioDeviceInputNodeResult2.get_ExtendedErrorImpl() }
+        get { try! _ICreateAudioDeviceInputNodeResult2.get_ExtendedError() }
     }
 
     deinit {
@@ -1851,30 +1727,24 @@ public final class CreateAudioDeviceOutputNodeResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult>?) -> CreateAudioDeviceOutputNodeResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceoutputnoderesult.deviceoutputnode)
     public var deviceOutputNode : AudioDeviceOutputNode! {
-        get { try! _default.get_DeviceOutputNodeImpl() }
+        get { try! _default.get_DeviceOutputNode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceoutputnoderesult.status)
     public var status : AudioDeviceNodeCreationStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     private lazy var _ICreateAudioDeviceOutputNodeResult2: __ABI_Windows_Media_Audio.ICreateAudioDeviceOutputNodeResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceoutputnoderesult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _ICreateAudioDeviceOutputNodeResult2.get_ExtendedErrorImpl() }
+        get { try! _ICreateAudioDeviceOutputNodeResult2.get_ExtendedError() }
     }
 
     deinit {
@@ -1897,30 +1767,24 @@ public final class CreateAudioFileInputNodeResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult>?) -> CreateAudioFileInputNodeResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileinputnoderesult.fileinputnode)
     public var fileInputNode : AudioFileInputNode! {
-        get { try! _default.get_FileInputNodeImpl() }
+        get { try! _default.get_FileInputNode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileinputnoderesult.status)
     public var status : AudioFileNodeCreationStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     private lazy var _ICreateAudioFileInputNodeResult2: __ABI_Windows_Media_Audio.ICreateAudioFileInputNodeResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileinputnoderesult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _ICreateAudioFileInputNodeResult2.get_ExtendedErrorImpl() }
+        get { try! _ICreateAudioFileInputNodeResult2.get_ExtendedError() }
     }
 
     deinit {
@@ -1943,30 +1807,24 @@ public final class CreateAudioFileOutputNodeResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult>?) -> CreateAudioFileOutputNodeResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileoutputnoderesult.fileoutputnode)
     public var fileOutputNode : AudioFileOutputNode! {
-        get { try! _default.get_FileOutputNodeImpl() }
+        get { try! _default.get_FileOutputNode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileoutputnoderesult.status)
     public var status : AudioFileNodeCreationStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     private lazy var _ICreateAudioFileOutputNodeResult2: __ABI_Windows_Media_Audio.ICreateAudioFileOutputNodeResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileoutputnoderesult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _ICreateAudioFileOutputNodeResult2.get_ExtendedErrorImpl() }
+        get { try! _ICreateAudioFileOutputNodeResult2.get_ExtendedError() }
     }
 
     deinit {
@@ -1989,30 +1847,24 @@ public final class CreateAudioGraphResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult>?) -> CreateAudioGraphResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiographresult.graph)
     public var graph : AudioGraph! {
-        get { try! _default.get_GraphImpl() }
+        get { try! _default.get_Graph() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiographresult.status)
     public var status : AudioGraphCreationStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     private lazy var _ICreateAudioGraphResult2: __ABI_Windows_Media_Audio.ICreateAudioGraphResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiographresult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _ICreateAudioGraphResult2.get_ExtendedErrorImpl() }
+        get { try! _ICreateAudioGraphResult2.get_ExtendedError() }
     }
 
     deinit {
@@ -2035,30 +1887,24 @@ public final class CreateMediaSourceAudioInputNodeResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult>?) -> CreateMediaSourceAudioInputNodeResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult.node)
     public var node : MediaSourceAudioInputNode! {
-        get { try! _default.get_NodeImpl() }
+        get { try! _default.get_Node() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult.status)
     public var status : MediaSourceAudioInputNodeCreationStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     private lazy var _ICreateMediaSourceAudioInputNodeResult2: __ABI_Windows_Media_Audio.ICreateMediaSourceAudioInputNodeResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _ICreateMediaSourceAudioInputNodeResult2.get_ExtendedErrorImpl() }
+        get { try! _ICreateMediaSourceAudioInputNodeResult2.get_ExtendedError() }
     }
 
     deinit {
@@ -2081,12 +1927,6 @@ public final class EchoEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition>?) -> EchoEffectDefinition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2094,38 +1934,38 @@ public final class EchoEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IEchoEffectDefinitionFactory: __ABI_Windows_Media_Audio.IEchoEffectDefinitionFactory = try! RoGetActivationFactory(HString("Windows.Media.Audio.EchoEffectDefinition"))
+    private static let _IEchoEffectDefinitionFactory: __ABI_Windows_Media_Audio.IEchoEffectDefinitionFactory = try! RoGetActivationFactory("Windows.Media.Audio.EchoEffectDefinition")
     public init(_ audioGraph: AudioGraph!) {
-        super.init(try! Self._IEchoEffectDefinitionFactory.CreateImpl(audioGraph))
+        super.init(try! Self._IEchoEffectDefinitionFactory.Create(audioGraph))
     }
 
     private lazy var _IAudioEffectDefinition: __ABI_Windows_Media_Effects.IAudioEffectDefinition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.echoeffectdefinition.activatableclassid)
     public var activatableClassId : String {
-        get { try! _IAudioEffectDefinition.get_ActivatableClassIdImpl() }
+        get { try! _IAudioEffectDefinition.get_ActivatableClassId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.echoeffectdefinition.properties)
     public var properties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _IAudioEffectDefinition.get_PropertiesImpl() }
+        get { try! _IAudioEffectDefinition.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.echoeffectdefinition.delay)
     public var delay : Double {
-        get { try! _default.get_DelayImpl() }
-        set { try! _default.put_DelayImpl(newValue) }
+        get { try! _default.get_Delay() }
+        set { try! _default.put_Delay(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.echoeffectdefinition.feedback)
     public var feedback : Double {
-        get { try! _default.get_FeedbackImpl() }
-        set { try! _default.put_FeedbackImpl(newValue) }
+        get { try! _default.get_Feedback() }
+        set { try! _default.put_Feedback(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.echoeffectdefinition.wetdrymix)
     public var wetDryMix : Double {
-        get { try! _default.get_WetDryMixImpl() }
-        set { try! _default.put_WetDryMixImpl(newValue) }
+        get { try! _default.get_WetDryMix() }
+        set { try! _default.put_WetDryMix(newValue) }
     }
 
     deinit {
@@ -2148,32 +1988,26 @@ public final class EqualizerBand : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand>?) -> EqualizerBand? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizerband.bandwidth)
     public var bandwidth : Double {
-        get { try! _default.get_BandwidthImpl() }
-        set { try! _default.put_BandwidthImpl(newValue) }
+        get { try! _default.get_Bandwidth() }
+        set { try! _default.put_Bandwidth(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizerband.frequencycenter)
     public var frequencyCenter : Double {
-        get { try! _default.get_FrequencyCenterImpl() }
-        set { try! _default.put_FrequencyCenterImpl(newValue) }
+        get { try! _default.get_FrequencyCenter() }
+        set { try! _default.put_FrequencyCenter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizerband.gain)
     public var gain : Double {
-        get { try! _default.get_GainImpl() }
-        set { try! _default.put_GainImpl(newValue) }
+        get { try! _default.get_Gain() }
+        set { try! _default.put_Gain(newValue) }
     }
 
     deinit {
@@ -2195,12 +2029,6 @@ public final class EqualizerEffectDefinition : WinRTClass, UWP.IAudioEffectDefin
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition>?) -> EqualizerEffectDefinition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2208,25 +2036,25 @@ public final class EqualizerEffectDefinition : WinRTClass, UWP.IAudioEffectDefin
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IEqualizerEffectDefinitionFactory: __ABI_Windows_Media_Audio.IEqualizerEffectDefinitionFactory = try! RoGetActivationFactory(HString("Windows.Media.Audio.EqualizerEffectDefinition"))
+    private static let _IEqualizerEffectDefinitionFactory: __ABI_Windows_Media_Audio.IEqualizerEffectDefinitionFactory = try! RoGetActivationFactory("Windows.Media.Audio.EqualizerEffectDefinition")
     public init(_ audioGraph: AudioGraph!) {
-        super.init(try! Self._IEqualizerEffectDefinitionFactory.CreateImpl(audioGraph))
+        super.init(try! Self._IEqualizerEffectDefinitionFactory.Create(audioGraph))
     }
 
     private lazy var _IAudioEffectDefinition: __ABI_Windows_Media_Effects.IAudioEffectDefinition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizereffectdefinition.activatableclassid)
     public var activatableClassId : String {
-        get { try! _IAudioEffectDefinition.get_ActivatableClassIdImpl() }
+        get { try! _IAudioEffectDefinition.get_ActivatableClassId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizereffectdefinition.properties)
     public var properties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _IAudioEffectDefinition.get_PropertiesImpl() }
+        get { try! _IAudioEffectDefinition.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizereffectdefinition.bands)
     public var bands : WindowsFoundation.AnyIVectorView<EqualizerBand?>! {
-        get { try! _default.get_BandsImpl() }
+        get { try! _default.get_Bands() }
     }
 
     deinit {
@@ -2249,19 +2077,13 @@ public final class FrameInputNodeQuantumStartedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs>?) -> FrameInputNodeQuantumStartedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.frameinputnodequantumstartedeventargs.requiredsamples)
     public var requiredSamples : Int32 {
-        get { try! _default.get_RequiredSamplesImpl() }
+        get { try! _default.get_RequiredSamples() }
     }
 
     deinit {
@@ -2283,12 +2105,6 @@ public final class LimiterEffectDefinition : WinRTClass, UWP.IAudioEffectDefinit
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition>?) -> LimiterEffectDefinition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2296,32 +2112,32 @@ public final class LimiterEffectDefinition : WinRTClass, UWP.IAudioEffectDefinit
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _ILimiterEffectDefinitionFactory: __ABI_Windows_Media_Audio.ILimiterEffectDefinitionFactory = try! RoGetActivationFactory(HString("Windows.Media.Audio.LimiterEffectDefinition"))
+    private static let _ILimiterEffectDefinitionFactory: __ABI_Windows_Media_Audio.ILimiterEffectDefinitionFactory = try! RoGetActivationFactory("Windows.Media.Audio.LimiterEffectDefinition")
     public init(_ audioGraph: AudioGraph!) {
-        super.init(try! Self._ILimiterEffectDefinitionFactory.CreateImpl(audioGraph))
+        super.init(try! Self._ILimiterEffectDefinitionFactory.Create(audioGraph))
     }
 
     private lazy var _IAudioEffectDefinition: __ABI_Windows_Media_Effects.IAudioEffectDefinition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.limitereffectdefinition.activatableclassid)
     public var activatableClassId : String {
-        get { try! _IAudioEffectDefinition.get_ActivatableClassIdImpl() }
+        get { try! _IAudioEffectDefinition.get_ActivatableClassId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.limitereffectdefinition.properties)
     public var properties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _IAudioEffectDefinition.get_PropertiesImpl() }
+        get { try! _IAudioEffectDefinition.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.limitereffectdefinition.loudness)
     public var loudness : UInt32 {
-        get { try! _default.get_LoudnessImpl() }
-        set { try! _default.put_LoudnessImpl(newValue) }
+        get { try! _default.get_Loudness() }
+        set { try! _default.put_Loudness(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.limitereffectdefinition.release)
     public var release : UInt32 {
-        get { try! _default.get_ReleaseImpl() }
-        set { try! _default.put_ReleaseImpl(newValue) }
+        get { try! _default.get_Release() }
+        set { try! _default.put_Release(newValue) }
     }
 
     deinit {
@@ -2344,12 +2160,6 @@ public final class MediaSourceAudioInputNode : WinRTClass, WindowsFoundation.ICl
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode>?) -> MediaSourceAudioInputNode? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2360,126 +2170,126 @@ public final class MediaSourceAudioInputNode : WinRTClass, WindowsFoundation.ICl
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.start)
     public func start() throws {
-        try _IAudioNode.StartImpl()
+        try _IAudioNode.Start()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.stop)
     public func stop() throws {
-        try _IAudioNode.StopImpl()
+        try _IAudioNode.Stop()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.reset)
     public func reset() throws {
-        try _IAudioNode.ResetImpl()
+        try _IAudioNode.Reset()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.disableeffectsbydefinition)
     public func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.DisableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.DisableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.enableeffectsbydefinition)
     public func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
-        try _IAudioNode.EnableEffectsByDefinitionImpl(definition)
+        try _IAudioNode.EnableEffectsByDefinition(definition)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.consumeinput)
     public var consumeInput : Bool {
-        get { try! _IAudioNode.get_ConsumeInputImpl() }
-        set { try! _IAudioNode.put_ConsumeInputImpl(newValue) }
+        get { try! _IAudioNode.get_ConsumeInput() }
+        set { try! _IAudioNode.put_ConsumeInput(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.effectdefinitions)
     public var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
-        get { try! _IAudioNode.get_EffectDefinitionsImpl() }
+        get { try! _IAudioNode.get_EffectDefinitions() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.encodingproperties)
     public var encodingProperties : UWP.AudioEncodingProperties! {
-        get { try! _IAudioNode.get_EncodingPropertiesImpl() }
+        get { try! _IAudioNode.get_EncodingProperties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.outgoinggain)
     public var outgoingGain : Double {
-        get { try! _IAudioNode.get_OutgoingGainImpl() }
-        set { try! _IAudioNode.put_OutgoingGainImpl(newValue) }
+        get { try! _IAudioNode.get_OutgoingGain() }
+        set { try! _IAudioNode.put_OutgoingGain(newValue) }
     }
 
     private lazy var _IAudioInputNode: __ABI_Windows_Media_Audio.IAudioInputNode! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.AddOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.AddOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.addoutgoingconnection)
     public func addOutgoingConnection(_ destination: AnyIAudioNode!, _ gain: Double) throws {
-        try _IAudioInputNode.AddOutgoingConnectionWithGainImpl(destination, gain)
+        try _IAudioInputNode.AddOutgoingConnectionWithGain(destination, gain)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.removeoutgoingconnection)
     public func removeOutgoingConnection(_ destination: AnyIAudioNode!) throws {
-        try _IAudioInputNode.RemoveOutgoingConnectionImpl(destination)
+        try _IAudioInputNode.RemoveOutgoingConnection(destination)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.outgoingconnections)
     public var outgoingConnections : WindowsFoundation.AnyIVectorView<AudioGraphConnection?>! {
-        get { try! _IAudioInputNode.get_OutgoingConnectionsImpl() }
+        get { try! _IAudioInputNode.get_OutgoingConnections() }
     }
 
     private lazy var _IAudioInputNode2: __ABI_Windows_Media_Audio.IAudioInputNode2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.emitter)
     public var emitter : AudioNodeEmitter! {
-        get { try! _IAudioInputNode2.get_EmitterImpl() }
+        get { try! _IAudioInputNode2.get_Emitter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.seek)
     public func seek(_ position: WindowsFoundation.TimeSpan) throws {
-        try _default.SeekImpl(position)
+        try _default.Seek(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.duration)
     public var duration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DurationImpl() }
+        get { try! _default.get_Duration() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.endtime)
     public var endTime : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_EndTimeImpl() }
-        set { try! _default.put_EndTimeImpl(newValue) }
+        get { try! _default.get_EndTime() }
+        set { try! _default.put_EndTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.loopcount)
     public var loopCount : Int32? {
-        get { try! _default.get_LoopCountImpl() }
-        set { try! _default.put_LoopCountImpl(newValue) }
+        get { try! _default.get_LoopCount() }
+        set { try! _default.put_LoopCount(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.mediasource)
     public var mediaSource : UWP.MediaSource! {
-        get { try! _default.get_MediaSourceImpl() }
+        get { try! _default.get_MediaSource() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.playbackspeedfactor)
     public var playbackSpeedFactor : Double {
-        get { try! _default.get_PlaybackSpeedFactorImpl() }
-        set { try! _default.put_PlaybackSpeedFactorImpl(newValue) }
+        get { try! _default.get_PlaybackSpeedFactor() }
+        set { try! _default.put_PlaybackSpeedFactor(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.position)
     public var position : WindowsFoundation.TimeSpan {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.starttime)
     public var startTime : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_StartTimeImpl() }
-        set { try! _default.put_StartTimeImpl(newValue) }
+        get { try! _default.get_StartTime() }
+        set { try! _default.put_StartTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode.mediasourcecompleted)
@@ -2487,10 +2297,10 @@ public final class MediaSourceAudioInputNode : WinRTClass, WindowsFoundation.ICl
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_MediaSourceCompletedImpl($0)
+          return try! this.add_MediaSourceCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_MediaSourceCompletedImpl($0)
+         try? self?._default.remove_MediaSourceCompleted($0)
        }
       )
     }()
@@ -2518,12 +2328,6 @@ public final class ReverbEffectDefinition : WinRTClass, UWP.IAudioEffectDefiniti
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition>?) -> ReverbEffectDefinition? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2531,158 +2335,158 @@ public final class ReverbEffectDefinition : WinRTClass, UWP.IAudioEffectDefiniti
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IReverbEffectDefinitionFactory: __ABI_Windows_Media_Audio.IReverbEffectDefinitionFactory = try! RoGetActivationFactory(HString("Windows.Media.Audio.ReverbEffectDefinition"))
+    private static let _IReverbEffectDefinitionFactory: __ABI_Windows_Media_Audio.IReverbEffectDefinitionFactory = try! RoGetActivationFactory("Windows.Media.Audio.ReverbEffectDefinition")
     public init(_ audioGraph: AudioGraph!) {
-        super.init(try! Self._IReverbEffectDefinitionFactory.CreateImpl(audioGraph))
+        super.init(try! Self._IReverbEffectDefinitionFactory.Create(audioGraph))
     }
 
     private lazy var _IAudioEffectDefinition: __ABI_Windows_Media_Effects.IAudioEffectDefinition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.activatableclassid)
     public var activatableClassId : String {
-        get { try! _IAudioEffectDefinition.get_ActivatableClassIdImpl() }
+        get { try! _IAudioEffectDefinition.get_ActivatableClassId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.properties)
     public var properties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _IAudioEffectDefinition.get_PropertiesImpl() }
+        get { try! _IAudioEffectDefinition.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.decaytime)
     public var decayTime : Double {
-        get { try! _default.get_DecayTimeImpl() }
-        set { try! _default.put_DecayTimeImpl(newValue) }
+        get { try! _default.get_DecayTime() }
+        set { try! _default.put_DecayTime(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.density)
     public var density : Double {
-        get { try! _default.get_DensityImpl() }
-        set { try! _default.put_DensityImpl(newValue) }
+        get { try! _default.get_Density() }
+        set { try! _default.put_Density(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.disablelatefield)
     public var disableLateField : Bool {
-        get { try! _default.get_DisableLateFieldImpl() }
-        set { try! _default.put_DisableLateFieldImpl(newValue) }
+        get { try! _default.get_DisableLateField() }
+        set { try! _default.put_DisableLateField(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.earlydiffusion)
     public var earlyDiffusion : UInt8 {
-        get { try! _default.get_EarlyDiffusionImpl() }
-        set { try! _default.put_EarlyDiffusionImpl(newValue) }
+        get { try! _default.get_EarlyDiffusion() }
+        set { try! _default.put_EarlyDiffusion(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.higheqcutoff)
     public var highEQCutoff : UInt8 {
-        get { try! _default.get_HighEQCutoffImpl() }
-        set { try! _default.put_HighEQCutoffImpl(newValue) }
+        get { try! _default.get_HighEQCutoff() }
+        set { try! _default.put_HighEQCutoff(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.higheqgain)
     public var highEQGain : UInt8 {
-        get { try! _default.get_HighEQGainImpl() }
-        set { try! _default.put_HighEQGainImpl(newValue) }
+        get { try! _default.get_HighEQGain() }
+        set { try! _default.put_HighEQGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.latediffusion)
     public var lateDiffusion : UInt8 {
-        get { try! _default.get_LateDiffusionImpl() }
-        set { try! _default.put_LateDiffusionImpl(newValue) }
+        get { try! _default.get_LateDiffusion() }
+        set { try! _default.put_LateDiffusion(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.loweqcutoff)
     public var lowEQCutoff : UInt8 {
-        get { try! _default.get_LowEQCutoffImpl() }
-        set { try! _default.put_LowEQCutoffImpl(newValue) }
+        get { try! _default.get_LowEQCutoff() }
+        set { try! _default.put_LowEQCutoff(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.loweqgain)
     public var lowEQGain : UInt8 {
-        get { try! _default.get_LowEQGainImpl() }
-        set { try! _default.put_LowEQGainImpl(newValue) }
+        get { try! _default.get_LowEQGain() }
+        set { try! _default.put_LowEQGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.positionleft)
     public var positionLeft : UInt8 {
-        get { try! _default.get_PositionLeftImpl() }
-        set { try! _default.put_PositionLeftImpl(newValue) }
+        get { try! _default.get_PositionLeft() }
+        set { try! _default.put_PositionLeft(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.positionmatrixleft)
     public var positionMatrixLeft : UInt8 {
-        get { try! _default.get_PositionMatrixLeftImpl() }
-        set { try! _default.put_PositionMatrixLeftImpl(newValue) }
+        get { try! _default.get_PositionMatrixLeft() }
+        set { try! _default.put_PositionMatrixLeft(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.positionmatrixright)
     public var positionMatrixRight : UInt8 {
-        get { try! _default.get_PositionMatrixRightImpl() }
-        set { try! _default.put_PositionMatrixRightImpl(newValue) }
+        get { try! _default.get_PositionMatrixRight() }
+        set { try! _default.put_PositionMatrixRight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.positionright)
     public var positionRight : UInt8 {
-        get { try! _default.get_PositionRightImpl() }
-        set { try! _default.put_PositionRightImpl(newValue) }
+        get { try! _default.get_PositionRight() }
+        set { try! _default.put_PositionRight(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.reardelay)
     public var rearDelay : UInt8 {
-        get { try! _default.get_RearDelayImpl() }
-        set { try! _default.put_RearDelayImpl(newValue) }
+        get { try! _default.get_RearDelay() }
+        set { try! _default.put_RearDelay(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.reflectionsdelay)
     public var reflectionsDelay : UInt32 {
-        get { try! _default.get_ReflectionsDelayImpl() }
-        set { try! _default.put_ReflectionsDelayImpl(newValue) }
+        get { try! _default.get_ReflectionsDelay() }
+        set { try! _default.put_ReflectionsDelay(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.reflectionsgain)
     public var reflectionsGain : Double {
-        get { try! _default.get_ReflectionsGainImpl() }
-        set { try! _default.put_ReflectionsGainImpl(newValue) }
+        get { try! _default.get_ReflectionsGain() }
+        set { try! _default.put_ReflectionsGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.reverbdelay)
     public var reverbDelay : UInt8 {
-        get { try! _default.get_ReverbDelayImpl() }
-        set { try! _default.put_ReverbDelayImpl(newValue) }
+        get { try! _default.get_ReverbDelay() }
+        set { try! _default.put_ReverbDelay(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.reverbgain)
     public var reverbGain : Double {
-        get { try! _default.get_ReverbGainImpl() }
-        set { try! _default.put_ReverbGainImpl(newValue) }
+        get { try! _default.get_ReverbGain() }
+        set { try! _default.put_ReverbGain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.roomfilterfreq)
     public var roomFilterFreq : Double {
-        get { try! _default.get_RoomFilterFreqImpl() }
-        set { try! _default.put_RoomFilterFreqImpl(newValue) }
+        get { try! _default.get_RoomFilterFreq() }
+        set { try! _default.put_RoomFilterFreq(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.roomfilterhf)
     public var roomFilterHF : Double {
-        get { try! _default.get_RoomFilterHFImpl() }
-        set { try! _default.put_RoomFilterHFImpl(newValue) }
+        get { try! _default.get_RoomFilterHF() }
+        set { try! _default.put_RoomFilterHF(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.roomfiltermain)
     public var roomFilterMain : Double {
-        get { try! _default.get_RoomFilterMainImpl() }
-        set { try! _default.put_RoomFilterMainImpl(newValue) }
+        get { try! _default.get_RoomFilterMain() }
+        set { try! _default.put_RoomFilterMain(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.roomsize)
     public var roomSize : Double {
-        get { try! _default.get_RoomSizeImpl() }
-        set { try! _default.put_RoomSizeImpl(newValue) }
+        get { try! _default.get_RoomSize() }
+        set { try! _default.put_RoomSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition.wetdrymix)
     public var wetDryMix : Double {
-        get { try! _default.get_WetDryMixImpl() }
-        set { try! _default.put_WetDryMixImpl(newValue) }
+        get { try! _default.get_WetDryMix() }
+        set { try! _default.put_WetDryMix(newValue) }
     }
 
     deinit {
@@ -2705,19 +2509,13 @@ public final class SetDefaultSpatialAudioFormatResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult>?) -> SetDefaultSpatialAudioFormatResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.setdefaultspatialaudioformatresult.status)
     public var status : SetDefaultSpatialAudioFormatStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     deinit {
@@ -2739,50 +2537,44 @@ public final class SpatialAudioDeviceConfiguration : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration>?) -> SpatialAudioDeviceConfiguration? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ISpatialAudioDeviceConfigurationStatics: __ABI_Windows_Media_Audio.ISpatialAudioDeviceConfigurationStatics = try! RoGetActivationFactory(HString("Windows.Media.Audio.SpatialAudioDeviceConfiguration"))
+    private static let _ISpatialAudioDeviceConfigurationStatics: __ABI_Windows_Media_Audio.ISpatialAudioDeviceConfigurationStatics = try! RoGetActivationFactory("Windows.Media.Audio.SpatialAudioDeviceConfiguration")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.getfordeviceid)
-    public static func getForDeviceId(_ deviceId: String) -> SpatialAudioDeviceConfiguration! {
-        return try! _ISpatialAudioDeviceConfigurationStatics.GetForDeviceIdImpl(deviceId)
+    public static func getForDeviceId(_ deviceId: String) throws -> SpatialAudioDeviceConfiguration! {
+        return try _ISpatialAudioDeviceConfigurationStatics.GetForDeviceId(deviceId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.isspatialaudioformatsupported)
     public func isSpatialAudioFormatSupported(_ subtype: String) throws -> Bool {
-        try _default.IsSpatialAudioFormatSupportedImpl(subtype)
+        try _default.IsSpatialAudioFormatSupported(subtype)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.setdefaultspatialaudioformatasync)
     public func setDefaultSpatialAudioFormatAsync(_ subtype: String) throws -> WindowsFoundation.AnyIAsyncOperation<SetDefaultSpatialAudioFormatResult?>! {
-        try _default.SetDefaultSpatialAudioFormatAsyncImpl(subtype)
+        try _default.SetDefaultSpatialAudioFormatAsync(subtype)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.activespatialaudioformat)
     public var activeSpatialAudioFormat : String {
-        get { try! _default.get_ActiveSpatialAudioFormatImpl() }
+        get { try! _default.get_ActiveSpatialAudioFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.defaultspatialaudioformat)
     public var defaultSpatialAudioFormat : String {
-        get { try! _default.get_DefaultSpatialAudioFormatImpl() }
+        get { try! _default.get_DefaultSpatialAudioFormat() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.deviceid)
     public var deviceId : String {
-        get { try! _default.get_DeviceIdImpl() }
+        get { try! _default.get_DeviceId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.isspatialaudiosupported)
     public var isSpatialAudioSupported : Bool {
-        get { try! _default.get_IsSpatialAudioSupportedImpl() }
+        get { try! _default.get_IsSpatialAudioSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration.configurationchanged)
@@ -2790,10 +2582,10 @@ public final class SpatialAudioDeviceConfiguration : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ConfigurationChangedImpl($0)
+          return try! this.add_ConfigurationChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ConfigurationChangedImpl($0)
+         try? self?._default.remove_ConfigurationChanged($0)
        }
       )
     }()
@@ -2817,36 +2609,30 @@ public final class SpatialAudioFormatConfiguration : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration>?) -> SpatialAudioFormatConfiguration? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ISpatialAudioFormatConfigurationStatics: __ABI_Windows_Media_Audio.ISpatialAudioFormatConfigurationStatics = try! RoGetActivationFactory(HString("Windows.Media.Audio.SpatialAudioFormatConfiguration"))
+    private static let _ISpatialAudioFormatConfigurationStatics: __ABI_Windows_Media_Audio.ISpatialAudioFormatConfigurationStatics = try! RoGetActivationFactory("Windows.Media.Audio.SpatialAudioFormatConfiguration")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatconfiguration.getdefault)
-    public static func getDefault() -> SpatialAudioFormatConfiguration! {
-        return try! _ISpatialAudioFormatConfigurationStatics.GetDefaultImpl()
+    public static func getDefault() throws -> SpatialAudioFormatConfiguration! {
+        return try _ISpatialAudioFormatConfigurationStatics.GetDefault()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatconfiguration.reportlicensechangedasync)
     public func reportLicenseChangedAsync(_ subtype: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ReportLicenseChangedAsyncImpl(subtype)
+        try _default.ReportLicenseChangedAsync(subtype)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatconfiguration.reportconfigurationchangedasync)
     public func reportConfigurationChangedAsync(_ subtype: String) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ReportConfigurationChangedAsyncImpl(subtype)
+        try _default.ReportConfigurationChangedAsync(subtype)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatconfiguration.mixedrealityexclusivemodepolicy)
     public var mixedRealityExclusiveModePolicy : MixedRealitySpatialAudioFormatPolicy {
-        get { try! _default.get_MixedRealityExclusiveModePolicyImpl() }
-        set { try! _default.put_MixedRealityExclusiveModePolicyImpl(newValue) }
+        get { try! _default.get_MixedRealityExclusiveModePolicy() }
+        set { try! _default.put_MixedRealityExclusiveModePolicy(newValue) }
     }
 
     deinit {
@@ -2856,35 +2642,35 @@ public final class SpatialAudioFormatConfiguration : WinRTClass {
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype)
 public final class SpatialAudioFormatSubtype {
-    private static let _ISpatialAudioFormatSubtypeStatics: __ABI_Windows_Media_Audio.ISpatialAudioFormatSubtypeStatics = try! RoGetActivationFactory(HString("Windows.Media.Audio.SpatialAudioFormatSubtype"))
+    private static let _ISpatialAudioFormatSubtypeStatics: __ABI_Windows_Media_Audio.ISpatialAudioFormatSubtypeStatics = try! RoGetActivationFactory("Windows.Media.Audio.SpatialAudioFormatSubtype")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype.dtsheadphonex)
     public static var dtsHeadphoneX : String {
-        get { try! _ISpatialAudioFormatSubtypeStatics.get_DTSHeadphoneXImpl() }
+        get { try! _ISpatialAudioFormatSubtypeStatics.get_DTSHeadphoneX() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype.dtsxultra)
     public static var dtsxUltra : String {
-        get { try! _ISpatialAudioFormatSubtypeStatics.get_DTSXUltraImpl() }
+        get { try! _ISpatialAudioFormatSubtypeStatics.get_DTSXUltra() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype.dolbyatmosforheadphones)
     public static var dolbyAtmosForHeadphones : String {
-        get { try! _ISpatialAudioFormatSubtypeStatics.get_DolbyAtmosForHeadphonesImpl() }
+        get { try! _ISpatialAudioFormatSubtypeStatics.get_DolbyAtmosForHeadphones() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype.dolbyatmosforhometheater)
     public static var dolbyAtmosForHomeTheater : String {
-        get { try! _ISpatialAudioFormatSubtypeStatics.get_DolbyAtmosForHomeTheaterImpl() }
+        get { try! _ISpatialAudioFormatSubtypeStatics.get_DolbyAtmosForHomeTheater() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype.dolbyatmosforspeakers)
     public static var dolbyAtmosForSpeakers : String {
-        get { try! _ISpatialAudioFormatSubtypeStatics.get_DolbyAtmosForSpeakersImpl() }
+        get { try! _ISpatialAudioFormatSubtypeStatics.get_DolbyAtmosForSpeakers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype.windowssonic)
     public static var windowsSonic : String {
-        get { try! _ISpatialAudioFormatSubtypeStatics.get_WindowsSonicImpl() }
+        get { try! _ISpatialAudioFormatSubtypeStatics.get_WindowsSonic() }
     }
 
 }
@@ -3024,7 +2810,7 @@ extension UWP.AudioDeviceNodeCreationStatus {
         __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_AccessDenied
     }
 }
-extension UWP.AudioDeviceNodeCreationStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioDeviceNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioFileNodeCreationStatus {
     public static var success : UWP.AudioFileNodeCreationStatus {
@@ -3043,7 +2829,7 @@ extension UWP.AudioFileNodeCreationStatus {
         __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_UnknownFailure
     }
 }
-extension UWP.AudioFileNodeCreationStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioFileNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioGraphCreationStatus {
     public static var success : UWP.AudioGraphCreationStatus {
@@ -3059,7 +2845,7 @@ extension UWP.AudioGraphCreationStatus {
         __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_UnknownFailure
     }
 }
-extension UWP.AudioGraphCreationStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioGraphCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioGraphUnrecoverableError {
     public static var none : UWP.AudioGraphUnrecoverableError {
@@ -3075,7 +2861,7 @@ extension UWP.AudioGraphUnrecoverableError {
         __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_UnknownFailure
     }
 }
-extension UWP.AudioGraphUnrecoverableError: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioGraphUnrecoverableError: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioNodeEmitterDecayKind {
     public static var natural : UWP.AudioNodeEmitterDecayKind {
@@ -3085,7 +2871,7 @@ extension UWP.AudioNodeEmitterDecayKind {
         __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterDecayKind_Custom
     }
 }
-extension UWP.AudioNodeEmitterDecayKind: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioNodeEmitterDecayKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioNodeEmitterSettings {
     public static var none : UWP.AudioNodeEmitterSettings {
@@ -3095,7 +2881,7 @@ extension UWP.AudioNodeEmitterSettings {
         __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterSettings_DisableDoppler
     }
 }
-extension UWP.AudioNodeEmitterSettings: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioNodeEmitterSettings: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AudioNodeEmitterShapeKind {
     public static var omnidirectional : UWP.AudioNodeEmitterShapeKind {
@@ -3105,7 +2891,7 @@ extension UWP.AudioNodeEmitterShapeKind {
         __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterShapeKind_Cone
     }
 }
-extension UWP.AudioNodeEmitterShapeKind: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioNodeEmitterShapeKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MediaSourceAudioInputNodeCreationStatus {
     public static var success : UWP.MediaSourceAudioInputNodeCreationStatus {
@@ -3121,7 +2907,7 @@ extension UWP.MediaSourceAudioInputNodeCreationStatus {
         __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_UnknownFailure
     }
 }
-extension UWP.MediaSourceAudioInputNodeCreationStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MediaSourceAudioInputNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.MixedRealitySpatialAudioFormatPolicy {
     public static var useMixedRealityDefaultSpatialAudioFormat : UWP.MixedRealitySpatialAudioFormatPolicy {
@@ -3131,7 +2917,7 @@ extension UWP.MixedRealitySpatialAudioFormatPolicy {
         __x_ABI_CWindows_CMedia_CAudio_CMixedRealitySpatialAudioFormatPolicy_UseDeviceConfigurationDefaultSpatialAudioFormat
     }
 }
-extension UWP.MixedRealitySpatialAudioFormatPolicy: @retroactive Hashable, @retroactive Codable {}
+extension UWP.MixedRealitySpatialAudioFormatPolicy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.QuantumSizeSelectionMode {
     public static var systemDefault : UWP.QuantumSizeSelectionMode {
@@ -3144,7 +2930,7 @@ extension UWP.QuantumSizeSelectionMode {
         __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode_ClosestToDesired
     }
 }
-extension UWP.QuantumSizeSelectionMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.QuantumSizeSelectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.SetDefaultSpatialAudioFormatStatus {
     public static var succeeded : UWP.SetDefaultSpatialAudioFormatStatus {
@@ -3166,7 +2952,7 @@ extension UWP.SetDefaultSpatialAudioFormatStatus {
         __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_UnknownError
     }
 }
-extension UWP.SetDefaultSpatialAudioFormatStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.SetDefaultSpatialAudioFormatStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.SpatialAudioModel {
     public static var objectBased : UWP.SpatialAudioModel {
@@ -3176,5 +2962,5 @@ extension UWP.SpatialAudioModel {
         __x_ABI_CWindows_CMedia_CAudio_CSpatialAudioModel_FoldDown
     }
 }
-extension UWP.SpatialAudioModel: @retroactive Hashable, @retroactive Codable {}
+extension UWP.SpatialAudioModel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

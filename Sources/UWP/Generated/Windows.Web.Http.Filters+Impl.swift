@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Web_Http_Filters {
     public enum IHttpFilterBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CFilters_CIHttpFilter
@@ -30,15 +31,23 @@ public enum __IMPL_Windows_Web_Http_Filters {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.filters.ihttpfilter.sendrequestasync)
         fileprivate func sendRequestAsync(_ request: UWP.HttpRequestMessage!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.HttpResponseMessage?, UWP.HttpProgress>! {
-            try _default.SendRequestAsyncImpl(request)
+            try _default.SendRequestAsync(request)
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.filters.ihttpfilter.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
 
+}
+@_spi(WinRTInternal)
+public class IHttpFilterMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIHttpFilter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Web_Http_Filters.IHttpFilter = try! abi.QueryInterface()
+        return __IMPL_Windows_Web_Http_Filters.IHttpFilterBridge.from(abi: RawPointer(swiftAbi))!
+    }
 }

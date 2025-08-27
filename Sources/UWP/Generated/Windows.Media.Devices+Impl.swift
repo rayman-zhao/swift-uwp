@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_Devices {
     public enum IMediaDeviceControllerBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceController
@@ -30,19 +31,475 @@ public enum __IMPL_Windows_Media_Devices {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.imediadevicecontroller.getavailablemediastreamproperties)
         fileprivate func getAvailableMediaStreamProperties(_ mediaStreamType: UWP.MediaStreamType) throws -> WindowsFoundation.AnyIVectorView<UWP.AnyIMediaEncodingProperties?>! {
-            try _default.GetAvailableMediaStreamPropertiesImpl(mediaStreamType)
+            try _default.GetAvailableMediaStreamProperties(mediaStreamType)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.imediadevicecontroller.getmediastreamproperties)
         fileprivate func getMediaStreamProperties(_ mediaStreamType: UWP.MediaStreamType) throws -> UWP.AnyIMediaEncodingProperties! {
-            try _default.GetMediaStreamPropertiesImpl(mediaStreamType)
+            try _default.GetMediaStreamProperties(mediaStreamType)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.imediadevicecontroller.setmediastreampropertiesasync)
         fileprivate func setMediaStreamPropertiesAsync(_ mediaStreamType: UWP.MediaStreamType, _ mediaEncodingProperties: UWP.AnyIMediaEncodingProperties!) throws -> WindowsFoundation.AnyIAsyncAction! {
-            try _default.SetMediaStreamPropertiesAsyncImpl(mediaStreamType, mediaEncodingProperties)
+            try _default.SetMediaStreamPropertiesAsync(mediaStreamType, mediaEncodingProperties)
         }
 
     }
 
+    public enum AdvancedPhotoCaptureSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = AdvancedPhotoCaptureSettings
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoCaptureSettings
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoCaptureSettings>?) -> AdvancedPhotoCaptureSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdvancedPhotoControlBridge: AbiBridge {
+        public typealias SwiftProjection = AdvancedPhotoControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoControl>?) -> AdvancedPhotoControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AudioDeviceControllerBridge: AbiBridge {
+        public typealias SwiftProjection = AudioDeviceController
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIAudioDeviceController
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIAudioDeviceController>?) -> AudioDeviceController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ExposureCompensationControlBridge: AbiBridge {
+        public typealias SwiftProjection = ExposureCompensationControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIExposureCompensationControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIExposureCompensationControl>?) -> ExposureCompensationControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ExposureControlBridge: AbiBridge {
+        public typealias SwiftProjection = ExposureControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIExposureControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIExposureControl>?) -> ExposureControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ExposurePriorityVideoControlBridge: AbiBridge {
+        public typealias SwiftProjection = ExposurePriorityVideoControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIExposurePriorityVideoControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIExposurePriorityVideoControl>?) -> ExposurePriorityVideoControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FlashControlBridge: AbiBridge {
+        public typealias SwiftProjection = FlashControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIFlashControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIFlashControl>?) -> FlashControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusControlBridge: AbiBridge {
+        public typealias SwiftProjection = FocusControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIFocusControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIFocusControl>?) -> FocusControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FocusSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = FocusSettings
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIFocusSettings
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIFocusSettings>?) -> FocusSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HdrVideoControlBridge: AbiBridge {
+        public typealias SwiftProjection = HdrVideoControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIHdrVideoControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIHdrVideoControl>?) -> HdrVideoControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum InfraredTorchControlBridge: AbiBridge {
+        public typealias SwiftProjection = InfraredTorchControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIInfraredTorchControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIInfraredTorchControl>?) -> InfraredTorchControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum IsoSpeedControlBridge: AbiBridge {
+        public typealias SwiftProjection = IsoSpeedControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIIsoSpeedControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIIsoSpeedControl>?) -> IsoSpeedControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LowLagPhotoControlBridge: AbiBridge {
+        public typealias SwiftProjection = LowLagPhotoControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoControl>?) -> LowLagPhotoControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LowLagPhotoSequenceControlBridge: AbiBridge {
+        public typealias SwiftProjection = LowLagPhotoSequenceControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoSequenceControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoSequenceControl>?) -> LowLagPhotoSequenceControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaDeviceControlBridge: AbiBridge {
+        public typealias SwiftProjection = MediaDeviceControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControl>?) -> MediaDeviceControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaDeviceControlCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = MediaDeviceControlCapabilities
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControlCapabilities
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControlCapabilities>?) -> MediaDeviceControlCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum OpticalImageStabilizationControlBridge: AbiBridge {
+        public typealias SwiftProjection = OpticalImageStabilizationControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIOpticalImageStabilizationControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIOpticalImageStabilizationControl>?) -> OpticalImageStabilizationControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PhotoConfirmationControlBridge: AbiBridge {
+        public typealias SwiftProjection = PhotoConfirmationControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIPhotoConfirmationControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIPhotoConfirmationControl>?) -> PhotoConfirmationControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RegionOfInterestBridge: AbiBridge {
+        public typealias SwiftProjection = RegionOfInterest
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIRegionOfInterest
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIRegionOfInterest>?) -> RegionOfInterest? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RegionsOfInterestControlBridge: AbiBridge {
+        public typealias SwiftProjection = RegionsOfInterestControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIRegionsOfInterestControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIRegionsOfInterestControl>?) -> RegionsOfInterestControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SceneModeControlBridge: AbiBridge {
+        public typealias SwiftProjection = SceneModeControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CISceneModeControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CISceneModeControl>?) -> SceneModeControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TorchControlBridge: AbiBridge {
+        public typealias SwiftProjection = TorchControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CITorchControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CITorchControl>?) -> TorchControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VideoDeviceControllerBridge: AbiBridge {
+        public typealias SwiftProjection = VideoDeviceController
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceController
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceController>?) -> VideoDeviceController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VideoDeviceControllerGetDevicePropertyResultBridge: AbiBridge {
+        public typealias SwiftProjection = VideoDeviceControllerGetDevicePropertyResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceControllerGetDevicePropertyResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceControllerGetDevicePropertyResult>?) -> VideoDeviceControllerGetDevicePropertyResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VideoTemporalDenoisingControlBridge: AbiBridge {
+        public typealias SwiftProjection = VideoTemporalDenoisingControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIVideoTemporalDenoisingControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIVideoTemporalDenoisingControl>?) -> VideoTemporalDenoisingControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum WhiteBalanceControlBridge: AbiBridge {
+        public typealias SwiftProjection = WhiteBalanceControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIWhiteBalanceControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIWhiteBalanceControl>?) -> WhiteBalanceControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ZoomControlBridge: AbiBridge {
+        public typealias SwiftProjection = ZoomControl
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIZoomControl
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIZoomControl>?) -> ZoomControl? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ZoomSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = ZoomSettings
+        public typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIZoomSettings
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CIZoomSettings>?) -> ZoomSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IMediaDeviceControllerMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIMediaDeviceController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Devices.IMediaDeviceController = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Devices.IMediaDeviceControllerBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AdvancedPhotoCaptureSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AdvancedPhotoCaptureSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdvancedPhotoCaptureSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdvancedPhotoControlMaker: MakeFromAbi {
+    public typealias SwiftType = AdvancedPhotoControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdvancedPhotoControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AudioDeviceControllerMaker: MakeFromAbi {
+    public typealias SwiftType = AudioDeviceController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioDeviceController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ExposureCompensationControlMaker: MakeFromAbi {
+    public typealias SwiftType = ExposureCompensationControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ExposureCompensationControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ExposureControlMaker: MakeFromAbi {
+    public typealias SwiftType = ExposureControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ExposureControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ExposurePriorityVideoControlMaker: MakeFromAbi {
+    public typealias SwiftType = ExposurePriorityVideoControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ExposurePriorityVideoControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FlashControlMaker: MakeFromAbi {
+    public typealias SwiftType = FlashControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FlashControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusControlMaker: MakeFromAbi {
+    public typealias SwiftType = FocusControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FocusSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = FocusSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FocusSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HdrVideoControlMaker: MakeFromAbi {
+    public typealias SwiftType = HdrVideoControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HdrVideoControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class InfraredTorchControlMaker: MakeFromAbi {
+    public typealias SwiftType = InfraredTorchControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InfraredTorchControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class IsoSpeedControlMaker: MakeFromAbi {
+    public typealias SwiftType = IsoSpeedControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return IsoSpeedControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LowLagPhotoControlMaker: MakeFromAbi {
+    public typealias SwiftType = LowLagPhotoControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LowLagPhotoControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LowLagPhotoSequenceControlMaker: MakeFromAbi {
+    public typealias SwiftType = LowLagPhotoSequenceControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LowLagPhotoSequenceControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaDeviceControlMaker: MakeFromAbi {
+    public typealias SwiftType = MediaDeviceControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaDeviceControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaDeviceControlCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = MediaDeviceControlCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaDeviceControlCapabilities(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class OpticalImageStabilizationControlMaker: MakeFromAbi {
+    public typealias SwiftType = OpticalImageStabilizationControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return OpticalImageStabilizationControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PhotoConfirmationControlMaker: MakeFromAbi {
+    public typealias SwiftType = PhotoConfirmationControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PhotoConfirmationControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RegionOfInterestMaker: MakeFromAbi {
+    public typealias SwiftType = RegionOfInterest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RegionOfInterest(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RegionsOfInterestControlMaker: MakeFromAbi {
+    public typealias SwiftType = RegionsOfInterestControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RegionsOfInterestControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SceneModeControlMaker: MakeFromAbi {
+    public typealias SwiftType = SceneModeControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SceneModeControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TorchControlMaker: MakeFromAbi {
+    public typealias SwiftType = TorchControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TorchControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VideoDeviceControllerMaker: MakeFromAbi {
+    public typealias SwiftType = VideoDeviceController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoDeviceController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VideoDeviceControllerGetDevicePropertyResultMaker: MakeFromAbi {
+    public typealias SwiftType = VideoDeviceControllerGetDevicePropertyResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoDeviceControllerGetDevicePropertyResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VideoTemporalDenoisingControlMaker: MakeFromAbi {
+    public typealias SwiftType = VideoTemporalDenoisingControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoTemporalDenoisingControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WhiteBalanceControlMaker: MakeFromAbi {
+    public typealias SwiftType = WhiteBalanceControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WhiteBalanceControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ZoomControlMaker: MakeFromAbi {
+    public typealias SwiftType = ZoomControl
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ZoomControl(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ZoomSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = ZoomSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ZoomSettings(fromAbi: abi)
+    }
 }

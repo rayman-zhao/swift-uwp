@@ -26,12 +26,6 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource>?) -> AdaptiveMediaSource? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -39,91 +33,91 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IAdaptiveMediaSourceStatics: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceStatics = try! RoGetActivationFactory(HString("Windows.Media.Streaming.Adaptive.AdaptiveMediaSource"))
+    private static let _IAdaptiveMediaSourceStatics: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceStatics = try! RoGetActivationFactory("Windows.Media.Streaming.Adaptive.AdaptiveMediaSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.iscontenttypesupported)
-    public static func isContentTypeSupported(_ contentType: String) -> Bool {
-        return try! _IAdaptiveMediaSourceStatics.IsContentTypeSupportedImpl(contentType)
+    public static func isContentTypeSupported(_ contentType: String) throws -> Bool {
+        return try _IAdaptiveMediaSourceStatics.IsContentTypeSupported(contentType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.createfromuriasync)
-    public static func createFromUriAsync(_ uri: WindowsFoundation.Uri!) -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
-        return try! _IAdaptiveMediaSourceStatics.CreateFromUriAsyncImpl(uri)
+    public static func createFromUriAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
+        return try _IAdaptiveMediaSourceStatics.CreateFromUriAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.createfromuriasync)
-    public static func createFromUriAsync(_ uri: WindowsFoundation.Uri!, _ httpClient: UWP.HttpClient!) -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
-        return try! _IAdaptiveMediaSourceStatics.CreateFromUriWithDownloaderAsyncImpl(uri, httpClient)
+    public static func createFromUriAsync(_ uri: WindowsFoundation.Uri!, _ httpClient: UWP.HttpClient!) throws -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
+        return try _IAdaptiveMediaSourceStatics.CreateFromUriWithDownloaderAsync(uri, httpClient)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.createfromstreamasync)
-    public static func createFromStreamAsync(_ stream: UWP.AnyIInputStream!, _ uri: WindowsFoundation.Uri!, _ contentType: String) -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
-        return try! _IAdaptiveMediaSourceStatics.CreateFromStreamAsyncImpl(stream, uri, contentType)
+    public static func createFromStreamAsync(_ stream: UWP.AnyIInputStream!, _ uri: WindowsFoundation.Uri!, _ contentType: String) throws -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
+        return try _IAdaptiveMediaSourceStatics.CreateFromStreamAsync(stream, uri, contentType)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.createfromstreamasync)
-    public static func createFromStreamAsync(_ stream: UWP.AnyIInputStream!, _ uri: WindowsFoundation.Uri!, _ contentType: String, _ httpClient: UWP.HttpClient!) -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
-        return try! _IAdaptiveMediaSourceStatics.CreateFromStreamWithDownloaderAsyncImpl(stream, uri, contentType, httpClient)
+    public static func createFromStreamAsync(_ stream: UWP.AnyIInputStream!, _ uri: WindowsFoundation.Uri!, _ contentType: String, _ httpClient: UWP.HttpClient!) throws -> WindowsFoundation.AnyIAsyncOperation<AdaptiveMediaSourceCreationResult?>! {
+        return try _IAdaptiveMediaSourceStatics.CreateFromStreamWithDownloaderAsync(stream, uri, contentType, httpClient)
     }
 
     private lazy var _IMediaSource: __ABI_Windows_Media_Core.IMediaSource! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.audioonlyplayback)
     public var audioOnlyPlayback : Bool {
-        get { try! _default.get_AudioOnlyPlaybackImpl() }
+        get { try! _default.get_AudioOnlyPlayback() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.availablebitrates)
     public var availableBitrates : WindowsFoundation.AnyIVectorView<UInt32>! {
-        get { try! _default.get_AvailableBitratesImpl() }
+        get { try! _default.get_AvailableBitrates() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.currentdownloadbitrate)
     public var currentDownloadBitrate : UInt32 {
-        get { try! _default.get_CurrentDownloadBitrateImpl() }
+        get { try! _default.get_CurrentDownloadBitrate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.currentplaybackbitrate)
     public var currentPlaybackBitrate : UInt32 {
-        get { try! _default.get_CurrentPlaybackBitrateImpl() }
+        get { try! _default.get_CurrentPlaybackBitrate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.desiredliveoffset)
     public var desiredLiveOffset : WindowsFoundation.TimeSpan {
-        get { try! _default.get_DesiredLiveOffsetImpl() }
-        set { try! _default.put_DesiredLiveOffsetImpl(newValue) }
+        get { try! _default.get_DesiredLiveOffset() }
+        set { try! _default.put_DesiredLiveOffset(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.desiredmaxbitrate)
     public var desiredMaxBitrate : UInt32? {
-        get { try! _default.get_DesiredMaxBitrateImpl() }
-        set { try! _default.put_DesiredMaxBitrateImpl(newValue) }
+        get { try! _default.get_DesiredMaxBitrate() }
+        set { try! _default.put_DesiredMaxBitrate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.desiredminbitrate)
     public var desiredMinBitrate : UInt32? {
-        get { try! _default.get_DesiredMinBitrateImpl() }
-        set { try! _default.put_DesiredMinBitrateImpl(newValue) }
+        get { try! _default.get_DesiredMinBitrate() }
+        set { try! _default.put_DesiredMinBitrate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.inboundbitspersecond)
     public var inboundBitsPerSecond : UInt64 {
-        get { try! _default.get_InboundBitsPerSecondImpl() }
+        get { try! _default.get_InboundBitsPerSecond() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.inboundbitspersecondwindow)
     public var inboundBitsPerSecondWindow : WindowsFoundation.TimeSpan {
-        get { try! _default.get_InboundBitsPerSecondWindowImpl() }
-        set { try! _default.put_InboundBitsPerSecondWindowImpl(newValue) }
+        get { try! _default.get_InboundBitsPerSecondWindow() }
+        set { try! _default.put_InboundBitsPerSecondWindow(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.initialbitrate)
     public var initialBitrate : UInt32 {
-        get { try! _default.get_InitialBitrateImpl() }
-        set { try! _default.put_InitialBitrateImpl(newValue) }
+        get { try! _default.get_InitialBitrate() }
+        set { try! _default.put_InitialBitrate(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.islive)
     public var isLive : Bool {
-        get { try! _default.get_IsLiveImpl() }
+        get { try! _default.get_IsLive() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.downloadbitratechanged)
@@ -131,10 +125,10 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DownloadBitrateChangedImpl($0)
+          return try! this.add_DownloadBitrateChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DownloadBitrateChangedImpl($0)
+         try? self?._default.remove_DownloadBitrateChanged($0)
        }
       )
     }()
@@ -144,10 +138,10 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DownloadCompletedImpl($0)
+          return try! this.add_DownloadCompleted($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DownloadCompletedImpl($0)
+         try? self?._default.remove_DownloadCompleted($0)
        }
       )
     }()
@@ -157,10 +151,10 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DownloadFailedImpl($0)
+          return try! this.add_DownloadFailed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DownloadFailedImpl($0)
+         try? self?._default.remove_DownloadFailed($0)
        }
       )
     }()
@@ -170,10 +164,10 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DownloadRequestedImpl($0)
+          return try! this.add_DownloadRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DownloadRequestedImpl($0)
+         try? self?._default.remove_DownloadRequested($0)
        }
       )
     }()
@@ -183,10 +177,10 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_PlaybackBitrateChangedImpl($0)
+          return try! this.add_PlaybackBitrateChanged($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_PlaybackBitrateChangedImpl($0)
+         try? self?._default.remove_PlaybackBitrateChanged($0)
        }
       )
     }()
@@ -194,40 +188,40 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
     private lazy var _IAdaptiveMediaSource2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSource2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.advancedsettings)
     public var advancedSettings : AdaptiveMediaSourceAdvancedSettings! {
-        get { try! _IAdaptiveMediaSource2.get_AdvancedSettingsImpl() }
+        get { try! _IAdaptiveMediaSource2.get_AdvancedSettings() }
     }
 
     private lazy var _IAdaptiveMediaSource3: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSource3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.getcorrelatedtimes)
     public func getCorrelatedTimes() throws -> AdaptiveMediaSourceCorrelatedTimes! {
-        try _IAdaptiveMediaSource3.GetCorrelatedTimesImpl()
+        try _IAdaptiveMediaSource3.GetCorrelatedTimes()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.desiredseekablewindowsize)
     public var desiredSeekableWindowSize : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSource3.get_DesiredSeekableWindowSizeImpl() }
-        set { try! _IAdaptiveMediaSource3.put_DesiredSeekableWindowSizeImpl(newValue) }
+        get { try! _IAdaptiveMediaSource3.get_DesiredSeekableWindowSize() }
+        set { try! _IAdaptiveMediaSource3.put_DesiredSeekableWindowSize(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.diagnostics)
     public var diagnostics : AdaptiveMediaSourceDiagnostics! {
-        get { try! _IAdaptiveMediaSource3.get_DiagnosticsImpl() }
+        get { try! _IAdaptiveMediaSource3.get_Diagnostics() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.maxseekablewindowsize)
     public var maxSeekableWindowSize : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSource3.get_MaxSeekableWindowSizeImpl() }
+        get { try! _IAdaptiveMediaSource3.get_MaxSeekableWindowSize() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.minliveoffset)
     public var minLiveOffset : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSource3.get_MinLiveOffsetImpl() }
+        get { try! _IAdaptiveMediaSource3.get_MinLiveOffset() }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     deinit {
@@ -253,32 +247,26 @@ public final class AdaptiveMediaSourceAdvancedSettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings>?) -> AdaptiveMediaSourceAdvancedSettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceadvancedsettings.allsegmentsindependent)
     public var allSegmentsIndependent : Bool {
-        get { try! _default.get_AllSegmentsIndependentImpl() }
-        set { try! _default.put_AllSegmentsIndependentImpl(newValue) }
+        get { try! _default.get_AllSegmentsIndependent() }
+        set { try! _default.put_AllSegmentsIndependent(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceadvancedsettings.bitratedowngradetriggerratio)
     public var bitrateDowngradeTriggerRatio : Double? {
-        get { try! _default.get_BitrateDowngradeTriggerRatioImpl() }
-        set { try! _default.put_BitrateDowngradeTriggerRatioImpl(newValue) }
+        get { try! _default.get_BitrateDowngradeTriggerRatio() }
+        set { try! _default.put_BitrateDowngradeTriggerRatio(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceadvancedsettings.desiredbitrateheadroomratio)
     public var desiredBitrateHeadroomRatio : Double? {
-        get { try! _default.get_DesiredBitrateHeadroomRatioImpl() }
-        set { try! _default.put_DesiredBitrateHeadroomRatioImpl(newValue) }
+        get { try! _default.get_DesiredBitrateHeadroomRatio() }
+        set { try! _default.put_DesiredBitrateHeadroomRatio(newValue) }
     }
 
     deinit {
@@ -300,29 +288,23 @@ public final class AdaptiveMediaSourceCorrelatedTimes : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes>?) -> AdaptiveMediaSourceCorrelatedTimes? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecorrelatedtimes.position)
     public var position : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecorrelatedtimes.presentationtimestamp)
     public var presentationTimeStamp : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_PresentationTimeStampImpl() }
+        get { try! _default.get_PresentationTimeStamp() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecorrelatedtimes.programdatetime)
     public var programDateTime : WindowsFoundation.DateTime? {
-        get { try! _default.get_ProgramDateTimeImpl() }
+        get { try! _default.get_ProgramDateTime() }
     }
 
     deinit {
@@ -344,35 +326,29 @@ public final class AdaptiveMediaSourceCreationResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult>?) -> AdaptiveMediaSourceCreationResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecreationresult.httpresponsemessage)
     public var httpResponseMessage : UWP.HttpResponseMessage! {
-        get { try! _default.get_HttpResponseMessageImpl() }
+        get { try! _default.get_HttpResponseMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecreationresult.mediasource)
     public var mediaSource : AdaptiveMediaSource! {
-        get { try! _default.get_MediaSourceImpl() }
+        get { try! _default.get_MediaSource() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecreationresult.status)
     public var status : AdaptiveMediaSourceCreationStatus {
-        get { try! _default.get_StatusImpl() }
+        get { try! _default.get_Status() }
     }
 
     private lazy var _IAdaptiveMediaSourceCreationResult2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceCreationResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecreationresult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _IAdaptiveMediaSourceCreationResult2.get_ExtendedErrorImpl() }
+        get { try! _IAdaptiveMediaSourceCreationResult2.get_ExtendedError() }
     }
 
     deinit {
@@ -395,76 +371,70 @@ public final class AdaptiveMediaSourceDiagnosticAvailableEventArgs : WinRTClass 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs>?) -> AdaptiveMediaSourceDiagnosticAvailableEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.bitrate)
     public var bitrate : UInt32? {
-        get { try! _default.get_BitrateImpl() }
+        get { try! _default.get_Bitrate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.diagnostictype)
     public var diagnosticType : AdaptiveMediaSourceDiagnosticType {
-        get { try! _default.get_DiagnosticTypeImpl() }
+        get { try! _default.get_DiagnosticType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.position)
     public var position : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_PositionImpl() }
+        get { try! _default.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.requestid)
     public var requestId : Int32? {
-        get { try! _default.get_RequestIdImpl() }
+        get { try! _default.get_RequestId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.resourcebyterangelength)
     public var resourceByteRangeLength : UInt64? {
-        get { try! _default.get_ResourceByteRangeLengthImpl() }
+        get { try! _default.get_ResourceByteRangeLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.resourcebyterangeoffset)
     public var resourceByteRangeOffset : UInt64? {
-        get { try! _default.get_ResourceByteRangeOffsetImpl() }
+        get { try! _default.get_ResourceByteRangeOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.resourcetype)
     public var resourceType : AdaptiveMediaSourceResourceType? {
-        get { try! _default.get_ResourceTypeImpl() }
+        get { try! _default.get_ResourceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.resourceuri)
     public var resourceUri : WindowsFoundation.Uri! {
-        get { try! _default.get_ResourceUriImpl() }
+        get { try! _default.get_ResourceUri() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.segmentid)
     public var segmentId : UInt64? {
-        get { try! _default.get_SegmentIdImpl() }
+        get { try! _default.get_SegmentId() }
     }
 
     private lazy var _IAdaptiveMediaSourceDiagnosticAvailableEventArgs2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.extendederror)
     public var extendedError : HRESULT {
-        get { try! _IAdaptiveMediaSourceDiagnosticAvailableEventArgs2.get_ExtendedErrorImpl() }
+        get { try! _IAdaptiveMediaSourceDiagnosticAvailableEventArgs2.get_ExtendedError() }
     }
 
     private lazy var _IAdaptiveMediaSourceDiagnosticAvailableEventArgs3: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.resourcecontenttype)
     public var resourceContentType : String {
-        get { try! _IAdaptiveMediaSourceDiagnosticAvailableEventArgs3.get_ResourceContentTypeImpl() }
+        get { try! _IAdaptiveMediaSourceDiagnosticAvailableEventArgs3.get_ResourceContentType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs.resourceduration)
     public var resourceDuration : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSourceDiagnosticAvailableEventArgs3.get_ResourceDurationImpl() }
+        get { try! _IAdaptiveMediaSourceDiagnosticAvailableEventArgs3.get_ResourceDuration() }
     }
 
     deinit {
@@ -488,12 +458,6 @@ public final class AdaptiveMediaSourceDiagnostics : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics>?) -> AdaptiveMediaSourceDiagnostics? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -503,10 +467,10 @@ public final class AdaptiveMediaSourceDiagnostics : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_DiagnosticAvailableImpl($0)
+          return try! this.add_DiagnosticAvailable($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_DiagnosticAvailableImpl($0)
+         try? self?._default.remove_DiagnosticAvailable($0)
        }
       )
     }()
@@ -530,30 +494,24 @@ public final class AdaptiveMediaSourceDownloadBitrateChangedEventArgs : WinRTCla
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs>?) -> AdaptiveMediaSourceDownloadBitrateChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadbitratechangedeventargs.newvalue)
     public var newValue : UInt32 {
-        get { try! _default.get_NewValueImpl() }
+        get { try! _default.get_NewValue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadbitratechangedeventargs.oldvalue)
     public var oldValue : UInt32 {
-        get { try! _default.get_OldValueImpl() }
+        get { try! _default.get_OldValue() }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadbitratechangedeventargs.reason)
     public var reason : AdaptiveMediaSourceDownloadBitrateChangedReason {
-        get { try! _IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2.get_ReasonImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2.get_Reason() }
     }
 
     deinit {
@@ -576,66 +534,60 @@ public final class AdaptiveMediaSourceDownloadCompletedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs>?) -> AdaptiveMediaSourceDownloadCompletedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.httpresponsemessage)
     public var httpResponseMessage : UWP.HttpResponseMessage! {
-        get { try! _default.get_HttpResponseMessageImpl() }
+        get { try! _default.get_HttpResponseMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.resourcebyterangelength)
     public var resourceByteRangeLength : UInt64? {
-        get { try! _default.get_ResourceByteRangeLengthImpl() }
+        get { try! _default.get_ResourceByteRangeLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.resourcebyterangeoffset)
     public var resourceByteRangeOffset : UInt64? {
-        get { try! _default.get_ResourceByteRangeOffsetImpl() }
+        get { try! _default.get_ResourceByteRangeOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.resourcetype)
     public var resourceType : AdaptiveMediaSourceResourceType {
-        get { try! _default.get_ResourceTypeImpl() }
+        get { try! _default.get_ResourceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.resourceuri)
     public var resourceUri : WindowsFoundation.Uri! {
-        get { try! _default.get_ResourceUriImpl() }
+        get { try! _default.get_ResourceUri() }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadCompletedEventArgs2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.position)
     public var position : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs2.get_PositionImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs2.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.requestid)
     public var requestId : Int32 {
-        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs2.get_RequestIdImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs2.get_RequestId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.statistics)
     public var statistics : AdaptiveMediaSourceDownloadStatistics! {
-        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs2.get_StatisticsImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs2.get_Statistics() }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadCompletedEventArgs3: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.resourcecontenttype)
     public var resourceContentType : String {
-        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs3.get_ResourceContentTypeImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs3.get_ResourceContentType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs.resourceduration)
     public var resourceDuration : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs3.get_ResourceDurationImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadCompletedEventArgs3.get_ResourceDuration() }
     }
 
     deinit {
@@ -659,71 +611,65 @@ public final class AdaptiveMediaSourceDownloadFailedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs>?) -> AdaptiveMediaSourceDownloadFailedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.httpresponsemessage)
     public var httpResponseMessage : UWP.HttpResponseMessage! {
-        get { try! _default.get_HttpResponseMessageImpl() }
+        get { try! _default.get_HttpResponseMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.resourcebyterangelength)
     public var resourceByteRangeLength : UInt64? {
-        get { try! _default.get_ResourceByteRangeLengthImpl() }
+        get { try! _default.get_ResourceByteRangeLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.resourcebyterangeoffset)
     public var resourceByteRangeOffset : UInt64? {
-        get { try! _default.get_ResourceByteRangeOffsetImpl() }
+        get { try! _default.get_ResourceByteRangeOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.resourcetype)
     public var resourceType : AdaptiveMediaSourceResourceType {
-        get { try! _default.get_ResourceTypeImpl() }
+        get { try! _default.get_ResourceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.resourceuri)
     public var resourceUri : WindowsFoundation.Uri! {
-        get { try! _default.get_ResourceUriImpl() }
+        get { try! _default.get_ResourceUri() }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadFailedEventArgs2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.extendederror)
     public var extendedError : HRESULT {
-        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_ExtendedErrorImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_ExtendedError() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.position)
     public var position : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_PositionImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.requestid)
     public var requestId : Int32 {
-        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_RequestIdImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_RequestId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.statistics)
     public var statistics : AdaptiveMediaSourceDownloadStatistics! {
-        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_StatisticsImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs2.get_Statistics() }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadFailedEventArgs3: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.resourcecontenttype)
     public var resourceContentType : String {
-        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs3.get_ResourceContentTypeImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs3.get_ResourceContentType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs.resourceduration)
     public var resourceDuration : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs3.get_ResourceDurationImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadFailedEventArgs3.get_ResourceDuration() }
     }
 
     deinit {
@@ -747,19 +693,13 @@ public final class AdaptiveMediaSourceDownloadRequestedDeferral : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral>?) -> AdaptiveMediaSourceDownloadRequestedDeferral? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequesteddeferral.complete)
     public func complete() throws {
-        try _default.CompleteImpl()
+        try _default.Complete()
     }
 
     deinit {
@@ -781,66 +721,60 @@ public final class AdaptiveMediaSourceDownloadRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs>?) -> AdaptiveMediaSourceDownloadRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.getdeferral)
     public func getDeferral() throws -> AdaptiveMediaSourceDownloadRequestedDeferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.resourcebyterangelength)
     public var resourceByteRangeLength : UInt64? {
-        get { try! _default.get_ResourceByteRangeLengthImpl() }
+        get { try! _default.get_ResourceByteRangeLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.resourcebyterangeoffset)
     public var resourceByteRangeOffset : UInt64? {
-        get { try! _default.get_ResourceByteRangeOffsetImpl() }
+        get { try! _default.get_ResourceByteRangeOffset() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.resourcetype)
     public var resourceType : AdaptiveMediaSourceResourceType {
-        get { try! _default.get_ResourceTypeImpl() }
+        get { try! _default.get_ResourceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.resourceuri)
     public var resourceUri : WindowsFoundation.Uri! {
-        get { try! _default.get_ResourceUriImpl() }
+        get { try! _default.get_ResourceUri() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.result)
     public var result : AdaptiveMediaSourceDownloadResult! {
-        get { try! _default.get_ResultImpl() }
+        get { try! _default.get_Result() }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadRequestedEventArgs2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.position)
     public var position : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs2.get_PositionImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs2.get_Position() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.requestid)
     public var requestId : Int32 {
-        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs2.get_RequestIdImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs2.get_RequestId() }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadRequestedEventArgs3: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.resourcecontenttype)
     public var resourceContentType : String {
-        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs3.get_ResourceContentTypeImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs3.get_ResourceContentType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs.resourceduration)
     public var resourceDuration : WindowsFoundation.TimeSpan? {
-        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs3.get_ResourceDurationImpl() }
+        get { try! _IAdaptiveMediaSourceDownloadRequestedEventArgs3.get_ResourceDuration() }
     }
 
     deinit {
@@ -864,57 +798,51 @@ public final class AdaptiveMediaSourceDownloadResult : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult>?) -> AdaptiveMediaSourceDownloadResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult.buffer)
     public var buffer : UWP.AnyIBuffer! {
-        get { try! _default.get_BufferImpl() }
-        set { try! _default.put_BufferImpl(newValue) }
+        get { try! _default.get_Buffer() }
+        set { try! _default.put_Buffer(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult.contenttype)
     public var contentType : String {
-        get { try! _default.get_ContentTypeImpl() }
-        set { try! _default.put_ContentTypeImpl(newValue) }
+        get { try! _default.get_ContentType() }
+        set { try! _default.put_ContentType(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult.extendedstatus)
     public var extendedStatus : UInt32 {
-        get { try! _default.get_ExtendedStatusImpl() }
-        set { try! _default.put_ExtendedStatusImpl(newValue) }
+        get { try! _default.get_ExtendedStatus() }
+        set { try! _default.put_ExtendedStatus(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult.inputstream)
     public var inputStream : UWP.AnyIInputStream! {
-        get { try! _default.get_InputStreamImpl() }
-        set { try! _default.put_InputStreamImpl(newValue) }
+        get { try! _default.get_InputStream() }
+        set { try! _default.put_InputStream(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult.resourceuri)
     public var resourceUri : WindowsFoundation.Uri! {
-        get { try! _default.get_ResourceUriImpl() }
-        set { try! _default.put_ResourceUriImpl(newValue) }
+        get { try! _default.get_ResourceUri() }
+        set { try! _default.put_ResourceUri(newValue) }
     }
 
     private lazy var _IAdaptiveMediaSourceDownloadResult2: __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadResult2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult.resourcebyterangelength)
     public var resourceByteRangeLength : UInt64? {
-        get { try! _IAdaptiveMediaSourceDownloadResult2.get_ResourceByteRangeLengthImpl() }
-        set { try! _IAdaptiveMediaSourceDownloadResult2.put_ResourceByteRangeLengthImpl(newValue) }
+        get { try! _IAdaptiveMediaSourceDownloadResult2.get_ResourceByteRangeLength() }
+        set { try! _IAdaptiveMediaSourceDownloadResult2.put_ResourceByteRangeLength(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult.resourcebyterangeoffset)
     public var resourceByteRangeOffset : UInt64? {
-        get { try! _IAdaptiveMediaSourceDownloadResult2.get_ResourceByteRangeOffsetImpl() }
-        set { try! _IAdaptiveMediaSourceDownloadResult2.put_ResourceByteRangeOffsetImpl(newValue) }
+        get { try! _IAdaptiveMediaSourceDownloadResult2.get_ResourceByteRangeOffset() }
+        set { try! _IAdaptiveMediaSourceDownloadResult2.put_ResourceByteRangeOffset(newValue) }
     }
 
     deinit {
@@ -937,34 +865,28 @@ public final class AdaptiveMediaSourceDownloadStatistics : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics>?) -> AdaptiveMediaSourceDownloadStatistics? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadstatistics.contentbytesreceivedcount)
     public var contentBytesReceivedCount : UInt64 {
-        get { try! _default.get_ContentBytesReceivedCountImpl() }
+        get { try! _default.get_ContentBytesReceivedCount() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadstatistics.timetofirstbytereceived)
     public var timeToFirstByteReceived : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_TimeToFirstByteReceivedImpl() }
+        get { try! _default.get_TimeToFirstByteReceived() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadstatistics.timetoheadersreceived)
     public var timeToHeadersReceived : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_TimeToHeadersReceivedImpl() }
+        get { try! _default.get_TimeToHeadersReceived() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadstatistics.timetolastbytereceived)
     public var timeToLastByteReceived : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_TimeToLastByteReceivedImpl() }
+        get { try! _default.get_TimeToLastByteReceived() }
     }
 
     deinit {
@@ -986,29 +908,23 @@ public final class AdaptiveMediaSourcePlaybackBitrateChangedEventArgs : WinRTCla
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs>?) -> AdaptiveMediaSourcePlaybackBitrateChangedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceplaybackbitratechangedeventargs.audioonly)
     public var audioOnly : Bool {
-        get { try! _default.get_AudioOnlyImpl() }
+        get { try! _default.get_AudioOnly() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceplaybackbitratechangedeventargs.newvalue)
     public var newValue : UInt32 {
-        get { try! _default.get_NewValueImpl() }
+        get { try! _default.get_NewValue() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceplaybackbitratechangedeventargs.oldvalue)
     public var oldValue : UInt32 {
-        get { try! _default.get_OldValueImpl() }
+        get { try! _default.get_OldValue() }
     }
 
     deinit {
@@ -1039,7 +955,7 @@ extension UWP.AdaptiveMediaSourceCreationStatus {
         __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnknownFailure
     }
 }
-extension UWP.AdaptiveMediaSourceCreationStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AdaptiveMediaSourceCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AdaptiveMediaSourceDiagnosticType {
     public static var manifestUnchangedUponReload : UWP.AdaptiveMediaSourceDiagnosticType {
@@ -1070,7 +986,7 @@ extension UWP.AdaptiveMediaSourceDiagnosticType {
         __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_FatalMediaSourceError
     }
 }
-extension UWP.AdaptiveMediaSourceDiagnosticType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AdaptiveMediaSourceDiagnosticType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
     public static var sufficientInboundBitsPerSecond : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
@@ -1095,7 +1011,7 @@ extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
         __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_ErrorInPreviousBitrate
     }
 }
-extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.AdaptiveMediaSourceResourceType {
     public static var manifest : UWP.AdaptiveMediaSourceResourceType {
@@ -1117,5 +1033,5 @@ extension UWP.AdaptiveMediaSourceResourceType {
         __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_MediaSegmentIndex
     }
 }
-extension UWP.AdaptiveMediaSourceResourceType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AdaptiveMediaSourceResourceType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

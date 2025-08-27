@@ -20,75 +20,89 @@ public final class CameraIntrinsics : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics>?) -> CameraIntrinsics? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICameraIntrinsicsFactory: __ABI_Windows_Media_Devices_Core.ICameraIntrinsicsFactory = try! RoGetActivationFactory(HString("Windows.Media.Devices.Core.CameraIntrinsics"))
+    private static let _ICameraIntrinsicsFactory: __ABI_Windows_Media_Devices_Core.ICameraIntrinsicsFactory = try! RoGetActivationFactory("Windows.Media.Devices.Core.CameraIntrinsics")
     public init(_ focalLength: WindowsFoundation.Vector2, _ principalPoint: WindowsFoundation.Vector2, _ radialDistortion: WindowsFoundation.Vector3, _ tangentialDistortion: WindowsFoundation.Vector2, _ imageWidth: UInt32, _ imageHeight: UInt32) {
-        super.init(try! Self._ICameraIntrinsicsFactory.CreateImpl(focalLength, principalPoint, radialDistortion, tangentialDistortion, imageWidth, imageHeight))
+        super.init(try! Self._ICameraIntrinsicsFactory.Create(focalLength, principalPoint, radialDistortion, tangentialDistortion, imageWidth, imageHeight))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.projectontoframe)
     public func projectOntoFrame(_ coordinate: WindowsFoundation.Vector3) throws -> WindowsFoundation.Point {
-        try _default.ProjectOntoFrameImpl(coordinate)
+        try _default.ProjectOntoFrame(coordinate)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.unprojectatunitdepth)
     public func unprojectAtUnitDepth(_ pixelCoordinate: WindowsFoundation.Point) throws -> WindowsFoundation.Vector2 {
-        try _default.UnprojectAtUnitDepthImpl(pixelCoordinate)
+        try _default.UnprojectAtUnitDepth(pixelCoordinate)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.projectmanyontoframe)
+    public func projectManyOntoFrame(_ coordinates: [WindowsFoundation.Vector3], _ results: inout [WindowsFoundation.Point]) throws {
+        try _default.ProjectManyOntoFrame(coordinates, &results)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.unprojectpixelsatunitdepth)
+    public func unprojectPixelsAtUnitDepth(_ pixelCoordinates: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Vector2]) throws {
+        try _default.UnprojectPixelsAtUnitDepth(pixelCoordinates, &results)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.focallength)
     public var focalLength : WindowsFoundation.Vector2 {
-        get { try! _default.get_FocalLengthImpl() }
+        get { try! _default.get_FocalLength() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.imageheight)
     public var imageHeight : UInt32 {
-        get { try! _default.get_ImageHeightImpl() }
+        get { try! _default.get_ImageHeight() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.imagewidth)
     public var imageWidth : UInt32 {
-        get { try! _default.get_ImageWidthImpl() }
+        get { try! _default.get_ImageWidth() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.principalpoint)
     public var principalPoint : WindowsFoundation.Vector2 {
-        get { try! _default.get_PrincipalPointImpl() }
+        get { try! _default.get_PrincipalPoint() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.radialdistortion)
     public var radialDistortion : WindowsFoundation.Vector3 {
-        get { try! _default.get_RadialDistortionImpl() }
+        get { try! _default.get_RadialDistortion() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.tangentialdistortion)
     public var tangentialDistortion : WindowsFoundation.Vector2 {
-        get { try! _default.get_TangentialDistortionImpl() }
+        get { try! _default.get_TangentialDistortion() }
     }
 
     private lazy var _ICameraIntrinsics2: __ABI_Windows_Media_Devices_Core.ICameraIntrinsics2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.distortpoint)
     public func distortPoint(_ input: WindowsFoundation.Point) throws -> WindowsFoundation.Point {
-        try _ICameraIntrinsics2.DistortPointImpl(input)
+        try _ICameraIntrinsics2.DistortPoint(input)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.distortpoints)
+    public func distortPoints(_ inputs: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Point]) throws {
+        try _ICameraIntrinsics2.DistortPoints(inputs, &results)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.undistortpoint)
     public func undistortPoint(_ input: WindowsFoundation.Point) throws -> WindowsFoundation.Point {
-        try _ICameraIntrinsics2.UndistortPointImpl(input)
+        try _ICameraIntrinsics2.UndistortPoint(input)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.undistortpoints)
+    public func undistortPoints(_ inputs: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Point]) throws {
+        try _ICameraIntrinsics2.UndistortPoints(inputs, &results)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics.undistortedprojectiontransform)
     public var undistortedProjectionTransform : WindowsFoundation.Matrix4x4 {
-        get { try! _ICameraIntrinsics2.get_UndistortedProjectionTransformImpl() }
+        get { try! _ICameraIntrinsics2.get_UndistortedProjectionTransform() }
     }
 
     deinit {
@@ -111,45 +125,39 @@ public final class FrameControlCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities>?) -> FrameControlCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.exposure)
     public var exposure : FrameExposureCapabilities! {
-        get { try! _default.get_ExposureImpl() }
+        get { try! _default.get_Exposure() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.exposurecompensation)
     public var exposureCompensation : FrameExposureCompensationCapabilities! {
-        get { try! _default.get_ExposureCompensationImpl() }
+        get { try! _default.get_ExposureCompensation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.focus)
     public var focus : FrameFocusCapabilities! {
-        get { try! _default.get_FocusImpl() }
+        get { try! _default.get_Focus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.isospeed)
     public var isoSpeed : FrameIsoSpeedCapabilities! {
-        get { try! _default.get_IsoSpeedImpl() }
+        get { try! _default.get_IsoSpeed() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.photoconfirmationsupported)
     public var photoConfirmationSupported : Bool {
-        get { try! _default.get_PhotoConfirmationSupportedImpl() }
+        get { try! _default.get_PhotoConfirmationSupported() }
     }
 
     private lazy var _IFrameControlCapabilities2: __ABI_Windows_Media_Devices_Core.IFrameControlCapabilities2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.flash)
     public var flash : FrameFlashCapabilities! {
-        get { try! _IFrameControlCapabilities2.get_FlashImpl() }
+        get { try! _IFrameControlCapabilities2.get_Flash() }
     }
 
     deinit {
@@ -172,50 +180,45 @@ public final class FrameController : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController>?) -> FrameController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Devices.Core.FrameController")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Devices.Core.FrameController")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontroller.exposurecompensationcontrol)
     public var exposureCompensationControl : FrameExposureCompensationControl! {
-        get { try! _default.get_ExposureCompensationControlImpl() }
+        get { try! _default.get_ExposureCompensationControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontroller.exposurecontrol)
     public var exposureControl : FrameExposureControl! {
-        get { try! _default.get_ExposureControlImpl() }
+        get { try! _default.get_ExposureControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontroller.focuscontrol)
     public var focusControl : FrameFocusControl! {
-        get { try! _default.get_FocusControlImpl() }
+        get { try! _default.get_FocusControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontroller.isospeedcontrol)
     public var isoSpeedControl : FrameIsoSpeedControl! {
-        get { try! _default.get_IsoSpeedControlImpl() }
+        get { try! _default.get_IsoSpeedControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontroller.photoconfirmationenabled)
     public var photoConfirmationEnabled : Bool? {
-        get { try! _default.get_PhotoConfirmationEnabledImpl() }
-        set { try! _default.put_PhotoConfirmationEnabledImpl(newValue) }
+        get { try! _default.get_PhotoConfirmationEnabled() }
+        set { try! _default.put_PhotoConfirmationEnabled(newValue) }
     }
 
     private lazy var _IFrameController2: __ABI_Windows_Media_Devices_Core.IFrameController2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontroller.flashcontrol)
     public var flashControl : FrameFlashControl! {
-        get { try! _IFrameController2.get_FlashControlImpl() }
+        get { try! _IFrameController2.get_FlashControl() }
     }
 
     deinit {
@@ -238,34 +241,28 @@ public final class FrameExposureCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities>?) -> FrameExposureCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecapabilities.max)
     public var max : WindowsFoundation.TimeSpan {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecapabilities.min)
     public var min : WindowsFoundation.TimeSpan {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecapabilities.step)
     public var step : WindowsFoundation.TimeSpan {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecapabilities.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -287,34 +284,28 @@ public final class FrameExposureCompensationCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities>?) -> FrameExposureCompensationCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecompensationcapabilities.max)
     public var max : Float {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecompensationcapabilities.min)
     public var min : Float {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecompensationcapabilities.step)
     public var step : Float {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecompensationcapabilities.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -336,20 +327,14 @@ public final class FrameExposureCompensationControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationControl>?) -> FrameExposureCompensationControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecompensationcontrol.value)
     public var value : Float? {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -371,26 +356,20 @@ public final class FrameExposureControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl>?) -> FrameExposureControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecontrol.auto)
     public var auto : Bool {
-        get { try! _default.get_AutoImpl() }
-        set { try! _default.put_AutoImpl(newValue) }
+        get { try! _default.get_Auto() }
+        set { try! _default.put_Auto(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecontrol.value)
     public var value : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -412,29 +391,23 @@ public final class FrameFlashCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashCapabilities>?) -> FrameFlashCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcapabilities.powersupported)
     public var powerSupported : Bool {
-        get { try! _default.get_PowerSupportedImpl() }
+        get { try! _default.get_PowerSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcapabilities.redeyereductionsupported)
     public var redEyeReductionSupported : Bool {
-        get { try! _default.get_RedEyeReductionSupportedImpl() }
+        get { try! _default.get_RedEyeReductionSupported() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcapabilities.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -456,38 +429,32 @@ public final class FrameFlashControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl>?) -> FrameFlashControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcontrol.auto)
     public var auto : Bool {
-        get { try! _default.get_AutoImpl() }
-        set { try! _default.put_AutoImpl(newValue) }
+        get { try! _default.get_Auto() }
+        set { try! _default.put_Auto(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcontrol.mode)
     public var mode : FrameFlashMode {
-        get { try! _default.get_ModeImpl() }
-        set { try! _default.put_ModeImpl(newValue) }
+        get { try! _default.get_Mode() }
+        set { try! _default.put_Mode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcontrol.powerpercent)
     public var powerPercent : Float {
-        get { try! _default.get_PowerPercentImpl() }
-        set { try! _default.put_PowerPercentImpl(newValue) }
+        get { try! _default.get_PowerPercent() }
+        set { try! _default.put_PowerPercent(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcontrol.redeyereduction)
     public var redEyeReduction : Bool {
-        get { try! _default.get_RedEyeReductionImpl() }
-        set { try! _default.put_RedEyeReductionImpl(newValue) }
+        get { try! _default.get_RedEyeReduction() }
+        set { try! _default.put_RedEyeReduction(newValue) }
     }
 
     deinit {
@@ -509,34 +476,28 @@ public final class FrameFocusCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities>?) -> FrameFocusCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framefocuscapabilities.max)
     public var max : UInt32 {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framefocuscapabilities.min)
     public var min : UInt32 {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framefocuscapabilities.step)
     public var step : UInt32 {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framefocuscapabilities.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -558,20 +519,14 @@ public final class FrameFocusControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusControl>?) -> FrameFocusControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framefocuscontrol.value)
     public var value : UInt32? {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -593,34 +548,28 @@ public final class FrameIsoSpeedCapabilities : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities>?) -> FrameIsoSpeedCapabilities? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcapabilities.max)
     public var max : UInt32 {
-        get { try! _default.get_MaxImpl() }
+        get { try! _default.get_Max() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcapabilities.min)
     public var min : UInt32 {
-        get { try! _default.get_MinImpl() }
+        get { try! _default.get_Min() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcapabilities.step)
     public var step : UInt32 {
-        get { try! _default.get_StepImpl() }
+        get { try! _default.get_Step() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcapabilities.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -642,26 +591,20 @@ public final class FrameIsoSpeedControl : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl>?) -> FrameIsoSpeedControl? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcontrol.auto)
     public var auto : Bool {
-        get { try! _default.get_AutoImpl() }
-        set { try! _default.put_AutoImpl(newValue) }
+        get { try! _default.get_Auto() }
+        set { try! _default.put_Auto(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcontrol.value)
     public var value : UInt32? {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -683,50 +626,44 @@ public final class VariablePhotoSequenceController : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController>?) -> VariablePhotoSequenceController? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.gethighestconcurrentframerate)
     public func getHighestConcurrentFrameRate(_ captureProperties: UWP.AnyIMediaEncodingProperties!) throws -> UWP.MediaRatio! {
-        try _default.GetHighestConcurrentFrameRateImpl(captureProperties)
+        try _default.GetHighestConcurrentFrameRate(captureProperties)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.getcurrentframerate)
     public func getCurrentFrameRate() throws -> UWP.MediaRatio! {
-        try _default.GetCurrentFrameRateImpl()
+        try _default.GetCurrentFrameRate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.desiredframecontrollers)
     public var desiredFrameControllers : WindowsFoundation.AnyIVector<FrameController?>! {
-        get { try! _default.get_DesiredFrameControllersImpl() }
+        get { try! _default.get_DesiredFrameControllers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.framecapabilities)
     public var frameCapabilities : FrameControlCapabilities! {
-        get { try! _default.get_FrameCapabilitiesImpl() }
+        get { try! _default.get_FrameCapabilities() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.maxphotospersecond)
     public var maxPhotosPerSecond : Float {
-        get { try! _default.get_MaxPhotosPerSecondImpl() }
+        get { try! _default.get_MaxPhotosPerSecond() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.photospersecondlimit)
     public var photosPerSecondLimit : Float {
-        get { try! _default.get_PhotosPerSecondLimitImpl() }
-        set { try! _default.put_PhotosPerSecondLimitImpl(newValue) }
+        get { try! _default.get_PhotosPerSecondLimit() }
+        set { try! _default.put_PhotosPerSecondLimit(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.supported)
     public var supported : Bool {
-        get { try! _default.get_SupportedImpl() }
+        get { try! _default.get_Supported() }
     }
 
     deinit {
@@ -745,5 +682,5 @@ extension UWP.FrameFlashMode {
         __x_ABI_CWindows_CMedia_CDevices_CCore_CFrameFlashMode_Global
     }
 }
-extension UWP.FrameFlashMode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.FrameFlashMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

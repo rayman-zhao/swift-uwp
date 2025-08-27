@@ -44,39 +44,33 @@ public final class AttributedNetworkUsage : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage>?) -> AttributedNetworkUsage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.attributednetworkusage.attributionid)
     public var attributionId : String {
-        get { try! _default.get_AttributionIdImpl() }
+        get { try! _default.get_AttributionId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.attributednetworkusage.attributionname)
     public var attributionName : String {
-        get { try! _default.get_AttributionNameImpl() }
+        get { try! _default.get_AttributionName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.attributednetworkusage.attributionthumbnail)
     public var attributionThumbnail : UWP.AnyIRandomAccessStreamReference! {
-        get { try! _default.get_AttributionThumbnailImpl() }
+        get { try! _default.get_AttributionThumbnail() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.attributednetworkusage.bytesreceived)
     public var bytesReceived : UInt64 {
-        get { try! _default.get_BytesReceivedImpl() }
+        get { try! _default.get_BytesReceived() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.attributednetworkusage.bytessent)
     public var bytesSent : UInt64 {
-        get { try! _default.get_BytesSentImpl() }
+        get { try! _default.get_BytesSent() }
     }
 
     deinit {
@@ -98,40 +92,34 @@ public final class ConnectionCost : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost>?) -> ConnectionCost? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectioncost.approachingdatalimit)
     public var approachingDataLimit : Bool {
-        get { try! _default.get_ApproachingDataLimitImpl() }
+        get { try! _default.get_ApproachingDataLimit() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectioncost.networkcosttype)
     public var networkCostType : NetworkCostType {
-        get { try! _default.get_NetworkCostTypeImpl() }
+        get { try! _default.get_NetworkCostType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectioncost.overdatalimit)
     public var overDataLimit : Bool {
-        get { try! _default.get_OverDataLimitImpl() }
+        get { try! _default.get_OverDataLimit() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectioncost.roaming)
     public var roaming : Bool {
-        get { try! _default.get_RoamingImpl() }
+        get { try! _default.get_Roaming() }
     }
 
     private lazy var _IConnectionCost2: __ABI_Windows_Networking_Connectivity.IConnectionCost2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectioncost.backgrounddatausagerestricted)
     public var backgroundDataUsageRestricted : Bool {
-        get { try! _IConnectionCost2.get_BackgroundDataUsageRestrictedImpl() }
+        get { try! _IConnectionCost2.get_BackgroundDataUsageRestricted() }
     }
 
     deinit {
@@ -154,128 +142,122 @@ public final class ConnectionProfile : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile>?) -> ConnectionProfile? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getnetworkconnectivitylevel)
     public func getNetworkConnectivityLevel() throws -> NetworkConnectivityLevel {
-        try _default.GetNetworkConnectivityLevelImpl()
+        try _default.GetNetworkConnectivityLevel()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getnetworknames)
     public func getNetworkNames() throws -> WindowsFoundation.AnyIVectorView<String>! {
-        try _default.GetNetworkNamesImpl()
+        try _default.GetNetworkNames()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getconnectioncost)
     public func getConnectionCost() throws -> ConnectionCost! {
-        try _default.GetConnectionCostImpl()
+        try _default.GetConnectionCost()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getdataplanstatus)
     public func getDataPlanStatus() throws -> DataPlanStatus! {
-        try _default.GetDataPlanStatusImpl()
+        try _default.GetDataPlanStatus()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getlocalusage)
     public func getLocalUsage(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime) throws -> DataUsage! {
-        try _default.GetLocalUsageImpl(StartTime, EndTime)
+        try _default.GetLocalUsage(StartTime, EndTime)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getlocalusage)
     public func getLocalUsage(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime, _ States: RoamingStates) throws -> DataUsage! {
-        try _default.GetLocalUsagePerRoamingStatesImpl(StartTime, EndTime, States)
+        try _default.GetLocalUsagePerRoamingStates(StartTime, EndTime, States)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.networkadapter)
     public var networkAdapter : NetworkAdapter! {
-        get { try! _default.get_NetworkAdapterImpl() }
+        get { try! _default.get_NetworkAdapter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.networksecuritysettings)
     public var networkSecuritySettings : NetworkSecuritySettings! {
-        get { try! _default.get_NetworkSecuritySettingsImpl() }
+        get { try! _default.get_NetworkSecuritySettings() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.profilename)
     public var profileName : String {
-        get { try! _default.get_ProfileNameImpl() }
+        get { try! _default.get_ProfileName() }
     }
 
     private lazy var _IConnectionProfile2: __ABI_Windows_Networking_Connectivity.IConnectionProfile2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getsignalbars)
     public func getSignalBars() throws -> UInt8? {
-        try _IConnectionProfile2.GetSignalBarsImpl()
+        try _IConnectionProfile2.GetSignalBars()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getdomainconnectivitylevel)
     public func getDomainConnectivityLevel() throws -> DomainConnectivityLevel {
-        try _IConnectionProfile2.GetDomainConnectivityLevelImpl()
+        try _IConnectionProfile2.GetDomainConnectivityLevel()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getnetworkusageasync)
     public func getNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ granularity: DataUsageGranularity, _ states: NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<NetworkUsage?>?>! {
-        try _IConnectionProfile2.GetNetworkUsageAsyncImpl(startTime, endTime, granularity, states)
+        try _IConnectionProfile2.GetNetworkUsageAsync(startTime, endTime, granularity, states)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getconnectivityintervalsasync)
     public func getConnectivityIntervalsAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<ConnectivityInterval?>?>! {
-        try _IConnectionProfile2.GetConnectivityIntervalsAsyncImpl(startTime, endTime, states)
+        try _IConnectionProfile2.GetConnectivityIntervalsAsync(startTime, endTime, states)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.iswlanconnectionprofile)
     public var isWlanConnectionProfile : Bool {
-        get { try! _IConnectionProfile2.get_IsWlanConnectionProfileImpl() }
+        get { try! _IConnectionProfile2.get_IsWlanConnectionProfile() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.iswwanconnectionprofile)
     public var isWwanConnectionProfile : Bool {
-        get { try! _IConnectionProfile2.get_IsWwanConnectionProfileImpl() }
+        get { try! _IConnectionProfile2.get_IsWwanConnectionProfile() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.serviceproviderguid)
     public var serviceProviderGuid : Foundation.UUID? {
-        get { try! _IConnectionProfile2.get_ServiceProviderGuidImpl() }
+        get { try! _IConnectionProfile2.get_ServiceProviderGuid() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.wlanconnectionprofiledetails)
     public var wlanConnectionProfileDetails : WlanConnectionProfileDetails! {
-        get { try! _IConnectionProfile2.get_WlanConnectionProfileDetailsImpl() }
+        get { try! _IConnectionProfile2.get_WlanConnectionProfileDetails() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.wwanconnectionprofiledetails)
     public var wwanConnectionProfileDetails : WwanConnectionProfileDetails! {
-        get { try! _IConnectionProfile2.get_WwanConnectionProfileDetailsImpl() }
+        get { try! _IConnectionProfile2.get_WwanConnectionProfileDetails() }
     }
 
     private lazy var _IConnectionProfile3: __ABI_Windows_Networking_Connectivity.IConnectionProfile3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getattributednetworkusageasync)
     public func getAttributedNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<AttributedNetworkUsage?>?>! {
-        try _IConnectionProfile3.GetAttributedNetworkUsageAsyncImpl(startTime, endTime, states)
+        try _IConnectionProfile3.GetAttributedNetworkUsageAsync(startTime, endTime, states)
     }
 
     private lazy var _IConnectionProfile4: __ABI_Windows_Networking_Connectivity.IConnectionProfile4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.getprovidernetworkusageasync)
     public func getProviderNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<ProviderNetworkUsage?>?>! {
-        try _IConnectionProfile4.GetProviderNetworkUsageAsyncImpl(startTime, endTime, states)
+        try _IConnectionProfile4.GetProviderNetworkUsageAsync(startTime, endTime, states)
     }
 
     private lazy var _IConnectionProfile5: __ABI_Windows_Networking_Connectivity.IConnectionProfile5! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.trydeleteasync)
     public func tryDeleteAsync() throws -> WindowsFoundation.AnyIAsyncOperation<ConnectionProfileDeleteStatus>! {
-        try _IConnectionProfile5.TryDeleteAsyncImpl()
+        try _IConnectionProfile5.TryDeleteAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile.candelete)
     public var canDelete : Bool {
-        get { try! _IConnectionProfile5.get_CanDeleteImpl() }
+        get { try! _IConnectionProfile5.get_CanDelete() }
     }
 
     deinit {
@@ -301,24 +283,18 @@ public final class ConnectivityInterval : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval>?) -> ConnectivityInterval? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectivityinterval.connectionduration)
     public var connectionDuration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_ConnectionDurationImpl() }
+        get { try! _default.get_ConnectionDuration() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectivityinterval.starttime)
     public var startTime : WindowsFoundation.DateTime {
-        get { try! _default.get_StartTimeImpl() }
+        get { try! _default.get_StartTime() }
     }
 
     deinit {
@@ -340,44 +316,38 @@ public final class DataPlanStatus : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus>?) -> DataPlanStatus? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus.datalimitinmegabytes)
     public var dataLimitInMegabytes : UInt32? {
-        get { try! _default.get_DataLimitInMegabytesImpl() }
+        get { try! _default.get_DataLimitInMegabytes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus.dataplanusage)
     public var dataPlanUsage : DataPlanUsage! {
-        get { try! _default.get_DataPlanUsageImpl() }
+        get { try! _default.get_DataPlanUsage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus.inboundbitspersecond)
     public var inboundBitsPerSecond : UInt64? {
-        get { try! _default.get_InboundBitsPerSecondImpl() }
+        get { try! _default.get_InboundBitsPerSecond() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus.maxtransfersizeinmegabytes)
     public var maxTransferSizeInMegabytes : UInt32? {
-        get { try! _default.get_MaxTransferSizeInMegabytesImpl() }
+        get { try! _default.get_MaxTransferSizeInMegabytes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus.nextbillingcycle)
     public var nextBillingCycle : WindowsFoundation.DateTime? {
-        get { try! _default.get_NextBillingCycleImpl() }
+        get { try! _default.get_NextBillingCycle() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus.outboundbitspersecond)
     public var outboundBitsPerSecond : UInt64? {
-        get { try! _default.get_OutboundBitsPerSecondImpl() }
+        get { try! _default.get_OutboundBitsPerSecond() }
     }
 
     deinit {
@@ -399,24 +369,18 @@ public final class DataPlanUsage : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage>?) -> DataPlanUsage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanusage.lastsynctime)
     public var lastSyncTime : WindowsFoundation.DateTime {
-        get { try! _default.get_LastSyncTimeImpl() }
+        get { try! _default.get_LastSyncTime() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanusage.megabytesused)
     public var megabytesUsed : UInt32 {
-        get { try! _default.get_MegabytesUsedImpl() }
+        get { try! _default.get_MegabytesUsed() }
     }
 
     deinit {
@@ -438,24 +402,18 @@ public final class DataUsage : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage>?) -> DataUsage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.datausage.bytesreceived)
     public var bytesReceived : UInt64 {
-        get { try! _default.get_BytesReceivedImpl() }
+        get { try! _default.get_BytesReceived() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.datausage.bytessent)
     public var bytesSent : UInt64 {
-        get { try! _default.get_BytesSentImpl() }
+        get { try! _default.get_BytesSent() }
     }
 
     deinit {
@@ -477,24 +435,18 @@ public final class IPInformation : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation>?) -> IPInformation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.ipinformation.networkadapter)
     public var networkAdapter : NetworkAdapter! {
-        get { try! _default.get_NetworkAdapterImpl() }
+        get { try! _default.get_NetworkAdapter() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.ipinformation.prefixlength)
     public var prefixLength : UInt8? {
-        get { try! _default.get_PrefixLengthImpl() }
+        get { try! _default.get_PrefixLength() }
     }
 
     deinit {
@@ -516,44 +468,38 @@ public final class NetworkAdapter : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter>?) -> NetworkAdapter? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter.getconnectedprofileasync)
     public func getConnectedProfileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<ConnectionProfile?>! {
-        try _default.GetConnectedProfileAsyncImpl()
+        try _default.GetConnectedProfileAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter.ianainterfacetype)
     public var ianaInterfaceType : UInt32 {
-        get { try! _default.get_IanaInterfaceTypeImpl() }
+        get { try! _default.get_IanaInterfaceType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter.inboundmaxbitspersecond)
     public var inboundMaxBitsPerSecond : UInt64 {
-        get { try! _default.get_InboundMaxBitsPerSecondImpl() }
+        get { try! _default.get_InboundMaxBitsPerSecond() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter.networkadapterid)
     public var networkAdapterId : Foundation.UUID {
-        get { try! _default.get_NetworkAdapterIdImpl() }
+        get { try! _default.get_NetworkAdapterId() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter.networkitem)
     public var networkItem : NetworkItem! {
-        get { try! _default.get_NetworkItemImpl() }
+        get { try! _default.get_NetworkItem() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter.outboundmaxbitspersecond)
     public var outboundMaxBitsPerSecond : UInt64 {
-        get { try! _default.get_OutboundMaxBitsPerSecondImpl() }
+        get { try! _default.get_OutboundMaxBitsPerSecond() }
     }
 
     deinit {
@@ -575,24 +521,18 @@ public final class NetworkItem : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem>?) -> NetworkItem? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkitem.getnetworktypes)
     public func getNetworkTypes() throws -> NetworkTypes {
-        try _default.GetNetworkTypesImpl()
+        try _default.GetNetworkTypes()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkitem.networkid)
     public var networkId : Foundation.UUID {
-        get { try! _default.get_NetworkIdImpl() }
+        get { try! _default.get_NetworkId() }
     }
 
     deinit {
@@ -614,24 +554,18 @@ public final class NetworkSecuritySettings : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings>?) -> NetworkSecuritySettings? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networksecuritysettings.networkauthenticationtype)
     public var networkAuthenticationType : NetworkAuthenticationType {
-        get { try! _default.get_NetworkAuthenticationTypeImpl() }
+        get { try! _default.get_NetworkAuthenticationType() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networksecuritysettings.networkencryptiontype)
     public var networkEncryptionType : NetworkEncryptionType {
-        get { try! _default.get_NetworkEncryptionTypeImpl() }
+        get { try! _default.get_NetworkEncryptionType() }
     }
 
     deinit {
@@ -653,29 +587,23 @@ public final class NetworkUsage : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage>?) -> NetworkUsage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusage.bytesreceived)
     public var bytesReceived : UInt64 {
-        get { try! _default.get_BytesReceivedImpl() }
+        get { try! _default.get_BytesReceived() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusage.bytessent)
     public var bytesSent : UInt64 {
-        get { try! _default.get_BytesSentImpl() }
+        get { try! _default.get_BytesSent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusage.connectionduration)
     public var connectionDuration : WindowsFoundation.TimeSpan {
-        get { try! _default.get_ConnectionDurationImpl() }
+        get { try! _default.get_ConnectionDuration() }
     }
 
     deinit {
@@ -697,29 +625,23 @@ public final class ProviderNetworkUsage : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage>?) -> ProviderNetworkUsage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.providernetworkusage.bytesreceived)
     public var bytesReceived : UInt64 {
-        get { try! _default.get_BytesReceivedImpl() }
+        get { try! _default.get_BytesReceived() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.providernetworkusage.bytessent)
     public var bytesSent : UInt64 {
-        get { try! _default.get_BytesSentImpl() }
+        get { try! _default.get_BytesSent() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.providernetworkusage.providerid)
     public var providerId : String {
-        get { try! _default.get_ProviderIdImpl() }
+        get { try! _default.get_ProviderId() }
     }
 
     deinit {
@@ -741,19 +663,13 @@ public final class WlanConnectionProfileDetails : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails>?) -> WlanConnectionProfileDetails? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wlanconnectionprofiledetails.getconnectedssid)
     public func getConnectedSsid() throws -> String {
-        try _default.GetConnectedSsidImpl()
+        try _default.GetConnectedSsid()
     }
 
     deinit {
@@ -775,45 +691,39 @@ public final class WwanConnectionProfileDetails : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails>?) -> WwanConnectionProfileDetails? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails.getnetworkregistrationstate)
     public func getNetworkRegistrationState() throws -> WwanNetworkRegistrationState {
-        try _default.GetNetworkRegistrationStateImpl()
+        try _default.GetNetworkRegistrationState()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails.getcurrentdataclass)
     public func getCurrentDataClass() throws -> WwanDataClass {
-        try _default.GetCurrentDataClassImpl()
+        try _default.GetCurrentDataClass()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails.accesspointname)
     public var accessPointName : String {
-        get { try! _default.get_AccessPointNameImpl() }
+        get { try! _default.get_AccessPointName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails.homeproviderid)
     public var homeProviderId : String {
-        get { try! _default.get_HomeProviderIdImpl() }
+        get { try! _default.get_HomeProviderId() }
     }
 
     private lazy var _IWwanConnectionProfileDetails2: __ABI_Windows_Networking_Connectivity.IWwanConnectionProfileDetails2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails.ipkind)
     public var ipKind : WwanNetworkIPKind {
-        get { try! _IWwanConnectionProfileDetails2.get_IPKindImpl() }
+        get { try! _IWwanConnectionProfileDetails2.get_IPKind() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails.purposeguids)
     public var purposeGuids : WindowsFoundation.AnyIVectorView<Foundation.UUID>! {
-        get { try! _IWwanConnectionProfileDetails2.get_PurposeGuidsImpl() }
+        get { try! _IWwanConnectionProfileDetails2.get_PurposeGuids() }
     }
 
     deinit {
@@ -823,7 +733,7 @@ public final class WwanConnectionProfileDetails : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates)
-public struct NetworkUsageStates: Hashable, Codable {
+public struct NetworkUsageStates: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates.roaming)
     public var roaming: TriStates = .init(0)
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates.shared)
@@ -832,9 +742,6 @@ public struct NetworkUsageStates: Hashable, Codable {
     public init(roaming: TriStates, shared: TriStates) {
         self.roaming = roaming
         self.shared = shared
-    }
-    public static func from(abi: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates) -> NetworkUsageStates {
-        .init(roaming: abi.Roaming, shared: abi.Shared)
     }
 }
 
@@ -852,7 +759,7 @@ extension UWP.ConnectionProfileDeleteStatus {
         __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_UnknownError
     }
 }
-extension UWP.ConnectionProfileDeleteStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ConnectionProfileDeleteStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.DataUsageGranularity {
     public static var perMinute : UWP.DataUsageGranularity {
@@ -868,7 +775,7 @@ extension UWP.DataUsageGranularity {
         __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_Total
     }
 }
-extension UWP.DataUsageGranularity: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DataUsageGranularity: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.DomainConnectivityLevel {
     public static var none : UWP.DomainConnectivityLevel {
@@ -881,7 +788,7 @@ extension UWP.DomainConnectivityLevel {
         __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel_Authenticated
     }
 }
-extension UWP.DomainConnectivityLevel: @retroactive Hashable, @retroactive Codable {}
+extension UWP.DomainConnectivityLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.NetworkAuthenticationType {
     public static var none : UWP.NetworkAuthenticationType {
@@ -921,7 +828,7 @@ extension UWP.NetworkAuthenticationType {
         __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Wpa3Sae
     }
 }
-extension UWP.NetworkAuthenticationType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.NetworkAuthenticationType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.NetworkConnectivityLevel {
     public static var none : UWP.NetworkConnectivityLevel {
@@ -937,7 +844,7 @@ extension UWP.NetworkConnectivityLevel {
         __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_InternetAccess
     }
 }
-extension UWP.NetworkConnectivityLevel: @retroactive Hashable, @retroactive Codable {}
+extension UWP.NetworkConnectivityLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.NetworkCostType {
     public static var unknown : UWP.NetworkCostType {
@@ -953,7 +860,7 @@ extension UWP.NetworkCostType {
         __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Variable
     }
 }
-extension UWP.NetworkCostType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.NetworkCostType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.NetworkEncryptionType {
     public static var none : UWP.NetworkEncryptionType {
@@ -987,7 +894,7 @@ extension UWP.NetworkEncryptionType {
         __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Ihv
     }
 }
-extension UWP.NetworkEncryptionType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.NetworkEncryptionType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.NetworkTypes {
     public static var none : UWP.NetworkTypes {
@@ -1000,7 +907,7 @@ extension UWP.NetworkTypes {
         __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes_PrivateNetwork
     }
 }
-extension UWP.NetworkTypes: @retroactive Hashable, @retroactive Codable {}
+extension UWP.NetworkTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.RoamingStates {
     public static var none : UWP.RoamingStates {
@@ -1013,7 +920,7 @@ extension UWP.RoamingStates {
         __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates_Roaming
     }
 }
-extension UWP.RoamingStates: @retroactive Hashable, @retroactive Codable {}
+extension UWP.RoamingStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.TriStates {
     public static var doNotCare : UWP.TriStates {
@@ -1026,7 +933,7 @@ extension UWP.TriStates {
         __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates_Yes
     }
 }
-extension UWP.TriStates: @retroactive Hashable, @retroactive Codable {}
+extension UWP.TriStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.WwanDataClass {
     public static var none : UWP.WwanDataClass {
@@ -1075,7 +982,7 @@ extension UWP.WwanDataClass {
         __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Custom
     }
 }
-extension UWP.WwanDataClass: @retroactive Hashable, @retroactive Codable {}
+extension UWP.WwanDataClass: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.WwanNetworkIPKind {
     public static var none : UWP.WwanNetworkIPKind {
@@ -1094,7 +1001,7 @@ extension UWP.WwanNetworkIPKind {
         __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv4v6v4Xlat
     }
 }
-extension UWP.WwanNetworkIPKind: @retroactive Hashable, @retroactive Codable {}
+extension UWP.WwanNetworkIPKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.WwanNetworkRegistrationState {
     public static var none : UWP.WwanNetworkRegistrationState {
@@ -1119,5 +1026,5 @@ extension UWP.WwanNetworkRegistrationState {
         __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Denied
     }
 }
-extension UWP.WwanNetworkRegistrationState: @retroactive Hashable, @retroactive Codable {}
+extension UWP.WwanNetworkRegistrationState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

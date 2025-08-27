@@ -88,11 +88,12 @@ private var IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfi
     .init(Data1: 0x7A754EDE, Data2: 0xA1ED, Data3: 0x48B2, Data4: ( 0x8E,0x92,0xB4,0x60,0x03,0x3D,0x52,0xE2 ))// 7A754EDE-A1ED-48B2-8E92-B460033D52E2
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Networking_Connectivity {
     public class IAttributedNetworkUsage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage }
 
-        internal func get_BytesSentImpl() throws -> UInt64 {
+        public func get_BytesSent() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
@@ -100,7 +101,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_BytesReceivedImpl() throws -> UInt64 {
+        public func get_BytesReceived() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
@@ -108,7 +109,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_AttributionIdImpl() throws -> String {
+        public func get_AttributionId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionId(pThis, &value))
@@ -116,7 +117,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func get_AttributionNameImpl() throws -> String {
+        public func get_AttributionName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionName(pThis, &value))
@@ -124,7 +125,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func get_AttributionThumbnailImpl() throws -> UWP.AnyIRandomAccessStreamReference? {
+        public func get_AttributionThumbnail() throws -> UWP.AnyIRandomAccessStreamReference? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionThumbnail(pThis, &valueAbi))
@@ -138,7 +139,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectionCost: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost }
 
-        internal func get_NetworkCostTypeImpl() throws -> UWP.NetworkCostType {
+        public func get_NetworkCostType() throws -> UWP.NetworkCostType {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkCostType(pThis, &value))
@@ -146,7 +147,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_RoamingImpl() throws -> Bool {
+        public func get_Roaming() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Roaming(pThis, &value))
@@ -154,7 +155,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func get_OverDataLimitImpl() throws -> Bool {
+        public func get_OverDataLimit() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverDataLimit(pThis, &value))
@@ -162,7 +163,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func get_ApproachingDataLimitImpl() throws -> Bool {
+        public func get_ApproachingDataLimit() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApproachingDataLimit(pThis, &value))
@@ -175,7 +176,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectionCost2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost2 }
 
-        internal func get_BackgroundDataUsageRestrictedImpl() throws -> Bool {
+        public func get_BackgroundDataUsageRestricted() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundDataUsageRestricted(pThis, &value))
@@ -188,7 +189,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectionProfile: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile }
 
-        internal func get_ProfileNameImpl() throws -> String {
+        public func get_ProfileName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProfileName(pThis, &value))
@@ -196,7 +197,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func GetNetworkConnectivityLevelImpl() throws -> UWP.NetworkConnectivityLevel {
+        public func GetNetworkConnectivityLevel() throws -> UWP.NetworkConnectivityLevel {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkConnectivityLevel(pThis, &value))
@@ -204,7 +205,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func GetNetworkNamesImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func GetNetworkNames() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkNames(pThis, &valueAbi))
@@ -213,58 +214,58 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetConnectionCostImpl() throws -> UWP.ConnectionCost? {
+        public func GetConnectionCost() throws -> UWP.ConnectionCost? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectionCost(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.ConnectionCostBridge.from(abi: value)
         }
 
-        internal func GetDataPlanStatusImpl() throws -> UWP.DataPlanStatus? {
+        public func GetDataPlanStatus() throws -> UWP.DataPlanStatus? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetDataPlanStatus(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.DataPlanStatusBridge.from(abi: value)
         }
 
-        internal func get_NetworkAdapterImpl() throws -> UWP.NetworkAdapter? {
+        public func get_NetworkAdapter() throws -> UWP.NetworkAdapter? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAdapter(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.NetworkAdapterBridge.from(abi: value)
         }
 
-        internal func GetLocalUsageImpl(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime) throws -> UWP.DataUsage? {
+        public func GetLocalUsage(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime) throws -> UWP.DataUsage? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalUsage(pThis, .from(swift: StartTime), .from(swift: EndTime), &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.DataUsageBridge.from(abi: value)
         }
 
-        internal func GetLocalUsagePerRoamingStatesImpl(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime, _ States: UWP.RoamingStates) throws -> UWP.DataUsage? {
+        public func GetLocalUsagePerRoamingStates(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime, _ States: UWP.RoamingStates) throws -> UWP.DataUsage? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalUsagePerRoamingStates(pThis, .from(swift: StartTime), .from(swift: EndTime), States, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.DataUsageBridge.from(abi: value)
         }
 
-        internal func get_NetworkSecuritySettingsImpl() throws -> UWP.NetworkSecuritySettings? {
+        public func get_NetworkSecuritySettings() throws -> UWP.NetworkSecuritySettings? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkSecuritySettings(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.NetworkSecuritySettingsBridge.from(abi: value)
         }
 
     }
@@ -272,7 +273,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectionProfile2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 }
 
-        internal func get_IsWwanConnectionProfileImpl() throws -> Bool {
+        public func get_IsWwanConnectionProfile() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWwanConnectionProfile(pThis, &value))
@@ -280,7 +281,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func get_IsWlanConnectionProfileImpl() throws -> Bool {
+        public func get_IsWlanConnectionProfile() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWlanConnectionProfile(pThis, &value))
@@ -288,25 +289,25 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func get_WwanConnectionProfileDetailsImpl() throws -> UWP.WwanConnectionProfileDetails? {
+        public func get_WwanConnectionProfileDetails() throws -> UWP.WwanConnectionProfileDetails? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_WwanConnectionProfileDetails(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.WwanConnectionProfileDetailsBridge.from(abi: value)
         }
 
-        internal func get_WlanConnectionProfileDetailsImpl() throws -> UWP.WlanConnectionProfileDetails? {
+        public func get_WlanConnectionProfileDetails() throws -> UWP.WlanConnectionProfileDetails? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_WlanConnectionProfileDetails(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.WlanConnectionProfileDetailsBridge.from(abi: value)
         }
 
-        internal func get_ServiceProviderGuidImpl() throws -> Foundation.UUID? {
+        public func get_ServiceProviderGuid() throws -> Foundation.UUID? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ServiceProviderGuid(pThis, &valueAbi))
@@ -315,7 +316,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIReference_1_GUIDWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetSignalBarsImpl() throws -> UInt8? {
+        public func GetSignalBars() throws -> UInt8? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetSignalBars(pThis, &valueAbi))
@@ -324,7 +325,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIReference_1_byteWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetDomainConnectivityLevelImpl() throws -> UWP.DomainConnectivityLevel {
+        public func GetDomainConnectivityLevel() throws -> UWP.DomainConnectivityLevel {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetDomainConnectivityLevel(pThis, &value))
@@ -332,7 +333,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func GetNetworkUsageAsyncImpl(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ granularity: UWP.DataUsageGranularity, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.NetworkUsage?>?>? {
+        public func GetNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ granularity: UWP.DataUsageGranularity, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.NetworkUsage?>?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkUsageAsync(pThis, .from(swift: startTime), .from(swift: endTime), granularity, .from(swift: states), &valueAbi))
@@ -341,7 +342,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CNetworking__CConnectivity__CNetworkUsageWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetConnectivityIntervalsAsyncImpl(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.ConnectivityInterval?>?>? {
+        public func GetConnectivityIntervalsAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.ConnectivityInterval?>?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectivityIntervalsAsync(pThis, .from(swift: startTime), .from(swift: endTime), .from(swift: states), &valueAbi))
@@ -355,7 +356,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectionProfile3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile3 }
 
-        internal func GetAttributedNetworkUsageAsyncImpl(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AttributedNetworkUsage?>?>? {
+        public func GetAttributedNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AttributedNetworkUsage?>?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile3.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetAttributedNetworkUsageAsync(pThis, .from(swift: startTime), .from(swift: endTime), .from(swift: states), &valueAbi))
@@ -369,7 +370,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectionProfile4: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile4 }
 
-        internal func GetProviderNetworkUsageAsyncImpl(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.ProviderNetworkUsage?>?>? {
+        public func GetProviderNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.ProviderNetworkUsage?>?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile4.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetProviderNetworkUsageAsync(pThis, .from(swift: startTime), .from(swift: endTime), .from(swift: states), &valueAbi))
@@ -383,7 +384,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectionProfile5: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5 }
 
-        internal func get_CanDeleteImpl() throws -> Bool {
+        public func get_CanDelete() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanDelete(pThis, &value))
@@ -391,7 +392,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func TryDeleteAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ConnectionProfileDeleteStatus>? {
+        public func TryDeleteAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ConnectionProfileDeleteStatus>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryDeleteAsync(pThis, &operationAbi))
@@ -405,7 +406,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IConnectivityInterval: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval }
 
-        internal func get_StartTimeImpl() throws -> WindowsFoundation.DateTime {
+        public func get_StartTime() throws -> WindowsFoundation.DateTime {
             var startTime: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartTime(pThis, &startTime))
@@ -413,7 +414,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .from(abi: startTime)
         }
 
-        internal func get_ConnectionDurationImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_ConnectionDuration() throws -> WindowsFoundation.TimeSpan {
             var duration: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConnectionDuration(pThis, &duration))
@@ -426,16 +427,16 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IDataPlanStatus: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus }
 
-        internal func get_DataPlanUsageImpl() throws -> UWP.DataPlanUsage? {
+        public func get_DataPlanUsage() throws -> UWP.DataPlanUsage? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataPlanUsage(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.DataPlanUsageBridge.from(abi: value)
         }
 
-        internal func get_DataLimitInMegabytesImpl() throws -> UInt32? {
+        public func get_DataLimitInMegabytes() throws -> UInt32? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataLimitInMegabytes(pThis, &valueAbi))
@@ -444,7 +445,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_InboundBitsPerSecondImpl() throws -> UInt64? {
+        public func get_InboundBitsPerSecond() throws -> UInt64? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_InboundBitsPerSecond(pThis, &valueAbi))
@@ -453,7 +454,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_OutboundBitsPerSecondImpl() throws -> UInt64? {
+        public func get_OutboundBitsPerSecond() throws -> UInt64? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutboundBitsPerSecond(pThis, &valueAbi))
@@ -462,7 +463,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_NextBillingCycleImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_NextBillingCycle() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NextBillingCycle(pThis, &valueAbi))
@@ -471,7 +472,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_MaxTransferSizeInMegabytesImpl() throws -> UInt32? {
+        public func get_MaxTransferSizeInMegabytes() throws -> UInt32? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxTransferSizeInMegabytes(pThis, &valueAbi))
@@ -485,7 +486,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IDataPlanUsage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage }
 
-        internal func get_MegabytesUsedImpl() throws -> UInt32 {
+        public func get_MegabytesUsed() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MegabytesUsed(pThis, &value))
@@ -493,7 +494,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_LastSyncTimeImpl() throws -> WindowsFoundation.DateTime {
+        public func get_LastSyncTime() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastSyncTime(pThis, &value))
@@ -506,7 +507,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IDataUsage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage }
 
-        internal func get_BytesSentImpl() throws -> UInt64 {
+        public func get_BytesSent() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
@@ -514,7 +515,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_BytesReceivedImpl() throws -> UInt64 {
+        public func get_BytesReceived() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
@@ -527,16 +528,16 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IIPInformation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation }
 
-        internal func get_NetworkAdapterImpl() throws -> UWP.NetworkAdapter? {
+        public func get_NetworkAdapter() throws -> UWP.NetworkAdapter? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAdapter(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.NetworkAdapterBridge.from(abi: value)
         }
 
-        internal func get_PrefixLengthImpl() throws -> UInt8? {
+        public func get_PrefixLength() throws -> UInt8? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrefixLength(pThis, &valueAbi))
@@ -550,7 +551,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class INetworkAdapter: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter }
 
-        internal func get_OutboundMaxBitsPerSecondImpl() throws -> UInt64 {
+        public func get_OutboundMaxBitsPerSecond() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutboundMaxBitsPerSecond(pThis, &value))
@@ -558,7 +559,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_InboundMaxBitsPerSecondImpl() throws -> UInt64 {
+        public func get_InboundMaxBitsPerSecond() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_InboundMaxBitsPerSecond(pThis, &value))
@@ -566,7 +567,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_IanaInterfaceTypeImpl() throws -> UInt32 {
+        public func get_IanaInterfaceType() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IanaInterfaceType(pThis, &value))
@@ -574,16 +575,16 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_NetworkItemImpl() throws -> UWP.NetworkItem? {
+        public func get_NetworkItem() throws -> UWP.NetworkItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkItem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.NetworkItemBridge.from(abi: value)
         }
 
-        internal func get_NetworkAdapterIdImpl() throws -> Foundation.UUID {
+        public func get_NetworkAdapterId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAdapterId(pThis, &value))
@@ -591,7 +592,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func GetConnectedProfileAsyncImpl() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ConnectionProfile?>? {
+        public func GetConnectedProfileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ConnectionProfile?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectedProfileAsync(pThis, &valueAbi))
@@ -605,7 +606,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class INetworkItem: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem }
 
-        internal func get_NetworkIdImpl() throws -> Foundation.UUID {
+        public func get_NetworkId() throws -> Foundation.UUID {
             var value: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkId(pThis, &value))
@@ -613,7 +614,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func GetNetworkTypesImpl() throws -> UWP.NetworkTypes {
+        public func GetNetworkTypes() throws -> UWP.NetworkTypes {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkTypes(pThis, &value))
@@ -626,7 +627,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class INetworkSecuritySettings: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings }
 
-        internal func get_NetworkAuthenticationTypeImpl() throws -> UWP.NetworkAuthenticationType {
+        public func get_NetworkAuthenticationType() throws -> UWP.NetworkAuthenticationType {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAuthenticationType(pThis, &value))
@@ -634,7 +635,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_NetworkEncryptionTypeImpl() throws -> UWP.NetworkEncryptionType {
+        public func get_NetworkEncryptionType() throws -> UWP.NetworkEncryptionType {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkEncryptionType(pThis, &value))
@@ -647,7 +648,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class INetworkUsage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage }
 
-        internal func get_BytesSentImpl() throws -> UInt64 {
+        public func get_BytesSent() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
@@ -655,7 +656,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_BytesReceivedImpl() throws -> UInt64 {
+        public func get_BytesReceived() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
@@ -663,7 +664,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_ConnectionDurationImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_ConnectionDuration() throws -> WindowsFoundation.TimeSpan {
             var duration: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConnectionDuration(pThis, &duration))
@@ -676,7 +677,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IProviderNetworkUsage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage }
 
-        internal func get_BytesSentImpl() throws -> UInt64 {
+        public func get_BytesSent() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
@@ -684,7 +685,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_BytesReceivedImpl() throws -> UInt64 {
+        public func get_BytesReceived() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
@@ -692,7 +693,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_ProviderIdImpl() throws -> String {
+        public func get_ProviderId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProviderId(pThis, &value))
@@ -705,7 +706,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IWlanConnectionProfileDetails: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails }
 
-        internal func GetConnectedSsidImpl() throws -> String {
+        public func GetConnectedSsid() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectedSsid(pThis, &value))
@@ -718,7 +719,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IWwanConnectionProfileDetails: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails }
 
-        internal func get_HomeProviderIdImpl() throws -> String {
+        public func get_HomeProviderId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HomeProviderId(pThis, &value))
@@ -726,7 +727,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func get_AccessPointNameImpl() throws -> String {
+        public func get_AccessPointName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessPointName(pThis, &value))
@@ -734,7 +735,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return .init(from: value)
         }
 
-        internal func GetNetworkRegistrationStateImpl() throws -> UWP.WwanNetworkRegistrationState {
+        public func GetNetworkRegistrationState() throws -> UWP.WwanNetworkRegistrationState {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkRegistrationState(pThis, &value))
@@ -742,7 +743,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func GetCurrentDataClassImpl() throws -> UWP.WwanDataClass {
+        public func GetCurrentDataClass() throws -> UWP.WwanDataClass {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentDataClass(pThis, &value))
@@ -755,7 +756,7 @@ public enum __ABI_Windows_Networking_Connectivity {
     public class IWwanConnectionProfileDetails2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2 }
 
-        internal func get_IPKindImpl() throws -> UWP.WwanNetworkIPKind {
+        public func get_IPKind() throws -> UWP.WwanNetworkIPKind {
             var value: __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IPKind(pThis, &value))
@@ -763,7 +764,7 @@ public enum __ABI_Windows_Networking_Connectivity {
             return value
         }
 
-        internal func get_PurposeGuidsImpl() throws -> WindowsFoundation.AnyIVectorView<Foundation.UUID>? {
+        public func get_PurposeGuids() throws -> WindowsFoundation.AnyIVectorView<Foundation.UUID>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PurposeGuids(pThis, &valueAbi))
