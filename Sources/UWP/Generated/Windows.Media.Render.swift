@@ -44,5 +44,5 @@ extension UWP.AudioRenderCategory {
         __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory_Media
     }
 }
-extension UWP.AudioRenderCategory: @retroactive Hashable, @retroactive Codable {}
+extension UWP.AudioRenderCategory: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

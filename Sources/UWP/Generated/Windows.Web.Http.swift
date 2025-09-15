@@ -28,12 +28,6 @@ public final class HttpClient : WinRTClass, WindowsFoundation.IClosable, Windows
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpClient>?) -> HttpClient? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -41,131 +35,132 @@ public final class HttpClient : WinRTClass, WindowsFoundation.IClosable, Windows
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Web.Http.HttpClient")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Web.Http.HttpClient")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IHttpClientFactory: __ABI_Windows_Web_Http.IHttpClientFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.HttpClient"))
+    private static let _IHttpClientFactory: __ABI_Windows_Web_Http.IHttpClientFactory = try! RoGetActivationFactory("Windows.Web.Http.HttpClient")
     public init(_ filter: UWP.AnyIHttpFilter!) {
-        super.init(try! Self._IHttpClientFactory.CreateImpl(filter))
+        super.init(try! Self._IHttpClientFactory.Create(filter))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.deleteasync)
     public func deleteAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpResponseMessage?, HttpProgress>! {
-        try _default.DeleteAsyncImpl(uri)
+        try _default.DeleteAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.getasync)
     public func getAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpResponseMessage?, HttpProgress>! {
-        try _default.GetAsyncImpl(uri)
+        try _default.GetAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.getasync)
     public func getAsync(_ uri: WindowsFoundation.Uri!, _ completionOption: HttpCompletionOption) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpResponseMessage?, HttpProgress>! {
-        try _default.GetWithOptionAsyncImpl(uri, completionOption)
+        try _default.GetWithOptionAsync(uri, completionOption)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.getbufferasync)
     public func getBufferAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.AnyIBuffer?, HttpProgress>! {
-        try _default.GetBufferAsyncImpl(uri)
+        try _default.GetBufferAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.getinputstreamasync)
     public func getInputStreamAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.AnyIInputStream?, HttpProgress>! {
-        try _default.GetInputStreamAsyncImpl(uri)
+        try _default.GetInputStreamAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.getstringasync)
     public func getStringAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<String, HttpProgress>! {
-        try _default.GetStringAsyncImpl(uri)
+        try _default.GetStringAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.postasync)
     public func postAsync(_ uri: WindowsFoundation.Uri!, _ content: AnyIHttpContent!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpResponseMessage?, HttpProgress>! {
-        try _default.PostAsyncImpl(uri, content)
+        try _default.PostAsync(uri, content)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.putasync)
     public func putAsync(_ uri: WindowsFoundation.Uri!, _ content: AnyIHttpContent!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpResponseMessage?, HttpProgress>! {
-        try _default.PutAsyncImpl(uri, content)
+        try _default.PutAsync(uri, content)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.sendrequestasync)
     public func sendRequestAsync(_ request: HttpRequestMessage!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpResponseMessage?, HttpProgress>! {
-        try _default.SendRequestAsyncImpl(request)
+        try _default.SendRequestAsync(request)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.sendrequestasync)
     public func sendRequestAsync(_ request: HttpRequestMessage!, _ completionOption: HttpCompletionOption) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpResponseMessage?, HttpProgress>! {
-        try _default.SendRequestWithOptionAsyncImpl(request, completionOption)
+        try _default.SendRequestWithOptionAsync(request, completionOption)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.defaultrequestheaders)
     public var defaultRequestHeaders : UWP.HttpRequestHeaderCollection! {
-        get { try! _default.get_DefaultRequestHeadersImpl() }
+        get { try! _default.get_DefaultRequestHeaders() }
     }
 
     private lazy var _IHttpClient2: __ABI_Windows_Web_Http.IHttpClient2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trydeleteasync)
     public func tryDeleteAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpRequestResult?, HttpProgress>! {
-        try _IHttpClient2.TryDeleteAsyncImpl(uri)
+        try _IHttpClient2.TryDeleteAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trygetasync)
     public func tryGetAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpRequestResult?, HttpProgress>! {
-        try _IHttpClient2.TryGetAsyncImpl(uri)
+        try _IHttpClient2.TryGetAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trygetasync)
     public func tryGetAsync(_ uri: WindowsFoundation.Uri!, _ completionOption: HttpCompletionOption) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpRequestResult?, HttpProgress>! {
-        try _IHttpClient2.TryGetAsync2Impl(uri, completionOption)
+        try _IHttpClient2.TryGetAsync2(uri, completionOption)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trygetbufferasync)
     public func tryGetBufferAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpGetBufferResult?, HttpProgress>! {
-        try _IHttpClient2.TryGetBufferAsyncImpl(uri)
+        try _IHttpClient2.TryGetBufferAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trygetinputstreamasync)
     public func tryGetInputStreamAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpGetInputStreamResult?, HttpProgress>! {
-        try _IHttpClient2.TryGetInputStreamAsyncImpl(uri)
+        try _IHttpClient2.TryGetInputStreamAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trygetstringasync)
     public func tryGetStringAsync(_ uri: WindowsFoundation.Uri!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpGetStringResult?, HttpProgress>! {
-        try _IHttpClient2.TryGetStringAsyncImpl(uri)
+        try _IHttpClient2.TryGetStringAsync(uri)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trypostasync)
     public func tryPostAsync(_ uri: WindowsFoundation.Uri!, _ content: AnyIHttpContent!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpRequestResult?, HttpProgress>! {
-        try _IHttpClient2.TryPostAsyncImpl(uri, content)
+        try _IHttpClient2.TryPostAsync(uri, content)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.tryputasync)
     public func tryPutAsync(_ uri: WindowsFoundation.Uri!, _ content: AnyIHttpContent!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpRequestResult?, HttpProgress>! {
-        try _IHttpClient2.TryPutAsyncImpl(uri, content)
+        try _IHttpClient2.TryPutAsync(uri, content)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trysendrequestasync)
     public func trySendRequestAsync(_ request: HttpRequestMessage!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpRequestResult?, HttpProgress>! {
-        try _IHttpClient2.TrySendRequestAsyncImpl(request)
+        try _IHttpClient2.TrySendRequestAsync(request)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.trysendrequestasync)
     public func trySendRequestAsync(_ request: HttpRequestMessage!, _ completionOption: HttpCompletionOption) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<HttpRequestResult?, HttpProgress>! {
-        try _IHttpClient2.TrySendRequestAsync2Impl(request, completionOption)
+        try _IHttpClient2.TrySendRequestAsync2(request, completionOption)
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -190,12 +185,6 @@ public final class HttpGetBufferResult : WinRTClass, WindowsFoundation.IClosable
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpGetBufferResult>?) -> HttpGetBufferResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -205,39 +194,39 @@ public final class HttpGetBufferResult : WinRTClass, WindowsFoundation.IClosable
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _default.get_ExtendedErrorImpl() }
+        get { try! _default.get_ExtendedError() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult.requestmessage)
     public var requestMessage : HttpRequestMessage! {
-        get { try! _default.get_RequestMessageImpl() }
+        get { try! _default.get_RequestMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult.responsemessage)
     public var responseMessage : HttpResponseMessage! {
-        get { try! _default.get_ResponseMessageImpl() }
+        get { try! _default.get_ResponseMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult.succeeded)
     public var succeeded : Bool {
-        get { try! _default.get_SucceededImpl() }
+        get { try! _default.get_Succeeded() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult.value)
     public var value : UWP.AnyIBuffer! {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -261,12 +250,6 @@ public final class HttpGetInputStreamResult : WinRTClass, WindowsFoundation.IClo
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpGetInputStreamResult>?) -> HttpGetInputStreamResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -276,39 +259,39 @@ public final class HttpGetInputStreamResult : WinRTClass, WindowsFoundation.IClo
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _default.get_ExtendedErrorImpl() }
+        get { try! _default.get_ExtendedError() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult.requestmessage)
     public var requestMessage : HttpRequestMessage! {
-        get { try! _default.get_RequestMessageImpl() }
+        get { try! _default.get_RequestMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult.responsemessage)
     public var responseMessage : HttpResponseMessage! {
-        get { try! _default.get_ResponseMessageImpl() }
+        get { try! _default.get_ResponseMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult.succeeded)
     public var succeeded : Bool {
-        get { try! _default.get_SucceededImpl() }
+        get { try! _default.get_Succeeded() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult.value)
     public var value : UWP.AnyIInputStream! {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -332,12 +315,6 @@ public final class HttpGetStringResult : WinRTClass, WindowsFoundation.IClosable
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpGetStringResult>?) -> HttpGetStringResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -347,39 +324,39 @@ public final class HttpGetStringResult : WinRTClass, WindowsFoundation.IClosable
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _default.get_ExtendedErrorImpl() }
+        get { try! _default.get_ExtendedError() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult.requestmessage)
     public var requestMessage : HttpRequestMessage! {
-        get { try! _default.get_RequestMessageImpl() }
+        get { try! _default.get_RequestMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult.responsemessage)
     public var responseMessage : HttpResponseMessage! {
-        get { try! _default.get_ResponseMessageImpl() }
+        get { try! _default.get_ResponseMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult.succeeded)
     public var succeeded : Bool {
-        get { try! _default.get_SucceededImpl() }
+        get { try! _default.get_Succeeded() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult.value)
     public var value : String {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -403,12 +380,6 @@ public final class HttpMethod : WinRTClass, WindowsFoundation.IStringable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpMethod>?) -> HttpMethod? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -416,56 +387,56 @@ public final class HttpMethod : WinRTClass, WindowsFoundation.IStringable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpMethodFactory: __ABI_Windows_Web_Http.IHttpMethodFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.HttpMethod"))
+    private static let _IHttpMethodFactory: __ABI_Windows_Web_Http.IHttpMethodFactory = try! RoGetActivationFactory("Windows.Web.Http.HttpMethod")
     public init(_ method: String) {
-        super.init(try! Self._IHttpMethodFactory.CreateImpl(method))
+        super.init(try! Self._IHttpMethodFactory.Create(method))
     }
 
-    private static let _IHttpMethodStatics: __ABI_Windows_Web_Http.IHttpMethodStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.HttpMethod"))
+    private static let _IHttpMethodStatics: __ABI_Windows_Web_Http.IHttpMethodStatics = try! RoGetActivationFactory("Windows.Web.Http.HttpMethod")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.delete)
     public static var delete : HttpMethod! {
-        get { try! _IHttpMethodStatics.get_DeleteImpl() }
+        get { try! _IHttpMethodStatics.get_Delete() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.get)
     public static var get : HttpMethod! {
-        get { try! _IHttpMethodStatics.get_GetImpl() }
+        get { try! _IHttpMethodStatics.get_Get() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.head)
     public static var head : HttpMethod! {
-        get { try! _IHttpMethodStatics.get_HeadImpl() }
+        get { try! _IHttpMethodStatics.get_Head() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.options)
     public static var options : HttpMethod! {
-        get { try! _IHttpMethodStatics.get_OptionsImpl() }
+        get { try! _IHttpMethodStatics.get_Options() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.patch)
     public static var patch : HttpMethod! {
-        get { try! _IHttpMethodStatics.get_PatchImpl() }
+        get { try! _IHttpMethodStatics.get_Patch() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.post)
     public static var post : HttpMethod! {
-        get { try! _IHttpMethodStatics.get_PostImpl() }
+        get { try! _IHttpMethodStatics.get_Post() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.put)
     public static var put : HttpMethod! {
-        get { try! _IHttpMethodStatics.get_PutImpl() }
+        get { try! _IHttpMethodStatics.get_Put() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.method)
     public var method : String {
-        get { try! _default.get_MethodImpl() }
+        get { try! _default.get_Method() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -488,12 +459,6 @@ public final class HttpRequestMessage : WinRTClass, WindowsFoundation.IClosable,
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpRequestMessage>?) -> HttpRequestMessage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -501,58 +466,59 @@ public final class HttpRequestMessage : WinRTClass, WindowsFoundation.IClosable,
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Web.Http.HttpRequestMessage")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Web.Http.HttpRequestMessage")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IHttpRequestMessageFactory: __ABI_Windows_Web_Http.IHttpRequestMessageFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.HttpRequestMessage"))
+    private static let _IHttpRequestMessageFactory: __ABI_Windows_Web_Http.IHttpRequestMessageFactory = try! RoGetActivationFactory("Windows.Web.Http.HttpRequestMessage")
     public init(_ method: HttpMethod!, _ uri: WindowsFoundation.Uri!) {
-        super.init(try! Self._IHttpRequestMessageFactory.CreateImpl(method, uri))
+        super.init(try! Self._IHttpRequestMessageFactory.Create(method, uri))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.content)
     public var content : AnyIHttpContent! {
-        get { try! _default.get_ContentImpl() }
-        set { try! _default.put_ContentImpl(newValue) }
+        get { try! _default.get_Content() }
+        set { try! _default.put_Content(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.headers)
     public var headers : UWP.HttpRequestHeaderCollection! {
-        get { try! _default.get_HeadersImpl() }
+        get { try! _default.get_Headers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.method)
     public var method : HttpMethod! {
-        get { try! _default.get_MethodImpl() }
-        set { try! _default.put_MethodImpl(newValue) }
+        get { try! _default.get_Method() }
+        set { try! _default.put_Method(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.properties)
     public var properties : WindowsFoundation.AnyIMap<String, Any?>! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.requesturi)
     public var requestUri : WindowsFoundation.Uri! {
-        get { try! _default.get_RequestUriImpl() }
-        set { try! _default.put_RequestUriImpl(newValue) }
+        get { try! _default.get_RequestUri() }
+        set { try! _default.put_RequestUri(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.transportinformation)
     public var transportInformation : HttpTransportInformation! {
-        get { try! _default.get_TransportInformationImpl() }
+        get { try! _default.get_TransportInformation() }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -576,12 +542,6 @@ public final class HttpRequestResult : WinRTClass, WindowsFoundation.IClosable, 
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpRequestResult>?) -> HttpRequestResult? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -591,34 +551,34 @@ public final class HttpRequestResult : WinRTClass, WindowsFoundation.IClosable, 
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestresult.extendederror)
     public var extendedError : HRESULT {
-        get { try! _default.get_ExtendedErrorImpl() }
+        get { try! _default.get_ExtendedError() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestresult.requestmessage)
     public var requestMessage : HttpRequestMessage! {
-        get { try! _default.get_RequestMessageImpl() }
+        get { try! _default.get_RequestMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestresult.responsemessage)
     public var responseMessage : HttpResponseMessage! {
-        get { try! _default.get_ResponseMessageImpl() }
+        get { try! _default.get_ResponseMessage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestresult.succeeded)
     public var succeeded : Bool {
-        get { try! _default.get_SucceededImpl() }
+        get { try! _default.get_Succeeded() }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestresult.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestresult.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -642,12 +602,6 @@ public final class HttpResponseMessage : WinRTClass, WindowsFoundation.IClosable
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpResponseMessage>?) -> HttpResponseMessage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -655,76 +609,77 @@ public final class HttpResponseMessage : WinRTClass, WindowsFoundation.IClosable
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Web.Http.HttpResponseMessage")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Web.Http.HttpResponseMessage")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IHttpResponseMessageFactory: __ABI_Windows_Web_Http.IHttpResponseMessageFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.HttpResponseMessage"))
+    private static let _IHttpResponseMessageFactory: __ABI_Windows_Web_Http.IHttpResponseMessageFactory = try! RoGetActivationFactory("Windows.Web.Http.HttpResponseMessage")
     public init(_ statusCode: HttpStatusCode) {
-        super.init(try! Self._IHttpResponseMessageFactory.CreateImpl(statusCode))
+        super.init(try! Self._IHttpResponseMessageFactory.Create(statusCode))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.ensuresuccessstatuscode)
     public func ensureSuccessStatusCode() throws -> HttpResponseMessage! {
-        try _default.EnsureSuccessStatusCodeImpl()
+        try _default.EnsureSuccessStatusCode()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.content)
     public var content : AnyIHttpContent! {
-        get { try! _default.get_ContentImpl() }
-        set { try! _default.put_ContentImpl(newValue) }
+        get { try! _default.get_Content() }
+        set { try! _default.put_Content(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.headers)
     public var headers : UWP.HttpResponseHeaderCollection! {
-        get { try! _default.get_HeadersImpl() }
+        get { try! _default.get_Headers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.issuccessstatuscode)
     public var isSuccessStatusCode : Bool {
-        get { try! _default.get_IsSuccessStatusCodeImpl() }
+        get { try! _default.get_IsSuccessStatusCode() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.reasonphrase)
     public var reasonPhrase : String {
-        get { try! _default.get_ReasonPhraseImpl() }
-        set { try! _default.put_ReasonPhraseImpl(newValue) }
+        get { try! _default.get_ReasonPhrase() }
+        set { try! _default.put_ReasonPhrase(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.requestmessage)
     public var requestMessage : HttpRequestMessage! {
-        get { try! _default.get_RequestMessageImpl() }
-        set { try! _default.put_RequestMessageImpl(newValue) }
+        get { try! _default.get_RequestMessage() }
+        set { try! _default.put_RequestMessage(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.source)
     public var source : HttpResponseMessageSource {
-        get { try! _default.get_SourceImpl() }
-        set { try! _default.put_SourceImpl(newValue) }
+        get { try! _default.get_Source() }
+        set { try! _default.put_Source(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.statuscode)
     public var statusCode : HttpStatusCode {
-        get { try! _default.get_StatusCodeImpl() }
-        set { try! _default.put_StatusCodeImpl(newValue) }
+        get { try! _default.get_StatusCode() }
+        set { try! _default.put_StatusCode(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.version)
     public var version : HttpVersion {
-        get { try! _default.get_VersionImpl() }
-        set { try! _default.put_VersionImpl(newValue) }
+        get { try! _default.get_Version() }
+        set { try! _default.put_Version(newValue) }
     }
 
     private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.close)
     public func close() throws {
-        try _IClosable.CloseImpl()
+        try _IClosable.Close()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -748,12 +703,6 @@ public final class HttpTransportInformation : WinRTClass, WindowsFoundation.IStr
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpTransportInformation>?) -> HttpTransportInformation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -763,28 +712,28 @@ public final class HttpTransportInformation : WinRTClass, WindowsFoundation.IStr
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httptransportinformation.servercertificate)
     public var serverCertificate : UWP.Certificate! {
-        get { try! _default.get_ServerCertificateImpl() }
+        get { try! _default.get_ServerCertificate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httptransportinformation.servercertificateerrorseverity)
     public var serverCertificateErrorSeverity : UWP.SocketSslErrorSeverity {
-        get { try! _default.get_ServerCertificateErrorSeverityImpl() }
+        get { try! _default.get_ServerCertificateErrorSeverity() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httptransportinformation.servercertificateerrors)
     public var serverCertificateErrors : WindowsFoundation.AnyIVectorView<UWP.ChainValidationResult>! {
-        get { try! _default.get_ServerCertificateErrorsImpl() }
+        get { try! _default.get_ServerCertificateErrors() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httptransportinformation.serverintermediatecertificates)
     public var serverIntermediateCertificates : WindowsFoundation.AnyIVectorView<UWP.Certificate?>! {
-        get { try! _default.get_ServerIntermediateCertificatesImpl() }
+        get { try! _default.get_ServerIntermediateCertificates() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httptransportinformation.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -794,7 +743,7 @@ public final class HttpTransportInformation : WinRTClass, WindowsFoundation.IStr
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpprogress)
-public struct HttpProgress: Hashable, Codable {
+public struct HttpProgress: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpprogress.stage)
     public var stage: HttpProgressStage = .init(0)
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpprogress.bytessent)
@@ -815,9 +764,6 @@ public struct HttpProgress: Hashable, Codable {
         self.bytesReceived = bytesReceived
         self.totalBytesToReceive = totalBytesToReceive
         self.retries = retries
-    }
-    public static func from(abi: __x_ABI_CWindows_CWeb_CHttp_CHttpProgress) -> HttpProgress {
-        .init(stage: abi.Stage, bytesSent: abi.BytesSent, totalBytesToSend: UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: ComPtr(abi.TotalBytesToSend)), bytesReceived: abi.BytesReceived, totalBytesToReceive: UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: ComPtr(abi.TotalBytesToReceive)), retries: abi.Retries)
     }
 }
 
@@ -862,7 +808,7 @@ extension UWP.HttpCompletionOption {
         __x_ABI_CWindows_CWeb_CHttp_CHttpCompletionOption_ResponseHeadersRead
     }
 }
-extension UWP.HttpCompletionOption: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HttpCompletionOption: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.HttpProgressStage {
     public static var none : UWP.HttpProgressStage {
@@ -896,7 +842,7 @@ extension UWP.HttpProgressStage {
         __x_ABI_CWindows_CWeb_CHttp_CHttpProgressStage_ReceivingContent
     }
 }
-extension UWP.HttpProgressStage: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HttpProgressStage: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.HttpResponseMessageSource {
     public static var none : UWP.HttpResponseMessageSource {
@@ -909,7 +855,7 @@ extension UWP.HttpResponseMessageSource {
         __x_ABI_CWindows_CWeb_CHttp_CHttpResponseMessageSource_Network
     }
 }
-extension UWP.HttpResponseMessageSource: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HttpResponseMessageSource: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.HttpStatusCode {
     public static var none : UWP.HttpStatusCode {
@@ -1087,7 +1033,7 @@ extension UWP.HttpStatusCode {
         __x_ABI_CWindows_CWeb_CHttp_CHttpStatusCode_NetworkAuthenticationRequired
     }
 }
-extension UWP.HttpStatusCode: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HttpStatusCode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.HttpVersion {
     public static var none : UWP.HttpVersion {
@@ -1103,5 +1049,5 @@ extension UWP.HttpVersion {
         __x_ABI_CWindows_CWeb_CHttp_CHttpVersion_Http20
     }
 }
-extension UWP.HttpVersion: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HttpVersion: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -4,5 +4,22 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI_ViewManagement {
+    public enum ActivationViewSwitcherBridge: AbiBridge {
+        public typealias SwiftProjection = ActivationViewSwitcher
+        public typealias CABI = __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher>?) -> ActivationViewSwitcher? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ActivationViewSwitcherMaker: MakeFromAbi {
+    public typealias SwiftType = ActivationViewSwitcher
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ActivationViewSwitcher(fromAbi: abi)
+    }
 }

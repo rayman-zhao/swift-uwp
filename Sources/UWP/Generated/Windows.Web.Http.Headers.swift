@@ -19,12 +19,6 @@ public final class HttpCacheDirectiveHeaderValueCollection : WinRTClass, IVector
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection>?) -> HttpCacheDirectiveHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -34,36 +28,36 @@ public final class HttpCacheDirectiveHeaderValueCollection : WinRTClass, IVector
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.maxage)
     public var maxAge : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_MaxAgeImpl() }
-        set { try! _default.put_MaxAgeImpl(newValue) }
+        get { try! _default.get_MaxAge() }
+        set { try! _default.put_MaxAge(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.maxstale)
     public var maxStale : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_MaxStaleImpl() }
-        set { try! _default.put_MaxStaleImpl(newValue) }
+        get { try! _default.get_MaxStale() }
+        set { try! _default.put_MaxStale(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.minfresh)
     public var minFresh : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_MinFreshImpl() }
-        set { try! _default.put_MinFreshImpl(newValue) }
+        get { try! _default.get_MinFresh() }
+        set { try! _default.put_MinFresh(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.sharedmaxage)
     public var sharedMaxAge : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_SharedMaxAgeImpl() }
-        set { try! _default.put_SharedMaxAgeImpl(newValue) }
+        get { try! _default.get_SharedMaxAge() }
+        set { try! _default.put_SharedMaxAge(newValue) }
     }
 
     // MARK: Collection
@@ -100,64 +94,74 @@ public final class HttpCacheDirectiveHeaderValueCollection : WinRTClass, IVector
     private lazy var _IVector: IVectorHttpNameValueHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpNameValueHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpNameValueHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.indexof)
     public func indexOf(_ value: HttpNameValueHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpNameValueHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpNameValueHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.append)
     public func append(_ value: HttpNameValueHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpNameValueHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpNameValueHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpNameValueHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpNameValueHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -182,12 +186,6 @@ public final class HttpChallengeHeaderValue : WinRTClass, WindowsFoundation.IStr
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue>?) -> HttpChallengeHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -195,45 +193,45 @@ public final class HttpChallengeHeaderValue : WinRTClass, WindowsFoundation.IStr
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpChallengeHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpChallengeHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpChallengeHeaderValue"))
+    private static let _IHttpChallengeHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpChallengeHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpChallengeHeaderValue")
     public init(_ scheme: String) {
-        super.init(try! Self._IHttpChallengeHeaderValueFactory.CreateFromSchemeImpl(scheme))
+        super.init(try! Self._IHttpChallengeHeaderValueFactory.CreateFromScheme(scheme))
     }
 
     public init(_ scheme: String, _ token: String) {
-        super.init(try! Self._IHttpChallengeHeaderValueFactory.CreateFromSchemeWithTokenImpl(scheme, token))
+        super.init(try! Self._IHttpChallengeHeaderValueFactory.CreateFromSchemeWithToken(scheme, token))
     }
 
-    private static let _IHttpChallengeHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpChallengeHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpChallengeHeaderValue"))
+    private static let _IHttpChallengeHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpChallengeHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpChallengeHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervalue.parse)
-    public static func parse(_ input: String) -> HttpChallengeHeaderValue! {
-        return try! _IHttpChallengeHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpChallengeHeaderValue! {
+        return try _IHttpChallengeHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ challengeHeaderValue: inout HttpChallengeHeaderValue!) -> Bool {
-        return try! _IHttpChallengeHeaderValueStatics.TryParseImpl(input, &challengeHeaderValue)
+    public static func tryParse(_ input: String, _ challengeHeaderValue: inout HttpChallengeHeaderValue!) throws -> Bool {
+        return try _IHttpChallengeHeaderValueStatics.TryParse(input, &challengeHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervalue.parameters)
     public var parameters : WindowsFoundation.AnyIVector<HttpNameValueHeaderValue?>! {
-        get { try! _default.get_ParametersImpl() }
+        get { try! _default.get_Parameters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervalue.scheme)
     public var scheme : String {
-        get { try! _default.get_SchemeImpl() }
+        get { try! _default.get_Scheme() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervalue.token)
     public var token : String {
-        get { try! _default.get_TokenImpl() }
+        get { try! _default.get_Token() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -257,12 +255,6 @@ public final class HttpChallengeHeaderValueCollection : WinRTClass, IVector, IIt
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection>?) -> HttpChallengeHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -272,12 +264,12 @@ public final class HttpChallengeHeaderValueCollection : WinRTClass, IVector, IIt
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -314,64 +306,74 @@ public final class HttpChallengeHeaderValueCollection : WinRTClass, IVector, IIt
     private lazy var _IVector: IVectorHttpChallengeHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpChallengeHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpChallengeHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.indexof)
     public func indexOf(_ value: HttpChallengeHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpChallengeHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpChallengeHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.append)
     public func append(_ value: HttpChallengeHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpChallengeHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpChallengeHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpChallengeHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpChallengeHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -396,12 +398,6 @@ public final class HttpConnectionOptionHeaderValue : WinRTClass, WindowsFoundati
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue>?) -> HttpConnectionOptionHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -409,31 +405,31 @@ public final class HttpConnectionOptionHeaderValue : WinRTClass, WindowsFoundati
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpConnectionOptionHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpConnectionOptionHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue"))
+    private static let _IHttpConnectionOptionHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpConnectionOptionHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue")
     public init(_ token: String) {
-        super.init(try! Self._IHttpConnectionOptionHeaderValueFactory.CreateImpl(token))
+        super.init(try! Self._IHttpConnectionOptionHeaderValueFactory.Create(token))
     }
 
-    private static let _IHttpConnectionOptionHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpConnectionOptionHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue"))
+    private static let _IHttpConnectionOptionHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpConnectionOptionHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervalue.parse)
-    public static func parse(_ input: String) -> HttpConnectionOptionHeaderValue! {
-        return try! _IHttpConnectionOptionHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpConnectionOptionHeaderValue! {
+        return try _IHttpConnectionOptionHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ connectionOptionHeaderValue: inout HttpConnectionOptionHeaderValue!) -> Bool {
-        return try! _IHttpConnectionOptionHeaderValueStatics.TryParseImpl(input, &connectionOptionHeaderValue)
+    public static func tryParse(_ input: String, _ connectionOptionHeaderValue: inout HttpConnectionOptionHeaderValue!) throws -> Bool {
+        return try _IHttpConnectionOptionHeaderValueStatics.TryParse(input, &connectionOptionHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervalue.token)
     public var token : String {
-        get { try! _default.get_TokenImpl() }
+        get { try! _default.get_Token() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -457,12 +453,6 @@ public final class HttpConnectionOptionHeaderValueCollection : WinRTClass, IVect
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection>?) -> HttpConnectionOptionHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -472,12 +462,12 @@ public final class HttpConnectionOptionHeaderValueCollection : WinRTClass, IVect
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -514,64 +504,74 @@ public final class HttpConnectionOptionHeaderValueCollection : WinRTClass, IVect
     private lazy var _IVector: IVectorHttpConnectionOptionHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpConnectionOptionHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpConnectionOptionHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.indexof)
     public func indexOf(_ value: HttpConnectionOptionHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpConnectionOptionHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpConnectionOptionHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.append)
     public func append(_ value: HttpConnectionOptionHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpConnectionOptionHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpConnectionOptionHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpConnectionOptionHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpConnectionOptionHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -596,12 +596,6 @@ public final class HttpContentCodingHeaderValue : WinRTClass, WindowsFoundation.
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue>?) -> HttpContentCodingHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -609,31 +603,31 @@ public final class HttpContentCodingHeaderValue : WinRTClass, WindowsFoundation.
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpContentCodingHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentCodingHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentCodingHeaderValue"))
+    private static let _IHttpContentCodingHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentCodingHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentCodingHeaderValue")
     public init(_ contentCoding: String) {
-        super.init(try! Self._IHttpContentCodingHeaderValueFactory.CreateImpl(contentCoding))
+        super.init(try! Self._IHttpContentCodingHeaderValueFactory.Create(contentCoding))
     }
 
-    private static let _IHttpContentCodingHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentCodingHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentCodingHeaderValue"))
+    private static let _IHttpContentCodingHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentCodingHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentCodingHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervalue.parse)
-    public static func parse(_ input: String) -> HttpContentCodingHeaderValue! {
-        return try! _IHttpContentCodingHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpContentCodingHeaderValue! {
+        return try _IHttpContentCodingHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ contentCodingHeaderValue: inout HttpContentCodingHeaderValue!) -> Bool {
-        return try! _IHttpContentCodingHeaderValueStatics.TryParseImpl(input, &contentCodingHeaderValue)
+    public static func tryParse(_ input: String, _ contentCodingHeaderValue: inout HttpContentCodingHeaderValue!) throws -> Bool {
+        return try _IHttpContentCodingHeaderValueStatics.TryParse(input, &contentCodingHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervalue.contentcoding)
     public var contentCoding : String {
-        get { try! _default.get_ContentCodingImpl() }
+        get { try! _default.get_ContentCoding() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -657,12 +651,6 @@ public final class HttpContentCodingHeaderValueCollection : WinRTClass, IVector,
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection>?) -> HttpContentCodingHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -672,12 +660,12 @@ public final class HttpContentCodingHeaderValueCollection : WinRTClass, IVector,
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -714,64 +702,74 @@ public final class HttpContentCodingHeaderValueCollection : WinRTClass, IVector,
     private lazy var _IVector: IVectorHttpContentCodingHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpContentCodingHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpContentCodingHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.indexof)
     public func indexOf(_ value: HttpContentCodingHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpContentCodingHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpContentCodingHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.append)
     public func append(_ value: HttpContentCodingHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpContentCodingHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpContentCodingHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpContentCodingHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpContentCodingHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -796,12 +794,6 @@ public final class HttpContentCodingWithQualityHeaderValue : WinRTClass, Windows
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue>?) -> HttpContentCodingWithQualityHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -809,40 +801,40 @@ public final class HttpContentCodingWithQualityHeaderValue : WinRTClass, Windows
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpContentCodingWithQualityHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentCodingWithQualityHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue"))
+    private static let _IHttpContentCodingWithQualityHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentCodingWithQualityHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue")
     public init(_ contentCoding: String) {
-        super.init(try! Self._IHttpContentCodingWithQualityHeaderValueFactory.CreateFromValueImpl(contentCoding))
+        super.init(try! Self._IHttpContentCodingWithQualityHeaderValueFactory.CreateFromValue(contentCoding))
     }
 
     public init(_ contentCoding: String, _ quality: Double) {
-        super.init(try! Self._IHttpContentCodingWithQualityHeaderValueFactory.CreateFromValueWithQualityImpl(contentCoding, quality))
+        super.init(try! Self._IHttpContentCodingWithQualityHeaderValueFactory.CreateFromValueWithQuality(contentCoding, quality))
     }
 
-    private static let _IHttpContentCodingWithQualityHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentCodingWithQualityHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue"))
+    private static let _IHttpContentCodingWithQualityHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentCodingWithQualityHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervalue.parse)
-    public static func parse(_ input: String) -> HttpContentCodingWithQualityHeaderValue! {
-        return try! _IHttpContentCodingWithQualityHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpContentCodingWithQualityHeaderValue! {
+        return try _IHttpContentCodingWithQualityHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ contentCodingWithQualityHeaderValue: inout HttpContentCodingWithQualityHeaderValue!) -> Bool {
-        return try! _IHttpContentCodingWithQualityHeaderValueStatics.TryParseImpl(input, &contentCodingWithQualityHeaderValue)
+    public static func tryParse(_ input: String, _ contentCodingWithQualityHeaderValue: inout HttpContentCodingWithQualityHeaderValue!) throws -> Bool {
+        return try _IHttpContentCodingWithQualityHeaderValueStatics.TryParse(input, &contentCodingWithQualityHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervalue.contentcoding)
     public var contentCoding : String {
-        get { try! _default.get_ContentCodingImpl() }
+        get { try! _default.get_ContentCoding() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervalue.quality)
     public var quality : Double? {
-        get { try! _default.get_QualityImpl() }
+        get { try! _default.get_Quality() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -866,12 +858,6 @@ public final class HttpContentCodingWithQualityHeaderValueCollection : WinRTClas
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection>?) -> HttpContentCodingWithQualityHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -881,12 +867,12 @@ public final class HttpContentCodingWithQualityHeaderValueCollection : WinRTClas
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -923,64 +909,74 @@ public final class HttpContentCodingWithQualityHeaderValueCollection : WinRTClas
     private lazy var _IVector: IVectorHttpContentCodingWithQualityHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpContentCodingWithQualityHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpContentCodingWithQualityHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.indexof)
     public func indexOf(_ value: HttpContentCodingWithQualityHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpContentCodingWithQualityHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpContentCodingWithQualityHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.append)
     public func append(_ value: HttpContentCodingWithQualityHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpContentCodingWithQualityHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpContentCodingWithQualityHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpContentCodingWithQualityHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpContentCodingWithQualityHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1005,12 +1001,6 @@ public final class HttpContentDispositionHeaderValue : WinRTClass, WindowsFounda
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue>?) -> HttpContentDispositionHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1018,61 +1008,61 @@ public final class HttpContentDispositionHeaderValue : WinRTClass, WindowsFounda
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpContentDispositionHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentDispositionHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentDispositionHeaderValue"))
+    private static let _IHttpContentDispositionHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentDispositionHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentDispositionHeaderValue")
     public init(_ dispositionType: String) {
-        super.init(try! Self._IHttpContentDispositionHeaderValueFactory.CreateImpl(dispositionType))
+        super.init(try! Self._IHttpContentDispositionHeaderValueFactory.Create(dispositionType))
     }
 
-    private static let _IHttpContentDispositionHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentDispositionHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentDispositionHeaderValue"))
+    private static let _IHttpContentDispositionHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentDispositionHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentDispositionHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.parse)
-    public static func parse(_ input: String) -> HttpContentDispositionHeaderValue! {
-        return try! _IHttpContentDispositionHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpContentDispositionHeaderValue! {
+        return try _IHttpContentDispositionHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ contentDispositionHeaderValue: inout HttpContentDispositionHeaderValue!) -> Bool {
-        return try! _IHttpContentDispositionHeaderValueStatics.TryParseImpl(input, &contentDispositionHeaderValue)
+    public static func tryParse(_ input: String, _ contentDispositionHeaderValue: inout HttpContentDispositionHeaderValue!) throws -> Bool {
+        return try _IHttpContentDispositionHeaderValueStatics.TryParse(input, &contentDispositionHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.dispositiontype)
     public var dispositionType : String {
-        get { try! _default.get_DispositionTypeImpl() }
-        set { try! _default.put_DispositionTypeImpl(newValue) }
+        get { try! _default.get_DispositionType() }
+        set { try! _default.put_DispositionType(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.filename)
     public var fileName : String {
-        get { try! _default.get_FileNameImpl() }
-        set { try! _default.put_FileNameImpl(newValue) }
+        get { try! _default.get_FileName() }
+        set { try! _default.put_FileName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.filenamestar)
     public var fileNameStar : String {
-        get { try! _default.get_FileNameStarImpl() }
-        set { try! _default.put_FileNameStarImpl(newValue) }
+        get { try! _default.get_FileNameStar() }
+        set { try! _default.put_FileNameStar(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
-        set { try! _default.put_NameImpl(newValue) }
+        get { try! _default.get_Name() }
+        set { try! _default.put_Name(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.parameters)
     public var parameters : WindowsFoundation.AnyIVector<HttpNameValueHeaderValue?>! {
-        get { try! _default.get_ParametersImpl() }
+        get { try! _default.get_Parameters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.size)
     public var size : UInt64? {
-        get { try! _default.get_SizeImpl() }
-        set { try! _default.put_SizeImpl(newValue) }
+        get { try! _default.get_Size() }
+        set { try! _default.put_Size(newValue) }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1098,12 +1088,6 @@ public final class HttpContentHeaderCollection : WinRTClass, IMap, IIterable, Wi
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection>?) -> HttpContentHeaderCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1111,124 +1095,125 @@ public final class HttpContentHeaderCollection : WinRTClass, IMap, IIterable, Wi
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentHeaderCollection")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Web.Http.Headers.HttpContentHeaderCollection")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.append)
     public func append(_ name: String, _ value: String) throws {
-        try _default.AppendImpl(name, value)
+        try _default.Append(name, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.tryappendwithoutvalidation)
     public func tryAppendWithoutValidation(_ name: String, _ value: String) throws -> Bool {
-        try _default.TryAppendWithoutValidationImpl(name, value)
+        try _default.TryAppendWithoutValidation(name, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contentdisposition)
     public var contentDisposition : HttpContentDispositionHeaderValue! {
-        get { try! _default.get_ContentDispositionImpl() }
-        set { try! _default.put_ContentDispositionImpl(newValue) }
+        get { try! _default.get_ContentDisposition() }
+        set { try! _default.put_ContentDisposition(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contentencoding)
     public var contentEncoding : HttpContentCodingHeaderValueCollection! {
-        get { try! _default.get_ContentEncodingImpl() }
+        get { try! _default.get_ContentEncoding() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contentlanguage)
     public var contentLanguage : HttpLanguageHeaderValueCollection! {
-        get { try! _default.get_ContentLanguageImpl() }
+        get { try! _default.get_ContentLanguage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contentlength)
     public var contentLength : UInt64? {
-        get { try! _default.get_ContentLengthImpl() }
-        set { try! _default.put_ContentLengthImpl(newValue) }
+        get { try! _default.get_ContentLength() }
+        set { try! _default.put_ContentLength(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contentlocation)
     public var contentLocation : WindowsFoundation.Uri! {
-        get { try! _default.get_ContentLocationImpl() }
-        set { try! _default.put_ContentLocationImpl(newValue) }
+        get { try! _default.get_ContentLocation() }
+        set { try! _default.put_ContentLocation(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contentmd5)
     public var contentMD5 : UWP.AnyIBuffer! {
-        get { try! _default.get_ContentMD5Impl() }
-        set { try! _default.put_ContentMD5Impl(newValue) }
+        get { try! _default.get_ContentMD5() }
+        set { try! _default.put_ContentMD5(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contentrange)
     public var contentRange : HttpContentRangeHeaderValue! {
-        get { try! _default.get_ContentRangeImpl() }
-        set { try! _default.put_ContentRangeImpl(newValue) }
+        get { try! _default.get_ContentRange() }
+        set { try! _default.put_ContentRange(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.contenttype)
     public var contentType : HttpMediaTypeHeaderValue! {
-        get { try! _default.get_ContentTypeImpl() }
-        set { try! _default.put_ContentTypeImpl(newValue) }
+        get { try! _default.get_ContentType() }
+        set { try! _default.put_ContentType(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.expires)
     public var expires : WindowsFoundation.DateTime? {
-        get { try! _default.get_ExpiresImpl() }
-        set { try! _default.put_ExpiresImpl(newValue) }
+        get { try! _default.get_Expires() }
+        set { try! _default.put_Expires(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.lastmodified)
     public var lastModified : WindowsFoundation.DateTime? {
-        get { try! _default.get_LastModifiedImpl() }
-        set { try! _default.put_LastModifiedImpl(newValue) }
+        get { try! _default.get_LastModified() }
+        set { try! _default.put_LastModified(newValue) }
     }
 
     private lazy var _IMap: IMapString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.lookup)
     public func lookup(_ key: String) -> String {
-        try! _IMap.LookupImpl(key)
+        try! _IMap.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.haskey)
     public func hasKey(_ key: String) -> Bool {
-        try! _IMap.HasKeyImpl(key)
+        try! _IMap.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<String, String>? {
-        try! _IMap.GetViewImpl()
+        try! _IMap.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.insert)
     public func insert(_ key: String, _ value: String) -> Bool {
-        try! _IMap.InsertImpl(key, value)
+        try! _IMap.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.remove)
     public func remove(_ key: String) {
-        try! _IMap.RemoveImpl(key)
+        try! _IMap.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.clear)
     public func clear() {
-        try! _IMap.ClearImpl()
+        try! _IMap.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.size)
     public var size : UInt32 {
-        get { try! _IMap.get_SizeImpl() }
+        get { try! _IMap.get_Size() }
     }
 
     private lazy var _IIterable: IIterableIKeyValuePairString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, String>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1253,12 +1238,6 @@ public final class HttpContentRangeHeaderValue : WinRTClass, WindowsFoundation.I
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue>?) -> HttpContentRangeHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1266,55 +1245,55 @@ public final class HttpContentRangeHeaderValue : WinRTClass, WindowsFoundation.I
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpContentRangeHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentRangeHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentRangeHeaderValue"))
+    private static let _IHttpContentRangeHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpContentRangeHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentRangeHeaderValue")
     public init(_ length: UInt64) {
-        super.init(try! Self._IHttpContentRangeHeaderValueFactory.CreateFromLengthImpl(length))
+        super.init(try! Self._IHttpContentRangeHeaderValueFactory.CreateFromLength(length))
     }
 
     public init(_ from: UInt64, _ to: UInt64) {
-        super.init(try! Self._IHttpContentRangeHeaderValueFactory.CreateFromRangeImpl(from, to))
+        super.init(try! Self._IHttpContentRangeHeaderValueFactory.CreateFromRange(from, to))
     }
 
     public init(_ from: UInt64, _ to: UInt64, _ length: UInt64) {
-        super.init(try! Self._IHttpContentRangeHeaderValueFactory.CreateFromRangeWithLengthImpl(from, to, length))
+        super.init(try! Self._IHttpContentRangeHeaderValueFactory.CreateFromRangeWithLength(from, to, length))
     }
 
-    private static let _IHttpContentRangeHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentRangeHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpContentRangeHeaderValue"))
+    private static let _IHttpContentRangeHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpContentRangeHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpContentRangeHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue.parse)
-    public static func parse(_ input: String) -> HttpContentRangeHeaderValue! {
-        return try! _IHttpContentRangeHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpContentRangeHeaderValue! {
+        return try _IHttpContentRangeHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ contentRangeHeaderValue: inout HttpContentRangeHeaderValue!) -> Bool {
-        return try! _IHttpContentRangeHeaderValueStatics.TryParseImpl(input, &contentRangeHeaderValue)
+    public static func tryParse(_ input: String, _ contentRangeHeaderValue: inout HttpContentRangeHeaderValue!) throws -> Bool {
+        return try _IHttpContentRangeHeaderValueStatics.TryParse(input, &contentRangeHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue.firstbyteposition)
     public var firstBytePosition : UInt64? {
-        get { try! _default.get_FirstBytePositionImpl() }
+        get { try! _default.get_FirstBytePosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue.lastbyteposition)
     public var lastBytePosition : UInt64? {
-        get { try! _default.get_LastBytePositionImpl() }
+        get { try! _default.get_LastBytePosition() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue.length)
     public var length : UInt64? {
-        get { try! _default.get_LengthImpl() }
+        get { try! _default.get_Length() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue.unit)
     public var unit : String {
-        get { try! _default.get_UnitImpl() }
-        set { try! _default.put_UnitImpl(newValue) }
+        get { try! _default.get_Unit() }
+        set { try! _default.put_Unit(newValue) }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1337,12 +1316,6 @@ public final class HttpCookiePairHeaderValue : WinRTClass, WindowsFoundation.ISt
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue>?) -> HttpCookiePairHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1350,41 +1323,41 @@ public final class HttpCookiePairHeaderValue : WinRTClass, WindowsFoundation.ISt
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpCookiePairHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpCookiePairHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpCookiePairHeaderValue"))
+    private static let _IHttpCookiePairHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpCookiePairHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpCookiePairHeaderValue")
     public init(_ name: String) {
-        super.init(try! Self._IHttpCookiePairHeaderValueFactory.CreateFromNameImpl(name))
+        super.init(try! Self._IHttpCookiePairHeaderValueFactory.CreateFromName(name))
     }
 
     public init(_ name: String, _ value: String) {
-        super.init(try! Self._IHttpCookiePairHeaderValueFactory.CreateFromNameWithValueImpl(name, value))
+        super.init(try! Self._IHttpCookiePairHeaderValueFactory.CreateFromNameWithValue(name, value))
     }
 
-    private static let _IHttpCookiePairHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpCookiePairHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpCookiePairHeaderValue"))
+    private static let _IHttpCookiePairHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpCookiePairHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpCookiePairHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervalue.parse)
-    public static func parse(_ input: String) -> HttpCookiePairHeaderValue! {
-        return try! _IHttpCookiePairHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpCookiePairHeaderValue! {
+        return try _IHttpCookiePairHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ cookiePairHeaderValue: inout HttpCookiePairHeaderValue!) -> Bool {
-        return try! _IHttpCookiePairHeaderValueStatics.TryParseImpl(input, &cookiePairHeaderValue)
+    public static func tryParse(_ input: String, _ cookiePairHeaderValue: inout HttpCookiePairHeaderValue!) throws -> Bool {
+        return try _IHttpCookiePairHeaderValueStatics.TryParse(input, &cookiePairHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervalue.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervalue.value)
     public var value : String {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1408,12 +1381,6 @@ public final class HttpCookiePairHeaderValueCollection : WinRTClass, IVector, II
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection>?) -> HttpCookiePairHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1423,12 +1390,12 @@ public final class HttpCookiePairHeaderValueCollection : WinRTClass, IVector, II
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -1465,64 +1432,74 @@ public final class HttpCookiePairHeaderValueCollection : WinRTClass, IVector, II
     private lazy var _IVector: IVectorHttpCookiePairHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpCookiePairHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpCookiePairHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.indexof)
     public func indexOf(_ value: HttpCookiePairHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpCookiePairHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpCookiePairHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.append)
     public func append(_ value: HttpCookiePairHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpCookiePairHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpCookiePairHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpCookiePairHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpCookiePairHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1547,12 +1524,6 @@ public final class HttpCredentialsHeaderValue : WinRTClass, WindowsFoundation.IS
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue>?) -> HttpCredentialsHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1560,45 +1531,45 @@ public final class HttpCredentialsHeaderValue : WinRTClass, WindowsFoundation.IS
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpCredentialsHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpCredentialsHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpCredentialsHeaderValue"))
+    private static let _IHttpCredentialsHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpCredentialsHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpCredentialsHeaderValue")
     public init(_ scheme: String) {
-        super.init(try! Self._IHttpCredentialsHeaderValueFactory.CreateFromSchemeImpl(scheme))
+        super.init(try! Self._IHttpCredentialsHeaderValueFactory.CreateFromScheme(scheme))
     }
 
     public init(_ scheme: String, _ token: String) {
-        super.init(try! Self._IHttpCredentialsHeaderValueFactory.CreateFromSchemeWithTokenImpl(scheme, token))
+        super.init(try! Self._IHttpCredentialsHeaderValueFactory.CreateFromSchemeWithToken(scheme, token))
     }
 
-    private static let _IHttpCredentialsHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpCredentialsHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpCredentialsHeaderValue"))
+    private static let _IHttpCredentialsHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpCredentialsHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpCredentialsHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcredentialsheadervalue.parse)
-    public static func parse(_ input: String) -> HttpCredentialsHeaderValue! {
-        return try! _IHttpCredentialsHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpCredentialsHeaderValue! {
+        return try _IHttpCredentialsHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcredentialsheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ credentialsHeaderValue: inout HttpCredentialsHeaderValue!) -> Bool {
-        return try! _IHttpCredentialsHeaderValueStatics.TryParseImpl(input, &credentialsHeaderValue)
+    public static func tryParse(_ input: String, _ credentialsHeaderValue: inout HttpCredentialsHeaderValue!) throws -> Bool {
+        return try _IHttpCredentialsHeaderValueStatics.TryParse(input, &credentialsHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcredentialsheadervalue.parameters)
     public var parameters : WindowsFoundation.AnyIVector<HttpNameValueHeaderValue?>! {
-        get { try! _default.get_ParametersImpl() }
+        get { try! _default.get_Parameters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcredentialsheadervalue.scheme)
     public var scheme : String {
-        get { try! _default.get_SchemeImpl() }
+        get { try! _default.get_Scheme() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcredentialsheadervalue.token)
     public var token : String {
-        get { try! _default.get_TokenImpl() }
+        get { try! _default.get_Token() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcredentialsheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1621,12 +1592,6 @@ public final class HttpDateOrDeltaHeaderValue : WinRTClass, WindowsFoundation.IS
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue>?) -> HttpDateOrDeltaHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1634,31 +1599,31 @@ public final class HttpDateOrDeltaHeaderValue : WinRTClass, WindowsFoundation.IS
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpDateOrDeltaHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpDateOrDeltaHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue"))
+    private static let _IHttpDateOrDeltaHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpDateOrDeltaHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpdateordeltaheadervalue.parse)
-    public static func parse(_ input: String) -> HttpDateOrDeltaHeaderValue! {
-        return try! _IHttpDateOrDeltaHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpDateOrDeltaHeaderValue! {
+        return try _IHttpDateOrDeltaHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpdateordeltaheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ dateOrDeltaHeaderValue: inout HttpDateOrDeltaHeaderValue!) -> Bool {
-        return try! _IHttpDateOrDeltaHeaderValueStatics.TryParseImpl(input, &dateOrDeltaHeaderValue)
+    public static func tryParse(_ input: String, _ dateOrDeltaHeaderValue: inout HttpDateOrDeltaHeaderValue!) throws -> Bool {
+        return try _IHttpDateOrDeltaHeaderValueStatics.TryParse(input, &dateOrDeltaHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpdateordeltaheadervalue.date)
     public var date : WindowsFoundation.DateTime? {
-        get { try! _default.get_DateImpl() }
+        get { try! _default.get_Date() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpdateordeltaheadervalue.delta)
     public var delta : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_DeltaImpl() }
+        get { try! _default.get_Delta() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpdateordeltaheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1681,12 +1646,6 @@ public final class HttpExpectationHeaderValue : WinRTClass, WindowsFoundation.IS
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue>?) -> HttpExpectationHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1694,46 +1653,46 @@ public final class HttpExpectationHeaderValue : WinRTClass, WindowsFoundation.IS
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpExpectationHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpExpectationHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpExpectationHeaderValue"))
+    private static let _IHttpExpectationHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpExpectationHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpExpectationHeaderValue")
     public init(_ name: String) {
-        super.init(try! Self._IHttpExpectationHeaderValueFactory.CreateFromNameImpl(name))
+        super.init(try! Self._IHttpExpectationHeaderValueFactory.CreateFromName(name))
     }
 
     public init(_ name: String, _ value: String) {
-        super.init(try! Self._IHttpExpectationHeaderValueFactory.CreateFromNameWithValueImpl(name, value))
+        super.init(try! Self._IHttpExpectationHeaderValueFactory.CreateFromNameWithValue(name, value))
     }
 
-    private static let _IHttpExpectationHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpExpectationHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpExpectationHeaderValue"))
+    private static let _IHttpExpectationHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpExpectationHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpExpectationHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervalue.parse)
-    public static func parse(_ input: String) -> HttpExpectationHeaderValue! {
-        return try! _IHttpExpectationHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpExpectationHeaderValue! {
+        return try _IHttpExpectationHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ expectationHeaderValue: inout HttpExpectationHeaderValue!) -> Bool {
-        return try! _IHttpExpectationHeaderValueStatics.TryParseImpl(input, &expectationHeaderValue)
+    public static func tryParse(_ input: String, _ expectationHeaderValue: inout HttpExpectationHeaderValue!) throws -> Bool {
+        return try _IHttpExpectationHeaderValueStatics.TryParse(input, &expectationHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervalue.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervalue.parameters)
     public var parameters : WindowsFoundation.AnyIVector<HttpNameValueHeaderValue?>! {
-        get { try! _default.get_ParametersImpl() }
+        get { try! _default.get_Parameters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervalue.value)
     public var value : String {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1757,12 +1716,6 @@ public final class HttpExpectationHeaderValueCollection : WinRTClass, IVector, I
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection>?) -> HttpExpectationHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1772,12 +1725,12 @@ public final class HttpExpectationHeaderValueCollection : WinRTClass, IVector, I
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -1814,64 +1767,74 @@ public final class HttpExpectationHeaderValueCollection : WinRTClass, IVector, I
     private lazy var _IVector: IVectorHttpExpectationHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpExpectationHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpExpectationHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.indexof)
     public func indexOf(_ value: HttpExpectationHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpExpectationHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpExpectationHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.append)
     public func append(_ value: HttpExpectationHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpExpectationHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpExpectationHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpExpectationHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpExpectationHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -1897,12 +1860,6 @@ public final class HttpLanguageHeaderValueCollection : WinRTClass, IVector, IIte
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection>?) -> HttpLanguageHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -1912,12 +1869,12 @@ public final class HttpLanguageHeaderValueCollection : WinRTClass, IVector, IIte
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -1954,64 +1911,74 @@ public final class HttpLanguageHeaderValueCollection : WinRTClass, IVector, IIte
     private lazy var _IVector: IVectorLanguage! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> UWP.Language? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<UWP.Language?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.indexof)
     public func indexOf(_ value: UWP.Language?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: UWP.Language?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: UWP.Language?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.append)
     public func append(_ value: UWP.Language?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [UWP.Language?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [UWP.Language?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableLanguage! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<UWP.Language?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2036,12 +2003,6 @@ public final class HttpLanguageRangeWithQualityHeaderValue : WinRTClass, Windows
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue>?) -> HttpLanguageRangeWithQualityHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2049,40 +2010,40 @@ public final class HttpLanguageRangeWithQualityHeaderValue : WinRTClass, Windows
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpLanguageRangeWithQualityHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpLanguageRangeWithQualityHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue"))
+    private static let _IHttpLanguageRangeWithQualityHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpLanguageRangeWithQualityHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue")
     public init(_ languageRange: String) {
-        super.init(try! Self._IHttpLanguageRangeWithQualityHeaderValueFactory.CreateFromLanguageRangeImpl(languageRange))
+        super.init(try! Self._IHttpLanguageRangeWithQualityHeaderValueFactory.CreateFromLanguageRange(languageRange))
     }
 
     public init(_ languageRange: String, _ quality: Double) {
-        super.init(try! Self._IHttpLanguageRangeWithQualityHeaderValueFactory.CreateFromLanguageRangeWithQualityImpl(languageRange, quality))
+        super.init(try! Self._IHttpLanguageRangeWithQualityHeaderValueFactory.CreateFromLanguageRangeWithQuality(languageRange, quality))
     }
 
-    private static let _IHttpLanguageRangeWithQualityHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpLanguageRangeWithQualityHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue"))
+    private static let _IHttpLanguageRangeWithQualityHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpLanguageRangeWithQualityHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervalue.parse)
-    public static func parse(_ input: String) -> HttpLanguageRangeWithQualityHeaderValue! {
-        return try! _IHttpLanguageRangeWithQualityHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpLanguageRangeWithQualityHeaderValue! {
+        return try _IHttpLanguageRangeWithQualityHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ languageRangeWithQualityHeaderValue: inout HttpLanguageRangeWithQualityHeaderValue!) -> Bool {
-        return try! _IHttpLanguageRangeWithQualityHeaderValueStatics.TryParseImpl(input, &languageRangeWithQualityHeaderValue)
+    public static func tryParse(_ input: String, _ languageRangeWithQualityHeaderValue: inout HttpLanguageRangeWithQualityHeaderValue!) throws -> Bool {
+        return try _IHttpLanguageRangeWithQualityHeaderValueStatics.TryParse(input, &languageRangeWithQualityHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervalue.languagerange)
     public var languageRange : String {
-        get { try! _default.get_LanguageRangeImpl() }
+        get { try! _default.get_LanguageRange() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervalue.quality)
     public var quality : Double? {
-        get { try! _default.get_QualityImpl() }
+        get { try! _default.get_Quality() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2106,12 +2067,6 @@ public final class HttpLanguageRangeWithQualityHeaderValueCollection : WinRTClas
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection>?) -> HttpLanguageRangeWithQualityHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2121,12 +2076,12 @@ public final class HttpLanguageRangeWithQualityHeaderValueCollection : WinRTClas
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -2163,64 +2118,74 @@ public final class HttpLanguageRangeWithQualityHeaderValueCollection : WinRTClas
     private lazy var _IVector: IVectorHttpLanguageRangeWithQualityHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpLanguageRangeWithQualityHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpLanguageRangeWithQualityHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.indexof)
     public func indexOf(_ value: HttpLanguageRangeWithQualityHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpLanguageRangeWithQualityHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpLanguageRangeWithQualityHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.append)
     public func append(_ value: HttpLanguageRangeWithQualityHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpLanguageRangeWithQualityHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpLanguageRangeWithQualityHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpLanguageRangeWithQualityHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpLanguageRangeWithQualityHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2245,12 +2210,6 @@ public final class HttpMediaTypeHeaderValue : WinRTClass, WindowsFoundation.IStr
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue>?) -> HttpMediaTypeHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2258,43 +2217,43 @@ public final class HttpMediaTypeHeaderValue : WinRTClass, WindowsFoundation.IStr
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpMediaTypeHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpMediaTypeHeaderValue"))
+    private static let _IHttpMediaTypeHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpMediaTypeHeaderValue")
     public init(_ mediaType: String) {
-        super.init(try! Self._IHttpMediaTypeHeaderValueFactory.CreateImpl(mediaType))
+        super.init(try! Self._IHttpMediaTypeHeaderValueFactory.Create(mediaType))
     }
 
-    private static let _IHttpMediaTypeHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpMediaTypeHeaderValue"))
+    private static let _IHttpMediaTypeHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpMediaTypeHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypeheadervalue.parse)
-    public static func parse(_ input: String) -> HttpMediaTypeHeaderValue! {
-        return try! _IHttpMediaTypeHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpMediaTypeHeaderValue! {
+        return try _IHttpMediaTypeHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypeheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ mediaTypeHeaderValue: inout HttpMediaTypeHeaderValue!) -> Bool {
-        return try! _IHttpMediaTypeHeaderValueStatics.TryParseImpl(input, &mediaTypeHeaderValue)
+    public static func tryParse(_ input: String, _ mediaTypeHeaderValue: inout HttpMediaTypeHeaderValue!) throws -> Bool {
+        return try _IHttpMediaTypeHeaderValueStatics.TryParse(input, &mediaTypeHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypeheadervalue.charset)
     public var charSet : String {
-        get { try! _default.get_CharSetImpl() }
-        set { try! _default.put_CharSetImpl(newValue) }
+        get { try! _default.get_CharSet() }
+        set { try! _default.put_CharSet(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypeheadervalue.mediatype)
     public var mediaType : String {
-        get { try! _default.get_MediaTypeImpl() }
-        set { try! _default.put_MediaTypeImpl(newValue) }
+        get { try! _default.get_MediaType() }
+        set { try! _default.put_MediaType(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypeheadervalue.parameters)
     public var parameters : WindowsFoundation.AnyIVector<HttpNameValueHeaderValue?>! {
-        get { try! _default.get_ParametersImpl() }
+        get { try! _default.get_Parameters() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypeheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2317,12 +2276,6 @@ public final class HttpMediaTypeWithQualityHeaderValue : WinRTClass, WindowsFoun
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue>?) -> HttpMediaTypeWithQualityHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2330,53 +2283,53 @@ public final class HttpMediaTypeWithQualityHeaderValue : WinRTClass, WindowsFoun
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpMediaTypeWithQualityHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeWithQualityHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue"))
+    private static let _IHttpMediaTypeWithQualityHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeWithQualityHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue")
     public init(_ mediaType: String) {
-        super.init(try! Self._IHttpMediaTypeWithQualityHeaderValueFactory.CreateFromMediaTypeImpl(mediaType))
+        super.init(try! Self._IHttpMediaTypeWithQualityHeaderValueFactory.CreateFromMediaType(mediaType))
     }
 
     public init(_ mediaType: String, _ quality: Double) {
-        super.init(try! Self._IHttpMediaTypeWithQualityHeaderValueFactory.CreateFromMediaTypeWithQualityImpl(mediaType, quality))
+        super.init(try! Self._IHttpMediaTypeWithQualityHeaderValueFactory.CreateFromMediaTypeWithQuality(mediaType, quality))
     }
 
-    private static let _IHttpMediaTypeWithQualityHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeWithQualityHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue"))
+    private static let _IHttpMediaTypeWithQualityHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpMediaTypeWithQualityHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue.parse)
-    public static func parse(_ input: String) -> HttpMediaTypeWithQualityHeaderValue! {
-        return try! _IHttpMediaTypeWithQualityHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpMediaTypeWithQualityHeaderValue! {
+        return try _IHttpMediaTypeWithQualityHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ mediaTypeWithQualityHeaderValue: inout HttpMediaTypeWithQualityHeaderValue!) -> Bool {
-        return try! _IHttpMediaTypeWithQualityHeaderValueStatics.TryParseImpl(input, &mediaTypeWithQualityHeaderValue)
+    public static func tryParse(_ input: String, _ mediaTypeWithQualityHeaderValue: inout HttpMediaTypeWithQualityHeaderValue!) throws -> Bool {
+        return try _IHttpMediaTypeWithQualityHeaderValueStatics.TryParse(input, &mediaTypeWithQualityHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue.charset)
     public var charSet : String {
-        get { try! _default.get_CharSetImpl() }
-        set { try! _default.put_CharSetImpl(newValue) }
+        get { try! _default.get_CharSet() }
+        set { try! _default.put_CharSet(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue.mediatype)
     public var mediaType : String {
-        get { try! _default.get_MediaTypeImpl() }
-        set { try! _default.put_MediaTypeImpl(newValue) }
+        get { try! _default.get_MediaType() }
+        set { try! _default.put_MediaType(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue.parameters)
     public var parameters : WindowsFoundation.AnyIVector<HttpNameValueHeaderValue?>! {
-        get { try! _default.get_ParametersImpl() }
+        get { try! _default.get_Parameters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue.quality)
     public var quality : Double? {
-        get { try! _default.get_QualityImpl() }
-        set { try! _default.put_QualityImpl(newValue) }
+        get { try! _default.get_Quality() }
+        set { try! _default.put_Quality(newValue) }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2400,12 +2353,6 @@ public final class HttpMediaTypeWithQualityHeaderValueCollection : WinRTClass, I
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection>?) -> HttpMediaTypeWithQualityHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2415,12 +2362,12 @@ public final class HttpMediaTypeWithQualityHeaderValueCollection : WinRTClass, I
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -2457,64 +2404,74 @@ public final class HttpMediaTypeWithQualityHeaderValueCollection : WinRTClass, I
     private lazy var _IVector: IVectorHttpMediaTypeWithQualityHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpMediaTypeWithQualityHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpMediaTypeWithQualityHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.indexof)
     public func indexOf(_ value: HttpMediaTypeWithQualityHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpMediaTypeWithQualityHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpMediaTypeWithQualityHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.append)
     public func append(_ value: HttpMediaTypeWithQualityHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpMediaTypeWithQualityHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpMediaTypeWithQualityHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpMediaTypeWithQualityHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpMediaTypeWithQualityHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2540,12 +2497,6 @@ public final class HttpMethodHeaderValueCollection : WinRTClass, IVector, IItera
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection>?) -> HttpMethodHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2555,12 +2506,12 @@ public final class HttpMethodHeaderValueCollection : WinRTClass, IVector, IItera
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -2597,64 +2548,74 @@ public final class HttpMethodHeaderValueCollection : WinRTClass, IVector, IItera
     private lazy var _IVector: IVectorHttpMethod! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> UWP.HttpMethod? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<UWP.HttpMethod?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.indexof)
     public func indexOf(_ value: UWP.HttpMethod?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: UWP.HttpMethod?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: UWP.HttpMethod?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.append)
     public func append(_ value: UWP.HttpMethod?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [UWP.HttpMethod?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [UWP.HttpMethod?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpMethod! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<UWP.HttpMethod?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2679,12 +2640,6 @@ public final class HttpNameValueHeaderValue : WinRTClass, WindowsFoundation.IStr
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue>?) -> HttpNameValueHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2692,41 +2647,41 @@ public final class HttpNameValueHeaderValue : WinRTClass, WindowsFoundation.IStr
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpNameValueHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpNameValueHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpNameValueHeaderValue"))
+    private static let _IHttpNameValueHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpNameValueHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpNameValueHeaderValue")
     public init(_ name: String) {
-        super.init(try! Self._IHttpNameValueHeaderValueFactory.CreateFromNameImpl(name))
+        super.init(try! Self._IHttpNameValueHeaderValueFactory.CreateFromName(name))
     }
 
     public init(_ name: String, _ value: String) {
-        super.init(try! Self._IHttpNameValueHeaderValueFactory.CreateFromNameWithValueImpl(name, value))
+        super.init(try! Self._IHttpNameValueHeaderValueFactory.CreateFromNameWithValue(name, value))
     }
 
-    private static let _IHttpNameValueHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpNameValueHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpNameValueHeaderValue"))
+    private static let _IHttpNameValueHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpNameValueHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpNameValueHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpnamevalueheadervalue.parse)
-    public static func parse(_ input: String) -> HttpNameValueHeaderValue! {
-        return try! _IHttpNameValueHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpNameValueHeaderValue! {
+        return try _IHttpNameValueHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpnamevalueheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ nameValueHeaderValue: inout HttpNameValueHeaderValue!) -> Bool {
-        return try! _IHttpNameValueHeaderValueStatics.TryParseImpl(input, &nameValueHeaderValue)
+    public static func tryParse(_ input: String, _ nameValueHeaderValue: inout HttpNameValueHeaderValue!) throws -> Bool {
+        return try _IHttpNameValueHeaderValueStatics.TryParse(input, &nameValueHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpnamevalueheadervalue.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpnamevalueheadervalue.value)
     public var value : String {
-        get { try! _default.get_ValueImpl() }
-        set { try! _default.put_ValueImpl(newValue) }
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpnamevalueheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2749,12 +2704,6 @@ public final class HttpProductHeaderValue : WinRTClass, WindowsFoundation.IStrin
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue>?) -> HttpProductHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2762,40 +2711,40 @@ public final class HttpProductHeaderValue : WinRTClass, WindowsFoundation.IStrin
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpProductHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpProductHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpProductHeaderValue"))
+    private static let _IHttpProductHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpProductHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpProductHeaderValue")
     public init(_ productName: String) {
-        super.init(try! Self._IHttpProductHeaderValueFactory.CreateFromNameImpl(productName))
+        super.init(try! Self._IHttpProductHeaderValueFactory.CreateFromName(productName))
     }
 
     public init(_ productName: String, _ productVersion: String) {
-        super.init(try! Self._IHttpProductHeaderValueFactory.CreateFromNameWithVersionImpl(productName, productVersion))
+        super.init(try! Self._IHttpProductHeaderValueFactory.CreateFromNameWithVersion(productName, productVersion))
     }
 
-    private static let _IHttpProductHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpProductHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpProductHeaderValue"))
+    private static let _IHttpProductHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpProductHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpProductHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductheadervalue.parse)
-    public static func parse(_ input: String) -> HttpProductHeaderValue! {
-        return try! _IHttpProductHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpProductHeaderValue! {
+        return try _IHttpProductHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ productHeaderValue: inout HttpProductHeaderValue!) -> Bool {
-        return try! _IHttpProductHeaderValueStatics.TryParseImpl(input, &productHeaderValue)
+    public static func tryParse(_ input: String, _ productHeaderValue: inout HttpProductHeaderValue!) throws -> Bool {
+        return try _IHttpProductHeaderValueStatics.TryParse(input, &productHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductheadervalue.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductheadervalue.version)
     public var version : String {
-        get { try! _default.get_VersionImpl() }
+        get { try! _default.get_Version() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2818,12 +2767,6 @@ public final class HttpProductInfoHeaderValue : WinRTClass, WindowsFoundation.IS
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue>?) -> HttpProductInfoHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2831,40 +2774,40 @@ public final class HttpProductInfoHeaderValue : WinRTClass, WindowsFoundation.IS
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpProductInfoHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpProductInfoHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpProductInfoHeaderValue"))
+    private static let _IHttpProductInfoHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpProductInfoHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpProductInfoHeaderValue")
     public init(_ productComment: String) {
-        super.init(try! Self._IHttpProductInfoHeaderValueFactory.CreateFromCommentImpl(productComment))
+        super.init(try! Self._IHttpProductInfoHeaderValueFactory.CreateFromComment(productComment))
     }
 
     public init(_ productName: String, _ productVersion: String) {
-        super.init(try! Self._IHttpProductInfoHeaderValueFactory.CreateFromNameWithVersionImpl(productName, productVersion))
+        super.init(try! Self._IHttpProductInfoHeaderValueFactory.CreateFromNameWithVersion(productName, productVersion))
     }
 
-    private static let _IHttpProductInfoHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpProductInfoHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpProductInfoHeaderValue"))
+    private static let _IHttpProductInfoHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpProductInfoHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpProductInfoHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervalue.parse)
-    public static func parse(_ input: String) -> HttpProductInfoHeaderValue! {
-        return try! _IHttpProductInfoHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpProductInfoHeaderValue! {
+        return try _IHttpProductInfoHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ productInfoHeaderValue: inout HttpProductInfoHeaderValue!) -> Bool {
-        return try! _IHttpProductInfoHeaderValueStatics.TryParseImpl(input, &productInfoHeaderValue)
+    public static func tryParse(_ input: String, _ productInfoHeaderValue: inout HttpProductInfoHeaderValue!) throws -> Bool {
+        return try _IHttpProductInfoHeaderValueStatics.TryParse(input, &productInfoHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervalue.comment)
     public var comment : String {
-        get { try! _default.get_CommentImpl() }
+        get { try! _default.get_Comment() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervalue.product)
     public var product : HttpProductHeaderValue! {
-        get { try! _default.get_ProductImpl() }
+        get { try! _default.get_Product() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -2888,12 +2831,6 @@ public final class HttpProductInfoHeaderValueCollection : WinRTClass, IVector, I
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection>?) -> HttpProductInfoHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -2903,12 +2840,12 @@ public final class HttpProductInfoHeaderValueCollection : WinRTClass, IVector, I
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -2945,64 +2882,74 @@ public final class HttpProductInfoHeaderValueCollection : WinRTClass, IVector, I
     private lazy var _IVector: IVectorHttpProductInfoHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpProductInfoHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpProductInfoHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.indexof)
     public func indexOf(_ value: HttpProductInfoHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpProductInfoHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpProductInfoHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.append)
     public func append(_ value: HttpProductInfoHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpProductInfoHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpProductInfoHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpProductInfoHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpProductInfoHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -3030,12 +2977,6 @@ public final class HttpRequestHeaderCollection : WinRTClass, IMap, IIterable, Wi
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection>?) -> HttpRequestHeaderCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -3045,159 +2986,159 @@ public final class HttpRequestHeaderCollection : WinRTClass, IMap, IIterable, Wi
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.append)
     public func append(_ name: String, _ value: String) throws {
-        try _default.AppendImpl(name, value)
+        try _default.Append(name, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.tryappendwithoutvalidation)
     public func tryAppendWithoutValidation(_ name: String, _ value: String) throws -> Bool {
-        try _default.TryAppendWithoutValidationImpl(name, value)
+        try _default.TryAppendWithoutValidation(name, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.accept)
     public var accept : HttpMediaTypeWithQualityHeaderValueCollection! {
-        get { try! _default.get_AcceptImpl() }
+        get { try! _default.get_Accept() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.acceptencoding)
     public var acceptEncoding : HttpContentCodingWithQualityHeaderValueCollection! {
-        get { try! _default.get_AcceptEncodingImpl() }
+        get { try! _default.get_AcceptEncoding() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.acceptlanguage)
     public var acceptLanguage : HttpLanguageRangeWithQualityHeaderValueCollection! {
-        get { try! _default.get_AcceptLanguageImpl() }
+        get { try! _default.get_AcceptLanguage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.authorization)
     public var authorization : HttpCredentialsHeaderValue! {
-        get { try! _default.get_AuthorizationImpl() }
-        set { try! _default.put_AuthorizationImpl(newValue) }
+        get { try! _default.get_Authorization() }
+        set { try! _default.put_Authorization(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.cachecontrol)
     public var cacheControl : HttpCacheDirectiveHeaderValueCollection! {
-        get { try! _default.get_CacheControlImpl() }
+        get { try! _default.get_CacheControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.connection)
     public var connection : HttpConnectionOptionHeaderValueCollection! {
-        get { try! _default.get_ConnectionImpl() }
+        get { try! _default.get_Connection() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.cookie)
     public var cookie : HttpCookiePairHeaderValueCollection! {
-        get { try! _default.get_CookieImpl() }
+        get { try! _default.get_Cookie() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.date)
     public var date : WindowsFoundation.DateTime? {
-        get { try! _default.get_DateImpl() }
-        set { try! _default.put_DateImpl(newValue) }
+        get { try! _default.get_Date() }
+        set { try! _default.put_Date(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.expect)
     public var expect : HttpExpectationHeaderValueCollection! {
-        get { try! _default.get_ExpectImpl() }
+        get { try! _default.get_Expect() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.from)
     public var from : String {
-        get { try! _default.get_FromImpl() }
-        set { try! _default.put_FromImpl(newValue) }
+        get { try! _default.get_From() }
+        set { try! _default.put_From(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.host)
     public var host : UWP.HostName! {
-        get { try! _default.get_HostImpl() }
-        set { try! _default.put_HostImpl(newValue) }
+        get { try! _default.get_Host() }
+        set { try! _default.put_Host(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.ifmodifiedsince)
     public var ifModifiedSince : WindowsFoundation.DateTime? {
-        get { try! _default.get_IfModifiedSinceImpl() }
-        set { try! _default.put_IfModifiedSinceImpl(newValue) }
+        get { try! _default.get_IfModifiedSince() }
+        set { try! _default.put_IfModifiedSince(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.ifunmodifiedsince)
     public var ifUnmodifiedSince : WindowsFoundation.DateTime? {
-        get { try! _default.get_IfUnmodifiedSinceImpl() }
-        set { try! _default.put_IfUnmodifiedSinceImpl(newValue) }
+        get { try! _default.get_IfUnmodifiedSince() }
+        set { try! _default.put_IfUnmodifiedSince(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.maxforwards)
     public var maxForwards : UInt32? {
-        get { try! _default.get_MaxForwardsImpl() }
-        set { try! _default.put_MaxForwardsImpl(newValue) }
+        get { try! _default.get_MaxForwards() }
+        set { try! _default.put_MaxForwards(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.proxyauthorization)
     public var proxyAuthorization : HttpCredentialsHeaderValue! {
-        get { try! _default.get_ProxyAuthorizationImpl() }
-        set { try! _default.put_ProxyAuthorizationImpl(newValue) }
+        get { try! _default.get_ProxyAuthorization() }
+        set { try! _default.put_ProxyAuthorization(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.referer)
     public var referer : WindowsFoundation.Uri! {
-        get { try! _default.get_RefererImpl() }
-        set { try! _default.put_RefererImpl(newValue) }
+        get { try! _default.get_Referer() }
+        set { try! _default.put_Referer(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.transferencoding)
     public var transferEncoding : HttpTransferCodingHeaderValueCollection! {
-        get { try! _default.get_TransferEncodingImpl() }
+        get { try! _default.get_TransferEncoding() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.useragent)
     public var userAgent : HttpProductInfoHeaderValueCollection! {
-        get { try! _default.get_UserAgentImpl() }
+        get { try! _default.get_UserAgent() }
     }
 
     private lazy var _IMap: IMapString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.lookup)
     public func lookup(_ key: String) -> String {
-        try! _IMap.LookupImpl(key)
+        try! _IMap.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.haskey)
     public func hasKey(_ key: String) -> Bool {
-        try! _IMap.HasKeyImpl(key)
+        try! _IMap.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<String, String>? {
-        try! _IMap.GetViewImpl()
+        try! _IMap.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.insert)
     public func insert(_ key: String, _ value: String) -> Bool {
-        try! _IMap.InsertImpl(key, value)
+        try! _IMap.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.remove)
     public func remove(_ key: String) {
-        try! _IMap.RemoveImpl(key)
+        try! _IMap.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.clear)
     public func clear() {
-        try! _IMap.ClearImpl()
+        try! _IMap.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.size)
     public var size : UInt32 {
-        get { try! _IMap.get_SizeImpl() }
+        get { try! _IMap.get_Size() }
     }
 
     private lazy var _IIterable: IIterableIKeyValuePairString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, String>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -3225,12 +3166,6 @@ public final class HttpResponseHeaderCollection : WinRTClass, IMap, IIterable, W
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection>?) -> HttpResponseHeaderCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -3240,114 +3175,114 @@ public final class HttpResponseHeaderCollection : WinRTClass, IMap, IIterable, W
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.append)
     public func append(_ name: String, _ value: String) throws {
-        try _default.AppendImpl(name, value)
+        try _default.Append(name, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.tryappendwithoutvalidation)
     public func tryAppendWithoutValidation(_ name: String, _ value: String) throws -> Bool {
-        try _default.TryAppendWithoutValidationImpl(name, value)
+        try _default.TryAppendWithoutValidation(name, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.age)
     public var age : WindowsFoundation.TimeSpan? {
-        get { try! _default.get_AgeImpl() }
-        set { try! _default.put_AgeImpl(newValue) }
+        get { try! _default.get_Age() }
+        set { try! _default.put_Age(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.allow)
     public var allow : HttpMethodHeaderValueCollection! {
-        get { try! _default.get_AllowImpl() }
+        get { try! _default.get_Allow() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.cachecontrol)
     public var cacheControl : HttpCacheDirectiveHeaderValueCollection! {
-        get { try! _default.get_CacheControlImpl() }
+        get { try! _default.get_CacheControl() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.connection)
     public var connection : HttpConnectionOptionHeaderValueCollection! {
-        get { try! _default.get_ConnectionImpl() }
+        get { try! _default.get_Connection() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.date)
     public var date : WindowsFoundation.DateTime? {
-        get { try! _default.get_DateImpl() }
-        set { try! _default.put_DateImpl(newValue) }
+        get { try! _default.get_Date() }
+        set { try! _default.put_Date(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.location)
     public var location : WindowsFoundation.Uri! {
-        get { try! _default.get_LocationImpl() }
-        set { try! _default.put_LocationImpl(newValue) }
+        get { try! _default.get_Location() }
+        set { try! _default.put_Location(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.proxyauthenticate)
     public var proxyAuthenticate : HttpChallengeHeaderValueCollection! {
-        get { try! _default.get_ProxyAuthenticateImpl() }
+        get { try! _default.get_ProxyAuthenticate() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.retryafter)
     public var retryAfter : HttpDateOrDeltaHeaderValue! {
-        get { try! _default.get_RetryAfterImpl() }
-        set { try! _default.put_RetryAfterImpl(newValue) }
+        get { try! _default.get_RetryAfter() }
+        set { try! _default.put_RetryAfter(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.transferencoding)
     public var transferEncoding : HttpTransferCodingHeaderValueCollection! {
-        get { try! _default.get_TransferEncodingImpl() }
+        get { try! _default.get_TransferEncoding() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.wwwauthenticate)
     public var wwwAuthenticate : HttpChallengeHeaderValueCollection! {
-        get { try! _default.get_WwwAuthenticateImpl() }
+        get { try! _default.get_WwwAuthenticate() }
     }
 
     private lazy var _IMap: IMapString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.lookup)
     public func lookup(_ key: String) -> String {
-        try! _IMap.LookupImpl(key)
+        try! _IMap.Lookup(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.haskey)
     public func hasKey(_ key: String) -> Bool {
-        try! _IMap.HasKeyImpl(key)
+        try! _IMap.HasKey(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.getview)
     public func getView() -> WindowsFoundation.AnyIMapView<String, String>? {
-        try! _IMap.GetViewImpl()
+        try! _IMap.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.insert)
     public func insert(_ key: String, _ value: String) -> Bool {
-        try! _IMap.InsertImpl(key, value)
+        try! _IMap.Insert(key, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.remove)
     public func remove(_ key: String) {
-        try! _IMap.RemoveImpl(key)
+        try! _IMap.Remove(key)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.clear)
     public func clear() {
-        try! _IMap.ClearImpl()
+        try! _IMap.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.size)
     public var size : UInt32 {
-        get { try! _IMap.get_SizeImpl() }
+        get { try! _IMap.get_Size() }
     }
 
     private lazy var _IIterable: IIterableIKeyValuePairString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, String>?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -3372,12 +3307,6 @@ public final class HttpTransferCodingHeaderValue : WinRTClass, WindowsFoundation
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue>?) -> HttpTransferCodingHeaderValue? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -3385,36 +3314,36 @@ public final class HttpTransferCodingHeaderValue : WinRTClass, WindowsFoundation
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHttpTransferCodingHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpTransferCodingHeaderValueFactory = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpTransferCodingHeaderValue"))
+    private static let _IHttpTransferCodingHeaderValueFactory: __ABI_Windows_Web_Http_Headers.IHttpTransferCodingHeaderValueFactory = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpTransferCodingHeaderValue")
     public init(_ input: String) {
-        super.init(try! Self._IHttpTransferCodingHeaderValueFactory.CreateImpl(input))
+        super.init(try! Self._IHttpTransferCodingHeaderValueFactory.Create(input))
     }
 
-    private static let _IHttpTransferCodingHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpTransferCodingHeaderValueStatics = try! RoGetActivationFactory(HString("Windows.Web.Http.Headers.HttpTransferCodingHeaderValue"))
+    private static let _IHttpTransferCodingHeaderValueStatics: __ABI_Windows_Web_Http_Headers.IHttpTransferCodingHeaderValueStatics = try! RoGetActivationFactory("Windows.Web.Http.Headers.HttpTransferCodingHeaderValue")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervalue.parse)
-    public static func parse(_ input: String) -> HttpTransferCodingHeaderValue! {
-        return try! _IHttpTransferCodingHeaderValueStatics.ParseImpl(input)
+    public static func parse(_ input: String) throws -> HttpTransferCodingHeaderValue! {
+        return try _IHttpTransferCodingHeaderValueStatics.Parse(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervalue.tryparse)
-    public static func tryParse(_ input: String, _ transferCodingHeaderValue: inout HttpTransferCodingHeaderValue!) -> Bool {
-        return try! _IHttpTransferCodingHeaderValueStatics.TryParseImpl(input, &transferCodingHeaderValue)
+    public static func tryParse(_ input: String, _ transferCodingHeaderValue: inout HttpTransferCodingHeaderValue!) throws -> Bool {
+        return try _IHttpTransferCodingHeaderValueStatics.TryParse(input, &transferCodingHeaderValue)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervalue.parameters)
     public var parameters : WindowsFoundation.AnyIVector<HttpNameValueHeaderValue?>! {
-        get { try! _default.get_ParametersImpl() }
+        get { try! _default.get_Parameters() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervalue.value)
     public var value : String {
-        get { try! _default.get_ValueImpl() }
+        get { try! _default.get_Value() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervalue.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -3438,12 +3367,6 @@ public final class HttpTransferCodingHeaderValueCollection : WinRTClass, IVector
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection>?) -> HttpTransferCodingHeaderValueCollection? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -3453,12 +3376,12 @@ public final class HttpTransferCodingHeaderValueCollection : WinRTClass, IVector
     }
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.parseadd)
     public func parseAdd(_ input: String) throws {
-        try _default.ParseAddImpl(input)
+        try _default.ParseAdd(input)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.tryparseadd)
     public func tryParseAdd(_ input: String) throws -> Bool {
-        try _default.TryParseAddImpl(input)
+        try _default.TryParseAdd(input)
     }
 
     // MARK: Collection
@@ -3495,64 +3418,74 @@ public final class HttpTransferCodingHeaderValueCollection : WinRTClass, IVector
     private lazy var _IVector: IVectorHttpTransferCodingHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.getat)
     public func getAt(_ index: UInt32) -> HttpTransferCodingHeaderValue? {
-        try! _IVector.GetAtImpl(index)
+        try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.getview)
     public func getView() -> WindowsFoundation.AnyIVectorView<HttpTransferCodingHeaderValue?>? {
-        try! _IVector.GetViewImpl()
+        try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.indexof)
     public func indexOf(_ value: HttpTransferCodingHeaderValue?, _ index: inout UInt32) -> Bool {
-        try! _IVector.IndexOfImpl(value, &index)
+        try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.setat)
     public func setAt(_ index: UInt32, _ value: HttpTransferCodingHeaderValue?) {
-        try! _IVector.SetAtImpl(index, value)
+        try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.insertat)
     public func insertAt(_ index: UInt32, _ value: HttpTransferCodingHeaderValue?) {
-        try! _IVector.InsertAtImpl(index, value)
+        try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.removeat)
     public func removeAt(_ index: UInt32) {
-        try! _IVector.RemoveAtImpl(index)
+        try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.append)
     public func append(_ value: HttpTransferCodingHeaderValue?) {
-        try! _IVector.AppendImpl(value)
+        try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.removeatend)
     public func removeAtEnd() {
-        try! _IVector.RemoveAtEndImpl()
+        try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.clear)
     public func clear() {
-        try! _IVector.ClearImpl()
+        try! _IVector.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [HttpTransferCodingHeaderValue?]) -> UInt32 {
+        try! _IVector.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.replaceall)
+    public func replaceAll(_ items: [HttpTransferCodingHeaderValue?]) {
+        try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.size)
     public var size : UInt32 {
-        get { try! _IVector.get_SizeImpl() }
+        get { try! _IVector.get_Size() }
     }
 
     private lazy var _IIterable: IIterableHttpTransferCodingHeaderValue! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.first)
     public func first() -> WindowsFoundation.AnyIIterator<HttpTransferCodingHeaderValue?>? {
-        try! _IIterable.FirstImpl()
+        try! _IIterable.First()
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {

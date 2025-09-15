@@ -20,24 +20,18 @@ public final class ComponentLoadFailedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs>?) -> ComponentLoadFailedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.componentloadfailedeventargs.completion)
     public var completion : MediaProtectionServiceCompletion! {
-        get { try! _default.get_CompletionImpl() }
+        get { try! _default.get_Completion() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.componentloadfailedeventargs.information)
     public var information : RevocationAndRenewalInformation! {
-        get { try! _default.get_InformationImpl() }
+        get { try! _default.get_Information() }
     }
 
     deinit {
@@ -59,23 +53,18 @@ public final class MediaProtectionManager : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager>?) -> MediaProtectionManager? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Media.Protection.MediaProtectionManager")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Media.Protection.MediaProtectionManager")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.mediaprotectionmanager.properties)
     public var properties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.mediaprotectionmanager.componentloadfailed)
@@ -83,10 +72,10 @@ public final class MediaProtectionManager : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ComponentLoadFailedImpl($0)
+          return try! this.add_ComponentLoadFailed($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ComponentLoadFailedImpl($0)
+         try? self?._default.remove_ComponentLoadFailed($0)
        }
       )
     }()
@@ -96,10 +85,10 @@ public final class MediaProtectionManager : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_RebootNeededImpl($0)
+          return try! this.add_RebootNeeded($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_RebootNeededImpl($0)
+         try? self?._default.remove_RebootNeeded($0)
        }
       )
     }()
@@ -109,10 +98,10 @@ public final class MediaProtectionManager : WinRTClass {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
-          return try! this.add_ServiceRequestedImpl($0)
+          return try! this.add_ServiceRequested($0)
         },
         remove: { [weak self] in
-         try? self?._default.remove_ServiceRequestedImpl($0)
+         try? self?._default.remove_ServiceRequested($0)
        }
       )
     }()
@@ -136,19 +125,13 @@ public final class MediaProtectionServiceCompletion : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceCompletion>?) -> MediaProtectionServiceCompletion? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.mediaprotectionservicecompletion.complete)
     public func complete(_ success: Bool) throws {
-        try _default.CompleteImpl(success)
+        try _default.Complete(success)
     }
 
     deinit {
@@ -170,19 +153,13 @@ public final class RevocationAndRenewalInformation : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalInformation>?) -> RevocationAndRenewalInformation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalinformation.items)
     public var items : WindowsFoundation.AnyIVector<RevocationAndRenewalItem?>! {
-        get { try! _default.get_ItemsImpl() }
+        get { try! _default.get_Items() }
     }
 
     deinit {
@@ -204,39 +181,33 @@ public final class RevocationAndRenewalItem : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem>?) -> RevocationAndRenewalItem? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalitem.headerhash)
     public var headerHash : String {
-        get { try! _default.get_HeaderHashImpl() }
+        get { try! _default.get_HeaderHash() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalitem.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalitem.publickeyhash)
     public var publicKeyHash : String {
-        get { try! _default.get_PublicKeyHashImpl() }
+        get { try! _default.get_PublicKeyHash() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalitem.reasons)
     public var reasons : RevocationAndRenewalReasons {
-        get { try! _default.get_ReasonsImpl() }
+        get { try! _default.get_Reasons() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalitem.renewalid)
     public var renewalId : String {
-        get { try! _default.get_RenewalIdImpl() }
+        get { try! _default.get_RenewalId() }
     }
 
     deinit {
@@ -258,30 +229,24 @@ public final class ServiceRequestedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs>?) -> ServiceRequestedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.servicerequestedeventargs.completion)
     public var completion : MediaProtectionServiceCompletion! {
-        get { try! _default.get_CompletionImpl() }
+        get { try! _default.get_Completion() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.servicerequestedeventargs.request)
     public var request : AnyIMediaProtectionServiceRequest! {
-        get { try! _default.get_RequestImpl() }
+        get { try! _default.get_Request() }
     }
 
     private lazy var _IServiceRequestedEventArgs2: __ABI_Windows_Media_Protection.IServiceRequestedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.servicerequestedeventargs.mediaplaybackitem)
     public var mediaPlaybackItem : UWP.MediaPlaybackItem! {
-        get { try! _IServiceRequestedEventArgs2.get_MediaPlaybackItemImpl() }
+        get { try! _IServiceRequestedEventArgs2.get_MediaPlaybackItem() }
     }
 
     deinit {
@@ -290,9 +255,9 @@ public final class ServiceRequestedEventArgs : WinRTClass {
     }
 }
 
-public typealias ComponentLoadFailedEventHandler = (MediaProtectionManager?, ComponentLoadFailedEventArgs?) -> ()
-public typealias RebootNeededEventHandler = (MediaProtectionManager?) -> ()
-public typealias ServiceRequestedEventHandler = (MediaProtectionManager?, ServiceRequestedEventArgs?) -> ()
+public typealias ComponentLoadFailedEventHandler = (MediaProtectionManager?, ComponentLoadFailedEventArgs?) throws -> ()
+public typealias RebootNeededEventHandler = (MediaProtectionManager?) throws -> ()
+public typealias ServiceRequestedEventHandler = (MediaProtectionManager?, ServiceRequestedEventArgs?) throws -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.imediaprotectionservicerequest)
 public protocol IMediaProtectionServiceRequest : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.imediaprotectionservicerequest.protectionsystem)
@@ -360,5 +325,5 @@ extension UWP.RevocationAndRenewalReasons {
         __x_ABI_CWindows_CMedia_CProtection_CRevocationAndRenewalReasons_EncryptionFailure
     }
 }
-extension UWP.RevocationAndRenewalReasons: @retroactive Hashable, @retroactive Codable {}
+extension UWP.RevocationAndRenewalReasons: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

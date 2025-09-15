@@ -48,26 +48,27 @@ private var IID___x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventHandl
     .init(Data1: 0xD2D690BA, Data2: 0xCAC9, Data3: 0x48E1, Data4: ( 0x95,0xC0,0xD3,0x84,0x95,0xA8,0x40,0x55 ))// D2D690BA-CAC9-48E1-95C0-D38495A84055
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Media_Protection {
     public class IComponentLoadFailedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs }
 
-        internal func get_InformationImpl() throws -> UWP.RevocationAndRenewalInformation? {
+        public func get_Information() throws -> UWP.RevocationAndRenewalInformation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Information(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Protection.RevocationAndRenewalInformationBridge.from(abi: value)
         }
 
-        internal func get_CompletionImpl() throws -> UWP.MediaProtectionServiceCompletion? {
+        public func get_Completion() throws -> UWP.MediaProtectionServiceCompletion? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Completion(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Protection.MediaProtectionServiceCompletionBridge.from(abi: value)
         }
 
     }
@@ -75,7 +76,7 @@ public enum __ABI_Windows_Media_Protection {
     public class IMediaProtectionManager: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager }
 
-        internal func add_ServiceRequestedImpl(_ handler: UWP.ServiceRequestedEventHandler?) throws -> EventRegistrationToken {
+        public func add_ServiceRequested(_ handler: UWP.ServiceRequestedEventHandler?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Windows_Media_Protection.ServiceRequestedEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -85,13 +86,13 @@ public enum __ABI_Windows_Media_Protection {
             return cookie
         }
 
-        internal func remove_ServiceRequestedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_ServiceRequested(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ServiceRequested(pThis, cookie))
             }
         }
 
-        internal func add_RebootNeededImpl(_ handler: UWP.RebootNeededEventHandler?) throws -> EventRegistrationToken {
+        public func add_RebootNeeded(_ handler: UWP.RebootNeededEventHandler?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Windows_Media_Protection.RebootNeededEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -101,13 +102,13 @@ public enum __ABI_Windows_Media_Protection {
             return cookie
         }
 
-        internal func remove_RebootNeededImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_RebootNeeded(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RebootNeeded(pThis, cookie))
             }
         }
 
-        internal func add_ComponentLoadFailedImpl(_ handler: UWP.ComponentLoadFailedEventHandler?) throws -> EventRegistrationToken {
+        public func add_ComponentLoadFailed(_ handler: UWP.ComponentLoadFailedEventHandler?) throws -> EventRegistrationToken {
             var cookie: EventRegistrationToken = .init()
             let handlerWrapper = __ABI_Windows_Media_Protection.ComponentLoadFailedEventHandlerWrapper(handler)
             let _handler = try! handlerWrapper?.toABI { $0 }
@@ -117,13 +118,13 @@ public enum __ABI_Windows_Media_Protection {
             return cookie
         }
 
-        internal func remove_ComponentLoadFailedImpl(_ cookie: EventRegistrationToken) throws {
+        public func remove_ComponentLoadFailed(_ cookie: EventRegistrationToken) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ComponentLoadFailed(pThis, cookie))
             }
         }
 
-        internal func get_PropertiesImpl() throws -> WindowsFoundation.AnyIPropertySet? {
+        public func get_Properties() throws -> WindowsFoundation.AnyIPropertySet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
@@ -137,7 +138,7 @@ public enum __ABI_Windows_Media_Protection {
     public class IMediaProtectionServiceCompletion: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceCompletion }
 
-        internal func CompleteImpl(_ success: Bool) throws {
+        public func Complete(_ success: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceCompletion.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis, .init(from: success)))
             }
@@ -148,7 +149,7 @@ public enum __ABI_Windows_Media_Protection {
     public class IMediaProtectionServiceRequest: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceRequest }
 
-        open func get_ProtectionSystemImpl() throws -> Foundation.UUID {
+        open func get_ProtectionSystem() throws -> Foundation.UUID {
             var system: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProtectionSystem(pThis, &system))
@@ -156,7 +157,7 @@ public enum __ABI_Windows_Media_Protection {
             return .init(from: system)
         }
 
-        open func get_TypeImpl() throws -> Foundation.UUID {
+        open func get_Type() throws -> Foundation.UUID {
             var type: WindowsFoundation.GUID = .init()
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceRequest.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &type))
@@ -213,7 +214,7 @@ public enum __ABI_Windows_Media_Protection {
     public class IRevocationAndRenewalInformation: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalInformation }
 
-        internal func get_ItemsImpl() throws -> WindowsFoundation.AnyIVector<UWP.RevocationAndRenewalItem?>? {
+        public func get_Items() throws -> WindowsFoundation.AnyIVector<UWP.RevocationAndRenewalItem?>? {
             let (items) = try ComPtrs.initialize { itemsAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalInformation.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &itemsAbi))
@@ -227,7 +228,7 @@ public enum __ABI_Windows_Media_Protection {
     public class IRevocationAndRenewalItem: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem }
 
-        internal func get_ReasonsImpl() throws -> UWP.RevocationAndRenewalReasons {
+        public func get_Reasons() throws -> UWP.RevocationAndRenewalReasons {
             var reasons: __x_ABI_CWindows_CMedia_CProtection_CRevocationAndRenewalReasons = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Reasons(pThis, &reasons))
@@ -235,7 +236,7 @@ public enum __ABI_Windows_Media_Protection {
             return reasons
         }
 
-        internal func get_HeaderHashImpl() throws -> String {
+        public func get_HeaderHash() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderHash(pThis, &value))
@@ -243,7 +244,7 @@ public enum __ABI_Windows_Media_Protection {
             return .init(from: value)
         }
 
-        internal func get_PublicKeyHashImpl() throws -> String {
+        public func get_PublicKeyHash() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PublicKeyHash(pThis, &value))
@@ -251,7 +252,7 @@ public enum __ABI_Windows_Media_Protection {
             return .init(from: value)
         }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var name: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &name))
@@ -259,7 +260,7 @@ public enum __ABI_Windows_Media_Protection {
             return .init(from: name)
         }
 
-        internal func get_RenewalIdImpl() throws -> String {
+        public func get_RenewalId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RenewalId(pThis, &value))
@@ -272,7 +273,7 @@ public enum __ABI_Windows_Media_Protection {
     public class IServiceRequestedEventArgs: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs }
 
-        internal func get_RequestImpl() throws -> UWP.AnyIMediaProtectionServiceRequest? {
+        public func get_Request() throws -> UWP.AnyIMediaProtectionServiceRequest? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Request(pThis, &valueAbi))
@@ -281,13 +282,13 @@ public enum __ABI_Windows_Media_Protection {
             return __ABI_Windows_Media_Protection.IMediaProtectionServiceRequestWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_CompletionImpl() throws -> UWP.MediaProtectionServiceCompletion? {
+        public func get_Completion() throws -> UWP.MediaProtectionServiceCompletion? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Completion(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Protection.MediaProtectionServiceCompletionBridge.from(abi: value)
         }
 
     }
@@ -295,13 +296,13 @@ public enum __ABI_Windows_Media_Protection {
     public class IServiceRequestedEventArgs2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs2 }
 
-        internal func get_MediaPlaybackItemImpl() throws -> UWP.MediaPlaybackItem? {
+        public func get_MediaPlaybackItem() throws -> UWP.MediaPlaybackItem? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaPlaybackItem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Media_Playback.MediaPlaybackItemBridge.from(abi: value)
         }
 
     }
@@ -312,7 +313,7 @@ extension __ABI_Windows_Media_Protection {
     public class ComponentLoadFailedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventHandler }
 
-        open func InvokeImpl(_ sender: UWP.MediaProtectionManager?, _ e: UWP.ComponentLoadFailedEventArgs?) throws {
+        open func Invoke(_ sender: UWP.MediaProtectionManager?, _ e: UWP.ComponentLoadFailedEventArgs?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(e)))
             }
@@ -327,11 +328,13 @@ extension __ABI_Windows_Media_Protection {
         AddRef: { ComponentLoadFailedEventHandlerWrapper.addRef($0) },
         Release: { ComponentLoadFailedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ComponentLoadFailedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: UWP.MediaProtectionManager? = .from(abi: ComPtr($1))
-            let e: UWP.ComponentLoadFailedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ComponentLoadFailedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: UWP.MediaProtectionManager? = __IMPL_Windows_Media_Protection.MediaProtectionManagerBridge.from(abi: ComPtr($1))
+                let e: UWP.ComponentLoadFailedEventArgs? = __IMPL_Windows_Media_Protection.ComponentLoadFailedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -347,7 +350,7 @@ extension __ABI_Windows_Media_Protection {
     public class RebootNeededEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIRebootNeededEventHandler }
 
-        open func InvokeImpl(_ sender: UWP.MediaProtectionManager?) throws {
+        open func Invoke(_ sender: UWP.MediaProtectionManager?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRebootNeededEventHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender)))
             }
@@ -362,10 +365,12 @@ extension __ABI_Windows_Media_Protection {
         AddRef: { RebootNeededEventHandlerWrapper.addRef($0) },
         Release: { RebootNeededEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = RebootNeededEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: UWP.MediaProtectionManager? = .from(abi: ComPtr($1))
-            __unwrapped__instance(sender)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = RebootNeededEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: UWP.MediaProtectionManager? = __IMPL_Windows_Media_Protection.MediaProtectionManagerBridge.from(abi: ComPtr($1))
+                try __unwrapped__instance(sender)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }
@@ -381,7 +386,7 @@ extension __ABI_Windows_Media_Protection {
     public class ServiceRequestedEventHandler: WindowsFoundation.IUnknown {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventHandler }
 
-        open func InvokeImpl(_ sender: UWP.MediaProtectionManager?, _ e: UWP.ServiceRequestedEventArgs?) throws {
+        open func Invoke(_ sender: UWP.MediaProtectionManager?, _ e: UWP.ServiceRequestedEventArgs?) throws {
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventHandler.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(e)))
             }
@@ -396,11 +401,13 @@ extension __ABI_Windows_Media_Protection {
         AddRef: { ServiceRequestedEventHandlerWrapper.addRef($0) },
         Release: { ServiceRequestedEventHandlerWrapper.release($0) },
         Invoke: {
-            guard let __unwrapped__instance = ServiceRequestedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: UWP.MediaProtectionManager? = .from(abi: ComPtr($1))
-            let e: UWP.ServiceRequestedEventArgs? = .from(abi: ComPtr($2))
-            __unwrapped__instance(sender, e)
-            return S_OK
+            do {
+                guard let __unwrapped__instance = ServiceRequestedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: UWP.MediaProtectionManager? = __IMPL_Windows_Media_Protection.MediaProtectionManagerBridge.from(abi: ComPtr($1))
+                let e: UWP.ServiceRequestedEventArgs? = __IMPL_Windows_Media_Protection.ServiceRequestedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
         }
     )
 }

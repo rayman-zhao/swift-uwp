@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_Protection {
     public enum IMediaProtectionServiceRequestBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceRequest
@@ -30,12 +31,12 @@ public enum __IMPL_Windows_Media_Protection {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.imediaprotectionservicerequest.protectionsystem)
         fileprivate var protectionSystem : Foundation.UUID {
-            get { try! _default.get_ProtectionSystemImpl() }
+            get { try! _default.get_ProtectionSystem() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.imediaprotectionservicerequest.type)
         fileprivate var type : Foundation.UUID {
-            get { try! _default.get_TypeImpl() }
+            get { try! _default.get_Type() }
         }
 
     }
@@ -49,7 +50,7 @@ public enum __IMPL_Windows_Media_Protection {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
@@ -63,7 +64,7 @@ public enum __IMPL_Windows_Media_Protection {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender) in
-                try! _default.InvokeImpl(sender)
+                try _default.Invoke(sender)
             }
             return handler
         }
@@ -77,9 +78,113 @@ public enum __IMPL_Windows_Media_Protection {
             guard let abi = abi else { return nil }
             let _default = SwiftABI(abi)
             let handler: Handler = { (sender, e) in
-                try! _default.InvokeImpl(sender, e)
+                try _default.Invoke(sender, e)
             }
             return handler
         }
+    }
+    public enum ComponentLoadFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ComponentLoadFailedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs>?) -> ComponentLoadFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaProtectionManagerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaProtectionManager
+        public typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager>?) -> MediaProtectionManager? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaProtectionServiceCompletionBridge: AbiBridge {
+        public typealias SwiftProjection = MediaProtectionServiceCompletion
+        public typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceCompletion
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceCompletion>?) -> MediaProtectionServiceCompletion? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RevocationAndRenewalInformationBridge: AbiBridge {
+        public typealias SwiftProjection = RevocationAndRenewalInformation
+        public typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalInformation
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalInformation>?) -> RevocationAndRenewalInformation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RevocationAndRenewalItemBridge: AbiBridge {
+        public typealias SwiftProjection = RevocationAndRenewalItem
+        public typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem>?) -> RevocationAndRenewalItem? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ServiceRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ServiceRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs>?) -> ServiceRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IMediaProtectionServiceRequestMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIMediaProtectionServiceRequest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Protection.IMediaProtectionServiceRequest = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Protection.IMediaProtectionServiceRequestBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ComponentLoadFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ComponentLoadFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ComponentLoadFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaProtectionManagerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaProtectionManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaProtectionManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaProtectionServiceCompletionMaker: MakeFromAbi {
+    public typealias SwiftType = MediaProtectionServiceCompletion
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaProtectionServiceCompletion(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RevocationAndRenewalInformationMaker: MakeFromAbi {
+    public typealias SwiftType = RevocationAndRenewalInformation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RevocationAndRenewalInformation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RevocationAndRenewalItemMaker: MakeFromAbi {
+    public typealias SwiftType = RevocationAndRenewalItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RevocationAndRenewalItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ServiceRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ServiceRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ServiceRequestedEventArgs(fromAbi: abi)
     }
 }

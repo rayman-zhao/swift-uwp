@@ -8,11 +8,12 @@ private var IID___x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition: Window
     .init(Data1: 0xE4D7F974, Data2: 0x7D80, Data3: 0x4F73, Data4: ( 0x90,0x89,0xE3,0x1C,0x9D,0xB9,0xC2,0x94 ))// E4D7F974-7D80-4F73-9089-E31C9DB9C294
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Media_Effects {
     public class IAudioEffectDefinition: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition }
 
-        open func get_ActivatableClassIdImpl() throws -> String {
+        open func get_ActivatableClassId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActivatableClassId(pThis, &value))
@@ -20,7 +21,7 @@ public enum __ABI_Windows_Media_Effects {
             return .init(from: value)
         }
 
-        open func get_PropertiesImpl() throws -> WindowsFoundation.AnyIPropertySet? {
+        open func get_Properties() throws -> WindowsFoundation.AnyIPropertySet? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))

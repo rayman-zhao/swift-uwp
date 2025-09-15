@@ -18,51 +18,46 @@ public final class PasswordCredential : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential>?) -> PasswordCredential? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Security.Credentials.PasswordCredential")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Security.Credentials.PasswordCredential")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ICredentialFactory: __ABI_Windows_Security_Credentials.ICredentialFactory = try! RoGetActivationFactory(HString("Windows.Security.Credentials.PasswordCredential"))
+    private static let _ICredentialFactory: __ABI_Windows_Security_Credentials.ICredentialFactory = try! RoGetActivationFactory("Windows.Security.Credentials.PasswordCredential")
     public init(_ resource: String, _ userName: String, _ password: String) {
-        super.init(try! Self._ICredentialFactory.CreatePasswordCredentialImpl(resource, userName, password))
+        super.init(try! Self._ICredentialFactory.CreatePasswordCredential(resource, userName, password))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordcredential.retrievepassword)
     public func retrievePassword() throws {
-        try _default.RetrievePasswordImpl()
+        try _default.RetrievePassword()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordcredential.password)
     public var password : String {
-        get { try! _default.get_PasswordImpl() }
-        set { try! _default.put_PasswordImpl(newValue) }
+        get { try! _default.get_Password() }
+        set { try! _default.put_Password(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordcredential.properties)
     public var properties : WindowsFoundation.AnyIPropertySet! {
-        get { try! _default.get_PropertiesImpl() }
+        get { try! _default.get_Properties() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordcredential.resource)
     public var resource : String {
-        get { try! _default.get_ResourceImpl() }
-        set { try! _default.put_ResourceImpl(newValue) }
+        get { try! _default.get_Resource() }
+        set { try! _default.put_Resource(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordcredential.username)
     public var userName : String {
-        get { try! _default.get_UserNameImpl() }
-        set { try! _default.put_UserNameImpl(newValue) }
+        get { try! _default.get_UserName() }
+        set { try! _default.put_UserName(newValue) }
     }
 
     deinit {

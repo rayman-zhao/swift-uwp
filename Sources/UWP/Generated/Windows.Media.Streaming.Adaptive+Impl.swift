@@ -4,5 +4,230 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSource
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource>?) -> AdaptiveMediaSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceAdvancedSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceAdvancedSettings
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings>?) -> AdaptiveMediaSourceAdvancedSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceCorrelatedTimesBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceCorrelatedTimes
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes>?) -> AdaptiveMediaSourceCorrelatedTimes? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceCreationResultBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceCreationResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult>?) -> AdaptiveMediaSourceCreationResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDiagnosticAvailableEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDiagnosticAvailableEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs>?) -> AdaptiveMediaSourceDiagnosticAvailableEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDiagnosticsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDiagnostics
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics>?) -> AdaptiveMediaSourceDiagnostics? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDownloadBitrateChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadBitrateChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs>?) -> AdaptiveMediaSourceDownloadBitrateChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDownloadCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadCompletedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs>?) -> AdaptiveMediaSourceDownloadCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDownloadFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadFailedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs>?) -> AdaptiveMediaSourceDownloadFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDownloadRequestedDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadRequestedDeferral
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral>?) -> AdaptiveMediaSourceDownloadRequestedDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDownloadRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs>?) -> AdaptiveMediaSourceDownloadRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDownloadResultBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult>?) -> AdaptiveMediaSourceDownloadResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourceDownloadStatisticsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadStatistics
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics>?) -> AdaptiveMediaSourceDownloadStatistics? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AdaptiveMediaSourcePlaybackBitrateChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs>?) -> AdaptiveMediaSourcePlaybackBitrateChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceAdvancedSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceAdvancedSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceAdvancedSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceCorrelatedTimesMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceCorrelatedTimes
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceCorrelatedTimes(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceCreationResultMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceCreationResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceCreationResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDiagnosticAvailableEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDiagnosticAvailableEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDiagnosticAvailableEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDiagnosticsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDiagnostics
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDiagnostics(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadBitrateChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadBitrateChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadBitrateChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadRequestedDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadRequestedDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadRequestedDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadResultMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadStatisticsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadStatistics
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadStatistics(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourcePlaybackBitrateChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourcePlaybackBitrateChangedEventArgs(fromAbi: abi)
+    }
 }

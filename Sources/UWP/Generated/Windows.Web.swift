@@ -173,5 +173,5 @@ extension UWP.WebErrorStatus {
         __x_ABI_CWindows_CWeb_CWebErrorStatus_HttpVersionNotSupported
     }
 }
-extension UWP.WebErrorStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.WebErrorStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

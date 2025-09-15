@@ -26,31 +26,25 @@ public final class BackgroundTransferGroup : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup>?) -> BackgroundTransferGroup? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IBackgroundTransferGroupStatics: __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferGroupStatics = try! RoGetActivationFactory(HString("Windows.Networking.BackgroundTransfer.BackgroundTransferGroup"))
+    private static let _IBackgroundTransferGroupStatics: __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferGroupStatics = try! RoGetActivationFactory("Windows.Networking.BackgroundTransfer.BackgroundTransferGroup")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransfergroup.creategroup)
-    public static func createGroup(_ name: String) -> BackgroundTransferGroup! {
-        return try! _IBackgroundTransferGroupStatics.CreateGroupImpl(name)
+    public static func createGroup(_ name: String) throws -> BackgroundTransferGroup! {
+        return try _IBackgroundTransferGroupStatics.CreateGroup(name)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransfergroup.name)
     public var name : String {
-        get { try! _default.get_NameImpl() }
+        get { try! _default.get_Name() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransfergroup.transferbehavior)
     public var transferBehavior : BackgroundTransferBehavior {
-        get { try! _default.get_TransferBehaviorImpl() }
-        set { try! _default.put_TransferBehaviorImpl(newValue) }
+        get { try! _default.get_TransferBehavior() }
+        set { try! _default.put_TransferBehavior(newValue) }
     }
 
     deinit {
@@ -72,29 +66,23 @@ public final class BackgroundTransferRangesDownloadedEventArgs : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs>?) -> BackgroundTransferRangesDownloadedEventArgs? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransferrangesdownloadedeventargs.getdeferral)
     public func getDeferral() throws -> WindowsFoundation.Deferral! {
-        try _default.GetDeferralImpl()
+        try _default.GetDeferral()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransferrangesdownloadedeventargs.addedranges)
     public var addedRanges : WindowsFoundation.AnyIVector<BackgroundTransferFileRange>! {
-        get { try! _default.get_AddedRangesImpl() }
+        get { try! _default.get_AddedRanges() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransferrangesdownloadedeventargs.wasdownloadrestarted)
     public var wasDownloadRestarted : Bool {
-        get { try! _default.get_WasDownloadRestartedImpl() }
+        get { try! _default.get_WasDownloadRestarted() }
     }
 
     deinit {
@@ -116,12 +104,6 @@ public final class DownloadOperation : WinRTClass, IBackgroundTransferOperation,
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation>?) -> DownloadOperation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -132,108 +114,108 @@ public final class DownloadOperation : WinRTClass, IBackgroundTransferOperation,
     private lazy var _IBackgroundTransferOperation: __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferOperation! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.getresultstreamat)
     public func getResultStreamAt(_ position: UInt64) throws -> UWP.AnyIInputStream! {
-        try _IBackgroundTransferOperation.GetResultStreamAtImpl(position)
+        try _IBackgroundTransferOperation.GetResultStreamAt(position)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.getresponseinformation)
     public func getResponseInformation() throws -> ResponseInformation! {
-        try _IBackgroundTransferOperation.GetResponseInformationImpl()
+        try _IBackgroundTransferOperation.GetResponseInformation()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.costpolicy)
     public var costPolicy : BackgroundTransferCostPolicy {
-        get { try! _IBackgroundTransferOperation.get_CostPolicyImpl() }
-        set { try! _IBackgroundTransferOperation.put_CostPolicyImpl(newValue) }
+        get { try! _IBackgroundTransferOperation.get_CostPolicy() }
+        set { try! _IBackgroundTransferOperation.put_CostPolicy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.group)
     public var group : String {
-        get { try! _IBackgroundTransferOperation.get_GroupImpl() }
+        get { try! _IBackgroundTransferOperation.get_Group() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.guid)
     public var guid : Foundation.UUID {
-        get { try! _IBackgroundTransferOperation.get_GuidImpl() }
+        get { try! _IBackgroundTransferOperation.get_Guid() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.method)
     public var method : String {
-        get { try! _IBackgroundTransferOperation.get_MethodImpl() }
+        get { try! _IBackgroundTransferOperation.get_Method() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.requesteduri)
     public var requestedUri : WindowsFoundation.Uri! {
-        get { try! _IBackgroundTransferOperation.get_RequestedUriImpl() }
+        get { try! _IBackgroundTransferOperation.get_RequestedUri() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.startasync)
     public func startAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<DownloadOperation?, DownloadOperation?>! {
-        try _default.StartAsyncImpl()
+        try _default.StartAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.attachasync)
     public func attachAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<DownloadOperation?, DownloadOperation?>! {
-        try _default.AttachAsyncImpl()
+        try _default.AttachAsync()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.pause)
     public func pause() throws {
-        try _default.PauseImpl()
+        try _default.Pause()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.resume)
     public func resume() throws {
-        try _default.ResumeImpl()
+        try _default.Resume()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.progress)
     public var progress : BackgroundDownloadProgress {
-        get { try! _default.get_ProgressImpl() }
+        get { try! _default.get_Progress() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.resultfile)
     public var resultFile : UWP.AnyIStorageFile! {
-        get { try! _default.get_ResultFileImpl() }
+        get { try! _default.get_ResultFile() }
     }
 
     private lazy var _IBackgroundTransferOperationPriority: __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferOperationPriority! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.priority)
     public var priority : BackgroundTransferPriority {
-        get { try! _IBackgroundTransferOperationPriority.get_PriorityImpl() }
-        set { try! _IBackgroundTransferOperationPriority.put_PriorityImpl(newValue) }
+        get { try! _IBackgroundTransferOperationPriority.get_Priority() }
+        set { try! _IBackgroundTransferOperationPriority.put_Priority(newValue) }
     }
 
     private lazy var _IDownloadOperation2: __ABI_Windows_Networking_BackgroundTransfer.IDownloadOperation2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.transfergroup)
     public var transferGroup : BackgroundTransferGroup! {
-        get { try! _IDownloadOperation2.get_TransferGroupImpl() }
+        get { try! _IDownloadOperation2.get_TransferGroup() }
     }
 
     private lazy var _IDownloadOperation3: __ABI_Windows_Networking_BackgroundTransfer.IDownloadOperation3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.getresultrandomaccessstreamreference)
     public func getResultRandomAccessStreamReference() throws -> UWP.AnyIRandomAccessStreamReference! {
-        try _IDownloadOperation3.GetResultRandomAccessStreamReferenceImpl()
+        try _IDownloadOperation3.GetResultRandomAccessStreamReference()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.getdownloadedranges)
     public func getDownloadedRanges() throws -> WindowsFoundation.AnyIVector<BackgroundTransferFileRange>! {
-        try _IDownloadOperation3.GetDownloadedRangesImpl()
+        try _IDownloadOperation3.GetDownloadedRanges()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.currentweberrorstatus)
     public var currentWebErrorStatus : UWP.WebErrorStatus? {
-        get { try! _IDownloadOperation3.get_CurrentWebErrorStatusImpl() }
+        get { try! _IDownloadOperation3.get_CurrentWebErrorStatus() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.israndomaccessrequired)
     public var isRandomAccessRequired : Bool {
-        get { try! _IDownloadOperation3.get_IsRandomAccessRequiredImpl() }
-        set { try! _IDownloadOperation3.put_IsRandomAccessRequiredImpl(newValue) }
+        get { try! _IDownloadOperation3.get_IsRandomAccessRequired() }
+        set { try! _IDownloadOperation3.put_IsRandomAccessRequired(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.recoverableweberrorstatuses)
     public var recoverableWebErrorStatuses : WindowsFoundation.AnyIVector<UWP.WebErrorStatus>! {
-        get { try! _IDownloadOperation3.get_RecoverableWebErrorStatusesImpl() }
+        get { try! _IDownloadOperation3.get_RecoverableWebErrorStatuses() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.requesteduri)
@@ -242,10 +224,10 @@ public final class DownloadOperation : WinRTClass, IBackgroundTransferOperation,
       .init(
         add: { [weak self] in
           guard let this = self?._IDownloadOperation3 else { return .init() }
-          return try! this.add_RangesDownloadedImpl($0)
+          return try! this.add_RangesDownloaded($0)
         },
         remove: { [weak self] in
-         try? self?._IDownloadOperation3.remove_RangesDownloadedImpl($0)
+         try? self?._IDownloadOperation3.remove_RangesDownloaded($0)
        }
       )
     }()
@@ -253,7 +235,7 @@ public final class DownloadOperation : WinRTClass, IBackgroundTransferOperation,
     private lazy var _IDownloadOperation4: __ABI_Windows_Networking_BackgroundTransfer.IDownloadOperation4! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation.makecurrentintransfergroup)
     public func makeCurrentInTransferGroup() throws {
-        try _IDownloadOperation4.MakeCurrentInTransferGroupImpl()
+        try _IDownloadOperation4.MakeCurrentInTransferGroup()
     }
 
     deinit {
@@ -280,34 +262,28 @@ public final class ResponseInformation : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation>?) -> ResponseInformation? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.responseinformation.actualuri)
     public var actualUri : WindowsFoundation.Uri! {
-        get { try! _default.get_ActualUriImpl() }
+        get { try! _default.get_ActualUri() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.responseinformation.headers)
     public var headers : WindowsFoundation.AnyIMapView<String, String>! {
-        get { try! _default.get_HeadersImpl() }
+        get { try! _default.get_Headers() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.responseinformation.isresumable)
     public var isResumable : Bool {
-        get { try! _default.get_IsResumableImpl() }
+        get { try! _default.get_IsResumable() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.responseinformation.statuscode)
     public var statusCode : UInt32 {
-        get { try! _default.get_StatusCodeImpl() }
+        get { try! _default.get_StatusCode() }
     }
 
     deinit {
@@ -316,7 +292,7 @@ public final class ResponseInformation : WinRTClass {
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloadprogress)
-public struct BackgroundDownloadProgress: Hashable, Codable {
+public struct BackgroundDownloadProgress: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloadprogress.bytesreceived)
     public var bytesReceived: UInt64 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgrounddownloadprogress.totalbytestoreceive)
@@ -335,13 +311,10 @@ public struct BackgroundDownloadProgress: Hashable, Codable {
         self.hasResponseChanged = hasResponseChanged
         self.hasRestarted = hasRestarted
     }
-    public static func from(abi: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundDownloadProgress) -> BackgroundDownloadProgress {
-        .init(bytesReceived: abi.BytesReceived, totalBytesToReceive: abi.TotalBytesToReceive, status: abi.Status, hasResponseChanged: .init(from: abi.HasResponseChanged), hasRestarted: .init(from: abi.HasRestarted))
-    }
 }
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransferfilerange)
-public struct BackgroundTransferFileRange: Hashable, Codable {
+public struct BackgroundTransferFileRange: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransferfilerange.offset)
     public var offset: UInt64 = 0
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransferfilerange.length)
@@ -350,9 +323,6 @@ public struct BackgroundTransferFileRange: Hashable, Codable {
     public init(offset: UInt64, length: UInt64) {
         self.offset = offset
         self.length = length
-    }
-    public static func from(abi: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferFileRange) -> BackgroundTransferFileRange {
-        .init(offset: abi.Offset, length: abi.Length)
     }
 }
 
@@ -412,7 +382,7 @@ extension UWP.BackgroundTransferBehavior {
         __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferBehavior_Serialized
     }
 }
-extension UWP.BackgroundTransferBehavior: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BackgroundTransferBehavior: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BackgroundTransferCostPolicy {
     public static var `default` : UWP.BackgroundTransferCostPolicy {
@@ -425,7 +395,7 @@ extension UWP.BackgroundTransferCostPolicy {
         __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferCostPolicy_Always
     }
 }
-extension UWP.BackgroundTransferCostPolicy: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BackgroundTransferCostPolicy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BackgroundTransferPriority {
     public static var `default` : UWP.BackgroundTransferPriority {
@@ -438,7 +408,7 @@ extension UWP.BackgroundTransferPriority {
         __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferPriority_Low
     }
 }
-extension UWP.BackgroundTransferPriority: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BackgroundTransferPriority: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.BackgroundTransferStatus {
     public static var idle : UWP.BackgroundTransferStatus {
@@ -472,5 +442,5 @@ extension UWP.BackgroundTransferStatus {
         __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundTransferStatus_PausedSystemPolicy
     }
 }
-extension UWP.BackgroundTransferStatus: @retroactive Hashable, @retroactive Codable {}
+extension UWP.BackgroundTransferStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_MediaProperties {
     public enum IMediaEncodingPropertiesBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProperties
@@ -30,20 +31,140 @@ public enum __IMPL_Windows_Media_MediaProperties {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.imediaencodingproperties.properties)
         fileprivate var properties : MediaPropertySet! {
-            get { try! _default.get_PropertiesImpl() }
+            get { try! _default.get_Properties() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.imediaencodingproperties.subtype)
         fileprivate var subtype : String {
-            get { try! _default.get_SubtypeImpl() }
-            set { try! _default.put_SubtypeImpl(newValue) }
+            get { try! _default.get_Subtype() }
+            set { try! _default.put_Subtype(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.imediaencodingproperties.type)
         fileprivate var type : String {
-            get { try! _default.get_TypeImpl() }
+            get { try! _default.get_Type() }
         }
 
     }
 
+    public enum AudioEncodingPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = AudioEncodingProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingProperties>?) -> AudioEncodingProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ContainerEncodingPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = ContainerEncodingProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIContainerEncodingProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CMediaProperties_CIContainerEncodingProperties>?) -> ContainerEncodingProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaEncodingProfileBridge: AbiBridge {
+        public typealias SwiftProjection = MediaEncodingProfile
+        public typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfile
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfile>?) -> MediaEncodingProfile? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaPropertySetBridge: AbiBridge {
+        public typealias SwiftProjection = MediaPropertySet
+        public typealias CABI = __x_ABI_C__FIMap_2_GUID_IInspectable
+        public static func from(abi: ComPtr<__x_ABI_C__FIMap_2_GUID_IInspectable>?) -> MediaPropertySet? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaRatioBridge: AbiBridge {
+        public typealias SwiftProjection = MediaRatio
+        public typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaRatio
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CMediaProperties_CIMediaRatio>?) -> MediaRatio? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TimedMetadataEncodingPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = TimedMetadataEncodingProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProperties>?) -> TimedMetadataEncodingProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VideoEncodingPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = VideoEncodingProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties>?) -> VideoEncodingProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IMediaEncodingPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIMediaEncodingProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_MediaProperties.IMediaEncodingProperties = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_MediaProperties.IMediaEncodingPropertiesBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AudioEncodingPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = AudioEncodingProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioEncodingProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ContainerEncodingPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = ContainerEncodingProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ContainerEncodingProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaEncodingProfileMaker: MakeFromAbi {
+    public typealias SwiftType = MediaEncodingProfile
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaEncodingProfile(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaPropertySetMaker: MakeFromAbi {
+    public typealias SwiftType = MediaPropertySet
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaPropertySet(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaRatioMaker: MakeFromAbi {
+    public typealias SwiftType = MediaRatio
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaRatio(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TimedMetadataEncodingPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = TimedMetadataEncodingProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TimedMetadataEncodingProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VideoEncodingPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = VideoEncodingProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoEncodingProperties(fromAbi: abi)
+    }
 }

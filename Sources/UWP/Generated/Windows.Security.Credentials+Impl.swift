@@ -4,5 +4,22 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Security_Credentials {
+    public enum PasswordCredentialBridge: AbiBridge {
+        public typealias SwiftProjection = PasswordCredential
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential>?) -> PasswordCredential? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PasswordCredentialMaker: MakeFromAbi {
+    public typealias SwiftType = PasswordCredential
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PasswordCredential(fromAbi: abi)
+    }
 }

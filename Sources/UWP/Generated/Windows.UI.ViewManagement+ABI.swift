@@ -8,11 +8,12 @@ private var IID___x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher: W
     .init(Data1: 0xDCA71BB6, Data2: 0x7350, Data3: 0x492B, Data4: ( 0xAA,0xC7,0xC8,0xA1,0x3D,0x72,0x24,0xAD ))// DCA71BB6-7350-492B-AAC7-C8A13D7224AD
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_UI_ViewManagement {
     public class IActivationViewSwitcher: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher }
 
-        internal func ShowAsStandaloneAsyncImpl(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func ShowAsStandaloneAsync(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ShowAsStandaloneAsync(pThis, viewId, &operationAbi))
@@ -21,7 +22,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func ShowAsStandaloneWithSizePreferenceAsyncImpl(_ viewId: Int32, _ sizePreference: UWP.ViewSizePreference) throws -> WindowsFoundation.AnyIAsyncAction? {
+        public func ShowAsStandaloneWithSizePreferenceAsync(_ viewId: Int32, _ sizePreference: UWP.ViewSizePreference) throws -> WindowsFoundation.AnyIAsyncAction? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ShowAsStandaloneWithSizePreferenceAsync(pThis, viewId, sizePreference, &operationAbi))
@@ -30,7 +31,7 @@ public enum __ABI_Windows_UI_ViewManagement {
             return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
         }
 
-        internal func IsViewPresentedOnActivationVirtualDesktopImpl(_ viewId: Int32) throws -> Bool {
+        public func IsViewPresentedOnActivationVirtualDesktop(_ viewId: Int32) throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsViewPresentedOnActivationVirtualDesktop(pThis, viewId, &value))

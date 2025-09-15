@@ -12,11 +12,12 @@ private var IID___x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMedia
     .init(Data1: 0xC6A6EF13, Data2: 0x322D, Data3: 0x413A, Data4: ( 0xB8,0x5A,0x68,0xA8,0x8E,0x02,0xF4,0xE9 ))// C6A6EF13-322D-413A-B85A-68A88E02F4E9
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Media_Capture {
     public class IMediaCaptureVideoProfileMediaDescription: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription }
 
-        internal func get_WidthImpl() throws -> UInt32 {
+        public func get_Width() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Width(pThis, &value))
@@ -24,7 +25,7 @@ public enum __ABI_Windows_Media_Capture {
             return value
         }
 
-        internal func get_HeightImpl() throws -> UInt32 {
+        public func get_Height() throws -> UInt32 {
             var value: UINT32 = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Height(pThis, &value))
@@ -32,7 +33,7 @@ public enum __ABI_Windows_Media_Capture {
             return value
         }
 
-        internal func get_FrameRateImpl() throws -> Double {
+        public func get_FrameRate() throws -> Double {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameRate(pThis, &value))
@@ -40,7 +41,7 @@ public enum __ABI_Windows_Media_Capture {
             return value
         }
 
-        internal func get_IsVariablePhotoSequenceSupportedImpl() throws -> Bool {
+        public func get_IsVariablePhotoSequenceSupported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsVariablePhotoSequenceSupported(pThis, &value))
@@ -48,7 +49,7 @@ public enum __ABI_Windows_Media_Capture {
             return .init(from: value)
         }
 
-        internal func get_IsHdrVideoSupportedImpl() throws -> Bool {
+        public func get_IsHdrVideoSupported() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHdrVideoSupported(pThis, &value))
@@ -61,7 +62,7 @@ public enum __ABI_Windows_Media_Capture {
     public class IMediaCaptureVideoProfileMediaDescription2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription2 }
 
-        internal func get_SubtypeImpl() throws -> String {
+        public func get_Subtype() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtype(pThis, &value))
@@ -69,7 +70,7 @@ public enum __ABI_Windows_Media_Capture {
             return .init(from: value)
         }
 
-        internal func get_PropertiesImpl() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, Any?>? {
+        public func get_Properties() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, Any?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))

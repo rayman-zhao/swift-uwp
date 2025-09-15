@@ -4,5 +4,118 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_Casting {
+    public enum CastingConnectionBridge: AbiBridge {
+        public typealias SwiftProjection = CastingConnection
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingConnection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingConnection>?) -> CastingConnection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CastingConnectionErrorOccurredEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CastingConnectionErrorOccurredEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs>?) -> CastingConnectionErrorOccurredEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CastingDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDevice
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevice
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevice>?) -> CastingDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CastingDevicePickerBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDevicePicker
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker>?) -> CastingDevicePicker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CastingDevicePickerFilterBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDevicePickerFilter
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter>?) -> CastingDevicePickerFilter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CastingDeviceSelectedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDeviceSelectedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs>?) -> CastingDeviceSelectedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CastingSourceBridge: AbiBridge {
+        public typealias SwiftProjection = CastingSource
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingSource
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingSource>?) -> CastingSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CastingConnectionMaker: MakeFromAbi {
+    public typealias SwiftType = CastingConnection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingConnection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CastingConnectionErrorOccurredEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CastingConnectionErrorOccurredEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingConnectionErrorOccurredEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CastingDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CastingDevicePickerMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDevicePicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDevicePicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CastingDevicePickerFilterMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDevicePickerFilter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDevicePickerFilter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CastingDeviceSelectedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDeviceSelectedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDeviceSelectedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CastingSourceMaker: MakeFromAbi {
+    public typealias SwiftType = CastingSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingSource(fromAbi: abi)
+    }
 }

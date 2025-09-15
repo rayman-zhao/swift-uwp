@@ -4,5 +4,118 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Security_Cryptography_Certificates {
+    public enum CertificateBridge: AbiBridge {
+        public typealias SwiftProjection = Certificate
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate>?) -> Certificate? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CertificateChainBridge: AbiBridge {
+        public typealias SwiftProjection = CertificateChain
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain>?) -> CertificateChain? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CertificateExtensionBridge: AbiBridge {
+        public typealias SwiftProjection = CertificateExtension
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension>?) -> CertificateExtension? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CertificateKeyUsagesBridge: AbiBridge {
+        public typealias SwiftProjection = CertificateKeyUsages
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages>?) -> CertificateKeyUsages? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ChainBuildingParametersBridge: AbiBridge {
+        public typealias SwiftProjection = ChainBuildingParameters
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters>?) -> ChainBuildingParameters? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ChainValidationParametersBridge: AbiBridge {
+        public typealias SwiftProjection = ChainValidationParameters
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters>?) -> ChainValidationParameters? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SubjectAlternativeNameInfoBridge: AbiBridge {
+        public typealias SwiftProjection = SubjectAlternativeNameInfo
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo>?) -> SubjectAlternativeNameInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CertificateMaker: MakeFromAbi {
+    public typealias SwiftType = Certificate
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Certificate(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CertificateChainMaker: MakeFromAbi {
+    public typealias SwiftType = CertificateChain
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CertificateChain(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CertificateExtensionMaker: MakeFromAbi {
+    public typealias SwiftType = CertificateExtension
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CertificateExtension(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CertificateKeyUsagesMaker: MakeFromAbi {
+    public typealias SwiftType = CertificateKeyUsages
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CertificateKeyUsages(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ChainBuildingParametersMaker: MakeFromAbi {
+    public typealias SwiftType = ChainBuildingParameters
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ChainBuildingParameters(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ChainValidationParametersMaker: MakeFromAbi {
+    public typealias SwiftType = ChainValidationParameters
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ChainValidationParameters(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SubjectAlternativeNameInfoMaker: MakeFromAbi {
+    public typealias SwiftType = SubjectAlternativeNameInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SubjectAlternativeNameInfo(fromAbi: abi)
+    }
 }

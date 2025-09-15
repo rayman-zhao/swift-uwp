@@ -20,5 +20,5 @@ extension UWP.TranscodeFailureReason {
         __x_ABI_CWindows_CMedia_CTranscoding_CTranscodeFailureReason_CodecNotFound
     }
 }
-extension UWP.TranscodeFailureReason: @retroactive Hashable, @retroactive Codable {}
+extension UWP.TranscodeFailureReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -20,12 +20,6 @@ public final class HostName : WinRTClass, WindowsFoundation.IStringable {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CIHostName>?) -> HostName? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
@@ -33,51 +27,51 @@ public final class HostName : WinRTClass, WindowsFoundation.IStringable {
     override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IHostNameFactory: __ABI_Windows_Networking.IHostNameFactory = try! RoGetActivationFactory(HString("Windows.Networking.HostName"))
+    private static let _IHostNameFactory: __ABI_Windows_Networking.IHostNameFactory = try! RoGetActivationFactory("Windows.Networking.HostName")
     public init(_ hostName: String) {
-        super.init(try! Self._IHostNameFactory.CreateHostNameImpl(hostName))
+        super.init(try! Self._IHostNameFactory.CreateHostName(hostName))
     }
 
-    private static let _IHostNameStatics: __ABI_Windows_Networking.IHostNameStatics = try! RoGetActivationFactory(HString("Windows.Networking.HostName"))
+    private static let _IHostNameStatics: __ABI_Windows_Networking.IHostNameStatics = try! RoGetActivationFactory("Windows.Networking.HostName")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.compare)
-    public static func compare(_ value1: String, _ value2: String) -> Int32 {
-        return try! _IHostNameStatics.CompareImpl(value1, value2)
+    public static func compare(_ value1: String, _ value2: String) throws -> Int32 {
+        return try _IHostNameStatics.Compare(value1, value2)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.isequal)
     public func isEqual(_ hostName: HostName!) throws -> Bool {
-        try _default.IsEqualImpl(hostName)
+        try _default.IsEqual(hostName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.canonicalname)
     public var canonicalName : String {
-        get { try! _default.get_CanonicalNameImpl() }
+        get { try! _default.get_CanonicalName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.displayname)
     public var displayName : String {
-        get { try! _default.get_DisplayNameImpl() }
+        get { try! _default.get_DisplayName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.ipinformation)
     public var ipInformation : UWP.IPInformation! {
-        get { try! _default.get_IPInformationImpl() }
+        get { try! _default.get_IPInformation() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.rawname)
     public var rawName : String {
-        get { try! _default.get_RawNameImpl() }
+        get { try! _default.get_RawName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.type)
     public var type : HostNameType {
-        get { try! _default.get_TypeImpl() }
+        get { try! _default.get_Type() }
     }
 
     private lazy var _IStringable: __ABI_Windows_Foundation.IStringable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname.tostring)
     public func toString() throws -> String {
-        try _IStringable.ToStringImpl()
+        try _IStringable.ToString()
     }
 
     deinit {
@@ -100,5 +94,5 @@ extension UWP.HostNameType {
         __x_ABI_CWindows_CNetworking_CHostNameType_Bluetooth
     }
 }
-extension UWP.HostNameType: @retroactive Hashable, @retroactive Codable {}
+extension UWP.HostNameType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

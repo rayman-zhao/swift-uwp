@@ -4,5 +4,534 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Web_Http_Headers {
+    public enum HttpCacheDirectiveHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpCacheDirectiveHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection>?) -> HttpCacheDirectiveHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpChallengeHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpChallengeHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue>?) -> HttpChallengeHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpChallengeHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpChallengeHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection>?) -> HttpChallengeHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpConnectionOptionHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpConnectionOptionHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue>?) -> HttpConnectionOptionHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpConnectionOptionHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpConnectionOptionHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection>?) -> HttpConnectionOptionHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpContentCodingHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpContentCodingHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue>?) -> HttpContentCodingHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpContentCodingHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpContentCodingHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection>?) -> HttpContentCodingHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpContentCodingWithQualityHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpContentCodingWithQualityHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue>?) -> HttpContentCodingWithQualityHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpContentCodingWithQualityHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpContentCodingWithQualityHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection>?) -> HttpContentCodingWithQualityHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpContentDispositionHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpContentDispositionHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue>?) -> HttpContentDispositionHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpContentHeaderCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpContentHeaderCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection>?) -> HttpContentHeaderCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpContentRangeHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpContentRangeHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue>?) -> HttpContentRangeHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpCookiePairHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpCookiePairHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue>?) -> HttpCookiePairHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpCookiePairHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpCookiePairHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection>?) -> HttpCookiePairHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpCredentialsHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpCredentialsHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue>?) -> HttpCredentialsHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpDateOrDeltaHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpDateOrDeltaHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue>?) -> HttpDateOrDeltaHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpExpectationHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpExpectationHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue>?) -> HttpExpectationHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpExpectationHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpExpectationHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection>?) -> HttpExpectationHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpLanguageHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpLanguageHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection>?) -> HttpLanguageHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpLanguageRangeWithQualityHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpLanguageRangeWithQualityHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue>?) -> HttpLanguageRangeWithQualityHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpLanguageRangeWithQualityHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpLanguageRangeWithQualityHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection>?) -> HttpLanguageRangeWithQualityHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpMediaTypeHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpMediaTypeHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue>?) -> HttpMediaTypeHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpMediaTypeWithQualityHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpMediaTypeWithQualityHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue>?) -> HttpMediaTypeWithQualityHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpMediaTypeWithQualityHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpMediaTypeWithQualityHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection>?) -> HttpMediaTypeWithQualityHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpMethodHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpMethodHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection>?) -> HttpMethodHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpNameValueHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpNameValueHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue>?) -> HttpNameValueHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpProductHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpProductHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue>?) -> HttpProductHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpProductInfoHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpProductInfoHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue>?) -> HttpProductInfoHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpProductInfoHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpProductInfoHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection>?) -> HttpProductInfoHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpRequestHeaderCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpRequestHeaderCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection>?) -> HttpRequestHeaderCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpResponseHeaderCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpResponseHeaderCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection>?) -> HttpResponseHeaderCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpTransferCodingHeaderValueBridge: AbiBridge {
+        public typealias SwiftProjection = HttpTransferCodingHeaderValue
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue>?) -> HttpTransferCodingHeaderValue? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpTransferCodingHeaderValueCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = HttpTransferCodingHeaderValueCollection
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection>?) -> HttpTransferCodingHeaderValueCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class HttpCacheDirectiveHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpCacheDirectiveHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpCacheDirectiveHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpChallengeHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpChallengeHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpChallengeHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpChallengeHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpChallengeHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpChallengeHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpConnectionOptionHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpConnectionOptionHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpConnectionOptionHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpConnectionOptionHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpConnectionOptionHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpConnectionOptionHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpContentCodingHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpContentCodingHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpContentCodingHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpContentCodingHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpContentCodingHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpContentCodingHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpContentCodingWithQualityHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpContentCodingWithQualityHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpContentCodingWithQualityHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpContentCodingWithQualityHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpContentCodingWithQualityHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpContentCodingWithQualityHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpContentDispositionHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpContentDispositionHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpContentDispositionHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpContentHeaderCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpContentHeaderCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpContentHeaderCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpContentRangeHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpContentRangeHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpContentRangeHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpCookiePairHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpCookiePairHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpCookiePairHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpCookiePairHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpCookiePairHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpCookiePairHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpCredentialsHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpCredentialsHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpCredentialsHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpDateOrDeltaHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpDateOrDeltaHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpDateOrDeltaHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpExpectationHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpExpectationHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpExpectationHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpExpectationHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpExpectationHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpExpectationHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpLanguageHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpLanguageHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpLanguageHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpLanguageRangeWithQualityHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpLanguageRangeWithQualityHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpLanguageRangeWithQualityHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpLanguageRangeWithQualityHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpLanguageRangeWithQualityHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpLanguageRangeWithQualityHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpMediaTypeHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpMediaTypeHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpMediaTypeHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpMediaTypeWithQualityHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpMediaTypeWithQualityHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpMediaTypeWithQualityHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpMediaTypeWithQualityHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpMediaTypeWithQualityHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpMediaTypeWithQualityHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpMethodHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpMethodHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpMethodHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpNameValueHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpNameValueHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpNameValueHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpProductHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpProductHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpProductHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpProductInfoHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpProductInfoHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpProductInfoHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpProductInfoHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpProductInfoHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpProductInfoHeaderValueCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpRequestHeaderCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpRequestHeaderCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpRequestHeaderCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpResponseHeaderCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpResponseHeaderCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpResponseHeaderCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpTransferCodingHeaderValueMaker: MakeFromAbi {
+    public typealias SwiftType = HttpTransferCodingHeaderValue
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpTransferCodingHeaderValue(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpTransferCodingHeaderValueCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = HttpTransferCodingHeaderValueCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpTransferCodingHeaderValueCollection(fromAbi: abi)
+    }
 }

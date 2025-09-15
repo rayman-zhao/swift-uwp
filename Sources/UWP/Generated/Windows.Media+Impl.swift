@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media {
     public enum IMediaFrameBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CMedia_CIMediaFrame
@@ -30,49 +31,324 @@ public enum __IMPL_Windows_Media {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.duration)
         fileprivate var duration : WindowsFoundation.TimeSpan? {
-            get { try! _default.get_DurationImpl() }
-            set { try! _default.put_DurationImpl(newValue) }
+            get { try! _default.get_Duration() }
+            set { try! _default.put_Duration(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.extendedproperties)
         fileprivate var extendedProperties : WindowsFoundation.AnyIPropertySet! {
-            get { try! _default.get_ExtendedPropertiesImpl() }
+            get { try! _default.get_ExtendedProperties() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isdiscontinuous)
         fileprivate var isDiscontinuous : Bool {
-            get { try! _default.get_IsDiscontinuousImpl() }
-            set { try! _default.put_IsDiscontinuousImpl(newValue) }
+            get { try! _default.get_IsDiscontinuous() }
+            set { try! _default.put_IsDiscontinuous(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isreadonly)
         fileprivate var isReadOnly : Bool {
-            get { try! _default.get_IsReadOnlyImpl() }
+            get { try! _default.get_IsReadOnly() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.relativetime)
         fileprivate var relativeTime : WindowsFoundation.TimeSpan? {
-            get { try! _default.get_RelativeTimeImpl() }
-            set { try! _default.put_RelativeTimeImpl(newValue) }
+            get { try! _default.get_RelativeTime() }
+            set { try! _default.put_RelativeTime(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.systemrelativetime)
         fileprivate var systemRelativeTime : WindowsFoundation.TimeSpan? {
-            get { try! _default.get_SystemRelativeTimeImpl() }
-            set { try! _default.put_SystemRelativeTimeImpl(newValue) }
+            get { try! _default.get_SystemRelativeTime() }
+            set { try! _default.put_SystemRelativeTime(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.type)
         fileprivate var type : String {
-            get { try! _default.get_TypeImpl() }
+            get { try! _default.get_Type() }
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
 
+    public enum AudioBufferBridge: AbiBridge {
+        public typealias SwiftProjection = AudioBuffer
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIAudioBuffer
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIAudioBuffer>?) -> AudioBuffer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AudioFrameBridge: AbiBridge {
+        public typealias SwiftProjection = AudioFrame
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIAudioFrame
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIAudioFrame>?) -> AudioFrame? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum AutoRepeatModeChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AutoRepeatModeChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs>?) -> AutoRepeatModeChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ImageDisplayPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = ImageDisplayProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIImageDisplayProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIImageDisplayProperties>?) -> ImageDisplayProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaTimelineControllerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaTimelineController
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIMediaTimelineController
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIMediaTimelineController>?) -> MediaTimelineController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaTimelineControllerFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaTimelineControllerFailedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs>?) -> MediaTimelineControllerFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MusicDisplayPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = MusicDisplayProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIMusicDisplayProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIMusicDisplayProperties>?) -> MusicDisplayProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PlaybackPositionChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PlaybackPositionChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs>?) -> PlaybackPositionChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum PlaybackRateChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PlaybackRateChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs>?) -> PlaybackRateChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ShuffleEnabledChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ShuffleEnabledChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs>?) -> ShuffleEnabledChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SystemMediaTransportControlsBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControls
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControls
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControls>?) -> SystemMediaTransportControls? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SystemMediaTransportControlsButtonPressedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsButtonPressedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs>?) -> SystemMediaTransportControlsButtonPressedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SystemMediaTransportControlsDisplayUpdaterBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsDisplayUpdater
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater>?) -> SystemMediaTransportControlsDisplayUpdater? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SystemMediaTransportControlsPropertyChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsPropertyChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs>?) -> SystemMediaTransportControlsPropertyChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum SystemMediaTransportControlsTimelinePropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsTimelineProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties>?) -> SystemMediaTransportControlsTimelineProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VideoDisplayPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = VideoDisplayProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIVideoDisplayProperties
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CIVideoDisplayProperties>?) -> VideoDisplayProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension MediaTimeRange: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CMedia_CMediaTimeRange
+    public static func from(abi: ABI) -> Self {
+        .init(start: .from(abi: abi.Start), end: .from(abi: abi.End))
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class IMediaFrameMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIMediaFrame
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media.IMediaFrame = try! abi.QueryInterface()
+        return __IMPL_Windows_Media.IMediaFrameBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class AudioBufferMaker: MakeFromAbi {
+    public typealias SwiftType = AudioBuffer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioBuffer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AudioFrameMaker: MakeFromAbi {
+    public typealias SwiftType = AudioFrame
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioFrame(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class AutoRepeatModeChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AutoRepeatModeChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutoRepeatModeChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ImageDisplayPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = ImageDisplayProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ImageDisplayProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaTimelineControllerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaTimelineController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaTimelineController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaTimelineControllerFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaTimelineControllerFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaTimelineControllerFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MusicDisplayPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = MusicDisplayProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MusicDisplayProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PlaybackPositionChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PlaybackPositionChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PlaybackPositionChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class PlaybackRateChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PlaybackRateChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PlaybackRateChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ShuffleEnabledChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ShuffleEnabledChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShuffleEnabledChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControls
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControls(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsButtonPressedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsButtonPressedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsButtonPressedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsDisplayUpdaterMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsDisplayUpdater
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsDisplayUpdater(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsPropertyChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsPropertyChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsPropertyChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsTimelinePropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsTimelineProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsTimelineProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VideoDisplayPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = VideoDisplayProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoDisplayProperties(fromAbi: abi)
+    }
 }

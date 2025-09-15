@@ -268,11 +268,12 @@ private var IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderV
     .init(Data1: 0x6AB8892A, Data2: 0x1A98, Data3: 0x4D32, Data4: ( 0xA9,0x06,0x74,0x70,0xA9,0x87,0x5C,0xE5 ))// 6AB8892A-1A98-4D32-A906-7470A9875CE5
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCacheDirectiveHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection }
 
-        internal func get_MaxAgeImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_MaxAge() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxAge(pThis, &valueAbi))
@@ -281,7 +282,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_MaxAgeImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_MaxAge(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
@@ -289,7 +290,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_MaxStaleImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_MaxStale() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxStale(pThis, &valueAbi))
@@ -298,7 +299,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_MaxStaleImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_MaxStale(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
@@ -306,7 +307,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_MinFreshImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_MinFresh() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinFresh(pThis, &valueAbi))
@@ -315,7 +316,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_MinFreshImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_MinFresh(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
@@ -323,7 +324,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_SharedMaxAgeImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_SharedMaxAge() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SharedMaxAge(pThis, &valueAbi))
@@ -332,7 +333,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_SharedMaxAgeImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_SharedMaxAge(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
@@ -340,14 +341,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection.self) { pThis in
@@ -361,7 +362,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpChallengeHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue }
 
-        internal func get_ParametersImpl() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
+        public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameters(pThis, &valueAbi))
@@ -370,7 +371,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CWeb__CHttp__CHeaders__CHttpNameValueHeaderValueWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_SchemeImpl() throws -> String {
+        public func get_Scheme() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scheme(pThis, &value))
@@ -378,7 +379,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_TokenImpl() throws -> String {
+        public func get_Token() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Token(pThis, &value))
@@ -391,14 +392,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpChallengeHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection.self) { pThis in
@@ -412,7 +413,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpChallengeHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueFactory }
 
-        internal func CreateFromSchemeImpl(_ scheme: String) throws -> IHttpChallengeHeaderValue {
+        public func CreateFromScheme(_ scheme: String) throws -> IHttpChallengeHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _scheme = try! HString(scheme)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueFactory.self) { pThis in
@@ -422,7 +423,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpChallengeHeaderValue(value!)
         }
 
-        internal func CreateFromSchemeWithTokenImpl(_ scheme: String, _ token: String) throws -> IHttpChallengeHeaderValue {
+        public func CreateFromSchemeWithToken(_ scheme: String, _ token: String) throws -> IHttpChallengeHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _scheme = try! HString(scheme)
                 let _token = try! HString(token)
@@ -438,17 +439,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpChallengeHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpChallengeHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpChallengeHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpChallengeHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ challengeHeaderValue: inout UWP.HttpChallengeHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ challengeHeaderValue: inout UWP.HttpChallengeHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_challengeHeaderValue) = try ComPtrs.initialize { (_challengeHeaderValueAbi) in
@@ -456,7 +457,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_challengeHeaderValueAbi, &succeeded))
                 }
             }
-            challengeHeaderValue = .from(abi: _challengeHeaderValue)
+            challengeHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpChallengeHeaderValueBridge.from(abi: _challengeHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -465,7 +466,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpConnectionOptionHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue }
 
-        internal func get_TokenImpl() throws -> String {
+        public func get_Token() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Token(pThis, &value))
@@ -478,14 +479,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpConnectionOptionHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection.self) { pThis in
@@ -499,7 +500,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpConnectionOptionHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueFactory }
 
-        internal func CreateImpl(_ token: String) throws -> IHttpConnectionOptionHeaderValue {
+        public func Create(_ token: String) throws -> IHttpConnectionOptionHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _token = try! HString(token)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueFactory.self) { pThis in
@@ -514,17 +515,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpConnectionOptionHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpConnectionOptionHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpConnectionOptionHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpConnectionOptionHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ connectionOptionHeaderValue: inout UWP.HttpConnectionOptionHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ connectionOptionHeaderValue: inout UWP.HttpConnectionOptionHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_connectionOptionHeaderValue) = try ComPtrs.initialize { (_connectionOptionHeaderValueAbi) in
@@ -532,7 +533,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_connectionOptionHeaderValueAbi, &succeeded))
                 }
             }
-            connectionOptionHeaderValue = .from(abi: _connectionOptionHeaderValue)
+            connectionOptionHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpConnectionOptionHeaderValueBridge.from(abi: _connectionOptionHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -541,7 +542,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue }
 
-        internal func get_ContentCodingImpl() throws -> String {
+        public func get_ContentCoding() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentCoding(pThis, &value))
@@ -554,14 +555,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection.self) { pThis in
@@ -575,7 +576,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueFactory }
 
-        internal func CreateImpl(_ contentCoding: String) throws -> IHttpContentCodingHeaderValue {
+        public func Create(_ contentCoding: String) throws -> IHttpContentCodingHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _contentCoding = try! HString(contentCoding)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueFactory.self) { pThis in
@@ -590,17 +591,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpContentCodingHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpContentCodingHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentCodingHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ contentCodingHeaderValue: inout UWP.HttpContentCodingHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ contentCodingHeaderValue: inout UWP.HttpContentCodingHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_contentCodingHeaderValue) = try ComPtrs.initialize { (_contentCodingHeaderValueAbi) in
@@ -608,7 +609,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentCodingHeaderValueAbi, &succeeded))
                 }
             }
-            contentCodingHeaderValue = .from(abi: _contentCodingHeaderValue)
+            contentCodingHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpContentCodingHeaderValueBridge.from(abi: _contentCodingHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -617,7 +618,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingWithQualityHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue }
 
-        internal func get_ContentCodingImpl() throws -> String {
+        public func get_ContentCoding() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentCoding(pThis, &value))
@@ -625,7 +626,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_QualityImpl() throws -> Double? {
+        public func get_Quality() throws -> Double? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Quality(pThis, &valueAbi))
@@ -639,14 +640,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingWithQualityHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection.self) { pThis in
@@ -660,7 +661,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingWithQualityHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueFactory }
 
-        internal func CreateFromValueImpl(_ contentCoding: String) throws -> IHttpContentCodingWithQualityHeaderValue {
+        public func CreateFromValue(_ contentCoding: String) throws -> IHttpContentCodingWithQualityHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _contentCoding = try! HString(contentCoding)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueFactory.self) { pThis in
@@ -670,7 +671,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpContentCodingWithQualityHeaderValue(value!)
         }
 
-        internal func CreateFromValueWithQualityImpl(_ contentCoding: String, _ quality: Double) throws -> IHttpContentCodingWithQualityHeaderValue {
+        public func CreateFromValueWithQuality(_ contentCoding: String, _ quality: Double) throws -> IHttpContentCodingWithQualityHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _contentCoding = try! HString(contentCoding)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueFactory.self) { pThis in
@@ -685,17 +686,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentCodingWithQualityHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpContentCodingWithQualityHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpContentCodingWithQualityHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentCodingWithQualityHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ contentCodingWithQualityHeaderValue: inout UWP.HttpContentCodingWithQualityHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ contentCodingWithQualityHeaderValue: inout UWP.HttpContentCodingWithQualityHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_contentCodingWithQualityHeaderValue) = try ComPtrs.initialize { (_contentCodingWithQualityHeaderValueAbi) in
@@ -703,7 +704,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentCodingWithQualityHeaderValueAbi, &succeeded))
                 }
             }
-            contentCodingWithQualityHeaderValue = .from(abi: _contentCodingWithQualityHeaderValue)
+            contentCodingWithQualityHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpContentCodingWithQualityHeaderValueBridge.from(abi: _contentCodingWithQualityHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -712,7 +713,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentDispositionHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue }
 
-        internal func get_DispositionTypeImpl() throws -> String {
+        public func get_DispositionType() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispositionType(pThis, &value))
@@ -720,14 +721,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_DispositionTypeImpl(_ value: String) throws {
+        public func put_DispositionType(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DispositionType(pThis, _value.get()))
             }
         }
 
-        internal func get_FileNameImpl() throws -> String {
+        public func get_FileName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileName(pThis, &value))
@@ -735,14 +736,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_FileNameImpl(_ value: String) throws {
+        public func put_FileName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FileName(pThis, _value.get()))
             }
         }
 
-        internal func get_FileNameStarImpl() throws -> String {
+        public func get_FileNameStar() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileNameStar(pThis, &value))
@@ -750,14 +751,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_FileNameStarImpl(_ value: String) throws {
+        public func put_FileNameStar(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FileNameStar(pThis, _value.get()))
             }
         }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -765,14 +766,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_NameImpl(_ value: String) throws {
+        public func put_Name(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Name(pThis, _value.get()))
             }
         }
 
-        internal func get_ParametersImpl() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
+        public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameters(pThis, &valueAbi))
@@ -781,7 +782,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CWeb__CHttp__CHeaders__CHttpNameValueHeaderValueWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_SizeImpl() throws -> UInt64? {
+        public func get_Size() throws -> UInt64? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &valueAbi))
@@ -790,7 +791,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_SizeImpl(_ value: UInt64?) throws {
+        public func put_Size(_ value: UInt64?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT64Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
@@ -803,7 +804,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentDispositionHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValueFactory }
 
-        internal func CreateImpl(_ dispositionType: String) throws -> IHttpContentDispositionHeaderValue {
+        public func Create(_ dispositionType: String) throws -> IHttpContentDispositionHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _dispositionType = try! HString(dispositionType)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValueFactory.self) { pThis in
@@ -818,17 +819,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentDispositionHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpContentDispositionHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpContentDispositionHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentDispositionHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ contentDispositionHeaderValue: inout UWP.HttpContentDispositionHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ contentDispositionHeaderValue: inout UWP.HttpContentDispositionHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_contentDispositionHeaderValue) = try ComPtrs.initialize { (_contentDispositionHeaderValueAbi) in
@@ -836,7 +837,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentDispositionHeaderValueAbi, &succeeded))
                 }
             }
-            contentDispositionHeaderValue = .from(abi: _contentDispositionHeaderValue)
+            contentDispositionHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpContentDispositionHeaderValueBridge.from(abi: _contentDispositionHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -845,40 +846,40 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentHeaderCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection }
 
-        internal func get_ContentDispositionImpl() throws -> UWP.HttpContentDispositionHeaderValue? {
+        public func get_ContentDisposition() throws -> UWP.HttpContentDispositionHeaderValue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentDisposition(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentDispositionHeaderValueBridge.from(abi: value)
         }
 
-        internal func put_ContentDispositionImpl(_ value: UWP.HttpContentDispositionHeaderValue?) throws {
+        public func put_ContentDisposition(_ value: UWP.HttpContentDispositionHeaderValue?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentDisposition(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ContentEncodingImpl() throws -> UWP.HttpContentCodingHeaderValueCollection? {
+        public func get_ContentEncoding() throws -> UWP.HttpContentCodingHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentEncoding(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentCodingHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_ContentLanguageImpl() throws -> UWP.HttpLanguageHeaderValueCollection? {
+        public func get_ContentLanguage() throws -> UWP.HttpLanguageHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentLanguage(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpLanguageHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_ContentLengthImpl() throws -> UInt64? {
+        public func get_ContentLength() throws -> UInt64? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentLength(pThis, &valueAbi))
@@ -887,7 +888,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ContentLengthImpl(_ value: UInt64?) throws {
+        public func put_ContentLength(_ value: UInt64?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT64Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
@@ -895,22 +896,22 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_ContentLocationImpl() throws -> WindowsFoundation.Uri? {
+        public func get_ContentLocation() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentLocation(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_ContentLocationImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_ContentLocation(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentLocation(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ContentMD5Impl() throws -> UWP.AnyIBuffer? {
+        public func get_ContentMD5() throws -> UWP.AnyIBuffer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentMD5(pThis, &valueAbi))
@@ -919,7 +920,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return __ABI_Windows_Storage_Streams.IBufferWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ContentMD5Impl(_ value: UWP.AnyIBuffer?) throws {
+        public func put_ContentMD5(_ value: UWP.AnyIBuffer?) throws {
             let valueWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
@@ -927,37 +928,37 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_ContentRangeImpl() throws -> UWP.HttpContentRangeHeaderValue? {
+        public func get_ContentRange() throws -> UWP.HttpContentRangeHeaderValue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentRange(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentRangeHeaderValueBridge.from(abi: value)
         }
 
-        internal func put_ContentRangeImpl(_ value: UWP.HttpContentRangeHeaderValue?) throws {
+        public func put_ContentRange(_ value: UWP.HttpContentRangeHeaderValue?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentRange(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ContentTypeImpl() throws -> UWP.HttpMediaTypeHeaderValue? {
+        public func get_ContentType() throws -> UWP.HttpMediaTypeHeaderValue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentType(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpMediaTypeHeaderValueBridge.from(abi: value)
         }
 
-        internal func put_ContentTypeImpl(_ value: UWP.HttpMediaTypeHeaderValue?) throws {
+        public func put_ContentType(_ value: UWP.HttpMediaTypeHeaderValue?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentType(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ExpiresImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_Expires() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Expires(pThis, &valueAbi))
@@ -966,7 +967,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_ExpiresImpl(_ value: WindowsFoundation.DateTime?) throws {
+        public func put_Expires(_ value: WindowsFoundation.DateTime?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
@@ -974,7 +975,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_LastModifiedImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_LastModified() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastModified(pThis, &valueAbi))
@@ -983,7 +984,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_LastModifiedImpl(_ value: WindowsFoundation.DateTime?) throws {
+        public func put_LastModified(_ value: WindowsFoundation.DateTime?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
@@ -991,7 +992,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func AppendImpl(_ name: String, _ value: String) throws {
+        public func Append(_ name: String, _ value: String) throws {
             let _name = try! HString(name)
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection.self) { pThis in
@@ -999,7 +1000,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func TryAppendWithoutValidationImpl(_ name: String, _ value: String) throws -> Bool {
+        public func TryAppendWithoutValidation(_ name: String, _ value: String) throws -> Bool {
             var result: boolean = 0
             let _name = try! HString(name)
             let _value = try! HString(value)
@@ -1014,7 +1015,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentRangeHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue }
 
-        internal func get_FirstBytePositionImpl() throws -> UInt64? {
+        public func get_FirstBytePosition() throws -> UInt64? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstBytePosition(pThis, &valueAbi))
@@ -1023,7 +1024,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_LastBytePositionImpl() throws -> UInt64? {
+        public func get_LastBytePosition() throws -> UInt64? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastBytePosition(pThis, &valueAbi))
@@ -1032,7 +1033,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_LengthImpl() throws -> UInt64? {
+        public func get_Length() throws -> UInt64? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Length(pThis, &valueAbi))
@@ -1041,7 +1042,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_UnitImpl() throws -> String {
+        public func get_Unit() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Unit(pThis, &value))
@@ -1049,7 +1050,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_UnitImpl(_ value: String) throws {
+        public func put_Unit(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Unit(pThis, _value.get()))
@@ -1061,7 +1062,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentRangeHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueFactory }
 
-        internal func CreateFromLengthImpl(_ length: UInt64) throws -> IHttpContentRangeHeaderValue {
+        public func CreateFromLength(_ length: UInt64) throws -> IHttpContentRangeHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromLength(pThis, length, &valueAbi))
@@ -1070,7 +1071,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpContentRangeHeaderValue(value!)
         }
 
-        internal func CreateFromRangeImpl(_ from: UInt64, _ to: UInt64) throws -> IHttpContentRangeHeaderValue {
+        public func CreateFromRange(_ from: UInt64, _ to: UInt64) throws -> IHttpContentRangeHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromRange(pThis, from, to, &valueAbi))
@@ -1079,7 +1080,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpContentRangeHeaderValue(value!)
         }
 
-        internal func CreateFromRangeWithLengthImpl(_ from: UInt64, _ to: UInt64, _ length: UInt64) throws -> IHttpContentRangeHeaderValue {
+        public func CreateFromRangeWithLength(_ from: UInt64, _ to: UInt64, _ length: UInt64) throws -> IHttpContentRangeHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueFactory.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromRangeWithLength(pThis, from, to, length, &valueAbi))
@@ -1093,17 +1094,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpContentRangeHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpContentRangeHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpContentRangeHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentRangeHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ contentRangeHeaderValue: inout UWP.HttpContentRangeHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ contentRangeHeaderValue: inout UWP.HttpContentRangeHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_contentRangeHeaderValue) = try ComPtrs.initialize { (_contentRangeHeaderValueAbi) in
@@ -1111,7 +1112,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentRangeHeaderValueAbi, &succeeded))
                 }
             }
-            contentRangeHeaderValue = .from(abi: _contentRangeHeaderValue)
+            contentRangeHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpContentRangeHeaderValueBridge.from(abi: _contentRangeHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1120,7 +1121,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCookiePairHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -1128,7 +1129,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_ValueImpl() throws -> String {
+        public func get_Value() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -1136,7 +1137,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_ValueImpl(_ value: String) throws {
+        public func put_Value(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, _value.get()))
@@ -1148,14 +1149,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCookiePairHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection.self) { pThis in
@@ -1169,7 +1170,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCookiePairHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueFactory }
 
-        internal func CreateFromNameImpl(_ name: String) throws -> IHttpCookiePairHeaderValue {
+        public func CreateFromName(_ name: String) throws -> IHttpCookiePairHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _name = try! HString(name)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueFactory.self) { pThis in
@@ -1179,7 +1180,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpCookiePairHeaderValue(value!)
         }
 
-        internal func CreateFromNameWithValueImpl(_ name: String, _ value: String) throws -> IHttpCookiePairHeaderValue {
+        public func CreateFromNameWithValue(_ name: String, _ value: String) throws -> IHttpCookiePairHeaderValue {
             let (cookiePairHeaderValue) = try ComPtrs.initialize { cookiePairHeaderValueAbi in
                 let _name = try! HString(name)
                 let _value = try! HString(value)
@@ -1195,17 +1196,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCookiePairHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpCookiePairHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpCookiePairHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpCookiePairHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ cookiePairHeaderValue: inout UWP.HttpCookiePairHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ cookiePairHeaderValue: inout UWP.HttpCookiePairHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_cookiePairHeaderValue) = try ComPtrs.initialize { (_cookiePairHeaderValueAbi) in
@@ -1213,7 +1214,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_cookiePairHeaderValueAbi, &succeeded))
                 }
             }
-            cookiePairHeaderValue = .from(abi: _cookiePairHeaderValue)
+            cookiePairHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpCookiePairHeaderValueBridge.from(abi: _cookiePairHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1222,7 +1223,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCredentialsHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue }
 
-        internal func get_ParametersImpl() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
+        public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameters(pThis, &valueAbi))
@@ -1231,7 +1232,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CWeb__CHttp__CHeaders__CHttpNameValueHeaderValueWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_SchemeImpl() throws -> String {
+        public func get_Scheme() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scheme(pThis, &value))
@@ -1239,7 +1240,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_TokenImpl() throws -> String {
+        public func get_Token() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Token(pThis, &value))
@@ -1252,7 +1253,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCredentialsHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValueFactory }
 
-        internal func CreateFromSchemeImpl(_ scheme: String) throws -> IHttpCredentialsHeaderValue {
+        public func CreateFromScheme(_ scheme: String) throws -> IHttpCredentialsHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _scheme = try! HString(scheme)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValueFactory.self) { pThis in
@@ -1262,7 +1263,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpCredentialsHeaderValue(value!)
         }
 
-        internal func CreateFromSchemeWithTokenImpl(_ scheme: String, _ token: String) throws -> IHttpCredentialsHeaderValue {
+        public func CreateFromSchemeWithToken(_ scheme: String, _ token: String) throws -> IHttpCredentialsHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _scheme = try! HString(scheme)
                 let _token = try! HString(token)
@@ -1278,17 +1279,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpCredentialsHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpCredentialsHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpCredentialsHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpCredentialsHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ credentialsHeaderValue: inout UWP.HttpCredentialsHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ credentialsHeaderValue: inout UWP.HttpCredentialsHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_credentialsHeaderValue) = try ComPtrs.initialize { (_credentialsHeaderValueAbi) in
@@ -1296,7 +1297,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_credentialsHeaderValueAbi, &succeeded))
                 }
             }
-            credentialsHeaderValue = .from(abi: _credentialsHeaderValue)
+            credentialsHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpCredentialsHeaderValueBridge.from(abi: _credentialsHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1305,7 +1306,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpDateOrDeltaHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue }
 
-        internal func get_DateImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_Date() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Date(pThis, &valueAbi))
@@ -1314,7 +1315,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_DeltaImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_Delta() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Delta(pThis, &valueAbi))
@@ -1328,17 +1329,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpDateOrDeltaHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpDateOrDeltaHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpDateOrDeltaHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpDateOrDeltaHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ dateOrDeltaHeaderValue: inout UWP.HttpDateOrDeltaHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ dateOrDeltaHeaderValue: inout UWP.HttpDateOrDeltaHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_dateOrDeltaHeaderValue) = try ComPtrs.initialize { (_dateOrDeltaHeaderValueAbi) in
@@ -1346,7 +1347,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_dateOrDeltaHeaderValueAbi, &succeeded))
                 }
             }
-            dateOrDeltaHeaderValue = .from(abi: _dateOrDeltaHeaderValue)
+            dateOrDeltaHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpDateOrDeltaHeaderValueBridge.from(abi: _dateOrDeltaHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1355,7 +1356,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpExpectationHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -1363,7 +1364,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_ValueImpl() throws -> String {
+        public func get_Value() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -1371,14 +1372,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_ValueImpl(_ value: String) throws {
+        public func put_Value(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, _value.get()))
             }
         }
 
-        internal func get_ParametersImpl() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
+        public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameters(pThis, &valueAbi))
@@ -1392,14 +1393,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpExpectationHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection.self) { pThis in
@@ -1413,7 +1414,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpExpectationHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueFactory }
 
-        internal func CreateFromNameImpl(_ name: String) throws -> IHttpExpectationHeaderValue {
+        public func CreateFromName(_ name: String) throws -> IHttpExpectationHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _name = try! HString(name)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueFactory.self) { pThis in
@@ -1423,7 +1424,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpExpectationHeaderValue(value!)
         }
 
-        internal func CreateFromNameWithValueImpl(_ name: String, _ value: String) throws -> IHttpExpectationHeaderValue {
+        public func CreateFromNameWithValue(_ name: String, _ value: String) throws -> IHttpExpectationHeaderValue {
             let (expectationHeaderValue) = try ComPtrs.initialize { expectationHeaderValueAbi in
                 let _name = try! HString(name)
                 let _value = try! HString(value)
@@ -1439,17 +1440,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpExpectationHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpExpectationHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpExpectationHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpExpectationHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ expectationHeaderValue: inout UWP.HttpExpectationHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ expectationHeaderValue: inout UWP.HttpExpectationHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_expectationHeaderValue) = try ComPtrs.initialize { (_expectationHeaderValueAbi) in
@@ -1457,7 +1458,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_expectationHeaderValueAbi, &succeeded))
                 }
             }
-            expectationHeaderValue = .from(abi: _expectationHeaderValue)
+            expectationHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpExpectationHeaderValueBridge.from(abi: _expectationHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1466,14 +1467,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpLanguageHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection.self) { pThis in
@@ -1487,7 +1488,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpLanguageRangeWithQualityHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue }
 
-        internal func get_LanguageRangeImpl() throws -> String {
+        public func get_LanguageRange() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LanguageRange(pThis, &value))
@@ -1495,7 +1496,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_QualityImpl() throws -> Double? {
+        public func get_Quality() throws -> Double? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Quality(pThis, &valueAbi))
@@ -1509,14 +1510,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpLanguageRangeWithQualityHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection.self) { pThis in
@@ -1530,7 +1531,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpLanguageRangeWithQualityHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueFactory }
 
-        internal func CreateFromLanguageRangeImpl(_ languageRange: String) throws -> IHttpLanguageRangeWithQualityHeaderValue {
+        public func CreateFromLanguageRange(_ languageRange: String) throws -> IHttpLanguageRangeWithQualityHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _languageRange = try! HString(languageRange)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueFactory.self) { pThis in
@@ -1540,7 +1541,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpLanguageRangeWithQualityHeaderValue(value!)
         }
 
-        internal func CreateFromLanguageRangeWithQualityImpl(_ languageRange: String, _ quality: Double) throws -> IHttpLanguageRangeWithQualityHeaderValue {
+        public func CreateFromLanguageRangeWithQuality(_ languageRange: String, _ quality: Double) throws -> IHttpLanguageRangeWithQualityHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _languageRange = try! HString(languageRange)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueFactory.self) { pThis in
@@ -1555,17 +1556,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpLanguageRangeWithQualityHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpLanguageRangeWithQualityHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpLanguageRangeWithQualityHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpLanguageRangeWithQualityHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ languageRangeWithQualityHeaderValue: inout UWP.HttpLanguageRangeWithQualityHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ languageRangeWithQualityHeaderValue: inout UWP.HttpLanguageRangeWithQualityHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_languageRangeWithQualityHeaderValue) = try ComPtrs.initialize { (_languageRangeWithQualityHeaderValueAbi) in
@@ -1573,7 +1574,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_languageRangeWithQualityHeaderValueAbi, &succeeded))
                 }
             }
-            languageRangeWithQualityHeaderValue = .from(abi: _languageRangeWithQualityHeaderValue)
+            languageRangeWithQualityHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpLanguageRangeWithQualityHeaderValueBridge.from(abi: _languageRangeWithQualityHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1582,7 +1583,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMediaTypeHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue }
 
-        internal func get_CharSetImpl() throws -> String {
+        public func get_CharSet() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharSet(pThis, &value))
@@ -1590,14 +1591,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_CharSetImpl(_ value: String) throws {
+        public func put_CharSet(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CharSet(pThis, _value.get()))
             }
         }
 
-        internal func get_MediaTypeImpl() throws -> String {
+        public func get_MediaType() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaType(pThis, &value))
@@ -1605,14 +1606,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_MediaTypeImpl(_ value: String) throws {
+        public func put_MediaType(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MediaType(pThis, _value.get()))
             }
         }
 
-        internal func get_ParametersImpl() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
+        public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameters(pThis, &valueAbi))
@@ -1626,7 +1627,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMediaTypeHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValueFactory }
 
-        internal func CreateImpl(_ mediaType: String) throws -> IHttpMediaTypeHeaderValue {
+        public func Create(_ mediaType: String) throws -> IHttpMediaTypeHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _mediaType = try! HString(mediaType)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValueFactory.self) { pThis in
@@ -1641,17 +1642,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMediaTypeHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpMediaTypeHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpMediaTypeHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpMediaTypeHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ mediaTypeHeaderValue: inout UWP.HttpMediaTypeHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ mediaTypeHeaderValue: inout UWP.HttpMediaTypeHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_mediaTypeHeaderValue) = try ComPtrs.initialize { (_mediaTypeHeaderValueAbi) in
@@ -1659,7 +1660,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_mediaTypeHeaderValueAbi, &succeeded))
                 }
             }
-            mediaTypeHeaderValue = .from(abi: _mediaTypeHeaderValue)
+            mediaTypeHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpMediaTypeHeaderValueBridge.from(abi: _mediaTypeHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1668,7 +1669,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMediaTypeWithQualityHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue }
 
-        internal func get_CharSetImpl() throws -> String {
+        public func get_CharSet() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharSet(pThis, &value))
@@ -1676,14 +1677,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_CharSetImpl(_ value: String) throws {
+        public func put_CharSet(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CharSet(pThis, _value.get()))
             }
         }
 
-        internal func get_MediaTypeImpl() throws -> String {
+        public func get_MediaType() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaType(pThis, &value))
@@ -1691,14 +1692,14 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_MediaTypeImpl(_ value: String) throws {
+        public func put_MediaType(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_MediaType(pThis, _value.get()))
             }
         }
 
-        internal func get_ParametersImpl() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
+        public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameters(pThis, &valueAbi))
@@ -1707,7 +1708,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CWeb__CHttp__CHeaders__CHttpNameValueHeaderValueWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_QualityImpl() throws -> Double? {
+        public func get_Quality() throws -> Double? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Quality(pThis, &valueAbi))
@@ -1716,7 +1717,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1_doubleWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_QualityImpl(_ value: Double?) throws {
+        public func put_Quality(_ value: Double?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_doubleWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
@@ -1729,14 +1730,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMediaTypeWithQualityHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection.self) { pThis in
@@ -1750,7 +1751,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMediaTypeWithQualityHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueFactory }
 
-        internal func CreateFromMediaTypeImpl(_ mediaType: String) throws -> IHttpMediaTypeWithQualityHeaderValue {
+        public func CreateFromMediaType(_ mediaType: String) throws -> IHttpMediaTypeWithQualityHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _mediaType = try! HString(mediaType)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueFactory.self) { pThis in
@@ -1760,7 +1761,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpMediaTypeWithQualityHeaderValue(value!)
         }
 
-        internal func CreateFromMediaTypeWithQualityImpl(_ mediaType: String, _ quality: Double) throws -> IHttpMediaTypeWithQualityHeaderValue {
+        public func CreateFromMediaTypeWithQuality(_ mediaType: String, _ quality: Double) throws -> IHttpMediaTypeWithQualityHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _mediaType = try! HString(mediaType)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueFactory.self) { pThis in
@@ -1775,17 +1776,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMediaTypeWithQualityHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpMediaTypeWithQualityHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpMediaTypeWithQualityHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpMediaTypeWithQualityHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ mediaTypeWithQualityHeaderValue: inout UWP.HttpMediaTypeWithQualityHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ mediaTypeWithQualityHeaderValue: inout UWP.HttpMediaTypeWithQualityHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_mediaTypeWithQualityHeaderValue) = try ComPtrs.initialize { (_mediaTypeWithQualityHeaderValueAbi) in
@@ -1793,7 +1794,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_mediaTypeWithQualityHeaderValueAbi, &succeeded))
                 }
             }
-            mediaTypeWithQualityHeaderValue = .from(abi: _mediaTypeWithQualityHeaderValue)
+            mediaTypeWithQualityHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpMediaTypeWithQualityHeaderValueBridge.from(abi: _mediaTypeWithQualityHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1802,14 +1803,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpMethodHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection.self) { pThis in
@@ -1823,7 +1824,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpNameValueHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -1831,7 +1832,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_ValueImpl() throws -> String {
+        public func get_Value() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -1839,7 +1840,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_ValueImpl(_ value: String) throws {
+        public func put_Value(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, _value.get()))
@@ -1851,7 +1852,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpNameValueHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValueFactory }
 
-        internal func CreateFromNameImpl(_ name: String) throws -> IHttpNameValueHeaderValue {
+        public func CreateFromName(_ name: String) throws -> IHttpNameValueHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _name = try! HString(name)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValueFactory.self) { pThis in
@@ -1861,7 +1862,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpNameValueHeaderValue(value!)
         }
 
-        internal func CreateFromNameWithValueImpl(_ name: String, _ value: String) throws -> IHttpNameValueHeaderValue {
+        public func CreateFromNameWithValue(_ name: String, _ value: String) throws -> IHttpNameValueHeaderValue {
             let (nameValueHeaderValue) = try ComPtrs.initialize { nameValueHeaderValueAbi in
                 let _name = try! HString(name)
                 let _value = try! HString(value)
@@ -1877,17 +1878,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpNameValueHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpNameValueHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpNameValueHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpNameValueHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ nameValueHeaderValue: inout UWP.HttpNameValueHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ nameValueHeaderValue: inout UWP.HttpNameValueHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_nameValueHeaderValue) = try ComPtrs.initialize { (_nameValueHeaderValueAbi) in
@@ -1895,7 +1896,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_nameValueHeaderValueAbi, &succeeded))
                 }
             }
-            nameValueHeaderValue = .from(abi: _nameValueHeaderValue)
+            nameValueHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpNameValueHeaderValueBridge.from(abi: _nameValueHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1904,7 +1905,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpProductHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue }
 
-        internal func get_NameImpl() throws -> String {
+        public func get_Name() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
@@ -1912,7 +1913,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func get_VersionImpl() throws -> String {
+        public func get_Version() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Version(pThis, &value))
@@ -1925,7 +1926,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpProductHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValueFactory }
 
-        internal func CreateFromNameImpl(_ productName: String) throws -> IHttpProductHeaderValue {
+        public func CreateFromName(_ productName: String) throws -> IHttpProductHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _productName = try! HString(productName)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValueFactory.self) { pThis in
@@ -1935,7 +1936,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpProductHeaderValue(value!)
         }
 
-        internal func CreateFromNameWithVersionImpl(_ productName: String, _ productVersion: String) throws -> IHttpProductHeaderValue {
+        public func CreateFromNameWithVersion(_ productName: String, _ productVersion: String) throws -> IHttpProductHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _productName = try! HString(productName)
                 let _productVersion = try! HString(productVersion)
@@ -1951,17 +1952,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpProductHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpProductHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpProductHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpProductHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ productHeaderValue: inout UWP.HttpProductHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ productHeaderValue: inout UWP.HttpProductHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_productHeaderValue) = try ComPtrs.initialize { (_productHeaderValueAbi) in
@@ -1969,7 +1970,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_productHeaderValueAbi, &succeeded))
                 }
             }
-            productHeaderValue = .from(abi: _productHeaderValue)
+            productHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpProductHeaderValueBridge.from(abi: _productHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -1978,16 +1979,16 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpProductInfoHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue }
 
-        internal func get_ProductImpl() throws -> UWP.HttpProductHeaderValue? {
+        public func get_Product() throws -> UWP.HttpProductHeaderValue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Product(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpProductHeaderValueBridge.from(abi: value)
         }
 
-        internal func get_CommentImpl() throws -> String {
+        public func get_Comment() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Comment(pThis, &value))
@@ -2000,14 +2001,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpProductInfoHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection.self) { pThis in
@@ -2021,7 +2022,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpProductInfoHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueFactory }
 
-        internal func CreateFromCommentImpl(_ productComment: String) throws -> IHttpProductInfoHeaderValue {
+        public func CreateFromComment(_ productComment: String) throws -> IHttpProductInfoHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _productComment = try! HString(productComment)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueFactory.self) { pThis in
@@ -2031,7 +2032,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return IHttpProductInfoHeaderValue(value!)
         }
 
-        internal func CreateFromNameWithVersionImpl(_ productName: String, _ productVersion: String) throws -> IHttpProductInfoHeaderValue {
+        public func CreateFromNameWithVersion(_ productName: String, _ productVersion: String) throws -> IHttpProductInfoHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _productName = try! HString(productName)
                 let _productVersion = try! HString(productVersion)
@@ -2047,17 +2048,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpProductInfoHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpProductInfoHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpProductInfoHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpProductInfoHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ productInfoHeaderValue: inout UWP.HttpProductInfoHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ productInfoHeaderValue: inout UWP.HttpProductInfoHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_productInfoHeaderValue) = try ComPtrs.initialize { (_productInfoHeaderValueAbi) in
@@ -2065,7 +2066,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_productInfoHeaderValueAbi, &succeeded))
                 }
             }
-            productInfoHeaderValue = .from(abi: _productInfoHeaderValue)
+            productInfoHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpProductInfoHeaderValueBridge.from(abi: _productInfoHeaderValue)
             return .init(from: succeeded)
         }
 
@@ -2074,76 +2075,76 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpRequestHeaderCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection }
 
-        internal func get_AcceptImpl() throws -> UWP.HttpMediaTypeWithQualityHeaderValueCollection? {
+        public func get_Accept() throws -> UWP.HttpMediaTypeWithQualityHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Accept(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpMediaTypeWithQualityHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_AcceptEncodingImpl() throws -> UWP.HttpContentCodingWithQualityHeaderValueCollection? {
+        public func get_AcceptEncoding() throws -> UWP.HttpContentCodingWithQualityHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptEncoding(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpContentCodingWithQualityHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_AcceptLanguageImpl() throws -> UWP.HttpLanguageRangeWithQualityHeaderValueCollection? {
+        public func get_AcceptLanguage() throws -> UWP.HttpLanguageRangeWithQualityHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptLanguage(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpLanguageRangeWithQualityHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_AuthorizationImpl() throws -> UWP.HttpCredentialsHeaderValue? {
+        public func get_Authorization() throws -> UWP.HttpCredentialsHeaderValue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Authorization(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpCredentialsHeaderValueBridge.from(abi: value)
         }
 
-        internal func put_AuthorizationImpl(_ value: UWP.HttpCredentialsHeaderValue?) throws {
+        public func put_Authorization(_ value: UWP.HttpCredentialsHeaderValue?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Authorization(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_CacheControlImpl() throws -> UWP.HttpCacheDirectiveHeaderValueCollection? {
+        public func get_CacheControl() throws -> UWP.HttpCacheDirectiveHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CacheControl(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpCacheDirectiveHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_ConnectionImpl() throws -> UWP.HttpConnectionOptionHeaderValueCollection? {
+        public func get_Connection() throws -> UWP.HttpConnectionOptionHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Connection(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpConnectionOptionHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_CookieImpl() throws -> UWP.HttpCookiePairHeaderValueCollection? {
+        public func get_Cookie() throws -> UWP.HttpCookiePairHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cookie(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpCookiePairHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_DateImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_Date() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Date(pThis, &valueAbi))
@@ -2152,7 +2153,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_DateImpl(_ value: WindowsFoundation.DateTime?) throws {
+        public func put_Date(_ value: WindowsFoundation.DateTime?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
@@ -2160,16 +2161,16 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_ExpectImpl() throws -> UWP.HttpExpectationHeaderValueCollection? {
+        public func get_Expect() throws -> UWP.HttpExpectationHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Expect(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpExpectationHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_FromImpl() throws -> String {
+        public func get_From() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_From(pThis, &value))
@@ -2177,29 +2178,29 @@ public enum __ABI_Windows_Web_Http_Headers {
             return .init(from: value)
         }
 
-        internal func put_FromImpl(_ value: String) throws {
+        public func put_From(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_From(pThis, _value.get()))
             }
         }
 
-        internal func get_HostImpl() throws -> UWP.HostName? {
+        public func get_Host() throws -> UWP.HostName? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Host(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking.HostNameBridge.from(abi: value)
         }
 
-        internal func put_HostImpl(_ value: UWP.HostName?) throws {
+        public func put_Host(_ value: UWP.HostName?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Host(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_IfModifiedSinceImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_IfModifiedSince() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IfModifiedSince(pThis, &valueAbi))
@@ -2208,7 +2209,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_IfModifiedSinceImpl(_ value: WindowsFoundation.DateTime?) throws {
+        public func put_IfModifiedSince(_ value: WindowsFoundation.DateTime?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
@@ -2216,7 +2217,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_IfUnmodifiedSinceImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_IfUnmodifiedSince() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IfUnmodifiedSince(pThis, &valueAbi))
@@ -2225,7 +2226,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_IfUnmodifiedSinceImpl(_ value: WindowsFoundation.DateTime?) throws {
+        public func put_IfUnmodifiedSince(_ value: WindowsFoundation.DateTime?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
@@ -2233,7 +2234,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_MaxForwardsImpl() throws -> UInt32? {
+        public func get_MaxForwards() throws -> UInt32? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxForwards(pThis, &valueAbi))
@@ -2242,7 +2243,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_MaxForwardsImpl(_ value: UInt32?) throws {
+        public func put_MaxForwards(_ value: UInt32?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
@@ -2250,55 +2251,55 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_ProxyAuthorizationImpl() throws -> UWP.HttpCredentialsHeaderValue? {
+        public func get_ProxyAuthorization() throws -> UWP.HttpCredentialsHeaderValue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProxyAuthorization(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpCredentialsHeaderValueBridge.from(abi: value)
         }
 
-        internal func put_ProxyAuthorizationImpl(_ value: UWP.HttpCredentialsHeaderValue?) throws {
+        public func put_ProxyAuthorization(_ value: UWP.HttpCredentialsHeaderValue?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ProxyAuthorization(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_RefererImpl() throws -> WindowsFoundation.Uri? {
+        public func get_Referer() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Referer(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_RefererImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_Referer(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Referer(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_TransferEncodingImpl() throws -> UWP.HttpTransferCodingHeaderValueCollection? {
+        public func get_TransferEncoding() throws -> UWP.HttpTransferCodingHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransferEncoding(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpTransferCodingHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_UserAgentImpl() throws -> UWP.HttpProductInfoHeaderValueCollection? {
+        public func get_UserAgent() throws -> UWP.HttpProductInfoHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserAgent(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpProductInfoHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func AppendImpl(_ name: String, _ value: String) throws {
+        public func Append(_ name: String, _ value: String) throws {
             let _name = try! HString(name)
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
@@ -2306,7 +2307,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func TryAppendWithoutValidationImpl(_ name: String, _ value: String) throws -> Bool {
+        public func TryAppendWithoutValidation(_ name: String, _ value: String) throws -> Bool {
             var result: boolean = 0
             let _name = try! HString(name)
             let _value = try! HString(value)
@@ -2321,7 +2322,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpResponseHeaderCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection }
 
-        internal func get_AgeImpl() throws -> WindowsFoundation.TimeSpan? {
+        public func get_Age() throws -> WindowsFoundation.TimeSpan? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Age(pThis, &valueAbi))
@@ -2330,7 +2331,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_AgeImpl(_ value: WindowsFoundation.TimeSpan?) throws {
+        public func put_Age(_ value: WindowsFoundation.TimeSpan?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
@@ -2338,34 +2339,34 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_AllowImpl() throws -> UWP.HttpMethodHeaderValueCollection? {
+        public func get_Allow() throws -> UWP.HttpMethodHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Allow(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpMethodHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_CacheControlImpl() throws -> UWP.HttpCacheDirectiveHeaderValueCollection? {
+        public func get_CacheControl() throws -> UWP.HttpCacheDirectiveHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CacheControl(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpCacheDirectiveHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_ConnectionImpl() throws -> UWP.HttpConnectionOptionHeaderValueCollection? {
+        public func get_Connection() throws -> UWP.HttpConnectionOptionHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Connection(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpConnectionOptionHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_DateImpl() throws -> WindowsFoundation.DateTime? {
+        public func get_Date() throws -> WindowsFoundation.DateTime? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Date(pThis, &valueAbi))
@@ -2374,7 +2375,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_DateImpl(_ value: WindowsFoundation.DateTime?) throws {
+        public func put_Date(_ value: WindowsFoundation.DateTime?) throws {
             let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
             let _value = try! valueWrapper?.toABI { $0 }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
@@ -2382,64 +2383,64 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func get_LocationImpl() throws -> WindowsFoundation.Uri? {
+        public func get_Location() throws -> WindowsFoundation.Uri? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Location(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
         }
 
-        internal func put_LocationImpl(_ value: WindowsFoundation.Uri?) throws {
+        public func put_Location(_ value: WindowsFoundation.Uri?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Location(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_ProxyAuthenticateImpl() throws -> UWP.HttpChallengeHeaderValueCollection? {
+        public func get_ProxyAuthenticate() throws -> UWP.HttpChallengeHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProxyAuthenticate(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpChallengeHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_RetryAfterImpl() throws -> UWP.HttpDateOrDeltaHeaderValue? {
+        public func get_RetryAfter() throws -> UWP.HttpDateOrDeltaHeaderValue? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_RetryAfter(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpDateOrDeltaHeaderValueBridge.from(abi: value)
         }
 
-        internal func put_RetryAfterImpl(_ value: UWP.HttpDateOrDeltaHeaderValue?) throws {
+        public func put_RetryAfter(_ value: UWP.HttpDateOrDeltaHeaderValue?) throws {
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RetryAfter(pThis, RawPointer(value)))
             }
         }
 
-        internal func get_TransferEncodingImpl() throws -> UWP.HttpTransferCodingHeaderValueCollection? {
+        public func get_TransferEncoding() throws -> UWP.HttpTransferCodingHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_TransferEncoding(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpTransferCodingHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func get_WwwAuthenticateImpl() throws -> UWP.HttpChallengeHeaderValueCollection? {
+        public func get_WwwAuthenticate() throws -> UWP.HttpChallengeHeaderValueCollection? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_WwwAuthenticate(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Web_Http_Headers.HttpChallengeHeaderValueCollectionBridge.from(abi: value)
         }
 
-        internal func AppendImpl(_ name: String, _ value: String) throws {
+        public func Append(_ name: String, _ value: String) throws {
             let _name = try! HString(name)
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection.self) { pThis in
@@ -2447,7 +2448,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             }
         }
 
-        internal func TryAppendWithoutValidationImpl(_ name: String, _ value: String) throws -> Bool {
+        public func TryAppendWithoutValidation(_ name: String, _ value: String) throws -> Bool {
             var result: boolean = 0
             let _name = try! HString(name)
             let _value = try! HString(value)
@@ -2462,7 +2463,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpTransferCodingHeaderValue: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue }
 
-        internal func get_ParametersImpl() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
+        public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parameters(pThis, &valueAbi))
@@ -2471,7 +2472,7 @@ public enum __ABI_Windows_Web_Http_Headers {
             return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CWeb__CHttp__CHeaders__CHttpNameValueHeaderValueWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ValueImpl() throws -> String {
+        public func get_Value() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
@@ -2484,14 +2485,14 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpTransferCodingHeaderValueCollection: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection }
 
-        internal func ParseAddImpl(_ input: String) throws {
+        public func ParseAdd(_ input: String) throws {
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ParseAdd(pThis, _input.get()))
             }
         }
 
-        internal func TryParseAddImpl(_ input: String) throws -> Bool {
+        public func TryParseAdd(_ input: String) throws -> Bool {
             var result: boolean = 0
             let _input = try! HString(input)
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection.self) { pThis in
@@ -2505,7 +2506,7 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpTransferCodingHeaderValueFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueFactory }
 
-        internal func CreateImpl(_ input: String) throws -> IHttpTransferCodingHeaderValue {
+        public func Create(_ input: String) throws -> IHttpTransferCodingHeaderValue {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueFactory.self) { pThis in
@@ -2520,17 +2521,17 @@ public enum __ABI_Windows_Web_Http_Headers {
     public class IHttpTransferCodingHeaderValueStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueStatics }
 
-        internal func ParseImpl(_ input: String) throws -> UWP.HttpTransferCodingHeaderValue? {
+        public func Parse(_ input: String) throws -> UWP.HttpTransferCodingHeaderValue? {
             let (result) = try ComPtrs.initialize { resultAbi in
                 let _input = try! HString(input)
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.Parse(pThis, _input.get(), &resultAbi))
                 }
             }
-            return .from(abi: result)
+            return __IMPL_Windows_Web_Http_Headers.HttpTransferCodingHeaderValueBridge.from(abi: result)
         }
 
-        internal func TryParseImpl(_ input: String, _ transferCodingHeaderValue: inout UWP.HttpTransferCodingHeaderValue?) throws -> Bool {
+        public func TryParse(_ input: String, _ transferCodingHeaderValue: inout UWP.HttpTransferCodingHeaderValue?) throws -> Bool {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             let (_transferCodingHeaderValue) = try ComPtrs.initialize { (_transferCodingHeaderValueAbi) in
@@ -2538,7 +2539,7 @@ public enum __ABI_Windows_Web_Http_Headers {
                     try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_transferCodingHeaderValueAbi, &succeeded))
                 }
             }
-            transferCodingHeaderValue = .from(abi: _transferCodingHeaderValue)
+            transferCodingHeaderValue = __IMPL_Windows_Web_Http_Headers.HttpTransferCodingHeaderValueBridge.from(abi: _transferCodingHeaderValue)
             return .init(from: succeeded)
         }
 

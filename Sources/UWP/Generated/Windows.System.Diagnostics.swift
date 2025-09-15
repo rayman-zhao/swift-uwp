@@ -18,19 +18,13 @@ public final class SystemCpuUsage : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage>?) -> SystemCpuUsage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusage.getreport)
     public func getReport() throws -> SystemCpuUsageReport! {
-        try _default.GetReportImpl()
+        try _default.GetReport()
     }
 
     deinit {
@@ -52,29 +46,23 @@ public final class SystemCpuUsageReport : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport>?) -> SystemCpuUsageReport? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusagereport.idletime)
     public var idleTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_IdleTimeImpl() }
+        get { try! _default.get_IdleTime() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusagereport.kerneltime)
     public var kernelTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_KernelTimeImpl() }
+        get { try! _default.get_KernelTime() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusagereport.usertime)
     public var userTime : WindowsFoundation.TimeSpan {
-        get { try! _default.get_UserTimeImpl() }
+        get { try! _default.get_UserTime() }
     }
 
     deinit {
@@ -96,30 +84,24 @@ public final class SystemDiagnosticInfo : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo>?) -> SystemDiagnosticInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ISystemDiagnosticInfoStatics: __ABI_Windows_System_Diagnostics.ISystemDiagnosticInfoStatics = try! RoGetActivationFactory(HString("Windows.System.Diagnostics.SystemDiagnosticInfo"))
+    private static let _ISystemDiagnosticInfoStatics: __ABI_Windows_System_Diagnostics.ISystemDiagnosticInfoStatics = try! RoGetActivationFactory("Windows.System.Diagnostics.SystemDiagnosticInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemdiagnosticinfo.getforcurrentsystem)
-    public static func getForCurrentSystem() -> SystemDiagnosticInfo! {
-        return try! _ISystemDiagnosticInfoStatics.GetForCurrentSystemImpl()
+    public static func getForCurrentSystem() throws -> SystemDiagnosticInfo! {
+        return try _ISystemDiagnosticInfoStatics.GetForCurrentSystem()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemdiagnosticinfo.cpuusage)
     public var cpuUsage : SystemCpuUsage! {
-        get { try! _default.get_CpuUsageImpl() }
+        get { try! _default.get_CpuUsage() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemdiagnosticinfo.memoryusage)
     public var memoryUsage : SystemMemoryUsage! {
-        get { try! _default.get_MemoryUsageImpl() }
+        get { try! _default.get_MemoryUsage() }
     }
 
     deinit {
@@ -141,19 +123,13 @@ public final class SystemMemoryUsage : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage>?) -> SystemMemoryUsage? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusage.getreport)
     public func getReport() throws -> SystemMemoryUsageReport! {
-        try _default.GetReportImpl()
+        try _default.GetReport()
     }
 
     deinit {
@@ -175,29 +151,23 @@ public final class SystemMemoryUsageReport : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport>?) -> SystemMemoryUsageReport? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusagereport.availablesizeinbytes)
     public var availableSizeInBytes : UInt64 {
-        get { try! _default.get_AvailableSizeInBytesImpl() }
+        get { try! _default.get_AvailableSizeInBytes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusagereport.committedsizeinbytes)
     public var committedSizeInBytes : UInt64 {
-        get { try! _default.get_CommittedSizeInBytesImpl() }
+        get { try! _default.get_CommittedSizeInBytes() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusagereport.totalphysicalsizeinbytes)
     public var totalPhysicalSizeInBytes : UInt64 {
-        get { try! _default.get_TotalPhysicalSizeInBytesImpl() }
+        get { try! _default.get_TotalPhysicalSizeInBytes() }
     }
 
     deinit {

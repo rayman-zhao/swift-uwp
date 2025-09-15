@@ -16,20 +16,21 @@ private var IID___x_ABI_CWindows_CNetworking_CIHostNameStatics: WindowsFoundatio
     .init(Data1: 0xF68CD4BF, Data2: 0xA388, Data3: 0x4E8B, Data4: ( 0x91,0xEA,0x54,0xDD,0x6D,0xD9,0x01,0xC0 ))// F68CD4BF-A388-4E8B-91EA-54DD6DD901C0
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Networking {
     public class IHostName: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CIHostName }
 
-        internal func get_IPInformationImpl() throws -> UWP.IPInformation? {
+        public func get_IPInformation() throws -> UWP.IPInformation? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IPInformation(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking_Connectivity.IPInformationBridge.from(abi: value)
         }
 
-        internal func get_RawNameImpl() throws -> String {
+        public func get_RawName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RawName(pThis, &value))
@@ -37,7 +38,7 @@ public enum __ABI_Windows_Networking {
             return .init(from: value)
         }
 
-        internal func get_DisplayNameImpl() throws -> String {
+        public func get_DisplayName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
@@ -45,7 +46,7 @@ public enum __ABI_Windows_Networking {
             return .init(from: value)
         }
 
-        internal func get_CanonicalNameImpl() throws -> String {
+        public func get_CanonicalName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanonicalName(pThis, &value))
@@ -53,7 +54,7 @@ public enum __ABI_Windows_Networking {
             return .init(from: value)
         }
 
-        internal func get_TypeImpl() throws -> UWP.HostNameType {
+        public func get_Type() throws -> UWP.HostNameType {
             var value: __x_ABI_CWindows_CNetworking_CHostNameType = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
@@ -61,7 +62,7 @@ public enum __ABI_Windows_Networking {
             return value
         }
 
-        internal func IsEqualImpl(_ hostName: UWP.HostName?) throws -> Bool {
+        public func IsEqual(_ hostName: UWP.HostName?) throws -> Bool {
             var isEqual: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.IsEqual(pThis, RawPointer(hostName), &isEqual))
@@ -74,7 +75,7 @@ public enum __ABI_Windows_Networking {
     public class IHostNameFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CIHostNameFactory }
 
-        internal func CreateHostNameImpl(_ hostName: String) throws -> IHostName {
+        public func CreateHostName(_ hostName: String) throws -> IHostName {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let _hostName = try! HString(hostName)
                 _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostNameFactory.self) { pThis in
@@ -89,7 +90,7 @@ public enum __ABI_Windows_Networking {
     public class IHostNameStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CIHostNameStatics }
 
-        internal func CompareImpl(_ value1: String, _ value2: String) throws -> Int32 {
+        public func Compare(_ value1: String, _ value2: String) throws -> Int32 {
             var result: INT32 = 0
             let _value1 = try! HString(value1)
             let _value2 = try! HString(value2)

@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Web_Http {
     public enum IHttpContentBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpContent
@@ -30,45 +31,208 @@ public enum __IMPL_Windows_Web_Http {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.bufferallasync)
         fileprivate func bufferAllAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt64, UInt64>! {
-            try _default.BufferAllAsyncImpl()
+            try _default.BufferAllAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.readasbufferasync)
         fileprivate func readAsBufferAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.AnyIBuffer?, UInt64>! {
-            try _default.ReadAsBufferAsyncImpl()
+            try _default.ReadAsBufferAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.readasinputstreamasync)
         fileprivate func readAsInputStreamAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.AnyIInputStream?, UInt64>! {
-            try _default.ReadAsInputStreamAsyncImpl()
+            try _default.ReadAsInputStreamAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.readasstringasync)
         fileprivate func readAsStringAsync() throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<String, UInt64>! {
-            try _default.ReadAsStringAsyncImpl()
+            try _default.ReadAsStringAsync()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.trycomputelength)
         fileprivate func tryComputeLength(_ length: inout UInt64) throws -> Bool {
-            try _default.TryComputeLengthImpl(&length)
+            try _default.TryComputeLength(&length)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.writetostreamasync)
         fileprivate func writeToStreamAsync(_ outputStream: UWP.AnyIOutputStream!) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt64, UInt64>! {
-            try _default.WriteToStreamAsyncImpl(outputStream)
+            try _default.WriteToStreamAsync(outputStream)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.headers)
         fileprivate var headers : UWP.HttpContentHeaderCollection! {
-            get { try! _default.get_HeadersImpl() }
+            get { try! _default.get_Headers() }
         }
 
         private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.ihttpcontent.close)
         fileprivate func close() throws {
-            try _IClosable.CloseImpl()
+            try _IClosable.Close()
         }
 
     }
 
+    public enum HttpClientBridge: AbiBridge {
+        public typealias SwiftProjection = HttpClient
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpClient
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpClient>?) -> HttpClient? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpGetBufferResultBridge: AbiBridge {
+        public typealias SwiftProjection = HttpGetBufferResult
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpGetBufferResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpGetBufferResult>?) -> HttpGetBufferResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpGetInputStreamResultBridge: AbiBridge {
+        public typealias SwiftProjection = HttpGetInputStreamResult
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpGetInputStreamResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpGetInputStreamResult>?) -> HttpGetInputStreamResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpGetStringResultBridge: AbiBridge {
+        public typealias SwiftProjection = HttpGetStringResult
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpGetStringResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpGetStringResult>?) -> HttpGetStringResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpMethodBridge: AbiBridge {
+        public typealias SwiftProjection = HttpMethod
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpMethod
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpMethod>?) -> HttpMethod? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpRequestMessageBridge: AbiBridge {
+        public typealias SwiftProjection = HttpRequestMessage
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpRequestMessage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpRequestMessage>?) -> HttpRequestMessage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpRequestResultBridge: AbiBridge {
+        public typealias SwiftProjection = HttpRequestResult
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpRequestResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpRequestResult>?) -> HttpRequestResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpResponseMessageBridge: AbiBridge {
+        public typealias SwiftProjection = HttpResponseMessage
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpResponseMessage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpResponseMessage>?) -> HttpResponseMessage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum HttpTransportInformationBridge: AbiBridge {
+        public typealias SwiftProjection = HttpTransportInformation
+        public typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpTransportInformation
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CWeb_CHttp_CIHttpTransportInformation>?) -> HttpTransportInformation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension HttpProgress: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CWeb_CHttp_CHttpProgress
+    public static func from(abi: ABI) -> Self {
+        .init(stage: abi.Stage, bytesSent: abi.BytesSent, totalBytesToSend: UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: ComPtr(abi.TotalBytesToSend)), bytesReceived: abi.BytesReceived, totalBytesToReceive: UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: ComPtr(abi.TotalBytesToReceive)), retries: abi.Retries)
+    }
+    public func toABI() -> ABI {
+        __ABI_Windows_Web_Http._ABI_HttpProgress(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+public class IHttpContentMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIHttpContent
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Web_Http.IHttpContent = try! abi.QueryInterface()
+        return __IMPL_Windows_Web_Http.IHttpContentBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class HttpClientMaker: MakeFromAbi {
+    public typealias SwiftType = HttpClient
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpClient(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpGetBufferResultMaker: MakeFromAbi {
+    public typealias SwiftType = HttpGetBufferResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpGetBufferResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpGetInputStreamResultMaker: MakeFromAbi {
+    public typealias SwiftType = HttpGetInputStreamResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpGetInputStreamResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpGetStringResultMaker: MakeFromAbi {
+    public typealias SwiftType = HttpGetStringResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpGetStringResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpMethodMaker: MakeFromAbi {
+    public typealias SwiftType = HttpMethod
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpMethod(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpRequestMessageMaker: MakeFromAbi {
+    public typealias SwiftType = HttpRequestMessage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpRequestMessage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpRequestResultMaker: MakeFromAbi {
+    public typealias SwiftType = HttpRequestResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpRequestResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpResponseMessageMaker: MakeFromAbi {
+    public typealias SwiftType = HttpResponseMessage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpResponseMessage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class HttpTransportInformationMaker: MakeFromAbi {
+    public typealias SwiftType = HttpTransportInformation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HttpTransportInformation(fromAbi: abi)
+    }
 }

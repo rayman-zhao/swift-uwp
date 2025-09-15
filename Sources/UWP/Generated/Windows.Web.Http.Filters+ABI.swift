@@ -8,11 +8,12 @@ private var IID___x_ABI_CWindows_CWeb_CHttp_CFilters_CIHttpFilter: WindowsFounda
     .init(Data1: 0xA4CB6DD5, Data2: 0x0902, Data3: 0x439E, Data4: ( 0xBF,0xD7,0xE1,0x25,0x52,0xB1,0x65,0xCE ))// A4CB6DD5-0902-439E-BFD7-E12552B165CE
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Web_Http_Filters {
     public class IHttpFilter: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CFilters_CIHttpFilter }
 
-        open func SendRequestAsyncImpl(_ request: UWP.HttpRequestMessage?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.HttpResponseMessage?, UWP.HttpProgress>? {
+        open func SendRequestAsync(_ request: UWP.HttpRequestMessage?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.HttpResponseMessage?, UWP.HttpProgress>? {
             let (operation) = try ComPtrs.initialize { operationAbi in
                 _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CFilters_CIHttpFilter.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.SendRequestAsync(pThis, RawPointer(request), &operationAbi))
@@ -55,12 +56,12 @@ public enum __ABI_Windows_Web_Http_Filters {
         SendRequestAsync: {
             do {
                 guard let __unwrapped__instance = IHttpFilterWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let request: UWP.HttpRequestMessage? = .from(abi: ComPtr($1))
+                let request: UWP.HttpRequestMessage? = __IMPL_Windows_Web_Http.HttpRequestMessageBridge.from(abi: ComPtr($1))
                 let operation = try __unwrapped__instance.sendRequestAsync(request)
                 let operationWrapper = UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CWeb__CHttp__CHttpResponseMessage___x_ABI_CWindows__CWeb__CHttp__CHttpProgressWrapper(operation)
                 operationWrapper?.copyTo($2)
                 return S_OK
-            } catch { return failWith(err: E_FAIL) } 
+            } catch { return failWith(error: error) }
         }
     )
 

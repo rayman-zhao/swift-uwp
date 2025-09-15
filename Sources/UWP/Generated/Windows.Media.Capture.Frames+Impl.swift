@@ -4,5 +4,134 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Media_Capture_Frames {
+    public enum DepthMediaFrameFormatBridge: AbiBridge {
+        public typealias SwiftProjection = DepthMediaFrameFormat
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat>?) -> DepthMediaFrameFormat? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaFrameFormatBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameFormat
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat>?) -> MediaFrameFormat? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaFrameSourceBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSource
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource>?) -> MediaFrameSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaFrameSourceControllerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceController
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController>?) -> MediaFrameSourceController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaFrameSourceGetPropertyResultBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceGetPropertyResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult>?) -> MediaFrameSourceGetPropertyResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaFrameSourceGroupBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceGroup
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup>?) -> MediaFrameSourceGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum MediaFrameSourceInfoBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceInfo
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo>?) -> MediaFrameSourceInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum VideoMediaFrameFormatBridge: AbiBridge {
+        public typealias SwiftProjection = VideoMediaFrameFormat
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat>?) -> VideoMediaFrameFormat? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DepthMediaFrameFormatMaker: MakeFromAbi {
+    public typealias SwiftType = DepthMediaFrameFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DepthMediaFrameFormat(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaFrameFormatMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameFormat(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceControllerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceGetPropertyResultMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceGetPropertyResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceGetPropertyResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceGroupMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceGroup(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceInfoMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class VideoMediaFrameFormatMaker: MakeFromAbi {
+    public typealias SwiftType = VideoMediaFrameFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoMediaFrameFormat(fromAbi: abi)
+    }
 }

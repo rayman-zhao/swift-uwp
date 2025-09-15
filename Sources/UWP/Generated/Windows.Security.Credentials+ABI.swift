@@ -12,11 +12,12 @@ private var IID___x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential: Wi
     .init(Data1: 0x6AB18989, Data2: 0xC720, Data3: 0x41A7, Data4: ( 0xA6,0xC1,0xFE,0xAD,0xB3,0x63,0x29,0xA0 ))// 6AB18989-C720-41A7-A6C1-FEADB36329A0
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Security_Credentials {
     public class ICredentialFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCredentials_CICredentialFactory }
 
-        internal func CreatePasswordCredentialImpl(_ resource: String, _ userName: String, _ password: String) throws -> IPasswordCredential {
+        public func CreatePasswordCredential(_ resource: String, _ userName: String, _ password: String) throws -> IPasswordCredential {
             let (credential) = try ComPtrs.initialize { credentialAbi in
                 let _resource = try! HString(resource)
                 let _userName = try! HString(userName)
@@ -33,7 +34,7 @@ public enum __ABI_Windows_Security_Credentials {
     public class IPasswordCredential: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential }
 
-        internal func get_ResourceImpl() throws -> String {
+        public func get_Resource() throws -> String {
             var resource: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Resource(pThis, &resource))
@@ -41,14 +42,14 @@ public enum __ABI_Windows_Security_Credentials {
             return .init(from: resource)
         }
 
-        internal func put_ResourceImpl(_ resource: String) throws {
+        public func put_Resource(_ resource: String) throws {
             let _resource = try! HString(resource)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Resource(pThis, _resource.get()))
             }
         }
 
-        internal func get_UserNameImpl() throws -> String {
+        public func get_UserName() throws -> String {
             var userName: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserName(pThis, &userName))
@@ -56,14 +57,14 @@ public enum __ABI_Windows_Security_Credentials {
             return .init(from: userName)
         }
 
-        internal func put_UserNameImpl(_ userName: String) throws {
+        public func put_UserName(_ userName: String) throws {
             let _userName = try! HString(userName)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_UserName(pThis, _userName.get()))
             }
         }
 
-        internal func get_PasswordImpl() throws -> String {
+        public func get_Password() throws -> String {
             var password: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Password(pThis, &password))
@@ -71,20 +72,20 @@ public enum __ABI_Windows_Security_Credentials {
             return .init(from: password)
         }
 
-        internal func put_PasswordImpl(_ password: String) throws {
+        public func put_Password(_ password: String) throws {
             let _password = try! HString(password)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Password(pThis, _password.get()))
             }
         }
 
-        internal func RetrievePasswordImpl() throws {
+        public func RetrievePassword() throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.RetrievePassword(pThis))
             }
         }
 
-        internal func get_PropertiesImpl() throws -> WindowsFoundation.AnyIPropertySet? {
+        public func get_Properties() throws -> WindowsFoundation.AnyIPropertySet? {
             let (props) = try ComPtrs.initialize { propsAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &propsAbi))

@@ -18,19 +18,13 @@ public final class SpatialCoordinateSystem : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem>?) -> SpatialCoordinateSystem? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.perception.spatial.spatialcoordinatesystem.trygettransformto)
     public func tryGetTransformTo(_ target: SpatialCoordinateSystem!) throws -> WindowsFoundation.Matrix4x4? {
-        try _default.TryGetTransformToImpl(target)
+        try _default.TryGetTransformTo(target)
     }
 
     deinit {

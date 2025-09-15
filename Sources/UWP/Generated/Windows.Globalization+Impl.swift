@@ -4,5 +4,22 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_Globalization {
+    public enum LanguageBridge: AbiBridge {
+        public typealias SwiftProjection = Language
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CILanguage
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CGlobalization_CILanguage>?) -> Language? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class LanguageMaker: MakeFromAbi {
+    public typealias SwiftType = Language
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Language(fromAbi: abi)
+    }
 }

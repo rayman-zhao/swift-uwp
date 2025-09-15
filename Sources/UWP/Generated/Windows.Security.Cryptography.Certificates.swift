@@ -22,122 +22,131 @@ public final class Certificate : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate>?) -> Certificate? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICertificateFactory: __ABI_Windows_Security_Cryptography_Certificates.ICertificateFactory = try! RoGetActivationFactory(HString("Windows.Security.Cryptography.Certificates.Certificate"))
+    private static let _ICertificateFactory: __ABI_Windows_Security_Cryptography_Certificates.ICertificateFactory = try! RoGetActivationFactory("Windows.Security.Cryptography.Certificates.Certificate")
     public init(_ certBlob: UWP.AnyIBuffer!) {
-        super.init(try! Self._ICertificateFactory.CreateCertificateImpl(certBlob))
+        super.init(try! Self._ICertificateFactory.CreateCertificate(certBlob))
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.buildchainasync)
     public func buildChainAsync(_ certificates: WindowsFoundation.AnyIIterable<Certificate?>!) throws -> WindowsFoundation.AnyIAsyncOperation<CertificateChain?>! {
-        try _default.BuildChainAsyncImpl(certificates)
+        try _default.BuildChainAsync(certificates)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.buildchainasync)
     public func buildChainAsync(_ certificates: WindowsFoundation.AnyIIterable<Certificate?>!, _ parameters: ChainBuildingParameters!) throws -> WindowsFoundation.AnyIAsyncOperation<CertificateChain?>! {
-        try _default.BuildChainWithParametersAsyncImpl(certificates, parameters)
+        try _default.BuildChainWithParametersAsync(certificates, parameters)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.gethashvalue)
+    public func getHashValue() throws -> [UInt8] {
+        try _default.GetHashValue()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.gethashvalue)
+    public func getHashValue(_ hashAlgorithmName: String) throws -> [UInt8] {
+        try _default.GetHashValueWithAlgorithm(hashAlgorithmName)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.getcertificateblob)
     public func getCertificateBlob() throws -> UWP.AnyIBuffer! {
-        try _default.GetCertificateBlobImpl()
+        try _default.GetCertificateBlob()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.enhancedkeyusages)
     public var enhancedKeyUsages : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_EnhancedKeyUsagesImpl() }
+        get { try! _default.get_EnhancedKeyUsages() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.friendlyname)
     public var friendlyName : String {
-        get { try! _default.get_FriendlyNameImpl() }
-        set { try! _default.put_FriendlyNameImpl(newValue) }
+        get { try! _default.get_FriendlyName() }
+        set { try! _default.put_FriendlyName(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.hasprivatekey)
     public var hasPrivateKey : Bool {
-        get { try! _default.get_HasPrivateKeyImpl() }
+        get { try! _default.get_HasPrivateKey() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.isstronglyprotected)
     public var isStronglyProtected : Bool {
-        get { try! _default.get_IsStronglyProtectedImpl() }
+        get { try! _default.get_IsStronglyProtected() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.issuer)
     public var issuer : String {
-        get { try! _default.get_IssuerImpl() }
+        get { try! _default.get_Issuer() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.serialnumber)
+    public var serialNumber : [UInt8] {
+        get { try! _default.get_SerialNumber() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.subject)
     public var subject : String {
-        get { try! _default.get_SubjectImpl() }
+        get { try! _default.get_Subject() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.validfrom)
     public var validFrom : WindowsFoundation.DateTime {
-        get { try! _default.get_ValidFromImpl() }
+        get { try! _default.get_ValidFrom() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.validto)
     public var validTo : WindowsFoundation.DateTime {
-        get { try! _default.get_ValidToImpl() }
+        get { try! _default.get_ValidTo() }
     }
 
     private lazy var _ICertificate2: __ABI_Windows_Security_Cryptography_Certificates.ICertificate2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.issecuritydevicebound)
     public var isSecurityDeviceBound : Bool {
-        get { try! _ICertificate2.get_IsSecurityDeviceBoundImpl() }
+        get { try! _ICertificate2.get_IsSecurityDeviceBound() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.keyalgorithmname)
     public var keyAlgorithmName : String {
-        get { try! _ICertificate2.get_KeyAlgorithmNameImpl() }
+        get { try! _ICertificate2.get_KeyAlgorithmName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.keyusages)
     public var keyUsages : CertificateKeyUsages! {
-        get { try! _ICertificate2.get_KeyUsagesImpl() }
+        get { try! _ICertificate2.get_KeyUsages() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.signaturealgorithmname)
     public var signatureAlgorithmName : String {
-        get { try! _ICertificate2.get_SignatureAlgorithmNameImpl() }
+        get { try! _ICertificate2.get_SignatureAlgorithmName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.signaturehashalgorithmname)
     public var signatureHashAlgorithmName : String {
-        get { try! _ICertificate2.get_SignatureHashAlgorithmNameImpl() }
+        get { try! _ICertificate2.get_SignatureHashAlgorithmName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.subjectalternativename)
     public var subjectAlternativeName : SubjectAlternativeNameInfo! {
-        get { try! _ICertificate2.get_SubjectAlternativeNameImpl() }
+        get { try! _ICertificate2.get_SubjectAlternativeName() }
     }
 
     private lazy var _ICertificate3: __ABI_Windows_Security_Cryptography_Certificates.ICertificate3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.isperuser)
     public var isPerUser : Bool {
-        get { try! _ICertificate3.get_IsPerUserImpl() }
+        get { try! _ICertificate3.get_IsPerUser() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.keystorageprovidername)
     public var keyStorageProviderName : String {
-        get { try! _ICertificate3.get_KeyStorageProviderNameImpl() }
+        get { try! _ICertificate3.get_KeyStorageProviderName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate.storename)
     public var storeName : String {
-        get { try! _ICertificate3.get_StoreNameImpl() }
+        get { try! _ICertificate3.get_StoreName() }
     }
 
     deinit {
@@ -161,29 +170,23 @@ public final class CertificateChain : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain>?) -> CertificateChain? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatechain.validate)
     public func validate() throws -> ChainValidationResult {
-        try _default.ValidateImpl()
+        try _default.Validate()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatechain.validate)
     public func validate(_ parameter: ChainValidationParameters!) throws -> ChainValidationResult {
-        try _default.ValidateWithParametersImpl(parameter)
+        try _default.ValidateWithParameters(parameter)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatechain.getcertificates)
     public func getCertificates(_ includeRoot: Bool) throws -> WindowsFoundation.AnyIVectorView<Certificate?>! {
-        try _default.GetCertificatesImpl(includeRoot)
+        try _default.GetCertificates(includeRoot)
     }
 
     deinit {
@@ -205,35 +208,36 @@ public final class CertificateExtension : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension>?) -> CertificateExtension? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Security.Cryptography.Certificates.CertificateExtension")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Security.Cryptography.Certificates.CertificateExtension")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificateextension.encodevalue)
     public func encodeValue(_ value: String) throws {
-        try _default.EncodeValueImpl(value)
+        try _default.EncodeValue(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificateextension.iscritical)
     public var isCritical : Bool {
-        get { try! _default.get_IsCriticalImpl() }
-        set { try! _default.put_IsCriticalImpl(newValue) }
+        get { try! _default.get_IsCritical() }
+        set { try! _default.put_IsCritical(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificateextension.objectid)
     public var objectId : String {
-        get { try! _default.get_ObjectIdImpl() }
-        set { try! _default.put_ObjectIdImpl(newValue) }
+        get { try! _default.get_ObjectId() }
+        set { try! _default.put_ObjectId(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificateextension.value)
+    public var value : [UInt8] {
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
     }
 
     deinit {
@@ -255,66 +259,61 @@ public final class CertificateKeyUsages : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages>?) -> CertificateKeyUsages? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Security.Cryptography.Certificates.CertificateKeyUsages")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Security.Cryptography.Certificates.CertificateKeyUsages")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.crlsign)
     public var crlSign : Bool {
-        get { try! _default.get_CrlSignImpl() }
-        set { try! _default.put_CrlSignImpl(newValue) }
+        get { try! _default.get_CrlSign() }
+        set { try! _default.put_CrlSign(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.dataencipherment)
     public var dataEncipherment : Bool {
-        get { try! _default.get_DataEnciphermentImpl() }
-        set { try! _default.put_DataEnciphermentImpl(newValue) }
+        get { try! _default.get_DataEncipherment() }
+        set { try! _default.put_DataEncipherment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.digitalsignature)
     public var digitalSignature : Bool {
-        get { try! _default.get_DigitalSignatureImpl() }
-        set { try! _default.put_DigitalSignatureImpl(newValue) }
+        get { try! _default.get_DigitalSignature() }
+        set { try! _default.put_DigitalSignature(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.encipheronly)
     public var encipherOnly : Bool {
-        get { try! _default.get_EncipherOnlyImpl() }
-        set { try! _default.put_EncipherOnlyImpl(newValue) }
+        get { try! _default.get_EncipherOnly() }
+        set { try! _default.put_EncipherOnly(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.keyagreement)
     public var keyAgreement : Bool {
-        get { try! _default.get_KeyAgreementImpl() }
-        set { try! _default.put_KeyAgreementImpl(newValue) }
+        get { try! _default.get_KeyAgreement() }
+        set { try! _default.put_KeyAgreement(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.keycertificatesign)
     public var keyCertificateSign : Bool {
-        get { try! _default.get_KeyCertificateSignImpl() }
-        set { try! _default.put_KeyCertificateSignImpl(newValue) }
+        get { try! _default.get_KeyCertificateSign() }
+        set { try! _default.put_KeyCertificateSign(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.keyencipherment)
     public var keyEncipherment : Bool {
-        get { try! _default.get_KeyEnciphermentImpl() }
-        set { try! _default.put_KeyEnciphermentImpl(newValue) }
+        get { try! _default.get_KeyEncipherment() }
+        set { try! _default.put_KeyEncipherment(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages.nonrepudiation)
     public var nonRepudiation : Bool {
-        get { try! _default.get_NonRepudiationImpl() }
-        set { try! _default.put_NonRepudiationImpl(newValue) }
+        get { try! _default.get_NonRepudiation() }
+        set { try! _default.put_NonRepudiation(newValue) }
     }
 
     deinit {
@@ -336,58 +335,53 @@ public final class ChainBuildingParameters : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters>?) -> ChainBuildingParameters? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Security.Cryptography.Certificates.ChainBuildingParameters")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Security.Cryptography.Certificates.ChainBuildingParameters")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters.authorityinformationaccessenabled)
     public var authorityInformationAccessEnabled : Bool {
-        get { try! _default.get_AuthorityInformationAccessEnabledImpl() }
-        set { try! _default.put_AuthorityInformationAccessEnabledImpl(newValue) }
+        get { try! _default.get_AuthorityInformationAccessEnabled() }
+        set { try! _default.put_AuthorityInformationAccessEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters.currenttimevalidationenabled)
     public var currentTimeValidationEnabled : Bool {
-        get { try! _default.get_CurrentTimeValidationEnabledImpl() }
-        set { try! _default.put_CurrentTimeValidationEnabledImpl(newValue) }
+        get { try! _default.get_CurrentTimeValidationEnabled() }
+        set { try! _default.put_CurrentTimeValidationEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters.enhancedkeyusages)
     public var enhancedKeyUsages : WindowsFoundation.AnyIVector<String>! {
-        get { try! _default.get_EnhancedKeyUsagesImpl() }
+        get { try! _default.get_EnhancedKeyUsages() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters.exclusivetrustroots)
     public var exclusiveTrustRoots : WindowsFoundation.AnyIVector<Certificate?>! {
-        get { try! _default.get_ExclusiveTrustRootsImpl() }
+        get { try! _default.get_ExclusiveTrustRoots() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters.networkretrievalenabled)
     public var networkRetrievalEnabled : Bool {
-        get { try! _default.get_NetworkRetrievalEnabledImpl() }
-        set { try! _default.put_NetworkRetrievalEnabledImpl(newValue) }
+        get { try! _default.get_NetworkRetrievalEnabled() }
+        set { try! _default.put_NetworkRetrievalEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters.revocationcheckenabled)
     public var revocationCheckEnabled : Bool {
-        get { try! _default.get_RevocationCheckEnabledImpl() }
-        set { try! _default.put_RevocationCheckEnabledImpl(newValue) }
+        get { try! _default.get_RevocationCheckEnabled() }
+        set { try! _default.put_RevocationCheckEnabled(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters.validationtimestamp)
     public var validationTimestamp : WindowsFoundation.DateTime {
-        get { try! _default.get_ValidationTimestampImpl() }
-        set { try! _default.put_ValidationTimestampImpl(newValue) }
+        get { try! _default.get_ValidationTimestamp() }
+        set { try! _default.put_ValidationTimestamp(newValue) }
     }
 
     deinit {
@@ -409,30 +403,25 @@ public final class ChainValidationParameters : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters>?) -> ChainValidationParameters? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Security.Cryptography.Certificates.ChainValidationParameters")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Security.Cryptography.Certificates.ChainValidationParameters")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainvalidationparameters.certificatechainpolicy)
     public var certificateChainPolicy : CertificateChainPolicy {
-        get { try! _default.get_CertificateChainPolicyImpl() }
-        set { try! _default.put_CertificateChainPolicyImpl(newValue) }
+        get { try! _default.get_CertificateChainPolicy() }
+        set { try! _default.put_CertificateChainPolicy(newValue) }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainvalidationparameters.serverdnsname)
     public var serverDnsName : UWP.HostName! {
-        get { try! _default.get_ServerDnsNameImpl() }
-        set { try! _default.put_ServerDnsNameImpl(newValue) }
+        get { try! _default.get_ServerDnsName() }
+        set { try! _default.put_ServerDnsName(newValue) }
     }
 
     deinit {
@@ -454,84 +443,79 @@ public final class SubjectAlternativeNameInfo : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo>?) -> SubjectAlternativeNameInfo? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo")
     override public init() {
-        super.init(try! RoActivateInstance(HString("Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo")))
+        super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.distinguishedname)
     public var distinguishedName : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_DistinguishedNameImpl() }
+        get { try! _default.get_DistinguishedName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.dnsname)
     public var dnsName : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_DnsNameImpl() }
+        get { try! _default.get_DnsName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.emailname)
     public var emailName : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_EmailNameImpl() }
+        get { try! _default.get_EmailName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.ipaddress)
     public var ipAddress : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_IPAddressImpl() }
+        get { try! _default.get_IPAddress() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.principalname)
     public var principalName : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_PrincipalNameImpl() }
+        get { try! _default.get_PrincipalName() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.url)
     public var url : WindowsFoundation.AnyIVectorView<String>! {
-        get { try! _default.get_UrlImpl() }
+        get { try! _default.get_Url() }
     }
 
     private lazy var _ISubjectAlternativeNameInfo2: __ABI_Windows_Security_Cryptography_Certificates.ISubjectAlternativeNameInfo2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.distinguishednames)
     public var distinguishedNames : WindowsFoundation.AnyIVector<String>! {
-        get { try! _ISubjectAlternativeNameInfo2.get_DistinguishedNamesImpl() }
+        get { try! _ISubjectAlternativeNameInfo2.get_DistinguishedNames() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.dnsnames)
     public var dnsNames : WindowsFoundation.AnyIVector<String>! {
-        get { try! _ISubjectAlternativeNameInfo2.get_DnsNamesImpl() }
+        get { try! _ISubjectAlternativeNameInfo2.get_DnsNames() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.emailnames)
     public var emailNames : WindowsFoundation.AnyIVector<String>! {
-        get { try! _ISubjectAlternativeNameInfo2.get_EmailNamesImpl() }
+        get { try! _ISubjectAlternativeNameInfo2.get_EmailNames() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.extension)
     public var `extension` : CertificateExtension! {
-        get { try! _ISubjectAlternativeNameInfo2.get_ExtensionImpl() }
+        get { try! _ISubjectAlternativeNameInfo2.get_Extension() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.ipaddresses)
     public var ipAddresses : WindowsFoundation.AnyIVector<String>! {
-        get { try! _ISubjectAlternativeNameInfo2.get_IPAddressesImpl() }
+        get { try! _ISubjectAlternativeNameInfo2.get_IPAddresses() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.principalnames)
     public var principalNames : WindowsFoundation.AnyIVector<String>! {
-        get { try! _ISubjectAlternativeNameInfo2.get_PrincipalNamesImpl() }
+        get { try! _ISubjectAlternativeNameInfo2.get_PrincipalNames() }
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo.urls)
     public var urls : WindowsFoundation.AnyIVector<String>! {
-        get { try! _ISubjectAlternativeNameInfo2.get_UrlsImpl() }
+        get { try! _ISubjectAlternativeNameInfo2.get_Urls() }
     }
 
     deinit {
@@ -554,7 +538,7 @@ extension UWP.CertificateChainPolicy {
         __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CCertificateChainPolicy_MicrosoftRoot
     }
 }
-extension UWP.CertificateChainPolicy: @retroactive Hashable, @retroactive Codable {}
+extension UWP.CertificateChainPolicy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.ChainValidationResult {
     public static var success : UWP.ChainValidationResult {
@@ -600,5 +584,5 @@ extension UWP.ChainValidationResult {
         __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CChainValidationResult_OtherErrors
     }
 }
-extension UWP.ChainValidationResult: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ChainValidationResult: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

@@ -20,29 +20,23 @@ public final class ActivationViewSwitcher : WinRTClass {
     }
 
     @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher>?) -> ActivationViewSwitcher? {
-        guard let abi = abi else { return nil }
-        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-    }
-
-    @_spi(WinRTInternal)
     public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher.showasstandaloneasync)
     public func showAsStandaloneAsync(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ShowAsStandaloneAsyncImpl(viewId)
+        try _default.ShowAsStandaloneAsync(viewId)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher.showasstandaloneasync)
     public func showAsStandaloneAsync(_ viewId: Int32, _ sizePreference: ViewSizePreference) throws -> WindowsFoundation.AnyIAsyncAction! {
-        try _default.ShowAsStandaloneWithSizePreferenceAsyncImpl(viewId, sizePreference)
+        try _default.ShowAsStandaloneWithSizePreferenceAsync(viewId, sizePreference)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher.isviewpresentedonactivationvirtualdesktop)
     public func isViewPresentedOnActivationVirtualDesktop(_ viewId: Int32) throws -> Bool {
-        try _default.IsViewPresentedOnActivationVirtualDesktopImpl(viewId)
+        try _default.IsViewPresentedOnActivationVirtualDesktop(viewId)
     }
 
     deinit {
@@ -73,5 +67,5 @@ extension UWP.ViewSizePreference {
         __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_Custom
     }
 }
-extension UWP.ViewSizePreference: @retroactive Hashable, @retroactive Codable {}
+extension UWP.ViewSizePreference: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 

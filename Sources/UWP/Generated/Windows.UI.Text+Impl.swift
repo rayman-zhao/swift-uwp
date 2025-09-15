@@ -4,6 +4,7 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+@_spi(WinRTInternal)
 public enum __IMPL_Windows_UI_Text {
     public enum ITextCharacterFormatBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextCharacterFormat
@@ -30,160 +31,160 @@ public enum __IMPL_Windows_UI_Text {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.setclone)
         fileprivate func setClone(_ value: AnyITextCharacterFormat!) throws {
-            try _default.SetCloneImpl(value)
+            try _default.SetClone(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.getclone)
         fileprivate func getClone() throws -> AnyITextCharacterFormat! {
-            try _default.GetCloneImpl()
+            try _default.GetClone()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.isequal)
         fileprivate func isEqual(_ format: AnyITextCharacterFormat!) throws -> Bool {
-            try _default.IsEqualImpl(format)
+            try _default.IsEqual(format)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.allcaps)
         fileprivate var allCaps : FormatEffect {
-            get { try! _default.get_AllCapsImpl() }
-            set { try! _default.put_AllCapsImpl(newValue) }
+            get { try! _default.get_AllCaps() }
+            set { try! _default.put_AllCaps(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.backgroundcolor)
         fileprivate var backgroundColor : UWP.Color {
-            get { try! _default.get_BackgroundColorImpl() }
-            set { try! _default.put_BackgroundColorImpl(newValue) }
+            get { try! _default.get_BackgroundColor() }
+            set { try! _default.put_BackgroundColor(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.bold)
         fileprivate var bold : FormatEffect {
-            get { try! _default.get_BoldImpl() }
-            set { try! _default.put_BoldImpl(newValue) }
+            get { try! _default.get_Bold() }
+            set { try! _default.put_Bold(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstretch)
         fileprivate var fontStretch : FontStretch {
-            get { try! _default.get_FontStretchImpl() }
-            set { try! _default.put_FontStretchImpl(newValue) }
+            get { try! _default.get_FontStretch() }
+            set { try! _default.put_FontStretch(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstyle)
         fileprivate var fontStyle : FontStyle {
-            get { try! _default.get_FontStyleImpl() }
-            set { try! _default.put_FontStyleImpl(newValue) }
+            get { try! _default.get_FontStyle() }
+            set { try! _default.put_FontStyle(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.foregroundcolor)
         fileprivate var foregroundColor : UWP.Color {
-            get { try! _default.get_ForegroundColorImpl() }
-            set { try! _default.put_ForegroundColorImpl(newValue) }
+            get { try! _default.get_ForegroundColor() }
+            set { try! _default.put_ForegroundColor(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.hidden)
         fileprivate var hidden : FormatEffect {
-            get { try! _default.get_HiddenImpl() }
-            set { try! _default.put_HiddenImpl(newValue) }
+            get { try! _default.get_Hidden() }
+            set { try! _default.put_Hidden(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.italic)
         fileprivate var italic : FormatEffect {
-            get { try! _default.get_ItalicImpl() }
-            set { try! _default.put_ItalicImpl(newValue) }
+            get { try! _default.get_Italic() }
+            set { try! _default.put_Italic(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.kerning)
         fileprivate var kerning : Float {
-            get { try! _default.get_KerningImpl() }
-            set { try! _default.put_KerningImpl(newValue) }
+            get { try! _default.get_Kerning() }
+            set { try! _default.put_Kerning(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.languagetag)
         fileprivate var languageTag : String {
-            get { try! _default.get_LanguageTagImpl() }
-            set { try! _default.put_LanguageTagImpl(newValue) }
+            get { try! _default.get_LanguageTag() }
+            set { try! _default.put_LanguageTag(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.linktype)
         fileprivate var linkType : LinkType {
-            get { try! _default.get_LinkTypeImpl() }
+            get { try! _default.get_LinkType() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.name)
         fileprivate var name : String {
-            get { try! _default.get_NameImpl() }
-            set { try! _default.put_NameImpl(newValue) }
+            get { try! _default.get_Name() }
+            set { try! _default.put_Name(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.outline)
         fileprivate var outline : FormatEffect {
-            get { try! _default.get_OutlineImpl() }
-            set { try! _default.put_OutlineImpl(newValue) }
+            get { try! _default.get_Outline() }
+            set { try! _default.put_Outline(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.position)
         fileprivate var position : Float {
-            get { try! _default.get_PositionImpl() }
-            set { try! _default.put_PositionImpl(newValue) }
+            get { try! _default.get_Position() }
+            set { try! _default.put_Position(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.protectedtext)
         fileprivate var protectedText : FormatEffect {
-            get { try! _default.get_ProtectedTextImpl() }
-            set { try! _default.put_ProtectedTextImpl(newValue) }
+            get { try! _default.get_ProtectedText() }
+            set { try! _default.put_ProtectedText(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.size)
         fileprivate var size : Float {
-            get { try! _default.get_SizeImpl() }
-            set { try! _default.put_SizeImpl(newValue) }
+            get { try! _default.get_Size() }
+            set { try! _default.put_Size(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.smallcaps)
         fileprivate var smallCaps : FormatEffect {
-            get { try! _default.get_SmallCapsImpl() }
-            set { try! _default.put_SmallCapsImpl(newValue) }
+            get { try! _default.get_SmallCaps() }
+            set { try! _default.put_SmallCaps(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.spacing)
         fileprivate var spacing : Float {
-            get { try! _default.get_SpacingImpl() }
-            set { try! _default.put_SpacingImpl(newValue) }
+            get { try! _default.get_Spacing() }
+            set { try! _default.put_Spacing(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.strikethrough)
         fileprivate var strikethrough : FormatEffect {
-            get { try! _default.get_StrikethroughImpl() }
-            set { try! _default.put_StrikethroughImpl(newValue) }
+            get { try! _default.get_Strikethrough() }
+            set { try! _default.put_Strikethrough(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.subscript)
         fileprivate var `subscript` : FormatEffect {
-            get { try! _default.get_SubscriptImpl() }
-            set { try! _default.put_SubscriptImpl(newValue) }
+            get { try! _default.get_Subscript() }
+            set { try! _default.put_Subscript(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.superscript)
         fileprivate var superscript : FormatEffect {
-            get { try! _default.get_SuperscriptImpl() }
-            set { try! _default.put_SuperscriptImpl(newValue) }
+            get { try! _default.get_Superscript() }
+            set { try! _default.put_Superscript(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.textscript)
         fileprivate var textScript : TextScript {
-            get { try! _default.get_TextScriptImpl() }
-            set { try! _default.put_TextScriptImpl(newValue) }
+            get { try! _default.get_TextScript() }
+            set { try! _default.put_TextScript(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.underline)
         fileprivate var underline : UnderlineType {
-            get { try! _default.get_UnderlineImpl() }
-            set { try! _default.put_UnderlineImpl(newValue) }
+            get { try! _default.get_Underline() }
+            set { try! _default.put_Underline(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.weight)
         fileprivate var weight : Int32 {
-            get { try! _default.get_WeightImpl() }
-            set { try! _default.put_WeightImpl(newValue) }
+            get { try! _default.get_Weight() }
+            set { try! _default.put_Weight(newValue) }
         }
 
     }
@@ -213,125 +214,125 @@ public enum __IMPL_Windows_UI_Text {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.cancopy)
         fileprivate func canCopy() throws -> Bool {
-            try _default.CanCopyImpl()
+            try _default.CanCopy()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canpaste)
         fileprivate func canPaste() throws -> Bool {
-            try _default.CanPasteImpl()
+            try _default.CanPaste()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canredo)
         fileprivate func canRedo() throws -> Bool {
-            try _default.CanRedoImpl()
+            try _default.CanRedo()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canundo)
         fileprivate func canUndo() throws -> Bool {
-            try _default.CanUndoImpl()
+            try _default.CanUndo()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.applydisplayupdates)
         fileprivate func applyDisplayUpdates() throws -> Int32 {
-            try _default.ApplyDisplayUpdatesImpl()
+            try _default.ApplyDisplayUpdates()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.batchdisplayupdates)
         fileprivate func batchDisplayUpdates() throws -> Int32 {
-            try _default.BatchDisplayUpdatesImpl()
+            try _default.BatchDisplayUpdates()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.beginundogroup)
         fileprivate func beginUndoGroup() throws {
-            try _default.BeginUndoGroupImpl()
+            try _default.BeginUndoGroup()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.endundogroup)
         fileprivate func endUndoGroup() throws {
-            try _default.EndUndoGroupImpl()
+            try _default.EndUndoGroup()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultcharacterformat)
         fileprivate func getDefaultCharacterFormat() throws -> AnyITextCharacterFormat! {
-            try _default.GetDefaultCharacterFormatImpl()
+            try _default.GetDefaultCharacterFormat()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultparagraphformat)
         fileprivate func getDefaultParagraphFormat() throws -> AnyITextParagraphFormat! {
-            try _default.GetDefaultParagraphFormatImpl()
+            try _default.GetDefaultParagraphFormat()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrange)
         fileprivate func getRange(_ startPosition: Int32, _ endPosition: Int32) throws -> AnyITextRange! {
-            try _default.GetRangeImpl(startPosition, endPosition)
+            try _default.GetRange(startPosition, endPosition)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrangefrompoint)
         fileprivate func getRangeFromPoint(_ point: WindowsFoundation.Point, _ options: PointOptions) throws -> AnyITextRange! {
-            try _default.GetRangeFromPointImpl(point, options)
+            try _default.GetRangeFromPoint(point, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.gettext)
         fileprivate func getText(_ options: TextGetOptions, _ value: inout String) throws {
-            try _default.GetTextImpl(options, &value)
+            try _default.GetText(options, &value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.loadfromstream)
         fileprivate func loadFromStream(_ options: TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _default.LoadFromStreamImpl(options, value)
+            try _default.LoadFromStream(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.redo)
         fileprivate func redo() throws {
-            try _default.RedoImpl()
+            try _default.Redo()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.savetostream)
         fileprivate func saveToStream(_ options: TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _default.SaveToStreamImpl(options, value)
+            try _default.SaveToStream(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultcharacterformat)
         fileprivate func setDefaultCharacterFormat(_ value: AnyITextCharacterFormat!) throws {
-            try _default.SetDefaultCharacterFormatImpl(value)
+            try _default.SetDefaultCharacterFormat(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultparagraphformat)
         fileprivate func setDefaultParagraphFormat(_ value: AnyITextParagraphFormat!) throws {
-            try _default.SetDefaultParagraphFormatImpl(value)
+            try _default.SetDefaultParagraphFormat(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.settext)
         fileprivate func setText(_ options: TextSetOptions, _ value: String) throws {
-            try _default.SetTextImpl(options, value)
+            try _default.SetText(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undo)
         fileprivate func undo() throws {
-            try _default.UndoImpl()
+            try _default.Undo()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.carettype)
         fileprivate var caretType : CaretType {
-            get { try! _default.get_CaretTypeImpl() }
-            set { try! _default.put_CaretTypeImpl(newValue) }
+            get { try! _default.get_CaretType() }
+            set { try! _default.put_CaretType(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.defaulttabstop)
         fileprivate var defaultTabStop : Float {
-            get { try! _default.get_DefaultTabStopImpl() }
-            set { try! _default.put_DefaultTabStopImpl(newValue) }
+            get { try! _default.get_DefaultTabStop() }
+            set { try! _default.put_DefaultTabStop(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.selection)
         fileprivate var selection : AnyITextSelection! {
-            get { try! _default.get_SelectionImpl() }
+            get { try! _default.get_Selection() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undolimit)
         fileprivate var undoLimit : UInt32 {
-            get { try! _default.get_UndoLimitImpl() }
-            set { try! _default.put_UndoLimitImpl(newValue) }
+            get { try! _default.get_UndoLimit() }
+            set { try! _default.put_UndoLimit(newValue) }
         }
 
     }
@@ -361,174 +362,174 @@ public enum __IMPL_Windows_UI_Text {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.addtab)
         fileprivate func addTab(_ position: Float, _ align: TabAlignment, _ leader: TabLeader) throws {
-            try _default.AddTabImpl(position, align, leader)
+            try _default.AddTab(position, align, leader)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.clearalltabs)
         fileprivate func clearAllTabs() throws {
-            try _default.ClearAllTabsImpl()
+            try _default.ClearAllTabs()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.deletetab)
         fileprivate func deleteTab(_ position: Float) throws {
-            try _default.DeleteTabImpl(position)
+            try _default.DeleteTab(position)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.getclone)
         fileprivate func getClone() throws -> AnyITextParagraphFormat! {
-            try _default.GetCloneImpl()
+            try _default.GetClone()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.gettab)
         fileprivate func getTab(_ index: Int32, _ position: inout Float, _ align: inout TabAlignment, _ leader: inout TabLeader) throws {
-            try _default.GetTabImpl(index, &position, &align, &leader)
+            try _default.GetTab(index, &position, &align, &leader)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.isequal)
         fileprivate func isEqual(_ format: AnyITextParagraphFormat!) throws -> Bool {
-            try _default.IsEqualImpl(format)
+            try _default.IsEqual(format)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setclone)
         fileprivate func setClone(_ format: AnyITextParagraphFormat!) throws {
-            try _default.SetCloneImpl(format)
+            try _default.SetClone(format)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setindents)
         fileprivate func setIndents(_ start: Float, _ left: Float, _ right: Float) throws {
-            try _default.SetIndentsImpl(start, left, right)
+            try _default.SetIndents(start, left, right)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setlinespacing)
         fileprivate func setLineSpacing(_ rule: LineSpacingRule, _ spacing: Float) throws {
-            try _default.SetLineSpacingImpl(rule, spacing)
+            try _default.SetLineSpacing(rule, spacing)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.alignment)
         fileprivate var alignment : ParagraphAlignment {
-            get { try! _default.get_AlignmentImpl() }
-            set { try! _default.put_AlignmentImpl(newValue) }
+            get { try! _default.get_Alignment() }
+            set { try! _default.put_Alignment(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.firstlineindent)
         fileprivate var firstLineIndent : Float {
-            get { try! _default.get_FirstLineIndentImpl() }
+            get { try! _default.get_FirstLineIndent() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keeptogether)
         fileprivate var keepTogether : FormatEffect {
-            get { try! _default.get_KeepTogetherImpl() }
-            set { try! _default.put_KeepTogetherImpl(newValue) }
+            get { try! _default.get_KeepTogether() }
+            set { try! _default.put_KeepTogether(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keepwithnext)
         fileprivate var keepWithNext : FormatEffect {
-            get { try! _default.get_KeepWithNextImpl() }
-            set { try! _default.put_KeepWithNextImpl(newValue) }
+            get { try! _default.get_KeepWithNext() }
+            set { try! _default.put_KeepWithNext(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.leftindent)
         fileprivate var leftIndent : Float {
-            get { try! _default.get_LeftIndentImpl() }
+            get { try! _default.get_LeftIndent() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacing)
         fileprivate var lineSpacing : Float {
-            get { try! _default.get_LineSpacingImpl() }
+            get { try! _default.get_LineSpacing() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacingrule)
         fileprivate var lineSpacingRule : LineSpacingRule {
-            get { try! _default.get_LineSpacingRuleImpl() }
+            get { try! _default.get_LineSpacingRule() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listalignment)
         fileprivate var listAlignment : MarkerAlignment {
-            get { try! _default.get_ListAlignmentImpl() }
-            set { try! _default.put_ListAlignmentImpl(newValue) }
+            get { try! _default.get_ListAlignment() }
+            set { try! _default.put_ListAlignment(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listlevelindex)
         fileprivate var listLevelIndex : Int32 {
-            get { try! _default.get_ListLevelIndexImpl() }
-            set { try! _default.put_ListLevelIndexImpl(newValue) }
+            get { try! _default.get_ListLevelIndex() }
+            set { try! _default.put_ListLevelIndex(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststart)
         fileprivate var listStart : Int32 {
-            get { try! _default.get_ListStartImpl() }
-            set { try! _default.put_ListStartImpl(newValue) }
+            get { try! _default.get_ListStart() }
+            set { try! _default.put_ListStart(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststyle)
         fileprivate var listStyle : MarkerStyle {
-            get { try! _default.get_ListStyleImpl() }
-            set { try! _default.put_ListStyleImpl(newValue) }
+            get { try! _default.get_ListStyle() }
+            set { try! _default.put_ListStyle(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtab)
         fileprivate var listTab : Float {
-            get { try! _default.get_ListTabImpl() }
-            set { try! _default.put_ListTabImpl(newValue) }
+            get { try! _default.get_ListTab() }
+            set { try! _default.put_ListTab(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtype)
         fileprivate var listType : MarkerType {
-            get { try! _default.get_ListTypeImpl() }
-            set { try! _default.put_ListTypeImpl(newValue) }
+            get { try! _default.get_ListType() }
+            set { try! _default.put_ListType(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.nolinenumber)
         fileprivate var noLineNumber : FormatEffect {
-            get { try! _default.get_NoLineNumberImpl() }
-            set { try! _default.put_NoLineNumberImpl(newValue) }
+            get { try! _default.get_NoLineNumber() }
+            set { try! _default.put_NoLineNumber(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.pagebreakbefore)
         fileprivate var pageBreakBefore : FormatEffect {
-            get { try! _default.get_PageBreakBeforeImpl() }
-            set { try! _default.put_PageBreakBeforeImpl(newValue) }
+            get { try! _default.get_PageBreakBefore() }
+            set { try! _default.put_PageBreakBefore(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.rightindent)
         fileprivate var rightIndent : Float {
-            get { try! _default.get_RightIndentImpl() }
-            set { try! _default.put_RightIndentImpl(newValue) }
+            get { try! _default.get_RightIndent() }
+            set { try! _default.put_RightIndent(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.righttoleft)
         fileprivate var rightToLeft : FormatEffect {
-            get { try! _default.get_RightToLeftImpl() }
-            set { try! _default.put_RightToLeftImpl(newValue) }
+            get { try! _default.get_RightToLeft() }
+            set { try! _default.put_RightToLeft(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spaceafter)
         fileprivate var spaceAfter : Float {
-            get { try! _default.get_SpaceAfterImpl() }
-            set { try! _default.put_SpaceAfterImpl(newValue) }
+            get { try! _default.get_SpaceAfter() }
+            set { try! _default.put_SpaceAfter(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spacebefore)
         fileprivate var spaceBefore : Float {
-            get { try! _default.get_SpaceBeforeImpl() }
-            set { try! _default.put_SpaceBeforeImpl(newValue) }
+            get { try! _default.get_SpaceBefore() }
+            set { try! _default.put_SpaceBefore(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.style)
         fileprivate var style : ParagraphStyle {
-            get { try! _default.get_StyleImpl() }
-            set { try! _default.put_StyleImpl(newValue) }
+            get { try! _default.get_Style() }
+            set { try! _default.put_Style(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.tabcount)
         fileprivate var tabCount : Int32 {
-            get { try! _default.get_TabCountImpl() }
+            get { try! _default.get_TabCount() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.widowcontrol)
         fileprivate var widowControl : FormatEffect {
-            get { try! _default.get_WidowControlImpl() }
-            set { try! _default.put_WidowControlImpl(newValue) }
+            get { try! _default.get_WidowControl() }
+            set { try! _default.put_WidowControl(newValue) }
         }
 
     }
@@ -558,226 +559,226 @@ public enum __IMPL_Windows_UI_Text {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.canpaste)
         fileprivate func canPaste(_ format: Int32) throws -> Bool {
-            try _default.CanPasteImpl(format)
+            try _default.CanPaste(format)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.changecase)
         fileprivate func changeCase(_ value: LetterCase) throws {
-            try _default.ChangeCaseImpl(value)
+            try _default.ChangeCase(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.collapse)
         fileprivate func collapse(_ value: Bool) throws {
-            try _default.CollapseImpl(value)
+            try _default.Collapse(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.copy)
         fileprivate func copy() throws {
-            try _default.CopyImpl()
+            try _default.Copy()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.cut)
         fileprivate func cut() throws {
-            try _default.CutImpl()
+            try _default.Cut()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.delete)
         fileprivate func delete(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _default.DeleteImpl(unit, count)
+            try _default.Delete(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endof)
         fileprivate func endOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
-            try _default.EndOfImpl(unit, extend)
+            try _default.EndOf(unit, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.expand)
         fileprivate func expand(_ unit: TextRangeUnit) throws -> Int32 {
-            try _default.ExpandImpl(unit)
+            try _default.Expand(unit)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.findtext)
         fileprivate func findText(_ value: String, _ scanLength: Int32, _ options: FindOptions) throws -> Int32 {
-            try _default.FindTextImpl(value, scanLength, options)
+            try _default.FindText(value, scanLength, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getcharacterutf32)
         fileprivate func getCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws {
-            try _default.GetCharacterUtf32Impl(&value, offset)
+            try _default.GetCharacterUtf32(&value, offset)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getclone)
         fileprivate func getClone() throws -> AnyITextRange! {
-            try _default.GetCloneImpl()
+            try _default.GetClone()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getindex)
         fileprivate func getIndex(_ unit: TextRangeUnit) throws -> Int32 {
-            try _default.GetIndexImpl(unit)
+            try _default.GetIndex(unit)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getpoint)
         fileprivate func getPoint(_ horizontalAlign: HorizontalCharacterAlignment, _ verticalAlign: VerticalCharacterAlignment, _ options: PointOptions, _ point: inout WindowsFoundation.Point) throws {
-            try _default.GetPointImpl(horizontalAlign, verticalAlign, options, &point)
+            try _default.GetPoint(horizontalAlign, verticalAlign, options, &point)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getrect)
         fileprivate func getRect(_ options: PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws {
-            try _default.GetRectImpl(options, &rect, &hit)
+            try _default.GetRect(options, &rect, &hit)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettext)
         fileprivate func getText(_ options: TextGetOptions, _ value: inout String) throws {
-            try _default.GetTextImpl(options, &value)
+            try _default.GetText(options, &value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettextviastream)
         fileprivate func getTextViaStream(_ options: TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _default.GetTextViaStreamImpl(options, value)
+            try _default.GetTextViaStream(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.inrange)
         fileprivate func inRange(_ range: AnyITextRange!) throws -> Bool {
-            try _default.InRangeImpl(range)
+            try _default.InRange(range)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.insertimage)
         fileprivate func insertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _default.InsertImageImpl(width, height, ascent, verticalAlign, alternateText, value)
+            try _default.InsertImage(width, height, ascent, verticalAlign, alternateText, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.instory)
         fileprivate func inStory(_ range: AnyITextRange!) throws -> Bool {
-            try _default.InStoryImpl(range)
+            try _default.InStory(range)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.isequal)
         fileprivate func isEqual(_ range: AnyITextRange!) throws -> Bool {
-            try _default.IsEqualImpl(range)
+            try _default.IsEqual(range)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.move)
         fileprivate func move(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _default.MoveImpl(unit, count)
+            try _default.Move(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.moveend)
         fileprivate func moveEnd(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _default.MoveEndImpl(unit, count)
+            try _default.MoveEnd(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.movestart)
         fileprivate func moveStart(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _default.MoveStartImpl(unit, count)
+            try _default.MoveStart(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paste)
         fileprivate func paste(_ format: Int32) throws {
-            try _default.PasteImpl(format)
+            try _default.Paste(format)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.scrollintoview)
         fileprivate func scrollIntoView(_ value: PointOptions) throws {
-            try _default.ScrollIntoViewImpl(value)
+            try _default.ScrollIntoView(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.matchselection)
         fileprivate func matchSelection() throws {
-            try _default.MatchSelectionImpl()
+            try _default.MatchSelection()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setindex)
         fileprivate func setIndex(_ unit: TextRangeUnit, _ index: Int32, _ extend: Bool) throws {
-            try _default.SetIndexImpl(unit, index, extend)
+            try _default.SetIndex(unit, index, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setpoint)
         fileprivate func setPoint(_ point: WindowsFoundation.Point, _ options: PointOptions, _ extend: Bool) throws {
-            try _default.SetPointImpl(point, options, extend)
+            try _default.SetPoint(point, options, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setrange)
         fileprivate func setRange(_ startPosition: Int32, _ endPosition: Int32) throws {
-            try _default.SetRangeImpl(startPosition, endPosition)
+            try _default.SetRange(startPosition, endPosition)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settext)
         fileprivate func setText(_ options: TextSetOptions, _ value: String) throws {
-            try _default.SetTextImpl(options, value)
+            try _default.SetText(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settextviastream)
         fileprivate func setTextViaStream(_ options: TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _default.SetTextViaStreamImpl(options, value)
+            try _default.SetTextViaStream(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startof)
         fileprivate func startOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
-            try _default.StartOfImpl(unit, extend)
+            try _default.StartOf(unit, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.character)
         fileprivate var character : Character {
-            get { try! _default.get_CharacterImpl() }
-            set { try! _default.put_CharacterImpl(newValue) }
+            get { try! _default.get_Character() }
+            set { try! _default.put_Character(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.characterformat)
         fileprivate var characterFormat : AnyITextCharacterFormat! {
-            get { try! _default.get_CharacterFormatImpl() }
-            set { try! _default.put_CharacterFormatImpl(newValue) }
+            get { try! _default.get_CharacterFormat() }
+            set { try! _default.put_CharacterFormat(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endposition)
         fileprivate var endPosition : Int32 {
-            get { try! _default.get_EndPositionImpl() }
-            set { try! _default.put_EndPositionImpl(newValue) }
+            get { try! _default.get_EndPosition() }
+            set { try! _default.put_EndPosition(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.formattedtext)
         fileprivate var formattedText : AnyITextRange! {
-            get { try! _default.get_FormattedTextImpl() }
-            set { try! _default.put_FormattedTextImpl(newValue) }
+            get { try! _default.get_FormattedText() }
+            set { try! _default.put_FormattedText(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gravity)
         fileprivate var gravity : RangeGravity {
-            get { try! _default.get_GravityImpl() }
-            set { try! _default.put_GravityImpl(newValue) }
+            get { try! _default.get_Gravity() }
+            set { try! _default.put_Gravity(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.length)
         fileprivate var length : Int32 {
-            get { try! _default.get_LengthImpl() }
+            get { try! _default.get_Length() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.link)
         fileprivate var link : String {
-            get { try! _default.get_LinkImpl() }
-            set { try! _default.put_LinkImpl(newValue) }
+            get { try! _default.get_Link() }
+            set { try! _default.put_Link(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paragraphformat)
         fileprivate var paragraphFormat : AnyITextParagraphFormat! {
-            get { try! _default.get_ParagraphFormatImpl() }
-            set { try! _default.put_ParagraphFormatImpl(newValue) }
+            get { try! _default.get_ParagraphFormat() }
+            set { try! _default.put_ParagraphFormat(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startposition)
         fileprivate var startPosition : Int32 {
-            get { try! _default.get_StartPositionImpl() }
-            set { try! _default.put_StartPositionImpl(newValue) }
+            get { try! _default.get_StartPosition() }
+            set { try! _default.put_StartPosition(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.storylength)
         fileprivate var storyLength : Int32 {
-            get { try! _default.get_StoryLengthImpl() }
+            get { try! _default.get_StoryLength() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.text)
         fileprivate var text : String {
-            get { try! _default.get_TextImpl() }
-            set { try! _default.put_TextImpl(newValue) }
+            get { try! _default.get_Text() }
+            set { try! _default.put_Text(newValue) }
         }
 
     }
@@ -807,275 +808,390 @@ public enum __IMPL_Windows_UI_Text {
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endkey)
         fileprivate func endKey(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
-            try _default.EndKeyImpl(unit, extend)
+            try _default.EndKey(unit, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.homekey)
         fileprivate func homeKey(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
-            try _default.HomeKeyImpl(unit, extend)
+            try _default.HomeKey(unit, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.movedown)
         fileprivate func moveDown(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
-            try _default.MoveDownImpl(unit, count, extend)
+            try _default.MoveDown(unit, count, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveleft)
         fileprivate func moveLeft(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
-            try _default.MoveLeftImpl(unit, count, extend)
+            try _default.MoveLeft(unit, count, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveright)
         fileprivate func moveRight(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
-            try _default.MoveRightImpl(unit, count, extend)
+            try _default.MoveRight(unit, count, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveup)
         fileprivate func moveUp(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
-            try _default.MoveUpImpl(unit, count, extend)
+            try _default.MoveUp(unit, count, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.typetext)
         fileprivate func typeText(_ value: String) throws {
-            try _default.TypeTextImpl(value)
+            try _default.TypeText(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.options)
         fileprivate var options : SelectionOptions {
-            get { try! _default.get_OptionsImpl() }
-            set { try! _default.put_OptionsImpl(newValue) }
+            get { try! _default.get_Options() }
+            set { try! _default.put_Options(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.type)
         fileprivate var type : SelectionType {
-            get { try! _default.get_TypeImpl() }
+            get { try! _default.get_Type() }
         }
 
         private lazy var _ITextRange: __ABI_Windows_UI_Text.ITextRange! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.canpaste)
         fileprivate func canPaste(_ format: Int32) throws -> Bool {
-            try _ITextRange.CanPasteImpl(format)
+            try _ITextRange.CanPaste(format)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.changecase)
         fileprivate func changeCase(_ value: LetterCase) throws {
-            try _ITextRange.ChangeCaseImpl(value)
+            try _ITextRange.ChangeCase(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.collapse)
         fileprivate func collapse(_ value: Bool) throws {
-            try _ITextRange.CollapseImpl(value)
+            try _ITextRange.Collapse(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.copy)
         fileprivate func copy() throws {
-            try _ITextRange.CopyImpl()
+            try _ITextRange.Copy()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.cut)
         fileprivate func cut() throws {
-            try _ITextRange.CutImpl()
+            try _ITextRange.Cut()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.delete)
         fileprivate func delete(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _ITextRange.DeleteImpl(unit, count)
+            try _ITextRange.Delete(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endof)
         fileprivate func endOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
-            try _ITextRange.EndOfImpl(unit, extend)
+            try _ITextRange.EndOf(unit, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.expand)
         fileprivate func expand(_ unit: TextRangeUnit) throws -> Int32 {
-            try _ITextRange.ExpandImpl(unit)
+            try _ITextRange.Expand(unit)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.findtext)
         fileprivate func findText(_ value: String, _ scanLength: Int32, _ options: FindOptions) throws -> Int32 {
-            try _ITextRange.FindTextImpl(value, scanLength, options)
+            try _ITextRange.FindText(value, scanLength, options)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getcharacterutf32)
         fileprivate func getCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws {
-            try _ITextRange.GetCharacterUtf32Impl(&value, offset)
+            try _ITextRange.GetCharacterUtf32(&value, offset)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getclone)
         fileprivate func getClone() throws -> AnyITextRange! {
-            try _ITextRange.GetCloneImpl()
+            try _ITextRange.GetClone()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getindex)
         fileprivate func getIndex(_ unit: TextRangeUnit) throws -> Int32 {
-            try _ITextRange.GetIndexImpl(unit)
+            try _ITextRange.GetIndex(unit)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getpoint)
         fileprivate func getPoint(_ horizontalAlign: HorizontalCharacterAlignment, _ verticalAlign: VerticalCharacterAlignment, _ options: PointOptions, _ point: inout WindowsFoundation.Point) throws {
-            try _ITextRange.GetPointImpl(horizontalAlign, verticalAlign, options, &point)
+            try _ITextRange.GetPoint(horizontalAlign, verticalAlign, options, &point)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getrect)
         fileprivate func getRect(_ options: PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws {
-            try _ITextRange.GetRectImpl(options, &rect, &hit)
+            try _ITextRange.GetRect(options, &rect, &hit)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.gettext)
         fileprivate func getText(_ options: TextGetOptions, _ value: inout String) throws {
-            try _ITextRange.GetTextImpl(options, &value)
+            try _ITextRange.GetText(options, &value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.gettextviastream)
         fileprivate func getTextViaStream(_ options: TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _ITextRange.GetTextViaStreamImpl(options, value)
+            try _ITextRange.GetTextViaStream(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.inrange)
         fileprivate func inRange(_ range: AnyITextRange!) throws -> Bool {
-            try _ITextRange.InRangeImpl(range)
+            try _ITextRange.InRange(range)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.insertimage)
         fileprivate func insertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _ITextRange.InsertImageImpl(width, height, ascent, verticalAlign, alternateText, value)
+            try _ITextRange.InsertImage(width, height, ascent, verticalAlign, alternateText, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.instory)
         fileprivate func inStory(_ range: AnyITextRange!) throws -> Bool {
-            try _ITextRange.InStoryImpl(range)
+            try _ITextRange.InStory(range)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.isequal)
         fileprivate func isEqual(_ range: AnyITextRange!) throws -> Bool {
-            try _ITextRange.IsEqualImpl(range)
+            try _ITextRange.IsEqual(range)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.move)
         fileprivate func move(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _ITextRange.MoveImpl(unit, count)
+            try _ITextRange.Move(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveend)
         fileprivate func moveEnd(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _ITextRange.MoveEndImpl(unit, count)
+            try _ITextRange.MoveEnd(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.movestart)
         fileprivate func moveStart(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
-            try _ITextRange.MoveStartImpl(unit, count)
+            try _ITextRange.MoveStart(unit, count)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.paste)
         fileprivate func paste(_ format: Int32) throws {
-            try _ITextRange.PasteImpl(format)
+            try _ITextRange.Paste(format)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.scrollintoview)
         fileprivate func scrollIntoView(_ value: PointOptions) throws {
-            try _ITextRange.ScrollIntoViewImpl(value)
+            try _ITextRange.ScrollIntoView(value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.matchselection)
         fileprivate func matchSelection() throws {
-            try _ITextRange.MatchSelectionImpl()
+            try _ITextRange.MatchSelection()
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.setindex)
         fileprivate func setIndex(_ unit: TextRangeUnit, _ index: Int32, _ extend: Bool) throws {
-            try _ITextRange.SetIndexImpl(unit, index, extend)
+            try _ITextRange.SetIndex(unit, index, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.setpoint)
         fileprivate func setPoint(_ point: WindowsFoundation.Point, _ options: PointOptions, _ extend: Bool) throws {
-            try _ITextRange.SetPointImpl(point, options, extend)
+            try _ITextRange.SetPoint(point, options, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.setrange)
         fileprivate func setRange(_ startPosition: Int32, _ endPosition: Int32) throws {
-            try _ITextRange.SetRangeImpl(startPosition, endPosition)
+            try _ITextRange.SetRange(startPosition, endPosition)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.settext)
         fileprivate func setText(_ options: TextSetOptions, _ value: String) throws {
-            try _ITextRange.SetTextImpl(options, value)
+            try _ITextRange.SetText(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.settextviastream)
         fileprivate func setTextViaStream(_ options: TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
-            try _ITextRange.SetTextViaStreamImpl(options, value)
+            try _ITextRange.SetTextViaStream(options, value)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.startof)
         fileprivate func startOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
-            try _ITextRange.StartOfImpl(unit, extend)
+            try _ITextRange.StartOf(unit, extend)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.character)
         fileprivate var character : Character {
-            get { try! _ITextRange.get_CharacterImpl() }
-            set { try! _ITextRange.put_CharacterImpl(newValue) }
+            get { try! _ITextRange.get_Character() }
+            set { try! _ITextRange.put_Character(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.characterformat)
         fileprivate var characterFormat : AnyITextCharacterFormat! {
-            get { try! _ITextRange.get_CharacterFormatImpl() }
-            set { try! _ITextRange.put_CharacterFormatImpl(newValue) }
+            get { try! _ITextRange.get_CharacterFormat() }
+            set { try! _ITextRange.put_CharacterFormat(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endposition)
         fileprivate var endPosition : Int32 {
-            get { try! _ITextRange.get_EndPositionImpl() }
-            set { try! _ITextRange.put_EndPositionImpl(newValue) }
+            get { try! _ITextRange.get_EndPosition() }
+            set { try! _ITextRange.put_EndPosition(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.formattedtext)
         fileprivate var formattedText : AnyITextRange! {
-            get { try! _ITextRange.get_FormattedTextImpl() }
-            set { try! _ITextRange.put_FormattedTextImpl(newValue) }
+            get { try! _ITextRange.get_FormattedText() }
+            set { try! _ITextRange.put_FormattedText(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.gravity)
         fileprivate var gravity : RangeGravity {
-            get { try! _ITextRange.get_GravityImpl() }
-            set { try! _ITextRange.put_GravityImpl(newValue) }
+            get { try! _ITextRange.get_Gravity() }
+            set { try! _ITextRange.put_Gravity(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.length)
         fileprivate var length : Int32 {
-            get { try! _ITextRange.get_LengthImpl() }
+            get { try! _ITextRange.get_Length() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.link)
         fileprivate var link : String {
-            get { try! _ITextRange.get_LinkImpl() }
-            set { try! _ITextRange.put_LinkImpl(newValue) }
+            get { try! _ITextRange.get_Link() }
+            set { try! _ITextRange.put_Link(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.paragraphformat)
         fileprivate var paragraphFormat : AnyITextParagraphFormat! {
-            get { try! _ITextRange.get_ParagraphFormatImpl() }
-            set { try! _ITextRange.put_ParagraphFormatImpl(newValue) }
+            get { try! _ITextRange.get_ParagraphFormat() }
+            set { try! _ITextRange.put_ParagraphFormat(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.startposition)
         fileprivate var startPosition : Int32 {
-            get { try! _ITextRange.get_StartPositionImpl() }
-            set { try! _ITextRange.put_StartPositionImpl(newValue) }
+            get { try! _ITextRange.get_StartPosition() }
+            set { try! _ITextRange.put_StartPosition(newValue) }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.storylength)
         fileprivate var storyLength : Int32 {
-            get { try! _ITextRange.get_StoryLengthImpl() }
+            get { try! _ITextRange.get_StoryLength() }
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.text)
         fileprivate var text : String {
-            get { try! _ITextRange.get_TextImpl() }
-            set { try! _ITextRange.put_TextImpl(newValue) }
+            get { try! _ITextRange.get_Text() }
+            set { try! _ITextRange.put_Text(newValue) }
         }
 
     }
 
+    public enum ContentLinkInfoBridge: AbiBridge {
+        public typealias SwiftProjection = ContentLinkInfo
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CIContentLinkInfo
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CText_CIContentLinkInfo>?) -> ContentLinkInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum FontWeightsBridge: AbiBridge {
+        public typealias SwiftProjection = FontWeights
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CIFontWeights
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CText_CIFontWeights>?) -> FontWeights? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RichEditTextDocumentBridge: AbiBridge {
+        public typealias SwiftProjection = RichEditTextDocument
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextDocument
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CText_CITextDocument>?) -> RichEditTextDocument? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RichEditTextRangeBridge: AbiBridge {
+        public typealias SwiftProjection = RichEditTextRange
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextRange
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CUI_CText_CITextRange>?) -> RichEditTextRange? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+extension FontWeight: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CText_CFontWeight
+    public static func from(abi: ABI) -> Self {
+        .init(weight: abi.Weight)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+@_spi(WinRTInternal)
+public class ITextCharacterFormatMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextCharacterFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextCharacterFormat = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextCharacterFormatBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ITextDocumentMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextDocument
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextDocument = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextDocumentBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ITextParagraphFormatMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextParagraphFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextParagraphFormat = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextParagraphFormatBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ITextRangeMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextRange
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextRange = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextRangeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ITextSelectionMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextSelection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextSelection = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextSelectionBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+@_spi(WinRTInternal)
+public class ContentLinkInfoMaker: MakeFromAbi {
+    public typealias SwiftType = ContentLinkInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ContentLinkInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class FontWeightsMaker: MakeFromAbi {
+    public typealias SwiftType = FontWeights
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FontWeights(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RichEditTextDocumentMaker: MakeFromAbi {
+    public typealias SwiftType = RichEditTextDocument
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RichEditTextDocument(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RichEditTextRangeMaker: MakeFromAbi {
+    public typealias SwiftType = RichEditTextRange
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RichEditTextRange(fromAbi: abi)
+    }
 }

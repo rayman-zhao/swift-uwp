@@ -48,11 +48,12 @@ private var IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubject
     .init(Data1: 0x437A78C6, Data2: 0x1C51, Data3: 0x41EA, Data4: ( 0xB3,0x4A,0x3D,0x65,0x43,0x98,0xA3,0x70 ))// 437A78C6-1C51-41EA-B34A-3D654398A370
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ICertificate: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate }
 
-        internal func BuildChainAsyncImpl(_ certificates: WindowsFoundation.AnyIIterable<UWP.Certificate?>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CertificateChain?>? {
+        public func BuildChainAsync(_ certificates: WindowsFoundation.AnyIIterable<UWP.Certificate?>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CertificateChain?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let certificatesWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCryptography__CCertificates__CCertificateWrapper(certificates)
                 let _certificates = try! certificatesWrapper?.toABI { $0 }
@@ -63,7 +64,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSecurity__CCryptography__CCertificates__CCertificateChainWrapper.unwrapFrom(abi: value)
         }
 
-        internal func BuildChainWithParametersAsyncImpl(_ certificates: WindowsFoundation.AnyIIterable<UWP.Certificate?>?, _ parameters: UWP.ChainBuildingParameters?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CertificateChain?>? {
+        public func BuildChainWithParametersAsync(_ certificates: WindowsFoundation.AnyIIterable<UWP.Certificate?>?, _ parameters: UWP.ChainBuildingParameters?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CertificateChain?>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 let certificatesWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCryptography__CCertificates__CCertificateWrapper(certificates)
                 let _certificates = try! certificatesWrapper?.toABI { $0 }
@@ -74,7 +75,38 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSecurity__CCryptography__CCertificates__CCertificateChainWrapper.unwrapFrom(abi: value)
         }
 
-        internal func GetCertificateBlobImpl() throws -> UWP.AnyIBuffer? {
+        public func get_SerialNumber() throws -> [UInt8] {
+            var value: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SerialNumber(pThis, &value.count, &value.start))
+            }
+            defer { CoTaskMemFree(value.start) }
+            return .from(abi: value)
+
+        }
+
+        public func GetHashValue() throws -> [UInt8] {
+            var value: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHashValue(pThis, &value.count, &value.start))
+            }
+            defer { CoTaskMemFree(value.start) }
+            return .from(abi: value)
+
+        }
+
+        public func GetHashValueWithAlgorithm(_ hashAlgorithmName: String) throws -> [UInt8] {
+            var value: WinRTArrayAbi<UINT8> = (0, nil)
+            let _hashAlgorithmName = try! HString(hashAlgorithmName)
+            _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHashValueWithAlgorithm(pThis, _hashAlgorithmName.get(), &value.count, &value.start))
+            }
+            defer { CoTaskMemFree(value.start) }
+            return .from(abi: value)
+
+        }
+
+        public func GetCertificateBlob() throws -> UWP.AnyIBuffer? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCertificateBlob(pThis, &valueAbi))
@@ -83,7 +115,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return __ABI_Windows_Storage_Streams.IBufferWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_SubjectImpl() throws -> String {
+        public func get_Subject() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subject(pThis, &value))
@@ -91,7 +123,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_IssuerImpl() throws -> String {
+        public func get_Issuer() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Issuer(pThis, &value))
@@ -99,7 +131,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_HasPrivateKeyImpl() throws -> Bool {
+        public func get_HasPrivateKey() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasPrivateKey(pThis, &value))
@@ -107,7 +139,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_IsStronglyProtectedImpl() throws -> Bool {
+        public func get_IsStronglyProtected() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStronglyProtected(pThis, &value))
@@ -115,7 +147,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_ValidFromImpl() throws -> WindowsFoundation.DateTime {
+        public func get_ValidFrom() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValidFrom(pThis, &value))
@@ -123,7 +155,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .from(abi: value)
         }
 
-        internal func get_ValidToImpl() throws -> WindowsFoundation.DateTime {
+        public func get_ValidTo() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValidTo(pThis, &value))
@@ -131,7 +163,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .from(abi: value)
         }
 
-        internal func get_EnhancedKeyUsagesImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_EnhancedKeyUsages() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnhancedKeyUsages(pThis, &valueAbi))
@@ -140,14 +172,14 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func put_FriendlyNameImpl(_ value: String) throws {
+        public func put_FriendlyName(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_FriendlyName(pThis, _value.get()))
             }
         }
 
-        internal func get_FriendlyNameImpl() throws -> String {
+        public func get_FriendlyName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FriendlyName(pThis, &value))
@@ -160,7 +192,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ICertificate2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2 }
 
-        internal func get_IsSecurityDeviceBoundImpl() throws -> Bool {
+        public func get_IsSecurityDeviceBound() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSecurityDeviceBound(pThis, &value))
@@ -168,16 +200,16 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_KeyUsagesImpl() throws -> UWP.CertificateKeyUsages? {
+        public func get_KeyUsages() throws -> UWP.CertificateKeyUsages? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyUsages(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Security_Cryptography_Certificates.CertificateKeyUsagesBridge.from(abi: value)
         }
 
-        internal func get_KeyAlgorithmNameImpl() throws -> String {
+        public func get_KeyAlgorithmName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyAlgorithmName(pThis, &value))
@@ -185,7 +217,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_SignatureAlgorithmNameImpl() throws -> String {
+        public func get_SignatureAlgorithmName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SignatureAlgorithmName(pThis, &value))
@@ -193,7 +225,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_SignatureHashAlgorithmNameImpl() throws -> String {
+        public func get_SignatureHashAlgorithmName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SignatureHashAlgorithmName(pThis, &value))
@@ -201,13 +233,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_SubjectAlternativeNameImpl() throws -> UWP.SubjectAlternativeNameInfo? {
+        public func get_SubjectAlternativeName() throws -> UWP.SubjectAlternativeNameInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_SubjectAlternativeName(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Security_Cryptography_Certificates.SubjectAlternativeNameInfoBridge.from(abi: value)
         }
 
     }
@@ -215,7 +247,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ICertificate3: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate3 }
 
-        internal func get_IsPerUserImpl() throws -> Bool {
+        public func get_IsPerUser() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPerUser(pThis, &value))
@@ -223,7 +255,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_StoreNameImpl() throws -> String {
+        public func get_StoreName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StoreName(pThis, &value))
@@ -231,7 +263,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func get_KeyStorageProviderNameImpl() throws -> String {
+        public func get_KeyStorageProviderName() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStorageProviderName(pThis, &value))
@@ -244,7 +276,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ICertificateChain: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain }
 
-        internal func ValidateImpl() throws -> UWP.ChainValidationResult {
+        public func Validate() throws -> UWP.ChainValidationResult {
             var status: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CChainValidationResult = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.Validate(pThis, &status))
@@ -252,7 +284,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return status
         }
 
-        internal func ValidateWithParametersImpl(_ parameter: UWP.ChainValidationParameters?) throws -> UWP.ChainValidationResult {
+        public func ValidateWithParameters(_ parameter: UWP.ChainValidationParameters?) throws -> UWP.ChainValidationResult {
             var status: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CChainValidationResult = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ValidateWithParameters(pThis, RawPointer(parameter), &status))
@@ -260,7 +292,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return status
         }
 
-        internal func GetCertificatesImpl(_ includeRoot: Bool) throws -> WindowsFoundation.AnyIVectorView<UWP.Certificate?>? {
+        public func GetCertificates(_ includeRoot: Bool) throws -> WindowsFoundation.AnyIVectorView<UWP.Certificate?>? {
             let (certificates) = try ComPtrs.initialize { certificatesAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetCertificates(pThis, .init(from: includeRoot), &certificatesAbi))
@@ -274,7 +306,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ICertificateExtension: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension }
 
-        internal func get_ObjectIdImpl() throws -> String {
+        public func get_ObjectId() throws -> String {
             var value: HSTRING?
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ObjectId(pThis, &value))
@@ -282,14 +314,14 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_ObjectIdImpl(_ value: String) throws {
+        public func put_ObjectId(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ObjectId(pThis, _value.get()))
             }
         }
 
-        internal func get_IsCriticalImpl() throws -> Bool {
+        public func get_IsCritical() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCritical(pThis, &value))
@@ -297,16 +329,34 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_IsCriticalImpl(_ value: Bool) throws {
+        public func put_IsCritical(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsCritical(pThis, .init(from: value)))
             }
         }
 
-        internal func EncodeValueImpl(_ value: String) throws {
+        public func EncodeValue(_ value: String) throws {
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.EncodeValue(pThis, _value.get()))
+            }
+        }
+
+        public func get_Value() throws -> [UInt8] {
+            var value: WinRTArrayAbi<UINT8> = (0, nil)
+            _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value.count, &value.start))
+            }
+            defer { CoTaskMemFree(value.start) }
+            return .from(abi: value)
+
+        }
+
+        public func put_Value(_ value: [UInt8]) throws {
+            try value.toABI { _value in
+                _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, _value.count, _value.start))
+                }
             }
         }
 
@@ -315,7 +365,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ICertificateFactory: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateFactory }
 
-        internal func CreateCertificateImpl(_ certBlob: UWP.AnyIBuffer?) throws -> ICertificate {
+        public func CreateCertificate(_ certBlob: UWP.AnyIBuffer?) throws -> ICertificate {
             let (certificate) = try ComPtrs.initialize { certificateAbi in
                 let certBlobWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(certBlob)
                 let _certBlob = try! certBlobWrapper?.toABI { $0 }
@@ -331,7 +381,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ICertificateKeyUsages: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages }
 
-        internal func get_EncipherOnlyImpl() throws -> Bool {
+        public func get_EncipherOnly() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncipherOnly(pThis, &value))
@@ -339,13 +389,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_EncipherOnlyImpl(_ value: Bool) throws {
+        public func put_EncipherOnly(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_EncipherOnly(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CrlSignImpl() throws -> Bool {
+        public func get_CrlSign() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CrlSign(pThis, &value))
@@ -353,13 +403,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_CrlSignImpl(_ value: Bool) throws {
+        public func put_CrlSign(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CrlSign(pThis, .init(from: value)))
             }
         }
 
-        internal func get_KeyCertificateSignImpl() throws -> Bool {
+        public func get_KeyCertificateSign() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyCertificateSign(pThis, &value))
@@ -367,13 +417,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_KeyCertificateSignImpl(_ value: Bool) throws {
+        public func put_KeyCertificateSign(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyCertificateSign(pThis, .init(from: value)))
             }
         }
 
-        internal func get_KeyAgreementImpl() throws -> Bool {
+        public func get_KeyAgreement() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyAgreement(pThis, &value))
@@ -381,13 +431,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_KeyAgreementImpl(_ value: Bool) throws {
+        public func put_KeyAgreement(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyAgreement(pThis, .init(from: value)))
             }
         }
 
-        internal func get_DataEnciphermentImpl() throws -> Bool {
+        public func get_DataEncipherment() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataEncipherment(pThis, &value))
@@ -395,13 +445,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_DataEnciphermentImpl(_ value: Bool) throws {
+        public func put_DataEncipherment(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DataEncipherment(pThis, .init(from: value)))
             }
         }
 
-        internal func get_KeyEnciphermentImpl() throws -> Bool {
+        public func get_KeyEncipherment() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyEncipherment(pThis, &value))
@@ -409,13 +459,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_KeyEnciphermentImpl(_ value: Bool) throws {
+        public func put_KeyEncipherment(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyEncipherment(pThis, .init(from: value)))
             }
         }
 
-        internal func get_NonRepudiationImpl() throws -> Bool {
+        public func get_NonRepudiation() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NonRepudiation(pThis, &value))
@@ -423,13 +473,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_NonRepudiationImpl(_ value: Bool) throws {
+        public func put_NonRepudiation(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NonRepudiation(pThis, .init(from: value)))
             }
         }
 
-        internal func get_DigitalSignatureImpl() throws -> Bool {
+        public func get_DigitalSignature() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DigitalSignature(pThis, &value))
@@ -437,7 +487,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_DigitalSignatureImpl(_ value: Bool) throws {
+        public func put_DigitalSignature(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_DigitalSignature(pThis, .init(from: value)))
             }
@@ -448,7 +498,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class IChainBuildingParameters: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters }
 
-        internal func get_EnhancedKeyUsagesImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_EnhancedKeyUsages() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnhancedKeyUsages(pThis, &valueAbi))
@@ -457,7 +507,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ValidationTimestampImpl() throws -> WindowsFoundation.DateTime {
+        public func get_ValidationTimestamp() throws -> WindowsFoundation.DateTime {
             var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValidationTimestamp(pThis, &value))
@@ -465,13 +515,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .from(abi: value)
         }
 
-        internal func put_ValidationTimestampImpl(_ value: WindowsFoundation.DateTime) throws {
+        public func put_ValidationTimestamp(_ value: WindowsFoundation.DateTime) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ValidationTimestamp(pThis, .from(swift: value)))
             }
         }
 
-        internal func get_RevocationCheckEnabledImpl() throws -> Bool {
+        public func get_RevocationCheckEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RevocationCheckEnabled(pThis, &value))
@@ -479,13 +529,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_RevocationCheckEnabledImpl(_ value: Bool) throws {
+        public func put_RevocationCheckEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_RevocationCheckEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_NetworkRetrievalEnabledImpl() throws -> Bool {
+        public func get_NetworkRetrievalEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkRetrievalEnabled(pThis, &value))
@@ -493,13 +543,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_NetworkRetrievalEnabledImpl(_ value: Bool) throws {
+        public func put_NetworkRetrievalEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_NetworkRetrievalEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_AuthorityInformationAccessEnabledImpl() throws -> Bool {
+        public func get_AuthorityInformationAccessEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AuthorityInformationAccessEnabled(pThis, &value))
@@ -507,13 +557,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_AuthorityInformationAccessEnabledImpl(_ value: Bool) throws {
+        public func put_AuthorityInformationAccessEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_AuthorityInformationAccessEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_CurrentTimeValidationEnabledImpl() throws -> Bool {
+        public func get_CurrentTimeValidationEnabled() throws -> Bool {
             var value: boolean = 0
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentTimeValidationEnabled(pThis, &value))
@@ -521,13 +571,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return .init(from: value)
         }
 
-        internal func put_CurrentTimeValidationEnabledImpl(_ value: Bool) throws {
+        public func put_CurrentTimeValidationEnabled(_ value: Bool) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CurrentTimeValidationEnabled(pThis, .init(from: value)))
             }
         }
 
-        internal func get_ExclusiveTrustRootsImpl() throws -> WindowsFoundation.AnyIVector<UWP.Certificate?>? {
+        public func get_ExclusiveTrustRoots() throws -> WindowsFoundation.AnyIVector<UWP.Certificate?>? {
             let (certificates) = try ComPtrs.initialize { certificatesAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExclusiveTrustRoots(pThis, &certificatesAbi))
@@ -541,7 +591,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class IChainValidationParameters: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters }
 
-        internal func get_CertificateChainPolicyImpl() throws -> UWP.CertificateChainPolicy {
+        public func get_CertificateChainPolicy() throws -> UWP.CertificateChainPolicy {
             var value: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CCertificateChainPolicy = .init(0)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CertificateChainPolicy(pThis, &value))
@@ -549,22 +599,22 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return value
         }
 
-        internal func put_CertificateChainPolicyImpl(_ value: UWP.CertificateChainPolicy) throws {
+        public func put_CertificateChainPolicy(_ value: UWP.CertificateChainPolicy) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_CertificateChainPolicy(pThis, value))
             }
         }
 
-        internal func get_ServerDnsNameImpl() throws -> UWP.HostName? {
+        public func get_ServerDnsName() throws -> UWP.HostName? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_ServerDnsName(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Networking.HostNameBridge.from(abi: value)
         }
 
-        internal func put_ServerDnsNameImpl(_ value: UWP.HostName?) throws {
+        public func put_ServerDnsName(_ value: UWP.HostName?) throws {
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_ServerDnsName(pThis, RawPointer(value)))
             }
@@ -575,7 +625,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ISubjectAlternativeNameInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo }
 
-        internal func get_EmailNameImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_EmailName() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EmailName(pThis, &valueAbi))
@@ -584,7 +634,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_IPAddressImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_IPAddress() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IPAddress(pThis, &valueAbi))
@@ -593,7 +643,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_UrlImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_Url() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Url(pThis, &valueAbi))
@@ -602,7 +652,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_DnsNameImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_DnsName() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DnsName(pThis, &valueAbi))
@@ -611,7 +661,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_DistinguishedNameImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_DistinguishedName() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DistinguishedName(pThis, &valueAbi))
@@ -620,7 +670,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_PrincipalNameImpl() throws -> WindowsFoundation.AnyIVectorView<String>? {
+        public func get_PrincipalName() throws -> WindowsFoundation.AnyIVectorView<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrincipalName(pThis, &valueAbi))
@@ -634,7 +684,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
     public class ISubjectAlternativeNameInfo2: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2 }
 
-        internal func get_EmailNamesImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_EmailNames() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_EmailNames(pThis, &valueAbi))
@@ -643,7 +693,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_IPAddressesImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_IPAddresses() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_IPAddresses(pThis, &valueAbi))
@@ -652,7 +702,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_UrlsImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_Urls() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Urls(pThis, &valueAbi))
@@ -661,7 +711,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_DnsNamesImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_DnsNames() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DnsNames(pThis, &valueAbi))
@@ -670,7 +720,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_DistinguishedNamesImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_DistinguishedNames() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DistinguishedNames(pThis, &valueAbi))
@@ -679,7 +729,7 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_PrincipalNamesImpl() throws -> WindowsFoundation.AnyIVector<String>? {
+        public func get_PrincipalNames() throws -> WindowsFoundation.AnyIVector<String>? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrincipalNames(pThis, &valueAbi))
@@ -688,13 +738,13 @@ public enum __ABI_Windows_Security_Cryptography_Certificates {
             return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
         }
 
-        internal func get_ExtensionImpl() throws -> UWP.CertificateExtension? {
+        public func get_Extension() throws -> UWP.CertificateExtension? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_Extension(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_Security_Cryptography_Certificates.CertificateExtensionBridge.from(abi: value)
         }
 
     }

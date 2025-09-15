@@ -28,17 +28,18 @@ private var IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport:
     .init(Data1: 0x38663C87, Data2: 0x2A9F, Data3: 0x403A, Data4: ( 0xBD,0x19,0x2C,0xF3,0xE8,0x16,0x95,0x00 ))// 38663C87-2A9F-403A-BD19-2CF3E8169500
 }
 
+@_spi(WinRTInternal)
 public enum __ABI_Windows_System_Diagnostics {
     public class ISystemCpuUsage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage }
 
-        internal func GetReportImpl() throws -> UWP.SystemCpuUsageReport? {
+        public func GetReport() throws -> UWP.SystemCpuUsageReport? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetReport(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System_Diagnostics.SystemCpuUsageReportBridge.from(abi: value)
         }
 
     }
@@ -46,7 +47,7 @@ public enum __ABI_Windows_System_Diagnostics {
     public class ISystemCpuUsageReport: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport }
 
-        internal func get_KernelTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_KernelTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KernelTime(pThis, &value))
@@ -54,7 +55,7 @@ public enum __ABI_Windows_System_Diagnostics {
             return .from(abi: value)
         }
 
-        internal func get_UserTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_UserTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserTime(pThis, &value))
@@ -62,7 +63,7 @@ public enum __ABI_Windows_System_Diagnostics {
             return .from(abi: value)
         }
 
-        internal func get_IdleTimeImpl() throws -> WindowsFoundation.TimeSpan {
+        public func get_IdleTime() throws -> WindowsFoundation.TimeSpan {
             var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
             _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_IdleTime(pThis, &value))
@@ -75,22 +76,22 @@ public enum __ABI_Windows_System_Diagnostics {
     public class ISystemDiagnosticInfo: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo }
 
-        internal func get_MemoryUsageImpl() throws -> UWP.SystemMemoryUsage? {
+        public func get_MemoryUsage() throws -> UWP.SystemMemoryUsage? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_MemoryUsage(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System_Diagnostics.SystemMemoryUsageBridge.from(abi: value)
         }
 
-        internal func get_CpuUsageImpl() throws -> UWP.SystemCpuUsage? {
+        public func get_CpuUsage() throws -> UWP.SystemCpuUsage? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_CpuUsage(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System_Diagnostics.SystemCpuUsageBridge.from(abi: value)
         }
 
     }
@@ -98,13 +99,13 @@ public enum __ABI_Windows_System_Diagnostics {
     public class ISystemDiagnosticInfoStatics: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics }
 
-        internal func GetForCurrentSystemImpl() throws -> UWP.SystemDiagnosticInfo? {
+        public func GetForCurrentSystem() throws -> UWP.SystemDiagnosticInfo? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentSystem(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System_Diagnostics.SystemDiagnosticInfoBridge.from(abi: value)
         }
 
     }
@@ -112,13 +113,13 @@ public enum __ABI_Windows_System_Diagnostics {
     public class ISystemMemoryUsage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage }
 
-        internal func GetReportImpl() throws -> UWP.SystemMemoryUsageReport? {
+        public func GetReport() throws -> UWP.SystemMemoryUsageReport? {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.GetReport(pThis, &valueAbi))
                 }
             }
-            return .from(abi: value)
+            return __IMPL_Windows_System_Diagnostics.SystemMemoryUsageReportBridge.from(abi: value)
         }
 
     }
@@ -126,7 +127,7 @@ public enum __ABI_Windows_System_Diagnostics {
     public class ISystemMemoryUsageReport: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport }
 
-        internal func get_TotalPhysicalSizeInBytesImpl() throws -> UInt64 {
+        public func get_TotalPhysicalSizeInBytes() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TotalPhysicalSizeInBytes(pThis, &value))
@@ -134,7 +135,7 @@ public enum __ABI_Windows_System_Diagnostics {
             return value
         }
 
-        internal func get_AvailableSizeInBytesImpl() throws -> UInt64 {
+        public func get_AvailableSizeInBytes() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AvailableSizeInBytes(pThis, &value))
@@ -142,7 +143,7 @@ public enum __ABI_Windows_System_Diagnostics {
             return value
         }
 
-        internal func get_CommittedSizeInBytesImpl() throws -> UInt64 {
+        public func get_CommittedSizeInBytes() throws -> UInt64 {
             var value: UINT64 = 0
             _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommittedSizeInBytes(pThis, &value))
