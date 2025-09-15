@@ -8,8 +8,8 @@ let package = Package(
         .library(name: "UWP", type: .static, targets: ["UWP"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/rayman-zhao/swift-cwinrt", branch: "wasdk1.8"),
-        .package(url: "https://github.com/rayman-zhao/swift-windowsfoundation", branch: "wasdk1.8"),
+        .package(url: "https://github.com/rayman-zhao/swift-cwinrt", branch: "main"),
+        .package(url: "https://github.com/rayman-zhao/swift-windowsfoundation", branch: "main"),
     ],
     targets: [
         .target(
@@ -21,3 +21,4 @@ let package = Package(
         ),
     ]
 )
+
