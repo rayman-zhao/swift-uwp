@@ -6,6 +6,7 @@
   "project": "UWP",
   "include": [
     "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs",
+    "Windows.ApplicationModel.Contacts.Contact",
     "Windows.ApplicationModel.Core",
     "Windows.ApplicationModel.DataTransfer",
     "Windows.ApplicationModel.DataTransfer.DragDrop",

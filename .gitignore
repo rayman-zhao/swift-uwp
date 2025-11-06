@@ -35,6 +35,7 @@ Package.resolved
 .swiftpm/
 .generated/
 .packages/
+swift-winrt.rsp
 #.swiftpm/configuration/registries.json
 #.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 
