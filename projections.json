@@ -32,7 +32,8 @@
     "Windows.Web.Http.HttpClient",
     "Windows.System.DispatcherQueueController",
 
-    "Windows.UI.Text"
+    "Windows.UI.Text",
+    "Windows.Globalization"
   ],
   "exclude": [
     "Windows.Devices.Enumeration.Panel",

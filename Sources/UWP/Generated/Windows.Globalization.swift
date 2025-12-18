@@ -4,8 +4,1630 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.dayofweek)
+public typealias DayOfWeek = __x_ABI_CWindows_CGlobalization_CDayOfWeek
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.languagelayoutdirection)
 public typealias LanguageLayoutDirection = __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.applicationlanguages)
+public final class ApplicationLanguages {
+    private static let _IApplicationLanguagesStatics: __ABI_Windows_Globalization.IApplicationLanguagesStatics = try! RoGetActivationFactory("Windows.Globalization.ApplicationLanguages")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.applicationlanguages.languages)
+    public static var languages : WindowsFoundation.AnyIVectorView<String>! {
+        get { try! _IApplicationLanguagesStatics.get_Languages() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.applicationlanguages.manifestlanguages)
+    public static var manifestLanguages : WindowsFoundation.AnyIVectorView<String>! {
+        get { try! _IApplicationLanguagesStatics.get_ManifestLanguages() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.applicationlanguages.primarylanguageoverride)
+    public static var primaryLanguageOverride : String {
+        get { try! _IApplicationLanguagesStatics.get_PrimaryLanguageOverride() }
+        set { try! _IApplicationLanguagesStatics.put_PrimaryLanguageOverride(newValue) }
+    }
+
+    private static let _IApplicationLanguagesStatics2: __ABI_Windows_Globalization.IApplicationLanguagesStatics2 = try! RoGetActivationFactory("Windows.Globalization.ApplicationLanguages")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.applicationlanguages.getlanguagesforuser)
+    public static func getLanguagesForUser(_ user: UWP.User!) throws -> WindowsFoundation.AnyIVectorView<String>! {
+        return try _IApplicationLanguagesStatics2.GetLanguagesForUser(user)
+    }
+
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar)
+public final class Calendar : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Globalization.ICalendar
+    private typealias CABI = __x_ABI_CWindows_CGlobalization_CICalendar
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Globalization.Calendar")
+    override public init() {
+        super.init(try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _ICalendarFactory: __ABI_Windows_Globalization.ICalendarFactory = try! RoGetActivationFactory("Windows.Globalization.Calendar")
+    public init(_ languages: WindowsFoundation.AnyIIterable<String>!) {
+        super.init(try! Self._ICalendarFactory.CreateCalendarDefaultCalendarAndClock(languages))
+    }
+
+    public init(_ languages: WindowsFoundation.AnyIIterable<String>!, _ calendar: String, _ clock: String) {
+        super.init(try! Self._ICalendarFactory.CreateCalendar(languages, calendar, clock))
+    }
+
+    private static let _ICalendarFactory2: __ABI_Windows_Globalization.ICalendarFactory2 = try! RoGetActivationFactory("Windows.Globalization.Calendar")
+    public init(_ languages: WindowsFoundation.AnyIIterable<String>!, _ calendar: String, _ clock: String, _ timeZoneId: String) {
+        super.init(try! Self._ICalendarFactory2.CreateCalendarWithTimeZone(languages, calendar, clock, timeZoneId))
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.clone)
+    public func clone() throws -> Calendar! {
+        try _default.Clone()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.settomin)
+    public func setToMin() throws {
+        try _default.SetToMin()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.settomax)
+    public func setToMax() throws {
+        try _default.SetToMax()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.getcalendarsystem)
+    public func getCalendarSystem() throws -> String {
+        try _default.GetCalendarSystem()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.changecalendarsystem)
+    public func changeCalendarSystem(_ value: String) throws {
+        try _default.ChangeCalendarSystem(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.getclock)
+    public func getClock() throws -> String {
+        try _default.GetClock()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.changeclock)
+    public func changeClock(_ value: String) throws {
+        try _default.ChangeClock(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.getdatetime)
+    public func getDateTime() throws -> WindowsFoundation.DateTime {
+        try _default.GetDateTime()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.setdatetime)
+    public func setDateTime(_ value: WindowsFoundation.DateTime) throws {
+        try _default.SetDateTime(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.settonow)
+    public func setToNow() throws {
+        try _default.SetToNow()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.adderas)
+    public func addEras(_ eras: Int32) throws {
+        try _default.AddEras(eras)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.eraasstring)
+    public func eraAsString() throws -> String {
+        try _default.EraAsFullString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.eraasstring)
+    public func eraAsString(_ idealLength: Int32) throws -> String {
+        try _default.EraAsString(idealLength)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addyears)
+    public func addYears(_ years: Int32) throws {
+        try _default.AddYears(years)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.yearasstring)
+    public func yearAsString() throws -> String {
+        try _default.YearAsString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.yearastruncatedstring)
+    public func yearAsTruncatedString(_ remainingDigits: Int32) throws -> String {
+        try _default.YearAsTruncatedString(remainingDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.yearaspaddedstring)
+    public func yearAsPaddedString(_ minDigits: Int32) throws -> String {
+        try _default.YearAsPaddedString(minDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addmonths)
+    public func addMonths(_ months: Int32) throws {
+        try _default.AddMonths(months)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.monthasstring)
+    public func monthAsString() throws -> String {
+        try _default.MonthAsFullString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.monthasstring)
+    public func monthAsString(_ idealLength: Int32) throws -> String {
+        try _default.MonthAsString(idealLength)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.monthassolostring)
+    public func monthAsSoloString() throws -> String {
+        try _default.MonthAsFullSoloString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.monthassolostring)
+    public func monthAsSoloString(_ idealLength: Int32) throws -> String {
+        try _default.MonthAsSoloString(idealLength)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.monthasnumericstring)
+    public func monthAsNumericString() throws -> String {
+        try _default.MonthAsNumericString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.monthaspaddednumericstring)
+    public func monthAsPaddedNumericString(_ minDigits: Int32) throws -> String {
+        try _default.MonthAsPaddedNumericString(minDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addweeks)
+    public func addWeeks(_ weeks: Int32) throws {
+        try _default.AddWeeks(weeks)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.adddays)
+    public func addDays(_ days: Int32) throws {
+        try _default.AddDays(days)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.dayasstring)
+    public func dayAsString() throws -> String {
+        try _default.DayAsString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.dayaspaddedstring)
+    public func dayAsPaddedString(_ minDigits: Int32) throws -> String {
+        try _default.DayAsPaddedString(minDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.dayofweekasstring)
+    public func dayOfWeekAsString() throws -> String {
+        try _default.DayOfWeekAsFullString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.dayofweekasstring)
+    public func dayOfWeekAsString(_ idealLength: Int32) throws -> String {
+        try _default.DayOfWeekAsString(idealLength)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.dayofweekassolostring)
+    public func dayOfWeekAsSoloString() throws -> String {
+        try _default.DayOfWeekAsFullSoloString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.dayofweekassolostring)
+    public func dayOfWeekAsSoloString(_ idealLength: Int32) throws -> String {
+        try _default.DayOfWeekAsSoloString(idealLength)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addperiods)
+    public func addPeriods(_ periods: Int32) throws {
+        try _default.AddPeriods(periods)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.periodasstring)
+    public func periodAsString() throws -> String {
+        try _default.PeriodAsFullString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.periodasstring)
+    public func periodAsString(_ idealLength: Int32) throws -> String {
+        try _default.PeriodAsString(idealLength)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addhours)
+    public func addHours(_ hours: Int32) throws {
+        try _default.AddHours(hours)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.hourasstring)
+    public func hourAsString() throws -> String {
+        try _default.HourAsString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.houraspaddedstring)
+    public func hourAsPaddedString(_ minDigits: Int32) throws -> String {
+        try _default.HourAsPaddedString(minDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addminutes)
+    public func addMinutes(_ minutes: Int32) throws {
+        try _default.AddMinutes(minutes)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.minuteasstring)
+    public func minuteAsString() throws -> String {
+        try _default.MinuteAsString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.minuteaspaddedstring)
+    public func minuteAsPaddedString(_ minDigits: Int32) throws -> String {
+        try _default.MinuteAsPaddedString(minDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addseconds)
+    public func addSeconds(_ seconds: Int32) throws {
+        try _default.AddSeconds(seconds)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.secondasstring)
+    public func secondAsString() throws -> String {
+        try _default.SecondAsString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.secondaspaddedstring)
+    public func secondAsPaddedString(_ minDigits: Int32) throws -> String {
+        try _default.SecondAsPaddedString(minDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.addnanoseconds)
+    public func addNanoseconds(_ nanoseconds: Int32) throws {
+        try _default.AddNanoseconds(nanoseconds)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.nanosecondasstring)
+    public func nanosecondAsString() throws -> String {
+        try _default.NanosecondAsString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.nanosecondaspaddedstring)
+    public func nanosecondAsPaddedString(_ minDigits: Int32) throws -> String {
+        try _default.NanosecondAsPaddedString(minDigits)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.compare)
+    public func compare(_ other: Calendar!) throws -> Int32 {
+        try _default.Compare(other)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.comparedatetime)
+    public func compareDateTime(_ other: WindowsFoundation.DateTime) throws -> Int32 {
+        try _default.CompareDateTime(other)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.copyto)
+    public func copyTo(_ other: Calendar!) throws {
+        try _default.CopyTo(other)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.day)
+    public var day : Int32 {
+        get { try! _default.get_Day() }
+        set { try! _default.put_Day(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.dayofweek)
+    public var dayOfWeek : DayOfWeek {
+        get { try! _default.get_DayOfWeek() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.era)
+    public var era : Int32 {
+        get { try! _default.get_Era() }
+        set { try! _default.put_Era(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firstdayinthismonth)
+    public var firstDayInThisMonth : Int32 {
+        get { try! _default.get_FirstDayInThisMonth() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firstera)
+    public var firstEra : Int32 {
+        get { try! _default.get_FirstEra() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firsthourinthisperiod)
+    public var firstHourInThisPeriod : Int32 {
+        get { try! _default.get_FirstHourInThisPeriod() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firstminuteinthishour)
+    public var firstMinuteInThisHour : Int32 {
+        get { try! _default.get_FirstMinuteInThisHour() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firstmonthinthisyear)
+    public var firstMonthInThisYear : Int32 {
+        get { try! _default.get_FirstMonthInThisYear() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firstperiodinthisday)
+    public var firstPeriodInThisDay : Int32 {
+        get { try! _default.get_FirstPeriodInThisDay() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firstsecondinthisminute)
+    public var firstSecondInThisMinute : Int32 {
+        get { try! _default.get_FirstSecondInThisMinute() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.firstyearinthisera)
+    public var firstYearInThisEra : Int32 {
+        get { try! _default.get_FirstYearInThisEra() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.hour)
+    public var hour : Int32 {
+        get { try! _default.get_Hour() }
+        set { try! _default.put_Hour(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.isdaylightsavingtime)
+    public var isDaylightSavingTime : Bool {
+        get { try! _default.get_IsDaylightSavingTime() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.languages)
+    public var languages : WindowsFoundation.AnyIVectorView<String>! {
+        get { try! _default.get_Languages() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lastdayinthismonth)
+    public var lastDayInThisMonth : Int32 {
+        get { try! _default.get_LastDayInThisMonth() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lastera)
+    public var lastEra : Int32 {
+        get { try! _default.get_LastEra() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lasthourinthisperiod)
+    public var lastHourInThisPeriod : Int32 {
+        get { try! _default.get_LastHourInThisPeriod() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lastminuteinthishour)
+    public var lastMinuteInThisHour : Int32 {
+        get { try! _default.get_LastMinuteInThisHour() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lastmonthinthisyear)
+    public var lastMonthInThisYear : Int32 {
+        get { try! _default.get_LastMonthInThisYear() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lastperiodinthisday)
+    public var lastPeriodInThisDay : Int32 {
+        get { try! _default.get_LastPeriodInThisDay() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lastsecondinthisminute)
+    public var lastSecondInThisMinute : Int32 {
+        get { try! _default.get_LastSecondInThisMinute() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.lastyearinthisera)
+    public var lastYearInThisEra : Int32 {
+        get { try! _default.get_LastYearInThisEra() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.minute)
+    public var minute : Int32 {
+        get { try! _default.get_Minute() }
+        set { try! _default.put_Minute(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.month)
+    public var month : Int32 {
+        get { try! _default.get_Month() }
+        set { try! _default.put_Month(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.nanosecond)
+    public var nanosecond : Int32 {
+        get { try! _default.get_Nanosecond() }
+        set { try! _default.put_Nanosecond(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberofdaysinthismonth)
+    public var numberOfDaysInThisMonth : Int32 {
+        get { try! _default.get_NumberOfDaysInThisMonth() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberoferas)
+    public var numberOfEras : Int32 {
+        get { try! _default.get_NumberOfEras() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberofhoursinthisperiod)
+    public var numberOfHoursInThisPeriod : Int32 {
+        get { try! _default.get_NumberOfHoursInThisPeriod() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberofminutesinthishour)
+    public var numberOfMinutesInThisHour : Int32 {
+        get { try! _default.get_NumberOfMinutesInThisHour() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberofmonthsinthisyear)
+    public var numberOfMonthsInThisYear : Int32 {
+        get { try! _default.get_NumberOfMonthsInThisYear() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberofperiodsinthisday)
+    public var numberOfPeriodsInThisDay : Int32 {
+        get { try! _default.get_NumberOfPeriodsInThisDay() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberofsecondsinthisminute)
+    public var numberOfSecondsInThisMinute : Int32 {
+        get { try! _default.get_NumberOfSecondsInThisMinute() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numberofyearsinthisera)
+    public var numberOfYearsInThisEra : Int32 {
+        get { try! _default.get_NumberOfYearsInThisEra() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.numeralsystem)
+    public var numeralSystem : String {
+        get { try! _default.get_NumeralSystem() }
+        set { try! _default.put_NumeralSystem(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.period)
+    public var period : Int32 {
+        get { try! _default.get_Period() }
+        set { try! _default.put_Period(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.resolvedlanguage)
+    public var resolvedLanguage : String {
+        get { try! _default.get_ResolvedLanguage() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.second)
+    public var second : Int32 {
+        get { try! _default.get_Second() }
+        set { try! _default.put_Second(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.year)
+    public var year : Int32 {
+        get { try! _default.get_Year() }
+        set { try! _default.put_Year(newValue) }
+    }
+
+    private lazy var _ITimeZoneOnCalendar: __ABI_Windows_Globalization.ITimeZoneOnCalendar! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.gettimezone)
+    public func getTimeZone() throws -> String {
+        try _ITimeZoneOnCalendar.GetTimeZone()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.changetimezone)
+    public func changeTimeZone(_ timeZoneId: String) throws {
+        try _ITimeZoneOnCalendar.ChangeTimeZone(timeZoneId)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.timezoneasstring)
+    public func timeZoneAsString() throws -> String {
+        try _ITimeZoneOnCalendar.TimeZoneAsFullString()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar.timezoneasstring)
+    public func timeZoneAsString(_ idealLength: Int32) throws -> String {
+        try _ITimeZoneOnCalendar.TimeZoneAsString(idealLength)
+    }
+
+    deinit {
+        _default = nil
+        _ITimeZoneOnCalendar = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers)
+public final class CalendarIdentifiers {
+    private static let _ICalendarIdentifiersStatics: __ABI_Windows_Globalization.ICalendarIdentifiersStatics = try! RoGetActivationFactory("Windows.Globalization.CalendarIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.gregorian)
+    public static var gregorian : String {
+        get { try! _ICalendarIdentifiersStatics.get_Gregorian() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.hebrew)
+    public static var hebrew : String {
+        get { try! _ICalendarIdentifiersStatics.get_Hebrew() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.hijri)
+    public static var hijri : String {
+        get { try! _ICalendarIdentifiersStatics.get_Hijri() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.japanese)
+    public static var japanese : String {
+        get { try! _ICalendarIdentifiersStatics.get_Japanese() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.julian)
+    public static var julian : String {
+        get { try! _ICalendarIdentifiersStatics.get_Julian() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.korean)
+    public static var korean : String {
+        get { try! _ICalendarIdentifiersStatics.get_Korean() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.taiwan)
+    public static var taiwan : String {
+        get { try! _ICalendarIdentifiersStatics.get_Taiwan() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.thai)
+    public static var thai : String {
+        get { try! _ICalendarIdentifiersStatics.get_Thai() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.umalqura)
+    public static var umAlQura : String {
+        get { try! _ICalendarIdentifiersStatics.get_UmAlQura() }
+    }
+
+    private static let _ICalendarIdentifiersStatics2: __ABI_Windows_Globalization.ICalendarIdentifiersStatics2 = try! RoGetActivationFactory("Windows.Globalization.CalendarIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.persian)
+    public static var persian : String {
+        get { try! _ICalendarIdentifiersStatics2.get_Persian() }
+    }
+
+    private static let _ICalendarIdentifiersStatics3: __ABI_Windows_Globalization.ICalendarIdentifiersStatics3 = try! RoGetActivationFactory("Windows.Globalization.CalendarIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.chineselunar)
+    public static var chineseLunar : String {
+        get { try! _ICalendarIdentifiersStatics3.get_ChineseLunar() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.japaneselunar)
+    public static var japaneseLunar : String {
+        get { try! _ICalendarIdentifiersStatics3.get_JapaneseLunar() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.koreanlunar)
+    public static var koreanLunar : String {
+        get { try! _ICalendarIdentifiersStatics3.get_KoreanLunar() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.taiwanlunar)
+    public static var taiwanLunar : String {
+        get { try! _ICalendarIdentifiersStatics3.get_TaiwanLunar() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers.vietnameselunar)
+    public static var vietnameseLunar : String {
+        get { try! _ICalendarIdentifiersStatics3.get_VietnameseLunar() }
+    }
+
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.clockidentifiers)
+public final class ClockIdentifiers {
+    private static let _IClockIdentifiersStatics: __ABI_Windows_Globalization.IClockIdentifiersStatics = try! RoGetActivationFactory("Windows.Globalization.ClockIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.clockidentifiers.twelvehour)
+    public static var twelveHour : String {
+        get { try! _IClockIdentifiersStatics.get_TwelveHour() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.clockidentifiers.twentyfourhour)
+    public static var twentyFourHour : String {
+        get { try! _IClockIdentifiersStatics.get_TwentyFourHour() }
+    }
+
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyamount)
+public final class CurrencyAmount : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Globalization.ICurrencyAmount
+    private typealias CABI = __x_ABI_CWindows_CGlobalization_CICurrencyAmount
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _ICurrencyAmountFactory: __ABI_Windows_Globalization.ICurrencyAmountFactory = try! RoGetActivationFactory("Windows.Globalization.CurrencyAmount")
+    public init(_ amount: String, _ currency: String) {
+        super.init(try! Self._ICurrencyAmountFactory.Create(amount, currency))
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyamount.amount)
+    public var amount : String {
+        get { try! _default.get_Amount() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyamount.currency)
+    public var currency : String {
+        get { try! _default.get_Currency() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers)
+public final class CurrencyIdentifiers {
+    private static let _ICurrencyIdentifiersStatics: __ABI_Windows_Globalization.ICurrencyIdentifiersStatics = try! RoGetActivationFactory("Windows.Globalization.CurrencyIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.aed)
+    public static var aed : String {
+        get { try! _ICurrencyIdentifiersStatics.get_AED() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.afn)
+    public static var afn : String {
+        get { try! _ICurrencyIdentifiersStatics.get_AFN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.all)
+    public static var all : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ALL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.amd)
+    public static var amd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_AMD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ang)
+    public static var ang : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ANG() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.aoa)
+    public static var aoa : String {
+        get { try! _ICurrencyIdentifiersStatics.get_AOA() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ars)
+    public static var ars : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ARS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.aud)
+    public static var aud : String {
+        get { try! _ICurrencyIdentifiersStatics.get_AUD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.awg)
+    public static var awg : String {
+        get { try! _ICurrencyIdentifiersStatics.get_AWG() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.azn)
+    public static var azn : String {
+        get { try! _ICurrencyIdentifiersStatics.get_AZN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bam)
+    public static var bam : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BAM() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bbd)
+    public static var bbd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BBD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bdt)
+    public static var bdt : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BDT() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bgn)
+    public static var bgn : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BGN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bhd)
+    public static var bhd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BHD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bif)
+    public static var bif : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BIF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bmd)
+    public static var bmd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BMD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bnd)
+    public static var bnd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BND() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bob)
+    public static var bob : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BOB() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.brl)
+    public static var brl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BRL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bsd)
+    public static var bsd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BSD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.btn)
+    public static var btn : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BTN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bwp)
+    public static var bwp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BWP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.byr)
+    public static var byr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BYR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.bzd)
+    public static var bzd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_BZD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.cad)
+    public static var cad : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CAD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.cdf)
+    public static var cdf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CDF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.chf)
+    public static var chf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CHF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.clp)
+    public static var clp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CLP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.cny)
+    public static var cny : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CNY() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.cop)
+    public static var cop : String {
+        get { try! _ICurrencyIdentifiersStatics.get_COP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.crc)
+    public static var crc : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CRC() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.cup)
+    public static var cup : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CUP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.cve)
+    public static var cve : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CVE() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.czk)
+    public static var czk : String {
+        get { try! _ICurrencyIdentifiersStatics.get_CZK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.djf)
+    public static var djf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_DJF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.dkk)
+    public static var dkk : String {
+        get { try! _ICurrencyIdentifiersStatics.get_DKK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.dop)
+    public static var dop : String {
+        get { try! _ICurrencyIdentifiersStatics.get_DOP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.dzd)
+    public static var dzd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_DZD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.egp)
+    public static var egp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_EGP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ern)
+    public static var ern : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ERN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.etb)
+    public static var etb : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ETB() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.eur)
+    public static var eur : String {
+        get { try! _ICurrencyIdentifiersStatics.get_EUR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.fjd)
+    public static var fjd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_FJD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.fkp)
+    public static var fkp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_FKP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.gbp)
+    public static var gbp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GBP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.gel)
+    public static var gel : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GEL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ghs)
+    public static var ghs : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GHS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.gip)
+    public static var gip : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GIP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.gmd)
+    public static var gmd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GMD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.gnf)
+    public static var gnf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GNF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.gtq)
+    public static var gtq : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GTQ() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.gyd)
+    public static var gyd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_GYD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.hkd)
+    public static var hkd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_HKD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.hnl)
+    public static var hnl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_HNL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.hrk)
+    public static var hrk : String {
+        get { try! _ICurrencyIdentifiersStatics.get_HRK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.htg)
+    public static var htg : String {
+        get { try! _ICurrencyIdentifiersStatics.get_HTG() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.huf)
+    public static var huf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_HUF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.idr)
+    public static var idr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_IDR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ils)
+    public static var ils : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ILS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.inr)
+    public static var inr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_INR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.iqd)
+    public static var iqd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_IQD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.irr)
+    public static var irr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_IRR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.isk)
+    public static var isk : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ISK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.jmd)
+    public static var jmd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_JMD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.jod)
+    public static var jod : String {
+        get { try! _ICurrencyIdentifiersStatics.get_JOD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.jpy)
+    public static var jpy : String {
+        get { try! _ICurrencyIdentifiersStatics.get_JPY() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.kes)
+    public static var kes : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KES() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.kgs)
+    public static var kgs : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KGS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.khr)
+    public static var khr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KHR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.kmf)
+    public static var kmf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KMF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.kpw)
+    public static var kpw : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KPW() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.krw)
+    public static var krw : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KRW() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.kwd)
+    public static var kwd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KWD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.kyd)
+    public static var kyd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KYD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.kzt)
+    public static var kzt : String {
+        get { try! _ICurrencyIdentifiersStatics.get_KZT() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.lak)
+    public static var lak : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LAK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.lbp)
+    public static var lbp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LBP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.lkr)
+    public static var lkr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LKR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.lrd)
+    public static var lrd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LRD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.lsl)
+    public static var lsl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LSL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ltl)
+    public static var ltl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LTL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.lvl)
+    public static var lvl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LVL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.lyd)
+    public static var lyd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_LYD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mad)
+    public static var mad : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MAD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mdl)
+    public static var mdl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MDL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mga)
+    public static var mga : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MGA() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mkd)
+    public static var mkd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MKD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mmk)
+    public static var mmk : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MMK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mnt)
+    public static var mnt : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MNT() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mop)
+    public static var mop : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MOP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mro)
+    public static var mro : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MRO() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mur)
+    public static var mur : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MUR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mvr)
+    public static var mvr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MVR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mwk)
+    public static var mwk : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MWK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mxn)
+    public static var mxn : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MXN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.myr)
+    public static var myr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MYR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mzn)
+    public static var mzn : String {
+        get { try! _ICurrencyIdentifiersStatics.get_MZN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.nad)
+    public static var nad : String {
+        get { try! _ICurrencyIdentifiersStatics.get_NAD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ngn)
+    public static var ngn : String {
+        get { try! _ICurrencyIdentifiersStatics.get_NGN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.nio)
+    public static var nio : String {
+        get { try! _ICurrencyIdentifiersStatics.get_NIO() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.nok)
+    public static var nok : String {
+        get { try! _ICurrencyIdentifiersStatics.get_NOK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.npr)
+    public static var npr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_NPR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.nzd)
+    public static var nzd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_NZD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.omr)
+    public static var omr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_OMR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.pab)
+    public static var pab : String {
+        get { try! _ICurrencyIdentifiersStatics.get_PAB() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.pen)
+    public static var pen : String {
+        get { try! _ICurrencyIdentifiersStatics.get_PEN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.pgk)
+    public static var pgk : String {
+        get { try! _ICurrencyIdentifiersStatics.get_PGK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.php)
+    public static var php : String {
+        get { try! _ICurrencyIdentifiersStatics.get_PHP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.pkr)
+    public static var pkr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_PKR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.pln)
+    public static var pln : String {
+        get { try! _ICurrencyIdentifiersStatics.get_PLN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.pyg)
+    public static var pyg : String {
+        get { try! _ICurrencyIdentifiersStatics.get_PYG() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.qar)
+    public static var qar : String {
+        get { try! _ICurrencyIdentifiersStatics.get_QAR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ron)
+    public static var ron : String {
+        get { try! _ICurrencyIdentifiersStatics.get_RON() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.rsd)
+    public static var rsd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_RSD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.rub)
+    public static var rub : String {
+        get { try! _ICurrencyIdentifiersStatics.get_RUB() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.rwf)
+    public static var rwf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_RWF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.sar)
+    public static var sar : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SAR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.sbd)
+    public static var sbd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SBD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.scr)
+    public static var scr : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SCR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.sdg)
+    public static var sdg : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SDG() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.sek)
+    public static var sek : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SEK() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.sgd)
+    public static var sgd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SGD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.shp)
+    public static var shp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SHP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.sll)
+    public static var sll : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SLL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.sos)
+    public static var sos : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SOS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.srd)
+    public static var srd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SRD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.std)
+    public static var std : String {
+        get { try! _ICurrencyIdentifiersStatics.get_STD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.syp)
+    public static var syp : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SYP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.szl)
+    public static var szl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_SZL() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.thb)
+    public static var thb : String {
+        get { try! _ICurrencyIdentifiersStatics.get_THB() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.tjs)
+    public static var tjs : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TJS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.tmt)
+    public static var tmt : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TMT() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.tnd)
+    public static var tnd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TND() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.top)
+    public static var top : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TOP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.try)
+    public static var `try` : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TRY() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ttd)
+    public static var ttd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TTD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.twd)
+    public static var twd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TWD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.tzs)
+    public static var tzs : String {
+        get { try! _ICurrencyIdentifiersStatics.get_TZS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.uah)
+    public static var uah : String {
+        get { try! _ICurrencyIdentifiersStatics.get_UAH() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ugx)
+    public static var ugx : String {
+        get { try! _ICurrencyIdentifiersStatics.get_UGX() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.usd)
+    public static var usd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_USD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.uyu)
+    public static var uyu : String {
+        get { try! _ICurrencyIdentifiersStatics.get_UYU() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.uzs)
+    public static var uzs : String {
+        get { try! _ICurrencyIdentifiersStatics.get_UZS() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.vef)
+    public static var vef : String {
+        get { try! _ICurrencyIdentifiersStatics.get_VEF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.vnd)
+    public static var vnd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_VND() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.vuv)
+    public static var vuv : String {
+        get { try! _ICurrencyIdentifiersStatics.get_VUV() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.wst)
+    public static var wst : String {
+        get { try! _ICurrencyIdentifiersStatics.get_WST() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.xaf)
+    public static var xaf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_XAF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.xcd)
+    public static var xcd : String {
+        get { try! _ICurrencyIdentifiersStatics.get_XCD() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.xof)
+    public static var xof : String {
+        get { try! _ICurrencyIdentifiersStatics.get_XOF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.xpf)
+    public static var xpf : String {
+        get { try! _ICurrencyIdentifiersStatics.get_XPF() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.xxx)
+    public static var xxx : String {
+        get { try! _ICurrencyIdentifiersStatics.get_XXX() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.yer)
+    public static var yer : String {
+        get { try! _ICurrencyIdentifiersStatics.get_YER() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.zar)
+    public static var zar : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ZAR() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.zmw)
+    public static var zmw : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ZMW() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.zwl)
+    public static var zwl : String {
+        get { try! _ICurrencyIdentifiersStatics.get_ZWL() }
+    }
+
+    private static let _ICurrencyIdentifiersStatics2: __ABI_Windows_Globalization.ICurrencyIdentifiersStatics2 = try! RoGetActivationFactory("Windows.Globalization.CurrencyIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.byn)
+    public static var byn : String {
+        get { try! _ICurrencyIdentifiersStatics2.get_BYN() }
+    }
+
+    private static let _ICurrencyIdentifiersStatics3: __ABI_Windows_Globalization.ICurrencyIdentifiersStatics3 = try! RoGetActivationFactory("Windows.Globalization.CurrencyIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.mru)
+    public static var mru : String {
+        get { try! _ICurrencyIdentifiersStatics3.get_MRU() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ssp)
+    public static var ssp : String {
+        get { try! _ICurrencyIdentifiersStatics3.get_SSP() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.stn)
+    public static var stn : String {
+        get { try! _ICurrencyIdentifiersStatics3.get_STN() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers.ves)
+    public static var ves : String {
+        get { try! _ICurrencyIdentifiersStatics3.get_VES() }
+    }
+
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion)
+public final class GeographicRegion : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Globalization.IGeographicRegion
+    private typealias CABI = __x_ABI_CWindows_CGlobalization_CIGeographicRegion
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Globalization.GeographicRegion")
+    override public init() {
+        super.init(try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IGeographicRegionFactory: __ABI_Windows_Globalization.IGeographicRegionFactory = try! RoGetActivationFactory("Windows.Globalization.GeographicRegion")
+    public init(_ geographicRegionCode: String) {
+        super.init(try! Self._IGeographicRegionFactory.CreateGeographicRegion(geographicRegionCode))
+    }
+
+    private static let _IGeographicRegionStatics: __ABI_Windows_Globalization.IGeographicRegionStatics = try! RoGetActivationFactory("Windows.Globalization.GeographicRegion")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.issupported)
+    public static func isSupported(_ geographicRegionCode: String) throws -> Bool {
+        return try _IGeographicRegionStatics.IsSupported(geographicRegionCode)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.code)
+    public var code : String {
+        get { try! _default.get_Code() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.codethreedigit)
+    public var codeThreeDigit : String {
+        get { try! _default.get_CodeThreeDigit() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.codethreeletter)
+    public var codeThreeLetter : String {
+        get { try! _default.get_CodeThreeLetter() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.codetwoletter)
+    public var codeTwoLetter : String {
+        get { try! _default.get_CodeTwoLetter() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.currenciesinuse)
+    public var currenciesInUse : WindowsFoundation.AnyIVectorView<String>! {
+        get { try! _default.get_CurrenciesInUse() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.displayname)
+    public var displayName : String {
+        get { try! _default.get_DisplayName() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion.nativename)
+    public var nativeName : String {
+        get { try! _default.get_NativeName() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneme)
+public final class JapanesePhoneme : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_Globalization.IJapanesePhoneme
+    private typealias CABI = __x_ABI_CWindows_CGlobalization_CIJapanesePhoneme
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneme.displaytext)
+    public var displayText : String {
+        get { try! _default.get_DisplayText() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneme.isphrasestart)
+    public var isPhraseStart : Bool {
+        get { try! _default.get_IsPhraseStart() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneme.yomitext)
+    public var yomiText : String {
+        get { try! _default.get_YomiText() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneticanalyzer)
+public final class JapanesePhoneticAnalyzer {
+    private static let _IJapanesePhoneticAnalyzerStatics: __ABI_Windows_Globalization.IJapanesePhoneticAnalyzerStatics = try! RoGetActivationFactory("Windows.Globalization.JapanesePhoneticAnalyzer")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneticanalyzer.getwords)
+    public static func getWords(_ input: String) throws -> WindowsFoundation.AnyIVectorView<JapanesePhoneme?>! {
+        return try _IJapanesePhoneticAnalyzerStatics.GetWords(input)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneticanalyzer.getwords)
+    public static func getWords(_ input: String, _ monoRuby: Bool) throws -> WindowsFoundation.AnyIVectorView<JapanesePhoneme?>! {
+        return try _IJapanesePhoneticAnalyzerStatics.GetWordsWithMonoRubyOption(input, monoRuby)
+    }
+
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.language)
 public final class Language : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Globalization.ILanguage
@@ -84,6 +1706,277 @@ public final class Language : WinRTClass {
         _ILanguage2 = nil
     }
 }
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers)
+public final class NumeralSystemIdentifiers {
+    private static let _INumeralSystemIdentifiersStatics: __ABI_Windows_Globalization.INumeralSystemIdentifiersStatics = try! RoGetActivationFactory("Windows.Globalization.NumeralSystemIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.arab)
+    public static var arab : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Arab() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.arabext)
+    public static var arabExt : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_ArabExt() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.bali)
+    public static var bali : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Bali() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.beng)
+    public static var beng : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Beng() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.cham)
+    public static var cham : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Cham() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.deva)
+    public static var deva : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Deva() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.fullwide)
+    public static var fullWide : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_FullWide() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.gujr)
+    public static var gujr : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Gujr() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.guru)
+    public static var guru : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Guru() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.hanidec)
+    public static var haniDec : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_HaniDec() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.java)
+    public static var java : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Java() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.kali)
+    public static var kali : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Kali() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.khmr)
+    public static var khmr : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Khmr() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.knda)
+    public static var knda : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Knda() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.lana)
+    public static var lana : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Lana() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.lanatham)
+    public static var lanaTham : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_LanaTham() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.laoo)
+    public static var laoo : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Laoo() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.latn)
+    public static var latn : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Latn() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.lepc)
+    public static var lepc : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Lepc() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.limb)
+    public static var limb : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Limb() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mlym)
+    public static var mlym : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Mlym() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mong)
+    public static var mong : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Mong() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mtei)
+    public static var mtei : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Mtei() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mymr)
+    public static var mymr : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Mymr() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mymrshan)
+    public static var mymrShan : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_MymrShan() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.nkoo)
+    public static var nkoo : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Nkoo() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.olck)
+    public static var olck : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Olck() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.orya)
+    public static var orya : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Orya() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.saur)
+    public static var saur : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Saur() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.sund)
+    public static var sund : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Sund() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.talu)
+    public static var talu : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Talu() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.tamldec)
+    public static var tamlDec : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_TamlDec() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.telu)
+    public static var telu : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Telu() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.thai)
+    public static var thai : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Thai() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.tibt)
+    public static var tibt : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Tibt() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.vaii)
+    public static var vaii : String {
+        get { try! _INumeralSystemIdentifiersStatics.get_Vaii() }
+    }
+
+    private static let _INumeralSystemIdentifiersStatics2: __ABI_Windows_Globalization.INumeralSystemIdentifiersStatics2 = try! RoGetActivationFactory("Windows.Globalization.NumeralSystemIdentifiers")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.brah)
+    public static var brah : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_Brah() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mathbold)
+    public static var mathBold : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_MathBold() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mathdbl)
+    public static var mathDbl : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_MathDbl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mathmono)
+    public static var mathMono : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_MathMono() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mathsanb)
+    public static var mathSanb : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_MathSanb() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.mathsans)
+    public static var mathSans : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_MathSans() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.osma)
+    public static var osma : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_Osma() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.zmthbold)
+    public static var zmthBold : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_ZmthBold() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.zmthdbl)
+    public static var zmthDbl : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_ZmthDbl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.zmthmono)
+    public static var zmthMono : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_ZmthMono() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.zmthsanb)
+    public static var zmthSanb : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_ZmthSanb() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers.zmthsans)
+    public static var zmthSans : String {
+        get { try! _INumeralSystemIdentifiersStatics2.get_ZmthSans() }
+    }
+
+}
+
+extension UWP.DayOfWeek {
+    public static var sunday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Sunday
+    }
+    public static var monday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Monday
+    }
+    public static var tuesday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Tuesday
+    }
+    public static var wednesday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Wednesday
+    }
+    public static var thursday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Thursday
+    }
+    public static var friday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Friday
+    }
+    public static var saturday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Saturday
+    }
+}
+extension UWP.DayOfWeek: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension UWP.LanguageLayoutDirection {
     public static var ltr : UWP.LanguageLayoutDirection {

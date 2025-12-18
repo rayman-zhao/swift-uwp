@@ -6,6 +6,42 @@ import CWinRT
 
 @_spi(WinRTInternal)
 public enum __IMPL_Windows_Globalization {
+    public enum CalendarBridge: AbiBridge {
+        public typealias SwiftProjection = Calendar
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CICalendar
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CGlobalization_CICalendar>?) -> Calendar? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CurrencyAmountBridge: AbiBridge {
+        public typealias SwiftProjection = CurrencyAmount
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CICurrencyAmount
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CGlobalization_CICurrencyAmount>?) -> CurrencyAmount? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum GeographicRegionBridge: AbiBridge {
+        public typealias SwiftProjection = GeographicRegion
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CIGeographicRegion
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CGlobalization_CIGeographicRegion>?) -> GeographicRegion? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum JapanesePhonemeBridge: AbiBridge {
+        public typealias SwiftProjection = JapanesePhoneme
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CIJapanesePhoneme
+        public static func from(abi: ComPtr<__x_ABI_CWindows_CGlobalization_CIJapanesePhoneme>?) -> JapanesePhoneme? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum LanguageBridge: AbiBridge {
         public typealias SwiftProjection = Language
         public typealias CABI = __x_ABI_CWindows_CGlobalization_CILanguage
@@ -15,6 +51,34 @@ public enum __IMPL_Windows_Globalization {
         }
     }
 
+}
+@_spi(WinRTInternal)
+public class CalendarMaker: MakeFromAbi {
+    public typealias SwiftType = Calendar
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Calendar(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CurrencyAmountMaker: MakeFromAbi {
+    public typealias SwiftType = CurrencyAmount
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CurrencyAmount(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class GeographicRegionMaker: MakeFromAbi {
+    public typealias SwiftType = GeographicRegion
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return GeographicRegion(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class JapanesePhonemeMaker: MakeFromAbi {
+    public typealias SwiftType = JapanesePhoneme
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return JapanesePhoneme(fromAbi: abi)
+    }
 }
 @_spi(WinRTInternal)
 public class LanguageMaker: MakeFromAbi {

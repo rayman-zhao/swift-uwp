@@ -9168,6 +9168,93 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriImp
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme: WindowsFoundation.IID {
+    .init(Data1: 0x1aad17cb, Data2: 0x1829, Data3: 0x5236, Data4: ( 0x8a,0xef,0x0b,0x75,0xf8,0xdf,0xd7,0xa6 ))// 1aad17cb-1829-5236-8aef-0b75f8dfd7a6
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVTable: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.Globalization.JapanesePhoneme>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge>
+public class IIterableJapanesePhoneme: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<UWP.JapanesePhoneme?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme
+    internal typealias SwiftABI = IIterableJapanesePhoneme
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<UWP.JapanesePhoneme?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeImpl : IIterable, AbiInterfaceImpl {
+    typealias T = UWP.JapanesePhoneme?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.JapanesePhoneme?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CLanguage: WindowsFoundation.IID {
     .init(Data1: 0x48409a10, Data2: 0x61b6, Data3: 0x5db1, Data4: ( 0xa6,0x9d,0x8a,0xbc,0x46,0xac,0x60,0x8a ))// 48409a10-61b6-5db1-a69d-8abc46ac608a
 }
@@ -21366,6 +21453,157 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CFoundation__CUriImp
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
     fileprivate var current : WindowsFoundation.Uri? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme: WindowsFoundation.IID {
+    .init(Data1: 0xf15ca7e7, Data2: 0x69a8, Data3: 0x564d, Data4: ( 0x9c,0x20,0x4d,0xa7,0x5a,0x77,0x34,0x32 ))// f15ca7e7-69a8-564d-9c20-4da75a773432
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVTable: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.Globalization.JapanesePhoneme>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [UWP.JapanesePhoneme?] = .from(abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge>
+public class IIteratorJapanesePhoneme: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme }
+
+    open func get_Current() throws -> UWP.JapanesePhoneme? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_Globalization.JapanesePhonemeBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [UWP.JapanesePhoneme?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme
+    internal typealias SwiftABI = IIteratorJapanesePhoneme
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<UWP.JapanesePhoneme?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeImpl : IIterator, AbiInterfaceImpl {
+    typealias T = UWP.JapanesePhoneme?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [UWP.JapanesePhoneme?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : UWP.JapanesePhoneme? {
         get { try! _default.get_Current() }
     }
 
@@ -42910,6 +43148,190 @@ fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CDevices__CInput__
     private lazy var _IIterable: IIterablePointerDeviceUsage! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.PointerDeviceUsage>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme: WindowsFoundation.IID {
+    .init(Data1: 0x4cdc5bd0, Data2: 0xd4aa, Data3: 0x5b60, Data4: ( 0xbf,0x25,0x71,0x44,0x90,0x50,0x50,0xf9 ))// 4cdc5bd0-d4aa-5b60-bf25-7144905050f9
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVTable: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.JapanesePhoneme>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.JapanesePhoneme? = __IMPL_Windows_Globalization.JapanesePhonemeBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.JapanesePhoneme?] = .from(abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge>
+public class IVectorViewJapanesePhoneme: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.JapanesePhoneme? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_Globalization.JapanesePhonemeBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: UWP.JapanesePhoneme?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.JapanesePhoneme?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_Globalization.JapanesePhonemeBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhoneme
+    internal typealias SwiftABI = IVectorViewJapanesePhoneme
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<UWP.JapanesePhoneme?>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = UWP.JapanesePhoneme?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.JapanesePhoneme? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: UWP.JapanesePhoneme?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.JapanesePhoneme?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableJapanesePhoneme! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.JapanesePhoneme?>? {
         try! _IIterable.First()
     }
 
