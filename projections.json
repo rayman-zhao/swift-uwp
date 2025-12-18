@@ -33,7 +33,8 @@
     "Windows.System.DispatcherQueueController",
 
     "Windows.UI.Text",
-    "Windows.Globalization"
+    "Windows.Globalization",
+    "Windows.Globalization.NumberFormatting"
   ],
   "exclude": [
     "Windows.Devices.Enumeration.Panel",
