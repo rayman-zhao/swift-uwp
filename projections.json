@@ -10,6 +10,7 @@
     "Windows.ApplicationModel.Core",
     "Windows.ApplicationModel.DataTransfer",
     "Windows.ApplicationModel.DataTransfer.DragDrop",
+    "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
     "Windows.Management.Deployment.PackageManager",
     "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs",
     "Windows.Devices.Input",

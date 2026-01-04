@@ -376,6 +376,59 @@ internal class __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__C
         return handler
     }
 }
+private var IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation: WindowsFoundation.IID {
+    .init(Data1: 0xadd21d46, Data2: 0x17df, Data3: 0x5a43, Data4: ( 0xa6,0x85,0x32,0x62,0xfc,0xe8,0x46,0x43 ))// add21d46-17df-5a43-a685-3262fce84643
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationVTable: __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let asyncInfo: WindowsFoundation.AnyIAsyncOperation<UWP.DataPackageOperation>? = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.unwrapFrom(abi: ComPtr($1))
+            let asyncStatus: WindowsFoundation.AsyncStatus = $2
+            try __unwrapped__instance(asyncInfo, asyncStatus)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationBridge>
+public class AsyncOperationCompletedHandlerDataPackageOperation: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation }
+
+    open func Invoke(_ asyncInfo: WindowsFoundation.AnyIAsyncOperation<UWP.DataPackageOperation>?, _ asyncStatus: WindowsFoundation.AsyncStatus) throws {
+        let asyncInfoWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper(asyncInfo)
+        let _asyncInfo = try! asyncInfoWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _asyncInfo, asyncStatus))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.AsyncOperationCompletedHandler<UWP.DataPackageOperation>
+    internal typealias CABI = __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation
+    internal typealias SwiftABI = UWP.AsyncOperationCompletedHandlerDataPackageOperation
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (asyncInfo, asyncStatus) in
+            try _default.Invoke(asyncInfo, asyncStatus)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroup: WindowsFoundation.IID {
     .init(Data1: 0x2253dc38, Data2: 0x9a1a, Data3: 0x5364, Data4: ( 0x9a,0x3b,0x03,0xa7,0xda,0x61,0x54,0x99 ))// 2253dc38-9a1a-5364-9a3b-03a7da615499
 }
@@ -76227,6 +76280,158 @@ fileprivate class __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationMo
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation: WindowsFoundation.IID {
+    .init(Data1: 0x8b98aea9, Data2: 0x64f0, Data3: 0x5672, Data4: ( 0xb3,0x0e,0xdf,0xd9,0xc2,0xe4,0xf6,0xfe ))// 8b98aea9-64f0-5672-b30e-dfd9c2e4f6fe
+}
+
+internal var __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationVTable: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IAsyncInfoWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IAsyncOperation`1<Windows.ApplicationModel.DataTransfer.DataPackageOperation>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    put_Completed: {
+        guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        guard let handler = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+        __unwrapped__instance.completed = handler
+        return S_OK
+    },
+
+    get_Completed: {
+        guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.completed
+        let resultWrapper = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    GetResults: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let result = try __unwrapped__instance.getResults()
+            $1?.initialize(to: result)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationBridge>
+public class IAsyncOperationDataPackageOperation: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation }
+
+    open func put_Completed(_ handler: AsyncOperationCompletedHandler<UWP.DataPackageOperation>?) throws {
+        let handlerWrapper = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper(handler)
+        let _handler = try! handlerWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.put_Completed(pThis, _handler))
+        }
+    }
+
+    open func get_Completed() throws -> AsyncOperationCompletedHandler<UWP.DataPackageOperation>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Completed(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationWrapper.unwrapFrom(abi: result)
+    }
+
+    open func GetResults() throws -> UWP.DataPackageOperation {
+        var result: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation = .init(0)
+        _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.GetResults(pThis, &result))
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperation
+    internal typealias SwiftABI = IAsyncOperationDataPackageOperation
+    internal typealias SwiftProjection = WindowsFoundation.AnyIAsyncOperation<UWP.DataPackageOperation>
+    internal static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationImpl : IAsyncOperation, AbiInterfaceImpl {
+    typealias TResult = UWP.DataPackageOperation
+    typealias Bridge = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackageOperationBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.getresults)
+    fileprivate func getResults() throws -> UWP.DataPackageOperation {
+        try _default.GetResults()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.completed)
+    fileprivate var completed : AsyncOperationCompletedHandler<UWP.DataPackageOperation>? {
+        get { try! _default.get_Completed() }
+        set { try! _default.put_Completed(newValue) }
+    }
+
+    private lazy var _IAsyncInfo: __ABI_Windows_Foundation.IAsyncInfo! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.cancel)
+    fileprivate func cancel() throws {
+        try _IAsyncInfo.Cancel()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.close)
+    fileprivate func close() throws {
+        try _IAsyncInfo.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.errorcode)
+    fileprivate var errorCode : HRESULT {
+        get { try! _IAsyncInfo.get_ErrorCode() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.id)
+    fileprivate var id : UInt32 {
+        get { try! _IAsyncInfo.get_Id() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.status)
+    fileprivate var status : WindowsFoundation.AsyncStatus {
+        get { try! _IAsyncInfo.get_Status() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroup: WindowsFoundation.IID {
     .init(Data1: 0xbbd292e3, Data2: 0xdb9f, Data3: 0x5802, Data4: ( 0xa4,0x88,0x40,0xf1,0x56,0x33,0x2c,0x04 ))// bbd292e3-db9f-5802-a488-40f156332c04
 }
@@ -89181,6 +89386,57 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationMo
     internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.DataTransferManager?, UWP.TargetApplicationChosenEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataTransferManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CTargetApplicationChosenEventArgs
     internal typealias SwiftABI = UWP.TypedEventHandlerDataTransferManager_TargetApplicationChosenEventArgs
+
+    internal static func from(abi: ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xa4c3b1c1, Data2: 0xb8ad, Data3: 0x58cb, Data4: ( 0xac,0xc0,0x8e,0xf3,0x7e,0xae,0x4e,0xd4 ))// a4c3b1c1-b8ad-58cb-acc0-8ef37eae4ed4
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.CoreDragDropManager? = __IMPL_Windows_ApplicationModel_DataTransfer_DragDrop_Core.CoreDragDropManagerBridge.from(abi: ComPtr($1))
+            let args: UWP.CoreDropOperationTargetRequestedEventArgs? = __IMPL_Windows_ApplicationModel_DataTransfer_DragDrop_Core.CoreDropOperationTargetRequestedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsBridge>
+public class TypedEventHandlerCoreDragDropManager_CoreDropOperationTargetRequestedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgs }
+
+    open func Invoke(_ sender: UWP.CoreDragDropManager?, _ args: UWP.CoreDropOperationTargetRequestedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.CoreDragDropManager?, UWP.CoreDropOperationTargetRequestedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDragDropManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDragDrop__CCore__CCoreDropOperationTargetRequestedEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerCoreDragDropManager_CoreDropOperationTargetRequestedEventArgs
 
     internal static func from(abi: ComPtr<CABI>?) -> Handler? {
         guard let abi = abi else { return nil }
