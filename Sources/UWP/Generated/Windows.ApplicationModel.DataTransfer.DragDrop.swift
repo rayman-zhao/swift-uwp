@@ -4,8 +4,11 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - DragDropModifiers
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.dragdropmodifiers)
 public typealias DragDropModifiers = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CDragDropModifiers
+
 extension UWP.DragDropModifiers {
     public static var none : UWP.DragDropModifiers {
         __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CDragDropModifiers_None

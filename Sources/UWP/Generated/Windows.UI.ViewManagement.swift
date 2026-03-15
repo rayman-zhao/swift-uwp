@@ -4,8 +4,38 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - ViewSizePreference
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.viewsizepreference)
 public typealias ViewSizePreference = __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference
+
+extension UWP.ViewSizePreference {
+    public static var `default` : UWP.ViewSizePreference {
+        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_Default
+    }
+    public static var useLess : UWP.ViewSizePreference {
+        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseLess
+    }
+    public static var useHalf : UWP.ViewSizePreference {
+        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseHalf
+    }
+    public static var useMore : UWP.ViewSizePreference {
+        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseMore
+    }
+    public static var useMinimum : UWP.ViewSizePreference {
+        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseMinimum
+    }
+    public static var useNone : UWP.ViewSizePreference {
+        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseNone
+    }
+    public static var custom : UWP.ViewSizePreference {
+        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_Custom
+    }
+}
+extension UWP.ViewSizePreference: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - ActivationViewSwitcher
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher)
 public final class ActivationViewSwitcher : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_UI_ViewManagement.IActivationViewSwitcher
@@ -44,28 +74,62 @@ public final class ActivationViewSwitcher : WinRTClass {
     }
 }
 
-extension UWP.ViewSizePreference {
-    public static var `default` : UWP.ViewSizePreference {
-        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_Default
+// MARK: - ActivationViewSwitcher Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_ViewManagement {
+    public enum ActivationViewSwitcherBridge: AbiBridge {
+        public typealias SwiftProjection = ActivationViewSwitcher
+        public typealias CABI = __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher>?) -> ActivationViewSwitcher? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var useLess : UWP.ViewSizePreference {
-        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseLess
-    }
-    public static var useHalf : UWP.ViewSizePreference {
-        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseHalf
-    }
-    public static var useMore : UWP.ViewSizePreference {
-        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseMore
-    }
-    public static var useMinimum : UWP.ViewSizePreference {
-        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseMinimum
-    }
-    public static var useNone : UWP.ViewSizePreference {
-        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_UseNone
-    }
-    public static var custom : UWP.ViewSizePreference {
-        __x_ABI_CWindows_CUI_CViewManagement_CViewSizePreference_Custom
+
+}
+@_spi(WinRTInternal)
+public class ActivationViewSwitcherMaker: MakeFromAbi {
+    public typealias SwiftType = ActivationViewSwitcher
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ActivationViewSwitcher(fromAbi: abi)
     }
 }
-extension UWP.ViewSizePreference: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_ViewManagement {
+    private static let IID___x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher: WindowsFoundation.IID = .init(
+        Data1: 0xDCA71BB6, Data2: 0x7350, Data3: 0x492B, Data4: ( 0xAA,0xC7,0xC8,0xA1,0x3D,0x72,0x24,0xAD ) // DCA71BB6-7350-492B-AAC7-C8A13D7224AD
+    ) 
 
+    public class IActivationViewSwitcher: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher }
+
+        public func ShowAsStandaloneAsync(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ShowAsStandaloneAsync(pThis, viewId, &operationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func ShowAsStandaloneWithSizePreferenceAsync(_ viewId: Int32, _ sizePreference: UWP.ViewSizePreference) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ShowAsStandaloneWithSizePreferenceAsync(pThis, viewId, sizePreference, &operationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func IsViewPresentedOnActivationVirtualDesktop(_ viewId: Int32) throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsViewPresentedOnActivationVirtualDesktop(pThis, viewId, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+}

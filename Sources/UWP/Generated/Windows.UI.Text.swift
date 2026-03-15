@@ -4,60 +4,5723 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - CaretType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.carettype)
 public typealias CaretType = __x_ABI_CWindows_CUI_CText_CCaretType
+
+extension UWP.CaretType {
+    public static var normal : UWP.CaretType {
+        __x_ABI_CWindows_CUI_CText_CCaretType_Normal
+    }
+    public static var null : UWP.CaretType {
+        __x_ABI_CWindows_CUI_CText_CCaretType_Null
+    }
+}
+extension UWP.CaretType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - FindOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.findoptions)
 public typealias FindOptions = __x_ABI_CWindows_CUI_CText_CFindOptions
+
+extension UWP.FindOptions {
+    public static var none : UWP.FindOptions {
+        __x_ABI_CWindows_CUI_CText_CFindOptions_None
+    }
+    public static var word : UWP.FindOptions {
+        __x_ABI_CWindows_CUI_CText_CFindOptions_Word
+    }
+    public static var `case` : UWP.FindOptions {
+        __x_ABI_CWindows_CUI_CText_CFindOptions_Case
+    }
+}
+extension UWP.FindOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - FontStretch
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontstretch)
 public typealias FontStretch = __x_ABI_CWindows_CUI_CText_CFontStretch
+
+extension UWP.FontStretch {
+    public static var undefined : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_Undefined
+    }
+    public static var ultraCondensed : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_UltraCondensed
+    }
+    public static var extraCondensed : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_ExtraCondensed
+    }
+    public static var condensed : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_Condensed
+    }
+    public static var semiCondensed : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_SemiCondensed
+    }
+    public static var normal : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_Normal
+    }
+    public static var semiExpanded : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_SemiExpanded
+    }
+    public static var expanded : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_Expanded
+    }
+    public static var extraExpanded : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_ExtraExpanded
+    }
+    public static var ultraExpanded : UWP.FontStretch {
+        __x_ABI_CWindows_CUI_CText_CFontStretch_UltraExpanded
+    }
+}
+extension UWP.FontStretch: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - FontStyle
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontstyle)
 public typealias FontStyle = __x_ABI_CWindows_CUI_CText_CFontStyle
+
+extension UWP.FontStyle {
+    public static var normal : UWP.FontStyle {
+        __x_ABI_CWindows_CUI_CText_CFontStyle_Normal
+    }
+    public static var oblique : UWP.FontStyle {
+        __x_ABI_CWindows_CUI_CText_CFontStyle_Oblique
+    }
+    public static var italic : UWP.FontStyle {
+        __x_ABI_CWindows_CUI_CText_CFontStyle_Italic
+    }
+}
+extension UWP.FontStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - FormatEffect
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.formateffect)
 public typealias FormatEffect = __x_ABI_CWindows_CUI_CText_CFormatEffect
+
+extension UWP.FormatEffect {
+    public static var off : UWP.FormatEffect {
+        __x_ABI_CWindows_CUI_CText_CFormatEffect_Off
+    }
+    public static var on : UWP.FormatEffect {
+        __x_ABI_CWindows_CUI_CText_CFormatEffect_On
+    }
+    public static var toggle : UWP.FormatEffect {
+        __x_ABI_CWindows_CUI_CText_CFormatEffect_Toggle
+    }
+    public static var undefined : UWP.FormatEffect {
+        __x_ABI_CWindows_CUI_CText_CFormatEffect_Undefined
+    }
+}
+extension UWP.FormatEffect: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - HorizontalCharacterAlignment
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.horizontalcharacteralignment)
 public typealias HorizontalCharacterAlignment = __x_ABI_CWindows_CUI_CText_CHorizontalCharacterAlignment
+
+extension UWP.HorizontalCharacterAlignment {
+    public static var left : UWP.HorizontalCharacterAlignment {
+        __x_ABI_CWindows_CUI_CText_CHorizontalCharacterAlignment_Left
+    }
+    public static var right : UWP.HorizontalCharacterAlignment {
+        __x_ABI_CWindows_CUI_CText_CHorizontalCharacterAlignment_Right
+    }
+    public static var center : UWP.HorizontalCharacterAlignment {
+        __x_ABI_CWindows_CUI_CText_CHorizontalCharacterAlignment_Center
+    }
+}
+extension UWP.HorizontalCharacterAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - LetterCase
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.lettercase)
 public typealias LetterCase = __x_ABI_CWindows_CUI_CText_CLetterCase
+
+extension UWP.LetterCase {
+    public static var lower : UWP.LetterCase {
+        __x_ABI_CWindows_CUI_CText_CLetterCase_Lower
+    }
+    public static var upper : UWP.LetterCase {
+        __x_ABI_CWindows_CUI_CText_CLetterCase_Upper
+    }
+}
+extension UWP.LetterCase: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - LineSpacingRule
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.linespacingrule)
 public typealias LineSpacingRule = __x_ABI_CWindows_CUI_CText_CLineSpacingRule
+
+extension UWP.LineSpacingRule {
+    public static var undefined : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Undefined
+    }
+    public static var single : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Single
+    }
+    public static var oneAndHalf : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_OneAndHalf
+    }
+    public static var double : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Double
+    }
+    public static var atLeast : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_AtLeast
+    }
+    public static var exactly : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Exactly
+    }
+    public static var multiple : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Multiple
+    }
+    public static var percent : UWP.LineSpacingRule {
+        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Percent
+    }
+}
+extension UWP.LineSpacingRule: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - LinkType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.linktype)
 public typealias LinkType = __x_ABI_CWindows_CUI_CText_CLinkType
+
+extension UWP.LinkType {
+    public static var undefined : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_Undefined
+    }
+    public static var notALink : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_NotALink
+    }
+    public static var clientLink : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_ClientLink
+    }
+    public static var friendlyLinkName : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_FriendlyLinkName
+    }
+    public static var friendlyLinkAddress : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_FriendlyLinkAddress
+    }
+    public static var autoLink : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLink
+    }
+    public static var autoLinkEmail : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLinkEmail
+    }
+    public static var autoLinkPhone : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLinkPhone
+    }
+    public static var autoLinkPath : UWP.LinkType {
+        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLinkPath
+    }
+}
+extension UWP.LinkType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MarkerAlignment
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.markeralignment)
 public typealias MarkerAlignment = __x_ABI_CWindows_CUI_CText_CMarkerAlignment
+
+extension UWP.MarkerAlignment {
+    public static var undefined : UWP.MarkerAlignment {
+        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Undefined
+    }
+    public static var left : UWP.MarkerAlignment {
+        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Left
+    }
+    public static var center : UWP.MarkerAlignment {
+        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Center
+    }
+    public static var right : UWP.MarkerAlignment {
+        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Right
+    }
+}
+extension UWP.MarkerAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MarkerStyle
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.markerstyle)
 public typealias MarkerStyle = __x_ABI_CWindows_CUI_CText_CMarkerStyle
+
+extension UWP.MarkerStyle {
+    public static var undefined : UWP.MarkerStyle {
+        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Undefined
+    }
+    public static var parenthesis : UWP.MarkerStyle {
+        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Parenthesis
+    }
+    public static var parentheses : UWP.MarkerStyle {
+        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Parentheses
+    }
+    public static var period : UWP.MarkerStyle {
+        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Period
+    }
+    public static var plain : UWP.MarkerStyle {
+        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Plain
+    }
+    public static var minus : UWP.MarkerStyle {
+        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Minus
+    }
+    public static var noNumber : UWP.MarkerStyle {
+        __x_ABI_CWindows_CUI_CText_CMarkerStyle_NoNumber
+    }
+}
+extension UWP.MarkerStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MarkerType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.markertype)
 public typealias MarkerType = __x_ABI_CWindows_CUI_CText_CMarkerType
+
+extension UWP.MarkerType {
+    public static var undefined : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_Undefined
+    }
+    public static var none : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_None
+    }
+    public static var bullet : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_Bullet
+    }
+    public static var arabic : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_Arabic
+    }
+    public static var lowercaseEnglishLetter : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_LowercaseEnglishLetter
+    }
+    public static var uppercaseEnglishLetter : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_UppercaseEnglishLetter
+    }
+    public static var lowercaseRoman : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_LowercaseRoman
+    }
+    public static var uppercaseRoman : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_UppercaseRoman
+    }
+    public static var unicodeSequence : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_UnicodeSequence
+    }
+    public static var circledNumber : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_CircledNumber
+    }
+    public static var blackCircleWingding : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_BlackCircleWingding
+    }
+    public static var whiteCircleWingding : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_WhiteCircleWingding
+    }
+    public static var arabicWide : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_ArabicWide
+    }
+    public static var simplifiedChinese : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_SimplifiedChinese
+    }
+    public static var traditionalChinese : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_TraditionalChinese
+    }
+    public static var japanSimplifiedChinese : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_JapanSimplifiedChinese
+    }
+    public static var japanKorea : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_JapanKorea
+    }
+    public static var arabicDictionary : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_ArabicDictionary
+    }
+    public static var arabicAbjad : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_ArabicAbjad
+    }
+    public static var hebrew : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_Hebrew
+    }
+    public static var thaiAlphabetic : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_ThaiAlphabetic
+    }
+    public static var thaiNumeric : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_ThaiNumeric
+    }
+    public static var devanagariVowel : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_DevanagariVowel
+    }
+    public static var devanagariConsonant : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_DevanagariConsonant
+    }
+    public static var devanagariNumeric : UWP.MarkerType {
+        __x_ABI_CWindows_CUI_CText_CMarkerType_DevanagariNumeric
+    }
+}
+extension UWP.MarkerType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - ParagraphAlignment
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.paragraphalignment)
 public typealias ParagraphAlignment = __x_ABI_CWindows_CUI_CText_CParagraphAlignment
+
+extension UWP.ParagraphAlignment {
+    public static var undefined : UWP.ParagraphAlignment {
+        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Undefined
+    }
+    public static var left : UWP.ParagraphAlignment {
+        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Left
+    }
+    public static var center : UWP.ParagraphAlignment {
+        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Center
+    }
+    public static var right : UWP.ParagraphAlignment {
+        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Right
+    }
+    public static var justify : UWP.ParagraphAlignment {
+        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Justify
+    }
+}
+extension UWP.ParagraphAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - ParagraphStyle
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.paragraphstyle)
 public typealias ParagraphStyle = __x_ABI_CWindows_CUI_CText_CParagraphStyle
+
+extension UWP.ParagraphStyle {
+    public static var undefined : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Undefined
+    }
+    public static var none : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_None
+    }
+    public static var normal : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Normal
+    }
+    public static var heading1 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading1
+    }
+    public static var heading2 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading2
+    }
+    public static var heading3 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading3
+    }
+    public static var heading4 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading4
+    }
+    public static var heading5 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading5
+    }
+    public static var heading6 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading6
+    }
+    public static var heading7 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading7
+    }
+    public static var heading8 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading8
+    }
+    public static var heading9 : UWP.ParagraphStyle {
+        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading9
+    }
+}
+extension UWP.ParagraphStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PointOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.pointoptions)
 public typealias PointOptions = __x_ABI_CWindows_CUI_CText_CPointOptions
+
+extension UWP.PointOptions {
+    public static var none : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_None
+    }
+    public static var includeInset : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_IncludeInset
+    }
+    public static var start : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_Start
+    }
+    public static var clientCoordinates : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_ClientCoordinates
+    }
+    public static var allowOffClient : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_AllowOffClient
+    }
+    public static var transform : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_Transform
+    }
+    public static var noHorizontalScroll : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_NoHorizontalScroll
+    }
+    public static var noVerticalScroll : UWP.PointOptions {
+        __x_ABI_CWindows_CUI_CText_CPointOptions_NoVerticalScroll
+    }
+}
+extension UWP.PointOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - RangeGravity
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.rangegravity)
 public typealias RangeGravity = __x_ABI_CWindows_CUI_CText_CRangeGravity
+
+extension UWP.RangeGravity {
+    public static var uiBehavior : UWP.RangeGravity {
+        __x_ABI_CWindows_CUI_CText_CRangeGravity_UIBehavior
+    }
+    public static var backward : UWP.RangeGravity {
+        __x_ABI_CWindows_CUI_CText_CRangeGravity_Backward
+    }
+    public static var forward : UWP.RangeGravity {
+        __x_ABI_CWindows_CUI_CText_CRangeGravity_Forward
+    }
+    public static var inward : UWP.RangeGravity {
+        __x_ABI_CWindows_CUI_CText_CRangeGravity_Inward
+    }
+    public static var outward : UWP.RangeGravity {
+        __x_ABI_CWindows_CUI_CText_CRangeGravity_Outward
+    }
+}
+extension UWP.RangeGravity: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SelectionOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.selectionoptions)
 public typealias SelectionOptions = __x_ABI_CWindows_CUI_CText_CSelectionOptions
+
+extension UWP.SelectionOptions {
+    public static var startActive : UWP.SelectionOptions {
+        __x_ABI_CWindows_CUI_CText_CSelectionOptions_StartActive
+    }
+    public static var atEndOfLine : UWP.SelectionOptions {
+        __x_ABI_CWindows_CUI_CText_CSelectionOptions_AtEndOfLine
+    }
+    public static var overtype : UWP.SelectionOptions {
+        __x_ABI_CWindows_CUI_CText_CSelectionOptions_Overtype
+    }
+    public static var active : UWP.SelectionOptions {
+        __x_ABI_CWindows_CUI_CText_CSelectionOptions_Active
+    }
+    public static var replace : UWP.SelectionOptions {
+        __x_ABI_CWindows_CUI_CText_CSelectionOptions_Replace
+    }
+}
+extension UWP.SelectionOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SelectionType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.selectiontype)
 public typealias SelectionType = __x_ABI_CWindows_CUI_CText_CSelectionType
+
+extension UWP.SelectionType {
+    public static var none : UWP.SelectionType {
+        __x_ABI_CWindows_CUI_CText_CSelectionType_None
+    }
+    public static var insertionPoint : UWP.SelectionType {
+        __x_ABI_CWindows_CUI_CText_CSelectionType_InsertionPoint
+    }
+    public static var normal : UWP.SelectionType {
+        __x_ABI_CWindows_CUI_CText_CSelectionType_Normal
+    }
+    public static var inlineShape : UWP.SelectionType {
+        __x_ABI_CWindows_CUI_CText_CSelectionType_InlineShape
+    }
+    public static var shape : UWP.SelectionType {
+        __x_ABI_CWindows_CUI_CText_CSelectionType_Shape
+    }
+}
+extension UWP.SelectionType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TabAlignment
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.tabalignment)
 public typealias TabAlignment = __x_ABI_CWindows_CUI_CText_CTabAlignment
+
+extension UWP.TabAlignment {
+    public static var left : UWP.TabAlignment {
+        __x_ABI_CWindows_CUI_CText_CTabAlignment_Left
+    }
+    public static var center : UWP.TabAlignment {
+        __x_ABI_CWindows_CUI_CText_CTabAlignment_Center
+    }
+    public static var right : UWP.TabAlignment {
+        __x_ABI_CWindows_CUI_CText_CTabAlignment_Right
+    }
+    public static var decimal : UWP.TabAlignment {
+        __x_ABI_CWindows_CUI_CText_CTabAlignment_Decimal
+    }
+    public static var bar : UWP.TabAlignment {
+        __x_ABI_CWindows_CUI_CText_CTabAlignment_Bar
+    }
+}
+extension UWP.TabAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TabLeader
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.tableader)
 public typealias TabLeader = __x_ABI_CWindows_CUI_CText_CTabLeader
+
+extension UWP.TabLeader {
+    public static var spaces : UWP.TabLeader {
+        __x_ABI_CWindows_CUI_CText_CTabLeader_Spaces
+    }
+    public static var dots : UWP.TabLeader {
+        __x_ABI_CWindows_CUI_CText_CTabLeader_Dots
+    }
+    public static var dashes : UWP.TabLeader {
+        __x_ABI_CWindows_CUI_CText_CTabLeader_Dashes
+    }
+    public static var lines : UWP.TabLeader {
+        __x_ABI_CWindows_CUI_CText_CTabLeader_Lines
+    }
+    public static var thickLines : UWP.TabLeader {
+        __x_ABI_CWindows_CUI_CText_CTabLeader_ThickLines
+    }
+    public static var equals : UWP.TabLeader {
+        __x_ABI_CWindows_CUI_CText_CTabLeader_Equals
+    }
+}
+extension UWP.TabLeader: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TextDecorations
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.textdecorations)
 public typealias TextDecorations = __x_ABI_CWindows_CUI_CText_CTextDecorations
+
+extension UWP.TextDecorations {
+    public static var none : UWP.TextDecorations {
+        __x_ABI_CWindows_CUI_CText_CTextDecorations_None
+    }
+    public static var underline : UWP.TextDecorations {
+        __x_ABI_CWindows_CUI_CText_CTextDecorations_Underline
+    }
+    public static var strikethrough : UWP.TextDecorations {
+        __x_ABI_CWindows_CUI_CText_CTextDecorations_Strikethrough
+    }
+}
+extension UWP.TextDecorations: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TextGetOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.textgetoptions)
 public typealias TextGetOptions = __x_ABI_CWindows_CUI_CText_CTextGetOptions
+
+extension UWP.TextGetOptions {
+    public static var none : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_None
+    }
+    public static var adjustCrlf : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_AdjustCrlf
+    }
+    public static var useCrlf : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_UseCrlf
+    }
+    public static var useObjectText : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_UseObjectText
+    }
+    public static var allowFinalEop : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_AllowFinalEop
+    }
+    public static var noHidden : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_NoHidden
+    }
+    public static var includeNumbering : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_IncludeNumbering
+    }
+    public static var formatRtf : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_FormatRtf
+    }
+    public static var useLf : UWP.TextGetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextGetOptions_UseLf
+    }
+}
+extension UWP.TextGetOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TextRangeUnit
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.textrangeunit)
 public typealias TextRangeUnit = __x_ABI_CWindows_CUI_CText_CTextRangeUnit
+
+extension UWP.TextRangeUnit {
+    public static var character : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Character
+    }
+    public static var word : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Word
+    }
+    public static var sentence : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Sentence
+    }
+    public static var paragraph : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Paragraph
+    }
+    public static var line : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Line
+    }
+    public static var story : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Story
+    }
+    public static var screen : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Screen
+    }
+    public static var section : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Section
+    }
+    public static var window : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Window
+    }
+    public static var characterFormat : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_CharacterFormat
+    }
+    public static var paragraphFormat : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_ParagraphFormat
+    }
+    public static var object : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Object
+    }
+    public static var hardParagraph : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_HardParagraph
+    }
+    public static var cluster : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Cluster
+    }
+    public static var bold : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Bold
+    }
+    public static var italic : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Italic
+    }
+    public static var underline : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Underline
+    }
+    public static var strikethrough : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Strikethrough
+    }
+    public static var protectedText : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_ProtectedText
+    }
+    public static var link : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Link
+    }
+    public static var smallCaps : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_SmallCaps
+    }
+    public static var allCaps : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_AllCaps
+    }
+    public static var hidden : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Hidden
+    }
+    public static var outline : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Outline
+    }
+    public static var shadow : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Shadow
+    }
+    public static var imprint : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Imprint
+    }
+    public static var disabled : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Disabled
+    }
+    public static var revised : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Revised
+    }
+    public static var `subscript` : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Subscript
+    }
+    public static var superscript : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Superscript
+    }
+    public static var fontBound : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_FontBound
+    }
+    public static var linkProtected : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_LinkProtected
+    }
+    public static var contentLink : UWP.TextRangeUnit {
+        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_ContentLink
+    }
+}
+extension UWP.TextRangeUnit: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TextScript
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.textscript)
 public typealias TextScript = __x_ABI_CWindows_CUI_CText_CTextScript
+
+extension UWP.TextScript {
+    public static var undefined : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Undefined
+    }
+    public static var ansi : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Ansi
+    }
+    public static var eastEurope : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_EastEurope
+    }
+    public static var cyrillic : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Cyrillic
+    }
+    public static var greek : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Greek
+    }
+    public static var turkish : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Turkish
+    }
+    public static var hebrew : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Hebrew
+    }
+    public static var arabic : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Arabic
+    }
+    public static var baltic : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Baltic
+    }
+    public static var vietnamese : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Vietnamese
+    }
+    public static var `default` : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Default
+    }
+    public static var symbol : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Symbol
+    }
+    public static var thai : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Thai
+    }
+    public static var shiftJis : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_ShiftJis
+    }
+    public static var gb2312 : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_GB2312
+    }
+    public static var hangul : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Hangul
+    }
+    public static var big5 : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Big5
+    }
+    public static var pc437 : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_PC437
+    }
+    public static var oem : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Oem
+    }
+    public static var mac : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Mac
+    }
+    public static var armenian : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Armenian
+    }
+    public static var syriac : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Syriac
+    }
+    public static var thaana : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Thaana
+    }
+    public static var devanagari : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Devanagari
+    }
+    public static var bengali : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Bengali
+    }
+    public static var gurmukhi : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Gurmukhi
+    }
+    public static var gujarati : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Gujarati
+    }
+    public static var oriya : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Oriya
+    }
+    public static var tamil : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Tamil
+    }
+    public static var telugu : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Telugu
+    }
+    public static var kannada : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Kannada
+    }
+    public static var malayalam : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Malayalam
+    }
+    public static var sinhala : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Sinhala
+    }
+    public static var lao : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Lao
+    }
+    public static var tibetan : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Tibetan
+    }
+    public static var myanmar : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Myanmar
+    }
+    public static var georgian : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Georgian
+    }
+    public static var jamo : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Jamo
+    }
+    public static var ethiopic : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Ethiopic
+    }
+    public static var cherokee : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Cherokee
+    }
+    public static var aboriginal : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Aboriginal
+    }
+    public static var ogham : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Ogham
+    }
+    public static var runic : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Runic
+    }
+    public static var khmer : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Khmer
+    }
+    public static var mongolian : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Mongolian
+    }
+    public static var braille : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Braille
+    }
+    public static var yi : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Yi
+    }
+    public static var limbu : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Limbu
+    }
+    public static var taiLe : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_TaiLe
+    }
+    public static var newTaiLue : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_NewTaiLue
+    }
+    public static var sylotiNagri : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_SylotiNagri
+    }
+    public static var kharoshthi : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Kharoshthi
+    }
+    public static var kayahli : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Kayahli
+    }
+    public static var unicodeSymbol : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_UnicodeSymbol
+    }
+    public static var emoji : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Emoji
+    }
+    public static var glagolitic : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Glagolitic
+    }
+    public static var lisu : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Lisu
+    }
+    public static var vai : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Vai
+    }
+    public static var nko : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_NKo
+    }
+    public static var osmanya : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Osmanya
+    }
+    public static var phagsPa : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_PhagsPa
+    }
+    public static var gothic : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Gothic
+    }
+    public static var deseret : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Deseret
+    }
+    public static var tifinagh : UWP.TextScript {
+        __x_ABI_CWindows_CUI_CText_CTextScript_Tifinagh
+    }
+}
+extension UWP.TextScript: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TextSetOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.textsetoptions)
 public typealias TextSetOptions = __x_ABI_CWindows_CUI_CText_CTextSetOptions
+
+extension UWP.TextSetOptions {
+    public static var none : UWP.TextSetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextSetOptions_None
+    }
+    public static var unicodeBidi : UWP.TextSetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextSetOptions_UnicodeBidi
+    }
+    public static var unlink : UWP.TextSetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextSetOptions_Unlink
+    }
+    public static var unhide : UWP.TextSetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextSetOptions_Unhide
+    }
+    public static var checkTextLimit : UWP.TextSetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextSetOptions_CheckTextLimit
+    }
+    public static var formatRtf : UWP.TextSetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextSetOptions_FormatRtf
+    }
+    public static var applyRtfDocumentDefaults : UWP.TextSetOptions {
+        __x_ABI_CWindows_CUI_CText_CTextSetOptions_ApplyRtfDocumentDefaults
+    }
+}
+extension UWP.TextSetOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - UnderlineType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.underlinetype)
 public typealias UnderlineType = __x_ABI_CWindows_CUI_CText_CUnderlineType
+
+extension UWP.UnderlineType {
+    public static var undefined : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Undefined
+    }
+    public static var none : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_None
+    }
+    public static var single : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Single
+    }
+    public static var words : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Words
+    }
+    public static var double : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Double
+    }
+    public static var dotted : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Dotted
+    }
+    public static var dash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Dash
+    }
+    public static var dashDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_DashDot
+    }
+    public static var dashDotDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_DashDotDot
+    }
+    public static var wave : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Wave
+    }
+    public static var thick : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Thick
+    }
+    public static var thin : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_Thin
+    }
+    public static var doubleWave : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_DoubleWave
+    }
+    public static var heavyWave : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_HeavyWave
+    }
+    public static var longDash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_LongDash
+    }
+    public static var thickDash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDash
+    }
+    public static var thickDashDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDashDot
+    }
+    public static var thickDashDotDot : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDashDotDot
+    }
+    public static var thickDotted : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDotted
+    }
+    public static var thickLongDash : UWP.UnderlineType {
+        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickLongDash
+    }
+}
+extension UWP.UnderlineType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - VerticalCharacterAlignment
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.verticalcharacteralignment)
 public typealias VerticalCharacterAlignment = __x_ABI_CWindows_CUI_CText_CVerticalCharacterAlignment
+
+extension UWP.VerticalCharacterAlignment {
+    public static var top : UWP.VerticalCharacterAlignment {
+        __x_ABI_CWindows_CUI_CText_CVerticalCharacterAlignment_Top
+    }
+    public static var baseline : UWP.VerticalCharacterAlignment {
+        __x_ABI_CWindows_CUI_CText_CVerticalCharacterAlignment_Baseline
+    }
+    public static var bottom : UWP.VerticalCharacterAlignment {
+        __x_ABI_CWindows_CUI_CText_CVerticalCharacterAlignment_Bottom
+    }
+}
+extension UWP.VerticalCharacterAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - FontWeight
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweight)
+public struct FontWeight: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweight.weight)
+    public var weight: UInt16 = 0
+    public init() {}
+    public init(weight: UInt16) {
+        self.weight = weight
+    }
+}
+
+// MARK: - FontWeight Internals
+
+@_spi(WinRTInternal)
+extension FontWeight: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CText_CFontWeight
+    public static func from(abi: ABI) -> Self {
+        .init(weight: abi.Weight)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CUI_CText_CFontWeight {
+    public static func from(swift: UWP.FontWeight) -> __x_ABI_CWindows_CUI_CText_CFontWeight {
+        .init(Weight: swift.weight)
+    }
+}
+// MARK: - ITextCharacterFormat
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat)
+public protocol ITextCharacterFormat : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.setclone)
+    func setClone(_ value: UWP.AnyITextCharacterFormat!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.getclone)
+    func getClone() throws -> UWP.AnyITextCharacterFormat!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.isequal)
+    func isEqual(_ format: UWP.AnyITextCharacterFormat!) throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.allcaps)
+    var allCaps: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.backgroundcolor)
+    var backgroundColor: UWP.Color { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.bold)
+    var bold: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstretch)
+    var fontStretch: UWP.FontStretch { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstyle)
+    var fontStyle: UWP.FontStyle { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.foregroundcolor)
+    var foregroundColor: UWP.Color { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.hidden)
+    var hidden: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.italic)
+    var italic: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.kerning)
+    var kerning: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.languagetag)
+    var languageTag: String { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.linktype)
+    var linkType: UWP.LinkType { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.name)
+    var name: String { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.outline)
+    var outline: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.position)
+    var position: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.protectedtext)
+    var protectedText: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.size)
+    var size: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.smallcaps)
+    var smallCaps: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.spacing)
+    var spacing: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.strikethrough)
+    var strikethrough: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.subscript)
+    var `subscript`: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.superscript)
+    var superscript: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.textscript)
+    var textScript: UWP.TextScript { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.underline)
+    var underline: UWP.UnderlineType { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.weight)
+    var weight: Int32 { get set }
+}
+
+extension ITextCharacterFormat {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.IID:
+                let wrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyITextCharacterFormat = any ITextCharacterFormat
+
+// MARK: - ITextCharacterFormat Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum ITextCharacterFormatBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextCharacterFormat
+        public typealias SwiftABI = __ABI_Windows_UI_Text.ITextCharacterFormat
+        public typealias SwiftProjection = AnyITextCharacterFormat
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ITextCharacterFormatImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_UI_Text.ITextCharacterFormatVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ITextCharacterFormatImpl: ITextCharacterFormat, WinRTAbiImpl {
+        fileprivate typealias Bridge = ITextCharacterFormatBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.setclone)
+        fileprivate func setClone(_ value: AnyITextCharacterFormat!) throws {
+            try _default.SetClone(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.getclone)
+        fileprivate func getClone() throws -> AnyITextCharacterFormat! {
+            try _default.GetClone()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.isequal)
+        fileprivate func isEqual(_ format: AnyITextCharacterFormat!) throws -> Bool {
+            try _default.IsEqual(format)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.allcaps)
+        fileprivate var allCaps : FormatEffect {
+            get { try! _default.get_AllCaps() }
+            set { try! _default.put_AllCaps(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.backgroundcolor)
+        fileprivate var backgroundColor : UWP.Color {
+            get { try! _default.get_BackgroundColor() }
+            set { try! _default.put_BackgroundColor(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.bold)
+        fileprivate var bold : FormatEffect {
+            get { try! _default.get_Bold() }
+            set { try! _default.put_Bold(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstretch)
+        fileprivate var fontStretch : FontStretch {
+            get { try! _default.get_FontStretch() }
+            set { try! _default.put_FontStretch(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstyle)
+        fileprivate var fontStyle : FontStyle {
+            get { try! _default.get_FontStyle() }
+            set { try! _default.put_FontStyle(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.foregroundcolor)
+        fileprivate var foregroundColor : UWP.Color {
+            get { try! _default.get_ForegroundColor() }
+            set { try! _default.put_ForegroundColor(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.hidden)
+        fileprivate var hidden : FormatEffect {
+            get { try! _default.get_Hidden() }
+            set { try! _default.put_Hidden(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.italic)
+        fileprivate var italic : FormatEffect {
+            get { try! _default.get_Italic() }
+            set { try! _default.put_Italic(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.kerning)
+        fileprivate var kerning : Float {
+            get { try! _default.get_Kerning() }
+            set { try! _default.put_Kerning(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.languagetag)
+        fileprivate var languageTag : String {
+            get { try! _default.get_LanguageTag() }
+            set { try! _default.put_LanguageTag(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.linktype)
+        fileprivate var linkType : LinkType {
+            get { try! _default.get_LinkType() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.name)
+        fileprivate var name : String {
+            get { try! _default.get_Name() }
+            set { try! _default.put_Name(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.outline)
+        fileprivate var outline : FormatEffect {
+            get { try! _default.get_Outline() }
+            set { try! _default.put_Outline(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.position)
+        fileprivate var position : Float {
+            get { try! _default.get_Position() }
+            set { try! _default.put_Position(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.protectedtext)
+        fileprivate var protectedText : FormatEffect {
+            get { try! _default.get_ProtectedText() }
+            set { try! _default.put_ProtectedText(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.size)
+        fileprivate var size : Float {
+            get { try! _default.get_Size() }
+            set { try! _default.put_Size(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.smallcaps)
+        fileprivate var smallCaps : FormatEffect {
+            get { try! _default.get_SmallCaps() }
+            set { try! _default.put_SmallCaps(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.spacing)
+        fileprivate var spacing : Float {
+            get { try! _default.get_Spacing() }
+            set { try! _default.put_Spacing(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.strikethrough)
+        fileprivate var strikethrough : FormatEffect {
+            get { try! _default.get_Strikethrough() }
+            set { try! _default.put_Strikethrough(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.subscript)
+        fileprivate var `subscript` : FormatEffect {
+            get { try! _default.get_Subscript() }
+            set { try! _default.put_Subscript(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.superscript)
+        fileprivate var superscript : FormatEffect {
+            get { try! _default.get_Superscript() }
+            set { try! _default.put_Superscript(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.textscript)
+        fileprivate var textScript : TextScript {
+            get { try! _default.get_TextScript() }
+            set { try! _default.put_TextScript(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.underline)
+        fileprivate var underline : UnderlineType {
+            get { try! _default.get_Underline() }
+            set { try! _default.put_Underline(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.weight)
+        fileprivate var weight : Int32 {
+            get { try! _default.get_Weight() }
+            set { try! _default.put_Weight(newValue) }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextCharacterFormat: WindowsFoundation.IID = .init(
+        Data1: 0x5ADEF3DB, Data2: 0x05FB, Data3: 0x442D, Data4: ( 0x80,0x65,0x64,0x2A,0xFE,0xA0,0x2C,0xED ) // 5ADEF3DB-05FB-442D-8065-642AFEA02CED
+    ) 
+
+    public class ITextCharacterFormat: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextCharacterFormat }
+
+        open func get_AllCaps() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllCaps(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_AllCaps(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AllCaps(pThis, value))
+            }
+        }
+
+        open func get_BackgroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        open func put_BackgroundColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_BackgroundColor(pThis, .from(swift: value)))
+            }
+        }
+
+        open func get_Bold() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bold(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Bold(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Bold(pThis, value))
+            }
+        }
+
+        open func get_FontStretch() throws -> UWP.FontStretch {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStretch(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_FontStretch(_ value: UWP.FontStretch) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStretch(pThis, value))
+            }
+        }
+
+        open func get_FontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStyle(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_FontStyle(_ value: UWP.FontStyle) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStyle(pThis, value))
+            }
+        }
+
+        open func get_ForegroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForegroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        open func put_ForegroundColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForegroundColor(pThis, .from(swift: value)))
+            }
+        }
+
+        open func get_Hidden() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Hidden(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Hidden(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Hidden(pThis, value))
+            }
+        }
+
+        open func get_Italic() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Italic(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Italic(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Italic(pThis, value))
+            }
+        }
+
+        open func get_Kerning() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kerning(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Kerning(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Kerning(pThis, value))
+            }
+        }
+
+        open func get_LanguageTag() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LanguageTag(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func put_LanguageTag(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LanguageTag(pThis, _value.get()))
+            }
+        }
+
+        open func get_LinkType() throws -> UWP.LinkType {
+            var value: __x_ABI_CWindows_CUI_CText_CLinkType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LinkType(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func put_Name(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Name(pThis, _value.get()))
+            }
+        }
+
+        open func get_Outline() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Outline(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Outline(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Outline(pThis, value))
+            }
+        }
+
+        open func get_Position() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Position(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, value))
+            }
+        }
+
+        open func get_ProtectedText() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProtectedText(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_ProtectedText(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ProtectedText(pThis, value))
+            }
+        }
+
+        open func get_Size() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Size(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Size(pThis, value))
+            }
+        }
+
+        open func get_SmallCaps() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallCaps(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_SmallCaps(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SmallCaps(pThis, value))
+            }
+        }
+
+        open func get_Spacing() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Spacing(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Spacing(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Spacing(pThis, value))
+            }
+        }
+
+        open func get_Strikethrough() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Strikethrough(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Strikethrough(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Strikethrough(pThis, value))
+            }
+        }
+
+        open func get_Subscript() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subscript(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Subscript(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Subscript(pThis, value))
+            }
+        }
+
+        open func get_Superscript() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Superscript(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Superscript(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Superscript(pThis, value))
+            }
+        }
+
+        open func get_TextScript() throws -> UWP.TextScript {
+            var value: __x_ABI_CWindows_CUI_CText_CTextScript = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextScript(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_TextScript(_ value: UWP.TextScript) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextScript(pThis, value))
+            }
+        }
+
+        open func get_Underline() throws -> UWP.UnderlineType {
+            var value: __x_ABI_CWindows_CUI_CText_CUnderlineType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Underline(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Underline(_ value: UWP.UnderlineType) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Underline(pThis, value))
+            }
+        }
+
+        open func get_Weight() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Weight(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Weight(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Weight(pThis, value))
+            }
+        }
+
+        open func SetClone(_ value: UWP.AnyITextCharacterFormat?) throws {
+            let valueWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetClone(pThis, _value))
+            }
+        }
+
+        open func GetClone() throws -> UWP.AnyITextCharacterFormat? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetClone(pThis, &resultAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: result)
+        }
+
+        open func IsEqual(_ format: UWP.AnyITextCharacterFormat?) throws -> Bool {
+            var result: boolean = 0
+            let formatWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(format)
+            let _format = try! formatWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextCharacterFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsEqual(pThis, _format, &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+    internal static var ITextCharacterFormatVTable: __x_ABI_CWindows_CUI_CText_CITextCharacterFormatVtbl = .init(
+        QueryInterface: { ITextCharacterFormatWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ITextCharacterFormatWrapper.addRef($0) },
+        Release: { ITextCharacterFormatWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.UI.Text.ITextCharacterFormat").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_AllCaps: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.allCaps
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_AllCaps: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.allCaps = value
+            return S_OK
+        },
+
+        get_BackgroundColor: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.backgroundColor
+            $1?.initialize(to: .from(swift: value))
+            return S_OK
+        },
+
+        put_BackgroundColor: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.Color = .from(abi: $1)
+            __unwrapped__instance.backgroundColor = value
+            return S_OK
+        },
+
+        get_Bold: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.bold
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Bold: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.bold = value
+            return S_OK
+        },
+
+        get_FontStretch: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.fontStretch
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_FontStretch: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FontStretch = $1
+            __unwrapped__instance.fontStretch = value
+            return S_OK
+        },
+
+        get_FontStyle: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.fontStyle
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_FontStyle: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FontStyle = $1
+            __unwrapped__instance.fontStyle = value
+            return S_OK
+        },
+
+        get_ForegroundColor: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.foregroundColor
+            $1?.initialize(to: .from(swift: value))
+            return S_OK
+        },
+
+        put_ForegroundColor: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.Color = .from(abi: $1)
+            __unwrapped__instance.foregroundColor = value
+            return S_OK
+        },
+
+        get_Hidden: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.hidden
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Hidden: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.hidden = value
+            return S_OK
+        },
+
+        get_Italic: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.italic
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Italic: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.italic = value
+            return S_OK
+        },
+
+        get_Kerning: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.kerning
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Kerning: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.kerning = value
+            return S_OK
+        },
+
+        get_LanguageTag: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.languageTag
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        put_LanguageTag: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: String = .init(from: $1)
+            __unwrapped__instance.languageTag = value
+            return S_OK
+        },
+
+        get_LinkType: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.linkType
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_Name: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.name
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        put_Name: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: String = .init(from: $1)
+            __unwrapped__instance.name = value
+            return S_OK
+        },
+
+        get_Outline: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.outline
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Outline: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.outline = value
+            return S_OK
+        },
+
+        get_Position: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.position
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Position: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.position = value
+            return S_OK
+        },
+
+        get_ProtectedText: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.protectedText
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_ProtectedText: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.protectedText = value
+            return S_OK
+        },
+
+        get_Size: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.size
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Size: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.size = value
+            return S_OK
+        },
+
+        get_SmallCaps: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.smallCaps
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_SmallCaps: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.smallCaps = value
+            return S_OK
+        },
+
+        get_Spacing: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.spacing
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Spacing: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.spacing = value
+            return S_OK
+        },
+
+        get_Strikethrough: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.strikethrough
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Strikethrough: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.strikethrough = value
+            return S_OK
+        },
+
+        get_Subscript: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.`subscript`
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Subscript: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.`subscript` = value
+            return S_OK
+        },
+
+        get_Superscript: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.superscript
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Superscript: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.superscript = value
+            return S_OK
+        },
+
+        get_TextScript: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.textScript
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_TextScript: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.TextScript = $1
+            __unwrapped__instance.textScript = value
+            return S_OK
+        },
+
+        get_Underline: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.underline
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Underline: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.UnderlineType = $1
+            __unwrapped__instance.underline = value
+            return S_OK
+        },
+
+        get_Weight: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.weight
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Weight: {
+            guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.weight = value
+            return S_OK
+        },
+
+        SetClone: {
+            do {
+                guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UWP.AnyITextCharacterFormat? = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.setClone(value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetClone: {
+            do {
+                guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getClone()
+                let resultWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsEqual: {
+            do {
+                guard let __unwrapped__instance = ITextCharacterFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let format: UWP.AnyITextCharacterFormat? = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try __unwrapped__instance.isEqual(format)
+                $2?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ITextCharacterFormatWrapper = InterfaceWrapperBase<__IMPL_Windows_UI_Text.ITextCharacterFormatBridge>
+}
+@_spi(WinRTInternal)
+public class ITextCharacterFormatMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextCharacterFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextCharacterFormat = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextCharacterFormatBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ITextDocument
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument)
+public protocol ITextDocument : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.cancopy)
+    func canCopy() throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canpaste)
+    func canPaste() throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canredo)
+    func canRedo() throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canundo)
+    func canUndo() throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.applydisplayupdates)
+    func applyDisplayUpdates() throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.batchdisplayupdates)
+    func batchDisplayUpdates() throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.beginundogroup)
+    func beginUndoGroup() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.endundogroup)
+    func endUndoGroup() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultcharacterformat)
+    func getDefaultCharacterFormat() throws -> UWP.AnyITextCharacterFormat!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultparagraphformat)
+    func getDefaultParagraphFormat() throws -> UWP.AnyITextParagraphFormat!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrange)
+    func getRange(_ startPosition: Int32, _ endPosition: Int32) throws -> UWP.AnyITextRange!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrangefrompoint)
+    func getRangeFromPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions) throws -> UWP.AnyITextRange!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.gettext)
+    func getText(_ options: UWP.TextGetOptions, _ value: inout String) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.loadfromstream)
+    func loadFromStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.redo)
+    func redo() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.savetostream)
+    func saveToStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultcharacterformat)
+    func setDefaultCharacterFormat(_ value: UWP.AnyITextCharacterFormat!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultparagraphformat)
+    func setDefaultParagraphFormat(_ value: UWP.AnyITextParagraphFormat!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.settext)
+    func setText(_ options: UWP.TextSetOptions, _ value: String) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undo)
+    func undo() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.carettype)
+    var caretType: UWP.CaretType { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.defaulttabstop)
+    var defaultTabStop: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.selection)
+    var selection: UWP.AnyITextSelection! { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undolimit)
+    var undoLimit: UInt32 { get set }
+}
+
+extension ITextDocument {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_UI_Text.ITextDocumentWrapper.IID:
+                let wrapper = __ABI_Windows_UI_Text.ITextDocumentWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyITextDocument = any ITextDocument
+
+// MARK: - ITextDocument Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum ITextDocumentBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextDocument
+        public typealias SwiftABI = __ABI_Windows_UI_Text.ITextDocument
+        public typealias SwiftProjection = AnyITextDocument
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ITextDocumentImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_UI_Text.ITextDocumentVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ITextDocumentImpl: ITextDocument, WinRTAbiImpl {
+        fileprivate typealias Bridge = ITextDocumentBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.cancopy)
+        fileprivate func canCopy() throws -> Bool {
+            try _default.CanCopy()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canpaste)
+        fileprivate func canPaste() throws -> Bool {
+            try _default.CanPaste()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canredo)
+        fileprivate func canRedo() throws -> Bool {
+            try _default.CanRedo()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canundo)
+        fileprivate func canUndo() throws -> Bool {
+            try _default.CanUndo()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.applydisplayupdates)
+        fileprivate func applyDisplayUpdates() throws -> Int32 {
+            try _default.ApplyDisplayUpdates()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.batchdisplayupdates)
+        fileprivate func batchDisplayUpdates() throws -> Int32 {
+            try _default.BatchDisplayUpdates()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.beginundogroup)
+        fileprivate func beginUndoGroup() throws {
+            try _default.BeginUndoGroup()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.endundogroup)
+        fileprivate func endUndoGroup() throws {
+            try _default.EndUndoGroup()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultcharacterformat)
+        fileprivate func getDefaultCharacterFormat() throws -> AnyITextCharacterFormat! {
+            try _default.GetDefaultCharacterFormat()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultparagraphformat)
+        fileprivate func getDefaultParagraphFormat() throws -> AnyITextParagraphFormat! {
+            try _default.GetDefaultParagraphFormat()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrange)
+        fileprivate func getRange(_ startPosition: Int32, _ endPosition: Int32) throws -> AnyITextRange! {
+            try _default.GetRange(startPosition, endPosition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrangefrompoint)
+        fileprivate func getRangeFromPoint(_ point: WindowsFoundation.Point, _ options: PointOptions) throws -> AnyITextRange! {
+            try _default.GetRangeFromPoint(point, options)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.gettext)
+        fileprivate func getText(_ options: TextGetOptions, _ value: inout String) throws {
+            try _default.GetText(options, &value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.loadfromstream)
+        fileprivate func loadFromStream(_ options: TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _default.LoadFromStream(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.redo)
+        fileprivate func redo() throws {
+            try _default.Redo()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.savetostream)
+        fileprivate func saveToStream(_ options: TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _default.SaveToStream(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultcharacterformat)
+        fileprivate func setDefaultCharacterFormat(_ value: AnyITextCharacterFormat!) throws {
+            try _default.SetDefaultCharacterFormat(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultparagraphformat)
+        fileprivate func setDefaultParagraphFormat(_ value: AnyITextParagraphFormat!) throws {
+            try _default.SetDefaultParagraphFormat(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.settext)
+        fileprivate func setText(_ options: TextSetOptions, _ value: String) throws {
+            try _default.SetText(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undo)
+        fileprivate func undo() throws {
+            try _default.Undo()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.carettype)
+        fileprivate var caretType : CaretType {
+            get { try! _default.get_CaretType() }
+            set { try! _default.put_CaretType(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.defaulttabstop)
+        fileprivate var defaultTabStop : Float {
+            get { try! _default.get_DefaultTabStop() }
+            set { try! _default.put_DefaultTabStop(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.selection)
+        fileprivate var selection : AnyITextSelection! {
+            get { try! _default.get_Selection() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undolimit)
+        fileprivate var undoLimit : UInt32 {
+            get { try! _default.get_UndoLimit() }
+            set { try! _default.put_UndoLimit(newValue) }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextDocument: WindowsFoundation.IID = .init(
+        Data1: 0xBEEE4DDB, Data2: 0x90B2, Data3: 0x408C, Data4: ( 0xA2,0xF6,0x0A,0x0A,0xC3,0x1E,0x33,0xE4 ) // BEEE4DDB-90B2-408C-A2F6-0A0AC31E33E4
+    ) 
+
+    public class ITextDocument: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextDocument }
+
+        open func get_CaretType() throws -> UWP.CaretType {
+            var value: __x_ABI_CWindows_CUI_CText_CCaretType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CaretType(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_CaretType(_ value: UWP.CaretType) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CaretType(pThis, value))
+            }
+        }
+
+        open func get_DefaultTabStop() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultTabStop(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_DefaultTabStop(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DefaultTabStop(pThis, value))
+            }
+        }
+
+        open func get_Selection() throws -> UWP.AnyITextSelection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Selection(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextSelectionWrapper.unwrapFrom(abi: value)
+        }
+
+        open func get_UndoLimit() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndoLimit(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_UndoLimit(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_UndoLimit(pThis, value))
+            }
+        }
+
+        open func CanCopy() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CanCopy(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func CanPaste() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CanPaste(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func CanRedo() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CanRedo(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func CanUndo() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CanUndo(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func ApplyDisplayUpdates() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ApplyDisplayUpdates(pThis, &result))
+            }
+            return result
+        }
+
+        open func BatchDisplayUpdates() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.BatchDisplayUpdates(pThis, &result))
+            }
+            return result
+        }
+
+        open func BeginUndoGroup() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.BeginUndoGroup(pThis))
+            }
+        }
+
+        open func EndUndoGroup() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.EndUndoGroup(pThis))
+            }
+        }
+
+        open func GetDefaultCharacterFormat() throws -> UWP.AnyITextCharacterFormat? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDefaultCharacterFormat(pThis, &resultAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: result)
+        }
+
+        open func GetDefaultParagraphFormat() throws -> UWP.AnyITextParagraphFormat? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDefaultParagraphFormat(pThis, &resultAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: result)
+        }
+
+        open func GetRange(_ startPosition: Int32, _ endPosition: Int32) throws -> UWP.AnyITextRange? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetRange(pThis, startPosition, endPosition, &resultAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: result)
+        }
+
+        open func GetRangeFromPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions) throws -> UWP.AnyITextRange? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetRangeFromPoint(pThis, .from(swift: point), options, &resultAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: result)
+        }
+
+        open func GetText(_ options: UWP.TextGetOptions, _ value: inout String) throws {
+            var _value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetText(pThis, options, &_value))
+            }
+            value = .init(from: _value)
+            WindowsDeleteString(_value)
+        }
+
+        open func LoadFromStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.LoadFromStream(pThis, options, _value))
+            }
+        }
+
+        open func Redo() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Redo(pThis))
+            }
+        }
+
+        open func SaveToStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SaveToStream(pThis, options, _value))
+            }
+        }
+
+        open func SetDefaultCharacterFormat(_ value: UWP.AnyITextCharacterFormat?) throws {
+            let valueWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDefaultCharacterFormat(pThis, _value))
+            }
+        }
+
+        open func SetDefaultParagraphFormat(_ value: UWP.AnyITextParagraphFormat?) throws {
+            let valueWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDefaultParagraphFormat(pThis, _value))
+            }
+        }
+
+        open func SetText(_ options: UWP.TextSetOptions, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetText(pThis, options, _value.get()))
+            }
+        }
+
+        open func Undo() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Undo(pThis))
+            }
+        }
+
+    }
+
+    internal static var ITextDocumentVTable: __x_ABI_CWindows_CUI_CText_CITextDocumentVtbl = .init(
+        QueryInterface: { ITextDocumentWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ITextDocumentWrapper.addRef($0) },
+        Release: { ITextDocumentWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_UI_Text.ITextDocumentWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.UI.Text.ITextDocument").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_CaretType: {
+            guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.caretType
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_CaretType: {
+            guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.CaretType = $1
+            __unwrapped__instance.caretType = value
+            return S_OK
+        },
+
+        get_DefaultTabStop: {
+            guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.defaultTabStop
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_DefaultTabStop: {
+            guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.defaultTabStop = value
+            return S_OK
+        },
+
+        get_Selection: {
+            guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.selection
+            let valueWrapper = __ABI_Windows_UI_Text.ITextSelectionWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        get_UndoLimit: {
+            guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.undoLimit
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_UndoLimit: {
+            guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UInt32 = $1
+            __unwrapped__instance.undoLimit = value
+            return S_OK
+        },
+
+        CanCopy: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.canCopy()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        CanPaste: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.canPaste()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        CanRedo: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.canRedo()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        CanUndo: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.canUndo()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        ApplyDisplayUpdates: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.applyDisplayUpdates()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        BatchDisplayUpdates: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.batchDisplayUpdates()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        BeginUndoGroup: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.beginUndoGroup()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        EndUndoGroup: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.endUndoGroup()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetDefaultCharacterFormat: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getDefaultCharacterFormat()
+                let resultWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetDefaultParagraphFormat: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getDefaultParagraphFormat()
+                let resultWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetRange: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let startPosition: Int32 = $1
+                let endPosition: Int32 = $2
+                let result = try __unwrapped__instance.getRange(startPosition, endPosition)
+                let resultWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(result)
+                resultWrapper?.copyTo($3)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetRangeFromPoint: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let point: WindowsFoundation.Point = .from(abi: $1)
+                let options: UWP.PointOptions = $2
+                let result = try __unwrapped__instance.getRangeFromPoint(point, options)
+                let resultWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(result)
+                resultWrapper?.copyTo($3)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetText: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextGetOptions = $1
+                var value: String = ""
+                try __unwrapped__instance.getText(options, &value)
+                $2?.initialize(to: try! HString(value).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        LoadFromStream: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextSetOptions = $1
+                let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
+                try __unwrapped__instance.loadFromStream(options, value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Redo: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.redo()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SaveToStream: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextGetOptions = $1
+                let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
+                try __unwrapped__instance.saveToStream(options, value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetDefaultCharacterFormat: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UWP.AnyITextCharacterFormat? = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.setDefaultCharacterFormat(value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetDefaultParagraphFormat: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UWP.AnyITextParagraphFormat? = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.setDefaultParagraphFormat(value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetText: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextSetOptions = $1
+                let value: String = .init(from: $2)
+                try __unwrapped__instance.setText(options, value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Undo: {
+            do {
+                guard let __unwrapped__instance = ITextDocumentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.undo()
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ITextDocumentWrapper = InterfaceWrapperBase<__IMPL_Windows_UI_Text.ITextDocumentBridge>
+}
+@_spi(WinRTInternal)
+public class ITextDocumentMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextDocument
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextDocument = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextDocumentBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ITextParagraphFormat
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat)
+public protocol ITextParagraphFormat : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.addtab)
+    func addTab(_ position: Float, _ align: UWP.TabAlignment, _ leader: UWP.TabLeader) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.clearalltabs)
+    func clearAllTabs() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.deletetab)
+    func deleteTab(_ position: Float) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.getclone)
+    func getClone() throws -> UWP.AnyITextParagraphFormat!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.gettab)
+    func getTab(_ index: Int32, _ position: inout Float, _ align: inout UWP.TabAlignment, _ leader: inout UWP.TabLeader) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.isequal)
+    func isEqual(_ format: UWP.AnyITextParagraphFormat!) throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setclone)
+    func setClone(_ format: UWP.AnyITextParagraphFormat!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setindents)
+    func setIndents(_ start: Float, _ left: Float, _ right: Float) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setlinespacing)
+    func setLineSpacing(_ rule: UWP.LineSpacingRule, _ spacing: Float) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.alignment)
+    var alignment: UWP.ParagraphAlignment { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.firstlineindent)
+    var firstLineIndent: Float { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keeptogether)
+    var keepTogether: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keepwithnext)
+    var keepWithNext: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.leftindent)
+    var leftIndent: Float { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacing)
+    var lineSpacing: Float { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacingrule)
+    var lineSpacingRule: UWP.LineSpacingRule { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listalignment)
+    var listAlignment: UWP.MarkerAlignment { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listlevelindex)
+    var listLevelIndex: Int32 { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststart)
+    var listStart: Int32 { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststyle)
+    var listStyle: UWP.MarkerStyle { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtab)
+    var listTab: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtype)
+    var listType: UWP.MarkerType { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.nolinenumber)
+    var noLineNumber: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.pagebreakbefore)
+    var pageBreakBefore: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.rightindent)
+    var rightIndent: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.righttoleft)
+    var rightToLeft: UWP.FormatEffect { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spaceafter)
+    var spaceAfter: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spacebefore)
+    var spaceBefore: Float { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.style)
+    var style: UWP.ParagraphStyle { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.tabcount)
+    var tabCount: Int32 { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.widowcontrol)
+    var widowControl: UWP.FormatEffect { get set }
+}
+
+extension ITextParagraphFormat {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.IID:
+                let wrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyITextParagraphFormat = any ITextParagraphFormat
+
+// MARK: - ITextParagraphFormat Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum ITextParagraphFormatBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextParagraphFormat
+        public typealias SwiftABI = __ABI_Windows_UI_Text.ITextParagraphFormat
+        public typealias SwiftProjection = AnyITextParagraphFormat
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ITextParagraphFormatImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_UI_Text.ITextParagraphFormatVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ITextParagraphFormatImpl: ITextParagraphFormat, WinRTAbiImpl {
+        fileprivate typealias Bridge = ITextParagraphFormatBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.addtab)
+        fileprivate func addTab(_ position: Float, _ align: TabAlignment, _ leader: TabLeader) throws {
+            try _default.AddTab(position, align, leader)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.clearalltabs)
+        fileprivate func clearAllTabs() throws {
+            try _default.ClearAllTabs()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.deletetab)
+        fileprivate func deleteTab(_ position: Float) throws {
+            try _default.DeleteTab(position)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.getclone)
+        fileprivate func getClone() throws -> AnyITextParagraphFormat! {
+            try _default.GetClone()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.gettab)
+        fileprivate func getTab(_ index: Int32, _ position: inout Float, _ align: inout TabAlignment, _ leader: inout TabLeader) throws {
+            try _default.GetTab(index, &position, &align, &leader)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.isequal)
+        fileprivate func isEqual(_ format: AnyITextParagraphFormat!) throws -> Bool {
+            try _default.IsEqual(format)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setclone)
+        fileprivate func setClone(_ format: AnyITextParagraphFormat!) throws {
+            try _default.SetClone(format)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setindents)
+        fileprivate func setIndents(_ start: Float, _ left: Float, _ right: Float) throws {
+            try _default.SetIndents(start, left, right)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setlinespacing)
+        fileprivate func setLineSpacing(_ rule: LineSpacingRule, _ spacing: Float) throws {
+            try _default.SetLineSpacing(rule, spacing)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.alignment)
+        fileprivate var alignment : ParagraphAlignment {
+            get { try! _default.get_Alignment() }
+            set { try! _default.put_Alignment(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.firstlineindent)
+        fileprivate var firstLineIndent : Float {
+            get { try! _default.get_FirstLineIndent() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keeptogether)
+        fileprivate var keepTogether : FormatEffect {
+            get { try! _default.get_KeepTogether() }
+            set { try! _default.put_KeepTogether(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keepwithnext)
+        fileprivate var keepWithNext : FormatEffect {
+            get { try! _default.get_KeepWithNext() }
+            set { try! _default.put_KeepWithNext(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.leftindent)
+        fileprivate var leftIndent : Float {
+            get { try! _default.get_LeftIndent() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacing)
+        fileprivate var lineSpacing : Float {
+            get { try! _default.get_LineSpacing() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacingrule)
+        fileprivate var lineSpacingRule : LineSpacingRule {
+            get { try! _default.get_LineSpacingRule() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listalignment)
+        fileprivate var listAlignment : MarkerAlignment {
+            get { try! _default.get_ListAlignment() }
+            set { try! _default.put_ListAlignment(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listlevelindex)
+        fileprivate var listLevelIndex : Int32 {
+            get { try! _default.get_ListLevelIndex() }
+            set { try! _default.put_ListLevelIndex(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststart)
+        fileprivate var listStart : Int32 {
+            get { try! _default.get_ListStart() }
+            set { try! _default.put_ListStart(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststyle)
+        fileprivate var listStyle : MarkerStyle {
+            get { try! _default.get_ListStyle() }
+            set { try! _default.put_ListStyle(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtab)
+        fileprivate var listTab : Float {
+            get { try! _default.get_ListTab() }
+            set { try! _default.put_ListTab(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtype)
+        fileprivate var listType : MarkerType {
+            get { try! _default.get_ListType() }
+            set { try! _default.put_ListType(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.nolinenumber)
+        fileprivate var noLineNumber : FormatEffect {
+            get { try! _default.get_NoLineNumber() }
+            set { try! _default.put_NoLineNumber(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.pagebreakbefore)
+        fileprivate var pageBreakBefore : FormatEffect {
+            get { try! _default.get_PageBreakBefore() }
+            set { try! _default.put_PageBreakBefore(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.rightindent)
+        fileprivate var rightIndent : Float {
+            get { try! _default.get_RightIndent() }
+            set { try! _default.put_RightIndent(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.righttoleft)
+        fileprivate var rightToLeft : FormatEffect {
+            get { try! _default.get_RightToLeft() }
+            set { try! _default.put_RightToLeft(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spaceafter)
+        fileprivate var spaceAfter : Float {
+            get { try! _default.get_SpaceAfter() }
+            set { try! _default.put_SpaceAfter(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spacebefore)
+        fileprivate var spaceBefore : Float {
+            get { try! _default.get_SpaceBefore() }
+            set { try! _default.put_SpaceBefore(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.style)
+        fileprivate var style : ParagraphStyle {
+            get { try! _default.get_Style() }
+            set { try! _default.put_Style(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.tabcount)
+        fileprivate var tabCount : Int32 {
+            get { try! _default.get_TabCount() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.widowcontrol)
+        fileprivate var widowControl : FormatEffect {
+            get { try! _default.get_WidowControl() }
+            set { try! _default.put_WidowControl(newValue) }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextParagraphFormat: WindowsFoundation.IID = .init(
+        Data1: 0x2CF8CFA6, Data2: 0x4676, Data3: 0x498A, Data4: ( 0x93,0xF5,0xBB,0xDB,0xFC,0x0B,0xD8,0x83 ) // 2CF8CFA6-4676-498A-93F5-BBDBFC0BD883
+    ) 
+
+    public class ITextParagraphFormat: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextParagraphFormat }
+
+        open func get_Alignment() throws -> UWP.ParagraphAlignment {
+            var value: __x_ABI_CWindows_CUI_CText_CParagraphAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Alignment(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Alignment(_ value: UWP.ParagraphAlignment) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Alignment(pThis, value))
+            }
+        }
+
+        open func get_FirstLineIndent() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstLineIndent(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_KeepTogether() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeepTogether(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_KeepTogether(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeepTogether(pThis, value))
+            }
+        }
+
+        open func get_KeepWithNext() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeepWithNext(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_KeepWithNext(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeepWithNext(pThis, value))
+            }
+        }
+
+        open func get_LeftIndent() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LeftIndent(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_LineSpacing() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacing(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_LineSpacingRule() throws -> UWP.LineSpacingRule {
+            var value: __x_ABI_CWindows_CUI_CText_CLineSpacingRule = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineSpacingRule(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_ListAlignment() throws -> UWP.MarkerAlignment {
+            var value: __x_ABI_CWindows_CUI_CText_CMarkerAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_ListAlignment(_ value: UWP.MarkerAlignment) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListAlignment(pThis, value))
+            }
+        }
+
+        open func get_ListLevelIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListLevelIndex(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_ListLevelIndex(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListLevelIndex(pThis, value))
+            }
+        }
+
+        open func get_ListStart() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListStart(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_ListStart(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListStart(pThis, value))
+            }
+        }
+
+        open func get_ListStyle() throws -> UWP.MarkerStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CMarkerStyle = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListStyle(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_ListStyle(_ value: UWP.MarkerStyle) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListStyle(pThis, value))
+            }
+        }
+
+        open func get_ListTab() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListTab(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_ListTab(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListTab(pThis, value))
+            }
+        }
+
+        open func get_ListType() throws -> UWP.MarkerType {
+            var value: __x_ABI_CWindows_CUI_CText_CMarkerType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ListType(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_ListType(_ value: UWP.MarkerType) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ListType(pThis, value))
+            }
+        }
+
+        open func get_NoLineNumber() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NoLineNumber(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_NoLineNumber(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NoLineNumber(pThis, value))
+            }
+        }
+
+        open func get_PageBreakBefore() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PageBreakBefore(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_PageBreakBefore(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PageBreakBefore(pThis, value))
+            }
+        }
+
+        open func get_RightIndent() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RightIndent(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_RightIndent(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RightIndent(pThis, value))
+            }
+        }
+
+        open func get_RightToLeft() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RightToLeft(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_RightToLeft(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RightToLeft(pThis, value))
+            }
+        }
+
+        open func get_Style() throws -> UWP.ParagraphStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CParagraphStyle = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Style(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Style(_ value: UWP.ParagraphStyle) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Style(pThis, value))
+            }
+        }
+
+        open func get_SpaceAfter() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpaceAfter(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_SpaceAfter(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpaceAfter(pThis, value))
+            }
+        }
+
+        open func get_SpaceBefore() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpaceBefore(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_SpaceBefore(_ value: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpaceBefore(pThis, value))
+            }
+        }
+
+        open func get_WidowControl() throws -> UWP.FormatEffect {
+            var value: __x_ABI_CWindows_CUI_CText_CFormatEffect = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_WidowControl(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_WidowControl(_ value: UWP.FormatEffect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_WidowControl(pThis, value))
+            }
+        }
+
+        open func get_TabCount() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TabCount(pThis, &value))
+            }
+            return value
+        }
+
+        open func AddTab(_ position: Float, _ align: UWP.TabAlignment, _ leader: UWP.TabLeader) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddTab(pThis, position, align, leader))
+            }
+        }
+
+        open func ClearAllTabs() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAllTabs(pThis))
+            }
+        }
+
+        open func DeleteTab(_ position: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DeleteTab(pThis, position))
+            }
+        }
+
+        open func GetClone() throws -> UWP.AnyITextParagraphFormat? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetClone(pThis, &resultAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: result)
+        }
+
+        open func GetTab(_ index: Int32, _ position: inout Float, _ align: inout UWP.TabAlignment, _ leader: inout UWP.TabLeader) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetTab(pThis, index, &position, &align, &leader))
+            }
+        }
+
+        open func IsEqual(_ format: UWP.AnyITextParagraphFormat?) throws -> Bool {
+            var result: boolean = 0
+            let formatWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(format)
+            let _format = try! formatWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsEqual(pThis, _format, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func SetClone(_ format: UWP.AnyITextParagraphFormat?) throws {
+            let formatWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(format)
+            let _format = try! formatWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetClone(pThis, _format))
+            }
+        }
+
+        open func SetIndents(_ start: Float, _ left: Float, _ right: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetIndents(pThis, start, left, right))
+            }
+        }
+
+        open func SetLineSpacing(_ rule: UWP.LineSpacingRule, _ spacing: Float) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextParagraphFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetLineSpacing(pThis, rule, spacing))
+            }
+        }
+
+    }
+
+    internal static var ITextParagraphFormatVTable: __x_ABI_CWindows_CUI_CText_CITextParagraphFormatVtbl = .init(
+        QueryInterface: { ITextParagraphFormatWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ITextParagraphFormatWrapper.addRef($0) },
+        Release: { ITextParagraphFormatWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.UI.Text.ITextParagraphFormat").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Alignment: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.alignment
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Alignment: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.ParagraphAlignment = $1
+            __unwrapped__instance.alignment = value
+            return S_OK
+        },
+
+        get_FirstLineIndent: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.firstLineIndent
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_KeepTogether: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.keepTogether
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_KeepTogether: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.keepTogether = value
+            return S_OK
+        },
+
+        get_KeepWithNext: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.keepWithNext
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_KeepWithNext: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.keepWithNext = value
+            return S_OK
+        },
+
+        get_LeftIndent: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.leftIndent
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_LineSpacing: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.lineSpacing
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_LineSpacingRule: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.lineSpacingRule
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_ListAlignment: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.listAlignment
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_ListAlignment: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.MarkerAlignment = $1
+            __unwrapped__instance.listAlignment = value
+            return S_OK
+        },
+
+        get_ListLevelIndex: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.listLevelIndex
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_ListLevelIndex: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.listLevelIndex = value
+            return S_OK
+        },
+
+        get_ListStart: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.listStart
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_ListStart: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.listStart = value
+            return S_OK
+        },
+
+        get_ListStyle: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.listStyle
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_ListStyle: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.MarkerStyle = $1
+            __unwrapped__instance.listStyle = value
+            return S_OK
+        },
+
+        get_ListTab: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.listTab
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_ListTab: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.listTab = value
+            return S_OK
+        },
+
+        get_ListType: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.listType
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_ListType: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.MarkerType = $1
+            __unwrapped__instance.listType = value
+            return S_OK
+        },
+
+        get_NoLineNumber: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.noLineNumber
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_NoLineNumber: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.noLineNumber = value
+            return S_OK
+        },
+
+        get_PageBreakBefore: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.pageBreakBefore
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_PageBreakBefore: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.pageBreakBefore = value
+            return S_OK
+        },
+
+        get_RightIndent: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.rightIndent
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_RightIndent: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.rightIndent = value
+            return S_OK
+        },
+
+        get_RightToLeft: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.rightToLeft
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_RightToLeft: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.rightToLeft = value
+            return S_OK
+        },
+
+        get_Style: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.style
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Style: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.ParagraphStyle = $1
+            __unwrapped__instance.style = value
+            return S_OK
+        },
+
+        get_SpaceAfter: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.spaceAfter
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_SpaceAfter: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.spaceAfter = value
+            return S_OK
+        },
+
+        get_SpaceBefore: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.spaceBefore
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_SpaceBefore: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Float = $1
+            __unwrapped__instance.spaceBefore = value
+            return S_OK
+        },
+
+        get_WidowControl: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.widowControl
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_WidowControl: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.FormatEffect = $1
+            __unwrapped__instance.widowControl = value
+            return S_OK
+        },
+
+        get_TabCount: {
+            guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.tabCount
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        AddTab: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let position: Float = $1
+                let align: UWP.TabAlignment = $2
+                let leader: UWP.TabLeader = $3
+                try __unwrapped__instance.addTab(position, align, leader)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        ClearAllTabs: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.clearAllTabs()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        DeleteTab: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let position: Float = $1
+                try __unwrapped__instance.deleteTab(position)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetClone: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getClone()
+                let resultWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetTab: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let index: Int32 = $1
+                var position: Float = 0.0
+                var align: UWP.TabAlignment = .init(0)
+                var leader: UWP.TabLeader = .init(0)
+                try __unwrapped__instance.getTab(index, &position, &align, &leader)
+                $2?.initialize(to: position)
+                $3?.initialize(to: align)
+                $4?.initialize(to: leader)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsEqual: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let format: UWP.AnyITextParagraphFormat? = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try __unwrapped__instance.isEqual(format)
+                $2?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetClone: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let format: UWP.AnyITextParagraphFormat? = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.setClone(format)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetIndents: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let start: Float = $1
+                let left: Float = $2
+                let right: Float = $3
+                try __unwrapped__instance.setIndents(start, left, right)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetLineSpacing: {
+            do {
+                guard let __unwrapped__instance = ITextParagraphFormatWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let rule: UWP.LineSpacingRule = $1
+                let spacing: Float = $2
+                try __unwrapped__instance.setLineSpacing(rule, spacing)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ITextParagraphFormatWrapper = InterfaceWrapperBase<__IMPL_Windows_UI_Text.ITextParagraphFormatBridge>
+}
+@_spi(WinRTInternal)
+public class ITextParagraphFormatMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextParagraphFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextParagraphFormat = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextParagraphFormatBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ITextRange
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange)
+public protocol ITextRange : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.canpaste)
+    func canPaste(_ format: Int32) throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.changecase)
+    func changeCase(_ value: UWP.LetterCase) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.collapse)
+    func collapse(_ value: Bool) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.copy)
+    func copy() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.cut)
+    func cut() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.delete)
+    func delete(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endof)
+    func endOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.expand)
+    func expand(_ unit: UWP.TextRangeUnit) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.findtext)
+    func findText(_ value: String, _ scanLength: Int32, _ options: UWP.FindOptions) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getcharacterutf32)
+    func getCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getclone)
+    func getClone() throws -> UWP.AnyITextRange!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getindex)
+    func getIndex(_ unit: UWP.TextRangeUnit) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getpoint)
+    func getPoint(_ horizontalAlign: UWP.HorizontalCharacterAlignment, _ verticalAlign: UWP.VerticalCharacterAlignment, _ options: UWP.PointOptions, _ point: inout WindowsFoundation.Point) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getrect)
+    func getRect(_ options: UWP.PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettext)
+    func getText(_ options: UWP.TextGetOptions, _ value: inout String) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettextviastream)
+    func getTextViaStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.inrange)
+    func inRange(_ range: UWP.AnyITextRange!) throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.insertimage)
+    func insertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: UWP.VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.instory)
+    func inStory(_ range: UWP.AnyITextRange!) throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.isequal)
+    func isEqual(_ range: UWP.AnyITextRange!) throws -> Bool
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.move)
+    func move(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.moveend)
+    func moveEnd(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.movestart)
+    func moveStart(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paste)
+    func paste(_ format: Int32) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.scrollintoview)
+    func scrollIntoView(_ value: UWP.PointOptions) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.matchselection)
+    func matchSelection() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setindex)
+    func setIndex(_ unit: UWP.TextRangeUnit, _ index: Int32, _ extend: Bool) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setpoint)
+    func setPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions, _ extend: Bool) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setrange)
+    func setRange(_ startPosition: Int32, _ endPosition: Int32) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settext)
+    func setText(_ options: UWP.TextSetOptions, _ value: String) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settextviastream)
+    func setTextViaStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startof)
+    func startOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.character)
+    var character: Character { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.characterformat)
+    var characterFormat: UWP.AnyITextCharacterFormat! { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endposition)
+    var endPosition: Int32 { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.formattedtext)
+    var formattedText: UWP.AnyITextRange! { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gravity)
+    var gravity: UWP.RangeGravity { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.length)
+    var length: Int32 { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.link)
+    var link: String { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paragraphformat)
+    var paragraphFormat: UWP.AnyITextParagraphFormat! { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startposition)
+    var startPosition: Int32 { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.storylength)
+    var storyLength: Int32 { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.text)
+    var text: String { get set }
+}
+
+extension ITextRange {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_UI_Text.ITextRangeWrapper.IID:
+                let wrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyITextRange = any ITextRange
+
+// MARK: - ITextRange Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum ITextRangeBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextRange
+        public typealias SwiftABI = __ABI_Windows_UI_Text.ITextRange
+        public typealias SwiftProjection = AnyITextRange
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ITextRangeImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_UI_Text.ITextRangeVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ITextRangeImpl: ITextRange, WinRTAbiImpl {
+        fileprivate typealias Bridge = ITextRangeBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.canpaste)
+        fileprivate func canPaste(_ format: Int32) throws -> Bool {
+            try _default.CanPaste(format)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.changecase)
+        fileprivate func changeCase(_ value: LetterCase) throws {
+            try _default.ChangeCase(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.collapse)
+        fileprivate func collapse(_ value: Bool) throws {
+            try _default.Collapse(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.copy)
+        fileprivate func copy() throws {
+            try _default.Copy()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.cut)
+        fileprivate func cut() throws {
+            try _default.Cut()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.delete)
+        fileprivate func delete(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _default.Delete(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endof)
+        fileprivate func endOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            try _default.EndOf(unit, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.expand)
+        fileprivate func expand(_ unit: TextRangeUnit) throws -> Int32 {
+            try _default.Expand(unit)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.findtext)
+        fileprivate func findText(_ value: String, _ scanLength: Int32, _ options: FindOptions) throws -> Int32 {
+            try _default.FindText(value, scanLength, options)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getcharacterutf32)
+        fileprivate func getCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws {
+            try _default.GetCharacterUtf32(&value, offset)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getclone)
+        fileprivate func getClone() throws -> AnyITextRange! {
+            try _default.GetClone()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getindex)
+        fileprivate func getIndex(_ unit: TextRangeUnit) throws -> Int32 {
+            try _default.GetIndex(unit)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getpoint)
+        fileprivate func getPoint(_ horizontalAlign: HorizontalCharacterAlignment, _ verticalAlign: VerticalCharacterAlignment, _ options: PointOptions, _ point: inout WindowsFoundation.Point) throws {
+            try _default.GetPoint(horizontalAlign, verticalAlign, options, &point)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getrect)
+        fileprivate func getRect(_ options: PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws {
+            try _default.GetRect(options, &rect, &hit)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettext)
+        fileprivate func getText(_ options: TextGetOptions, _ value: inout String) throws {
+            try _default.GetText(options, &value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettextviastream)
+        fileprivate func getTextViaStream(_ options: TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _default.GetTextViaStream(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.inrange)
+        fileprivate func inRange(_ range: AnyITextRange!) throws -> Bool {
+            try _default.InRange(range)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.insertimage)
+        fileprivate func insertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _default.InsertImage(width, height, ascent, verticalAlign, alternateText, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.instory)
+        fileprivate func inStory(_ range: AnyITextRange!) throws -> Bool {
+            try _default.InStory(range)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.isequal)
+        fileprivate func isEqual(_ range: AnyITextRange!) throws -> Bool {
+            try _default.IsEqual(range)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.move)
+        fileprivate func move(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _default.Move(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.moveend)
+        fileprivate func moveEnd(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _default.MoveEnd(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.movestart)
+        fileprivate func moveStart(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _default.MoveStart(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paste)
+        fileprivate func paste(_ format: Int32) throws {
+            try _default.Paste(format)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.scrollintoview)
+        fileprivate func scrollIntoView(_ value: PointOptions) throws {
+            try _default.ScrollIntoView(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.matchselection)
+        fileprivate func matchSelection() throws {
+            try _default.MatchSelection()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setindex)
+        fileprivate func setIndex(_ unit: TextRangeUnit, _ index: Int32, _ extend: Bool) throws {
+            try _default.SetIndex(unit, index, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setpoint)
+        fileprivate func setPoint(_ point: WindowsFoundation.Point, _ options: PointOptions, _ extend: Bool) throws {
+            try _default.SetPoint(point, options, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setrange)
+        fileprivate func setRange(_ startPosition: Int32, _ endPosition: Int32) throws {
+            try _default.SetRange(startPosition, endPosition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settext)
+        fileprivate func setText(_ options: TextSetOptions, _ value: String) throws {
+            try _default.SetText(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settextviastream)
+        fileprivate func setTextViaStream(_ options: TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _default.SetTextViaStream(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startof)
+        fileprivate func startOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            try _default.StartOf(unit, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.character)
+        fileprivate var character : Character {
+            get { try! _default.get_Character() }
+            set { try! _default.put_Character(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.characterformat)
+        fileprivate var characterFormat : AnyITextCharacterFormat! {
+            get { try! _default.get_CharacterFormat() }
+            set { try! _default.put_CharacterFormat(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endposition)
+        fileprivate var endPosition : Int32 {
+            get { try! _default.get_EndPosition() }
+            set { try! _default.put_EndPosition(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.formattedtext)
+        fileprivate var formattedText : AnyITextRange! {
+            get { try! _default.get_FormattedText() }
+            set { try! _default.put_FormattedText(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gravity)
+        fileprivate var gravity : RangeGravity {
+            get { try! _default.get_Gravity() }
+            set { try! _default.put_Gravity(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.length)
+        fileprivate var length : Int32 {
+            get { try! _default.get_Length() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.link)
+        fileprivate var link : String {
+            get { try! _default.get_Link() }
+            set { try! _default.put_Link(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paragraphformat)
+        fileprivate var paragraphFormat : AnyITextParagraphFormat! {
+            get { try! _default.get_ParagraphFormat() }
+            set { try! _default.put_ParagraphFormat(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startposition)
+        fileprivate var startPosition : Int32 {
+            get { try! _default.get_StartPosition() }
+            set { try! _default.put_StartPosition(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.storylength)
+        fileprivate var storyLength : Int32 {
+            get { try! _default.get_StoryLength() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.text)
+        fileprivate var text : String {
+            get { try! _default.get_Text() }
+            set { try! _default.put_Text(newValue) }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextRange: WindowsFoundation.IID = .init(
+        Data1: 0x5B9E4E57, Data2: 0xC072, Data3: 0x42A0, Data4: ( 0x89,0x45,0xAF,0x50,0x3E,0xE5,0x47,0x68 ) // 5B9E4E57-C072-42A0-8945-AF503EE54768
+    ) 
+
+    public class ITextRange: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextRange }
+
+        open func get_Character() throws -> Character {
+            var value: WCHAR = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Character(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_Character(_ value: Character) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Character(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_CharacterFormat() throws -> UWP.AnyITextCharacterFormat? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterFormat(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_CharacterFormat(_ value: UWP.AnyITextCharacterFormat?) throws {
+            let valueWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CharacterFormat(pThis, _value))
+            }
+        }
+
+        open func get_FormattedText() throws -> UWP.AnyITextRange? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FormattedText(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_FormattedText(_ value: UWP.AnyITextRange?) throws {
+            let valueWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FormattedText(pThis, _value))
+            }
+        }
+
+        open func get_EndPosition() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EndPosition(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_EndPosition(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EndPosition(pThis, value))
+            }
+        }
+
+        open func get_Gravity() throws -> UWP.RangeGravity {
+            var value: __x_ABI_CWindows_CUI_CText_CRangeGravity = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Gravity(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Gravity(_ value: UWP.RangeGravity) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Gravity(pThis, value))
+            }
+        }
+
+        open func get_Length() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Length(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_Link() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Link(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func put_Link(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Link(pThis, _value.get()))
+            }
+        }
+
+        open func get_ParagraphFormat() throws -> UWP.AnyITextParagraphFormat? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ParagraphFormat(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_ParagraphFormat(_ value: UWP.AnyITextParagraphFormat?) throws {
+            let valueWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ParagraphFormat(pThis, _value))
+            }
+        }
+
+        open func get_StartPosition() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartPosition(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_StartPosition(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartPosition(pThis, value))
+            }
+        }
+
+        open func get_StoryLength() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StoryLength(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_Text() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func put_Text(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Text(pThis, _value.get()))
+            }
+        }
+
+        open func CanPaste(_ format: Int32) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CanPaste(pThis, format, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func ChangeCase(_ value: UWP.LetterCase) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ChangeCase(pThis, value))
+            }
+        }
+
+        open func Collapse(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Collapse(pThis, .init(from: value)))
+            }
+        }
+
+        open func Copy() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Copy(pThis))
+            }
+        }
+
+        open func Cut() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Cut(pThis))
+            }
+        }
+
+        open func Delete(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Delete(pThis, unit, count, &result))
+            }
+            return result
+        }
+
+        open func EndOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.EndOf(pThis, unit, .init(from: extend), &result))
+            }
+            return result
+        }
+
+        open func Expand(_ unit: UWP.TextRangeUnit) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Expand(pThis, unit, &result))
+            }
+            return result
+        }
+
+        open func FindText(_ value: String, _ scanLength: Int32, _ options: UWP.FindOptions) throws -> Int32 {
+            var result: INT32 = 0
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FindText(pThis, _value.get(), scanLength, options, &result))
+            }
+            return result
+        }
+
+        open func GetCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCharacterUtf32(pThis, &value, offset))
+            }
+        }
+
+        open func GetClone() throws -> UWP.AnyITextRange? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetClone(pThis, &resultAbi))
+                }
+            }
+            return __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: result)
+        }
+
+        open func GetIndex(_ unit: UWP.TextRangeUnit) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIndex(pThis, unit, &result))
+            }
+            return result
+        }
+
+        open func GetPoint(_ horizontalAlign: UWP.HorizontalCharacterAlignment, _ verticalAlign: UWP.VerticalCharacterAlignment, _ options: UWP.PointOptions, _ point: inout WindowsFoundation.Point) throws {
+            var _point: __x_ABI_CWindows_CFoundation_CPoint = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPoint(pThis, horizontalAlign, verticalAlign, options, &_point))
+            }
+            point = .from(abi: _point)
+        }
+
+        open func GetRect(_ options: UWP.PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws {
+            var _rect: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetRect(pThis, options, &_rect, &hit))
+            }
+            rect = .from(abi: _rect)
+        }
+
+        open func GetText(_ options: UWP.TextGetOptions, _ value: inout String) throws {
+            var _value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetText(pThis, options, &_value))
+            }
+            value = .init(from: _value)
+            WindowsDeleteString(_value)
+        }
+
+        open func GetTextViaStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetTextViaStream(pThis, options, _value))
+            }
+        }
+
+        open func InRange(_ range: UWP.AnyITextRange?) throws -> Bool {
+            var result: boolean = 0
+            let rangeWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(range)
+            let _range = try! rangeWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.InRange(pThis, _range, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func InsertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: UWP.VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream?) throws {
+            let _alternateText = try! HString(alternateText)
+            let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.InsertImage(pThis, width, height, ascent, verticalAlign, _alternateText.get(), _value))
+            }
+        }
+
+        open func InStory(_ range: UWP.AnyITextRange?) throws -> Bool {
+            var result: boolean = 0
+            let rangeWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(range)
+            let _range = try! rangeWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.InStory(pThis, _range, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func IsEqual(_ range: UWP.AnyITextRange?) throws -> Bool {
+            var result: boolean = 0
+            let rangeWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(range)
+            let _range = try! rangeWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsEqual(pThis, _range, &result))
+            }
+            return .init(from: result)
+        }
+
+        open func Move(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Move(pThis, unit, count, &result))
+            }
+            return result
+        }
+
+        open func MoveEnd(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MoveEnd(pThis, unit, count, &result))
+            }
+            return result
+        }
+
+        open func MoveStart(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MoveStart(pThis, unit, count, &result))
+            }
+            return result
+        }
+
+        open func Paste(_ format: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Paste(pThis, format))
+            }
+        }
+
+        open func ScrollIntoView(_ value: UWP.PointOptions) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ScrollIntoView(pThis, value))
+            }
+        }
+
+        open func MatchSelection() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MatchSelection(pThis))
+            }
+        }
+
+        open func SetIndex(_ unit: UWP.TextRangeUnit, _ index: Int32, _ extend: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetIndex(pThis, unit, index, .init(from: extend)))
+            }
+        }
+
+        open func SetPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions, _ extend: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetPoint(pThis, .from(swift: point), options, .init(from: extend)))
+            }
+        }
+
+        open func SetRange(_ startPosition: Int32, _ endPosition: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetRange(pThis, startPosition, endPosition))
+            }
+        }
+
+        open func SetText(_ options: UWP.TextSetOptions, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetText(pThis, options, _value.get()))
+            }
+        }
+
+        open func SetTextViaStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetTextViaStream(pThis, options, _value))
+            }
+        }
+
+        open func StartOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.StartOf(pThis, unit, .init(from: extend), &result))
+            }
+            return result
+        }
+
+    }
+
+    internal static var ITextRangeVTable: __x_ABI_CWindows_CUI_CText_CITextRangeVtbl = .init(
+        QueryInterface: { ITextRangeWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ITextRangeWrapper.addRef($0) },
+        Release: { ITextRangeWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_UI_Text.ITextRangeWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.UI.Text.ITextRange").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Character: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.character
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_Character: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Character = .init(from: $1)
+            __unwrapped__instance.character = value
+            return S_OK
+        },
+
+        get_CharacterFormat: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.characterFormat
+            let valueWrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_CharacterFormat: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.AnyITextCharacterFormat? = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.unwrapFrom(abi: ComPtr($1))
+            __unwrapped__instance.characterFormat = value
+            return S_OK
+        },
+
+        get_FormattedText: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.formattedText
+            let valueWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_FormattedText: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.AnyITextRange? = __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: ComPtr($1))
+            __unwrapped__instance.formattedText = value
+            return S_OK
+        },
+
+        get_EndPosition: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.endPosition
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_EndPosition: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.endPosition = value
+            return S_OK
+        },
+
+        get_Gravity: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.gravity
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Gravity: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.RangeGravity = $1
+            __unwrapped__instance.gravity = value
+            return S_OK
+        },
+
+        get_Length: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.length
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_Link: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.link
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        put_Link: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: String = .init(from: $1)
+            __unwrapped__instance.link = value
+            return S_OK
+        },
+
+        get_ParagraphFormat: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.paragraphFormat
+            let valueWrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_ParagraphFormat: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.AnyITextParagraphFormat? = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.unwrapFrom(abi: ComPtr($1))
+            __unwrapped__instance.paragraphFormat = value
+            return S_OK
+        },
+
+        get_StartPosition: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.startPosition
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_StartPosition: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Int32 = $1
+            __unwrapped__instance.startPosition = value
+            return S_OK
+        },
+
+        get_StoryLength: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.storyLength
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_Text: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.text
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        put_Text: {
+            guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: String = .init(from: $1)
+            __unwrapped__instance.text = value
+            return S_OK
+        },
+
+        CanPaste: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let format: Int32 = $1
+                let result = try __unwrapped__instance.canPaste(format)
+                $2?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        ChangeCase: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UWP.LetterCase = $1
+                try __unwrapped__instance.changeCase(value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Collapse: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: Bool = .init(from: $1)
+                try __unwrapped__instance.collapse(value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Copy: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.copy()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Cut: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.cut()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Delete: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let result = try __unwrapped__instance.delete(unit, count)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        EndOf: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let extend: Bool = .init(from: $2)
+                let result = try __unwrapped__instance.endOf(unit, extend)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Expand: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let result = try __unwrapped__instance.expand(unit)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        FindText: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: String = .init(from: $1)
+                let scanLength: Int32 = $2
+                let options: UWP.FindOptions = $3
+                let result = try __unwrapped__instance.findText(value, scanLength, options)
+                $4?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetCharacterUtf32: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                var value: UInt32 = 0
+                let offset: Int32 = $2
+                try __unwrapped__instance.getCharacterUtf32(&value, offset)
+                $1?.initialize(to: value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetClone: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getClone()
+                let resultWrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetIndex: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let result = try __unwrapped__instance.getIndex(unit)
+                $2?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetPoint: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let horizontalAlign: UWP.HorizontalCharacterAlignment = $1
+                let verticalAlign: UWP.VerticalCharacterAlignment = $2
+                let options: UWP.PointOptions = $3
+                var point: WindowsFoundation.Point = .init()
+                try __unwrapped__instance.getPoint(horizontalAlign, verticalAlign, options, &point)
+                $4?.initialize(to: .from(swift: point))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetRect: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.PointOptions = $1
+                var rect: WindowsFoundation.Rect = .init()
+                var hit: Int32 = 0
+                try __unwrapped__instance.getRect(options, &rect, &hit)
+                $2?.initialize(to: .from(swift: rect))
+                $3?.initialize(to: hit)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetText: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextGetOptions = $1
+                var value: String = ""
+                try __unwrapped__instance.getText(options, &value)
+                $2?.initialize(to: try! HString(value).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetTextViaStream: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextGetOptions = $1
+                let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
+                try __unwrapped__instance.getTextViaStream(options, value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        InRange: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let range: UWP.AnyITextRange? = __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try __unwrapped__instance.inRange(range)
+                $2?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        InsertImage: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let width: Int32 = $1
+                let height: Int32 = $2
+                let ascent: Int32 = $3
+                let verticalAlign: UWP.VerticalCharacterAlignment = $4
+                let alternateText: String = .init(from: $5)
+                let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($6))
+                try __unwrapped__instance.insertImage(width, height, ascent, verticalAlign, alternateText, value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        InStory: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let range: UWP.AnyITextRange? = __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try __unwrapped__instance.inStory(range)
+                $2?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsEqual: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let range: UWP.AnyITextRange? = __ABI_Windows_UI_Text.ITextRangeWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try __unwrapped__instance.isEqual(range)
+                $2?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Move: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let result = try __unwrapped__instance.move(unit, count)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        MoveEnd: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let result = try __unwrapped__instance.moveEnd(unit, count)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        MoveStart: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let result = try __unwrapped__instance.moveStart(unit, count)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Paste: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let format: Int32 = $1
+                try __unwrapped__instance.paste(format)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        ScrollIntoView: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: UWP.PointOptions = $1
+                try __unwrapped__instance.scrollIntoView(value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        MatchSelection: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.matchSelection()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetIndex: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let index: Int32 = $2
+                let extend: Bool = .init(from: $3)
+                try __unwrapped__instance.setIndex(unit, index, extend)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetPoint: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let point: WindowsFoundation.Point = .from(abi: $1)
+                let options: UWP.PointOptions = $2
+                let extend: Bool = .init(from: $3)
+                try __unwrapped__instance.setPoint(point, options, extend)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetRange: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let startPosition: Int32 = $1
+                let endPosition: Int32 = $2
+                try __unwrapped__instance.setRange(startPosition, endPosition)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetText: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextSetOptions = $1
+                let value: String = .init(from: $2)
+                try __unwrapped__instance.setText(options, value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetTextViaStream: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let options: UWP.TextSetOptions = $1
+                let value: UWP.AnyIRandomAccessStream? = __ABI_Windows_Storage_Streams.IRandomAccessStreamWrapper.unwrapFrom(abi: ComPtr($2))
+                try __unwrapped__instance.setTextViaStream(options, value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        StartOf: {
+            do {
+                guard let __unwrapped__instance = ITextRangeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let extend: Bool = .init(from: $2)
+                let result = try __unwrapped__instance.startOf(unit, extend)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ITextRangeWrapper = InterfaceWrapperBase<__IMPL_Windows_UI_Text.ITextRangeBridge>
+}
+@_spi(WinRTInternal)
+public class ITextRangeMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextRange
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextRange = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextRangeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ITextSelection
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection)
+public protocol ITextSelection : ITextRange {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endkey)
+    func endKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.homekey)
+    func homeKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.movedown)
+    func moveDown(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveleft)
+    func moveLeft(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveright)
+    func moveRight(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveup)
+    func moveUp(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.typetext)
+    func typeText(_ value: String) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.options)
+    var options: UWP.SelectionOptions { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.type)
+    var type: UWP.SelectionType { get }
+}
+
+extension ITextSelection {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_UI_Text.ITextSelectionWrapper.IID:
+                let wrapper = __ABI_Windows_UI_Text.ITextSelectionWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_UI_Text.ITextRangeWrapper.IID:
+                let wrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyITextSelection = any ITextSelection
+
+// MARK: - ITextSelection Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum ITextSelectionBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextSelection
+        public typealias SwiftABI = __ABI_Windows_UI_Text.ITextSelection
+        public typealias SwiftProjection = AnyITextSelection
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ITextSelectionImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_UI_Text.ITextSelectionVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ITextSelectionImpl: ITextSelection, WinRTAbiImpl {
+        fileprivate typealias Bridge = ITextSelectionBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endkey)
+        fileprivate func endKey(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            try _default.EndKey(unit, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.homekey)
+        fileprivate func homeKey(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            try _default.HomeKey(unit, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.movedown)
+        fileprivate func moveDown(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            try _default.MoveDown(unit, count, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveleft)
+        fileprivate func moveLeft(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            try _default.MoveLeft(unit, count, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveright)
+        fileprivate func moveRight(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            try _default.MoveRight(unit, count, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveup)
+        fileprivate func moveUp(_ unit: TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            try _default.MoveUp(unit, count, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.typetext)
+        fileprivate func typeText(_ value: String) throws {
+            try _default.TypeText(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.options)
+        fileprivate var options : SelectionOptions {
+            get { try! _default.get_Options() }
+            set { try! _default.put_Options(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.type)
+        fileprivate var type : SelectionType {
+            get { try! _default.get_Type() }
+        }
+
+        private lazy var _ITextRange: __ABI_Windows_UI_Text.ITextRange! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.canpaste)
+        fileprivate func canPaste(_ format: Int32) throws -> Bool {
+            try _ITextRange.CanPaste(format)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.changecase)
+        fileprivate func changeCase(_ value: LetterCase) throws {
+            try _ITextRange.ChangeCase(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.collapse)
+        fileprivate func collapse(_ value: Bool) throws {
+            try _ITextRange.Collapse(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.copy)
+        fileprivate func copy() throws {
+            try _ITextRange.Copy()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.cut)
+        fileprivate func cut() throws {
+            try _ITextRange.Cut()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.delete)
+        fileprivate func delete(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _ITextRange.Delete(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endof)
+        fileprivate func endOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            try _ITextRange.EndOf(unit, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.expand)
+        fileprivate func expand(_ unit: TextRangeUnit) throws -> Int32 {
+            try _ITextRange.Expand(unit)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.findtext)
+        fileprivate func findText(_ value: String, _ scanLength: Int32, _ options: FindOptions) throws -> Int32 {
+            try _ITextRange.FindText(value, scanLength, options)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getcharacterutf32)
+        fileprivate func getCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws {
+            try _ITextRange.GetCharacterUtf32(&value, offset)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getclone)
+        fileprivate func getClone() throws -> AnyITextRange! {
+            try _ITextRange.GetClone()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getindex)
+        fileprivate func getIndex(_ unit: TextRangeUnit) throws -> Int32 {
+            try _ITextRange.GetIndex(unit)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getpoint)
+        fileprivate func getPoint(_ horizontalAlign: HorizontalCharacterAlignment, _ verticalAlign: VerticalCharacterAlignment, _ options: PointOptions, _ point: inout WindowsFoundation.Point) throws {
+            try _ITextRange.GetPoint(horizontalAlign, verticalAlign, options, &point)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.getrect)
+        fileprivate func getRect(_ options: PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws {
+            try _ITextRange.GetRect(options, &rect, &hit)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.gettext)
+        fileprivate func getText(_ options: TextGetOptions, _ value: inout String) throws {
+            try _ITextRange.GetText(options, &value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.gettextviastream)
+        fileprivate func getTextViaStream(_ options: TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _ITextRange.GetTextViaStream(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.inrange)
+        fileprivate func inRange(_ range: AnyITextRange!) throws -> Bool {
+            try _ITextRange.InRange(range)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.insertimage)
+        fileprivate func insertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _ITextRange.InsertImage(width, height, ascent, verticalAlign, alternateText, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.instory)
+        fileprivate func inStory(_ range: AnyITextRange!) throws -> Bool {
+            try _ITextRange.InStory(range)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.isequal)
+        fileprivate func isEqual(_ range: AnyITextRange!) throws -> Bool {
+            try _ITextRange.IsEqual(range)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.move)
+        fileprivate func move(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _ITextRange.Move(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveend)
+        fileprivate func moveEnd(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _ITextRange.MoveEnd(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.movestart)
+        fileprivate func moveStart(_ unit: TextRangeUnit, _ count: Int32) throws -> Int32 {
+            try _ITextRange.MoveStart(unit, count)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.paste)
+        fileprivate func paste(_ format: Int32) throws {
+            try _ITextRange.Paste(format)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.scrollintoview)
+        fileprivate func scrollIntoView(_ value: PointOptions) throws {
+            try _ITextRange.ScrollIntoView(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.matchselection)
+        fileprivate func matchSelection() throws {
+            try _ITextRange.MatchSelection()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.setindex)
+        fileprivate func setIndex(_ unit: TextRangeUnit, _ index: Int32, _ extend: Bool) throws {
+            try _ITextRange.SetIndex(unit, index, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.setpoint)
+        fileprivate func setPoint(_ point: WindowsFoundation.Point, _ options: PointOptions, _ extend: Bool) throws {
+            try _ITextRange.SetPoint(point, options, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.setrange)
+        fileprivate func setRange(_ startPosition: Int32, _ endPosition: Int32) throws {
+            try _ITextRange.SetRange(startPosition, endPosition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.settext)
+        fileprivate func setText(_ options: TextSetOptions, _ value: String) throws {
+            try _ITextRange.SetText(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.settextviastream)
+        fileprivate func setTextViaStream(_ options: TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws {
+            try _ITextRange.SetTextViaStream(options, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.startof)
+        fileprivate func startOf(_ unit: TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            try _ITextRange.StartOf(unit, extend)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.character)
+        fileprivate var character : Character {
+            get { try! _ITextRange.get_Character() }
+            set { try! _ITextRange.put_Character(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.characterformat)
+        fileprivate var characterFormat : AnyITextCharacterFormat! {
+            get { try! _ITextRange.get_CharacterFormat() }
+            set { try! _ITextRange.put_CharacterFormat(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endposition)
+        fileprivate var endPosition : Int32 {
+            get { try! _ITextRange.get_EndPosition() }
+            set { try! _ITextRange.put_EndPosition(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.formattedtext)
+        fileprivate var formattedText : AnyITextRange! {
+            get { try! _ITextRange.get_FormattedText() }
+            set { try! _ITextRange.put_FormattedText(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.gravity)
+        fileprivate var gravity : RangeGravity {
+            get { try! _ITextRange.get_Gravity() }
+            set { try! _ITextRange.put_Gravity(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.length)
+        fileprivate var length : Int32 {
+            get { try! _ITextRange.get_Length() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.link)
+        fileprivate var link : String {
+            get { try! _ITextRange.get_Link() }
+            set { try! _ITextRange.put_Link(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.paragraphformat)
+        fileprivate var paragraphFormat : AnyITextParagraphFormat! {
+            get { try! _ITextRange.get_ParagraphFormat() }
+            set { try! _ITextRange.put_ParagraphFormat(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.startposition)
+        fileprivate var startPosition : Int32 {
+            get { try! _ITextRange.get_StartPosition() }
+            set { try! _ITextRange.put_StartPosition(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.storylength)
+        fileprivate var storyLength : Int32 {
+            get { try! _ITextRange.get_StoryLength() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.text)
+        fileprivate var text : String {
+            get { try! _ITextRange.get_Text() }
+            set { try! _ITextRange.put_Text(newValue) }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextSelection: WindowsFoundation.IID = .init(
+        Data1: 0xA6D36724, Data2: 0xF28F, Data3: 0x430A, Data4: ( 0xB2,0xCF,0xC3,0x43,0x67,0x1E,0xC0,0xE9 ) // A6D36724-F28F-430A-B2CF-C343671EC0E9
+    ) 
+
+    public class ITextSelection: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextSelection }
+
+        open func get_Options() throws -> UWP.SelectionOptions {
+            var value: __x_ABI_CWindows_CUI_CText_CSelectionOptions = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Options(pThis, &value))
+            }
+            return value
+        }
+
+        open func put_Options(_ value: UWP.SelectionOptions) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Options(pThis, value))
+            }
+        }
+
+        open func get_Type() throws -> UWP.SelectionType {
+            var value: __x_ABI_CWindows_CUI_CText_CSelectionType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
+            }
+            return value
+        }
+
+        open func EndKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.EndKey(pThis, unit, .init(from: extend), &result))
+            }
+            return result
+        }
+
+        open func HomeKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.HomeKey(pThis, unit, .init(from: extend), &result))
+            }
+            return result
+        }
+
+        open func MoveDown(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MoveDown(pThis, unit, count, .init(from: extend), &result))
+            }
+            return result
+        }
+
+        open func MoveLeft(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MoveLeft(pThis, unit, count, .init(from: extend), &result))
+            }
+            return result
+        }
+
+        open func MoveRight(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MoveRight(pThis, unit, count, .init(from: extend), &result))
+            }
+            return result
+        }
+
+        open func MoveUp(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MoveUp(pThis, unit, count, .init(from: extend), &result))
+            }
+            return result
+        }
+
+        open func TypeText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextSelection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TypeText(pThis, _value.get()))
+            }
+        }
+
+    }
+
+    internal static var ITextSelectionVTable: __x_ABI_CWindows_CUI_CText_CITextSelectionVtbl = .init(
+        QueryInterface: { ITextSelectionWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ITextSelectionWrapper.addRef($0) },
+        Release: { ITextSelectionWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_UI_Text.ITextSelectionWrapper.IID
+            iids[3] = __ABI_Windows_UI_Text.ITextRangeWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.UI.Text.ITextSelection").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Options: {
+            guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.options
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        put_Options: {
+            guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.SelectionOptions = $1
+            __unwrapped__instance.options = value
+            return S_OK
+        },
+
+        get_Type: {
+            guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.type
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        EndKey: {
+            do {
+                guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let extend: Bool = .init(from: $2)
+                let result = try __unwrapped__instance.endKey(unit, extend)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        HomeKey: {
+            do {
+                guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let extend: Bool = .init(from: $2)
+                let result = try __unwrapped__instance.homeKey(unit, extend)
+                $3?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        MoveDown: {
+            do {
+                guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let extend: Bool = .init(from: $3)
+                let result = try __unwrapped__instance.moveDown(unit, count, extend)
+                $4?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        MoveLeft: {
+            do {
+                guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let extend: Bool = .init(from: $3)
+                let result = try __unwrapped__instance.moveLeft(unit, count, extend)
+                $4?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        MoveRight: {
+            do {
+                guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let extend: Bool = .init(from: $3)
+                let result = try __unwrapped__instance.moveRight(unit, count, extend)
+                $4?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        MoveUp: {
+            do {
+                guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let unit: UWP.TextRangeUnit = $1
+                let count: Int32 = $2
+                let extend: Bool = .init(from: $3)
+                let result = try __unwrapped__instance.moveUp(unit, count, extend)
+                $4?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        TypeText: {
+            do {
+                guard let __unwrapped__instance = ITextSelectionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value: String = .init(from: $1)
+                try __unwrapped__instance.typeText(value)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ITextSelectionWrapper = InterfaceWrapperBase<__IMPL_Windows_UI_Text.ITextSelectionBridge>
+}
+@_spi(WinRTInternal)
+public class ITextSelectionMaker: MakeFromAbi {
+    public typealias SwiftType = AnyITextSelection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_UI_Text.ITextSelection = try! abi.QueryInterface()
+        return __IMPL_Windows_UI_Text.ITextSelectionBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ContentLinkInfo
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.contentlinkinfo)
 public final class ContentLinkInfo : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_UI_Text.IContentLinkInfo
@@ -115,6 +5778,118 @@ public final class ContentLinkInfo : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ContentLinkInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum ContentLinkInfoBridge: AbiBridge {
+        public typealias SwiftProjection = ContentLinkInfo
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CIContentLinkInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CUI_CText_CIContentLinkInfo>?) -> ContentLinkInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ContentLinkInfoMaker: MakeFromAbi {
+    public typealias SwiftType = ContentLinkInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ContentLinkInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CIContentLinkInfo: WindowsFoundation.IID = .init(
+        Data1: 0x1ED52525, Data2: 0x1C5F, Data3: 0x48CB, Data4: ( 0xB3,0x35,0x78,0xB5,0x0A,0x2E,0xE6,0x42 ) // 1ED52525-1C5F-48CB-B335-78B50A2EE642
+    ) 
+
+    public class IContentLinkInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIContentLinkInfo }
+
+        public func get_Id() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Id(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Id(pThis, value))
+            }
+        }
+
+        public func get_DisplayText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_DisplayText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisplayText(pThis, _value.get()))
+            }
+        }
+
+        public func get_SecondaryText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SecondaryText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_SecondaryText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SecondaryText(pThis, _value.get()))
+            }
+        }
+
+        public func get_Uri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Uri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func put_Uri(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Uri(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_LinkContentKind() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LinkContentKind(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_LinkContentKind(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIContentLinkInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LinkContentKind(pThis, _value.get()))
+            }
+        }
+
+    }
+
+}
+// MARK: - FontWeights
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweights)
 public final class FontWeights : WinRTClass {
@@ -194,6 +5969,138 @@ public final class FontWeights : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - FontWeights Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum FontWeightsBridge: AbiBridge {
+        public typealias SwiftProjection = FontWeights
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CIFontWeights
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CUI_CText_CIFontWeights>?) -> FontWeights? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FontWeightsMaker: MakeFromAbi {
+    public typealias SwiftType = FontWeights
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FontWeights(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CIFontWeights: WindowsFoundation.IID = .init(
+        Data1: 0x7880A444, Data2: 0x01AB, Data3: 0x4997, Data4: ( 0x85,0x17,0xDF,0x82,0x2A,0x0C,0x45,0xF1 ) // 7880A444-01AB-4997-8517-DF822A0C45F1
+    ) 
+
+    public class IFontWeights: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIFontWeights }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CUI_CText_CIFontWeightsStatics: WindowsFoundation.IID = .init(
+        Data1: 0xB3B579D5, Data2: 0x1BA9, Data3: 0x48EB, Data4: ( 0x9D,0xAD,0xC0,0x95,0xE8,0xC2,0x3B,0xA3 ) // B3B579D5-1BA9-48EB-9DAD-C095E8C23BA3
+    ) 
+
+    public class IFontWeightsStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIFontWeightsStatics }
+
+        public func get_Black() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Black(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Bold() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bold(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_ExtraBlack() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraBlack(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_ExtraBold() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraBold(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_ExtraLight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtraLight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Light() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Light(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Medium() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Medium(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Normal() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Normal(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_SemiBold() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SemiBold(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_SemiLight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SemiLight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Thin() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIFontWeightsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thin(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - RichEditTextDocument
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.richedittextdocument)
 public final class RichEditTextDocument : WinRTClass, ITextDocument {
@@ -364,6 +6271,84 @@ public final class RichEditTextDocument : WinRTClass, ITextDocument {
         _default = nil
     }
 }
+
+// MARK: - RichEditTextDocument Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum RichEditTextDocumentBridge: AbiBridge {
+        public typealias SwiftProjection = RichEditTextDocument
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextDocument
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CUI_CText_CITextDocument>?) -> RichEditTextDocument? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class RichEditTextDocumentMaker: MakeFromAbi {
+    public typealias SwiftType = RichEditTextDocument
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RichEditTextDocument(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextDocument2: WindowsFoundation.IID = .init(
+        Data1: 0xF2311112, Data2: 0x8C89, Data3: 0x49C9, Data4: ( 0x91,0x18,0xF0,0x57,0xCB,0xB8,0x14,0xEE ) // F2311112-8C89-49C9-9118-F057CBB814EE
+    ) 
+
+    public class ITextDocument2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextDocument2 }
+
+        public func get_AlignmentIncludesTrailingWhitespace() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlignmentIncludesTrailingWhitespace(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AlignmentIncludesTrailingWhitespace(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AlignmentIncludesTrailingWhitespace(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IgnoreTrailingCharacterSpacing() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IgnoreTrailingCharacterSpacing(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IgnoreTrailingCharacterSpacing(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IgnoreTrailingCharacterSpacing(pThis, .init(from: value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextDocument3: WindowsFoundation.IID = .init(
+        Data1: 0x75AB03A1, Data2: 0xA6F8, Data3: 0x441D, Data4: ( 0xAA,0x18,0x0A,0x85,0x1D,0x6E,0x5E,0x3C ) // 75AB03A1-A6F8-441D-AA18-0A851D6E5E3C
+    ) 
+
+    public class ITextDocument3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextDocument3 }
+
+        public func ClearUndoRedoHistory() throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextDocument3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ClearUndoRedoHistory(pThis))
+            }
+        }
+
+    }
+
+}
+// MARK: - RichEditTextRange
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.richedittextrange)
 public final class RichEditTextRange : WinRTClass, ITextRange {
@@ -623,6 +6608,56 @@ public final class RichEditTextRange : WinRTClass, ITextRange {
     }
 }
 
+// MARK: - RichEditTextRange Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Text {
+    public enum RichEditTextRangeBridge: AbiBridge {
+        public typealias SwiftProjection = RichEditTextRange
+        public typealias CABI = __x_ABI_CWindows_CUI_CText_CITextRange
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CUI_CText_CITextRange>?) -> RichEditTextRange? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class RichEditTextRangeMaker: MakeFromAbi {
+    public typealias SwiftType = RichEditTextRange
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RichEditTextRange(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CIRichEditTextRange: WindowsFoundation.IID = .init(
+        Data1: 0x374E3515, Data2: 0xBA8A, Data3: 0x4A6E, Data4: ( 0x8C,0x59,0x0D,0xDE,0x3D,0x0C,0xF5,0xCD ) // 374E3515-BA8A-4A6E-8C59-0DDE3D0CF5CD
+    ) 
+
+    public class IRichEditTextRange: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CIRichEditTextRange }
+
+        public func get_ContentLinkInfo() throws -> UWP.ContentLinkInfo? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIRichEditTextRange.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentLinkInfo(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_UI_Text.ContentLinkInfoBridge.from(abi: value)
+        }
+
+        public func put_ContentLinkInfo(_ value: UWP.ContentLinkInfo?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CIRichEditTextRange.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentLinkInfo(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+}
+// MARK: - TextConstants
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.textconstants)
 public final class TextConstants {
     private static let _ITextConstantsStatics: __ABI_Windows_UI_Text.ITextConstantsStatics = try! RoGetActivationFactory("Windows.UI.Text.TextConstants")
@@ -668,1282 +6703,81 @@ public final class TextConstants {
 
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweight)
-public struct FontWeight: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.fontweight.weight)
-    public var weight: UInt16 = 0
-    public init() {}
-    public init(weight: UInt16) {
-        self.weight = weight
-    }
-}
+// MARK: - TextConstants Internals
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat)
-public protocol ITextCharacterFormat : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.setclone)
-    func setClone(_ value: UWP.AnyITextCharacterFormat!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.getclone)
-    func getClone() throws -> UWP.AnyITextCharacterFormat!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.isequal)
-    func isEqual(_ format: UWP.AnyITextCharacterFormat!) throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.allcaps)
-    var allCaps: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.backgroundcolor)
-    var backgroundColor: UWP.Color { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.bold)
-    var bold: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstretch)
-    var fontStretch: UWP.FontStretch { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.fontstyle)
-    var fontStyle: UWP.FontStyle { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.foregroundcolor)
-    var foregroundColor: UWP.Color { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.hidden)
-    var hidden: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.italic)
-    var italic: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.kerning)
-    var kerning: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.languagetag)
-    var languageTag: String { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.linktype)
-    var linkType: UWP.LinkType { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.name)
-    var name: String { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.outline)
-    var outline: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.position)
-    var position: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.protectedtext)
-    var protectedText: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.size)
-    var size: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.smallcaps)
-    var smallCaps: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.spacing)
-    var spacing: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.strikethrough)
-    var strikethrough: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.subscript)
-    var `subscript`: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.superscript)
-    var superscript: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.textscript)
-    var textScript: UWP.TextScript { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.underline)
-    var underline: UWP.UnderlineType { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextcharacterformat.weight)
-    var weight: Int32 { get set }
-}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Text {
+    private static let IID___x_ABI_CWindows_CUI_CText_CITextConstantsStatics: WindowsFoundation.IID = .init(
+        Data1: 0x779E7C33, Data2: 0x189D, Data3: 0x4BFA, Data4: ( 0x97,0xC8,0x10,0xDB,0x13,0x5D,0x97,0x6E ) // 779E7C33-189D-4BFA-97C8-10DB135D976E
+    ) 
 
-extension ITextCharacterFormat {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_UI_Text.ITextCharacterFormatWrapper.IID:
-                let wrapper = __ABI_Windows_UI_Text.ITextCharacterFormatWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+    public class ITextConstantsStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CText_CITextConstantsStatics }
+
+        public func get_AutoColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoColor(pThis, &value))
+            }
+            return .from(abi: value)
         }
-    }
-}
-public typealias AnyITextCharacterFormat = any ITextCharacterFormat
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument)
-public protocol ITextDocument : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.cancopy)
-    func canCopy() throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canpaste)
-    func canPaste() throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canredo)
-    func canRedo() throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.canundo)
-    func canUndo() throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.applydisplayupdates)
-    func applyDisplayUpdates() throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.batchdisplayupdates)
-    func batchDisplayUpdates() throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.beginundogroup)
-    func beginUndoGroup() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.endundogroup)
-    func endUndoGroup() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultcharacterformat)
-    func getDefaultCharacterFormat() throws -> UWP.AnyITextCharacterFormat!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getdefaultparagraphformat)
-    func getDefaultParagraphFormat() throws -> UWP.AnyITextParagraphFormat!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrange)
-    func getRange(_ startPosition: Int32, _ endPosition: Int32) throws -> UWP.AnyITextRange!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.getrangefrompoint)
-    func getRangeFromPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions) throws -> UWP.AnyITextRange!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.gettext)
-    func getText(_ options: UWP.TextGetOptions, _ value: inout String) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.loadfromstream)
-    func loadFromStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.redo)
-    func redo() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.savetostream)
-    func saveToStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultcharacterformat)
-    func setDefaultCharacterFormat(_ value: UWP.AnyITextCharacterFormat!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.setdefaultparagraphformat)
-    func setDefaultParagraphFormat(_ value: UWP.AnyITextParagraphFormat!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.settext)
-    func setText(_ options: UWP.TextSetOptions, _ value: String) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undo)
-    func undo() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.carettype)
-    var caretType: UWP.CaretType { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.defaulttabstop)
-    var defaultTabStop: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.selection)
-    var selection: UWP.AnyITextSelection! { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextdocument.undolimit)
-    var undoLimit: UInt32 { get set }
-}
-
-extension ITextDocument {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_UI_Text.ITextDocumentWrapper.IID:
-                let wrapper = __ABI_Windows_UI_Text.ITextDocumentWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+        public func get_MinUnitCount() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinUnitCount(pThis, &value))
+            }
+            return value
         }
-    }
-}
-public typealias AnyITextDocument = any ITextDocument
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat)
-public protocol ITextParagraphFormat : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.addtab)
-    func addTab(_ position: Float, _ align: UWP.TabAlignment, _ leader: UWP.TabLeader) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.clearalltabs)
-    func clearAllTabs() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.deletetab)
-    func deleteTab(_ position: Float) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.getclone)
-    func getClone() throws -> UWP.AnyITextParagraphFormat!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.gettab)
-    func getTab(_ index: Int32, _ position: inout Float, _ align: inout UWP.TabAlignment, _ leader: inout UWP.TabLeader) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.isequal)
-    func isEqual(_ format: UWP.AnyITextParagraphFormat!) throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setclone)
-    func setClone(_ format: UWP.AnyITextParagraphFormat!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setindents)
-    func setIndents(_ start: Float, _ left: Float, _ right: Float) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.setlinespacing)
-    func setLineSpacing(_ rule: UWP.LineSpacingRule, _ spacing: Float) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.alignment)
-    var alignment: UWP.ParagraphAlignment { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.firstlineindent)
-    var firstLineIndent: Float { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keeptogether)
-    var keepTogether: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.keepwithnext)
-    var keepWithNext: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.leftindent)
-    var leftIndent: Float { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacing)
-    var lineSpacing: Float { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.linespacingrule)
-    var lineSpacingRule: UWP.LineSpacingRule { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listalignment)
-    var listAlignment: UWP.MarkerAlignment { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listlevelindex)
-    var listLevelIndex: Int32 { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststart)
-    var listStart: Int32 { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.liststyle)
-    var listStyle: UWP.MarkerStyle { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtab)
-    var listTab: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.listtype)
-    var listType: UWP.MarkerType { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.nolinenumber)
-    var noLineNumber: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.pagebreakbefore)
-    var pageBreakBefore: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.rightindent)
-    var rightIndent: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.righttoleft)
-    var rightToLeft: UWP.FormatEffect { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spaceafter)
-    var spaceAfter: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.spacebefore)
-    var spaceBefore: Float { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.style)
-    var style: UWP.ParagraphStyle { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.tabcount)
-    var tabCount: Int32 { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextparagraphformat.widowcontrol)
-    var widowControl: UWP.FormatEffect { get set }
-}
-
-extension ITextParagraphFormat {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_UI_Text.ITextParagraphFormatWrapper.IID:
-                let wrapper = __ABI_Windows_UI_Text.ITextParagraphFormatWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+        public func get_MaxUnitCount() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxUnitCount(pThis, &value))
+            }
+            return value
         }
-    }
-}
-public typealias AnyITextParagraphFormat = any ITextParagraphFormat
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange)
-public protocol ITextRange : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.canpaste)
-    func canPaste(_ format: Int32) throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.changecase)
-    func changeCase(_ value: UWP.LetterCase) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.collapse)
-    func collapse(_ value: Bool) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.copy)
-    func copy() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.cut)
-    func cut() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.delete)
-    func delete(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endof)
-    func endOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.expand)
-    func expand(_ unit: UWP.TextRangeUnit) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.findtext)
-    func findText(_ value: String, _ scanLength: Int32, _ options: UWP.FindOptions) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getcharacterutf32)
-    func getCharacterUtf32(_ value: inout UInt32, _ offset: Int32) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getclone)
-    func getClone() throws -> UWP.AnyITextRange!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getindex)
-    func getIndex(_ unit: UWP.TextRangeUnit) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getpoint)
-    func getPoint(_ horizontalAlign: UWP.HorizontalCharacterAlignment, _ verticalAlign: UWP.VerticalCharacterAlignment, _ options: UWP.PointOptions, _ point: inout WindowsFoundation.Point) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.getrect)
-    func getRect(_ options: UWP.PointOptions, _ rect: inout WindowsFoundation.Rect, _ hit: inout Int32) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettext)
-    func getText(_ options: UWP.TextGetOptions, _ value: inout String) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gettextviastream)
-    func getTextViaStream(_ options: UWP.TextGetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.inrange)
-    func inRange(_ range: UWP.AnyITextRange!) throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.insertimage)
-    func insertImage(_ width: Int32, _ height: Int32, _ ascent: Int32, _ verticalAlign: UWP.VerticalCharacterAlignment, _ alternateText: String, _ value: UWP.AnyIRandomAccessStream!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.instory)
-    func inStory(_ range: UWP.AnyITextRange!) throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.isequal)
-    func isEqual(_ range: UWP.AnyITextRange!) throws -> Bool
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.move)
-    func move(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.moveend)
-    func moveEnd(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.movestart)
-    func moveStart(_ unit: UWP.TextRangeUnit, _ count: Int32) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paste)
-    func paste(_ format: Int32) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.scrollintoview)
-    func scrollIntoView(_ value: UWP.PointOptions) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.matchselection)
-    func matchSelection() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setindex)
-    func setIndex(_ unit: UWP.TextRangeUnit, _ index: Int32, _ extend: Bool) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setpoint)
-    func setPoint(_ point: WindowsFoundation.Point, _ options: UWP.PointOptions, _ extend: Bool) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.setrange)
-    func setRange(_ startPosition: Int32, _ endPosition: Int32) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settext)
-    func setText(_ options: UWP.TextSetOptions, _ value: String) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.settextviastream)
-    func setTextViaStream(_ options: UWP.TextSetOptions, _ value: UWP.AnyIRandomAccessStream!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startof)
-    func startOf(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.character)
-    var character: Character { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.characterformat)
-    var characterFormat: UWP.AnyITextCharacterFormat! { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.endposition)
-    var endPosition: Int32 { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.formattedtext)
-    var formattedText: UWP.AnyITextRange! { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.gravity)
-    var gravity: UWP.RangeGravity { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.length)
-    var length: Int32 { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.link)
-    var link: String { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.paragraphformat)
-    var paragraphFormat: UWP.AnyITextParagraphFormat! { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.startposition)
-    var startPosition: Int32 { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.storylength)
-    var storyLength: Int32 { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextrange.text)
-    var text: String { get set }
-}
-
-extension ITextRange {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_UI_Text.ITextRangeWrapper.IID:
-                let wrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+        public func get_UndefinedColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedColor(pThis, &value))
+            }
+            return .from(abi: value)
         }
-    }
-}
-public typealias AnyITextRange = any ITextRange
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection)
-public protocol ITextSelection : ITextRange {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.endkey)
-    func endKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.homekey)
-    func homeKey(_ unit: UWP.TextRangeUnit, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.movedown)
-    func moveDown(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveleft)
-    func moveLeft(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveright)
-    func moveRight(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.moveup)
-    func moveUp(_ unit: UWP.TextRangeUnit, _ count: Int32, _ extend: Bool) throws -> Int32
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.typetext)
-    func typeText(_ value: String) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.options)
-    var options: UWP.SelectionOptions { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.text.itextselection.type)
-    var type: UWP.SelectionType { get }
-}
-
-extension ITextSelection {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_UI_Text.ITextSelectionWrapper.IID:
-                let wrapper = __ABI_Windows_UI_Text.ITextSelectionWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_UI_Text.ITextRangeWrapper.IID:
-                let wrapper = __ABI_Windows_UI_Text.ITextRangeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+        public func get_UndefinedFloatValue() throws -> Float {
+            var value: FLOAT = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedFloatValue(pThis, &value))
+            }
+            return value
         }
-    }
-}
-public typealias AnyITextSelection = any ITextSelection
 
-extension UWP.CaretType {
-    public static var normal : UWP.CaretType {
-        __x_ABI_CWindows_CUI_CText_CCaretType_Normal
-    }
-    public static var null : UWP.CaretType {
-        __x_ABI_CWindows_CUI_CText_CCaretType_Null
-    }
-}
-extension UWP.CaretType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+        public func get_UndefinedInt32Value() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedInt32Value(pThis, &value))
+            }
+            return value
+        }
 
-extension UWP.FindOptions {
-    public static var none : UWP.FindOptions {
-        __x_ABI_CWindows_CUI_CText_CFindOptions_None
-    }
-    public static var word : UWP.FindOptions {
-        __x_ABI_CWindows_CUI_CText_CFindOptions_Word
-    }
-    public static var `case` : UWP.FindOptions {
-        __x_ABI_CWindows_CUI_CText_CFindOptions_Case
-    }
-}
-extension UWP.FindOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+        public func get_UndefinedFontStretch() throws -> UWP.FontStretch {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedFontStretch(pThis, &value))
+            }
+            return value
+        }
 
-extension UWP.FontStretch {
-    public static var undefined : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_Undefined
-    }
-    public static var ultraCondensed : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_UltraCondensed
-    }
-    public static var extraCondensed : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_ExtraCondensed
-    }
-    public static var condensed : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_Condensed
-    }
-    public static var semiCondensed : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_SemiCondensed
-    }
-    public static var normal : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_Normal
-    }
-    public static var semiExpanded : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_SemiExpanded
-    }
-    public static var expanded : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_Expanded
-    }
-    public static var extraExpanded : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_ExtraExpanded
-    }
-    public static var ultraExpanded : UWP.FontStretch {
-        __x_ABI_CWindows_CUI_CText_CFontStretch_UltraExpanded
-    }
-}
-extension UWP.FontStretch: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+        public func get_UndefinedFontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CUI_CText_CITextConstantsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UndefinedFontStyle(pThis, &value))
+            }
+            return value
+        }
 
-extension UWP.FontStyle {
-    public static var normal : UWP.FontStyle {
-        __x_ABI_CWindows_CUI_CText_CFontStyle_Normal
     }
-    public static var oblique : UWP.FontStyle {
-        __x_ABI_CWindows_CUI_CText_CFontStyle_Oblique
-    }
-    public static var italic : UWP.FontStyle {
-        __x_ABI_CWindows_CUI_CText_CFontStyle_Italic
-    }
-}
-extension UWP.FontStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
-extension UWP.FormatEffect {
-    public static var off : UWP.FormatEffect {
-        __x_ABI_CWindows_CUI_CText_CFormatEffect_Off
-    }
-    public static var on : UWP.FormatEffect {
-        __x_ABI_CWindows_CUI_CText_CFormatEffect_On
-    }
-    public static var toggle : UWP.FormatEffect {
-        __x_ABI_CWindows_CUI_CText_CFormatEffect_Toggle
-    }
-    public static var undefined : UWP.FormatEffect {
-        __x_ABI_CWindows_CUI_CText_CFormatEffect_Undefined
-    }
 }
-extension UWP.FormatEffect: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.HorizontalCharacterAlignment {
-    public static var left : UWP.HorizontalCharacterAlignment {
-        __x_ABI_CWindows_CUI_CText_CHorizontalCharacterAlignment_Left
-    }
-    public static var right : UWP.HorizontalCharacterAlignment {
-        __x_ABI_CWindows_CUI_CText_CHorizontalCharacterAlignment_Right
-    }
-    public static var center : UWP.HorizontalCharacterAlignment {
-        __x_ABI_CWindows_CUI_CText_CHorizontalCharacterAlignment_Center
-    }
-}
-extension UWP.HorizontalCharacterAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.LetterCase {
-    public static var lower : UWP.LetterCase {
-        __x_ABI_CWindows_CUI_CText_CLetterCase_Lower
-    }
-    public static var upper : UWP.LetterCase {
-        __x_ABI_CWindows_CUI_CText_CLetterCase_Upper
-    }
-}
-extension UWP.LetterCase: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.LineSpacingRule {
-    public static var undefined : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Undefined
-    }
-    public static var single : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Single
-    }
-    public static var oneAndHalf : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_OneAndHalf
-    }
-    public static var double : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Double
-    }
-    public static var atLeast : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_AtLeast
-    }
-    public static var exactly : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Exactly
-    }
-    public static var multiple : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Multiple
-    }
-    public static var percent : UWP.LineSpacingRule {
-        __x_ABI_CWindows_CUI_CText_CLineSpacingRule_Percent
-    }
-}
-extension UWP.LineSpacingRule: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.LinkType {
-    public static var undefined : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_Undefined
-    }
-    public static var notALink : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_NotALink
-    }
-    public static var clientLink : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_ClientLink
-    }
-    public static var friendlyLinkName : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_FriendlyLinkName
-    }
-    public static var friendlyLinkAddress : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_FriendlyLinkAddress
-    }
-    public static var autoLink : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLink
-    }
-    public static var autoLinkEmail : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLinkEmail
-    }
-    public static var autoLinkPhone : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLinkPhone
-    }
-    public static var autoLinkPath : UWP.LinkType {
-        __x_ABI_CWindows_CUI_CText_CLinkType_AutoLinkPath
-    }
-}
-extension UWP.LinkType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MarkerAlignment {
-    public static var undefined : UWP.MarkerAlignment {
-        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Undefined
-    }
-    public static var left : UWP.MarkerAlignment {
-        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Left
-    }
-    public static var center : UWP.MarkerAlignment {
-        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Center
-    }
-    public static var right : UWP.MarkerAlignment {
-        __x_ABI_CWindows_CUI_CText_CMarkerAlignment_Right
-    }
-}
-extension UWP.MarkerAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MarkerStyle {
-    public static var undefined : UWP.MarkerStyle {
-        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Undefined
-    }
-    public static var parenthesis : UWP.MarkerStyle {
-        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Parenthesis
-    }
-    public static var parentheses : UWP.MarkerStyle {
-        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Parentheses
-    }
-    public static var period : UWP.MarkerStyle {
-        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Period
-    }
-    public static var plain : UWP.MarkerStyle {
-        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Plain
-    }
-    public static var minus : UWP.MarkerStyle {
-        __x_ABI_CWindows_CUI_CText_CMarkerStyle_Minus
-    }
-    public static var noNumber : UWP.MarkerStyle {
-        __x_ABI_CWindows_CUI_CText_CMarkerStyle_NoNumber
-    }
-}
-extension UWP.MarkerStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MarkerType {
-    public static var undefined : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_Undefined
-    }
-    public static var none : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_None
-    }
-    public static var bullet : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_Bullet
-    }
-    public static var arabic : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_Arabic
-    }
-    public static var lowercaseEnglishLetter : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_LowercaseEnglishLetter
-    }
-    public static var uppercaseEnglishLetter : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_UppercaseEnglishLetter
-    }
-    public static var lowercaseRoman : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_LowercaseRoman
-    }
-    public static var uppercaseRoman : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_UppercaseRoman
-    }
-    public static var unicodeSequence : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_UnicodeSequence
-    }
-    public static var circledNumber : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_CircledNumber
-    }
-    public static var blackCircleWingding : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_BlackCircleWingding
-    }
-    public static var whiteCircleWingding : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_WhiteCircleWingding
-    }
-    public static var arabicWide : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_ArabicWide
-    }
-    public static var simplifiedChinese : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_SimplifiedChinese
-    }
-    public static var traditionalChinese : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_TraditionalChinese
-    }
-    public static var japanSimplifiedChinese : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_JapanSimplifiedChinese
-    }
-    public static var japanKorea : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_JapanKorea
-    }
-    public static var arabicDictionary : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_ArabicDictionary
-    }
-    public static var arabicAbjad : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_ArabicAbjad
-    }
-    public static var hebrew : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_Hebrew
-    }
-    public static var thaiAlphabetic : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_ThaiAlphabetic
-    }
-    public static var thaiNumeric : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_ThaiNumeric
-    }
-    public static var devanagariVowel : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_DevanagariVowel
-    }
-    public static var devanagariConsonant : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_DevanagariConsonant
-    }
-    public static var devanagariNumeric : UWP.MarkerType {
-        __x_ABI_CWindows_CUI_CText_CMarkerType_DevanagariNumeric
-    }
-}
-extension UWP.MarkerType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.ParagraphAlignment {
-    public static var undefined : UWP.ParagraphAlignment {
-        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Undefined
-    }
-    public static var left : UWP.ParagraphAlignment {
-        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Left
-    }
-    public static var center : UWP.ParagraphAlignment {
-        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Center
-    }
-    public static var right : UWP.ParagraphAlignment {
-        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Right
-    }
-    public static var justify : UWP.ParagraphAlignment {
-        __x_ABI_CWindows_CUI_CText_CParagraphAlignment_Justify
-    }
-}
-extension UWP.ParagraphAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.ParagraphStyle {
-    public static var undefined : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Undefined
-    }
-    public static var none : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_None
-    }
-    public static var normal : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Normal
-    }
-    public static var heading1 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading1
-    }
-    public static var heading2 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading2
-    }
-    public static var heading3 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading3
-    }
-    public static var heading4 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading4
-    }
-    public static var heading5 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading5
-    }
-    public static var heading6 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading6
-    }
-    public static var heading7 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading7
-    }
-    public static var heading8 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading8
-    }
-    public static var heading9 : UWP.ParagraphStyle {
-        __x_ABI_CWindows_CUI_CText_CParagraphStyle_Heading9
-    }
-}
-extension UWP.ParagraphStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.PointOptions {
-    public static var none : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_None
-    }
-    public static var includeInset : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_IncludeInset
-    }
-    public static var start : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_Start
-    }
-    public static var clientCoordinates : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_ClientCoordinates
-    }
-    public static var allowOffClient : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_AllowOffClient
-    }
-    public static var transform : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_Transform
-    }
-    public static var noHorizontalScroll : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_NoHorizontalScroll
-    }
-    public static var noVerticalScroll : UWP.PointOptions {
-        __x_ABI_CWindows_CUI_CText_CPointOptions_NoVerticalScroll
-    }
-}
-extension UWP.PointOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.RangeGravity {
-    public static var uiBehavior : UWP.RangeGravity {
-        __x_ABI_CWindows_CUI_CText_CRangeGravity_UIBehavior
-    }
-    public static var backward : UWP.RangeGravity {
-        __x_ABI_CWindows_CUI_CText_CRangeGravity_Backward
-    }
-    public static var forward : UWP.RangeGravity {
-        __x_ABI_CWindows_CUI_CText_CRangeGravity_Forward
-    }
-    public static var inward : UWP.RangeGravity {
-        __x_ABI_CWindows_CUI_CText_CRangeGravity_Inward
-    }
-    public static var outward : UWP.RangeGravity {
-        __x_ABI_CWindows_CUI_CText_CRangeGravity_Outward
-    }
-}
-extension UWP.RangeGravity: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SelectionOptions {
-    public static var startActive : UWP.SelectionOptions {
-        __x_ABI_CWindows_CUI_CText_CSelectionOptions_StartActive
-    }
-    public static var atEndOfLine : UWP.SelectionOptions {
-        __x_ABI_CWindows_CUI_CText_CSelectionOptions_AtEndOfLine
-    }
-    public static var overtype : UWP.SelectionOptions {
-        __x_ABI_CWindows_CUI_CText_CSelectionOptions_Overtype
-    }
-    public static var active : UWP.SelectionOptions {
-        __x_ABI_CWindows_CUI_CText_CSelectionOptions_Active
-    }
-    public static var replace : UWP.SelectionOptions {
-        __x_ABI_CWindows_CUI_CText_CSelectionOptions_Replace
-    }
-}
-extension UWP.SelectionOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SelectionType {
-    public static var none : UWP.SelectionType {
-        __x_ABI_CWindows_CUI_CText_CSelectionType_None
-    }
-    public static var insertionPoint : UWP.SelectionType {
-        __x_ABI_CWindows_CUI_CText_CSelectionType_InsertionPoint
-    }
-    public static var normal : UWP.SelectionType {
-        __x_ABI_CWindows_CUI_CText_CSelectionType_Normal
-    }
-    public static var inlineShape : UWP.SelectionType {
-        __x_ABI_CWindows_CUI_CText_CSelectionType_InlineShape
-    }
-    public static var shape : UWP.SelectionType {
-        __x_ABI_CWindows_CUI_CText_CSelectionType_Shape
-    }
-}
-extension UWP.SelectionType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TabAlignment {
-    public static var left : UWP.TabAlignment {
-        __x_ABI_CWindows_CUI_CText_CTabAlignment_Left
-    }
-    public static var center : UWP.TabAlignment {
-        __x_ABI_CWindows_CUI_CText_CTabAlignment_Center
-    }
-    public static var right : UWP.TabAlignment {
-        __x_ABI_CWindows_CUI_CText_CTabAlignment_Right
-    }
-    public static var decimal : UWP.TabAlignment {
-        __x_ABI_CWindows_CUI_CText_CTabAlignment_Decimal
-    }
-    public static var bar : UWP.TabAlignment {
-        __x_ABI_CWindows_CUI_CText_CTabAlignment_Bar
-    }
-}
-extension UWP.TabAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TabLeader {
-    public static var spaces : UWP.TabLeader {
-        __x_ABI_CWindows_CUI_CText_CTabLeader_Spaces
-    }
-    public static var dots : UWP.TabLeader {
-        __x_ABI_CWindows_CUI_CText_CTabLeader_Dots
-    }
-    public static var dashes : UWP.TabLeader {
-        __x_ABI_CWindows_CUI_CText_CTabLeader_Dashes
-    }
-    public static var lines : UWP.TabLeader {
-        __x_ABI_CWindows_CUI_CText_CTabLeader_Lines
-    }
-    public static var thickLines : UWP.TabLeader {
-        __x_ABI_CWindows_CUI_CText_CTabLeader_ThickLines
-    }
-    public static var equals : UWP.TabLeader {
-        __x_ABI_CWindows_CUI_CText_CTabLeader_Equals
-    }
-}
-extension UWP.TabLeader: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TextDecorations {
-    public static var none : UWP.TextDecorations {
-        __x_ABI_CWindows_CUI_CText_CTextDecorations_None
-    }
-    public static var underline : UWP.TextDecorations {
-        __x_ABI_CWindows_CUI_CText_CTextDecorations_Underline
-    }
-    public static var strikethrough : UWP.TextDecorations {
-        __x_ABI_CWindows_CUI_CText_CTextDecorations_Strikethrough
-    }
-}
-extension UWP.TextDecorations: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TextGetOptions {
-    public static var none : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_None
-    }
-    public static var adjustCrlf : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_AdjustCrlf
-    }
-    public static var useCrlf : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_UseCrlf
-    }
-    public static var useObjectText : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_UseObjectText
-    }
-    public static var allowFinalEop : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_AllowFinalEop
-    }
-    public static var noHidden : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_NoHidden
-    }
-    public static var includeNumbering : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_IncludeNumbering
-    }
-    public static var formatRtf : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_FormatRtf
-    }
-    public static var useLf : UWP.TextGetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextGetOptions_UseLf
-    }
-}
-extension UWP.TextGetOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TextRangeUnit {
-    public static var character : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Character
-    }
-    public static var word : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Word
-    }
-    public static var sentence : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Sentence
-    }
-    public static var paragraph : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Paragraph
-    }
-    public static var line : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Line
-    }
-    public static var story : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Story
-    }
-    public static var screen : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Screen
-    }
-    public static var section : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Section
-    }
-    public static var window : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Window
-    }
-    public static var characterFormat : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_CharacterFormat
-    }
-    public static var paragraphFormat : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_ParagraphFormat
-    }
-    public static var object : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Object
-    }
-    public static var hardParagraph : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_HardParagraph
-    }
-    public static var cluster : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Cluster
-    }
-    public static var bold : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Bold
-    }
-    public static var italic : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Italic
-    }
-    public static var underline : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Underline
-    }
-    public static var strikethrough : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Strikethrough
-    }
-    public static var protectedText : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_ProtectedText
-    }
-    public static var link : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Link
-    }
-    public static var smallCaps : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_SmallCaps
-    }
-    public static var allCaps : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_AllCaps
-    }
-    public static var hidden : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Hidden
-    }
-    public static var outline : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Outline
-    }
-    public static var shadow : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Shadow
-    }
-    public static var imprint : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Imprint
-    }
-    public static var disabled : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Disabled
-    }
-    public static var revised : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Revised
-    }
-    public static var `subscript` : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Subscript
-    }
-    public static var superscript : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_Superscript
-    }
-    public static var fontBound : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_FontBound
-    }
-    public static var linkProtected : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_LinkProtected
-    }
-    public static var contentLink : UWP.TextRangeUnit {
-        __x_ABI_CWindows_CUI_CText_CTextRangeUnit_ContentLink
-    }
-}
-extension UWP.TextRangeUnit: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TextScript {
-    public static var undefined : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Undefined
-    }
-    public static var ansi : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Ansi
-    }
-    public static var eastEurope : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_EastEurope
-    }
-    public static var cyrillic : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Cyrillic
-    }
-    public static var greek : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Greek
-    }
-    public static var turkish : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Turkish
-    }
-    public static var hebrew : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Hebrew
-    }
-    public static var arabic : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Arabic
-    }
-    public static var baltic : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Baltic
-    }
-    public static var vietnamese : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Vietnamese
-    }
-    public static var `default` : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Default
-    }
-    public static var symbol : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Symbol
-    }
-    public static var thai : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Thai
-    }
-    public static var shiftJis : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_ShiftJis
-    }
-    public static var gb2312 : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_GB2312
-    }
-    public static var hangul : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Hangul
-    }
-    public static var big5 : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Big5
-    }
-    public static var pc437 : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_PC437
-    }
-    public static var oem : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Oem
-    }
-    public static var mac : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Mac
-    }
-    public static var armenian : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Armenian
-    }
-    public static var syriac : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Syriac
-    }
-    public static var thaana : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Thaana
-    }
-    public static var devanagari : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Devanagari
-    }
-    public static var bengali : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Bengali
-    }
-    public static var gurmukhi : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Gurmukhi
-    }
-    public static var gujarati : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Gujarati
-    }
-    public static var oriya : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Oriya
-    }
-    public static var tamil : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Tamil
-    }
-    public static var telugu : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Telugu
-    }
-    public static var kannada : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Kannada
-    }
-    public static var malayalam : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Malayalam
-    }
-    public static var sinhala : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Sinhala
-    }
-    public static var lao : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Lao
-    }
-    public static var tibetan : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Tibetan
-    }
-    public static var myanmar : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Myanmar
-    }
-    public static var georgian : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Georgian
-    }
-    public static var jamo : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Jamo
-    }
-    public static var ethiopic : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Ethiopic
-    }
-    public static var cherokee : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Cherokee
-    }
-    public static var aboriginal : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Aboriginal
-    }
-    public static var ogham : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Ogham
-    }
-    public static var runic : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Runic
-    }
-    public static var khmer : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Khmer
-    }
-    public static var mongolian : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Mongolian
-    }
-    public static var braille : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Braille
-    }
-    public static var yi : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Yi
-    }
-    public static var limbu : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Limbu
-    }
-    public static var taiLe : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_TaiLe
-    }
-    public static var newTaiLue : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_NewTaiLue
-    }
-    public static var sylotiNagri : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_SylotiNagri
-    }
-    public static var kharoshthi : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Kharoshthi
-    }
-    public static var kayahli : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Kayahli
-    }
-    public static var unicodeSymbol : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_UnicodeSymbol
-    }
-    public static var emoji : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Emoji
-    }
-    public static var glagolitic : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Glagolitic
-    }
-    public static var lisu : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Lisu
-    }
-    public static var vai : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Vai
-    }
-    public static var nko : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_NKo
-    }
-    public static var osmanya : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Osmanya
-    }
-    public static var phagsPa : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_PhagsPa
-    }
-    public static var gothic : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Gothic
-    }
-    public static var deseret : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Deseret
-    }
-    public static var tifinagh : UWP.TextScript {
-        __x_ABI_CWindows_CUI_CText_CTextScript_Tifinagh
-    }
-}
-extension UWP.TextScript: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TextSetOptions {
-    public static var none : UWP.TextSetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextSetOptions_None
-    }
-    public static var unicodeBidi : UWP.TextSetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextSetOptions_UnicodeBidi
-    }
-    public static var unlink : UWP.TextSetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextSetOptions_Unlink
-    }
-    public static var unhide : UWP.TextSetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextSetOptions_Unhide
-    }
-    public static var checkTextLimit : UWP.TextSetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextSetOptions_CheckTextLimit
-    }
-    public static var formatRtf : UWP.TextSetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextSetOptions_FormatRtf
-    }
-    public static var applyRtfDocumentDefaults : UWP.TextSetOptions {
-        __x_ABI_CWindows_CUI_CText_CTextSetOptions_ApplyRtfDocumentDefaults
-    }
-}
-extension UWP.TextSetOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.UnderlineType {
-    public static var undefined : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Undefined
-    }
-    public static var none : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_None
-    }
-    public static var single : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Single
-    }
-    public static var words : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Words
-    }
-    public static var double : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Double
-    }
-    public static var dotted : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Dotted
-    }
-    public static var dash : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Dash
-    }
-    public static var dashDot : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_DashDot
-    }
-    public static var dashDotDot : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_DashDotDot
-    }
-    public static var wave : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Wave
-    }
-    public static var thick : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Thick
-    }
-    public static var thin : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_Thin
-    }
-    public static var doubleWave : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_DoubleWave
-    }
-    public static var heavyWave : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_HeavyWave
-    }
-    public static var longDash : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_LongDash
-    }
-    public static var thickDash : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDash
-    }
-    public static var thickDashDot : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDashDot
-    }
-    public static var thickDashDotDot : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDashDotDot
-    }
-    public static var thickDotted : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickDotted
-    }
-    public static var thickLongDash : UWP.UnderlineType {
-        __x_ABI_CWindows_CUI_CText_CUnderlineType_ThickLongDash
-    }
-}
-extension UWP.UnderlineType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.VerticalCharacterAlignment {
-    public static var top : UWP.VerticalCharacterAlignment {
-        __x_ABI_CWindows_CUI_CText_CVerticalCharacterAlignment_Top
-    }
-    public static var baseline : UWP.VerticalCharacterAlignment {
-        __x_ABI_CWindows_CUI_CText_CVerticalCharacterAlignment_Baseline
-    }
-    public static var bottom : UWP.VerticalCharacterAlignment {
-        __x_ABI_CWindows_CUI_CText_CVerticalCharacterAlignment_Bottom
-    }
-}
-extension UWP.VerticalCharacterAlignment: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

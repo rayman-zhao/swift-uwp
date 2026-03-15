@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - SystemCpuUsage
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusage)
 public final class SystemCpuUsage : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_System_Diagnostics.ISystemCpuUsage
@@ -31,6 +33,50 @@ public final class SystemCpuUsage : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - SystemCpuUsage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_System_Diagnostics {
+    public enum SystemCpuUsageBridge: AbiBridge {
+        public typealias SwiftProjection = SystemCpuUsage
+        public typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage>?) -> SystemCpuUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemCpuUsageMaker: MakeFromAbi {
+    public typealias SwiftType = SystemCpuUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemCpuUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_System_Diagnostics {
+    private static let IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage: WindowsFoundation.IID = .init(
+        Data1: 0x6037B3AC, Data2: 0x02D6, Data3: 0x4234, Data4: ( 0x83,0x62,0x7F,0xE3,0xAD,0xC8,0x1F,0x5F ) // 6037B3AC-02D6-4234-8362-7FE3ADC81F5F
+    ) 
+
+    public class ISystemCpuUsage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage }
+
+        public func GetReport() throws -> UWP.SystemCpuUsageReport? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetReport(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System_Diagnostics.SystemCpuUsageReportBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - SystemCpuUsageReport
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusagereport)
 public final class SystemCpuUsageReport : WinRTClass {
@@ -69,6 +115,65 @@ public final class SystemCpuUsageReport : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - SystemCpuUsageReport Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_System_Diagnostics {
+    public enum SystemCpuUsageReportBridge: AbiBridge {
+        public typealias SwiftProjection = SystemCpuUsageReport
+        public typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport>?) -> SystemCpuUsageReport? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemCpuUsageReportMaker: MakeFromAbi {
+    public typealias SwiftType = SystemCpuUsageReport
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemCpuUsageReport(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_System_Diagnostics {
+    private static let IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport: WindowsFoundation.IID = .init(
+        Data1: 0x2C26D0B2, Data2: 0x9483, Data3: 0x4F62, Data4: ( 0xAB,0x57,0x82,0xB2,0x9D,0x97,0x19,0xB8 ) // 2C26D0B2-9483-4F62-AB57-82B29D9719B8
+    ) 
+
+    public class ISystemCpuUsageReport: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport }
+
+        public func get_KernelTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KernelTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_UserTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_IdleTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IdleTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - SystemDiagnosticInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemdiagnosticinfo)
 public final class SystemDiagnosticInfo : WinRTClass {
@@ -109,6 +214,77 @@ public final class SystemDiagnosticInfo : WinRTClass {
     }
 }
 
+// MARK: - SystemDiagnosticInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_System_Diagnostics {
+    public enum SystemDiagnosticInfoBridge: AbiBridge {
+        public typealias SwiftProjection = SystemDiagnosticInfo
+        public typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo>?) -> SystemDiagnosticInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemDiagnosticInfoMaker: MakeFromAbi {
+    public typealias SwiftType = SystemDiagnosticInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemDiagnosticInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_System_Diagnostics {
+    private static let IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo: WindowsFoundation.IID = .init(
+        Data1: 0xA290FE05, Data2: 0xDFF3, Data3: 0x407F, Data4: ( 0x9A,0x1B,0x0B,0x2B,0x31,0x7C,0xA8,0x00 ) // A290FE05-DFF3-407F-9A1B-0B2B317CA800
+    ) 
+
+    public class ISystemDiagnosticInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo }
+
+        public func get_MemoryUsage() throws -> UWP.SystemMemoryUsage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MemoryUsage(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System_Diagnostics.SystemMemoryUsageBridge.from(abi: value)
+        }
+
+        public func get_CpuUsage() throws -> UWP.SystemCpuUsage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CpuUsage(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System_Diagnostics.SystemCpuUsageBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics: WindowsFoundation.IID = .init(
+        Data1: 0xD404AC21, Data2: 0xFC7D, Data3: 0x45F0, Data4: ( 0x9A,0x3F,0x39,0x20,0x3A,0xED,0x9F,0x7E ) // D404AC21-FC7D-45F0-9A3F-39203AED9F7E
+    ) 
+
+    public class ISystemDiagnosticInfoStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics }
+
+        public func GetForCurrentSystem() throws -> UWP.SystemDiagnosticInfo? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentSystem(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System_Diagnostics.SystemDiagnosticInfoBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - SystemMemoryUsage
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusage)
 public final class SystemMemoryUsage : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_System_Diagnostics.ISystemMemoryUsage
@@ -136,6 +312,50 @@ public final class SystemMemoryUsage : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - SystemMemoryUsage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_System_Diagnostics {
+    public enum SystemMemoryUsageBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMemoryUsage
+        public typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage>?) -> SystemMemoryUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemMemoryUsageMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMemoryUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMemoryUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_System_Diagnostics {
+    private static let IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage: WindowsFoundation.IID = .init(
+        Data1: 0x17FFC595, Data2: 0x1702, Data3: 0x49CF, Data4: ( 0xAA,0x27,0x2F,0x0A,0x32,0x59,0x14,0x04 ) // 17FFC595-1702-49CF-AA27-2F0A32591404
+    ) 
+
+    public class ISystemMemoryUsage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage }
+
+        public func GetReport() throws -> UWP.SystemMemoryUsageReport? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetReport(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System_Diagnostics.SystemMemoryUsageReportBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - SystemMemoryUsageReport
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusagereport)
 public final class SystemMemoryUsageReport : WinRTClass {
@@ -175,3 +395,60 @@ public final class SystemMemoryUsageReport : WinRTClass {
     }
 }
 
+// MARK: - SystemMemoryUsageReport Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_System_Diagnostics {
+    public enum SystemMemoryUsageReportBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMemoryUsageReport
+        public typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport>?) -> SystemMemoryUsageReport? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemMemoryUsageReportMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMemoryUsageReport
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMemoryUsageReport(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_System_Diagnostics {
+    private static let IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport: WindowsFoundation.IID = .init(
+        Data1: 0x38663C87, Data2: 0x2A9F, Data3: 0x403A, Data4: ( 0xBD,0x19,0x2C,0xF3,0xE8,0x16,0x95,0x00 ) // 38663C87-2A9F-403A-BD19-2CF3E8169500
+    ) 
+
+    public class ISystemMemoryUsageReport: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport }
+
+        public func get_TotalPhysicalSizeInBytes() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TotalPhysicalSizeInBytes(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_AvailableSizeInBytes() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AvailableSizeInBytes(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_CommittedSizeInBytes() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommittedSizeInBytes(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}

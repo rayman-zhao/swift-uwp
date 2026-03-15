@@ -4,8 +4,29 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - HostNameType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostnametype)
 public typealias HostNameType = __x_ABI_CWindows_CNetworking_CHostNameType
+
+extension UWP.HostNameType {
+    public static var domainName : UWP.HostNameType {
+        __x_ABI_CWindows_CNetworking_CHostNameType_DomainName
+    }
+    public static var ipv4 : UWP.HostNameType {
+        __x_ABI_CWindows_CNetworking_CHostNameType_Ipv4
+    }
+    public static var ipv6 : UWP.HostNameType {
+        __x_ABI_CWindows_CNetworking_CHostNameType_Ipv6
+    }
+    public static var bluetooth : UWP.HostNameType {
+        __x_ABI_CWindows_CNetworking_CHostNameType_Bluetooth
+    }
+}
+extension UWP.HostNameType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - HostName
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.hostname)
 public final class HostName : WinRTClass, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Networking.IHostName
@@ -80,19 +101,126 @@ public final class HostName : WinRTClass, WindowsFoundation.IStringable {
     }
 }
 
-extension UWP.HostNameType {
-    public static var domainName : UWP.HostNameType {
-        __x_ABI_CWindows_CNetworking_CHostNameType_DomainName
+// MARK: - HostName Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking {
+    public enum HostNameBridge: AbiBridge {
+        public typealias SwiftProjection = HostName
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CIHostName
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CIHostName>?) -> HostName? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var ipv4 : UWP.HostNameType {
-        __x_ABI_CWindows_CNetworking_CHostNameType_Ipv4
-    }
-    public static var ipv6 : UWP.HostNameType {
-        __x_ABI_CWindows_CNetworking_CHostNameType_Ipv6
-    }
-    public static var bluetooth : UWP.HostNameType {
-        __x_ABI_CWindows_CNetworking_CHostNameType_Bluetooth
+
+}
+@_spi(WinRTInternal)
+public class HostNameMaker: MakeFromAbi {
+    public typealias SwiftType = HostName
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HostName(fromAbi: abi)
     }
 }
-extension UWP.HostNameType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking {
+    private static let IID___x_ABI_CWindows_CNetworking_CIHostName: WindowsFoundation.IID = .init(
+        Data1: 0xBF8ECAAD, Data2: 0xED96, Data3: 0x49A7, Data4: ( 0x90,0x84,0xD4,0x16,0xCA,0xE8,0x8D,0xCB ) // BF8ECAAD-ED96-49A7-9084-D416CAE88DCB
+    ) 
 
+    public class IHostName: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CIHostName }
+
+        public func get_IPInformation() throws -> UWP.IPInformation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IPInformation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.IPInformationBridge.from(abi: value)
+        }
+
+        public func get_RawName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RawName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DisplayName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CanonicalName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanonicalName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Type() throws -> UWP.HostNameType {
+            var value: __x_ABI_CWindows_CNetworking_CHostNameType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
+            }
+            return value
+        }
+
+        public func IsEqual(_ hostName: UWP.HostName?) throws -> Bool {
+            var isEqual: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostName.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsEqual(pThis, RawPointer(hostName), &isEqual))
+            }
+            return .init(from: isEqual)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CNetworking_CIHostNameFactory: WindowsFoundation.IID = .init(
+        Data1: 0x458C23ED, Data2: 0x712F, Data3: 0x4576, Data4: ( 0xAD,0xF1,0xC2,0x0B,0x2C,0x64,0x35,0x58 ) // 458C23ED-712F-4576-ADF1-C20B2C643558
+    ) 
+
+    public class IHostNameFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CIHostNameFactory }
+
+        public func CreateHostName(_ hostName: String) throws -> IHostName {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _hostName = try! HString(hostName)
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostNameFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateHostName(pThis, _hostName.get(), &valueAbi))
+                }
+            }
+            return IHostName(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CNetworking_CIHostNameStatics: WindowsFoundation.IID = .init(
+        Data1: 0xF68CD4BF, Data2: 0xA388, Data3: 0x4E8B, Data4: ( 0x91,0xEA,0x54,0xDD,0x6D,0xD9,0x01,0xC0 ) // F68CD4BF-A388-4E8B-91EA-54DD6DD901C0
+    ) 
+
+    public class IHostNameStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CIHostNameStatics }
+
+        public func Compare(_ value1: String, _ value2: String) throws -> Int32 {
+            var result: INT32 = 0
+            let _value1 = try! HString(value1)
+            let _value2 = try! HString(value2)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CIHostNameStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Compare(pThis, _value1.get(), _value2.get(), &result))
+            }
+            return result
+        }
+
+    }
+
+}

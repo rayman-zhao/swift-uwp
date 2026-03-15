@@ -4,22 +4,358 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - DeviceClass
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceclass)
 public typealias DeviceClass = __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass
+
+extension UWP.DeviceClass {
+    public static var all : UWP.DeviceClass {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_All
+    }
+    public static var audioCapture : UWP.DeviceClass {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_AudioCapture
+    }
+    public static var audioRender : UWP.DeviceClass {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_AudioRender
+    }
+    public static var portableStorageDevice : UWP.DeviceClass {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_PortableStorageDevice
+    }
+    public static var videoCapture : UWP.DeviceClass {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_VideoCapture
+    }
+    public static var imageScanner : UWP.DeviceClass {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_ImageScanner
+    }
+    public static var location : UWP.DeviceClass {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_Location
+    }
+}
+extension UWP.DeviceClass: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DeviceInformationKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationkind)
 public typealias DeviceInformationKind = __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind
+
+extension UWP.DeviceInformationKind {
+    public static var unknown : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_Unknown
+    }
+    public static var deviceInterface : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DeviceInterface
+    }
+    public static var deviceContainer : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DeviceContainer
+    }
+    public static var device : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_Device
+    }
+    public static var deviceInterfaceClass : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DeviceInterfaceClass
+    }
+    public static var associationEndpoint : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_AssociationEndpoint
+    }
+    public static var associationEndpointContainer : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_AssociationEndpointContainer
+    }
+    public static var associationEndpointService : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_AssociationEndpointService
+    }
+    public static var devicePanel : UWP.DeviceInformationKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DevicePanel
+    }
+}
+extension UWP.DeviceInformationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DevicePairingKinds
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingkinds)
 public typealias DevicePairingKinds = __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds
+
+extension UWP.DevicePairingKinds {
+    public static var none : UWP.DevicePairingKinds {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_None
+    }
+    public static var confirmOnly : UWP.DevicePairingKinds {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ConfirmOnly
+    }
+    public static var displayPin : UWP.DevicePairingKinds {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_DisplayPin
+    }
+    public static var providePin : UWP.DevicePairingKinds {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ProvidePin
+    }
+    public static var confirmPinMatch : UWP.DevicePairingKinds {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ConfirmPinMatch
+    }
+    public static var providePasswordCredential : UWP.DevicePairingKinds {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ProvidePasswordCredential
+    }
+}
+extension UWP.DevicePairingKinds: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DevicePairingProtectionLevel
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingprotectionlevel)
 public typealias DevicePairingProtectionLevel = __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel
+
+extension UWP.DevicePairingProtectionLevel {
+    public static var `default` : UWP.DevicePairingProtectionLevel {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_Default
+    }
+    public static var none : UWP.DevicePairingProtectionLevel {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_None
+    }
+    public static var encryption : UWP.DevicePairingProtectionLevel {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_Encryption
+    }
+    public static var encryptionAndAuthentication : UWP.DevicePairingProtectionLevel {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_EncryptionAndAuthentication
+    }
+}
+extension UWP.DevicePairingProtectionLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DevicePairingResultStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingresultstatus)
 public typealias DevicePairingResultStatus = __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus
+
+extension UWP.DevicePairingResultStatus {
+    public static var paired : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_Paired
+    }
+    public static var notReadyToPair : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_NotReadyToPair
+    }
+    public static var notPaired : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_NotPaired
+    }
+    public static var alreadyPaired : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AlreadyPaired
+    }
+    public static var connectionRejected : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_ConnectionRejected
+    }
+    public static var tooManyConnections : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_TooManyConnections
+    }
+    public static var hardwareFailure : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_HardwareFailure
+    }
+    public static var authenticationTimeout : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AuthenticationTimeout
+    }
+    public static var authenticationNotAllowed : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AuthenticationNotAllowed
+    }
+    public static var authenticationFailure : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AuthenticationFailure
+    }
+    public static var noSupportedProfiles : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_NoSupportedProfiles
+    }
+    public static var protectionLevelCouldNotBeMet : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_ProtectionLevelCouldNotBeMet
+    }
+    public static var accessDenied : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AccessDenied
+    }
+    public static var invalidCeremonyData : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_InvalidCeremonyData
+    }
+    public static var pairingCanceled : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_PairingCanceled
+    }
+    public static var operationAlreadyInProgress : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_OperationAlreadyInProgress
+    }
+    public static var requiredHandlerNotRegistered : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_RequiredHandlerNotRegistered
+    }
+    public static var rejectedByHandler : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_RejectedByHandler
+    }
+    public static var remoteDeviceHasAssociation : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_RemoteDeviceHasAssociation
+    }
+    public static var failed : UWP.DevicePairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_Failed
+    }
+}
+extension UWP.DevicePairingResultStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DeviceUnpairingResultStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceunpairingresultstatus)
 public typealias DeviceUnpairingResultStatus = __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus
+
+extension UWP.DeviceUnpairingResultStatus {
+    public static var unpaired : UWP.DeviceUnpairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_Unpaired
+    }
+    public static var alreadyUnpaired : UWP.DeviceUnpairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_AlreadyUnpaired
+    }
+    public static var operationAlreadyInProgress : UWP.DeviceUnpairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_OperationAlreadyInProgress
+    }
+    public static var accessDenied : UWP.DeviceUnpairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_AccessDenied
+    }
+    public static var failed : UWP.DeviceUnpairingResultStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_Failed
+    }
+}
+extension UWP.DeviceUnpairingResultStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DeviceWatcherEventKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicewatchereventkind)
 public typealias DeviceWatcherEventKind = __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherEventKind
+
+extension UWP.DeviceWatcherEventKind {
+    public static var add : UWP.DeviceWatcherEventKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherEventKind_Add
+    }
+    public static var update : UWP.DeviceWatcherEventKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherEventKind_Update
+    }
+    public static var remove : UWP.DeviceWatcherEventKind {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherEventKind_Remove
+    }
+}
+extension UWP.DeviceWatcherEventKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DeviceWatcherStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcherstatus)
 public typealias DeviceWatcherStatus = __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus
+
+extension UWP.DeviceWatcherStatus {
+    public static var created : UWP.DeviceWatcherStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Created
+    }
+    public static var started : UWP.DeviceWatcherStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Started
+    }
+    public static var enumerationCompleted : UWP.DeviceWatcherStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_EnumerationCompleted
+    }
+    public static var stopping : UWP.DeviceWatcherStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Stopping
+    }
+    public static var stopped : UWP.DeviceWatcherStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Stopped
+    }
+    public static var aborted : UWP.DeviceWatcherStatus {
+        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Aborted
+    }
+}
+extension UWP.DeviceWatcherStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - IDevicePairingSettings
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.idevicepairingsettings)
+public protocol IDevicePairingSettings : WinRTInterface {
+}
+
+extension IDevicePairingSettings {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Devices_Enumeration.IDevicePairingSettingsWrapper.IID:
+                let wrapper = __ABI_Windows_Devices_Enumeration.IDevicePairingSettingsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIDevicePairingSettings = any IDevicePairingSettings
+
+// MARK: - IDevicePairingSettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum IDevicePairingSettingsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettings
+        public typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDevicePairingSettings
+        public typealias SwiftProjection = AnyIDevicePairingSettings
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IDevicePairingSettingsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Devices_Enumeration.IDevicePairingSettingsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IDevicePairingSettingsImpl: IDevicePairingSettings, WinRTAbiImpl {
+        fileprivate typealias Bridge = IDevicePairingSettingsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettings: WindowsFoundation.IID = .init(
+        Data1: 0x482CB27C, Data2: 0x83BB, Data3: 0x420E, Data4: ( 0xBE,0x51,0x66,0x02,0xB2,0x22,0xDE,0x54 ) // 482CB27C-83BB-420E-BE51-6602B222DE54
+    ) 
+
+    public class IDevicePairingSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettings }
+
+    }
+
+    internal static var IDevicePairingSettingsVTable: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettingsVtbl = .init(
+        QueryInterface: { IDevicePairingSettingsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IDevicePairingSettingsWrapper.addRef($0) },
+        Release: { IDevicePairingSettingsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Devices_Enumeration.IDevicePairingSettingsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Devices.Enumeration.IDevicePairingSettings").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        }
+    )
+
+    public typealias IDevicePairingSettingsWrapper = InterfaceWrapperBase<__IMPL_Windows_Devices_Enumeration.IDevicePairingSettingsBridge>
+}
+@_spi(WinRTInternal)
+public class IDevicePairingSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIDevicePairingSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Devices_Enumeration.IDevicePairingSettings = try! abi.QueryInterface()
+        return __IMPL_Windows_Devices_Enumeration.IDevicePairingSettingsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - DeviceInformation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation)
 public final class DeviceInformation : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceInformation
@@ -172,6 +508,308 @@ public final class DeviceInformation : WinRTClass {
     }
 }
 
+// MARK: - DeviceInformation Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceInformationBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceInformation
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation>?) -> DeviceInformation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceInformationMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceInformation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceInformation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation: WindowsFoundation.IID = .init(
+        Data1: 0xABA0FB95, Data2: 0x4398, Data3: 0x489D, Data4: ( 0x8E,0x44,0xE6,0x13,0x09,0x27,0x01,0x1F ) // ABA0FB95-4398-489D-8E44-E6130927011F
+    ) 
+
+    public class IDeviceInformation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation }
+
+        public func get_Id() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_IsEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_IsDefault() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDefault(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_EnclosureLocation() throws -> UWP.EnclosureLocation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnclosureLocation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.EnclosureLocationBridge.from(abi: value)
+        }
+
+        public func get_Properties() throws -> WindowsFoundation.AnyIMapView<String, Any?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIMapView_2_HSTRING_IInspectableWrapper.unwrapFrom(abi: value)
+        }
+
+        public func Update(_ updateInfo: UWP.DeviceInformationUpdate?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Update(pThis, RawPointer(updateInfo)))
+            }
+        }
+
+        public func GetThumbnailAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceThumbnail?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetThumbnailAsync(pThis, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceThumbnailWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func GetGlyphThumbnailAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceThumbnail?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetGlyphThumbnailAsync(pThis, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceThumbnailWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation2: WindowsFoundation.IID = .init(
+        Data1: 0xF156A638, Data2: 0x7997, Data3: 0x48D9, Data4: ( 0xA1,0x0C,0x26,0x9D,0x46,0x53,0x3F,0x48 ) // F156A638-7997-48D9-A10C-269D46533F48
+    ) 
+
+    public class IDeviceInformation2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation2 }
+
+        public func get_Kind() throws -> UWP.DeviceInformationKind {
+            var value: __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Pairing() throws -> UWP.DeviceInformationPairing? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Pairing(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationPairingBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC17F100E, Data2: 0x3A46, Data3: 0x4A78, Data4: ( 0x80,0x13,0x76,0x9D,0xC9,0xB9,0x73,0x90 ) // C17F100E-3A46-4A78-8013-769DC9B97390
+    ) 
+
+    public class IDeviceInformationStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics }
+
+        public func CreateFromIdAsync(_ deviceId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformation?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                let _deviceId = try! HString(deviceId)
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromIdAsync(pThis, _deviceId.get(), &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func CreateFromIdAsyncAdditionalProperties(_ deviceId: String, _ additionalProperties: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformation?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                let _deviceId = try! HString(deviceId)
+                let additionalPropertiesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(additionalProperties)
+                let _additionalProperties = try! additionalPropertiesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromIdAsyncAdditionalProperties(pThis, _deviceId.get(), _additionalProperties, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func FindAllAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformationCollection?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsync(pThis, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationCollectionWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func FindAllAsyncDeviceClass(_ deviceClass: UWP.DeviceClass) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformationCollection?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsyncDeviceClass(pThis, deviceClass, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationCollectionWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func FindAllAsyncAqsFilter(_ aqsFilter: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformationCollection?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                let _aqsFilter = try! HString(aqsFilter)
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsyncAqsFilter(pThis, _aqsFilter.get(), &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationCollectionWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func FindAllAsyncAqsFilterAndAdditionalProperties(_ aqsFilter: String, _ additionalProperties: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformationCollection?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                let _aqsFilter = try! HString(aqsFilter)
+                let additionalPropertiesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(additionalProperties)
+                let _additionalProperties = try! additionalPropertiesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsyncAqsFilterAndAdditionalProperties(pThis, _aqsFilter.get(), _additionalProperties, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationCollectionWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func CreateWatcher() throws -> UWP.DeviceWatcher? {
+            let (watcher) = try ComPtrs.initialize { watcherAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWatcher(pThis, &watcherAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceWatcherBridge.from(abi: watcher)
+        }
+
+        public func CreateWatcherDeviceClass(_ deviceClass: UWP.DeviceClass) throws -> UWP.DeviceWatcher? {
+            let (watcher) = try ComPtrs.initialize { watcherAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWatcherDeviceClass(pThis, deviceClass, &watcherAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceWatcherBridge.from(abi: watcher)
+        }
+
+        public func CreateWatcherAqsFilter(_ aqsFilter: String) throws -> UWP.DeviceWatcher? {
+            let (watcher) = try ComPtrs.initialize { watcherAbi in
+                let _aqsFilter = try! HString(aqsFilter)
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWatcherAqsFilter(pThis, _aqsFilter.get(), &watcherAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceWatcherBridge.from(abi: watcher)
+        }
+
+        public func CreateWatcherAqsFilterAndAdditionalProperties(_ aqsFilter: String, _ additionalProperties: WindowsFoundation.AnyIIterable<String>?) throws -> UWP.DeviceWatcher? {
+            let (watcher) = try ComPtrs.initialize { watcherAbi in
+                let _aqsFilter = try! HString(aqsFilter)
+                let additionalPropertiesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(additionalProperties)
+                let _additionalProperties = try! additionalPropertiesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWatcherAqsFilterAndAdditionalProperties(pThis, _aqsFilter.get(), _additionalProperties, &watcherAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceWatcherBridge.from(abi: watcher)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x493B4F34, Data2: 0xA84F, Data3: 0x45FD, Data4: ( 0x91,0x67,0x15,0xD1,0xCB,0x1B,0xD1,0xF9 ) // 493B4F34-A84F-45FD-9167-15D1CB1BD1F9
+    ) 
+
+    public class IDeviceInformationStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 }
+
+        public func GetAqsFilterFromDeviceClass(_ deviceClass: UWP.DeviceClass) throws -> String {
+            var aqsFilter: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAqsFilterFromDeviceClass(pThis, deviceClass, &aqsFilter))
+            }
+            defer { WindowsDeleteString(aqsFilter) }
+            return .init(from: aqsFilter)
+        }
+
+        public func CreateFromIdAsyncWithKindAndAdditionalProperties(_ deviceId: String, _ additionalProperties: WindowsFoundation.AnyIIterable<String>?, _ kind: UWP.DeviceInformationKind) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformation?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                let _deviceId = try! HString(deviceId)
+                let additionalPropertiesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(additionalProperties)
+                let _additionalProperties = try! additionalPropertiesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromIdAsyncWithKindAndAdditionalProperties(pThis, _deviceId.get(), _additionalProperties, kind, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func FindAllAsyncWithKindAqsFilterAndAdditionalProperties(_ aqsFilter: String, _ additionalProperties: WindowsFoundation.AnyIIterable<String>?, _ kind: UWP.DeviceInformationKind) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformationCollection?>? {
+            let (asyncOp) = try ComPtrs.initialize { asyncOpAbi in
+                let _aqsFilter = try! HString(aqsFilter)
+                let additionalPropertiesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(additionalProperties)
+                let _additionalProperties = try! additionalPropertiesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsyncWithKindAqsFilterAndAdditionalProperties(pThis, _aqsFilter.get(), _additionalProperties, kind, &asyncOpAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationCollectionWrapper.unwrapFrom(abi: asyncOp)
+        }
+
+        public func CreateWatcherWithKindAqsFilterAndAdditionalProperties(_ aqsFilter: String, _ additionalProperties: WindowsFoundation.AnyIIterable<String>?, _ kind: UWP.DeviceInformationKind) throws -> UWP.DeviceWatcher? {
+            let (watcher) = try ComPtrs.initialize { watcherAbi in
+                let _aqsFilter = try! HString(aqsFilter)
+                let additionalPropertiesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(additionalProperties)
+                let _additionalProperties = try! additionalPropertiesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWatcherWithKindAqsFilterAndAdditionalProperties(pThis, _aqsFilter.get(), _additionalProperties, kind, &watcherAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceWatcherBridge.from(abi: watcher)
+        }
+
+    }
+
+}
+// MARK: - DeviceInformationCollection
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationcollection)
 public final class DeviceInformationCollection : WinRTClass, IVectorView, IIterable {
     public typealias T = DeviceInformation?
@@ -248,6 +886,32 @@ public final class DeviceInformationCollection : WinRTClass, IVectorView, IItera
     }
 }
 
+// MARK: - DeviceInformationCollection Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceInformationCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceInformationCollection
+        public typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformation
+        public static func from(abi: consuming ComPtr<__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformation>?) -> DeviceInformationCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceInformationCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceInformationCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceInformationCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+}
+// MARK: - DeviceInformationCustomPairing
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationcustompairing)
 public final class DeviceInformationCustomPairing : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceInformationCustomPairing
@@ -298,6 +962,86 @@ public final class DeviceInformationCustomPairing : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DeviceInformationCustomPairing Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceInformationCustomPairingBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceInformationCustomPairing
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing>?) -> DeviceInformationCustomPairing? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceInformationCustomPairingMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceInformationCustomPairing
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceInformationCustomPairing(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing: WindowsFoundation.IID = .init(
+        Data1: 0x85138C02, Data2: 0x4EE6, Data3: 0x4914, Data4: ( 0x83,0x70,0x10,0x7A,0x39,0x14,0x4C,0x0E ) // 85138C02-4EE6-4914-8370-107A39144C0E
+    ) 
+
+    public class IDeviceInformationCustomPairing: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing }
+
+        public func PairAsync(_ pairingKindsSupported: UWP.DevicePairingKinds) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DevicePairingResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PairAsync(pThis, pairingKindsSupported, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDevicePairingResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func PairWithProtectionLevelAsync(_ pairingKindsSupported: UWP.DevicePairingKinds, _ minProtectionLevel: UWP.DevicePairingProtectionLevel) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DevicePairingResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PairWithProtectionLevelAsync(pThis, pairingKindsSupported, minProtectionLevel, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDevicePairingResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func PairWithProtectionLevelAndSettingsAsync(_ pairingKindsSupported: UWP.DevicePairingKinds, _ minProtectionLevel: UWP.DevicePairingProtectionLevel, _ devicePairingSettings: UWP.AnyIDevicePairingSettings?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DevicePairingResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let devicePairingSettingsWrapper = __ABI_Windows_Devices_Enumeration.IDevicePairingSettingsWrapper(devicePairingSettings)
+                let _devicePairingSettings = try! devicePairingSettingsWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PairWithProtectionLevelAndSettingsAsync(pThis, pairingKindsSupported, minProtectionLevel, _devicePairingSettings, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDevicePairingResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func add_PairingRequested(_ handler: TypedEventHandler<UWP.DeviceInformationCustomPairing?, UWP.DevicePairingRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationCustomPairing___x_ABI_CWindows__CDevices__CEnumeration__CDevicePairingRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_PairingRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_PairingRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PairingRequested(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - DeviceInformationPairing
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationpairing)
 public final class DeviceInformationPairing : WinRTClass {
@@ -376,6 +1120,155 @@ public final class DeviceInformationPairing : WinRTClass {
     }
 }
 
+// MARK: - DeviceInformationPairing Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceInformationPairingBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceInformationPairing
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing>?) -> DeviceInformationPairing? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceInformationPairingMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceInformationPairing
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceInformationPairing(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing: WindowsFoundation.IID = .init(
+        Data1: 0x2C4769F5, Data2: 0xF684, Data3: 0x40D5, Data4: ( 0x84,0x69,0xE8,0xDB,0xAA,0xB7,0x04,0x85 ) // 2C4769F5-F684-40D5-8469-E8DBAAB70485
+    ) 
+
+    public class IDeviceInformationPairing: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing }
+
+        public func get_IsPaired() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPaired(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_CanPair() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanPair(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func PairAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DevicePairingResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PairAsync(pThis, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDevicePairingResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func PairWithProtectionLevelAsync(_ minProtectionLevel: UWP.DevicePairingProtectionLevel) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DevicePairingResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PairWithProtectionLevelAsync(pThis, minProtectionLevel, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDevicePairingResultWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing2: WindowsFoundation.IID = .init(
+        Data1: 0xF68612FD, Data2: 0x0AEE, Data3: 0x4328, Data4: ( 0x85,0xCC,0x1C,0x74,0x2B,0xB1,0x79,0x0D ) // F68612FD-0AEE-4328-85CC-1C742BB1790D
+    ) 
+
+    public class IDeviceInformationPairing2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing2 }
+
+        public func get_ProtectionLevel() throws -> UWP.DevicePairingProtectionLevel {
+            var value: __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProtectionLevel(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Custom() throws -> UWP.DeviceInformationCustomPairing? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Custom(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationCustomPairingBridge.from(abi: value)
+        }
+
+        public func PairWithProtectionLevelAndSettingsAsync(_ minProtectionLevel: UWP.DevicePairingProtectionLevel, _ devicePairingSettings: UWP.AnyIDevicePairingSettings?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DevicePairingResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let devicePairingSettingsWrapper = __ABI_Windows_Devices_Enumeration.IDevicePairingSettingsWrapper(devicePairingSettings)
+                let _devicePairingSettings = try! devicePairingSettingsWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PairWithProtectionLevelAndSettingsAsync(pThis, minProtectionLevel, _devicePairingSettings, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDevicePairingResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func UnpairAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceUnpairingResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.UnpairAsync(pThis, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceUnpairingResultWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics: WindowsFoundation.IID = .init(
+        Data1: 0xE915C408, Data2: 0x36D4, Data3: 0x49A1, Data4: ( 0xBF,0x13,0x51,0x41,0x73,0x79,0x9B,0x6B ) // E915C408-36D4-49A1-BF13-514173799B6B
+    ) 
+
+    public class IDeviceInformationPairingStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics }
+
+        public func TryRegisterForAllInboundPairingRequests(_ pairingKindsSupported: UWP.DevicePairingKinds) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TryRegisterForAllInboundPairingRequests(pThis, pairingKindsSupported, &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x04DE5372, Data2: 0xB7B7, Data3: 0x476B, Data4: ( 0xA7,0x4F,0xC5,0x83,0x6A,0x70,0x4D,0x98 ) // 04DE5372-B7B7-476B-A74F-C5836A704D98
+    ) 
+
+    public class IDeviceInformationPairingStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics2 }
+
+        public func TryRegisterForAllInboundPairingRequestsWithProtectionLevel(_ pairingKindsSupported: UWP.DevicePairingKinds, _ minProtectionLevel: UWP.DevicePairingProtectionLevel) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TryRegisterForAllInboundPairingRequestsWithProtectionLevel(pThis, pairingKindsSupported, minProtectionLevel, &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+}
+// MARK: - DeviceInformationUpdate
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationupdate)
 public final class DeviceInformationUpdate : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceInformationUpdate
@@ -415,6 +1308,76 @@ public final class DeviceInformationUpdate : WinRTClass {
         _IDeviceInformationUpdate2 = nil
     }
 }
+
+// MARK: - DeviceInformationUpdate Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceInformationUpdateBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceInformationUpdate
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate>?) -> DeviceInformationUpdate? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceInformationUpdateMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceInformationUpdate
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceInformationUpdate(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate: WindowsFoundation.IID = .init(
+        Data1: 0x8F315305, Data2: 0xD972, Data3: 0x44B7, Data4: ( 0xA3,0x7E,0x9E,0x82,0x2C,0x78,0x21,0x3B ) // 8F315305-D972-44B7-A37E-9E822C78213B
+    ) 
+
+    public class IDeviceInformationUpdate: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate }
+
+        public func get_Id() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Properties() throws -> WindowsFoundation.AnyIMapView<String, Any?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIMapView_2_HSTRING_IInspectableWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate2: WindowsFoundation.IID = .init(
+        Data1: 0x5D9D148C, Data2: 0xA873, Data3: 0x485E, Data4: ( 0xBA,0xA6,0xAA,0x62,0x07,0x88,0xE3,0xCC ) // 5D9D148C-A873-485E-BAA6-AA620788E3CC
+    ) 
+
+    public class IDeviceInformationUpdate2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate2 }
+
+        public func get_Kind() throws -> UWP.DeviceInformationKind {
+            var value: __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - DevicePairingRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingrequestedeventargs)
 public final class DevicePairingRequestedEventArgs : WinRTClass {
@@ -476,6 +1439,104 @@ public final class DevicePairingRequestedEventArgs : WinRTClass {
     }
 }
 
+// MARK: - DevicePairingRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DevicePairingRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DevicePairingRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs>?) -> DevicePairingRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DevicePairingRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DevicePairingRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DevicePairingRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xF717FC56, Data2: 0xDE6B, Data3: 0x487F, Data4: ( 0x83,0x76,0x01,0x80,0xAC,0xA6,0x99,0x63 ) // F717FC56-DE6B-487F-8376-0180ACA69963
+    ) 
+
+    public class IDevicePairingRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs }
+
+        public func get_DeviceInformation() throws -> UWP.DeviceInformation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceInformation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationBridge.from(abi: value)
+        }
+
+        public func get_PairingKind() throws -> UWP.DevicePairingKinds {
+            var value: __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PairingKind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Pin() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Pin(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func Accept() throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Accept(pThis))
+            }
+        }
+
+        public func AcceptWithPin(_ pin: String) throws {
+            let _pin = try! HString(pin)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AcceptWithPin(pThis, _pin.get()))
+            }
+        }
+
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0xC83752D9, Data2: 0xE4D3, Data3: 0x4DB0, Data4: ( 0xA3,0x60,0xA1,0x05,0xE4,0x37,0xDB,0xDC ) // C83752D9-E4D3-4DB0-A360-A105E437DBDC
+    ) 
+
+    public class IDevicePairingRequestedEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs2 }
+
+        public func AcceptWithPasswordCredential(_ passwordCredential: UWP.PasswordCredential?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AcceptWithPasswordCredential(pThis, RawPointer(passwordCredential)))
+            }
+        }
+
+    }
+
+}
+// MARK: - DevicePairingResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingresult)
 public final class DevicePairingResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDevicePairingResult
@@ -508,6 +1569,57 @@ public final class DevicePairingResult : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DevicePairingResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DevicePairingResultBridge: AbiBridge {
+        public typealias SwiftProjection = DevicePairingResult
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult>?) -> DevicePairingResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DevicePairingResultMaker: MakeFromAbi {
+    public typealias SwiftType = DevicePairingResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DevicePairingResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult: WindowsFoundation.IID = .init(
+        Data1: 0x072B02BF, Data2: 0xDD95, Data3: 0x4025, Data4: ( 0x9B,0x37,0xDE,0x51,0xAD,0xBA,0x37,0xB7 ) // 072B02BF-DD95-4025-9B37-DE51ADBA37B7
+    ) 
+
+    public class IDevicePairingResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult }
+
+        public func get_Status() throws -> UWP.DevicePairingResultStatus {
+            var status: __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &status))
+            }
+            return status
+        }
+
+        public func get_ProtectionLevelUsed() throws -> UWP.DevicePairingProtectionLevel {
+            var value: __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProtectionLevelUsed(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - DevicePickerAppearance
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepickerappearance)
 public final class DevicePickerAppearance : WinRTClass {
@@ -573,6 +1685,141 @@ public final class DevicePickerAppearance : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DevicePickerAppearance Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DevicePickerAppearanceBridge: AbiBridge {
+        public typealias SwiftProjection = DevicePickerAppearance
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance>?) -> DevicePickerAppearance? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DevicePickerAppearanceMaker: MakeFromAbi {
+    public typealias SwiftType = DevicePickerAppearance
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DevicePickerAppearance(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance: WindowsFoundation.IID = .init(
+        Data1: 0xE69A12C6, Data2: 0xE627, Data3: 0x4ED8, Data4: ( 0x9B,0x6C,0x46,0x0A,0xF4,0x45,0xE5,0x6D ) // E69A12C6-E627-4ED8-9B6C-460AF445E56D
+    ) 
+
+    public class IDevicePickerAppearance: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance }
+
+        public func get_Title() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Title(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Title(pThis, _value.get()))
+            }
+        }
+
+        public func get_ForegroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForegroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_ForegroundColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ForegroundColor(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_BackgroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_BackgroundColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_BackgroundColor(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_AccentColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccentColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_AccentColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AccentColor(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_SelectedForegroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedForegroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_SelectedForegroundColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedForegroundColor(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_SelectedBackgroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedBackgroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_SelectedBackgroundColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedBackgroundColor(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_SelectedAccentColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedAccentColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_SelectedAccentColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedAccentColor(pThis, .from(swift: value)))
+            }
+        }
+
+    }
+
+}
+// MARK: - DeviceThumbnail
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicethumbnail)
 public final class DeviceThumbnail : WinRTClass, WindowsFoundation.IClosable, UWP.IInputStream, UWP.IOutputStream, UWP.IRandomAccessStream, UWP.IContentTypeProvider, UWP.IRandomAccessStreamWithContentType {
@@ -676,6 +1923,32 @@ public final class DeviceThumbnail : WinRTClass, WindowsFoundation.IClosable, UW
     }
 }
 
+// MARK: - DeviceThumbnail Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceThumbnailBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceThumbnail
+        public typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType>?) -> DeviceThumbnail? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceThumbnailMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceThumbnail
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceThumbnail(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+}
+// MARK: - DeviceUnpairingResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceunpairingresult)
 public final class DeviceUnpairingResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceUnpairingResult
@@ -703,6 +1976,49 @@ public final class DeviceUnpairingResult : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DeviceUnpairingResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceUnpairingResultBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceUnpairingResult
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult>?) -> DeviceUnpairingResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceUnpairingResultMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceUnpairingResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceUnpairingResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult: WindowsFoundation.IID = .init(
+        Data1: 0x66F44AD3, Data2: 0x79D9, Data3: 0x444B, Data4: ( 0x92,0xCF,0xA9,0x2E,0xF7,0x25,0x71,0xC7 ) // 66F44AD3-79D9-444B-92CF-A92EF72571C7
+    ) 
+
+    public class IDeviceUnpairingResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult }
+
+        public func get_Status() throws -> UWP.DeviceUnpairingResultStatus {
+            var status: __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &status))
+            }
+            return status
+        }
+
+    }
+
+}
+// MARK: - DeviceWatcher
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher)
 public final class DeviceWatcher : WinRTClass {
@@ -814,6 +2130,161 @@ public final class DeviceWatcher : WinRTClass {
     }
 }
 
+// MARK: - DeviceWatcher Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum DeviceWatcherBridge: AbiBridge {
+        public typealias SwiftProjection = DeviceWatcher
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher>?) -> DeviceWatcher? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeviceWatcherMaker: MakeFromAbi {
+    public typealias SwiftType = DeviceWatcher
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeviceWatcher(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher: WindowsFoundation.IID = .init(
+        Data1: 0xC9EAB97D, Data2: 0x8F6B, Data3: 0x4F96, Data4: ( 0xA9,0xF4,0xAB,0xC8,0x14,0xE2,0x22,0x71 ) // C9EAB97D-8F6B-4F96-A9F4-ABC814E22271
+    ) 
+
+    public class IDeviceWatcher: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher }
+
+        public func add_Added(_ handler: TypedEventHandler<UWP.DeviceWatcher?, UWP.DeviceInformation?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CEnumeration__CDeviceWatcher___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Added(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Added(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Added(pThis, token))
+            }
+        }
+
+        public func add_Updated(_ handler: TypedEventHandler<UWP.DeviceWatcher?, UWP.DeviceInformationUpdate?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CEnumeration__CDeviceWatcher___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationUpdateWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Updated(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Updated(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Updated(pThis, token))
+            }
+        }
+
+        public func add_Removed(_ handler: TypedEventHandler<UWP.DeviceWatcher?, UWP.DeviceInformationUpdate?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CEnumeration__CDeviceWatcher___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformationUpdateWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Removed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Removed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Removed(pThis, token))
+            }
+        }
+
+        public func add_EnumerationCompleted(_ handler: TypedEventHandler<UWP.DeviceWatcher?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CEnumeration__CDeviceWatcher_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_EnumerationCompleted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_EnumerationCompleted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_EnumerationCompleted(pThis, token))
+            }
+        }
+
+        public func add_Stopped(_ handler: TypedEventHandler<UWP.DeviceWatcher?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CEnumeration__CDeviceWatcher_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Stopped(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Stopped(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Stopped(pThis, token))
+            }
+        }
+
+        public func get_Status() throws -> UWP.DeviceWatcherStatus {
+            var status: __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &status))
+            }
+            return status
+        }
+
+        public func Start() throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Start(pThis))
+            }
+        }
+
+        public func Stop() throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher2: WindowsFoundation.IID = .init(
+        Data1: 0xFF08456E, Data2: 0xED14, Data3: 0x49E9, Data4: ( 0x9A,0x69,0x81,0x17,0xC5,0x4A,0xE9,0x71 ) // FF08456E-ED14-49E9-9A69-8117C54AE971
+    ) 
+
+    public class IDeviceWatcher2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher2 }
+
+        public func GetBackgroundTrigger(_ requestedEventKinds: WindowsFoundation.AnyIIterable<UWP.DeviceWatcherEventKind>?) throws -> UWP.DeviceWatcherTrigger? {
+            let (trigger) = try ComPtrs.initialize { triggerAbi in
+                let requestedEventKindsWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceWatcherEventKindWrapper(requestedEventKinds)
+                let _requestedEventKinds = try! requestedEventKindsWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetBackgroundTrigger(pThis, _requestedEventKinds, &triggerAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_Background.DeviceWatcherTriggerBridge.from(abi: trigger)
+        }
+
+    }
+
+}
+// MARK: - EnclosureLocation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.enclosurelocation)
 public final class EnclosureLocation : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IEnclosureLocation
@@ -854,231 +2325,69 @@ public final class EnclosureLocation : WinRTClass {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.idevicepairingsettings)
-public protocol IDevicePairingSettings : WinRTInterface {
-}
+// MARK: - EnclosureLocation Internals
 
-extension IDevicePairingSettings {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_Devices_Enumeration.IDevicePairingSettingsWrapper.IID:
-                let wrapper = __ABI_Windows_Devices_Enumeration.IDevicePairingSettingsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Enumeration {
+    public enum EnclosureLocationBridge: AbiBridge {
+        public typealias SwiftProjection = EnclosureLocation
+        public typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation>?) -> EnclosureLocation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
         }
     }
-}
-public typealias AnyIDevicePairingSettings = any IDevicePairingSettings
 
-extension UWP.DeviceClass {
-    public static var all : UWP.DeviceClass {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_All
-    }
-    public static var audioCapture : UWP.DeviceClass {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_AudioCapture
-    }
-    public static var audioRender : UWP.DeviceClass {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_AudioRender
-    }
-    public static var portableStorageDevice : UWP.DeviceClass {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_PortableStorageDevice
-    }
-    public static var videoCapture : UWP.DeviceClass {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_VideoCapture
-    }
-    public static var imageScanner : UWP.DeviceClass {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_ImageScanner
-    }
-    public static var location : UWP.DeviceClass {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceClass_Location
+}
+@_spi(WinRTInternal)
+public class EnclosureLocationMaker: MakeFromAbi {
+    public typealias SwiftType = EnclosureLocation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EnclosureLocation(fromAbi: abi)
     }
 }
-extension UWP.DeviceClass: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Enumeration {
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation: WindowsFoundation.IID = .init(
+        Data1: 0x42340A27, Data2: 0x5810, Data3: 0x459C, Data4: ( 0xAA,0xBB,0xC6,0x5E,0x1F,0x81,0x3E,0xCF ) // 42340A27-5810-459C-AABB-C65E1F813ECF
+    ) 
 
-extension UWP.DeviceInformationKind {
-    public static var unknown : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_Unknown
+    public class IEnclosureLocation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation }
+
+        public func get_InDock() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InDock(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_InLid() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InLid(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
     }
-    public static var deviceInterface : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DeviceInterface
+
+    private static let IID___x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation2: WindowsFoundation.IID = .init(
+        Data1: 0x2885995B, Data2: 0xE07D, Data3: 0x485D, Data4: ( 0x8A,0x9E,0xBD,0xF2,0x9A,0xEF,0x4F,0x66 ) // 2885995B-E07D-485D-8A9E-BDF29AEF4F66
+    ) 
+
+    public class IEnclosureLocation2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation2 }
+
+        public func get_RotationAngleInDegreesClockwise() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RotationAngleInDegreesClockwise(pThis, &value))
+            }
+            return value
+        }
+
     }
-    public static var deviceContainer : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DeviceContainer
-    }
-    public static var device : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_Device
-    }
-    public static var deviceInterfaceClass : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DeviceInterfaceClass
-    }
-    public static var associationEndpoint : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_AssociationEndpoint
-    }
-    public static var associationEndpointContainer : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_AssociationEndpointContainer
-    }
-    public static var associationEndpointService : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_AssociationEndpointService
-    }
-    public static var devicePanel : UWP.DeviceInformationKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceInformationKind_DevicePanel
-    }
+
 }
-extension UWP.DeviceInformationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DevicePairingKinds {
-    public static var none : UWP.DevicePairingKinds {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_None
-    }
-    public static var confirmOnly : UWP.DevicePairingKinds {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ConfirmOnly
-    }
-    public static var displayPin : UWP.DevicePairingKinds {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_DisplayPin
-    }
-    public static var providePin : UWP.DevicePairingKinds {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ProvidePin
-    }
-    public static var confirmPinMatch : UWP.DevicePairingKinds {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ConfirmPinMatch
-    }
-    public static var providePasswordCredential : UWP.DevicePairingKinds {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingKinds_ProvidePasswordCredential
-    }
-}
-extension UWP.DevicePairingKinds: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DevicePairingProtectionLevel {
-    public static var `default` : UWP.DevicePairingProtectionLevel {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_Default
-    }
-    public static var none : UWP.DevicePairingProtectionLevel {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_None
-    }
-    public static var encryption : UWP.DevicePairingProtectionLevel {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_Encryption
-    }
-    public static var encryptionAndAuthentication : UWP.DevicePairingProtectionLevel {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingProtectionLevel_EncryptionAndAuthentication
-    }
-}
-extension UWP.DevicePairingProtectionLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DevicePairingResultStatus {
-    public static var paired : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_Paired
-    }
-    public static var notReadyToPair : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_NotReadyToPair
-    }
-    public static var notPaired : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_NotPaired
-    }
-    public static var alreadyPaired : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AlreadyPaired
-    }
-    public static var connectionRejected : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_ConnectionRejected
-    }
-    public static var tooManyConnections : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_TooManyConnections
-    }
-    public static var hardwareFailure : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_HardwareFailure
-    }
-    public static var authenticationTimeout : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AuthenticationTimeout
-    }
-    public static var authenticationNotAllowed : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AuthenticationNotAllowed
-    }
-    public static var authenticationFailure : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AuthenticationFailure
-    }
-    public static var noSupportedProfiles : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_NoSupportedProfiles
-    }
-    public static var protectionLevelCouldNotBeMet : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_ProtectionLevelCouldNotBeMet
-    }
-    public static var accessDenied : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_AccessDenied
-    }
-    public static var invalidCeremonyData : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_InvalidCeremonyData
-    }
-    public static var pairingCanceled : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_PairingCanceled
-    }
-    public static var operationAlreadyInProgress : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_OperationAlreadyInProgress
-    }
-    public static var requiredHandlerNotRegistered : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_RequiredHandlerNotRegistered
-    }
-    public static var rejectedByHandler : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_RejectedByHandler
-    }
-    public static var remoteDeviceHasAssociation : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_RemoteDeviceHasAssociation
-    }
-    public static var failed : UWP.DevicePairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDevicePairingResultStatus_Failed
-    }
-}
-extension UWP.DevicePairingResultStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DeviceUnpairingResultStatus {
-    public static var unpaired : UWP.DeviceUnpairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_Unpaired
-    }
-    public static var alreadyUnpaired : UWP.DeviceUnpairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_AlreadyUnpaired
-    }
-    public static var operationAlreadyInProgress : UWP.DeviceUnpairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_OperationAlreadyInProgress
-    }
-    public static var accessDenied : UWP.DeviceUnpairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_AccessDenied
-    }
-    public static var failed : UWP.DeviceUnpairingResultStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceUnpairingResultStatus_Failed
-    }
-}
-extension UWP.DeviceUnpairingResultStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DeviceWatcherEventKind {
-    public static var add : UWP.DeviceWatcherEventKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherEventKind_Add
-    }
-    public static var update : UWP.DeviceWatcherEventKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherEventKind_Update
-    }
-    public static var remove : UWP.DeviceWatcherEventKind {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherEventKind_Remove
-    }
-}
-extension UWP.DeviceWatcherEventKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DeviceWatcherStatus {
-    public static var created : UWP.DeviceWatcherStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Created
-    }
-    public static var started : UWP.DeviceWatcherStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Started
-    }
-    public static var enumerationCompleted : UWP.DeviceWatcherStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_EnumerationCompleted
-    }
-    public static var stopping : UWP.DeviceWatcherStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Stopping
-    }
-    public static var stopped : UWP.DeviceWatcherStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Stopped
-    }
-    public static var aborted : UWP.DeviceWatcherStatus {
-        __x_ABI_CWindows_CDevices_CEnumeration_CDeviceWatcherStatus_Aborted
-    }
-}
-extension UWP.DeviceWatcherStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

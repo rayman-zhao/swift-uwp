@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - IAudioEffectDefinition
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition)
 public protocol IAudioEffectDefinition : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition.activatableclassid)
@@ -24,3 +26,126 @@ extension IAudioEffectDefinition {
 }
 public typealias AnyIAudioEffectDefinition = any IAudioEffectDefinition
 
+// MARK: - IAudioEffectDefinition Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Effects {
+    public enum IAudioEffectDefinitionBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition
+        public typealias SwiftABI = __ABI_Windows_Media_Effects.IAudioEffectDefinition
+        public typealias SwiftProjection = AnyIAudioEffectDefinition
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IAudioEffectDefinitionImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media_Effects.IAudioEffectDefinitionVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IAudioEffectDefinitionImpl: IAudioEffectDefinition, WinRTAbiImpl {
+        fileprivate typealias Bridge = IAudioEffectDefinitionBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition.activatableclassid)
+        fileprivate var activatableClassId : String {
+            get { try! _default.get_ActivatableClassId() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition.properties)
+        fileprivate var properties : WindowsFoundation.AnyIPropertySet! {
+            get { try! _default.get_Properties() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Effects {
+    private static let IID___x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition: WindowsFoundation.IID = .init(
+        Data1: 0xE4D7F974, Data2: 0x7D80, Data3: 0x4F73, Data4: ( 0x90,0x89,0xE3,0x1C,0x9D,0xB9,0xC2,0x94 ) // E4D7F974-7D80-4F73-9089-E31C9DB9C294
+    ) 
+
+    public class IAudioEffectDefinition: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition }
+
+        open func get_ActivatableClassId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActivatableClassId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func get_Properties() throws -> WindowsFoundation.AnyIPropertySet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Foundation_Collections.IPropertySetWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    internal static var IAudioEffectDefinitionVTable: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinitionVtbl = .init(
+        QueryInterface: { IAudioEffectDefinitionWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IAudioEffectDefinitionWrapper.addRef($0) },
+        Release: { IAudioEffectDefinitionWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Media_Effects.IAudioEffectDefinitionWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Media.Effects.IAudioEffectDefinition").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_ActivatableClassId: {
+            guard let __unwrapped__instance = IAudioEffectDefinitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.activatableClassId
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        get_Properties: {
+            guard let __unwrapped__instance = IAudioEffectDefinitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.properties
+            let valueWrapper = __ABI_Windows_Foundation_Collections.IPropertySetWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IAudioEffectDefinitionWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Effects.IAudioEffectDefinitionBridge>
+}
+@_spi(WinRTInternal)
+public class IAudioEffectDefinitionMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIAudioEffectDefinition
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Effects.IAudioEffectDefinition = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Effects.IAudioEffectDefinitionBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}

@@ -5,21 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __IMPL_Windows_Media_Capture {
-    public enum MediaCaptureVideoProfileMediaDescriptionBridge: AbiBridge {
-        public typealias SwiftProjection = MediaCaptureVideoProfileMediaDescription
-        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription
-        public static func from(abi: ComPtr<__x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription>?) -> MediaCaptureVideoProfileMediaDescription? {
-            guard let abi = abi else { return nil }
-            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-        }
-    }
-
-}
-@_spi(WinRTInternal)
-public class MediaCaptureVideoProfileMediaDescriptionMaker: MakeFromAbi {
-    public typealias SwiftType = MediaCaptureVideoProfileMediaDescription
-    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
-        return MediaCaptureVideoProfileMediaDescription(fromAbi: abi)
-    }
-}
+public enum __IMPL_Windows_Media_Capture {}

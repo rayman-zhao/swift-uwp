@@ -4,32 +4,389 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - ConnectionProfileDeleteStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofiledeletestatus)
 public typealias ConnectionProfileDeleteStatus = __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus
+
+extension UWP.ConnectionProfileDeleteStatus {
+    public static var success : UWP.ConnectionProfileDeleteStatus {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_Success
+    }
+    public static var deniedByUser : UWP.ConnectionProfileDeleteStatus {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_DeniedByUser
+    }
+    public static var deniedBySystem : UWP.ConnectionProfileDeleteStatus {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_DeniedBySystem
+    }
+    public static var unknownError : UWP.ConnectionProfileDeleteStatus {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_UnknownError
+    }
+}
+extension UWP.ConnectionProfileDeleteStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DataUsageGranularity
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.datausagegranularity)
 public typealias DataUsageGranularity = __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity
+
+extension UWP.DataUsageGranularity {
+    public static var perMinute : UWP.DataUsageGranularity {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_PerMinute
+    }
+    public static var perHour : UWP.DataUsageGranularity {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_PerHour
+    }
+    public static var perDay : UWP.DataUsageGranularity {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_PerDay
+    }
+    public static var total : UWP.DataUsageGranularity {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_Total
+    }
+}
+extension UWP.DataUsageGranularity: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DomainConnectivityLevel
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.domainconnectivitylevel)
 public typealias DomainConnectivityLevel = __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel
+
+extension UWP.DomainConnectivityLevel {
+    public static var none : UWP.DomainConnectivityLevel {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel_None
+    }
+    public static var unauthenticated : UWP.DomainConnectivityLevel {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel_Unauthenticated
+    }
+    public static var authenticated : UWP.DomainConnectivityLevel {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel_Authenticated
+    }
+}
+extension UWP.DomainConnectivityLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - NetworkAuthenticationType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkauthenticationtype)
 public typealias NetworkAuthenticationType = __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType
+
+extension UWP.NetworkAuthenticationType {
+    public static var none : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_None
+    }
+    public static var unknown : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Unknown
+    }
+    public static var open80211 : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Open80211
+    }
+    public static var sharedKey80211 : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_SharedKey80211
+    }
+    public static var wpa : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Wpa
+    }
+    public static var wpaPsk : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_WpaPsk
+    }
+    public static var wpaNone : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_WpaNone
+    }
+    public static var rsna : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Rsna
+    }
+    public static var rsnaPsk : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_RsnaPsk
+    }
+    public static var ihv : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Ihv
+    }
+    public static var wpa3 : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Wpa3
+    }
+    public static var wpa3Sae : UWP.NetworkAuthenticationType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Wpa3Sae
+    }
+}
+extension UWP.NetworkAuthenticationType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - NetworkConnectivityLevel
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkconnectivitylevel)
 public typealias NetworkConnectivityLevel = __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel
+
+extension UWP.NetworkConnectivityLevel {
+    public static var none : UWP.NetworkConnectivityLevel {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_None
+    }
+    public static var localAccess : UWP.NetworkConnectivityLevel {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_LocalAccess
+    }
+    public static var constrainedInternetAccess : UWP.NetworkConnectivityLevel {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_ConstrainedInternetAccess
+    }
+    public static var internetAccess : UWP.NetworkConnectivityLevel {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_InternetAccess
+    }
+}
+extension UWP.NetworkConnectivityLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - NetworkCostType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkcosttype)
 public typealias NetworkCostType = __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType
+
+extension UWP.NetworkCostType {
+    public static var unknown : UWP.NetworkCostType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Unknown
+    }
+    public static var unrestricted : UWP.NetworkCostType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Unrestricted
+    }
+    public static var fixed : UWP.NetworkCostType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Fixed
+    }
+    public static var variable : UWP.NetworkCostType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Variable
+    }
+}
+extension UWP.NetworkCostType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - NetworkEncryptionType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkencryptiontype)
 public typealias NetworkEncryptionType = __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType
+
+extension UWP.NetworkEncryptionType {
+    public static var none : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_None
+    }
+    public static var unknown : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Unknown
+    }
+    public static var wep : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Wep
+    }
+    public static var wep40 : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Wep40
+    }
+    public static var wep104 : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Wep104
+    }
+    public static var tkip : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Tkip
+    }
+    public static var ccmp : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Ccmp
+    }
+    public static var wpaUseGroup : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_WpaUseGroup
+    }
+    public static var rsnUseGroup : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_RsnUseGroup
+    }
+    public static var ihv : UWP.NetworkEncryptionType {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Ihv
+    }
+}
+extension UWP.NetworkEncryptionType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - NetworkTypes
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networktypes)
 public typealias NetworkTypes = __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes
+
+extension UWP.NetworkTypes {
+    public static var none : UWP.NetworkTypes {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes_None
+    }
+    public static var internet : UWP.NetworkTypes {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes_Internet
+    }
+    public static var privateNetwork : UWP.NetworkTypes {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes_PrivateNetwork
+    }
+}
+extension UWP.NetworkTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - RoamingStates
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.roamingstates)
 public typealias RoamingStates = __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates
+
+extension UWP.RoamingStates {
+    public static var none : UWP.RoamingStates {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates_None
+    }
+    public static var notRoaming : UWP.RoamingStates {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates_NotRoaming
+    }
+    public static var roaming : UWP.RoamingStates {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates_Roaming
+    }
+}
+extension UWP.RoamingStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TriStates
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.tristates)
 public typealias TriStates = __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates
+
+extension UWP.TriStates {
+    public static var doNotCare : UWP.TriStates {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates_DoNotCare
+    }
+    public static var no : UWP.TriStates {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates_No
+    }
+    public static var yes : UWP.TriStates {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates_Yes
+    }
+}
+extension UWP.TriStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - WwanDataClass
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwandataclass)
 public typealias WwanDataClass = __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass
+
+extension UWP.WwanDataClass {
+    public static var none : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_None
+    }
+    public static var gprs : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Gprs
+    }
+    public static var edge : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Edge
+    }
+    public static var umts : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Umts
+    }
+    public static var hsdpa : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Hsdpa
+    }
+    public static var hsupa : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Hsupa
+    }
+    public static var lteAdvanced : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_LteAdvanced
+    }
+    public static var cdma1xRtt : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xRtt
+    }
+    public static var cdma1xEvdo : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdo
+    }
+    public static var cdma1xEvdoRevA : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdoRevA
+    }
+    public static var cdma1xEvdv : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdv
+    }
+    public static var cdma3xRtt : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma3xRtt
+    }
+    public static var cdma1xEvdoRevB : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdoRevB
+    }
+    public static var cdmaUmb : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_CdmaUmb
+    }
+    public static var custom : UWP.WwanDataClass {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Custom
+    }
+}
+extension UWP.WwanDataClass: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - WwanNetworkIPKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwannetworkipkind)
 public typealias WwanNetworkIPKind = __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind
+
+extension UWP.WwanNetworkIPKind {
+    public static var none : UWP.WwanNetworkIPKind {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_None
+    }
+    public static var ipv4 : UWP.WwanNetworkIPKind {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv4
+    }
+    public static var ipv6 : UWP.WwanNetworkIPKind {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv6
+    }
+    public static var ipv4v6 : UWP.WwanNetworkIPKind {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv4v6
+    }
+    public static var ipv4v6v4Xlat : UWP.WwanNetworkIPKind {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv4v6v4Xlat
+    }
+}
+extension UWP.WwanNetworkIPKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - WwanNetworkRegistrationState
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwannetworkregistrationstate)
 public typealias WwanNetworkRegistrationState = __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState
+
+extension UWP.WwanNetworkRegistrationState {
+    public static var none : UWP.WwanNetworkRegistrationState {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_None
+    }
+    public static var deregistered : UWP.WwanNetworkRegistrationState {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Deregistered
+    }
+    public static var searching : UWP.WwanNetworkRegistrationState {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Searching
+    }
+    public static var home : UWP.WwanNetworkRegistrationState {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Home
+    }
+    public static var roaming : UWP.WwanNetworkRegistrationState {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Roaming
+    }
+    public static var partner : UWP.WwanNetworkRegistrationState {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Partner
+    }
+    public static var denied : UWP.WwanNetworkRegistrationState {
+        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Denied
+    }
+}
+extension UWP.WwanNetworkRegistrationState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - NetworkUsageStates
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates)
+public struct NetworkUsageStates: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates.roaming)
+    public var roaming: TriStates = .init(0)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates.shared)
+    public var shared: TriStates = .init(0)
+    public init() {}
+    public init(roaming: TriStates, shared: TriStates) {
+        self.roaming = roaming
+        self.shared = shared
+    }
+}
+
+// MARK: - NetworkUsageStates Internals
+
+@_spi(WinRTInternal)
+extension NetworkUsageStates: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates
+    public static func from(abi: ABI) -> Self {
+        .init(roaming: abi.Roaming, shared: abi.Shared)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates {
+    public static func from(swift: UWP.NetworkUsageStates) -> __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates {
+        .init(Roaming: swift.roaming, Shared: swift.shared)
+    }
+}
+// MARK: - AttributedNetworkUsage
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.attributednetworkusage)
 public final class AttributedNetworkUsage : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IAttributedNetworkUsage
@@ -77,6 +434,84 @@ public final class AttributedNetworkUsage : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AttributedNetworkUsage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum AttributedNetworkUsageBridge: AbiBridge {
+        public typealias SwiftProjection = AttributedNetworkUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage>?) -> AttributedNetworkUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AttributedNetworkUsageMaker: MakeFromAbi {
+    public typealias SwiftType = AttributedNetworkUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AttributedNetworkUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage: WindowsFoundation.IID = .init(
+        Data1: 0xF769B039, Data2: 0xECA2, Data3: 0x45EB, Data4: ( 0xAD,0xE1,0xB0,0x36,0x8B,0x75,0x6C,0x49 ) // F769B039-ECA2-45EB-ADE1-B0368B756C49
+    ) 
+
+    public class IAttributedNetworkUsage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage }
+
+        public func get_BytesSent() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_BytesReceived() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_AttributionId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AttributionName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AttributionThumbnail() throws -> UWP.AnyIRandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionThumbnail(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ConnectionCost
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectioncost)
 public final class ConnectionCost : WinRTClass {
@@ -127,6 +562,90 @@ public final class ConnectionCost : WinRTClass {
         _IConnectionCost2 = nil
     }
 }
+
+// MARK: - ConnectionCost Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum ConnectionCostBridge: AbiBridge {
+        public typealias SwiftProjection = ConnectionCost
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost>?) -> ConnectionCost? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ConnectionCostMaker: MakeFromAbi {
+    public typealias SwiftType = ConnectionCost
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ConnectionCost(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost: WindowsFoundation.IID = .init(
+        Data1: 0xBAD7D829, Data2: 0x3416, Data3: 0x4B10, Data4: ( 0xA2,0x02,0xBA,0xC0,0xB0,0x75,0xBD,0xAE ) // BAD7D829-3416-4B10-A202-BAC0B075BDAE
+    ) 
+
+    public class IConnectionCost: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost }
+
+        public func get_NetworkCostType() throws -> UWP.NetworkCostType {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkCostType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Roaming() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Roaming(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_OverDataLimit() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverDataLimit(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_ApproachingDataLimit() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApproachingDataLimit(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost2: WindowsFoundation.IID = .init(
+        Data1: 0x8E113A05, Data2: 0xE209, Data3: 0x4549, Data4: ( 0xBB,0x25,0x5E,0x0D,0xB6,0x91,0xCB,0x05 ) // 8E113A05-E209-4549-BB25-5E0DB691CB05
+    ) 
+
+    public class IConnectionCost2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost2 }
+
+        public func get_BackgroundDataUsageRestricted() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundDataUsageRestricted(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - ConnectionProfile
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile)
 public final class ConnectionProfile : WinRTClass {
@@ -269,6 +788,270 @@ public final class ConnectionProfile : WinRTClass {
     }
 }
 
+// MARK: - ConnectionProfile Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum ConnectionProfileBridge: AbiBridge {
+        public typealias SwiftProjection = ConnectionProfile
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile>?) -> ConnectionProfile? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ConnectionProfileMaker: MakeFromAbi {
+    public typealias SwiftType = ConnectionProfile
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ConnectionProfile(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile: WindowsFoundation.IID = .init(
+        Data1: 0x71BA143C, Data2: 0x598E, Data3: 0x49D0, Data4: ( 0x84,0xEB,0x8F,0xEB,0xAE,0xDC,0xC1,0x95 ) // 71BA143C-598E-49D0-84EB-8FEBAEDCC195
+    ) 
+
+    public class IConnectionProfile: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile }
+
+        public func get_ProfileName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProfileName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func GetNetworkConnectivityLevel() throws -> UWP.NetworkConnectivityLevel {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkConnectivityLevel(pThis, &value))
+            }
+            return value
+        }
+
+        public func GetNetworkNames() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkNames(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func GetConnectionCost() throws -> UWP.ConnectionCost? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectionCost(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.ConnectionCostBridge.from(abi: value)
+        }
+
+        public func GetDataPlanStatus() throws -> UWP.DataPlanStatus? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDataPlanStatus(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.DataPlanStatusBridge.from(abi: value)
+        }
+
+        public func get_NetworkAdapter() throws -> UWP.NetworkAdapter? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAdapter(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.NetworkAdapterBridge.from(abi: value)
+        }
+
+        public func GetLocalUsage(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime) throws -> UWP.DataUsage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalUsage(pThis, .from(swift: StartTime), .from(swift: EndTime), &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.DataUsageBridge.from(abi: value)
+        }
+
+        public func GetLocalUsagePerRoamingStates(_ StartTime: WindowsFoundation.DateTime, _ EndTime: WindowsFoundation.DateTime, _ States: UWP.RoamingStates) throws -> UWP.DataUsage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalUsagePerRoamingStates(pThis, .from(swift: StartTime), .from(swift: EndTime), States, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.DataUsageBridge.from(abi: value)
+        }
+
+        public func get_NetworkSecuritySettings() throws -> UWP.NetworkSecuritySettings? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkSecuritySettings(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.NetworkSecuritySettingsBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2: WindowsFoundation.IID = .init(
+        Data1: 0xE2045145, Data2: 0x4C9F, Data3: 0x400C, Data4: ( 0x91,0x50,0x7E,0xC7,0xD6,0xE2,0x88,0x8A ) // E2045145-4C9F-400C-9150-7EC7D6E2888A
+    ) 
+
+    public class IConnectionProfile2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 }
+
+        public func get_IsWwanConnectionProfile() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWwanConnectionProfile(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_IsWlanConnectionProfile() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWlanConnectionProfile(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_WwanConnectionProfileDetails() throws -> UWP.WwanConnectionProfileDetails? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_WwanConnectionProfileDetails(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.WwanConnectionProfileDetailsBridge.from(abi: value)
+        }
+
+        public func get_WlanConnectionProfileDetails() throws -> UWP.WlanConnectionProfileDetails? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_WlanConnectionProfileDetails(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.WlanConnectionProfileDetailsBridge.from(abi: value)
+        }
+
+        public func get_ServiceProviderGuid() throws -> Foundation.UUID? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ServiceProviderGuid(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_GUIDWrapper.unwrapFrom(abi: value)
+        }
+
+        public func GetSignalBars() throws -> UInt8? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetSignalBars(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_byteWrapper.unwrapFrom(abi: value)
+        }
+
+        public func GetDomainConnectivityLevel() throws -> UWP.DomainConnectivityLevel {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDomainConnectivityLevel(pThis, &value))
+            }
+            return value
+        }
+
+        public func GetNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ granularity: UWP.DataUsageGranularity, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.NetworkUsage?>?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkUsageAsync(pThis, .from(swift: startTime), .from(swift: endTime), granularity, .from(swift: states), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CNetworking__CConnectivity__CNetworkUsageWrapper.unwrapFrom(abi: value)
+        }
+
+        public func GetConnectivityIntervalsAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.ConnectivityInterval?>?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectivityIntervalsAsync(pThis, .from(swift: startTime), .from(swift: endTime), .from(swift: states), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CNetworking__CConnectivity__CConnectivityIntervalWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile3: WindowsFoundation.IID = .init(
+        Data1: 0x578C2528, Data2: 0x4CD9, Data3: 0x4161, Data4: ( 0x80,0x45,0x20,0x1C,0xFD,0x5B,0x11,0x5C ) // 578C2528-4CD9-4161-8045-201CFD5B115C
+    ) 
+
+    public class IConnectionProfile3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile3 }
+
+        public func GetAttributedNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AttributedNetworkUsage?>?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAttributedNetworkUsageAsync(pThis, .from(swift: startTime), .from(swift: endTime), .from(swift: states), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CNetworking__CConnectivity__CAttributedNetworkUsageWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile4: WindowsFoundation.IID = .init(
+        Data1: 0x7A2D42CD, Data2: 0x81E0, Data3: 0x4AE6, Data4: ( 0xAB,0xED,0xAB,0x9C,0xA1,0x3E,0xB7,0x14 ) // 7A2D42CD-81E0-4AE6-ABED-AB9CA13EB714
+    ) 
+
+    public class IConnectionProfile4: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile4 }
+
+        public func GetProviderNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.ProviderNetworkUsage?>?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile4.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetProviderNetworkUsageAsync(pThis, .from(swift: startTime), .from(swift: endTime), .from(swift: states), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CNetworking__CConnectivity__CProviderNetworkUsageWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5: WindowsFoundation.IID = .init(
+        Data1: 0x85361EC7, Data2: 0x9C73, Data3: 0x4BE0, Data4: ( 0x8F,0x14,0x57,0x8E,0xEC,0x71,0xEE,0x0E ) // 85361EC7-9C73-4BE0-8F14-578EEC71EE0E
+    ) 
+
+    public class IConnectionProfile5: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5 }
+
+        public func get_CanDelete() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CanDelete(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func TryDeleteAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ConnectionProfileDeleteStatus>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.TryDeleteAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CNetworking__CConnectivity__CConnectionProfileDeleteStatusWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+}
+// MARK: - ConnectivityInterval
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectivityinterval)
 public final class ConnectivityInterval : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IConnectivityInterval
@@ -301,6 +1084,57 @@ public final class ConnectivityInterval : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ConnectivityInterval Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum ConnectivityIntervalBridge: AbiBridge {
+        public typealias SwiftProjection = ConnectivityInterval
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval>?) -> ConnectivityInterval? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ConnectivityIntervalMaker: MakeFromAbi {
+    public typealias SwiftType = ConnectivityInterval
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ConnectivityInterval(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval: WindowsFoundation.IID = .init(
+        Data1: 0x4FAA3FFF, Data2: 0x6746, Data3: 0x4824, Data4: ( 0xA9,0x64,0xEE,0xD8,0xE8,0x7F,0x87,0x09 ) // 4FAA3FFF-6746-4824-A964-EED8E87F8709
+    ) 
+
+    public class IConnectivityInterval: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval }
+
+        public func get_StartTime() throws -> WindowsFoundation.DateTime {
+            var startTime: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartTime(pThis, &startTime))
+            }
+            return .from(abi: startTime)
+        }
+
+        public func get_ConnectionDuration() throws -> WindowsFoundation.TimeSpan {
+            var duration: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConnectionDuration(pThis, &duration))
+            }
+            return .from(abi: duration)
+        }
+
+    }
+
+}
+// MARK: - DataPlanStatus
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus)
 public final class DataPlanStatus : WinRTClass {
@@ -355,6 +1189,95 @@ public final class DataPlanStatus : WinRTClass {
     }
 }
 
+// MARK: - DataPlanStatus Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum DataPlanStatusBridge: AbiBridge {
+        public typealias SwiftProjection = DataPlanStatus
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus>?) -> DataPlanStatus? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataPlanStatusMaker: MakeFromAbi {
+    public typealias SwiftType = DataPlanStatus
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPlanStatus(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus: WindowsFoundation.IID = .init(
+        Data1: 0x977A8B8C, Data2: 0x3885, Data3: 0x40F3, Data4: ( 0x88,0x51,0x42,0xCD,0x2B,0xD5,0x68,0xBB ) // 977A8B8C-3885-40F3-8851-42CD2BD568BB
+    ) 
+
+    public class IDataPlanStatus: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus }
+
+        public func get_DataPlanUsage() throws -> UWP.DataPlanUsage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataPlanUsage(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.DataPlanUsageBridge.from(abi: value)
+        }
+
+        public func get_DataLimitInMegabytes() throws -> UInt32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataLimitInMegabytes(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_InboundBitsPerSecond() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_InboundBitsPerSecond(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_OutboundBitsPerSecond() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutboundBitsPerSecond(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_NextBillingCycle() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NextBillingCycle(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_MaxTransferSizeInMegabytes() throws -> UInt32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxTransferSizeInMegabytes(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - DataPlanUsage
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanusage)
 public final class DataPlanUsage : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IDataPlanUsage
@@ -387,6 +1310,57 @@ public final class DataPlanUsage : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DataPlanUsage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum DataPlanUsageBridge: AbiBridge {
+        public typealias SwiftProjection = DataPlanUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage>?) -> DataPlanUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataPlanUsageMaker: MakeFromAbi {
+    public typealias SwiftType = DataPlanUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPlanUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage: WindowsFoundation.IID = .init(
+        Data1: 0xB921492D, Data2: 0x3B44, Data3: 0x47FF, Data4: ( 0xB3,0x61,0xBE,0x59,0xE6,0x9E,0xD1,0xB0 ) // B921492D-3B44-47FF-B361-BE59E69ED1B0
+    ) 
+
+    public class IDataPlanUsage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage }
+
+        public func get_MegabytesUsed() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MegabytesUsed(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastSyncTime() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastSyncTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - DataUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.datausage)
 public final class DataUsage : WinRTClass {
@@ -421,6 +1395,57 @@ public final class DataUsage : WinRTClass {
     }
 }
 
+// MARK: - DataUsage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum DataUsageBridge: AbiBridge {
+        public typealias SwiftProjection = DataUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage>?) -> DataUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataUsageMaker: MakeFromAbi {
+    public typealias SwiftType = DataUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage: WindowsFoundation.IID = .init(
+        Data1: 0xC1431DD3, Data2: 0xB146, Data3: 0x4D39, Data4: ( 0xB9,0x59,0x0C,0x69,0xB0,0x96,0xC5,0x12 ) // C1431DD3-B146-4D39-B959-0C69B096C512
+    ) 
+
+    public class IDataUsage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage }
+
+        public func get_BytesSent() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_BytesReceived() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - IPInformation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.ipinformation)
 public final class IPInformation : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IIPInformation
@@ -453,6 +1478,59 @@ public final class IPInformation : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - IPInformation Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum IPInformationBridge: AbiBridge {
+        public typealias SwiftProjection = IPInformation
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation>?) -> IPInformation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IPInformationMaker: MakeFromAbi {
+    public typealias SwiftType = IPInformation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return IPInformation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation: WindowsFoundation.IID = .init(
+        Data1: 0xD85145E0, Data2: 0x138F, Data3: 0x47D7, Data4: ( 0x9B,0x3A,0x36,0xBB,0x48,0x8C,0xEF,0x33 ) // D85145E0-138F-47D7-9B3A-36BB488CEF33
+    ) 
+
+    public class IIPInformation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation }
+
+        public func get_NetworkAdapter() throws -> UWP.NetworkAdapter? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAdapter(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.NetworkAdapterBridge.from(abi: value)
+        }
+
+        public func get_PrefixLength() throws -> UInt8? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrefixLength(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_byteWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - NetworkAdapter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter)
 public final class NetworkAdapter : WinRTClass {
@@ -507,6 +1585,91 @@ public final class NetworkAdapter : WinRTClass {
     }
 }
 
+// MARK: - NetworkAdapter Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum NetworkAdapterBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkAdapter
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter>?) -> NetworkAdapter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class NetworkAdapterMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkAdapter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkAdapter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter: WindowsFoundation.IID = .init(
+        Data1: 0x3B542E03, Data2: 0x5388, Data3: 0x496C, Data4: ( 0xA8,0xA3,0xAF,0xFD,0x39,0xAE,0xC2,0xE6 ) // 3B542E03-5388-496C-A8A3-AFFD39AEC2E6
+    ) 
+
+    public class INetworkAdapter: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter }
+
+        public func get_OutboundMaxBitsPerSecond() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutboundMaxBitsPerSecond(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_InboundMaxBitsPerSecond() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InboundMaxBitsPerSecond(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_IanaInterfaceType() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IanaInterfaceType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NetworkItem() throws -> UWP.NetworkItem? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkItem(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Networking_Connectivity.NetworkItemBridge.from(abi: value)
+        }
+
+        public func get_NetworkAdapterId() throws -> Foundation.UUID {
+            var value: WindowsFoundation.GUID = .init()
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAdapterId(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func GetConnectedProfileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ConnectionProfile?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectedProfileAsync(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CNetworking__CConnectivity__CConnectionProfileWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - NetworkItem
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkitem)
 public final class NetworkItem : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.INetworkItem
@@ -540,6 +1703,57 @@ public final class NetworkItem : WinRTClass {
     }
 }
 
+// MARK: - NetworkItem Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum NetworkItemBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkItem
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem>?) -> NetworkItem? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class NetworkItemMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem: WindowsFoundation.IID = .init(
+        Data1: 0x01BC4D39, Data2: 0xF5E0, Data3: 0x4567, Data4: ( 0xA2,0x8C,0x42,0x08,0x0C,0x83,0x1B,0x2B ) // 01BC4D39-F5E0-4567-A28C-42080C831B2B
+    ) 
+
+    public class INetworkItem: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem }
+
+        public func get_NetworkId() throws -> Foundation.UUID {
+            var value: WindowsFoundation.GUID = .init()
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkId(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func GetNetworkTypes() throws -> UWP.NetworkTypes {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkTypes(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - NetworkSecuritySettings
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networksecuritysettings)
 public final class NetworkSecuritySettings : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.INetworkSecuritySettings
@@ -572,6 +1786,57 @@ public final class NetworkSecuritySettings : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - NetworkSecuritySettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum NetworkSecuritySettingsBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkSecuritySettings
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings>?) -> NetworkSecuritySettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class NetworkSecuritySettingsMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkSecuritySettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkSecuritySettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings: WindowsFoundation.IID = .init(
+        Data1: 0x7CA07E8D, Data2: 0x917B, Data3: 0x4B5F, Data4: ( 0xB8,0x4D,0x28,0xF7,0xA5,0xAC,0x54,0x02 ) // 7CA07E8D-917B-4B5F-B84D-28F7A5AC5402
+    ) 
+
+    public class INetworkSecuritySettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings }
+
+        public func get_NetworkAuthenticationType() throws -> UWP.NetworkAuthenticationType {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkAuthenticationType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NetworkEncryptionType() throws -> UWP.NetworkEncryptionType {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NetworkEncryptionType(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - NetworkUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusage)
 public final class NetworkUsage : WinRTClass {
@@ -611,6 +1876,65 @@ public final class NetworkUsage : WinRTClass {
     }
 }
 
+// MARK: - NetworkUsage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum NetworkUsageBridge: AbiBridge {
+        public typealias SwiftProjection = NetworkUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage>?) -> NetworkUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class NetworkUsageMaker: MakeFromAbi {
+    public typealias SwiftType = NetworkUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NetworkUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage: WindowsFoundation.IID = .init(
+        Data1: 0x49DA8FCE, Data2: 0x9985, Data3: 0x4927, Data4: ( 0xBF,0x5B,0x07,0x2B,0x5C,0x65,0xF8,0xD9 ) // 49DA8FCE-9985-4927-BF5B-072B5C65F8D9
+    ) 
+
+    public class INetworkUsage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage }
+
+        public func get_BytesSent() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_BytesReceived() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ConnectionDuration() throws -> WindowsFoundation.TimeSpan {
+            var duration: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConnectionDuration(pThis, &duration))
+            }
+            return .from(abi: duration)
+        }
+
+    }
+
+}
+// MARK: - ProviderNetworkUsage
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.providernetworkusage)
 public final class ProviderNetworkUsage : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IProviderNetworkUsage
@@ -649,6 +1973,66 @@ public final class ProviderNetworkUsage : WinRTClass {
     }
 }
 
+// MARK: - ProviderNetworkUsage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum ProviderNetworkUsageBridge: AbiBridge {
+        public typealias SwiftProjection = ProviderNetworkUsage
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage>?) -> ProviderNetworkUsage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ProviderNetworkUsageMaker: MakeFromAbi {
+    public typealias SwiftType = ProviderNetworkUsage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ProviderNetworkUsage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage: WindowsFoundation.IID = .init(
+        Data1: 0x5EC69E04, Data2: 0x7931, Data3: 0x48C8, Data4: ( 0xB8,0xF3,0x46,0x30,0x0F,0xA4,0x27,0x28 ) // 5EC69E04-7931-48C8-B8F3-46300FA42728
+    ) 
+
+    public class IProviderNetworkUsage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage }
+
+        public func get_BytesSent() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesSent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_BytesReceived() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BytesReceived(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ProviderId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProviderId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - WlanConnectionProfileDetails
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wlanconnectionprofiledetails)
 public final class WlanConnectionProfileDetails : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IWlanConnectionProfileDetails
@@ -676,6 +2060,50 @@ public final class WlanConnectionProfileDetails : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - WlanConnectionProfileDetails Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum WlanConnectionProfileDetailsBridge: AbiBridge {
+        public typealias SwiftProjection = WlanConnectionProfileDetails
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails>?) -> WlanConnectionProfileDetails? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class WlanConnectionProfileDetailsMaker: MakeFromAbi {
+    public typealias SwiftType = WlanConnectionProfileDetails
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WlanConnectionProfileDetails(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails: WindowsFoundation.IID = .init(
+        Data1: 0x562098CB, Data2: 0xB35A, Data3: 0x4BF1, Data4: ( 0xA8,0x84,0xB7,0x55,0x7E,0x88,0xFF,0x86 ) // 562098CB-B35A-4BF1-A884-B7557E88FF86
+    ) 
+
+    public class IWlanConnectionProfileDetails: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails }
+
+        public func GetConnectedSsid() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectedSsid(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - WwanConnectionProfileDetails
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails)
 public final class WwanConnectionProfileDetails : WinRTClass {
@@ -732,299 +2160,96 @@ public final class WwanConnectionProfileDetails : WinRTClass {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates)
-public struct NetworkUsageStates: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates.roaming)
-    public var roaming: TriStates = .init(0)
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusagestates.shared)
-    public var shared: TriStates = .init(0)
-    public init() {}
-    public init(roaming: TriStates, shared: TriStates) {
-        self.roaming = roaming
-        self.shared = shared
+// MARK: - WwanConnectionProfileDetails Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Networking_Connectivity {
+    public enum WwanConnectionProfileDetailsBridge: AbiBridge {
+        public typealias SwiftProjection = WwanConnectionProfileDetails
+        public typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails>?) -> WwanConnectionProfileDetails? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class WwanConnectionProfileDetailsMaker: MakeFromAbi {
+    public typealias SwiftType = WwanConnectionProfileDetails
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WwanConnectionProfileDetails(fromAbi: abi)
     }
 }
+@_spi(WinRTInternal)
+extension __ABI_Windows_Networking_Connectivity {
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails: WindowsFoundation.IID = .init(
+        Data1: 0x0E4DA8FE, Data2: 0x835F, Data3: 0x4DF3, Data4: ( 0x82,0xFD,0xDF,0x55,0x6E,0xBC,0x09,0xEF ) // 0E4DA8FE-835F-4DF3-82FD-DF556EBC09EF
+    ) 
 
-extension UWP.ConnectionProfileDeleteStatus {
-    public static var success : UWP.ConnectionProfileDeleteStatus {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_Success
+    public class IWwanConnectionProfileDetails: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails }
+
+        public func get_HomeProviderId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HomeProviderId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AccessPointName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessPointName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func GetNetworkRegistrationState() throws -> UWP.WwanNetworkRegistrationState {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetNetworkRegistrationState(pThis, &value))
+            }
+            return value
+        }
+
+        public func GetCurrentDataClass() throws -> UWP.WwanDataClass {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentDataClass(pThis, &value))
+            }
+            return value
+        }
+
     }
-    public static var deniedByUser : UWP.ConnectionProfileDeleteStatus {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_DeniedByUser
+
+    private static let IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2: WindowsFoundation.IID = .init(
+        Data1: 0x7A754EDE, Data2: 0xA1ED, Data3: 0x48B2, Data4: ( 0x8E,0x92,0xB4,0x60,0x03,0x3D,0x52,0xE2 ) // 7A754EDE-A1ED-48B2-8E92-B460033D52E2
+    ) 
+
+    public class IWwanConnectionProfileDetails2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2 }
+
+        public func get_IPKind() throws -> UWP.WwanNetworkIPKind {
+            var value: __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IPKind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_PurposeGuids() throws -> WindowsFoundation.AnyIVectorView<Foundation.UUID>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PurposeGuids(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_GUIDWrapper.unwrapFrom(abi: value)
+        }
+
     }
-    public static var deniedBySystem : UWP.ConnectionProfileDeleteStatus {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_DeniedBySystem
-    }
-    public static var unknownError : UWP.ConnectionProfileDeleteStatus {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CConnectionProfileDeleteStatus_UnknownError
-    }
+
 }
-extension UWP.ConnectionProfileDeleteStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DataUsageGranularity {
-    public static var perMinute : UWP.DataUsageGranularity {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_PerMinute
-    }
-    public static var perHour : UWP.DataUsageGranularity {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_PerHour
-    }
-    public static var perDay : UWP.DataUsageGranularity {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_PerDay
-    }
-    public static var total : UWP.DataUsageGranularity {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CDataUsageGranularity_Total
-    }
-}
-extension UWP.DataUsageGranularity: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DomainConnectivityLevel {
-    public static var none : UWP.DomainConnectivityLevel {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel_None
-    }
-    public static var unauthenticated : UWP.DomainConnectivityLevel {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel_Unauthenticated
-    }
-    public static var authenticated : UWP.DomainConnectivityLevel {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CDomainConnectivityLevel_Authenticated
-    }
-}
-extension UWP.DomainConnectivityLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.NetworkAuthenticationType {
-    public static var none : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_None
-    }
-    public static var unknown : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Unknown
-    }
-    public static var open80211 : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Open80211
-    }
-    public static var sharedKey80211 : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_SharedKey80211
-    }
-    public static var wpa : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Wpa
-    }
-    public static var wpaPsk : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_WpaPsk
-    }
-    public static var wpaNone : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_WpaNone
-    }
-    public static var rsna : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Rsna
-    }
-    public static var rsnaPsk : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_RsnaPsk
-    }
-    public static var ihv : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Ihv
-    }
-    public static var wpa3 : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Wpa3
-    }
-    public static var wpa3Sae : UWP.NetworkAuthenticationType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType_Wpa3Sae
-    }
-}
-extension UWP.NetworkAuthenticationType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.NetworkConnectivityLevel {
-    public static var none : UWP.NetworkConnectivityLevel {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_None
-    }
-    public static var localAccess : UWP.NetworkConnectivityLevel {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_LocalAccess
-    }
-    public static var constrainedInternetAccess : UWP.NetworkConnectivityLevel {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_ConstrainedInternetAccess
-    }
-    public static var internetAccess : UWP.NetworkConnectivityLevel {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkConnectivityLevel_InternetAccess
-    }
-}
-extension UWP.NetworkConnectivityLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.NetworkCostType {
-    public static var unknown : UWP.NetworkCostType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Unknown
-    }
-    public static var unrestricted : UWP.NetworkCostType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Unrestricted
-    }
-    public static var fixed : UWP.NetworkCostType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Fixed
-    }
-    public static var variable : UWP.NetworkCostType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkCostType_Variable
-    }
-}
-extension UWP.NetworkCostType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.NetworkEncryptionType {
-    public static var none : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_None
-    }
-    public static var unknown : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Unknown
-    }
-    public static var wep : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Wep
-    }
-    public static var wep40 : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Wep40
-    }
-    public static var wep104 : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Wep104
-    }
-    public static var tkip : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Tkip
-    }
-    public static var ccmp : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Ccmp
-    }
-    public static var wpaUseGroup : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_WpaUseGroup
-    }
-    public static var rsnUseGroup : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_RsnUseGroup
-    }
-    public static var ihv : UWP.NetworkEncryptionType {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType_Ihv
-    }
-}
-extension UWP.NetworkEncryptionType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.NetworkTypes {
-    public static var none : UWP.NetworkTypes {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes_None
-    }
-    public static var internet : UWP.NetworkTypes {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes_Internet
-    }
-    public static var privateNetwork : UWP.NetworkTypes {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkTypes_PrivateNetwork
-    }
-}
-extension UWP.NetworkTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.RoamingStates {
-    public static var none : UWP.RoamingStates {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates_None
-    }
-    public static var notRoaming : UWP.RoamingStates {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates_NotRoaming
-    }
-    public static var roaming : UWP.RoamingStates {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CRoamingStates_Roaming
-    }
-}
-extension UWP.RoamingStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.TriStates {
-    public static var doNotCare : UWP.TriStates {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates_DoNotCare
-    }
-    public static var no : UWP.TriStates {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates_No
-    }
-    public static var yes : UWP.TriStates {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CTriStates_Yes
-    }
-}
-extension UWP.TriStates: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.WwanDataClass {
-    public static var none : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_None
-    }
-    public static var gprs : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Gprs
-    }
-    public static var edge : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Edge
-    }
-    public static var umts : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Umts
-    }
-    public static var hsdpa : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Hsdpa
-    }
-    public static var hsupa : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Hsupa
-    }
-    public static var lteAdvanced : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_LteAdvanced
-    }
-    public static var cdma1xRtt : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xRtt
-    }
-    public static var cdma1xEvdo : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdo
-    }
-    public static var cdma1xEvdoRevA : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdoRevA
-    }
-    public static var cdma1xEvdv : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdv
-    }
-    public static var cdma3xRtt : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma3xRtt
-    }
-    public static var cdma1xEvdoRevB : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Cdma1xEvdoRevB
-    }
-    public static var cdmaUmb : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_CdmaUmb
-    }
-    public static var custom : UWP.WwanDataClass {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanDataClass_Custom
-    }
-}
-extension UWP.WwanDataClass: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.WwanNetworkIPKind {
-    public static var none : UWP.WwanNetworkIPKind {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_None
-    }
-    public static var ipv4 : UWP.WwanNetworkIPKind {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv4
-    }
-    public static var ipv6 : UWP.WwanNetworkIPKind {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv6
-    }
-    public static var ipv4v6 : UWP.WwanNetworkIPKind {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv4v6
-    }
-    public static var ipv4v6v4Xlat : UWP.WwanNetworkIPKind {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkIPKind_Ipv4v6v4Xlat
-    }
-}
-extension UWP.WwanNetworkIPKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.WwanNetworkRegistrationState {
-    public static var none : UWP.WwanNetworkRegistrationState {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_None
-    }
-    public static var deregistered : UWP.WwanNetworkRegistrationState {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Deregistered
-    }
-    public static var searching : UWP.WwanNetworkRegistrationState {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Searching
-    }
-    public static var home : UWP.WwanNetworkRegistrationState {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Home
-    }
-    public static var roaming : UWP.WwanNetworkRegistrationState {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Roaming
-    }
-    public static var partner : UWP.WwanNetworkRegistrationState {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Partner
-    }
-    public static var denied : UWP.WwanNetworkRegistrationState {
-        __x_ABI_CWindows_CNetworking_CConnectivity_CWwanNetworkRegistrationState_Denied
-    }
-}
-extension UWP.WwanNetworkRegistrationState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

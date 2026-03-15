@@ -4,8 +4,11 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - DirectXPixelFormat
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.directx.directxpixelformat)
 public typealias DirectXPixelFormat = __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat
+
 extension UWP.DirectXPixelFormat {
     public static var unknown : UWP.DirectXPixelFormat {
         __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat_Unknown

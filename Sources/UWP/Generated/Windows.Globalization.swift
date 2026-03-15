@@ -4,10 +4,59 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - DayOfWeek
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.dayofweek)
 public typealias DayOfWeek = __x_ABI_CWindows_CGlobalization_CDayOfWeek
+
+extension UWP.DayOfWeek {
+    public static var sunday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Sunday
+    }
+    public static var monday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Monday
+    }
+    public static var tuesday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Tuesday
+    }
+    public static var wednesday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Wednesday
+    }
+    public static var thursday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Thursday
+    }
+    public static var friday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Friday
+    }
+    public static var saturday : UWP.DayOfWeek {
+        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Saturday
+    }
+}
+extension UWP.DayOfWeek: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - LanguageLayoutDirection
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.languagelayoutdirection)
 public typealias LanguageLayoutDirection = __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection
+
+extension UWP.LanguageLayoutDirection {
+    public static var ltr : UWP.LanguageLayoutDirection {
+        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_Ltr
+    }
+    public static var rtl : UWP.LanguageLayoutDirection {
+        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_Rtl
+    }
+    public static var ttbLtr : UWP.LanguageLayoutDirection {
+        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_TtbLtr
+    }
+    public static var ttbRtl : UWP.LanguageLayoutDirection {
+        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_TtbRtl
+    }
+}
+extension UWP.LanguageLayoutDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - ApplicationLanguages
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.applicationlanguages)
 public final class ApplicationLanguages {
     private static let _IApplicationLanguagesStatics: __ABI_Windows_Globalization.IApplicationLanguagesStatics = try! RoGetActivationFactory("Windows.Globalization.ApplicationLanguages")
@@ -34,6 +83,74 @@ public final class ApplicationLanguages {
     }
 
 }
+
+// MARK: - ApplicationLanguages Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics: WindowsFoundation.IID = .init(
+        Data1: 0x75B40847, Data2: 0x0A4C, Data3: 0x4A92, Data4: ( 0x95,0x65,0xFD,0x63,0xC9,0x5F,0x7A,0xED ) // 75B40847-0A4C-4A92-9565-FD63C95F7AED
+    ) 
+
+    public class IApplicationLanguagesStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics }
+
+        public func get_PrimaryLanguageOverride() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrimaryLanguageOverride(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_PrimaryLanguageOverride(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PrimaryLanguageOverride(pThis, _value.get()))
+            }
+        }
+
+        public func get_Languages() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Languages(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ManifestLanguages() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ManifestLanguages(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x1DF0DE4F, Data2: 0x072B, Data3: 0x4D7B, Data4: ( 0x8F,0x06,0xCB,0x2D,0xB4,0x0F,0x2B,0xB5 ) // 1DF0DE4F-072B-4D7B-8F06-CB2DB40F2BB5
+    ) 
+
+    public class IApplicationLanguagesStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2 }
+
+        public func GetLanguagesForUser(_ user: UWP.User?) throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIApplicationLanguagesStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLanguagesForUser(pThis, RawPointer(user), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - Calendar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendar)
 public final class Calendar : WinRTClass {
@@ -549,6 +666,906 @@ public final class Calendar : WinRTClass {
     }
 }
 
+// MARK: - Calendar Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Globalization {
+    public enum CalendarBridge: AbiBridge {
+        public typealias SwiftProjection = Calendar
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CICalendar
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CGlobalization_CICalendar>?) -> Calendar? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CalendarMaker: MakeFromAbi {
+    public typealias SwiftType = Calendar
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Calendar(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CICalendar: WindowsFoundation.IID = .init(
+        Data1: 0xCA30221D, Data2: 0x86D9, Data3: 0x40FB, Data4: ( 0xA2,0x6B,0xD4,0x4E,0xB7,0xCF,0x08,0xEA ) // CA30221D-86D9-40FB-A26B-D44EB7CF08EA
+    ) 
+
+    public class ICalendar: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICalendar }
+
+        public func Clone() throws -> UWP.Calendar? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Clone(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Globalization.CalendarBridge.from(abi: value)
+        }
+
+        public func SetToMin() throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetToMin(pThis))
+            }
+        }
+
+        public func SetToMax() throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetToMax(pThis))
+            }
+        }
+
+        public func get_Languages() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Languages(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_NumeralSystem() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumeralSystem(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_NumeralSystem(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NumeralSystem(pThis, _value.get()))
+            }
+        }
+
+        public func GetCalendarSystem() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCalendarSystem(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func ChangeCalendarSystem(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ChangeCalendarSystem(pThis, _value.get()))
+            }
+        }
+
+        public func GetClock() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetClock(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func ChangeClock(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ChangeClock(pThis, _value.get()))
+            }
+        }
+
+        public func GetDateTime() throws -> WindowsFoundation.DateTime {
+            var result: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDateTime(pThis, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func SetDateTime(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDateTime(pThis, .from(swift: value)))
+            }
+        }
+
+        public func SetToNow() throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetToNow(pThis))
+            }
+        }
+
+        public func get_FirstEra() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstEra(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastEra() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastEra(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfEras() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfEras(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Era() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Era(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Era(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Era(pThis, value))
+            }
+        }
+
+        public func AddEras(_ eras: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddEras(pThis, eras))
+            }
+        }
+
+        public func EraAsFullString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.EraAsFullString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func EraAsString(_ idealLength: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.EraAsString(pThis, idealLength, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_FirstYearInThisEra() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstYearInThisEra(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastYearInThisEra() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastYearInThisEra(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfYearsInThisEra() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfYearsInThisEra(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Year() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Year(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Year(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Year(pThis, value))
+            }
+        }
+
+        public func AddYears(_ years: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddYears(pThis, years))
+            }
+        }
+
+        public func YearAsString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.YearAsString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func YearAsTruncatedString(_ remainingDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.YearAsTruncatedString(pThis, remainingDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func YearAsPaddedString(_ minDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.YearAsPaddedString(pThis, minDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_FirstMonthInThisYear() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstMonthInThisYear(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastMonthInThisYear() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastMonthInThisYear(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfMonthsInThisYear() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfMonthsInThisYear(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Month() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Month(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Month(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Month(pThis, value))
+            }
+        }
+
+        public func AddMonths(_ months: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddMonths(pThis, months))
+            }
+        }
+
+        public func MonthAsFullString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MonthAsFullString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func MonthAsString(_ idealLength: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MonthAsString(pThis, idealLength, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func MonthAsFullSoloString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MonthAsFullSoloString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func MonthAsSoloString(_ idealLength: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MonthAsSoloString(pThis, idealLength, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func MonthAsNumericString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MonthAsNumericString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func MonthAsPaddedNumericString(_ minDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MonthAsPaddedNumericString(pThis, minDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func AddWeeks(_ weeks: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddWeeks(pThis, weeks))
+            }
+        }
+
+        public func get_FirstDayInThisMonth() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstDayInThisMonth(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastDayInThisMonth() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastDayInThisMonth(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfDaysInThisMonth() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfDaysInThisMonth(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Day() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Day(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Day(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Day(pThis, value))
+            }
+        }
+
+        public func AddDays(_ days: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddDays(pThis, days))
+            }
+        }
+
+        public func DayAsString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DayAsString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func DayAsPaddedString(_ minDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DayAsPaddedString(pThis, minDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_DayOfWeek() throws -> UWP.DayOfWeek {
+            var value: __x_ABI_CWindows_CGlobalization_CDayOfWeek = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayOfWeek(pThis, &value))
+            }
+            return value
+        }
+
+        public func DayOfWeekAsFullString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DayOfWeekAsFullString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func DayOfWeekAsString(_ idealLength: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DayOfWeekAsString(pThis, idealLength, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func DayOfWeekAsFullSoloString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DayOfWeekAsFullSoloString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func DayOfWeekAsSoloString(_ idealLength: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DayOfWeekAsSoloString(pThis, idealLength, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_FirstPeriodInThisDay() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstPeriodInThisDay(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastPeriodInThisDay() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastPeriodInThisDay(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfPeriodsInThisDay() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfPeriodsInThisDay(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Period() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Period(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Period(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Period(pThis, value))
+            }
+        }
+
+        public func AddPeriods(_ periods: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddPeriods(pThis, periods))
+            }
+        }
+
+        public func PeriodAsFullString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.PeriodAsFullString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func PeriodAsString(_ idealLength: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.PeriodAsString(pThis, idealLength, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_FirstHourInThisPeriod() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstHourInThisPeriod(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastHourInThisPeriod() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastHourInThisPeriod(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfHoursInThisPeriod() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfHoursInThisPeriod(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Hour() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Hour(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Hour(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Hour(pThis, value))
+            }
+        }
+
+        public func AddHours(_ hours: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddHours(pThis, hours))
+            }
+        }
+
+        public func HourAsString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.HourAsString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func HourAsPaddedString(_ minDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.HourAsPaddedString(pThis, minDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_Minute() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Minute(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Minute(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Minute(pThis, value))
+            }
+        }
+
+        public func AddMinutes(_ minutes: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddMinutes(pThis, minutes))
+            }
+        }
+
+        public func MinuteAsString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MinuteAsString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func MinuteAsPaddedString(_ minDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.MinuteAsPaddedString(pThis, minDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_Second() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Second(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Second(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Second(pThis, value))
+            }
+        }
+
+        public func AddSeconds(_ seconds: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddSeconds(pThis, seconds))
+            }
+        }
+
+        public func SecondAsString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SecondAsString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SecondAsPaddedString(_ minDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SecondAsPaddedString(pThis, minDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func get_Nanosecond() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Nanosecond(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Nanosecond(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Nanosecond(pThis, value))
+            }
+        }
+
+        public func AddNanoseconds(_ nanoseconds: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddNanoseconds(pThis, nanoseconds))
+            }
+        }
+
+        public func NanosecondAsString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.NanosecondAsString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func NanosecondAsPaddedString(_ minDigits: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.NanosecondAsPaddedString(pThis, minDigits, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func Compare(_ other: UWP.Calendar?) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Compare(pThis, RawPointer(other), &result))
+            }
+            return result
+        }
+
+        public func CompareDateTime(_ other: WindowsFoundation.DateTime) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CompareDateTime(pThis, .from(swift: other), &result))
+            }
+            return result
+        }
+
+        public func CopyTo(_ other: UWP.Calendar?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CopyTo(pThis, RawPointer(other)))
+            }
+        }
+
+        public func get_FirstMinuteInThisHour() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstMinuteInThisHour(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastMinuteInThisHour() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastMinuteInThisHour(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfMinutesInThisHour() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfMinutesInThisHour(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_FirstSecondInThisMinute() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstSecondInThisMinute(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastSecondInThisMinute() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastSecondInThisMinute(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfSecondsInThisMinute() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfSecondsInThisMinute(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ResolvedLanguage() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResolvedLanguage(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_IsDaylightSavingTime() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDaylightSavingTime(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar: WindowsFoundation.IID = .init(
+        Data1: 0xBB3C25E5, Data2: 0x46CF, Data3: 0x4317, Data4: ( 0xA3,0xF5,0x02,0x62,0x1A,0xD5,0x44,0x78 ) // BB3C25E5-46CF-4317-A3F5-02621AD54478
+    ) 
+
+    public class ITimeZoneOnCalendar: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar }
+
+        public func GetTimeZone() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetTimeZone(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func ChangeTimeZone(_ timeZoneId: String) throws {
+            let _timeZoneId = try! HString(timeZoneId)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ChangeTimeZone(pThis, _timeZoneId.get()))
+            }
+        }
+
+        public func TimeZoneAsFullString() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TimeZoneAsFullString(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func TimeZoneAsString(_ idealLength: Int32) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CITimeZoneOnCalendar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TimeZoneAsString(pThis, idealLength, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CICalendarFactory: WindowsFoundation.IID = .init(
+        Data1: 0x83F58412, Data2: 0xE56B, Data3: 0x4C75, Data4: ( 0xA6,0x6E,0x0F,0x63,0xD5,0x77,0x58,0xA6 ) // 83F58412-E56B-4C75-A66E-0F63D57758A6
+    ) 
+
+    public class ICalendarFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICalendarFactory }
+
+        public func CreateCalendarDefaultCalendarAndClock(_ languages: WindowsFoundation.AnyIIterable<String>?) throws -> ICalendar {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let languagesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(languages)
+                let _languages = try! languagesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCalendarDefaultCalendarAndClock(pThis, _languages, &resultAbi))
+                }
+            }
+            return ICalendar(result!)
+        }
+
+        public func CreateCalendar(_ languages: WindowsFoundation.AnyIIterable<String>?, _ calendar: String, _ clock: String) throws -> ICalendar {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let languagesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(languages)
+                let _languages = try! languagesWrapper?.toABI { $0 }
+                let _calendar = try! HString(calendar)
+                let _clock = try! HString(clock)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCalendar(pThis, _languages, _calendar.get(), _clock.get(), &resultAbi))
+                }
+            }
+            return ICalendar(result!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CICalendarFactory2: WindowsFoundation.IID = .init(
+        Data1: 0xB44B378C, Data2: 0xCA7E, Data3: 0x4590, Data4: ( 0x9E,0x72,0xEA,0x2B,0xEC,0x1A,0x51,0x15 ) // B44B378C-CA7E-4590-9E72-EA2BEC1A5115
+    ) 
+
+    public class ICalendarFactory2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICalendarFactory2 }
+
+        public func CreateCalendarWithTimeZone(_ languages: WindowsFoundation.AnyIIterable<String>?, _ calendar: String, _ clock: String, _ timeZoneId: String) throws -> ICalendar {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let languagesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(languages)
+                let _languages = try! languagesWrapper?.toABI { $0 }
+                let _calendar = try! HString(calendar)
+                let _clock = try! HString(clock)
+                let _timeZoneId = try! HString(timeZoneId)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarFactory2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCalendarWithTimeZone(pThis, _languages, _calendar.get(), _clock.get(), _timeZoneId.get(), &resultAbi))
+                }
+            }
+            return ICalendar(result!)
+        }
+
+    }
+
+}
+// MARK: - CalendarIdentifiers
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.calendaridentifiers)
 public final class CalendarIdentifiers {
     private static let _ICalendarIdentifiersStatics: __ABI_Windows_Globalization.ICalendarIdentifiersStatics = try! RoGetActivationFactory("Windows.Globalization.CalendarIdentifiers")
@@ -631,6 +1648,175 @@ public final class CalendarIdentifiers {
 
 }
 
+// MARK: - CalendarIdentifiers Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics: WindowsFoundation.IID = .init(
+        Data1: 0x80653F68, Data2: 0x2CB2, Data3: 0x4C1F, Data4: ( 0xB5,0x90,0xF0,0xF5,0x2B,0xF4,0xFD,0x1A ) // 80653F68-2CB2-4C1F-B590-F0F52BF4FD1A
+    ) 
+
+    public class ICalendarIdentifiersStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics }
+
+        public func get_Gregorian() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Gregorian(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Hebrew() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Hebrew(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Hijri() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Hijri(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Japanese() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Japanese(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Julian() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Julian(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Korean() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Korean(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Taiwan() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Taiwan(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Thai() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thai(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_UmAlQura() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UmAlQura(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x7DF4D488, Data2: 0x5FD0, Data3: 0x42A7, Data4: ( 0x95,0xB5,0x7D,0x98,0xD8,0x23,0x07,0x5F ) // 7DF4D488-5FD0-42A7-95B5-7D98D823075F
+    ) 
+
+    public class ICalendarIdentifiersStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics2 }
+
+        public func get_Persian() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Persian(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics3: WindowsFoundation.IID = .init(
+        Data1: 0x2C225423, Data2: 0x1FAD, Data3: 0x40C0, Data4: ( 0x93,0x34,0xA8,0xEB,0x90,0xDB,0x04,0xF5 ) // 2C225423-1FAD-40C0-9334-A8EB90DB04F5
+    ) 
+
+    public class ICalendarIdentifiersStatics3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics3 }
+
+        public func get_ChineseLunar() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ChineseLunar(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_JapaneseLunar() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_JapaneseLunar(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KoreanLunar() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KoreanLunar(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TaiwanLunar() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TaiwanLunar(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_VietnameseLunar() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICalendarIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VietnameseLunar(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - ClockIdentifiers
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.clockidentifiers)
 public final class ClockIdentifiers {
     private static let _IClockIdentifiersStatics: __ABI_Windows_Globalization.IClockIdentifiersStatics = try! RoGetActivationFactory("Windows.Globalization.ClockIdentifiers")
@@ -645,6 +1831,40 @@ public final class ClockIdentifiers {
     }
 
 }
+
+// MARK: - ClockIdentifiers Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CIClockIdentifiersStatics: WindowsFoundation.IID = .init(
+        Data1: 0x523805BB, Data2: 0x12EC, Data3: 0x4F83, Data4: ( 0xBC,0x31,0xB1,0xB4,0x37,0x6B,0x08,0x08 ) // 523805BB-12EC-4F83-BC31-B1B4376B0808
+    ) 
+
+    public class IClockIdentifiersStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIClockIdentifiersStatics }
+
+        public func get_TwelveHour() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIClockIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TwelveHour(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TwentyFourHour() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIClockIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TwentyFourHour(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - CurrencyAmount
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyamount)
 public final class CurrencyAmount : WinRTClass {
@@ -683,6 +1903,79 @@ public final class CurrencyAmount : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - CurrencyAmount Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Globalization {
+    public enum CurrencyAmountBridge: AbiBridge {
+        public typealias SwiftProjection = CurrencyAmount
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CICurrencyAmount
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CGlobalization_CICurrencyAmount>?) -> CurrencyAmount? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CurrencyAmountMaker: MakeFromAbi {
+    public typealias SwiftType = CurrencyAmount
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CurrencyAmount(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CICurrencyAmount: WindowsFoundation.IID = .init(
+        Data1: 0x74B49942, Data2: 0xEB75, Data3: 0x443A, Data4: ( 0x95,0xB3,0x7D,0x72,0x3F,0x56,0xF9,0x3C ) // 74B49942-EB75-443A-95B3-7D723F56F93C
+    ) 
+
+    public class ICurrencyAmount: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICurrencyAmount }
+
+        public func get_Amount() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyAmount.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Amount(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Currency() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyAmount.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Currency(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CICurrencyAmountFactory: WindowsFoundation.IID = .init(
+        Data1: 0x48D7168F, Data2: 0xEF3B, Data3: 0x4AEE, Data4: ( 0xA6,0xA1,0x4B,0x03,0x6F,0xE0,0x3F,0xF0 ) // 48D7168F-EF3B-4AEE-A6A1-4B036FE03FF0
+    ) 
+
+    public class ICurrencyAmountFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICurrencyAmountFactory }
+
+        public func Create(_ amount: String, _ currency: String) throws -> ICurrencyAmount {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _amount = try! HString(amount)
+                let _currency = try! HString(currency)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyAmountFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, _amount.get(), _currency.get(), &resultAbi))
+                }
+            }
+            return ICurrencyAmount(result!)
+        }
+
+    }
+
+}
+// MARK: - CurrencyIdentifiers
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.currencyidentifiers)
 public final class CurrencyIdentifiers {
@@ -1501,6 +2794,1498 @@ public final class CurrencyIdentifiers {
 
 }
 
+// MARK: - CurrencyIdentifiers Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics: WindowsFoundation.IID = .init(
+        Data1: 0x9F1D091B, Data2: 0xD586, Data3: 0x4913, Data4: ( 0x9B,0x6A,0xA9,0xBD,0x2D,0xC1,0x28,0x74 ) // 9F1D091B-D586-4913-9B6A-A9BD2DC12874
+    ) 
+
+    public class ICurrencyIdentifiersStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics }
+
+        public func get_AED() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AED(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AFN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AFN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ALL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ALL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AMD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AMD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ANG() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ANG(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AOA() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AOA(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ARS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ARS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AUD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AUD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AWG() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AWG(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AZN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AZN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BAM() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BAM(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BBD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BBD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BDT() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BDT(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BGN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BGN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BHD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BHD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BIF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BIF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BMD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BMD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BND() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BND(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BOB() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BOB(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BRL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BRL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BSD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BSD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BTN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BTN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BWP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BWP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BYR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BYR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_BZD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BZD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CAD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CAD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CDF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CDF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CHF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CHF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CLP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CLP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CNY() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CNY(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_COP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_COP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CRC() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CRC(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CUP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CUP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CVE() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CVE(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CZK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CZK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DJF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DJF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DKK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DKK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DOP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DOP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DZD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DZD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_EGP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EGP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ERN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ERN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ETB() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ETB(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_EUR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EUR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FJD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FJD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FKP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FKP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GBP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GBP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GEL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GEL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GHS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GHS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GIP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GIP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GMD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GMD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GNF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GNF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GTQ() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GTQ(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_GYD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GYD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_HKD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HKD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_HNL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HNL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_HRK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HRK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_HTG() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HTG(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_HUF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HUF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_IDR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IDR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ILS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ILS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_INR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_INR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_IQD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IQD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_IRR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IRR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ISK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ISK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_JMD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_JMD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_JOD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_JOD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_JPY() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_JPY(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KES() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KES(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KGS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KGS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KHR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KHR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KMF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KMF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KPW() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KPW(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KRW() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KRW(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KWD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KWD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KYD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KYD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_KZT() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KZT(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LAK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LAK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LBP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LBP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LKR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LKR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LRD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LRD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LSL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LSL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LTL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LTL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LVL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LVL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LYD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LYD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MAD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MAD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MDL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MDL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MGA() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MGA(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MKD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MKD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MMK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MMK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MNT() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MNT(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MOP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MOP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MRO() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MRO(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MUR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MUR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MVR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MVR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MWK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MWK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MXN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MXN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MYR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MYR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MZN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MZN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NAD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NAD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NGN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NGN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NIO() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NIO(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NOK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NOK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NPR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NPR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NZD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NZD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_OMR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OMR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PAB() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PAB(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PEN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PEN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PGK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PGK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PHP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PHP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PKR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PKR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PLN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PLN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PYG() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PYG(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_QAR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_QAR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_RON() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RON(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_RSD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RSD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_RUB() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RUB(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_RWF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RWF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SAR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SAR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SBD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SBD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SCR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SCR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SDG() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SDG(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SEK() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SEK(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SGD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SGD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SHP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SHP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SLL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SLL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SOS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SOS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SRD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SRD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_STD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_STD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SYP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SYP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SZL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SZL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_THB() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_THB(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TJS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TJS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TMT() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TMT(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TND() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TND(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TOP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TOP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TRY() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TRY(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TTD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TTD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TWD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TWD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TZS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TZS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_UAH() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UAH(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_UGX() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UGX(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_USD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_USD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_UYU() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UYU(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_UZS() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UZS(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_VEF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VEF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_VND() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VND(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_VUV() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VUV(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_WST() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_WST(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_XAF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XAF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_XCD() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XCD(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_XOF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XOF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_XPF() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XPF(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_XXX() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XXX(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_YER() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_YER(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZAR() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZAR(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZMW() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZMW(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZWL() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZWL(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x1814797F, Data2: 0xC3B2, Data3: 0x4C33, Data4: ( 0x95,0x91,0x98,0x00,0x11,0x95,0x0D,0x37 ) // 1814797F-C3B2-4C33-9591-980011950D37
+    ) 
+
+    public class ICurrencyIdentifiersStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics2 }
+
+        public func get_BYN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BYN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics3: WindowsFoundation.IID = .init(
+        Data1: 0x4FB23BFA, Data2: 0xED25, Data3: 0x4F4D, Data4: ( 0x85,0x7F,0x23,0x7F,0x17,0x48,0xC2,0x1C ) // 4FB23BFA-ED25-4F4D-857F-237F1748C21C
+    ) 
+
+    public class ICurrencyIdentifiersStatics3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics3 }
+
+        public func get_MRU() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MRU(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SSP() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SSP(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_STN() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_STN(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_VES() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CICurrencyIdentifiersStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VES(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - GeographicRegion
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.geographicregion)
 public final class GeographicRegion : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Globalization.IGeographicRegion
@@ -1575,6 +4360,141 @@ public final class GeographicRegion : WinRTClass {
     }
 }
 
+// MARK: - GeographicRegion Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Globalization {
+    public enum GeographicRegionBridge: AbiBridge {
+        public typealias SwiftProjection = GeographicRegion
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CIGeographicRegion
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CGlobalization_CIGeographicRegion>?) -> GeographicRegion? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class GeographicRegionMaker: MakeFromAbi {
+    public typealias SwiftType = GeographicRegion
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return GeographicRegion(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CIGeographicRegion: WindowsFoundation.IID = .init(
+        Data1: 0x01E9A621, Data2: 0x4A64, Data3: 0x4ED9, Data4: ( 0x95,0x4F,0x9E,0xDE,0xB0,0x7B,0xD9,0x03 ) // 01E9A621-4A64-4ED9-954F-9EDEB07BD903
+    ) 
+
+    public class IGeographicRegion: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIGeographicRegion }
+
+        public func get_Code() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegion.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Code(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CodeTwoLetter() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegion.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CodeTwoLetter(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CodeThreeLetter() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegion.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CodeThreeLetter(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CodeThreeDigit() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegion.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CodeThreeDigit(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DisplayName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegion.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NativeName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegion.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NativeName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_CurrenciesInUse() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegion.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrenciesInUse(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CIGeographicRegionFactory: WindowsFoundation.IID = .init(
+        Data1: 0x53425270, Data2: 0x77B4, Data3: 0x426B, Data4: ( 0x85,0x9F,0x81,0xE1,0x9D,0x51,0x25,0x46 ) // 53425270-77B4-426B-859F-81E19D512546
+    ) 
+
+    public class IGeographicRegionFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIGeographicRegionFactory }
+
+        public func CreateGeographicRegion(_ geographicRegionCode: String) throws -> IGeographicRegion {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _geographicRegionCode = try! HString(geographicRegionCode)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegionFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateGeographicRegion(pThis, _geographicRegionCode.get(), &resultAbi))
+                }
+            }
+            return IGeographicRegion(result!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CIGeographicRegionStatics: WindowsFoundation.IID = .init(
+        Data1: 0x29E28974, Data2: 0x7AD9, Data3: 0x4EF4, Data4: ( 0x87,0x99,0xB3,0xB4,0x4F,0xAD,0xEC,0x08 ) // 29E28974-7AD9-4EF4-8799-B3B44FADEC08
+    ) 
+
+    public class IGeographicRegionStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIGeographicRegionStatics }
+
+        public func IsSupported(_ geographicRegionCode: String) throws -> Bool {
+            var result: boolean = 0
+            let _geographicRegionCode = try! HString(geographicRegionCode)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIGeographicRegionStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupported(pThis, _geographicRegionCode.get(), &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+}
+// MARK: - JapanesePhoneme
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneme)
 public final class JapanesePhoneme : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Globalization.IJapanesePhoneme
@@ -1613,6 +4533,67 @@ public final class JapanesePhoneme : WinRTClass {
     }
 }
 
+// MARK: - JapanesePhoneme Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Globalization {
+    public enum JapanesePhonemeBridge: AbiBridge {
+        public typealias SwiftProjection = JapanesePhoneme
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CIJapanesePhoneme
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CGlobalization_CIJapanesePhoneme>?) -> JapanesePhoneme? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class JapanesePhonemeMaker: MakeFromAbi {
+    public typealias SwiftType = JapanesePhoneme
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return JapanesePhoneme(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CIJapanesePhoneme: WindowsFoundation.IID = .init(
+        Data1: 0x2F6A9300, Data2: 0xE85B, Data3: 0x43E6, Data4: ( 0x89,0x7D,0x5D,0x82,0xF8,0x62,0xDF,0x21 ) // 2F6A9300-E85B-43E6-897D-5D82F862DF21
+    ) 
+
+    public class IJapanesePhoneme: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIJapanesePhoneme }
+
+        public func get_DisplayText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_YomiText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_YomiText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_IsPhraseStart() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIJapanesePhoneme.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPhraseStart(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - JapanesePhoneticAnalyzer
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.japanesephoneticanalyzer)
 public final class JapanesePhoneticAnalyzer {
     private static let _IJapanesePhoneticAnalyzerStatics: __ABI_Windows_Globalization.IJapanesePhoneticAnalyzerStatics = try! RoGetActivationFactory("Windows.Globalization.JapanesePhoneticAnalyzer")
@@ -1627,6 +4608,42 @@ public final class JapanesePhoneticAnalyzer {
     }
 
 }
+
+// MARK: - JapanesePhoneticAnalyzer Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CIJapanesePhoneticAnalyzerStatics: WindowsFoundation.IID = .init(
+        Data1: 0x88AB9E90, Data2: 0x93DE, Data3: 0x41B2, Data4: ( 0xB4,0xD5,0x8E,0xDB,0x22,0x7F,0xD1,0xC2 ) // 88AB9E90-93DE-41B2-B4D5-8EDB227FD1C2
+    ) 
+
+    public class IJapanesePhoneticAnalyzerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CIJapanesePhoneticAnalyzerStatics }
+
+        public func GetWords(_ input: String) throws -> WindowsFoundation.AnyIVectorView<UWP.JapanesePhoneme?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _input = try! HString(input)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIJapanesePhoneticAnalyzerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetWords(pThis, _input.get(), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetWordsWithMonoRubyOption(_ input: String, _ monoRuby: Bool) throws -> WindowsFoundation.AnyIVectorView<UWP.JapanesePhoneme?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _input = try! HString(input)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CIJapanesePhoneticAnalyzerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetWordsWithMonoRubyOption(pThis, _input.get(), .init(from: monoRuby), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CGlobalization__CJapanesePhonemeWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+}
+// MARK: - Language
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.language)
 public final class Language : WinRTClass {
@@ -1706,6 +4723,177 @@ public final class Language : WinRTClass {
         _ILanguage2 = nil
     }
 }
+
+// MARK: - Language Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Globalization {
+    public enum LanguageBridge: AbiBridge {
+        public typealias SwiftProjection = Language
+        public typealias CABI = __x_ABI_CWindows_CGlobalization_CILanguage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CGlobalization_CILanguage>?) -> Language? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class LanguageMaker: MakeFromAbi {
+    public typealias SwiftType = Language
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Language(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CILanguage: WindowsFoundation.IID = .init(
+        Data1: 0xEA79A752, Data2: 0xF7C2, Data3: 0x4265, Data4: ( 0xB1,0xBD,0xC4,0xDE,0xC4,0xE4,0xF0,0x80 ) // EA79A752-F7C2-4265-B1BD-C4DEC4E4F080
+    ) 
+
+    public class ILanguage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CILanguage }
+
+        public func get_LanguageTag() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LanguageTag(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DisplayName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_NativeName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NativeName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Script() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Script(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CILanguageExtensionSubtags: WindowsFoundation.IID = .init(
+        Data1: 0x7D7DAF45, Data2: 0x368D, Data3: 0x4364, Data4: ( 0x85,0x2B,0xDE,0xC9,0x27,0x03,0x7B,0x85 ) // 7D7DAF45-368D-4364-852B-DEC927037B85
+    ) 
+
+    public class ILanguageExtensionSubtags: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CILanguageExtensionSubtags }
+
+        public func GetExtensionSubtags(_ singleton: String) throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _singleton = try! HString(singleton)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguageExtensionSubtags.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetExtensionSubtags(pThis, _singleton.get(), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CILanguage2: WindowsFoundation.IID = .init(
+        Data1: 0x6A47E5B5, Data2: 0xD94D, Data3: 0x4886, Data4: ( 0xA4,0x04,0xA5,0xA5,0xB9,0xD5,0xB4,0x94 ) // 6A47E5B5-D94D-4886-A404-A5A5B9D5B494
+    ) 
+
+    public class ILanguage2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CILanguage2 }
+
+        public func get_LayoutDirection() throws -> UWP.LanguageLayoutDirection {
+            var value: __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LayoutDirection(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CILanguageFactory: WindowsFoundation.IID = .init(
+        Data1: 0x9B0252AC, Data2: 0x0C27, Data3: 0x44F8, Data4: ( 0xB7,0x92,0x97,0x93,0xFB,0x66,0xC6,0x3E ) // 9B0252AC-0C27-44F8-B792-9793FB66C63E
+    ) 
+
+    public class ILanguageFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CILanguageFactory }
+
+        public func CreateLanguage(_ languageTag: String) throws -> ILanguage {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _languageTag = try! HString(languageTag)
+                _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguageFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateLanguage(pThis, _languageTag.get(), &resultAbi))
+                }
+            }
+            return ILanguage(result!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CILanguageStatics: WindowsFoundation.IID = .init(
+        Data1: 0xB23CD557, Data2: 0x0865, Data3: 0x46D4, Data4: ( 0x89,0xB8,0xD5,0x9B,0xE8,0x99,0x0F,0x0D ) // B23CD557-0865-46D4-89B8-D59BE8990F0D
+    ) 
+
+    public class ILanguageStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CILanguageStatics }
+
+        public func IsWellFormed(_ languageTag: String) throws -> Bool {
+            var result: boolean = 0
+            let _languageTag = try! HString(languageTag)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguageStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsWellFormed(pThis, _languageTag.get(), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func get_CurrentInputMethodLanguageTag() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguageStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentInputMethodLanguageTag(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CILanguageStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x30199F6E, Data2: 0x914B, Data3: 0x4B2A, Data4: ( 0x9D,0x6E,0xE3,0xB0,0xE2,0x7D,0xBE,0x4F ) // 30199F6E-914B-4B2A-9D6E-E3B0E27DBE4F
+    ) 
+
+    public class ILanguageStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CILanguageStatics2 }
+
+        public func TrySetInputMethodLanguageTag(_ languageTag: String) throws -> Bool {
+            var result: boolean = 0
+            let _languageTag = try! HString(languageTag)
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CILanguageStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TrySetInputMethodLanguageTag(pThis, _languageTag.get(), &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+}
+// MARK: - NumeralSystemIdentifiers
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numeralsystemidentifiers)
 public final class NumeralSystemIdentifiers {
@@ -1953,44 +5141,458 @@ public final class NumeralSystemIdentifiers {
 
 }
 
-extension UWP.DayOfWeek {
-    public static var sunday : UWP.DayOfWeek {
-        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Sunday
-    }
-    public static var monday : UWP.DayOfWeek {
-        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Monday
-    }
-    public static var tuesday : UWP.DayOfWeek {
-        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Tuesday
-    }
-    public static var wednesday : UWP.DayOfWeek {
-        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Wednesday
-    }
-    public static var thursday : UWP.DayOfWeek {
-        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Thursday
-    }
-    public static var friday : UWP.DayOfWeek {
-        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Friday
-    }
-    public static var saturday : UWP.DayOfWeek {
-        __x_ABI_CWindows_CGlobalization_CDayOfWeek_Saturday
-    }
-}
-extension UWP.DayOfWeek: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+// MARK: - NumeralSystemIdentifiers Internals
 
-extension UWP.LanguageLayoutDirection {
-    public static var ltr : UWP.LanguageLayoutDirection {
-        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_Ltr
-    }
-    public static var rtl : UWP.LanguageLayoutDirection {
-        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_Rtl
-    }
-    public static var ttbLtr : UWP.LanguageLayoutDirection {
-        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_TtbLtr
-    }
-    public static var ttbRtl : UWP.LanguageLayoutDirection {
-        __x_ABI_CWindows_CGlobalization_CLanguageLayoutDirection_TtbRtl
-    }
-}
-extension UWP.LanguageLayoutDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Globalization {
+    private static let IID___x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics: WindowsFoundation.IID = .init(
+        Data1: 0xA5C662C3, Data2: 0x68C9, Data3: 0x4D3D, Data4: ( 0xB7,0x65,0x97,0x20,0x29,0xE2,0x1D,0xEC ) // A5C662C3-68C9-4D3D-B765-972029E21DEC
+    ) 
 
+    public class INumeralSystemIdentifiersStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics }
+
+        public func get_Arab() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Arab(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ArabExt() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ArabExt(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Bali() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bali(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Beng() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Beng(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Cham() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cham(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Deva() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Deva(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FullWide() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FullWide(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Gujr() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Gujr(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Guru() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Guru(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_HaniDec() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HaniDec(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Java() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Java(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Kali() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kali(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Khmr() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Khmr(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Knda() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Knda(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Lana() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Lana(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_LanaTham() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LanaTham(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Laoo() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Laoo(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Latn() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Latn(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Lepc() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Lepc(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Limb() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Limb(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Mlym() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mlym(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Mong() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mong(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Mtei() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mtei(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Mymr() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Mymr(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MymrShan() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MymrShan(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Nkoo() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Nkoo(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Olck() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Olck(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Orya() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orya(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Saur() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Saur(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Sund() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Sund(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Talu() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Talu(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_TamlDec() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TamlDec(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Telu() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Telu(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Thai() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thai(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Tibt() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tibt(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Vaii() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Vaii(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x7F003228, Data2: 0x9DDB, Data3: 0x4A34, Data4: ( 0x91,0x04,0x02,0x60,0xC0,0x91,0xA7,0xC7 ) // 7F003228-9DDB-4A34-9104-0260C091A7C7
+    ) 
+
+    public class INumeralSystemIdentifiersStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2 }
+
+        public func get_Brah() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Brah(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Osma() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Osma(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MathBold() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MathBold(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MathDbl() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MathDbl(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MathSans() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MathSans(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MathSanb() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MathSanb(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MathMono() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MathMono(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZmthBold() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZmthBold(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZmthDbl() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZmthDbl(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZmthSans() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZmthSans(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZmthSanb() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZmthSanb(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ZmthMono() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CGlobalization_CINumeralSystemIdentifiersStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ZmthMono(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}

@@ -5,21 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __IMPL_Windows_Networking {
-    public enum HostNameBridge: AbiBridge {
-        public typealias SwiftProjection = HostName
-        public typealias CABI = __x_ABI_CWindows_CNetworking_CIHostName
-        public static func from(abi: ComPtr<__x_ABI_CWindows_CNetworking_CIHostName>?) -> HostName? {
-            guard let abi = abi else { return nil }
-            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-        }
-    }
-
-}
-@_spi(WinRTInternal)
-public class HostNameMaker: MakeFromAbi {
-    public typealias SwiftType = HostName
-    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
-        return HostName(fromAbi: abi)
-    }
-}
+public enum __IMPL_Windows_Networking {}

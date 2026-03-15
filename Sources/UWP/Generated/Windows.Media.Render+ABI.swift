@@ -5,5 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __ABI_Windows_Media_Render {
-}
+public enum __ABI_Windows_Media_Render {}

@@ -4,30 +4,1239 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AudioDeviceNodeCreationStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodevicenodecreationstatus)
 public typealias AudioDeviceNodeCreationStatus = __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus
+
+extension UWP.AudioDeviceNodeCreationStatus {
+    public static var success : UWP.AudioDeviceNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_Success
+    }
+    public static var deviceNotAvailable : UWP.AudioDeviceNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_DeviceNotAvailable
+    }
+    public static var formatNotSupported : UWP.AudioDeviceNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_FormatNotSupported
+    }
+    public static var unknownFailure : UWP.AudioDeviceNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_UnknownFailure
+    }
+    public static var accessDenied : UWP.AudioDeviceNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_AccessDenied
+    }
+}
+extension UWP.AudioDeviceNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AudioFileNodeCreationStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofilenodecreationstatus)
 public typealias AudioFileNodeCreationStatus = __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus
+
+extension UWP.AudioFileNodeCreationStatus {
+    public static var success : UWP.AudioFileNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_Success
+    }
+    public static var fileNotFound : UWP.AudioFileNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_FileNotFound
+    }
+    public static var invalidFileType : UWP.AudioFileNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_InvalidFileType
+    }
+    public static var formatNotSupported : UWP.AudioFileNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_FormatNotSupported
+    }
+    public static var unknownFailure : UWP.AudioFileNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_UnknownFailure
+    }
+}
+extension UWP.AudioFileNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AudioGraphCreationStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographcreationstatus)
 public typealias AudioGraphCreationStatus = __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus
+
+extension UWP.AudioGraphCreationStatus {
+    public static var success : UWP.AudioGraphCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_Success
+    }
+    public static var deviceNotAvailable : UWP.AudioGraphCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_DeviceNotAvailable
+    }
+    public static var formatNotSupported : UWP.AudioGraphCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_FormatNotSupported
+    }
+    public static var unknownFailure : UWP.AudioGraphCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_UnknownFailure
+    }
+}
+extension UWP.AudioGraphCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AudioGraphUnrecoverableError
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographunrecoverableerror)
 public typealias AudioGraphUnrecoverableError = __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError
+
+extension UWP.AudioGraphUnrecoverableError {
+    public static var none : UWP.AudioGraphUnrecoverableError {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_None
+    }
+    public static var audioDeviceLost : UWP.AudioGraphUnrecoverableError {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_AudioDeviceLost
+    }
+    public static var audioSessionDisconnected : UWP.AudioGraphUnrecoverableError {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_AudioSessionDisconnected
+    }
+    public static var unknownFailure : UWP.AudioGraphUnrecoverableError {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_UnknownFailure
+    }
+}
+extension UWP.AudioGraphUnrecoverableError: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AudioNodeEmitterDecayKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaykind)
 public typealias AudioNodeEmitterDecayKind = __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterDecayKind
+
+extension UWP.AudioNodeEmitterDecayKind {
+    public static var natural : UWP.AudioNodeEmitterDecayKind {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterDecayKind_Natural
+    }
+    public static var custom : UWP.AudioNodeEmitterDecayKind {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterDecayKind_Custom
+    }
+}
+extension UWP.AudioNodeEmitterDecayKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AudioNodeEmitterSettings
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittersettings)
 public typealias AudioNodeEmitterSettings = __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterSettings
+
+extension UWP.AudioNodeEmitterSettings {
+    public static var none : UWP.AudioNodeEmitterSettings {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterSettings_None
+    }
+    public static var disableDoppler : UWP.AudioNodeEmitterSettings {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterSettings_DisableDoppler
+    }
+}
+extension UWP.AudioNodeEmitterSettings: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AudioNodeEmitterShapeKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittershapekind)
 public typealias AudioNodeEmitterShapeKind = __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterShapeKind
+
+extension UWP.AudioNodeEmitterShapeKind {
+    public static var omnidirectional : UWP.AudioNodeEmitterShapeKind {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterShapeKind_Omnidirectional
+    }
+    public static var cone : UWP.AudioNodeEmitterShapeKind {
+        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterShapeKind_Cone
+    }
+}
+extension UWP.AudioNodeEmitterShapeKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaSourceAudioInputNodeCreationStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnodecreationstatus)
 public typealias MediaSourceAudioInputNodeCreationStatus = __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus
+
+extension UWP.MediaSourceAudioInputNodeCreationStatus {
+    public static var success : UWP.MediaSourceAudioInputNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_Success
+    }
+    public static var formatNotSupported : UWP.MediaSourceAudioInputNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_FormatNotSupported
+    }
+    public static var networkError : UWP.MediaSourceAudioInputNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_NetworkError
+    }
+    public static var unknownFailure : UWP.MediaSourceAudioInputNodeCreationStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_UnknownFailure
+    }
+}
+extension UWP.MediaSourceAudioInputNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MixedRealitySpatialAudioFormatPolicy
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mixedrealityspatialaudioformatpolicy)
 public typealias MixedRealitySpatialAudioFormatPolicy = __x_ABI_CWindows_CMedia_CAudio_CMixedRealitySpatialAudioFormatPolicy
+
+extension UWP.MixedRealitySpatialAudioFormatPolicy {
+    public static var useMixedRealityDefaultSpatialAudioFormat : UWP.MixedRealitySpatialAudioFormatPolicy {
+        __x_ABI_CWindows_CMedia_CAudio_CMixedRealitySpatialAudioFormatPolicy_UseMixedRealityDefaultSpatialAudioFormat
+    }
+    public static var useDeviceConfigurationDefaultSpatialAudioFormat : UWP.MixedRealitySpatialAudioFormatPolicy {
+        __x_ABI_CWindows_CMedia_CAudio_CMixedRealitySpatialAudioFormatPolicy_UseDeviceConfigurationDefaultSpatialAudioFormat
+    }
+}
+extension UWP.MixedRealitySpatialAudioFormatPolicy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - QuantumSizeSelectionMode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.quantumsizeselectionmode)
 public typealias QuantumSizeSelectionMode = __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode
+
+extension UWP.QuantumSizeSelectionMode {
+    public static var systemDefault : UWP.QuantumSizeSelectionMode {
+        __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode_SystemDefault
+    }
+    public static var lowestLatency : UWP.QuantumSizeSelectionMode {
+        __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode_LowestLatency
+    }
+    public static var closestToDesired : UWP.QuantumSizeSelectionMode {
+        __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode_ClosestToDesired
+    }
+}
+extension UWP.QuantumSizeSelectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SetDefaultSpatialAudioFormatStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.setdefaultspatialaudioformatstatus)
 public typealias SetDefaultSpatialAudioFormatStatus = __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus
+
+extension UWP.SetDefaultSpatialAudioFormatStatus {
+    public static var succeeded : UWP.SetDefaultSpatialAudioFormatStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_Succeeded
+    }
+    public static var accessDenied : UWP.SetDefaultSpatialAudioFormatStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_AccessDenied
+    }
+    public static var licenseExpired : UWP.SetDefaultSpatialAudioFormatStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_LicenseExpired
+    }
+    public static var licenseNotValidForAudioEndpoint : UWP.SetDefaultSpatialAudioFormatStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_LicenseNotValidForAudioEndpoint
+    }
+    public static var notSupportedOnAudioEndpoint : UWP.SetDefaultSpatialAudioFormatStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_NotSupportedOnAudioEndpoint
+    }
+    public static var unknownError : UWP.SetDefaultSpatialAudioFormatStatus {
+        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_UnknownError
+    }
+}
+extension UWP.SetDefaultSpatialAudioFormatStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SpatialAudioModel
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiomodel)
 public typealias SpatialAudioModel = __x_ABI_CWindows_CMedia_CAudio_CSpatialAudioModel
+
+extension UWP.SpatialAudioModel {
+    public static var objectBased : UWP.SpatialAudioModel {
+        __x_ABI_CWindows_CMedia_CAudio_CSpatialAudioModel_ObjectBased
+    }
+    public static var foldDown : UWP.SpatialAudioModel {
+        __x_ABI_CWindows_CMedia_CAudio_CSpatialAudioModel_FoldDown
+    }
+}
+extension UWP.SpatialAudioModel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - IAudioInputNode
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode)
+public protocol IAudioInputNode : WindowsFoundation.IClosable, IAudioNode {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.addoutgoingconnection)
+    func addOutgoingConnection(_ destination: UWP.AnyIAudioNode!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.addoutgoingconnection)
+    func addOutgoingConnection(_ destination: UWP.AnyIAudioNode!, _ gain: Double) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.removeoutgoingconnection)
+    func removeOutgoingConnection(_ destination: UWP.AnyIAudioNode!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.outgoingconnections)
+    var outgoingConnections: WindowsFoundation.AnyIVectorView<UWP.AudioGraphConnection?>! { get }
+}
+
+extension IAudioInputNode {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Media_Audio.IAudioInputNodeWrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioInputNodeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Foundation.IClosableWrapper.IID:
+                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIAudioInputNode = any IAudioInputNode
+
+// MARK: - IAudioInputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum IAudioInputNodeBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode
+        public typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioInputNode
+        public typealias SwiftProjection = AnyIAudioInputNode
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IAudioInputNodeImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media_Audio.IAudioInputNodeVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IAudioInputNodeImpl: IAudioInputNode, WinRTAbiImpl {
+        fileprivate typealias Bridge = IAudioInputNodeBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.addoutgoingconnection)
+        fileprivate func addOutgoingConnection(_ destination: AnyIAudioNode!) throws {
+            try _default.AddOutgoingConnection(destination)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.addoutgoingconnection)
+        fileprivate func addOutgoingConnection(_ destination: AnyIAudioNode!, _ gain: Double) throws {
+            try _default.AddOutgoingConnectionWithGain(destination, gain)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.removeoutgoingconnection)
+        fileprivate func removeOutgoingConnection(_ destination: AnyIAudioNode!) throws {
+            try _default.RemoveOutgoingConnection(destination)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.outgoingconnections)
+        fileprivate var outgoingConnections : WindowsFoundation.AnyIVectorView<AudioGraphConnection?>! {
+            get { try! _default.get_OutgoingConnections() }
+        }
+
+        private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.close)
+        fileprivate func close() throws {
+            try _IClosable.Close()
+        }
+
+        private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.start)
+        fileprivate func start() throws {
+            try _IAudioNode.Start()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.stop)
+        fileprivate func stop() throws {
+            try _IAudioNode.Stop()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.reset)
+        fileprivate func reset() throws {
+            try _IAudioNode.Reset()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.disableeffectsbydefinition)
+        fileprivate func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _IAudioNode.DisableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.enableeffectsbydefinition)
+        fileprivate func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _IAudioNode.EnableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.consumeinput)
+        fileprivate var consumeInput : Bool {
+            get { try! _IAudioNode.get_ConsumeInput() }
+            set { try! _IAudioNode.put_ConsumeInput(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.effectdefinitions)
+        fileprivate var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
+            get { try! _IAudioNode.get_EffectDefinitions() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.encodingproperties)
+        fileprivate var encodingProperties : UWP.AudioEncodingProperties! {
+            get { try! _IAudioNode.get_EncodingProperties() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.outgoinggain)
+        fileprivate var outgoingGain : Double {
+            get { try! _IAudioNode.get_OutgoingGain() }
+            set { try! _IAudioNode.put_OutgoingGain(newValue) }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode: WindowsFoundation.IID = .init(
+        Data1: 0xD148005C, Data2: 0x8428, Data3: 0x4784, Data4: ( 0xB7,0xFD,0xA9,0x9D,0x46,0x8C,0x5D,0x20 ) // D148005C-8428-4784-B7FD-A99D468C5D20
+    ) 
+
+    public class IAudioInputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode }
+
+        open func get_OutgoingConnections() throws -> WindowsFoundation.AnyIVectorView<UWP.AudioGraphConnection?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutgoingConnections(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CAudio__CAudioGraphConnectionWrapper.unwrapFrom(abi: value)
+        }
+
+        open func AddOutgoingConnection(_ destination: UWP.AnyIAudioNode?) throws {
+            let destinationWrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(destination)
+            let _destination = try! destinationWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddOutgoingConnection(pThis, _destination))
+            }
+        }
+
+        open func AddOutgoingConnectionWithGain(_ destination: UWP.AnyIAudioNode?, _ gain: Double) throws {
+            let destinationWrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(destination)
+            let _destination = try! destinationWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddOutgoingConnectionWithGain(pThis, _destination, gain))
+            }
+        }
+
+        open func RemoveOutgoingConnection(_ destination: UWP.AnyIAudioNode?) throws {
+            let destinationWrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(destination)
+            let _destination = try! destinationWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveOutgoingConnection(pThis, _destination))
+            }
+        }
+
+    }
+
+    internal static var IAudioInputNodeVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNodeVtbl = .init(
+        QueryInterface: { IAudioInputNodeWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IAudioInputNodeWrapper.addRef($0) },
+        Release: { IAudioInputNodeWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 5).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Media_Audio.IAudioInputNodeWrapper.IID
+            iids[3] = __ABI_Windows_Foundation.IClosableWrapper.IID
+            iids[4] = __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID
+            $1!.pointee = 5
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Media.Audio.IAudioInputNode").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_OutgoingConnections: {
+            guard let __unwrapped__instance = IAudioInputNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.outgoingConnections
+            let valueWrapper = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CAudio__CAudioGraphConnectionWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        AddOutgoingConnection: {
+            do {
+                guard let __unwrapped__instance = IAudioInputNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let destination: UWP.AnyIAudioNode? = __ABI_Windows_Media_Audio.IAudioNodeWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.addOutgoingConnection(destination)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        AddOutgoingConnectionWithGain: {
+            do {
+                guard let __unwrapped__instance = IAudioInputNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let destination: UWP.AnyIAudioNode? = __ABI_Windows_Media_Audio.IAudioNodeWrapper.unwrapFrom(abi: ComPtr($1))
+                let gain: Double = $2
+                try __unwrapped__instance.addOutgoingConnection(destination, gain)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        RemoveOutgoingConnection: {
+            do {
+                guard let __unwrapped__instance = IAudioInputNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let destination: UWP.AnyIAudioNode? = __ABI_Windows_Media_Audio.IAudioNodeWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.removeOutgoingConnection(destination)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias IAudioInputNodeWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Audio.IAudioInputNodeBridge>
+}
+@_spi(WinRTInternal)
+public class IAudioInputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIAudioInputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Audio.IAudioInputNode = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Audio.IAudioInputNodeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IAudioInputNode2
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2)
+public protocol IAudioInputNode2 : WindowsFoundation.IClosable, IAudioNode, IAudioInputNode {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.emitter)
+    var emitter: UWP.AudioNodeEmitter! { get }
+}
+
+extension IAudioInputNode2 {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Media_Audio.IAudioInputNode2Wrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioInputNode2Wrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Foundation.IClosableWrapper.IID:
+                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Media_Audio.IAudioInputNodeWrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioInputNodeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIAudioInputNode2 = any IAudioInputNode2
+
+// MARK: - IAudioInputNode2 Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum IAudioInputNode2Bridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2
+        public typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioInputNode2
+        public typealias SwiftProjection = AnyIAudioInputNode2
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IAudioInputNode2Impl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media_Audio.IAudioInputNode2VTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IAudioInputNode2Impl: IAudioInputNode2, WinRTAbiImpl {
+        fileprivate typealias Bridge = IAudioInputNode2Bridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.emitter)
+        fileprivate var emitter : AudioNodeEmitter! {
+            get { try! _default.get_Emitter() }
+        }
+
+        private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.close)
+        fileprivate func close() throws {
+            try _IClosable.Close()
+        }
+
+        private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.start)
+        fileprivate func start() throws {
+            try _IAudioNode.Start()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.stop)
+        fileprivate func stop() throws {
+            try _IAudioNode.Stop()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.reset)
+        fileprivate func reset() throws {
+            try _IAudioNode.Reset()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.disableeffectsbydefinition)
+        fileprivate func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _IAudioNode.DisableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.enableeffectsbydefinition)
+        fileprivate func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _IAudioNode.EnableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.consumeinput)
+        fileprivate var consumeInput : Bool {
+            get { try! _IAudioNode.get_ConsumeInput() }
+            set { try! _IAudioNode.put_ConsumeInput(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.effectdefinitions)
+        fileprivate var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
+            get { try! _IAudioNode.get_EffectDefinitions() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.encodingproperties)
+        fileprivate var encodingProperties : UWP.AudioEncodingProperties! {
+            get { try! _IAudioNode.get_EncodingProperties() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.outgoinggain)
+        fileprivate var outgoingGain : Double {
+            get { try! _IAudioNode.get_OutgoingGain() }
+            set { try! _IAudioNode.put_OutgoingGain(newValue) }
+        }
+
+        private lazy var _IAudioInputNode: __ABI_Windows_Media_Audio.IAudioInputNode! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.addoutgoingconnection)
+        fileprivate func addOutgoingConnection(_ destination: AnyIAudioNode!) throws {
+            try _IAudioInputNode.AddOutgoingConnection(destination)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.addoutgoingconnection)
+        fileprivate func addOutgoingConnection(_ destination: AnyIAudioNode!, _ gain: Double) throws {
+            try _IAudioInputNode.AddOutgoingConnectionWithGain(destination, gain)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.removeoutgoingconnection)
+        fileprivate func removeOutgoingConnection(_ destination: AnyIAudioNode!) throws {
+            try _IAudioInputNode.RemoveOutgoingConnection(destination)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.outgoingconnections)
+        fileprivate var outgoingConnections : WindowsFoundation.AnyIVectorView<AudioGraphConnection?>! {
+            get { try! _IAudioInputNode.get_OutgoingConnections() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2: WindowsFoundation.IID = .init(
+        Data1: 0x905156B7, Data2: 0xCA68, Data3: 0x4C6D, Data4: ( 0xA8,0xBC,0xE3,0xEE,0x17,0xFE,0x3F,0xD2 ) // 905156B7-CA68-4C6D-A8BC-E3EE17FE3FD2
+    ) 
+
+    public class IAudioInputNode2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2 }
+
+        open func get_Emitter() throws -> UWP.AudioNodeEmitter? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Emitter(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IAudioInputNode2VTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2Vtbl = .init(
+        QueryInterface: { IAudioInputNode2Wrapper.queryInterface($0, $1, $2) },
+        AddRef: { IAudioInputNode2Wrapper.addRef($0) },
+        Release: { IAudioInputNode2Wrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 6).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Media_Audio.IAudioInputNode2Wrapper.IID
+            iids[3] = __ABI_Windows_Foundation.IClosableWrapper.IID
+            iids[4] = __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID
+            iids[5] = __ABI_Windows_Media_Audio.IAudioInputNodeWrapper.IID
+            $1!.pointee = 6
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Media.Audio.IAudioInputNode2").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Emitter: {
+            guard let __unwrapped__instance = IAudioInputNode2Wrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.emitter
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IAudioInputNode2Wrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Audio.IAudioInputNode2Bridge>
+}
+@_spi(WinRTInternal)
+public class IAudioInputNode2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyIAudioInputNode2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Audio.IAudioInputNode2 = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Audio.IAudioInputNode2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IAudioNode
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode)
+public protocol IAudioNode : WindowsFoundation.IClosable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.start)
+    func start() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.stop)
+    func stop() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.reset)
+    func reset() throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.disableeffectsbydefinition)
+    func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.enableeffectsbydefinition)
+    func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.consumeinput)
+    var consumeInput: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.effectdefinitions)
+    var effectDefinitions: WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.encodingproperties)
+    var encodingProperties: UWP.AudioEncodingProperties! { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.outgoinggain)
+    var outgoingGain: Double { get set }
+}
+
+extension IAudioNode {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Foundation.IClosableWrapper.IID:
+                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIAudioNode = any IAudioNode
+
+// MARK: - IAudioNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum IAudioNodeBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNode
+        public typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNode
+        public typealias SwiftProjection = AnyIAudioNode
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IAudioNodeImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media_Audio.IAudioNodeVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IAudioNodeImpl: IAudioNode, WinRTAbiImpl {
+        fileprivate typealias Bridge = IAudioNodeBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.start)
+        fileprivate func start() throws {
+            try _default.Start()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.stop)
+        fileprivate func stop() throws {
+            try _default.Stop()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.reset)
+        fileprivate func reset() throws {
+            try _default.Reset()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.disableeffectsbydefinition)
+        fileprivate func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _default.DisableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.enableeffectsbydefinition)
+        fileprivate func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _default.EnableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.consumeinput)
+        fileprivate var consumeInput : Bool {
+            get { try! _default.get_ConsumeInput() }
+            set { try! _default.put_ConsumeInput(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.effectdefinitions)
+        fileprivate var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
+            get { try! _default.get_EffectDefinitions() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.encodingproperties)
+        fileprivate var encodingProperties : UWP.AudioEncodingProperties! {
+            get { try! _default.get_EncodingProperties() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.outgoinggain)
+        fileprivate var outgoingGain : Double {
+            get { try! _default.get_OutgoingGain() }
+            set { try! _default.put_OutgoingGain(newValue) }
+        }
+
+        private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.close)
+        fileprivate func close() throws {
+            try _IClosable.Close()
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNode: WindowsFoundation.IID = .init(
+        Data1: 0x15389D7F, Data2: 0xDBD8, Data3: 0x4819, Data4: ( 0xBF,0x03,0x66,0x8E,0x93,0x57,0xCD,0x6D ) // 15389D7F-DBD8-4819-BF03-668E9357CD6D
+    ) 
+
+    public class IAudioNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNode }
+
+        open func get_EffectDefinitions() throws -> WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EffectDefinitions(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CMedia__CEffects__CIAudioEffectDefinitionWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_OutgoingGain(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OutgoingGain(pThis, value))
+            }
+        }
+
+        open func get_OutgoingGain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutgoingGain(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_EncodingProperties() throws -> UWP.AudioEncodingProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncodingProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_MediaProperties.AudioEncodingPropertiesBridge.from(abi: value)
+        }
+
+        open func get_ConsumeInput() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConsumeInput(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_ConsumeInput(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ConsumeInput(pThis, .init(from: value)))
+            }
+        }
+
+        open func Start() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Start(pThis))
+            }
+        }
+
+        open func Stop() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
+            }
+        }
+
+        open func Reset() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Reset(pThis))
+            }
+        }
+
+        open func DisableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition?) throws {
+            let definitionWrapper = __ABI_Windows_Media_Effects.IAudioEffectDefinitionWrapper(definition)
+            let _definition = try! definitionWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DisableEffectsByDefinition(pThis, _definition))
+            }
+        }
+
+        open func EnableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition?) throws {
+            let definitionWrapper = __ABI_Windows_Media_Effects.IAudioEffectDefinitionWrapper(definition)
+            let _definition = try! definitionWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.EnableEffectsByDefinition(pThis, _definition))
+            }
+        }
+
+    }
+
+    internal static var IAudioNodeVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeVtbl = .init(
+        QueryInterface: { IAudioNodeWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IAudioNodeWrapper.addRef($0) },
+        Release: { IAudioNodeWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID
+            iids[3] = __ABI_Windows_Foundation.IClosableWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Media.Audio.IAudioNode").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_EffectDefinitions: {
+            guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.effectDefinitions
+            let valueWrapper = UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CMedia__CEffects__CIAudioEffectDefinitionWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_OutgoingGain: {
+            guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Double = $1
+            __unwrapped__instance.outgoingGain = value
+            return S_OK
+        },
+
+        get_OutgoingGain: {
+            guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.outgoingGain
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_EncodingProperties: {
+            guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.encodingProperties
+            value?.copyTo($1)
+            return S_OK
+        },
+
+        get_ConsumeInput: {
+            guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.consumeInput
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_ConsumeInput: {
+            guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.consumeInput = value
+            return S_OK
+        },
+
+        Start: {
+            do {
+                guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.start()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Stop: {
+            do {
+                guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.stop()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        Reset: {
+            do {
+                guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.reset()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        DisableEffectsByDefinition: {
+            do {
+                guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let definition: UWP.AnyIAudioEffectDefinition? = __ABI_Windows_Media_Effects.IAudioEffectDefinitionWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.disableEffectsByDefinition(definition)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        EnableEffectsByDefinition: {
+            do {
+                guard let __unwrapped__instance = IAudioNodeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let definition: UWP.AnyIAudioEffectDefinition? = __ABI_Windows_Media_Effects.IAudioEffectDefinitionWrapper.unwrapFrom(abi: ComPtr($1))
+                try __unwrapped__instance.enableEffectsByDefinition(definition)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias IAudioNodeWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Audio.IAudioNodeBridge>
+}
+@_spi(WinRTInternal)
+public class IAudioNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIAudioNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Audio.IAudioNode = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Audio.IAudioNodeBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IAudioNodeWithListener
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener)
+public protocol IAudioNodeWithListener : WindowsFoundation.IClosable, IAudioNode {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.listener)
+    var listener: UWP.AudioNodeListener! { get set }
+}
+
+extension IAudioNodeWithListener {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Media_Audio.IAudioNodeWithListenerWrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWithListenerWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Foundation.IClosableWrapper.IID:
+                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
+                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIAudioNodeWithListener = any IAudioNodeWithListener
+
+// MARK: - IAudioNodeWithListener Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum IAudioNodeWithListenerBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListener
+        public typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeWithListener
+        public typealias SwiftProjection = AnyIAudioNodeWithListener
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IAudioNodeWithListenerImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media_Audio.IAudioNodeWithListenerVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IAudioNodeWithListenerImpl: IAudioNodeWithListener, WinRTAbiImpl {
+        fileprivate typealias Bridge = IAudioNodeWithListenerBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.listener)
+        fileprivate var listener : AudioNodeListener! {
+            get { try! _default.get_Listener() }
+            set { try! _default.put_Listener(newValue) }
+        }
+
+        private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.close)
+        fileprivate func close() throws {
+            try _IClosable.Close()
+        }
+
+        private lazy var _IAudioNode: __ABI_Windows_Media_Audio.IAudioNode! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.start)
+        fileprivate func start() throws {
+            try _IAudioNode.Start()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.stop)
+        fileprivate func stop() throws {
+            try _IAudioNode.Stop()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.reset)
+        fileprivate func reset() throws {
+            try _IAudioNode.Reset()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.disableeffectsbydefinition)
+        fileprivate func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _IAudioNode.DisableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.enableeffectsbydefinition)
+        fileprivate func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws {
+            try _IAudioNode.EnableEffectsByDefinition(definition)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.consumeinput)
+        fileprivate var consumeInput : Bool {
+            get { try! _IAudioNode.get_ConsumeInput() }
+            set { try! _IAudioNode.put_ConsumeInput(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.effectdefinitions)
+        fileprivate var effectDefinitions : WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! {
+            get { try! _IAudioNode.get_EffectDefinitions() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.encodingproperties)
+        fileprivate var encodingProperties : UWP.AudioEncodingProperties! {
+            get { try! _IAudioNode.get_EncodingProperties() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.outgoinggain)
+        fileprivate var outgoingGain : Double {
+            get { try! _IAudioNode.get_OutgoingGain() }
+            set { try! _IAudioNode.put_OutgoingGain(newValue) }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListener: WindowsFoundation.IID = .init(
+        Data1: 0x0E0F907C, Data2: 0x79FF, Data3: 0x4544, Data4: ( 0x9E,0xEB,0x01,0x25,0x7B,0x15,0x10,0x5A ) // 0E0F907C-79FF-4544-9EEB-01257B15105A
+    ) 
+
+    public class IAudioNodeWithListener: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListener }
+
+        open func put_Listener(_ value: UWP.AudioNodeListener?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Listener(pThis, RawPointer(value)))
+            }
+        }
+
+        open func get_Listener() throws -> UWP.AudioNodeListener? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListener.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Listener(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeListenerBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IAudioNodeWithListenerVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListenerVtbl = .init(
+        QueryInterface: { IAudioNodeWithListenerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IAudioNodeWithListenerWrapper.addRef($0) },
+        Release: { IAudioNodeWithListenerWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 5).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Media_Audio.IAudioNodeWithListenerWrapper.IID
+            iids[3] = __ABI_Windows_Foundation.IClosableWrapper.IID
+            iids[4] = __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID
+            $1!.pointee = 5
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Media.Audio.IAudioNodeWithListener").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        put_Listener: {
+            guard let __unwrapped__instance = IAudioNodeWithListenerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: UWP.AudioNodeListener? = __IMPL_Windows_Media_Audio.AudioNodeListenerBridge.from(abi: ComPtr($1))
+            __unwrapped__instance.listener = value
+            return S_OK
+        },
+
+        get_Listener: {
+            guard let __unwrapped__instance = IAudioNodeWithListenerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.listener
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IAudioNodeWithListenerWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Audio.IAudioNodeWithListenerBridge>
+}
+@_spi(WinRTInternal)
+public class IAudioNodeWithListenerMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIAudioNodeWithListener
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media_Audio.IAudioNodeWithListener = try! abi.QueryInterface()
+        return __IMPL_Windows_Media_Audio.IAudioNodeWithListenerBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - AudioDeviceInputNode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode)
 public final class AudioDeviceInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioDeviceInputNode
@@ -144,6 +1353,50 @@ public final class AudioDeviceInputNode : WinRTClass, WindowsFoundation.IClosabl
     }
 }
 
+// MARK: - AudioDeviceInputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioDeviceInputNodeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioDeviceInputNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode>?) -> AudioDeviceInputNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioDeviceInputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioDeviceInputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioDeviceInputNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode: WindowsFoundation.IID = .init(
+        Data1: 0xB01B6BE1, Data2: 0x6F4E, Data3: 0x49E2, Data4: ( 0xAC,0x01,0x55,0x9D,0x62,0xBE,0xB3,0xA9 ) // B01B6BE1-6F4E-49E2-AC01-559D62BEB3A9
+    ) 
+
+    public class IAudioDeviceInputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode }
+
+        public func get_Device() throws -> UWP.DeviceInformation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AudioDeviceOutputNode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode)
 public final class AudioDeviceOutputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioNodeWithListener {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioDeviceOutputNode
@@ -238,6 +1491,50 @@ public final class AudioDeviceOutputNode : WinRTClass, WindowsFoundation.IClosab
         _IAudioNodeWithListener = nil
     }
 }
+
+// MARK: - AudioDeviceOutputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioDeviceOutputNodeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioDeviceOutputNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode>?) -> AudioDeviceOutputNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioDeviceOutputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioDeviceOutputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioDeviceOutputNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode: WindowsFoundation.IID = .init(
+        Data1: 0x362EDBFF, Data2: 0xFF1C, Data3: 0x4434, Data4: ( 0x9E,0x0F,0xBD,0x2E,0xF5,0x22,0xAC,0x82 ) // 362EDBFF-FF1C-4434-9E0F-BD2EF522AC82
+    ) 
+
+    public class IAudioDeviceOutputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode }
+
+        public func get_Device() throws -> UWP.DeviceInformation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AudioFileInputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode)
 public final class AudioFileInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
@@ -407,6 +1704,153 @@ public final class AudioFileInputNode : WinRTClass, WindowsFoundation.IClosable,
     }
 }
 
+// MARK: - AudioFileInputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioFileInputNodeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioFileInputNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode>?) -> AudioFileInputNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioFileInputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioFileInputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioFileInputNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode: WindowsFoundation.IID = .init(
+        Data1: 0x905B67C8, Data2: 0x6F65, Data3: 0x4CD4, Data4: ( 0x88,0x90,0x46,0x94,0x84,0x3C,0x27,0x6D ) // 905B67C8-6F65-4CD4-8890-4694843C276D
+    ) 
+
+    public class IAudioFileInputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode }
+
+        public func put_PlaybackSpeedFactor(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackSpeedFactor(pThis, value))
+            }
+        }
+
+        public func get_PlaybackSpeedFactor() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackSpeedFactor(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func Seek(_ position: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Seek(pThis, .from(swift: position)))
+            }
+        }
+
+        public func get_StartTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartTime(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_StartTime(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartTime(pThis, _value))
+            }
+        }
+
+        public func get_EndTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EndTime(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_EndTime(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EndTime(pThis, _value))
+            }
+        }
+
+        public func get_LoopCount() throws -> Int32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LoopCount(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_intWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_LoopCount(_ value: Int32?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_intWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LoopCount(pThis, _value))
+            }
+        }
+
+        public func get_Duration() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Duration(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_SourceFile() throws -> UWP.StorageFile? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceFile(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage.StorageFileBridge.from(abi: value)
+        }
+
+        public func add_FileCompleted(_ handler: TypedEventHandler<UWP.AudioFileInputNode?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CAudioFileInputNode_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_FileCompleted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_FileCompleted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_FileCompleted(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - AudioFileOutputNode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode)
 public final class AudioFileOutputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFileOutputNode
@@ -504,6 +1948,68 @@ public final class AudioFileOutputNode : WinRTClass, WindowsFoundation.IClosable
     }
 }
 
+// MARK: - AudioFileOutputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioFileOutputNodeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioFileOutputNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode>?) -> AudioFileOutputNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioFileOutputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioFileOutputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioFileOutputNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode: WindowsFoundation.IID = .init(
+        Data1: 0x50E01980, Data2: 0x5166, Data3: 0x4093, Data4: ( 0x80,0xF8,0xAD,0xA0,0x00,0x89,0xE9,0xCF ) // 50E01980-5166-4093-80F8-ADA00089E9CF
+    ) 
+
+    public class IAudioFileOutputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode }
+
+        public func get_File() throws -> UWP.AnyIStorageFile? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_File(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage.IStorageFileWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_FileEncodingProfile() throws -> UWP.MediaEncodingProfile? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileEncodingProfile(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_MediaProperties.MediaEncodingProfileBridge.from(abi: value)
+        }
+
+        public func FinalizeAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.TranscodeFailureReason>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FinalizeAsync(pThis, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CTranscoding__CTranscodeFailureReasonWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+}
+// MARK: - AudioFrameCompletedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframecompletedeventargs)
 public final class AudioFrameCompletedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFrameCompletedEventArgs
@@ -531,6 +2037,50 @@ public final class AudioFrameCompletedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioFrameCompletedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioFrameCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AudioFrameCompletedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs>?) -> AudioFrameCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioFrameCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AudioFrameCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioFrameCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xDC7C829E, Data2: 0x0208, Data3: 0x4504, Data4: ( 0xA5,0xA8,0xF0,0xF2,0x68,0x92,0x0A,0x65 ) // DC7C829E-0208-4504-A5A8-F0F268920A65
+    ) 
+
+    public class IAudioFrameCompletedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs }
+
+        public func get_Frame() throws -> UWP.AudioFrame? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Frame(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media.AudioFrameBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AudioFrameInputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode)
 public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
@@ -690,6 +2240,107 @@ public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable
     }
 }
 
+// MARK: - AudioFrameInputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioFrameInputNodeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioFrameInputNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode>?) -> AudioFrameInputNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioFrameInputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioFrameInputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioFrameInputNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode: WindowsFoundation.IID = .init(
+        Data1: 0x01B266C7, Data2: 0xFD96, Data3: 0x4FF5, Data4: ( 0xA3,0xC5,0xD2,0x7A,0x9B,0xF4,0x42,0x37 ) // 01B266C7-FD96-4FF5-A3C5-D27A9BF44237
+    ) 
+
+    public class IAudioFrameInputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode }
+
+        public func put_PlaybackSpeedFactor(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackSpeedFactor(pThis, value))
+            }
+        }
+
+        public func get_PlaybackSpeedFactor() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackSpeedFactor(pThis, &value))
+            }
+            return value
+        }
+
+        public func AddFrame(_ frame: UWP.AudioFrame?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddFrame(pThis, RawPointer(frame)))
+            }
+        }
+
+        public func DiscardQueuedFrames() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DiscardQueuedFrames(pThis))
+            }
+        }
+
+        public func get_QueuedSampleCount() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_QueuedSampleCount(pThis, &value))
+            }
+            return value
+        }
+
+        public func add_AudioFrameCompleted(_ handler: TypedEventHandler<UWP.AudioFrameInputNode?, UWP.AudioFrameCompletedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CAudioFrameInputNode___x_ABI_CWindows__CMedia__CAudio__CAudioFrameCompletedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_AudioFrameCompleted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_AudioFrameCompleted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AudioFrameCompleted(pThis, token))
+            }
+        }
+
+        public func add_QuantumStarted(_ handler: TypedEventHandler<UWP.AudioFrameInputNode?, UWP.FrameInputNodeQuantumStartedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CAudioFrameInputNode___x_ABI_CWindows__CMedia__CAudio__CFrameInputNodeQuantumStartedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_QuantumStarted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_QuantumStarted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_QuantumStarted(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - AudioFrameOutputNode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode)
 public final class AudioFrameOutputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFrameOutputNode
@@ -776,6 +2427,50 @@ public final class AudioFrameOutputNode : WinRTClass, WindowsFoundation.IClosabl
         _default = nil
     }
 }
+
+// MARK: - AudioFrameOutputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioFrameOutputNodeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioFrameOutputNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode>?) -> AudioFrameOutputNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioFrameOutputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioFrameOutputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioFrameOutputNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode: WindowsFoundation.IID = .init(
+        Data1: 0xB847371B, Data2: 0x3299, Data3: 0x45F5, Data4: ( 0x88,0xB3,0xC9,0xD1,0x2A,0x3F,0x1C,0xC8 ) // B847371B-3299-45F5-88B3-C9D12A3F1CC8
+    ) 
+
+    public class IAudioFrameOutputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode }
+
+        public func GetFrame() throws -> UWP.AudioFrame? {
+            let (audioFrame) = try ComPtrs.initialize { audioFrameAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFrame(pThis, &audioFrameAbi))
+                }
+            }
+            return __IMPL_Windows_Media.AudioFrameBridge.from(abi: audioFrame)
+        }
+
+    }
+
+}
+// MARK: - AudioGraph
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph)
 public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
@@ -1004,6 +2699,381 @@ public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
     }
 }
 
+// MARK: - AudioGraph Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioGraphBridge: AbiBridge {
+        public typealias SwiftProjection = AudioGraph
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraph>?) -> AudioGraph? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioGraphMaker: MakeFromAbi {
+    public typealias SwiftType = AudioGraph
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioGraph(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph: WindowsFoundation.IID = .init(
+        Data1: 0x1AD46EED, Data2: 0xE48C, Data3: 0x4E14, Data4: ( 0x96,0x60,0x2C,0x4F,0x83,0xE9,0xCD,0xD8 ) // 1AD46EED-E48C-4E14-9660-2C4F83E9CDD8
+    ) 
+
+    public class IAudioGraph: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph }
+
+        public func CreateFrameInputNode() throws -> UWP.AudioFrameInputNode? {
+            let (frameInputNode) = try ComPtrs.initialize { frameInputNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFrameInputNode(pThis, &frameInputNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioFrameInputNodeBridge.from(abi: frameInputNode)
+        }
+
+        public func CreateFrameInputNodeWithFormat(_ encodingProperties: UWP.AudioEncodingProperties?) throws -> UWP.AudioFrameInputNode? {
+            let (frameInputNode) = try ComPtrs.initialize { frameInputNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFrameInputNodeWithFormat(pThis, RawPointer(encodingProperties), &frameInputNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioFrameInputNodeBridge.from(abi: frameInputNode)
+        }
+
+        public func CreateDeviceInputNodeAsync(_ category: UWP.MediaCategory) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioDeviceInputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDeviceInputNodeAsync(pThis, category, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioDeviceInputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateDeviceInputNodeWithFormatAsync(_ category: UWP.MediaCategory, _ encodingProperties: UWP.AudioEncodingProperties?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioDeviceInputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDeviceInputNodeWithFormatAsync(pThis, category, RawPointer(encodingProperties), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioDeviceInputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateDeviceInputNodeWithFormatOnDeviceAsync(_ category: UWP.MediaCategory, _ encodingProperties: UWP.AudioEncodingProperties?, _ device: UWP.DeviceInformation?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioDeviceInputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDeviceInputNodeWithFormatOnDeviceAsync(pThis, category, RawPointer(encodingProperties), RawPointer(device), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioDeviceInputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFrameOutputNode() throws -> UWP.AudioFrameOutputNode? {
+            let (frameOutputNode) = try ComPtrs.initialize { frameOutputNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFrameOutputNode(pThis, &frameOutputNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioFrameOutputNodeBridge.from(abi: frameOutputNode)
+        }
+
+        public func CreateFrameOutputNodeWithFormat(_ encodingProperties: UWP.AudioEncodingProperties?) throws -> UWP.AudioFrameOutputNode? {
+            let (frameOutputNode) = try ComPtrs.initialize { frameOutputNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFrameOutputNodeWithFormat(pThis, RawPointer(encodingProperties), &frameOutputNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioFrameOutputNodeBridge.from(abi: frameOutputNode)
+        }
+
+        public func CreateDeviceOutputNodeAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioDeviceOutputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDeviceOutputNodeAsync(pThis, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioDeviceOutputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFileInputNodeAsync(_ file: UWP.AnyIStorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioFileInputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
+                let _file = try! fileWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFileInputNodeAsync(pThis, _file, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioFileInputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFileOutputNodeAsync(_ file: UWP.AnyIStorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioFileOutputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
+                let _file = try! fileWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFileOutputNodeAsync(pThis, _file, &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioFileOutputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFileOutputNodeWithFileProfileAsync(_ file: UWP.AnyIStorageFile?, _ fileEncodingProfile: UWP.MediaEncodingProfile?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioFileOutputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
+                let _file = try! fileWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFileOutputNodeWithFileProfileAsync(pThis, _file, RawPointer(fileEncodingProfile), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioFileOutputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateSubmixNode() throws -> UWP.AudioSubmixNode? {
+            let (submixNode) = try ComPtrs.initialize { submixNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSubmixNode(pThis, &submixNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioSubmixNodeBridge.from(abi: submixNode)
+        }
+
+        public func CreateSubmixNodeWithFormat(_ encodingProperties: UWP.AudioEncodingProperties?) throws -> UWP.AudioSubmixNode? {
+            let (submixNode) = try ComPtrs.initialize { submixNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSubmixNodeWithFormat(pThis, RawPointer(encodingProperties), &submixNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioSubmixNodeBridge.from(abi: submixNode)
+        }
+
+        public func Start() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Start(pThis))
+            }
+        }
+
+        public func Stop() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Stop(pThis))
+            }
+        }
+
+        public func ResetAllNodes() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ResetAllNodes(pThis))
+            }
+        }
+
+        public func add_QuantumStarted(_ handler: TypedEventHandler<UWP.AudioGraph?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CAudioGraph_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_QuantumStarted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_QuantumStarted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_QuantumStarted(pThis, token))
+            }
+        }
+
+        public func add_QuantumProcessed(_ handler: TypedEventHandler<UWP.AudioGraph?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CAudioGraph_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_QuantumProcessed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_QuantumProcessed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_QuantumProcessed(pThis, token))
+            }
+        }
+
+        public func add_UnrecoverableErrorOccurred(_ handler: TypedEventHandler<UWP.AudioGraph?, UWP.AudioGraphUnrecoverableErrorOccurredEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CAudioGraph___x_ABI_CWindows__CMedia__CAudio__CAudioGraphUnrecoverableErrorOccurredEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_UnrecoverableErrorOccurred(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_UnrecoverableErrorOccurred(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_UnrecoverableErrorOccurred(pThis, token))
+            }
+        }
+
+        public func get_CompletedQuantumCount() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompletedQuantumCount(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_EncodingProperties() throws -> UWP.AudioEncodingProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncodingProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_MediaProperties.AudioEncodingPropertiesBridge.from(abi: value)
+        }
+
+        public func get_LatencyInSamples() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LatencyInSamples(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_PrimaryRenderDevice() throws -> UWP.DeviceInformation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrimaryRenderDevice(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationBridge.from(abi: value)
+        }
+
+        public func get_RenderDeviceAudioProcessing() throws -> UWP.AudioProcessing {
+            var value: __x_ABI_CWindows_CMedia_CAudioProcessing = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RenderDeviceAudioProcessing(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_SamplesPerQuantum() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SamplesPerQuantum(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2: WindowsFoundation.IID = .init(
+        Data1: 0x4E4C3BD5, Data2: 0x4FC1, Data3: 0x45F6, Data4: ( 0xA9,0x47,0x3C,0xD3,0x8F,0x4F,0xD8,0x39 ) // 4E4C3BD5-4FC1-45F6-A947-3CD38F4FD839
+    ) 
+
+    public class IAudioGraph2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2 }
+
+        public func CreateFrameInputNodeWithFormatAndEmitter(_ encodingProperties: UWP.AudioEncodingProperties?, _ emitter: UWP.AudioNodeEmitter?) throws -> UWP.AudioFrameInputNode? {
+            let (frameInputNode) = try ComPtrs.initialize { frameInputNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFrameInputNodeWithFormatAndEmitter(pThis, RawPointer(encodingProperties), RawPointer(emitter), &frameInputNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioFrameInputNodeBridge.from(abi: frameInputNode)
+        }
+
+        public func CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync(_ category: UWP.MediaCategory, _ encodingProperties: UWP.AudioEncodingProperties?, _ device: UWP.DeviceInformation?, _ emitter: UWP.AudioNodeEmitter?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioDeviceInputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync(pThis, category, RawPointer(encodingProperties), RawPointer(device), RawPointer(emitter), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioDeviceInputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFileInputNodeWithEmitterAsync(_ file: UWP.AnyIStorageFile?, _ emitter: UWP.AudioNodeEmitter?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioFileInputNodeResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
+                let _file = try! fileWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFileInputNodeWithEmitterAsync(pThis, _file, RawPointer(emitter), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioFileInputNodeResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateSubmixNodeWithFormatAndEmitter(_ encodingProperties: UWP.AudioEncodingProperties?, _ emitter: UWP.AudioNodeEmitter?) throws -> UWP.AudioSubmixNode? {
+            let (submixNode) = try ComPtrs.initialize { submixNodeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateSubmixNodeWithFormatAndEmitter(pThis, RawPointer(encodingProperties), RawPointer(emitter), &submixNodeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioSubmixNodeBridge.from(abi: submixNode)
+        }
+
+        public func CreateBatchUpdater() throws -> UWP.AudioGraphBatchUpdater? {
+            let (updater) = try ComPtrs.initialize { updaterAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateBatchUpdater(pThis, &updaterAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioGraphBatchUpdaterBridge.from(abi: updater)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph3: WindowsFoundation.IID = .init(
+        Data1: 0xDDCD25AE, Data2: 0x1185, Data3: 0x42A7, Data4: ( 0x83,0x1D,0x6A,0x9B,0x0F,0xC8,0x68,0x20 ) // DDCD25AE-1185-42A7-831D-6A9B0FC86820
+    ) 
+
+    public class IAudioGraph3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph3 }
+
+        public func CreateMediaSourceAudioInputNodeAsync(_ mediaSource: UWP.MediaSource?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateMediaSourceAudioInputNodeResult?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateMediaSourceAudioInputNodeAsync(pThis, RawPointer(mediaSource), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateMediaSourceAudioInputNodeResultWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func CreateMediaSourceAudioInputNodeWithEmitterAsync(_ mediaSource: UWP.MediaSource?, _ emitter: UWP.AudioNodeEmitter?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateMediaSourceAudioInputNodeResult?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateMediaSourceAudioInputNodeWithEmitterAsync(pThis, RawPointer(mediaSource), RawPointer(emitter), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateMediaSourceAudioInputNodeResultWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphStatics: WindowsFoundation.IID = .init(
+        Data1: 0x76EC3132, Data2: 0xE159, Data3: 0x4AB7, Data4: ( 0xA8,0x2A,0x17,0xBE,0xB4,0xB3,0x1E,0x94 ) // 76EC3132-E159-4AB7-A82A-17BEB4B31E94
+    ) 
+
+    public class IAudioGraphStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphStatics }
+
+        public func CreateAsync(_ settings: UWP.AudioGraphSettings?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioGraphResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAsync(pThis, RawPointer(settings), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CCreateAudioGraphResultWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+}
+// MARK: - AudioGraphBatchUpdater
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographbatchupdater)
 public final class AudioGraphBatchUpdater : WinRTClass, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Foundation.IClosable
@@ -1034,6 +3104,32 @@ public final class AudioGraphBatchUpdater : WinRTClass, WindowsFoundation.IClosa
         _default = nil
     }
 }
+
+// MARK: - AudioGraphBatchUpdater Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioGraphBatchUpdaterBridge: AbiBridge {
+        public typealias SwiftProjection = AudioGraphBatchUpdater
+        public typealias CABI = __x_ABI_CWindows_CFoundation_CIClosable
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CFoundation_CIClosable>?) -> AudioGraphBatchUpdater? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioGraphBatchUpdaterMaker: MakeFromAbi {
+    public typealias SwiftType = AudioGraphBatchUpdater
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioGraphBatchUpdater(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+}
+// MARK: - AudioGraphConnection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographconnection)
 public final class AudioGraphConnection : WinRTClass {
@@ -1068,6 +3164,64 @@ public final class AudioGraphConnection : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioGraphConnection Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioGraphConnectionBridge: AbiBridge {
+        public typealias SwiftProjection = AudioGraphConnection
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection>?) -> AudioGraphConnection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioGraphConnectionMaker: MakeFromAbi {
+    public typealias SwiftType = AudioGraphConnection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioGraphConnection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection: WindowsFoundation.IID = .init(
+        Data1: 0x763070ED, Data2: 0xD04E, Data3: 0x4FAC, Data4: ( 0xB2,0x33,0x60,0x0B,0x42,0xED,0xD4,0x69 ) // 763070ED-D04E-4FAC-B233-600B42EDD469
+    ) 
+
+    public class IAudioGraphConnection: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection }
+
+        public func get_Destination() throws -> UWP.AnyIAudioNode? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Destination(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Media_Audio.IAudioNodeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Gain(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Gain(pThis, value))
+            }
+        }
+
+        public func get_Gain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Gain(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AudioGraphSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings)
 public final class AudioGraphSettings : WinRTClass {
@@ -1141,6 +3295,168 @@ public final class AudioGraphSettings : WinRTClass {
     }
 }
 
+// MARK: - AudioGraphSettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioGraphSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = AudioGraphSettings
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings>?) -> AudioGraphSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioGraphSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AudioGraphSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioGraphSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings: WindowsFoundation.IID = .init(
+        Data1: 0x1D59647F, Data2: 0xE6FE, Data3: 0x4628, Data4: ( 0x84,0xF8,0x9D,0x8B,0xDB,0xA2,0x57,0x85 ) // 1D59647F-E6FE-4628-84F8-9D8BDBA25785
+    ) 
+
+    public class IAudioGraphSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings }
+
+        public func get_EncodingProperties() throws -> UWP.AudioEncodingProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EncodingProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_MediaProperties.AudioEncodingPropertiesBridge.from(abi: value)
+        }
+
+        public func put_EncodingProperties(_ value: UWP.AudioEncodingProperties?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EncodingProperties(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PrimaryRenderDevice() throws -> UWP.DeviceInformation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrimaryRenderDevice(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationBridge.from(abi: value)
+        }
+
+        public func put_PrimaryRenderDevice(_ value: UWP.DeviceInformation?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PrimaryRenderDevice(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_QuantumSizeSelectionMode() throws -> UWP.QuantumSizeSelectionMode {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_QuantumSizeSelectionMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_QuantumSizeSelectionMode(_ value: UWP.QuantumSizeSelectionMode) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_QuantumSizeSelectionMode(pThis, value))
+            }
+        }
+
+        public func get_DesiredSamplesPerQuantum() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredSamplesPerQuantum(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DesiredSamplesPerQuantum(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredSamplesPerQuantum(pThis, value))
+            }
+        }
+
+        public func get_AudioRenderCategory() throws -> UWP.AudioRenderCategory {
+            var value: __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioRenderCategory(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_AudioRenderCategory(_ value: UWP.AudioRenderCategory) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AudioRenderCategory(pThis, value))
+            }
+        }
+
+        public func get_DesiredRenderDeviceAudioProcessing() throws -> UWP.AudioProcessing {
+            var value: __x_ABI_CWindows_CMedia_CAudioProcessing = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredRenderDeviceAudioProcessing(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DesiredRenderDeviceAudioProcessing(_ value: UWP.AudioProcessing) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredRenderDeviceAudioProcessing(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings2: WindowsFoundation.IID = .init(
+        Data1: 0x72919787, Data2: 0x4DAB, Data3: 0x46E3, Data4: ( 0xB4,0xC9,0xD8,0xE1,0xA2,0x63,0x60,0x62 ) // 72919787-4DAB-46E3-B4C9-D8E1A2636062
+    ) 
+
+    public class IAudioGraphSettings2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings2 }
+
+        public func put_MaxPlaybackSpeedFactor(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxPlaybackSpeedFactor(pThis, value))
+            }
+        }
+
+        public func get_MaxPlaybackSpeedFactor() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPlaybackSpeedFactor(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettingsFactory: WindowsFoundation.IID = .init(
+        Data1: 0xA5D91CC6, Data2: 0xC2EB, Data3: 0x4A61, Data4: ( 0xA2,0x14,0x1D,0x66,0xD7,0x5F,0x83,0xDA ) // A5D91CC6-C2EB-4A61-A214-1D66D75F83DA
+    ) 
+
+    public class IAudioGraphSettingsFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettingsFactory }
+
+        public func Create(_ audioRenderCategory: UWP.AudioRenderCategory) throws -> IAudioGraphSettings {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettingsFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, audioRenderCategory, &valueAbi))
+                }
+            }
+            return IAudioGraphSettings(value!)
+        }
+
+    }
+
+}
+// MARK: - AudioGraphUnrecoverableErrorOccurredEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographunrecoverableerroroccurredeventargs)
 public final class AudioGraphUnrecoverableErrorOccurredEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs
@@ -1168,6 +3484,49 @@ public final class AudioGraphUnrecoverableErrorOccurredEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioGraphUnrecoverableErrorOccurredEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioGraphUnrecoverableErrorOccurredEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AudioGraphUnrecoverableErrorOccurredEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs>?) -> AudioGraphUnrecoverableErrorOccurredEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioGraphUnrecoverableErrorOccurredEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AudioGraphUnrecoverableErrorOccurredEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioGraphUnrecoverableErrorOccurredEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xC3D9CBE0, Data2: 0x3FF6, Data3: 0x4FB3, Data4: ( 0xB2,0x62,0x50,0xD4,0x35,0xC5,0x54,0x23 ) // C3D9CBE0-3FF6-4FB3-B262-50D435C55423
+    ) 
+
+    public class IAudioGraphUnrecoverableErrorOccurredEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs }
+
+        public func get_Error() throws -> UWP.AudioGraphUnrecoverableError {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Error(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AudioNodeEmitter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter)
 public final class AudioNodeEmitter : WinRTClass {
@@ -1261,6 +3620,192 @@ public final class AudioNodeEmitter : WinRTClass {
     }
 }
 
+// MARK: - AudioNodeEmitter Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioNodeEmitterBridge: AbiBridge {
+        public typealias SwiftProjection = AudioNodeEmitter
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter>?) -> AudioNodeEmitter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioNodeEmitterMaker: MakeFromAbi {
+    public typealias SwiftType = AudioNodeEmitter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioNodeEmitter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter: WindowsFoundation.IID = .init(
+        Data1: 0x3676971D, Data2: 0x880A, Data3: 0x47B8, Data4: ( 0xAD,0xF7,0x13,0x23,0xA9,0xD9,0x65,0xBE ) // 3676971D-880A-47B8-ADF7-1323A9D965BE
+    ) 
+
+    public class IAudioNodeEmitter: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter }
+
+        public func get_Position() throws -> WindowsFoundation.Vector3 {
+            var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Position(_ value: WindowsFoundation.Vector3) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_Direction() throws -> WindowsFoundation.Vector3 {
+            var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Direction(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Direction(_ value: WindowsFoundation.Vector3) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Direction(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_Shape() throws -> UWP.AudioNodeEmitterShape? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Shape(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterShapeBridge.from(abi: value)
+        }
+
+        public func get_DecayModel() throws -> UWP.AudioNodeEmitterDecayModel? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecayModel(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterDecayModelBridge.from(abi: value)
+        }
+
+        public func get_Gain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Gain(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Gain(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Gain(pThis, value))
+            }
+        }
+
+        public func get_DistanceScale() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DistanceScale(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DistanceScale(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DistanceScale(pThis, value))
+            }
+        }
+
+        public func get_DopplerScale() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DopplerScale(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DopplerScale(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DopplerScale(pThis, value))
+            }
+        }
+
+        public func get_DopplerVelocity() throws -> WindowsFoundation.Vector3 {
+            var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DopplerVelocity(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_DopplerVelocity(_ value: WindowsFoundation.Vector3) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DopplerVelocity(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_IsDopplerDisabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDopplerDisabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter2: WindowsFoundation.IID = .init(
+        Data1: 0x4AB6EECB, Data2: 0xEC29, Data3: 0x47F8, Data4: ( 0x81,0x8C,0xB6,0xB6,0x60,0xA5,0xAE,0xB1 ) // 4AB6EECB-EC29-47F8-818C-B6B660A5AEB1
+    ) 
+
+    public class IAudioNodeEmitter2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter2 }
+
+        public func get_SpatialAudioModel() throws -> UWP.SpatialAudioModel {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CSpatialAudioModel = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpatialAudioModel(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SpatialAudioModel(_ value: UWP.SpatialAudioModel) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpatialAudioModel(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterFactory: WindowsFoundation.IID = .init(
+        Data1: 0xFDC8489A, Data2: 0x6AD6, Data3: 0x4CE4, Data4: ( 0xB7,0xF7,0xA9,0x93,0x70,0xDF,0x7E,0xE9 ) // FDC8489A-6AD6-4CE4-B7F7-A99370DF7EE9
+    ) 
+
+    public class IAudioNodeEmitterFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterFactory }
+
+        public func CreateAudioNodeEmitter(_ shape: UWP.AudioNodeEmitterShape?, _ decayModel: UWP.AudioNodeEmitterDecayModel?, _ settings: UWP.AudioNodeEmitterSettings) throws -> IAudioNodeEmitter {
+            let (emitter) = try ComPtrs.initialize { emitterAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateAudioNodeEmitter(pThis, RawPointer(shape), RawPointer(decayModel), settings, &emitterAbi))
+                }
+            }
+            return IAudioNodeEmitter(emitter!)
+        }
+
+    }
+
+}
+// MARK: - AudioNodeEmitterConeProperties
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterconeproperties)
 public final class AudioNodeEmitterConeProperties : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeEmitterConeProperties
@@ -1298,6 +3843,65 @@ public final class AudioNodeEmitterConeProperties : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioNodeEmitterConeProperties Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioNodeEmitterConePropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = AudioNodeEmitterConeProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties>?) -> AudioNodeEmitterConeProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioNodeEmitterConePropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = AudioNodeEmitterConeProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioNodeEmitterConeProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties: WindowsFoundation.IID = .init(
+        Data1: 0xE99B2CEE, Data2: 0x02CA, Data3: 0x4375, Data4: ( 0x93,0x26,0x0C,0x6A,0xE4,0xBC,0xDF,0xB5 ) // E99B2CEE-02CA-4375-9326-0C6AE4BCDFB5
+    ) 
+
+    public class IAudioNodeEmitterConeProperties: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties }
+
+        public func get_InnerAngle() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InnerAngle(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OuterAngle() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OuterAngle(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OuterAngleGain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OuterAngleGain(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AudioNodeEmitterDecayModel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel)
 public final class AudioNodeEmitterDecayModel : WinRTClass {
@@ -1353,6 +3957,101 @@ public final class AudioNodeEmitterDecayModel : WinRTClass {
     }
 }
 
+// MARK: - AudioNodeEmitterDecayModel Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioNodeEmitterDecayModelBridge: AbiBridge {
+        public typealias SwiftProjection = AudioNodeEmitterDecayModel
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel>?) -> AudioNodeEmitterDecayModel? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioNodeEmitterDecayModelMaker: MakeFromAbi {
+    public typealias SwiftType = AudioNodeEmitterDecayModel
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioNodeEmitterDecayModel(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel: WindowsFoundation.IID = .init(
+        Data1: 0x1D1D5AF7, Data2: 0x0D53, Data3: 0x4FA9, Data4: ( 0xBD,0x84,0xD5,0x81,0x6A,0x86,0xF3,0xFF ) // 1D1D5AF7-0D53-4FA9-BD84-D5816A86F3FF
+    ) 
+
+    public class IAudioNodeEmitterDecayModel: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel }
+
+        public func get_Kind() throws -> UWP.AudioNodeEmitterDecayKind {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterDecayKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_MinGain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinGain(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_MaxGain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxGain(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NaturalProperties() throws -> UWP.AudioNodeEmitterNaturalDecayModelProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NaturalProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterNaturalDecayModelPropertiesBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModelStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC7787CA8, Data2: 0xF178, Data3: 0x462F, Data4: ( 0xBC,0x81,0x8D,0xD5,0xCB,0xE5,0xDA,0xE8 ) // C7787CA8-F178-462F-BC81-8DD5CBE5DAE8
+    ) 
+
+    public class IAudioNodeEmitterDecayModelStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModelStatics }
+
+        public func CreateNatural(_ minGain: Double, _ maxGain: Double, _ unityGainDistance: Double, _ cutoffDistance: Double) throws -> UWP.AudioNodeEmitterDecayModel? {
+            let (decayModel) = try ComPtrs.initialize { decayModelAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModelStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateNatural(pThis, minGain, maxGain, unityGainDistance, cutoffDistance, &decayModelAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterDecayModelBridge.from(abi: decayModel)
+        }
+
+        public func CreateCustom(_ minGain: Double, _ maxGain: Double) throws -> UWP.AudioNodeEmitterDecayModel? {
+            let (decayModel) = try ComPtrs.initialize { decayModelAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModelStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCustom(pThis, minGain, maxGain, &decayModelAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterDecayModelBridge.from(abi: decayModel)
+        }
+
+    }
+
+}
+// MARK: - AudioNodeEmitterNaturalDecayModelProperties
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitternaturaldecaymodelproperties)
 public final class AudioNodeEmitterNaturalDecayModelProperties : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeEmitterNaturalDecayModelProperties
@@ -1385,6 +4084,57 @@ public final class AudioNodeEmitterNaturalDecayModelProperties : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioNodeEmitterNaturalDecayModelProperties Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioNodeEmitterNaturalDecayModelPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = AudioNodeEmitterNaturalDecayModelProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties>?) -> AudioNodeEmitterNaturalDecayModelProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioNodeEmitterNaturalDecayModelPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = AudioNodeEmitterNaturalDecayModelProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioNodeEmitterNaturalDecayModelProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties: WindowsFoundation.IID = .init(
+        Data1: 0x48934BCF, Data2: 0xCF2C, Data3: 0x4EFC, Data4: ( 0x93,0x31,0x75,0xBD,0x22,0xDF,0x1F,0x0C ) // 48934BCF-CF2C-4EFC-9331-75BD22DF1F0C
+    ) 
+
+    public class IAudioNodeEmitterNaturalDecayModelProperties: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties }
+
+        public func get_UnityGainDistance() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnityGainDistance(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_CutoffDistance() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CutoffDistance(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AudioNodeEmitterShape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittershape)
 public final class AudioNodeEmitterShape : WinRTClass {
@@ -1429,6 +4179,85 @@ public final class AudioNodeEmitterShape : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioNodeEmitterShape Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioNodeEmitterShapeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioNodeEmitterShape
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape>?) -> AudioNodeEmitterShape? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioNodeEmitterShapeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioNodeEmitterShape
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioNodeEmitterShape(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape: WindowsFoundation.IID = .init(
+        Data1: 0xEA0311C5, Data2: 0xE73D, Data3: 0x44BC, Data4: ( 0x85,0x9C,0x45,0x55,0x3B,0xBC,0x48,0x28 ) // EA0311C5-E73D-44BC-859C-45553BBC4828
+    ) 
+
+    public class IAudioNodeEmitterShape: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape }
+
+        public func get_Kind() throws -> UWP.AudioNodeEmitterShapeKind {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterShapeKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ConeProperties() throws -> UWP.AudioNodeEmitterConeProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ConeProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterConePropertiesBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShapeStatics: WindowsFoundation.IID = .init(
+        Data1: 0x57BB2771, Data2: 0xFFA5, Data3: 0x4B86, Data4: ( 0xA7,0x79,0xE2,0x64,0xAE,0xB9,0x14,0x5F ) // 57BB2771-FFA5-4B86-A779-E264AEB9145F
+    ) 
+
+    public class IAudioNodeEmitterShapeStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShapeStatics }
+
+        public func CreateCone(_ innerAngle: Double, _ outerAngle: Double, _ outerAngleGain: Double) throws -> UWP.AudioNodeEmitterShape? {
+            let (shape) = try ComPtrs.initialize { shapeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCone(pThis, innerAngle, outerAngle, outerAngleGain, &shapeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterShapeBridge.from(abi: shape)
+        }
+
+        public func CreateOmnidirectional() throws -> UWP.AudioNodeEmitterShape? {
+            let (shape) = try ComPtrs.initialize { shapeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateOmnidirectional(pThis, &shapeAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioNodeEmitterShapeBridge.from(abi: shape)
+        }
+
+    }
+
+}
+// MARK: - AudioNodeListener
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodelistener)
 public final class AudioNodeListener : WinRTClass {
@@ -1481,6 +4310,97 @@ public final class AudioNodeListener : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioNodeListener Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioNodeListenerBridge: AbiBridge {
+        public typealias SwiftProjection = AudioNodeListener
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener>?) -> AudioNodeListener? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioNodeListenerMaker: MakeFromAbi {
+    public typealias SwiftType = AudioNodeListener
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioNodeListener(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener: WindowsFoundation.IID = .init(
+        Data1: 0xD9722E16, Data2: 0x0C0A, Data3: 0x41DA, Data4: ( 0xB7,0x55,0x6C,0x77,0x83,0x5F,0xB1,0xEB ) // D9722E16-0C0A-41DA-B755-6C77835FB1EB
+    ) 
+
+    public class IAudioNodeListener: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener }
+
+        public func get_Position() throws -> WindowsFoundation.Vector3 {
+            var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Position(_ value: WindowsFoundation.Vector3) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_Orientation() throws -> WindowsFoundation.Quaternion {
+            var value: __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orientation(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Orientation(_ value: WindowsFoundation.Quaternion) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Orientation(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_SpeedOfSound() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpeedOfSound(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SpeedOfSound(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpeedOfSound(pThis, value))
+            }
+        }
+
+        public func get_DopplerVelocity() throws -> WindowsFoundation.Vector3 {
+            var value: __x_ABI_CWindows_CFoundation_CNumerics_CVector3 = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DopplerVelocity(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_DopplerVelocity(_ value: WindowsFoundation.Vector3) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DopplerVelocity(pThis, .from(swift: value)))
+            }
+        }
+
+    }
+
+}
+// MARK: - AudioStateMonitor
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor)
 public final class AudioStateMonitor : WinRTClass {
@@ -1563,6 +4483,148 @@ public final class AudioStateMonitor : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AudioStateMonitor Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioStateMonitorBridge: AbiBridge {
+        public typealias SwiftProjection = AudioStateMonitor
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor>?) -> AudioStateMonitor? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioStateMonitorMaker: MakeFromAbi {
+    public typealias SwiftType = AudioStateMonitor
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioStateMonitor(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor: WindowsFoundation.IID = .init(
+        Data1: 0x1D13D136, Data2: 0x0199, Data3: 0x4CDC, Data4: ( 0xB8,0x4E,0xE7,0x2C,0x2B,0x58,0x1E,0xCE ) // 1D13D136-0199-4CDC-B84E-E72C2B581ECE
+    ) 
+
+    public class IAudioStateMonitor: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor }
+
+        public func add_SoundLevelChanged(_ handler: TypedEventHandler<UWP.AudioStateMonitor?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CAudioStateMonitor_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SoundLevelChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SoundLevelChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SoundLevelChanged(pThis, token))
+            }
+        }
+
+        public func get_SoundLevel() throws -> UWP.SoundLevel {
+            var value: __x_ABI_CWindows_CMedia_CSoundLevel = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SoundLevel(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics: WindowsFoundation.IID = .init(
+        Data1: 0x6374EA4C, Data2: 0x1B3B, Data3: 0x4001, Data4: ( 0x94,0xD9,0xDD,0x22,0x53,0x30,0xFA,0x40 ) // 6374EA4C-1B3B-4001-94D9-DD225330FA40
+    ) 
+
+    public class IAudioStateMonitorStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics }
+
+        public func CreateForRenderMonitoring() throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForRenderMonitoring(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+        public func CreateForRenderMonitoringWithCategory(_ category: UWP.AudioRenderCategory) throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForRenderMonitoringWithCategory(pThis, category, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+        public func CreateForRenderMonitoringWithCategoryAndDeviceRole(_ category: UWP.AudioRenderCategory, _ role: UWP.AudioDeviceRole) throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForRenderMonitoringWithCategoryAndDeviceRole(pThis, category, role, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+        public func CreateForRenderMonitoringWithCategoryAndDeviceId(_ category: UWP.AudioRenderCategory, _ deviceId: String) throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _deviceId = try! HString(deviceId)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForRenderMonitoringWithCategoryAndDeviceId(pThis, category, _deviceId.get(), &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+        public func CreateForCaptureMonitoring() throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForCaptureMonitoring(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+        public func CreateForCaptureMonitoringWithCategory(_ category: UWP.MediaCategory) throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForCaptureMonitoringWithCategory(pThis, category, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+        public func CreateForCaptureMonitoringWithCategoryAndDeviceRole(_ category: UWP.MediaCategory, _ role: UWP.AudioDeviceRole) throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForCaptureMonitoringWithCategoryAndDeviceRole(pThis, category, role, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+        public func CreateForCaptureMonitoringWithCategoryAndDeviceId(_ category: UWP.MediaCategory, _ deviceId: String) throws -> UWP.AudioStateMonitor? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _deviceId = try! HString(deviceId)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForCaptureMonitoringWithCategoryAndDeviceId(pThis, category, _deviceId.get(), &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioStateMonitorBridge.from(abi: result)
+        }
+
+    }
+
+}
+// MARK: - AudioSubmixNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode)
 public final class AudioSubmixNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
@@ -1673,6 +4735,32 @@ public final class AudioSubmixNode : WinRTClass, WindowsFoundation.IClosable, IA
     }
 }
 
+// MARK: - AudioSubmixNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum AudioSubmixNodeBridge: AbiBridge {
+        public typealias SwiftProjection = AudioSubmixNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode>?) -> AudioSubmixNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioSubmixNodeMaker: MakeFromAbi {
+    public typealias SwiftType = AudioSubmixNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioSubmixNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+}
+// MARK: - CreateAudioDeviceInputNodeResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceinputnoderesult)
 public final class CreateAudioDeviceInputNodeResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioDeviceInputNodeResult
@@ -1712,6 +4800,75 @@ public final class CreateAudioDeviceInputNodeResult : WinRTClass {
         _ICreateAudioDeviceInputNodeResult2 = nil
     }
 }
+
+// MARK: - CreateAudioDeviceInputNodeResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum CreateAudioDeviceInputNodeResultBridge: AbiBridge {
+        public typealias SwiftProjection = CreateAudioDeviceInputNodeResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult>?) -> CreateAudioDeviceInputNodeResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CreateAudioDeviceInputNodeResultMaker: MakeFromAbi {
+    public typealias SwiftType = CreateAudioDeviceInputNodeResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CreateAudioDeviceInputNodeResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult: WindowsFoundation.IID = .init(
+        Data1: 0x16EEC7A8, Data2: 0x1CA7, Data3: 0x40EF, Data4: ( 0x91,0xA4,0xD3,0x46,0xE0,0xAA,0x1B,0xBA ) // 16EEC7A8-1CA7-40EF-91A4-D346E0AA1BBA
+    ) 
+
+    public class ICreateAudioDeviceInputNodeResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult }
+
+        public func get_Status() throws -> UWP.AudioDeviceNodeCreationStatus {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_DeviceInputNode() throws -> UWP.AudioDeviceInputNode? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceInputNode(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioDeviceInputNodeBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult2: WindowsFoundation.IID = .init(
+        Data1: 0x921C69CE, Data2: 0x3F35, Data3: 0x41C7, Data4: ( 0x96,0x22,0x79,0xF6,0x08,0xBA,0xED,0xC2 ) // 921C69CE-3F35-41C7-9622-79F608BAEDC2
+    ) 
+
+    public class ICreateAudioDeviceInputNodeResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - CreateAudioDeviceOutputNodeResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceoutputnoderesult)
 public final class CreateAudioDeviceOutputNodeResult : WinRTClass {
@@ -1753,6 +4910,75 @@ public final class CreateAudioDeviceOutputNodeResult : WinRTClass {
     }
 }
 
+// MARK: - CreateAudioDeviceOutputNodeResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum CreateAudioDeviceOutputNodeResultBridge: AbiBridge {
+        public typealias SwiftProjection = CreateAudioDeviceOutputNodeResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult>?) -> CreateAudioDeviceOutputNodeResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CreateAudioDeviceOutputNodeResultMaker: MakeFromAbi {
+    public typealias SwiftType = CreateAudioDeviceOutputNodeResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CreateAudioDeviceOutputNodeResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult: WindowsFoundation.IID = .init(
+        Data1: 0xF7776D27, Data2: 0x1D9A, Data3: 0x47F7, Data4: ( 0x9C,0xD4,0x28,0x59,0xCC,0x1B,0x7B,0xFF ) // F7776D27-1D9A-47F7-9CD4-2859CC1B7BFF
+    ) 
+
+    public class ICreateAudioDeviceOutputNodeResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult }
+
+        public func get_Status() throws -> UWP.AudioDeviceNodeCreationStatus {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_DeviceOutputNode() throws -> UWP.AudioDeviceOutputNode? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceOutputNode(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioDeviceOutputNodeBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult2: WindowsFoundation.IID = .init(
+        Data1: 0x4864269F, Data2: 0xBDCE, Data3: 0x4AB1, Data4: ( 0xBD,0x38,0xFB,0xAE,0x93,0xAE,0xDA,0xCA ) // 4864269F-BDCE-4AB1-BD38-FBAE93AEDACA
+    ) 
+
+    public class ICreateAudioDeviceOutputNodeResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - CreateAudioFileInputNodeResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileinputnoderesult)
 public final class CreateAudioFileInputNodeResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioFileInputNodeResult
@@ -1792,6 +5018,75 @@ public final class CreateAudioFileInputNodeResult : WinRTClass {
         _ICreateAudioFileInputNodeResult2 = nil
     }
 }
+
+// MARK: - CreateAudioFileInputNodeResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum CreateAudioFileInputNodeResultBridge: AbiBridge {
+        public typealias SwiftProjection = CreateAudioFileInputNodeResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult>?) -> CreateAudioFileInputNodeResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CreateAudioFileInputNodeResultMaker: MakeFromAbi {
+    public typealias SwiftType = CreateAudioFileInputNodeResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CreateAudioFileInputNodeResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult: WindowsFoundation.IID = .init(
+        Data1: 0xCE83D61C, Data2: 0xE297, Data3: 0x4C50, Data4: ( 0x9C,0xE7,0x1C,0x7A,0x69,0xD6,0xBD,0x09 ) // CE83D61C-E297-4C50-9CE7-1C7A69D6BD09
+    ) 
+
+    public class ICreateAudioFileInputNodeResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult }
+
+        public func get_Status() throws -> UWP.AudioFileNodeCreationStatus {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_FileInputNode() throws -> UWP.AudioFileInputNode? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileInputNode(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioFileInputNodeBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult2: WindowsFoundation.IID = .init(
+        Data1: 0xF9082020, Data2: 0x3D80, Data3: 0x4FE0, Data4: ( 0x81,0xC1,0x76,0x8F,0xEA,0x7C,0xA7,0xE0 ) // F9082020-3D80-4FE0-81C1-768FEA7CA7E0
+    ) 
+
+    public class ICreateAudioFileInputNodeResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - CreateAudioFileOutputNodeResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileoutputnoderesult)
 public final class CreateAudioFileOutputNodeResult : WinRTClass {
@@ -1833,6 +5128,75 @@ public final class CreateAudioFileOutputNodeResult : WinRTClass {
     }
 }
 
+// MARK: - CreateAudioFileOutputNodeResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum CreateAudioFileOutputNodeResultBridge: AbiBridge {
+        public typealias SwiftProjection = CreateAudioFileOutputNodeResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult>?) -> CreateAudioFileOutputNodeResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CreateAudioFileOutputNodeResultMaker: MakeFromAbi {
+    public typealias SwiftType = CreateAudioFileOutputNodeResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CreateAudioFileOutputNodeResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult: WindowsFoundation.IID = .init(
+        Data1: 0x47D6BA7B, Data2: 0xE909, Data3: 0x453F, Data4: ( 0x86,0x6E,0x55,0x40,0xCD,0xA7,0x34,0xFF ) // 47D6BA7B-E909-453F-866E-5540CDA734FF
+    ) 
+
+    public class ICreateAudioFileOutputNodeResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult }
+
+        public func get_Status() throws -> UWP.AudioFileNodeCreationStatus {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_FileOutputNode() throws -> UWP.AudioFileOutputNode? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileOutputNode(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioFileOutputNodeBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult2: WindowsFoundation.IID = .init(
+        Data1: 0x9F01B50D, Data2: 0x3318, Data3: 0x47B3, Data4: ( 0xA6,0x0A,0x1B,0x49,0x2B,0xE7,0xFC,0x0D ) // 9F01B50D-3318-47B3-A60A-1B492BE7FC0D
+    ) 
+
+    public class ICreateAudioFileOutputNodeResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - CreateAudioGraphResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiographresult)
 public final class CreateAudioGraphResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioGraphResult
@@ -1873,6 +5237,75 @@ public final class CreateAudioGraphResult : WinRTClass {
     }
 }
 
+// MARK: - CreateAudioGraphResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum CreateAudioGraphResultBridge: AbiBridge {
+        public typealias SwiftProjection = CreateAudioGraphResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult>?) -> CreateAudioGraphResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CreateAudioGraphResultMaker: MakeFromAbi {
+    public typealias SwiftType = CreateAudioGraphResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CreateAudioGraphResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult: WindowsFoundation.IID = .init(
+        Data1: 0x5453EF7E, Data2: 0x7BDE, Data3: 0x4B76, Data4: ( 0xBB,0x5D,0x48,0xF7,0x9C,0xFC,0x8C,0x0B ) // 5453EF7E-7BDE-4B76-BB5D-48F79CFC8C0B
+    ) 
+
+    public class ICreateAudioGraphResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult }
+
+        public func get_Status() throws -> UWP.AudioGraphCreationStatus {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Graph() throws -> UWP.AudioGraph? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Graph(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.AudioGraphBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult2: WindowsFoundation.IID = .init(
+        Data1: 0x6D738DFC, Data2: 0x88C6, Data3: 0x4FCB, Data4: ( 0xA5,0x34,0x85,0xCE,0xDD,0x40,0x50,0xA1 ) // 6D738DFC-88C6-4FCB-A534-85CEDD4050A1
+    ) 
+
+    public class ICreateAudioGraphResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - CreateMediaSourceAudioInputNodeResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult)
 public final class CreateMediaSourceAudioInputNodeResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateMediaSourceAudioInputNodeResult
@@ -1912,6 +5345,75 @@ public final class CreateMediaSourceAudioInputNodeResult : WinRTClass {
         _ICreateMediaSourceAudioInputNodeResult2 = nil
     }
 }
+
+// MARK: - CreateMediaSourceAudioInputNodeResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum CreateMediaSourceAudioInputNodeResultBridge: AbiBridge {
+        public typealias SwiftProjection = CreateMediaSourceAudioInputNodeResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult>?) -> CreateMediaSourceAudioInputNodeResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CreateMediaSourceAudioInputNodeResultMaker: MakeFromAbi {
+    public typealias SwiftType = CreateMediaSourceAudioInputNodeResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CreateMediaSourceAudioInputNodeResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult: WindowsFoundation.IID = .init(
+        Data1: 0x46A658A3, Data2: 0x53C0, Data3: 0x4D59, Data4: ( 0x9E,0x51,0xCC,0x1D,0x10,0x44,0xA4,0xC4 ) // 46A658A3-53C0-4D59-9E51-CC1D1044A4C4
+    ) 
+
+    public class ICreateMediaSourceAudioInputNodeResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult }
+
+        public func get_Status() throws -> UWP.MediaSourceAudioInputNodeCreationStatus {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Node() throws -> UWP.MediaSourceAudioInputNode? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Node(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.MediaSourceAudioInputNodeBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult2: WindowsFoundation.IID = .init(
+        Data1: 0x63514CE8, Data2: 0x6A1A, Data3: 0x49E3, Data4: ( 0x97,0xEC,0x28,0xFD,0x5B,0xE1,0x14,0xE5 ) // 63514CE8-6A1A-49E3-97EC-28FD5BE114E5
+    ) 
+
+    public class ICreateMediaSourceAudioInputNodeResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - EchoEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.echoeffectdefinition)
 public final class EchoEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
@@ -1974,6 +5476,101 @@ public final class EchoEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition
     }
 }
 
+// MARK: - EchoEffectDefinition Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum EchoEffectDefinitionBridge: AbiBridge {
+        public typealias SwiftProjection = EchoEffectDefinition
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition>?) -> EchoEffectDefinition? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class EchoEffectDefinitionMaker: MakeFromAbi {
+    public typealias SwiftType = EchoEffectDefinition
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EchoEffectDefinition(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition: WindowsFoundation.IID = .init(
+        Data1: 0x0E4D3FAA, Data2: 0x36B8, Data3: 0x4C91, Data4: ( 0xB9,0xDA,0x11,0xF4,0x4A,0x8A,0x66,0x10 ) // 0E4D3FAA-36B8-4C91-B9DA-11F44A8A6610
+    ) 
+
+    public class IEchoEffectDefinition: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition }
+
+        public func put_WetDryMix(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_WetDryMix(pThis, value))
+            }
+        }
+
+        public func get_WetDryMix() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_WetDryMix(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Feedback(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Feedback(pThis, value))
+            }
+        }
+
+        public func get_Feedback() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Feedback(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Delay(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Delay(pThis, value))
+            }
+        }
+
+        public func get_Delay() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Delay(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinitionFactory: WindowsFoundation.IID = .init(
+        Data1: 0x0D4E2257, Data2: 0xAAF2, Data3: 0x4E86, Data4: ( 0xA5,0x4C,0xFB,0x79,0xDB,0x8F,0x6C,0x12 ) // 0D4E2257-AAF2-4E86-A54C-FB79DB8F6C12
+    ) 
+
+    public class IEchoEffectDefinitionFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinitionFactory }
+
+        public func Create(_ audioGraph: UWP.AudioGraph?) throws -> IEchoEffectDefinition {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinitionFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(audioGraph), &valueAbi))
+                }
+            }
+            return IEchoEffectDefinition(value!)
+        }
+
+    }
+
+}
+// MARK: - EqualizerBand
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizerband)
 public final class EqualizerBand : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IEqualizerBand
@@ -2014,6 +5611,83 @@ public final class EqualizerBand : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - EqualizerBand Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum EqualizerBandBridge: AbiBridge {
+        public typealias SwiftProjection = EqualizerBand
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand>?) -> EqualizerBand? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class EqualizerBandMaker: MakeFromAbi {
+    public typealias SwiftType = EqualizerBand
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EqualizerBand(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand: WindowsFoundation.IID = .init(
+        Data1: 0xC00A5A6A, Data2: 0x262D, Data3: 0x4B85, Data4: ( 0x9B,0xB7,0x43,0x28,0x0B,0x62,0xED,0x0C ) // C00A5A6A-262D-4B85-9BB7-43280B62ED0C
+    ) 
+
+    public class IEqualizerBand: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand }
+
+        public func get_Bandwidth() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bandwidth(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Bandwidth(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Bandwidth(pThis, value))
+            }
+        }
+
+        public func get_FrequencyCenter() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrequencyCenter(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FrequencyCenter(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FrequencyCenter(pThis, value))
+            }
+        }
+
+        public func get_Gain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Gain(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Gain(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Gain(pThis, value))
+            }
+        }
+
+    }
+
+}
+// MARK: - EqualizerEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizereffectdefinition)
 public final class EqualizerEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
@@ -2063,6 +5737,68 @@ public final class EqualizerEffectDefinition : WinRTClass, UWP.IAudioEffectDefin
     }
 }
 
+// MARK: - EqualizerEffectDefinition Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum EqualizerEffectDefinitionBridge: AbiBridge {
+        public typealias SwiftProjection = EqualizerEffectDefinition
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition>?) -> EqualizerEffectDefinition? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class EqualizerEffectDefinitionMaker: MakeFromAbi {
+    public typealias SwiftType = EqualizerEffectDefinition
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EqualizerEffectDefinition(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition: WindowsFoundation.IID = .init(
+        Data1: 0x023F6F1F, Data2: 0x83FE, Data3: 0x449A, Data4: ( 0xA8,0x22,0xC6,0x96,0x44,0x2D,0x16,0xB0 ) // 023F6F1F-83FE-449A-A822-C696442D16B0
+    ) 
+
+    public class IEqualizerEffectDefinition: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition }
+
+        public func get_Bands() throws -> WindowsFoundation.AnyIVectorView<UWP.EqualizerBand?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bands(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CAudio__CEqualizerBandWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinitionFactory: WindowsFoundation.IID = .init(
+        Data1: 0xD2876FC4, Data2: 0xD410, Data3: 0x4EB5, Data4: ( 0x9E,0x69,0xC9,0xAA,0x12,0x77,0xEA,0xF0 ) // D2876FC4-D410-4EB5-9E69-C9AA1277EAF0
+    ) 
+
+    public class IEqualizerEffectDefinitionFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinitionFactory }
+
+        public func Create(_ audioGraph: UWP.AudioGraph?) throws -> IEqualizerEffectDefinition {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinitionFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(audioGraph), &valueAbi))
+                }
+            }
+            return IEqualizerEffectDefinition(value!)
+        }
+
+    }
+
+}
+// MARK: - FrameInputNodeQuantumStartedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.frameinputnodequantumstartedeventargs)
 public final class FrameInputNodeQuantumStartedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IFrameInputNodeQuantumStartedEventArgs
@@ -2090,6 +5826,49 @@ public final class FrameInputNodeQuantumStartedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - FrameInputNodeQuantumStartedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum FrameInputNodeQuantumStartedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = FrameInputNodeQuantumStartedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs>?) -> FrameInputNodeQuantumStartedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FrameInputNodeQuantumStartedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = FrameInputNodeQuantumStartedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FrameInputNodeQuantumStartedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x3D9BD498, Data2: 0xA306, Data3: 0x4F06, Data4: ( 0xBD,0x9F,0xE9,0xEF,0xC8,0x22,0x63,0x04 ) // 3D9BD498-A306-4F06-BD9F-E9EFC8226304
+    ) 
+
+    public class IFrameInputNodeQuantumStartedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs }
+
+        public func get_RequiredSamples() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequiredSamples(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - LimiterEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.limitereffectdefinition)
 public final class LimiterEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
@@ -2145,6 +5924,87 @@ public final class LimiterEffectDefinition : WinRTClass, UWP.IAudioEffectDefinit
         _default = nil
     }
 }
+
+// MARK: - LimiterEffectDefinition Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum LimiterEffectDefinitionBridge: AbiBridge {
+        public typealias SwiftProjection = LimiterEffectDefinition
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition>?) -> LimiterEffectDefinition? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class LimiterEffectDefinitionMaker: MakeFromAbi {
+    public typealias SwiftType = LimiterEffectDefinition
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LimiterEffectDefinition(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition: WindowsFoundation.IID = .init(
+        Data1: 0x6B755D19, Data2: 0x2603, Data3: 0x47BA, Data4: ( 0xBD,0xEB,0x39,0x05,0x5E,0x34,0x86,0xDC ) // 6B755D19-2603-47BA-BDEB-39055E3486DC
+    ) 
+
+    public class ILimiterEffectDefinition: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition }
+
+        public func put_Release(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Release(pThis, value))
+            }
+        }
+
+        public func get_Release() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Release(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Loudness(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Loudness(pThis, value))
+            }
+        }
+
+        public func get_Loudness() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Loudness(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinitionFactory: WindowsFoundation.IID = .init(
+        Data1: 0xECBAE6F1, Data2: 0x61FF, Data3: 0x45EF, Data4: ( 0xB8,0xF5,0x48,0x65,0x9A,0x57,0xC7,0x2D ) // ECBAE6F1-61FF-45EF-B8F5-48659A57C72D
+    ) 
+
+    public class ILimiterEffectDefinitionFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinitionFactory }
+
+        public func Create(_ audioGraph: UWP.AudioGraph?) throws -> ILimiterEffectDefinition {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinitionFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(audioGraph), &valueAbi))
+                }
+            }
+            return ILimiterEffectDefinition(value!)
+        }
+
+    }
+
+}
+// MARK: - MediaSourceAudioInputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode)
 public final class MediaSourceAudioInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
@@ -2313,6 +6173,153 @@ public final class MediaSourceAudioInputNode : WinRTClass, WindowsFoundation.ICl
         _default = nil
     }
 }
+
+// MARK: - MediaSourceAudioInputNode Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum MediaSourceAudioInputNodeBridge: AbiBridge {
+        public typealias SwiftProjection = MediaSourceAudioInputNode
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode>?) -> MediaSourceAudioInputNode? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaSourceAudioInputNodeMaker: MakeFromAbi {
+    public typealias SwiftType = MediaSourceAudioInputNode
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaSourceAudioInputNode(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode: WindowsFoundation.IID = .init(
+        Data1: 0x99D8983B, Data2: 0xA88A, Data3: 0x4041, Data4: ( 0x8E,0x4F,0xDD,0xBA,0xC0,0xC9,0x1F,0xD3 ) // 99D8983B-A88A-4041-8E4F-DDBAC0C91FD3
+    ) 
+
+    public class IMediaSourceAudioInputNode: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode }
+
+        public func put_PlaybackSpeedFactor(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackSpeedFactor(pThis, value))
+            }
+        }
+
+        public func get_PlaybackSpeedFactor() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackSpeedFactor(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func Seek(_ position: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Seek(pThis, .from(swift: position)))
+            }
+        }
+
+        public func get_StartTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartTime(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_StartTime(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartTime(pThis, _value))
+            }
+        }
+
+        public func get_EndTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EndTime(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_EndTime(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EndTime(pThis, _value))
+            }
+        }
+
+        public func get_LoopCount() throws -> Int32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LoopCount(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_intWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_LoopCount(_ value: Int32?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_intWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LoopCount(pThis, _value))
+            }
+        }
+
+        public func get_Duration() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Duration(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_MediaSource() throws -> UWP.MediaSource? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaSource(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Core.MediaSourceBridge.from(abi: value)
+        }
+
+        public func add_MediaSourceCompleted(_ handler: TypedEventHandler<UWP.MediaSourceAudioInputNode?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CMediaSourceAudioInputNode_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_MediaSourceCompleted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_MediaSourceCompleted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_MediaSourceCompleted(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - ReverbEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition)
 public final class ReverbEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
@@ -2495,6 +6502,381 @@ public final class ReverbEffectDefinition : WinRTClass, UWP.IAudioEffectDefiniti
     }
 }
 
+// MARK: - ReverbEffectDefinition Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum ReverbEffectDefinitionBridge: AbiBridge {
+        public typealias SwiftProjection = ReverbEffectDefinition
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition>?) -> ReverbEffectDefinition? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ReverbEffectDefinitionMaker: MakeFromAbi {
+    public typealias SwiftType = ReverbEffectDefinition
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ReverbEffectDefinition(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition: WindowsFoundation.IID = .init(
+        Data1: 0x4606AA89, Data2: 0xF563, Data3: 0x4D0A, Data4: ( 0x8F,0x6E,0xF0,0xCD,0xDF,0xF3,0x5D,0x84 ) // 4606AA89-F563-4D0A-8F6E-F0CDDFF35D84
+    ) 
+
+    public class IReverbEffectDefinition: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition }
+
+        public func put_WetDryMix(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_WetDryMix(pThis, value))
+            }
+        }
+
+        public func get_WetDryMix() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_WetDryMix(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ReflectionsDelay(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ReflectionsDelay(pThis, value))
+            }
+        }
+
+        public func get_ReflectionsDelay() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReflectionsDelay(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ReverbDelay(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ReverbDelay(pThis, value))
+            }
+        }
+
+        public func get_ReverbDelay() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReverbDelay(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RearDelay(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RearDelay(pThis, value))
+            }
+        }
+
+        public func get_RearDelay() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RearDelay(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_PositionLeft(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionLeft(pThis, value))
+            }
+        }
+
+        public func get_PositionLeft() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionLeft(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_PositionRight(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionRight(pThis, value))
+            }
+        }
+
+        public func get_PositionRight() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionRight(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_PositionMatrixLeft(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionMatrixLeft(pThis, value))
+            }
+        }
+
+        public func get_PositionMatrixLeft() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionMatrixLeft(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_PositionMatrixRight(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PositionMatrixRight(pThis, value))
+            }
+        }
+
+        public func get_PositionMatrixRight() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionMatrixRight(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_EarlyDiffusion(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EarlyDiffusion(pThis, value))
+            }
+        }
+
+        public func get_EarlyDiffusion() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EarlyDiffusion(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LateDiffusion(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LateDiffusion(pThis, value))
+            }
+        }
+
+        public func get_LateDiffusion() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LateDiffusion(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LowEQGain(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LowEQGain(pThis, value))
+            }
+        }
+
+        public func get_LowEQGain() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LowEQGain(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LowEQCutoff(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LowEQCutoff(pThis, value))
+            }
+        }
+
+        public func get_LowEQCutoff() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LowEQCutoff(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HighEQGain(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HighEQGain(pThis, value))
+            }
+        }
+
+        public func get_HighEQGain() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HighEQGain(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HighEQCutoff(_ value: UInt8) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HighEQCutoff(pThis, value))
+            }
+        }
+
+        public func get_HighEQCutoff() throws -> UInt8 {
+            var value: UINT8 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HighEQCutoff(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RoomFilterFreq(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RoomFilterFreq(pThis, value))
+            }
+        }
+
+        public func get_RoomFilterFreq() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoomFilterFreq(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RoomFilterMain(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RoomFilterMain(pThis, value))
+            }
+        }
+
+        public func get_RoomFilterMain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoomFilterMain(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RoomFilterHF(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RoomFilterHF(pThis, value))
+            }
+        }
+
+        public func get_RoomFilterHF() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoomFilterHF(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ReflectionsGain(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ReflectionsGain(pThis, value))
+            }
+        }
+
+        public func get_ReflectionsGain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReflectionsGain(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ReverbGain(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ReverbGain(pThis, value))
+            }
+        }
+
+        public func get_ReverbGain() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReverbGain(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DecayTime(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DecayTime(pThis, value))
+            }
+        }
+
+        public func get_DecayTime() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DecayTime(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Density(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Density(pThis, value))
+            }
+        }
+
+        public func get_Density() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Density(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RoomSize(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RoomSize(pThis, value))
+            }
+        }
+
+        public func get_RoomSize() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoomSize(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DisableLateField(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisableLateField(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_DisableLateField() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisableLateField(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinitionFactory: WindowsFoundation.IID = .init(
+        Data1: 0xA7D5CBFE, Data2: 0x100B, Data3: 0x4FF0, Data4: ( 0x9D,0xA6,0xDC,0x4E,0x05,0xA7,0x59,0xF0 ) // A7D5CBFE-100B-4FF0-9DA6-DC4E05A759F0
+    ) 
+
+    public class IReverbEffectDefinitionFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinitionFactory }
+
+        public func Create(_ audioGraph: UWP.AudioGraph?) throws -> IReverbEffectDefinition {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinitionFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, RawPointer(audioGraph), &valueAbi))
+                }
+            }
+            return IReverbEffectDefinition(value!)
+        }
+
+    }
+
+}
+// MARK: - SetDefaultSpatialAudioFormatResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.setdefaultspatialaudioformatresult)
 public final class SetDefaultSpatialAudioFormatResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ISetDefaultSpatialAudioFormatResult
@@ -2522,6 +6904,49 @@ public final class SetDefaultSpatialAudioFormatResult : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - SetDefaultSpatialAudioFormatResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum SetDefaultSpatialAudioFormatResultBridge: AbiBridge {
+        public typealias SwiftProjection = SetDefaultSpatialAudioFormatResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult>?) -> SetDefaultSpatialAudioFormatResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SetDefaultSpatialAudioFormatResultMaker: MakeFromAbi {
+    public typealias SwiftType = SetDefaultSpatialAudioFormatResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SetDefaultSpatialAudioFormatResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult: WindowsFoundation.IID = .init(
+        Data1: 0x1C2AA511, Data2: 0x1400, Data3: 0x5E70, Data4: ( 0x9E,0xA9,0xAE,0x15,0x12,0x41,0xE8,0xEA ) // 1C2AA511-1400-5E70-9EA9-AE151241E8EA
+    ) 
+
+    public class ISetDefaultSpatialAudioFormatResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult }
+
+        public func get_Status() throws -> UWP.SetDefaultSpatialAudioFormatStatus {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - SpatialAudioDeviceConfiguration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration)
 public final class SpatialAudioDeviceConfiguration : WinRTClass {
@@ -2595,6 +7020,130 @@ public final class SpatialAudioDeviceConfiguration : WinRTClass {
     }
 }
 
+// MARK: - SpatialAudioDeviceConfiguration Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum SpatialAudioDeviceConfigurationBridge: AbiBridge {
+        public typealias SwiftProjection = SpatialAudioDeviceConfiguration
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration>?) -> SpatialAudioDeviceConfiguration? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SpatialAudioDeviceConfigurationMaker: MakeFromAbi {
+    public typealias SwiftType = SpatialAudioDeviceConfiguration
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpatialAudioDeviceConfiguration(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration: WindowsFoundation.IID = .init(
+        Data1: 0xEE830034, Data2: 0x61CF, Data3: 0x5749, Data4: ( 0x9D,0xA4,0x10,0xF0,0xFE,0x02,0x81,0x99 ) // EE830034-61CF-5749-9DA4-10F0FE028199
+    ) 
+
+    public class ISpatialAudioDeviceConfiguration: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration }
+
+        public func get_DeviceId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_IsSpatialAudioSupported() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSpatialAudioSupported(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func IsSpatialAudioFormatSupported(_ subtype: String) throws -> Bool {
+            var result: boolean = 0
+            let _subtype = try! HString(subtype)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsSpatialAudioFormatSupported(pThis, _subtype.get(), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func get_ActiveSpatialAudioFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActiveSpatialAudioFormat(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DefaultSpatialAudioFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultSpatialAudioFormat(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func SetDefaultSpatialAudioFormatAsync(_ subtype: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SetDefaultSpatialAudioFormatResult?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _subtype = try! HString(subtype)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetDefaultSpatialAudioFormatAsync(pThis, _subtype.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CAudio__CSetDefaultSpatialAudioFormatResultWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func add_ConfigurationChanged(_ handler: TypedEventHandler<UWP.SpatialAudioDeviceConfiguration?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CAudio__CSpatialAudioDeviceConfiguration_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ConfigurationChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ConfigurationChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ConfigurationChanged(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfigurationStatics: WindowsFoundation.IID = .init(
+        Data1: 0x3EC37F7B, Data2: 0x936D, Data3: 0x4E04, Data4: ( 0x97,0x28,0x28,0x27,0xD9,0xF7,0x58,0xC4 ) // 3EC37F7B-936D-4E04-9728-2827D9F758C4
+    ) 
+
+    public class ISpatialAudioDeviceConfigurationStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfigurationStatics }
+
+        public func GetForDeviceId(_ deviceId: String) throws -> UWP.SpatialAudioDeviceConfiguration? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _deviceId = try! HString(deviceId)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfigurationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetForDeviceId(pThis, _deviceId.get(), &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.SpatialAudioDeviceConfigurationBridge.from(abi: result)
+        }
+
+    }
+
+}
+// MARK: - SpatialAudioFormatConfiguration
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatconfiguration)
 public final class SpatialAudioFormatConfiguration : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ISpatialAudioFormatConfiguration
@@ -2640,6 +7189,93 @@ public final class SpatialAudioFormatConfiguration : WinRTClass {
     }
 }
 
+// MARK: - SpatialAudioFormatConfiguration Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Audio {
+    public enum SpatialAudioFormatConfigurationBridge: AbiBridge {
+        public typealias SwiftProjection = SpatialAudioFormatConfiguration
+        public typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration>?) -> SpatialAudioFormatConfiguration? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SpatialAudioFormatConfigurationMaker: MakeFromAbi {
+    public typealias SwiftType = SpatialAudioFormatConfiguration
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpatialAudioFormatConfiguration(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration: WindowsFoundation.IID = .init(
+        Data1: 0x32DF09A8, Data2: 0x50F0, Data3: 0x5395, Data4: ( 0x99,0x23,0x7D,0x44,0xCA,0x71,0xED,0x6D ) // 32DF09A8-50F0-5395-9923-7D44CA71ED6D
+    ) 
+
+    public class ISpatialAudioFormatConfiguration: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration }
+
+        public func ReportLicenseChangedAsync(_ subtype: String) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _subtype = try! HString(subtype)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ReportLicenseChangedAsync(pThis, _subtype.get(), &operationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func ReportConfigurationChangedAsync(_ subtype: String) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _subtype = try! HString(subtype)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ReportConfigurationChangedAsync(pThis, _subtype.get(), &operationAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func get_MixedRealityExclusiveModePolicy() throws -> UWP.MixedRealitySpatialAudioFormatPolicy {
+            var value: __x_ABI_CWindows_CMedia_CAudio_CMixedRealitySpatialAudioFormatPolicy = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MixedRealityExclusiveModePolicy(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MixedRealityExclusiveModePolicy(_ value: UWP.MixedRealitySpatialAudioFormatPolicy) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MixedRealityExclusiveModePolicy(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfigurationStatics: WindowsFoundation.IID = .init(
+        Data1: 0x2B5FEF71, Data2: 0x67C9, Data3: 0x4E5F, Data4: ( 0xA3,0x5B,0x41,0x68,0x07,0x11,0xF8,0xC7 ) // 2B5FEF71-67C9-4E5F-A35B-41680711F8C7
+    ) 
+
+    public class ISpatialAudioFormatConfigurationStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfigurationStatics }
+
+        public func GetDefault() throws -> UWP.SpatialAudioFormatConfiguration? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfigurationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDefault(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Audio.SpatialAudioFormatConfigurationBridge.from(abi: result)
+        }
+
+    }
+
+}
+// MARK: - SpatialAudioFormatSubtype
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatsubtype)
 public final class SpatialAudioFormatSubtype {
     private static let _ISpatialAudioFormatSubtypeStatics: __ABI_Windows_Media_Audio.ISpatialAudioFormatSubtypeStatics = try! RoGetActivationFactory("Windows.Media.Audio.SpatialAudioFormatSubtype")
@@ -2675,292 +7311,71 @@ public final class SpatialAudioFormatSubtype {
 
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode)
-public protocol IAudioInputNode : WindowsFoundation.IClosable, IAudioNode {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.addoutgoingconnection)
-    func addOutgoingConnection(_ destination: UWP.AnyIAudioNode!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.addoutgoingconnection)
-    func addOutgoingConnection(_ destination: UWP.AnyIAudioNode!, _ gain: Double) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.removeoutgoingconnection)
-    func removeOutgoingConnection(_ destination: UWP.AnyIAudioNode!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode.outgoingconnections)
-    var outgoingConnections: WindowsFoundation.AnyIVectorView<UWP.AudioGraphConnection?>! { get }
-}
+// MARK: - SpatialAudioFormatSubtype Internals
 
-extension IAudioInputNode {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_Media_Audio.IAudioInputNodeWrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioInputNodeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Foundation.IClosableWrapper.IID:
-                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Audio {
+    private static let IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics: WindowsFoundation.IID = .init(
+        Data1: 0xB3DE8A47, Data2: 0x83EE, Data3: 0x4266, Data4: ( 0xA9,0x45,0xBE,0xDF,0x50,0x7A,0xFE,0xED ) // B3DE8A47-83EE-4266-A945-BEDF507AFEED
+    ) 
+
+    public class ISpatialAudioFormatSubtypeStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics }
+
+        public func get_WindowsSonic() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_WindowsSonic(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
         }
-    }
-}
-public typealias AnyIAudioInputNode = any IAudioInputNode
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2)
-public protocol IAudioInputNode2 : WindowsFoundation.IClosable, IAudioNode, IAudioInputNode {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudioinputnode2.emitter)
-    var emitter: UWP.AudioNodeEmitter! { get }
-}
-
-extension IAudioInputNode2 {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_Media_Audio.IAudioInputNode2Wrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioInputNode2Wrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Foundation.IClosableWrapper.IID:
-                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Media_Audio.IAudioInputNodeWrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioInputNodeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+        public func get_DolbyAtmosForHeadphones() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DolbyAtmosForHeadphones(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
         }
-    }
-}
-public typealias AnyIAudioInputNode2 = any IAudioInputNode2
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode)
-public protocol IAudioNode : WindowsFoundation.IClosable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.start)
-    func start() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.stop)
-    func stop() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.reset)
-    func reset() throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.disableeffectsbydefinition)
-    func disableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.enableeffectsbydefinition)
-    func enableEffectsByDefinition(_ definition: UWP.AnyIAudioEffectDefinition!) throws
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.consumeinput)
-    var consumeInput: Bool { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.effectdefinitions)
-    var effectDefinitions: WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>! { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.encodingproperties)
-    var encodingProperties: UWP.AudioEncodingProperties! { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionode.outgoinggain)
-    var outgoingGain: Double { get set }
-}
-
-extension IAudioNode {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Foundation.IClosableWrapper.IID:
-                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+        public func get_DolbyAtmosForHomeTheater() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DolbyAtmosForHomeTheater(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
         }
-    }
-}
-public typealias AnyIAudioNode = any IAudioNode
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener)
-public protocol IAudioNodeWithListener : WindowsFoundation.IClosable, IAudioNode {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.iaudionodewithlistener.listener)
-    var listener: UWP.AudioNodeListener! { get set }
-}
-
-extension IAudioNodeWithListener {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_Media_Audio.IAudioNodeWithListenerWrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWithListenerWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Foundation.IClosableWrapper.IID:
-                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Media_Audio.IAudioNodeWrapper.IID:
-                let wrapper = __ABI_Windows_Media_Audio.IAudioNodeWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+        public func get_DolbyAtmosForSpeakers() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DolbyAtmosForSpeakers(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
         }
-    }
-}
-public typealias AnyIAudioNodeWithListener = any IAudioNodeWithListener
 
-extension UWP.AudioDeviceNodeCreationStatus {
-    public static var success : UWP.AudioDeviceNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_Success
-    }
-    public static var deviceNotAvailable : UWP.AudioDeviceNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_DeviceNotAvailable
-    }
-    public static var formatNotSupported : UWP.AudioDeviceNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_FormatNotSupported
-    }
-    public static var unknownFailure : UWP.AudioDeviceNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_UnknownFailure
-    }
-    public static var accessDenied : UWP.AudioDeviceNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioDeviceNodeCreationStatus_AccessDenied
-    }
-}
-extension UWP.AudioDeviceNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+        public func get_DTSHeadphoneX() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DTSHeadphoneX(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
 
-extension UWP.AudioFileNodeCreationStatus {
-    public static var success : UWP.AudioFileNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_Success
-    }
-    public static var fileNotFound : UWP.AudioFileNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_FileNotFound
-    }
-    public static var invalidFileType : UWP.AudioFileNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_InvalidFileType
-    }
-    public static var formatNotSupported : UWP.AudioFileNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_FormatNotSupported
-    }
-    public static var unknownFailure : UWP.AudioFileNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioFileNodeCreationStatus_UnknownFailure
-    }
-}
-extension UWP.AudioFileNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+        public func get_DTSXUltra() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DTSXUltra(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
 
-extension UWP.AudioGraphCreationStatus {
-    public static var success : UWP.AudioGraphCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_Success
     }
-    public static var deviceNotAvailable : UWP.AudioGraphCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_DeviceNotAvailable
-    }
-    public static var formatNotSupported : UWP.AudioGraphCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_FormatNotSupported
-    }
-    public static var unknownFailure : UWP.AudioGraphCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphCreationStatus_UnknownFailure
-    }
-}
-extension UWP.AudioGraphCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
-extension UWP.AudioGraphUnrecoverableError {
-    public static var none : UWP.AudioGraphUnrecoverableError {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_None
-    }
-    public static var audioDeviceLost : UWP.AudioGraphUnrecoverableError {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_AudioDeviceLost
-    }
-    public static var audioSessionDisconnected : UWP.AudioGraphUnrecoverableError {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_AudioSessionDisconnected
-    }
-    public static var unknownFailure : UWP.AudioGraphUnrecoverableError {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioGraphUnrecoverableError_UnknownFailure
-    }
 }
-extension UWP.AudioGraphUnrecoverableError: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.AudioNodeEmitterDecayKind {
-    public static var natural : UWP.AudioNodeEmitterDecayKind {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterDecayKind_Natural
-    }
-    public static var custom : UWP.AudioNodeEmitterDecayKind {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterDecayKind_Custom
-    }
-}
-extension UWP.AudioNodeEmitterDecayKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.AudioNodeEmitterSettings {
-    public static var none : UWP.AudioNodeEmitterSettings {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterSettings_None
-    }
-    public static var disableDoppler : UWP.AudioNodeEmitterSettings {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterSettings_DisableDoppler
-    }
-}
-extension UWP.AudioNodeEmitterSettings: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.AudioNodeEmitterShapeKind {
-    public static var omnidirectional : UWP.AudioNodeEmitterShapeKind {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterShapeKind_Omnidirectional
-    }
-    public static var cone : UWP.AudioNodeEmitterShapeKind {
-        __x_ABI_CWindows_CMedia_CAudio_CAudioNodeEmitterShapeKind_Cone
-    }
-}
-extension UWP.AudioNodeEmitterShapeKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MediaSourceAudioInputNodeCreationStatus {
-    public static var success : UWP.MediaSourceAudioInputNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_Success
-    }
-    public static var formatNotSupported : UWP.MediaSourceAudioInputNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_FormatNotSupported
-    }
-    public static var networkError : UWP.MediaSourceAudioInputNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_NetworkError
-    }
-    public static var unknownFailure : UWP.MediaSourceAudioInputNodeCreationStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CMediaSourceAudioInputNodeCreationStatus_UnknownFailure
-    }
-}
-extension UWP.MediaSourceAudioInputNodeCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MixedRealitySpatialAudioFormatPolicy {
-    public static var useMixedRealityDefaultSpatialAudioFormat : UWP.MixedRealitySpatialAudioFormatPolicy {
-        __x_ABI_CWindows_CMedia_CAudio_CMixedRealitySpatialAudioFormatPolicy_UseMixedRealityDefaultSpatialAudioFormat
-    }
-    public static var useDeviceConfigurationDefaultSpatialAudioFormat : UWP.MixedRealitySpatialAudioFormatPolicy {
-        __x_ABI_CWindows_CMedia_CAudio_CMixedRealitySpatialAudioFormatPolicy_UseDeviceConfigurationDefaultSpatialAudioFormat
-    }
-}
-extension UWP.MixedRealitySpatialAudioFormatPolicy: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.QuantumSizeSelectionMode {
-    public static var systemDefault : UWP.QuantumSizeSelectionMode {
-        __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode_SystemDefault
-    }
-    public static var lowestLatency : UWP.QuantumSizeSelectionMode {
-        __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode_LowestLatency
-    }
-    public static var closestToDesired : UWP.QuantumSizeSelectionMode {
-        __x_ABI_CWindows_CMedia_CAudio_CQuantumSizeSelectionMode_ClosestToDesired
-    }
-}
-extension UWP.QuantumSizeSelectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SetDefaultSpatialAudioFormatStatus {
-    public static var succeeded : UWP.SetDefaultSpatialAudioFormatStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_Succeeded
-    }
-    public static var accessDenied : UWP.SetDefaultSpatialAudioFormatStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_AccessDenied
-    }
-    public static var licenseExpired : UWP.SetDefaultSpatialAudioFormatStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_LicenseExpired
-    }
-    public static var licenseNotValidForAudioEndpoint : UWP.SetDefaultSpatialAudioFormatStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_LicenseNotValidForAudioEndpoint
-    }
-    public static var notSupportedOnAudioEndpoint : UWP.SetDefaultSpatialAudioFormatStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_NotSupportedOnAudioEndpoint
-    }
-    public static var unknownError : UWP.SetDefaultSpatialAudioFormatStatus {
-        __x_ABI_CWindows_CMedia_CAudio_CSetDefaultSpatialAudioFormatStatus_UnknownError
-    }
-}
-extension UWP.SetDefaultSpatialAudioFormatStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SpatialAudioModel {
-    public static var objectBased : UWP.SpatialAudioModel {
-        __x_ABI_CWindows_CMedia_CAudio_CSpatialAudioModel_ObjectBased
-    }
-    public static var foldDown : UWP.SpatialAudioModel {
-        __x_ABI_CWindows_CMedia_CAudio_CSpatialAudioModel_FoldDown
-    }
-}
-extension UWP.SpatialAudioModel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

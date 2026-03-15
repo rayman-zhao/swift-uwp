@@ -5,48 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __IMPL_Windows_Media_Effects {
-    public enum IAudioEffectDefinitionBridge : AbiInterfaceBridge {
-        public typealias CABI = __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition
-        public typealias SwiftABI = __ABI_Windows_Media_Effects.IAudioEffectDefinition
-        public typealias SwiftProjection = AnyIAudioEffectDefinition
-        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
-            guard let abi = abi else { return nil }
-            return IAudioEffectDefinitionImpl(abi)
-        }
-
-        public static func makeAbi() -> CABI {
-            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media_Effects.IAudioEffectDefinitionVTable) { $0 }
-            return .init(lpVtbl: vtblPtr)
-        }
-    }
-
-    fileprivate class IAudioEffectDefinitionImpl: IAudioEffectDefinition, WinRTAbiImpl {
-        fileprivate typealias Bridge = IAudioEffectDefinitionBridge
-        fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
-            _default = Bridge.SwiftABI(fromAbi)
-        }
-
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition.activatableclassid)
-        fileprivate var activatableClassId : String {
-            get { try! _default.get_ActivatableClassId() }
-        }
-
-        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.effects.iaudioeffectdefinition.properties)
-        fileprivate var properties : WindowsFoundation.AnyIPropertySet! {
-            get { try! _default.get_Properties() }
-        }
-
-    }
-
-}
-@_spi(WinRTInternal)
-public class IAudioEffectDefinitionMaker: MakeFromAbi {
-    public typealias SwiftType = AnyIAudioEffectDefinition
-    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
-        let swiftAbi: __ABI_Windows_Media_Effects.IAudioEffectDefinition = try! abi.QueryInterface()
-        return __IMPL_Windows_Media_Effects.IAudioEffectDefinitionBridge.from(abi: RawPointer(swiftAbi))!
-    }
-}
+public enum __IMPL_Windows_Media_Effects {}

@@ -4,8 +4,11 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - ProtectionPolicyEvaluationResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicyevaluationresult)
 public typealias ProtectionPolicyEvaluationResult = __x_ABI_CWindows_CSecurity_CEnterpriseData_CProtectionPolicyEvaluationResult
+
 extension UWP.ProtectionPolicyEvaluationResult {
     public static var allowed : UWP.ProtectionPolicyEvaluationResult {
         __x_ABI_CWindows_CSecurity_CEnterpriseData_CProtectionPolicyEvaluationResult_Allowed

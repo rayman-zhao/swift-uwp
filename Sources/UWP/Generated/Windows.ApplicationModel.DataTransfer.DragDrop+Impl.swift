@@ -5,5 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __IMPL_Windows_ApplicationModel_DataTransfer_DragDrop {
-}
+public enum __IMPL_Windows_ApplicationModel_DataTransfer_DragDrop {}

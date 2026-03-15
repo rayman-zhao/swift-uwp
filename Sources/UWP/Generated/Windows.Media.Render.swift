@@ -4,8 +4,11 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AudioRenderCategory
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.render.audiorendercategory)
 public typealias AudioRenderCategory = __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory
+
 extension UWP.AudioRenderCategory {
     public static var other : UWP.AudioRenderCategory {
         __x_ABI_CWindows_CMedia_CRender_CAudioRenderCategory_Other

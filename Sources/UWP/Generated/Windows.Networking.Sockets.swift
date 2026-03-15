@@ -4,8 +4,11 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - SocketSslErrorSeverity
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.sockets.socketsslerrorseverity)
 public typealias SocketSslErrorSeverity = __x_ABI_CWindows_CNetworking_CSockets_CSocketSslErrorSeverity
+
 extension UWP.SocketSslErrorSeverity {
     public static var none : UWP.SocketSslErrorSeverity {
         __x_ABI_CWindows_CNetworking_CSockets_CSocketSslErrorSeverity_None

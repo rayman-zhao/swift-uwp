@@ -4,24 +4,560 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AudioBufferAccessMode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audiobufferaccessmode)
 public typealias AudioBufferAccessMode = __x_ABI_CWindows_CMedia_CAudioBufferAccessMode
+
+extension UWP.AudioBufferAccessMode {
+    public static var read : UWP.AudioBufferAccessMode {
+        __x_ABI_CWindows_CMedia_CAudioBufferAccessMode_Read
+    }
+    public static var readWrite : UWP.AudioBufferAccessMode {
+        __x_ABI_CWindows_CMedia_CAudioBufferAccessMode_ReadWrite
+    }
+    public static var write : UWP.AudioBufferAccessMode {
+        __x_ABI_CWindows_CMedia_CAudioBufferAccessMode_Write
+    }
+}
+extension UWP.AudioBufferAccessMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AudioProcessing
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioprocessing)
 public typealias AudioProcessing = __x_ABI_CWindows_CMedia_CAudioProcessing
+
+extension UWP.AudioProcessing {
+    public static var `default` : UWP.AudioProcessing {
+        __x_ABI_CWindows_CMedia_CAudioProcessing_Default
+    }
+    public static var raw : UWP.AudioProcessing {
+        __x_ABI_CWindows_CMedia_CAudioProcessing_Raw
+    }
+}
+extension UWP.AudioProcessing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaPlaybackAutoRepeatMode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaplaybackautorepeatmode)
 public typealias MediaPlaybackAutoRepeatMode = __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode
+
+extension UWP.MediaPlaybackAutoRepeatMode {
+    public static var none : UWP.MediaPlaybackAutoRepeatMode {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode_None
+    }
+    public static var track : UWP.MediaPlaybackAutoRepeatMode {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode_Track
+    }
+    public static var list : UWP.MediaPlaybackAutoRepeatMode {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode_List
+    }
+}
+extension UWP.MediaPlaybackAutoRepeatMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaPlaybackStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaplaybackstatus)
 public typealias MediaPlaybackStatus = __x_ABI_CWindows_CMedia_CMediaPlaybackStatus
+
+extension UWP.MediaPlaybackStatus {
+    public static var closed : UWP.MediaPlaybackStatus {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Closed
+    }
+    public static var changing : UWP.MediaPlaybackStatus {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Changing
+    }
+    public static var stopped : UWP.MediaPlaybackStatus {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Stopped
+    }
+    public static var playing : UWP.MediaPlaybackStatus {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Playing
+    }
+    public static var paused : UWP.MediaPlaybackStatus {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Paused
+    }
+}
+extension UWP.MediaPlaybackStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaPlaybackType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaplaybacktype)
 public typealias MediaPlaybackType = __x_ABI_CWindows_CMedia_CMediaPlaybackType
+
+extension UWP.MediaPlaybackType {
+    public static var unknown : UWP.MediaPlaybackType {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Unknown
+    }
+    public static var music : UWP.MediaPlaybackType {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Music
+    }
+    public static var video : UWP.MediaPlaybackType {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Video
+    }
+    public static var image : UWP.MediaPlaybackType {
+        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Image
+    }
+}
+extension UWP.MediaPlaybackType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaTimelineControllerState
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontrollerstate)
 public typealias MediaTimelineControllerState = __x_ABI_CWindows_CMedia_CMediaTimelineControllerState
+
+extension UWP.MediaTimelineControllerState {
+    public static var paused : UWP.MediaTimelineControllerState {
+        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Paused
+    }
+    public static var running : UWP.MediaTimelineControllerState {
+        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Running
+    }
+    public static var stalled : UWP.MediaTimelineControllerState {
+        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Stalled
+    }
+    public static var error : UWP.MediaTimelineControllerState {
+        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Error
+    }
+}
+extension UWP.MediaTimelineControllerState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SoundLevel
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.soundlevel)
 public typealias SoundLevel = __x_ABI_CWindows_CMedia_CSoundLevel
+
+extension UWP.SoundLevel {
+    public static var muted : UWP.SoundLevel {
+        __x_ABI_CWindows_CMedia_CSoundLevel_Muted
+    }
+    public static var low : UWP.SoundLevel {
+        __x_ABI_CWindows_CMedia_CSoundLevel_Low
+    }
+    public static var full : UWP.SoundLevel {
+        __x_ABI_CWindows_CMedia_CSoundLevel_Full
+    }
+}
+extension UWP.SoundLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SystemMediaTransportControlsButton
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsbutton)
 public typealias SystemMediaTransportControlsButton = __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton
+
+extension UWP.SystemMediaTransportControlsButton {
+    public static var play : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Play
+    }
+    public static var pause : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Pause
+    }
+    public static var stop : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Stop
+    }
+    public static var record : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Record
+    }
+    public static var fastForward : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_FastForward
+    }
+    public static var rewind : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Rewind
+    }
+    public static var next : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Next
+    }
+    public static var previous : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Previous
+    }
+    public static var channelUp : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_ChannelUp
+    }
+    public static var channelDown : UWP.SystemMediaTransportControlsButton {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_ChannelDown
+    }
+}
+extension UWP.SystemMediaTransportControlsButton: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SystemMediaTransportControlsProperty
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsproperty)
 public typealias SystemMediaTransportControlsProperty = __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty
+
+extension UWP.SystemMediaTransportControlsProperty {
+    public static var soundLevel : UWP.SystemMediaTransportControlsProperty {
+        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty_SoundLevel
+    }
+}
+extension UWP.SystemMediaTransportControlsProperty: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaTimeRange
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange)
+public struct MediaTimeRange: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange.start)
+    public var start: WindowsFoundation.TimeSpan = .init()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange.end)
+    public var end: WindowsFoundation.TimeSpan = .init()
+    public init() {}
+    public init(start: WindowsFoundation.TimeSpan, end: WindowsFoundation.TimeSpan) {
+        self.start = start
+        self.end = end
+    }
+}
+
+// MARK: - MediaTimeRange Internals
+
+@_spi(WinRTInternal)
+extension MediaTimeRange: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CMedia_CMediaTimeRange
+    public static func from(abi: ABI) -> Self {
+        .init(start: .from(abi: abi.Start), end: .from(abi: abi.End))
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CMedia_CMediaTimeRange {
+    public static func from(swift: UWP.MediaTimeRange) -> __x_ABI_CWindows_CMedia_CMediaTimeRange {
+        .init(Start: .from(swift: swift.start), End: .from(swift: swift.end))
+    }
+}
+// MARK: - IMediaFrame
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe)
+public protocol IMediaFrame : WindowsFoundation.IClosable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.duration)
+    var duration: WindowsFoundation.TimeSpan? { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.extendedproperties)
+    var extendedProperties: WindowsFoundation.AnyIPropertySet! { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isdiscontinuous)
+    var isDiscontinuous: Bool { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isreadonly)
+    var isReadOnly: Bool { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.relativetime)
+    var relativeTime: WindowsFoundation.TimeSpan? { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.systemrelativetime)
+    var systemRelativeTime: WindowsFoundation.TimeSpan? { get set }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.type)
+    var type: String { get }
+}
+
+extension IMediaFrame {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_Media.IMediaFrameWrapper.IID:
+                let wrapper = __ABI_Windows_Media.IMediaFrameWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_Foundation.IClosableWrapper.IID:
+                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIMediaFrame = any IMediaFrame
+
+// MARK: - IMediaFrame Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum IMediaFrameBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIMediaFrame
+        public typealias SwiftABI = __ABI_Windows_Media.IMediaFrame
+        public typealias SwiftProjection = AnyIMediaFrame
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IMediaFrameImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Media.IMediaFrameVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IMediaFrameImpl: IMediaFrame, WinRTAbiImpl {
+        fileprivate typealias Bridge = IMediaFrameBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.duration)
+        fileprivate var duration : WindowsFoundation.TimeSpan? {
+            get { try! _default.get_Duration() }
+            set { try! _default.put_Duration(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.extendedproperties)
+        fileprivate var extendedProperties : WindowsFoundation.AnyIPropertySet! {
+            get { try! _default.get_ExtendedProperties() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isdiscontinuous)
+        fileprivate var isDiscontinuous : Bool {
+            get { try! _default.get_IsDiscontinuous() }
+            set { try! _default.put_IsDiscontinuous(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isreadonly)
+        fileprivate var isReadOnly : Bool {
+            get { try! _default.get_IsReadOnly() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.relativetime)
+        fileprivate var relativeTime : WindowsFoundation.TimeSpan? {
+            get { try! _default.get_RelativeTime() }
+            set { try! _default.put_RelativeTime(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.systemrelativetime)
+        fileprivate var systemRelativeTime : WindowsFoundation.TimeSpan? {
+            get { try! _default.get_SystemRelativeTime() }
+            set { try! _default.put_SystemRelativeTime(newValue) }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.type)
+        fileprivate var type : String {
+            get { try! _default.get_Type() }
+        }
+
+        private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.close)
+        fileprivate func close() throws {
+            try _IClosable.Close()
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIMediaFrame: WindowsFoundation.IID = .init(
+        Data1: 0xBFB52F8C, Data2: 0x5943, Data3: 0x47D8, Data4: ( 0x8E,0x10,0x05,0x30,0x8A,0xA5,0xFB,0xD0 ) // BFB52F8C-5943-47D8-8E10-05308AA5FBD0
+    ) 
+
+    public class IMediaFrame: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIMediaFrame }
+
+        open func get_Type() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func get_IsReadOnly() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsReadOnly(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func put_RelativeTime(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RelativeTime(pThis, _value))
+            }
+        }
+
+        open func get_RelativeTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RelativeTime(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_SystemRelativeTime(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SystemRelativeTime(pThis, _value))
+            }
+        }
+
+        open func get_SystemRelativeTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SystemRelativeTime(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_Duration(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Duration(pThis, _value))
+            }
+        }
+
+        open func get_Duration() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Duration(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        open func put_IsDiscontinuous(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsDiscontinuous(pThis, .init(from: value)))
+            }
+        }
+
+        open func get_IsDiscontinuous() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDiscontinuous(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        open func get_ExtendedProperties() throws -> WindowsFoundation.AnyIPropertySet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaFrame.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedProperties(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Foundation_Collections.IPropertySetWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    internal static var IMediaFrameVTable: __x_ABI_CWindows_CMedia_CIMediaFrameVtbl = .init(
+        QueryInterface: { IMediaFrameWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IMediaFrameWrapper.addRef($0) },
+        Release: { IMediaFrameWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Media.IMediaFrameWrapper.IID
+            iids[3] = __ABI_Windows_Foundation.IClosableWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Media.IMediaFrame").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Type: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.type
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        get_IsReadOnly: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isReadOnly
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        put_RelativeTime: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: WindowsFoundation.TimeSpan? = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: ComPtr($1))
+            __unwrapped__instance.relativeTime = value
+            return S_OK
+        },
+
+        get_RelativeTime: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.relativeTime
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_SystemRelativeTime: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: WindowsFoundation.TimeSpan? = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: ComPtr($1))
+            __unwrapped__instance.systemRelativeTime = value
+            return S_OK
+        },
+
+        get_SystemRelativeTime: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.systemRelativeTime
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_Duration: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: WindowsFoundation.TimeSpan? = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: ComPtr($1))
+            __unwrapped__instance.duration = value
+            return S_OK
+        },
+
+        get_Duration: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.duration
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        put_IsDiscontinuous: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value: Bool = .init(from: $1)
+            __unwrapped__instance.isDiscontinuous = value
+            return S_OK
+        },
+
+        get_IsDiscontinuous: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.isDiscontinuous
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        },
+
+        get_ExtendedProperties: {
+            guard let __unwrapped__instance = IMediaFrameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.extendedProperties
+            let valueWrapper = __ABI_Windows_Foundation_Collections.IPropertySetWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IMediaFrameWrapper = InterfaceWrapperBase<__IMPL_Windows_Media.IMediaFrameBridge>
+}
+@_spi(WinRTInternal)
+public class IMediaFrameMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIMediaFrame
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Media.IMediaFrame = try! abi.QueryInterface()
+        return __IMPL_Windows_Media.IMediaFrameBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - AudioBuffer
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audiobuffer)
 public final class AudioBuffer : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IMemoryBuffer {
     private typealias SwiftABI = __ABI_Windows_Media.IAudioBuffer
@@ -72,6 +608,63 @@ public final class AudioBuffer : WinRTClass, WindowsFoundation.IClosable, Window
         _default = nil
     }
 }
+
+// MARK: - AudioBuffer Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum AudioBufferBridge: AbiBridge {
+        public typealias SwiftProjection = AudioBuffer
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIAudioBuffer
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIAudioBuffer>?) -> AudioBuffer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioBufferMaker: MakeFromAbi {
+    public typealias SwiftType = AudioBuffer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioBuffer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIAudioBuffer: WindowsFoundation.IID = .init(
+        Data1: 0x35175827, Data2: 0x724B, Data3: 0x4C6A, Data4: ( 0xB1,0x30,0xF6,0x53,0x7F,0x9A,0xE0,0xD0 ) // 35175827-724B-4C6A-B130-F6537F9AE0D0
+    ) 
+
+    public class IAudioBuffer: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIAudioBuffer }
+
+        public func get_Capacity() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIAudioBuffer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Capacity(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Length() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIAudioBuffer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Length(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Length(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIAudioBuffer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Length(pThis, value))
+            }
+        }
+
+    }
+
+}
+// MARK: - AudioFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audioframe)
 public final class AudioFrame : WinRTClass, WindowsFoundation.IClosable, IMediaFrame {
@@ -157,6 +750,68 @@ public final class AudioFrame : WinRTClass, WindowsFoundation.IClosable, IMediaF
     }
 }
 
+// MARK: - AudioFrame Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum AudioFrameBridge: AbiBridge {
+        public typealias SwiftProjection = AudioFrame
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIAudioFrame
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIAudioFrame>?) -> AudioFrame? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AudioFrameMaker: MakeFromAbi {
+    public typealias SwiftType = AudioFrame
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AudioFrame(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIAudioFrame: WindowsFoundation.IID = .init(
+        Data1: 0xE36AC304, Data2: 0xAAB2, Data3: 0x4277, Data4: ( 0x9E,0xD0,0x43,0xCE,0xDF,0x8E,0x29,0xC6 ) // E36AC304-AAB2-4277-9ED0-43CEDF8E29C6
+    ) 
+
+    public class IAudioFrame: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIAudioFrame }
+
+        public func LockBuffer(_ mode: UWP.AudioBufferAccessMode) throws -> UWP.AudioBuffer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIAudioFrame.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.LockBuffer(pThis, mode, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media.AudioBufferBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CIAudioFrameFactory: WindowsFoundation.IID = .init(
+        Data1: 0x91A90ADE, Data2: 0x2422, Data3: 0x40A6, Data4: ( 0xB9,0xAD,0x30,0xD0,0x24,0x04,0x31,0x7D ) // 91A90ADE-2422-40A6-B9AD-30D02404317D
+    ) 
+
+    public class IAudioFrameFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIAudioFrameFactory }
+
+        public func Create(_ capacity: UInt32) throws -> IAudioFrame {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIAudioFrameFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, capacity, &valueAbi))
+                }
+            }
+            return IAudioFrame(value!)
+        }
+
+    }
+
+}
+// MARK: - AutoRepeatModeChangeRequestedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.autorepeatmodechangerequestedeventargs)
 public final class AutoRepeatModeChangeRequestedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media.IAutoRepeatModeChangeRequestedEventArgs
@@ -184,6 +839,49 @@ public final class AutoRepeatModeChangeRequestedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AutoRepeatModeChangeRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum AutoRepeatModeChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AutoRepeatModeChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs>?) -> AutoRepeatModeChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AutoRepeatModeChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AutoRepeatModeChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutoRepeatModeChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xEA137EFA, Data2: 0xD852, Data3: 0x438E, Data4: ( 0x88,0x2B,0xC9,0x90,0x10,0x9A,0x78,0xF4 ) // EA137EFA-D852-438E-882B-C990109A78F4
+    ) 
+
+    public class IAutoRepeatModeChangeRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs }
+
+        public func get_RequestedAutoRepeatMode() throws -> UWP.MediaPlaybackAutoRepeatMode {
+            var value: __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIAutoRepeatModeChangeRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedAutoRepeatMode(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - ImageDisplayProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imagedisplayproperties)
 public final class ImageDisplayProperties : WinRTClass {
@@ -219,6 +917,73 @@ public final class ImageDisplayProperties : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ImageDisplayProperties Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum ImageDisplayPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = ImageDisplayProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIImageDisplayProperties
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIImageDisplayProperties>?) -> ImageDisplayProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ImageDisplayPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = ImageDisplayProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ImageDisplayProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIImageDisplayProperties: WindowsFoundation.IID = .init(
+        Data1: 0xCD0BC7EF, Data2: 0x54E7, Data3: 0x411F, Data4: ( 0x99,0x33,0xF0,0xE9,0x8B,0x0A,0x96,0xD2 ) // CD0BC7EF-54E7-411F-9933-F0E98B0A96D2
+    ) 
+
+    public class IImageDisplayProperties: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIImageDisplayProperties }
+
+        public func get_Title() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIImageDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Title(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIImageDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Title(pThis, _value.get()))
+            }
+        }
+
+        public func get_Subtitle() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIImageDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtitle(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Subtitle(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIImageDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Subtitle(pThis, _value.get()))
+            }
+        }
+
+    }
+
+}
+// MARK: - MediaTimelineController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontroller)
 public final class MediaTimelineController : WinRTClass {
@@ -346,6 +1111,199 @@ public final class MediaTimelineController : WinRTClass {
     }
 }
 
+// MARK: - MediaTimelineController Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum MediaTimelineControllerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaTimelineController
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIMediaTimelineController
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIMediaTimelineController>?) -> MediaTimelineController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaTimelineControllerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaTimelineController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaTimelineController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIMediaTimelineController: WindowsFoundation.IID = .init(
+        Data1: 0x8ED361F3, Data2: 0x0B78, Data3: 0x4360, Data4: ( 0xBF,0x71,0x0C,0x84,0x19,0x99,0xEA,0x1B ) // 8ED361F3-0B78-4360-BF71-0C841999EA1B
+    ) 
+
+    public class IMediaTimelineController: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIMediaTimelineController }
+
+        public func Start() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Start(pThis))
+            }
+        }
+
+        public func Resume() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Resume(pThis))
+            }
+        }
+
+        public func Pause() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Pause(pThis))
+            }
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Position(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_ClockRate() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClockRate(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ClockRate(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClockRate(pThis, value))
+            }
+        }
+
+        public func get_State() throws -> UWP.MediaTimelineControllerState {
+            var value: __x_ABI_CWindows_CMedia_CMediaTimelineControllerState = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_State(pThis, &value))
+            }
+            return value
+        }
+
+        public func add_PositionChanged(_ positionChangedEventHandler: TypedEventHandler<UWP.MediaTimelineController?, Any?>?) throws -> EventRegistrationToken {
+            var eventCookie: EventRegistrationToken = .init()
+            let positionChangedEventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CMediaTimelineController_IInspectableWrapper(positionChangedEventHandler)
+            let _positionChangedEventHandler = try! positionChangedEventHandlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_PositionChanged(pThis, _positionChangedEventHandler, &eventCookie))
+            }
+            return eventCookie
+        }
+
+        public func remove_PositionChanged(_ eventCookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PositionChanged(pThis, eventCookie))
+            }
+        }
+
+        public func add_StateChanged(_ stateChangedEventHandler: TypedEventHandler<UWP.MediaTimelineController?, Any?>?) throws -> EventRegistrationToken {
+            var eventCookie: EventRegistrationToken = .init()
+            let stateChangedEventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CMediaTimelineController_IInspectableWrapper(stateChangedEventHandler)
+            let _stateChangedEventHandler = try! stateChangedEventHandlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_StateChanged(pThis, _stateChangedEventHandler, &eventCookie))
+            }
+            return eventCookie
+        }
+
+        public func remove_StateChanged(_ eventCookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_StateChanged(pThis, eventCookie))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CIMediaTimelineController2: WindowsFoundation.IID = .init(
+        Data1: 0xEF74EA38, Data2: 0x9E72, Data3: 0x4DF9, Data4: ( 0x83,0x55,0x6E,0x90,0xC8,0x1B,0xBA,0xDD ) // EF74EA38-9E72-4DF9-8355-6E90C81BBADD
+    ) 
+
+    public class IMediaTimelineController2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIMediaTimelineController2 }
+
+        public func get_Duration() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Duration(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Duration(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Duration(pThis, _value))
+            }
+        }
+
+        public func get_IsLoopingEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsLoopingEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsLoopingEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsLoopingEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func add_Failed(_ eventHandler: TypedEventHandler<UWP.MediaTimelineController?, UWP.MediaTimelineControllerFailedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let eventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CMediaTimelineController___x_ABI_CWindows__CMedia__CMediaTimelineControllerFailedEventArgsWrapper(eventHandler)
+            let _eventHandler = try! eventHandlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Failed(pThis, _eventHandler, &token))
+            }
+            return token
+        }
+
+        public func remove_Failed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Failed(pThis, token))
+            }
+        }
+
+        public func add_Ended(_ eventHandler: TypedEventHandler<UWP.MediaTimelineController?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let eventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CMediaTimelineController_IInspectableWrapper(eventHandler)
+            let _eventHandler = try! eventHandlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Ended(pThis, _eventHandler, &token))
+            }
+            return token
+        }
+
+        public func remove_Ended(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineController2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Ended(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - MediaTimelineControllerFailedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimelinecontrollerfailedeventargs)
 public final class MediaTimelineControllerFailedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media.IMediaTimelineControllerFailedEventArgs
@@ -373,6 +1331,49 @@ public final class MediaTimelineControllerFailedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - MediaTimelineControllerFailedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum MediaTimelineControllerFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MediaTimelineControllerFailedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs>?) -> MediaTimelineControllerFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaTimelineControllerFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MediaTimelineControllerFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaTimelineControllerFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x8821F81D, Data2: 0x3E77, Data3: 0x43FB, Data4: ( 0xBE,0x26,0x4F,0xC8,0x7A,0x04,0x48,0x34 ) // 8821F81D-3E77-43FB-BE26-4FC87A044834
+    ) 
+
+    public class IMediaTimelineControllerFailedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMediaTimelineControllerFailedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - MusicDisplayProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.musicdisplayproperties)
 public final class MusicDisplayProperties : WinRTClass {
@@ -442,6 +1443,160 @@ public final class MusicDisplayProperties : WinRTClass {
     }
 }
 
+// MARK: - MusicDisplayProperties Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum MusicDisplayPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = MusicDisplayProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIMusicDisplayProperties
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIMusicDisplayProperties>?) -> MusicDisplayProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MusicDisplayPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = MusicDisplayProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MusicDisplayProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIMusicDisplayProperties: WindowsFoundation.IID = .init(
+        Data1: 0x6BBF0C59, Data2: 0xD0A0, Data3: 0x4D26, Data4: ( 0x92,0xA0,0xF9,0x78,0xE1,0xD1,0x8E,0x7B ) // 6BBF0C59-D0A0-4D26-92A0-F978E1D18E7B
+    ) 
+
+    public class IMusicDisplayProperties: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIMusicDisplayProperties }
+
+        public func get_Title() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Title(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Title(pThis, _value.get()))
+            }
+        }
+
+        public func get_AlbumArtist() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlbumArtist(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_AlbumArtist(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AlbumArtist(pThis, _value.get()))
+            }
+        }
+
+        public func get_Artist() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Artist(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Artist(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Artist(pThis, _value.get()))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CIMusicDisplayProperties2: WindowsFoundation.IID = .init(
+        Data1: 0x00368462, Data2: 0x97D3, Data3: 0x44B9, Data4: ( 0xB0,0x0F,0x00,0x8A,0xFC,0xEF,0xAF,0x18 ) // 00368462-97D3-44B9-B00F-008AFCEFAF18
+    ) 
+
+    public class IMusicDisplayProperties2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIMusicDisplayProperties2 }
+
+        public func get_AlbumTitle() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlbumTitle(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_AlbumTitle(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AlbumTitle(pThis, _value.get()))
+            }
+        }
+
+        public func get_TrackNumber() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TrackNumber(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TrackNumber(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TrackNumber(pThis, value))
+            }
+        }
+
+        public func get_Genres() throws -> WindowsFoundation.AnyIVector<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Genres(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CIMusicDisplayProperties3: WindowsFoundation.IID = .init(
+        Data1: 0x4DB51AC1, Data2: 0x0681, Data3: 0x4E8C, Data4: ( 0x94,0x01,0xB8,0x15,0x9D,0x9E,0xEF,0xC7 ) // 4DB51AC1-0681-4E8C-9401-B8159D9EEFC7
+    ) 
+
+    public class IMusicDisplayProperties3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIMusicDisplayProperties3 }
+
+        public func get_AlbumTrackCount() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlbumTrackCount(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_AlbumTrackCount(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIMusicDisplayProperties3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AlbumTrackCount(pThis, value))
+            }
+        }
+
+    }
+
+}
+// MARK: - PlaybackPositionChangeRequestedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playbackpositionchangerequestedeventargs)
 public final class PlaybackPositionChangeRequestedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media.IPlaybackPositionChangeRequestedEventArgs
@@ -469,6 +1624,49 @@ public final class PlaybackPositionChangeRequestedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - PlaybackPositionChangeRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum PlaybackPositionChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PlaybackPositionChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs>?) -> PlaybackPositionChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PlaybackPositionChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PlaybackPositionChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PlaybackPositionChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xB4493F88, Data2: 0xEB28, Data3: 0x4961, Data4: ( 0x9C,0x14,0x33,0x5E,0x44,0xF3,0xE1,0x25 ) // B4493F88-EB28-4961-9C14-335E44F3E125
+    ) 
+
+    public class IPlaybackPositionChangeRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs }
+
+        public func get_RequestedPlaybackPosition() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIPlaybackPositionChangeRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedPlaybackPosition(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - PlaybackRateChangeRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playbackratechangerequestedeventargs)
 public final class PlaybackRateChangeRequestedEventArgs : WinRTClass {
@@ -498,6 +1696,49 @@ public final class PlaybackRateChangeRequestedEventArgs : WinRTClass {
     }
 }
 
+// MARK: - PlaybackRateChangeRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum PlaybackRateChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = PlaybackRateChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs>?) -> PlaybackRateChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PlaybackRateChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = PlaybackRateChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PlaybackRateChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x2CE2C41F, Data2: 0x3CD6, Data3: 0x4F77, Data4: ( 0x9B,0xA7,0xEB,0x27,0xC2,0x6A,0x21,0x40 ) // 2CE2C41F-3CD6-4F77-9BA7-EB27C26A2140
+    ) 
+
+    public class IPlaybackRateChangeRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs }
+
+        public func get_RequestedPlaybackRate() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIPlaybackRateChangeRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedPlaybackRate(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - ShuffleEnabledChangeRequestedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.shuffleenabledchangerequestedeventargs)
 public final class ShuffleEnabledChangeRequestedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media.IShuffleEnabledChangeRequestedEventArgs
@@ -525,6 +1766,49 @@ public final class ShuffleEnabledChangeRequestedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ShuffleEnabledChangeRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum ShuffleEnabledChangeRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ShuffleEnabledChangeRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs>?) -> ShuffleEnabledChangeRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShuffleEnabledChangeRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ShuffleEnabledChangeRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShuffleEnabledChangeRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x49B593FE, Data2: 0x4FD0, Data3: 0x4666, Data4: ( 0xA3,0x14,0xC0,0xE0,0x19,0x40,0xD3,0x02 ) // 49B593FE-4FD0-4666-A314-C0E01940D302
+    ) 
+
+    public class IShuffleEnabledChangeRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs }
+
+        public func get_RequestedShuffleEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIShuffleEnabledChangeRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedShuffleEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - SystemMediaTransportControls
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrols)
 public final class SystemMediaTransportControls : WinRTClass {
@@ -740,6 +2024,397 @@ public final class SystemMediaTransportControls : WinRTClass {
     }
 }
 
+// MARK: - SystemMediaTransportControls Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum SystemMediaTransportControlsBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControls
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControls
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControls>?) -> SystemMediaTransportControls? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControls
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControls(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControls: WindowsFoundation.IID = .init(
+        Data1: 0x99FA3FF4, Data2: 0x1742, Data3: 0x42A6, Data4: ( 0x90,0x2E,0x08,0x7D,0x41,0xF9,0x65,0xEC ) // 99FA3FF4-1742-42A6-902E-087D41F965EC
+    ) 
+
+    public class ISystemMediaTransportControls: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControls }
+
+        public func get_PlaybackStatus() throws -> UWP.MediaPlaybackStatus {
+            var value: __x_ABI_CWindows_CMedia_CMediaPlaybackStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackStatus(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_PlaybackStatus(_ value: UWP.MediaPlaybackStatus) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackStatus(pThis, value))
+            }
+        }
+
+        public func get_DisplayUpdater() throws -> UWP.SystemMediaTransportControlsDisplayUpdater? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayUpdater(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media.SystemMediaTransportControlsDisplayUpdaterBridge.from(abi: value)
+        }
+
+        public func get_SoundLevel() throws -> UWP.SoundLevel {
+            var value: __x_ABI_CWindows_CMedia_CSoundLevel = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SoundLevel(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_IsEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsPlayEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPlayEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsPlayEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsPlayEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsStopEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsStopEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsStopEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsStopEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsPauseEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPauseEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsPauseEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsPauseEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsRecordEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRecordEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsRecordEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsRecordEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsFastForwardEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFastForwardEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsFastForwardEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsFastForwardEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsRewindEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRewindEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsRewindEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsRewindEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsPreviousEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPreviousEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsPreviousEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsPreviousEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsNextEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsNextEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsNextEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsNextEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsChannelUpEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsChannelUpEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsChannelUpEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsChannelUpEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsChannelDownEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsChannelDownEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsChannelDownEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsChannelDownEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func add_ButtonPressed(_ handler: TypedEventHandler<UWP.SystemMediaTransportControls?, UWP.SystemMediaTransportControlsButtonPressedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CSystemMediaTransportControls___x_ABI_CWindows__CMedia__CSystemMediaTransportControlsButtonPressedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ButtonPressed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ButtonPressed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ButtonPressed(pThis, token))
+            }
+        }
+
+        public func add_PropertyChanged(_ handler: TypedEventHandler<UWP.SystemMediaTransportControls?, UWP.SystemMediaTransportControlsPropertyChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CSystemMediaTransportControls___x_ABI_CWindows__CMedia__CSystemMediaTransportControlsPropertyChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_PropertyChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_PropertyChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PropertyChanged(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControls2: WindowsFoundation.IID = .init(
+        Data1: 0xEA98D2F6, Data2: 0x7F3C, Data3: 0x4AF2, Data4: ( 0xA5,0x86,0x72,0x88,0x98,0x08,0xEF,0xB1 ) // EA98D2F6-7F3C-4AF2-A586-72889808EFB1
+    ) 
+
+    public class ISystemMediaTransportControls2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControls2 }
+
+        public func get_AutoRepeatMode() throws -> UWP.MediaPlaybackAutoRepeatMode {
+            var value: __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutoRepeatMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_AutoRepeatMode(_ value: UWP.MediaPlaybackAutoRepeatMode) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AutoRepeatMode(pThis, value))
+            }
+        }
+
+        public func get_ShuffleEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShuffleEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_ShuffleEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ShuffleEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_PlaybackRate() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaybackRate(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_PlaybackRate(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaybackRate(pThis, value))
+            }
+        }
+
+        public func UpdateTimelineProperties(_ timelineProperties: UWP.SystemMediaTransportControlsTimelineProperties?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.UpdateTimelineProperties(pThis, RawPointer(timelineProperties)))
+            }
+        }
+
+        public func add_PlaybackPositionChangeRequested(_ handler: TypedEventHandler<UWP.SystemMediaTransportControls?, UWP.PlaybackPositionChangeRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CSystemMediaTransportControls___x_ABI_CWindows__CMedia__CPlaybackPositionChangeRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_PlaybackPositionChangeRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_PlaybackPositionChangeRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlaybackPositionChangeRequested(pThis, token))
+            }
+        }
+
+        public func add_PlaybackRateChangeRequested(_ handler: TypedEventHandler<UWP.SystemMediaTransportControls?, UWP.PlaybackRateChangeRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CSystemMediaTransportControls___x_ABI_CWindows__CMedia__CPlaybackRateChangeRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_PlaybackRateChangeRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_PlaybackRateChangeRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlaybackRateChangeRequested(pThis, token))
+            }
+        }
+
+        public func add_ShuffleEnabledChangeRequested(_ handler: TypedEventHandler<UWP.SystemMediaTransportControls?, UWP.ShuffleEnabledChangeRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CSystemMediaTransportControls___x_ABI_CWindows__CMedia__CShuffleEnabledChangeRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ShuffleEnabledChangeRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ShuffleEnabledChangeRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShuffleEnabledChangeRequested(pThis, token))
+            }
+        }
+
+        public func add_AutoRepeatModeChangeRequested(_ handler: TypedEventHandler<UWP.SystemMediaTransportControls?, UWP.AutoRepeatModeChangeRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CSystemMediaTransportControls___x_ABI_CWindows__CMedia__CAutoRepeatModeChangeRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_AutoRepeatModeChangeRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_AutoRepeatModeChangeRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControls2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AutoRepeatModeChangeRequested(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsStatics: WindowsFoundation.IID = .init(
+        Data1: 0x43BA380A, Data2: 0xECA4, Data3: 0x4832, Data4: ( 0x91,0xAB,0xD4,0x15,0xFA,0xE4,0x84,0xC6 ) // 43BA380A-ECA4-4832-91AB-D415FAE484C6
+    ) 
+
+    public class ISystemMediaTransportControlsStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsStatics }
+
+        public func GetForCurrentView() throws -> UWP.SystemMediaTransportControls? {
+            let (mediaControl) = try ComPtrs.initialize { mediaControlAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentView(pThis, &mediaControlAbi))
+                }
+            }
+            return __IMPL_Windows_Media.SystemMediaTransportControlsBridge.from(abi: mediaControl)
+        }
+
+    }
+
+}
+// MARK: - SystemMediaTransportControlsButtonPressedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsbuttonpressedeventargs)
 public final class SystemMediaTransportControlsButtonPressedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media.ISystemMediaTransportControlsButtonPressedEventArgs
@@ -767,6 +2442,49 @@ public final class SystemMediaTransportControlsButtonPressedEventArgs : WinRTCla
         _default = nil
     }
 }
+
+// MARK: - SystemMediaTransportControlsButtonPressedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum SystemMediaTransportControlsButtonPressedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsButtonPressedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs>?) -> SystemMediaTransportControlsButtonPressedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsButtonPressedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsButtonPressedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsButtonPressedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xB7F47116, Data2: 0xA56F, Data3: 0x4DC8, Data4: ( 0x9E,0x11,0x92,0x03,0x1F,0x4A,0x87,0xC2 ) // B7F47116-A56F-4DC8-9E11-92031F4A87C2
+    ) 
+
+    public class ISystemMediaTransportControlsButtonPressedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs }
+
+        public func get_Button() throws -> UWP.SystemMediaTransportControlsButton {
+            var value: __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsButtonPressedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Button(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - SystemMediaTransportControlsDisplayUpdater
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolsdisplayupdater)
 public final class SystemMediaTransportControlsDisplayUpdater : WinRTClass {
@@ -839,6 +2557,134 @@ public final class SystemMediaTransportControlsDisplayUpdater : WinRTClass {
     }
 }
 
+// MARK: - SystemMediaTransportControlsDisplayUpdater Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum SystemMediaTransportControlsDisplayUpdaterBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsDisplayUpdater
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater>?) -> SystemMediaTransportControlsDisplayUpdater? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsDisplayUpdaterMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsDisplayUpdater
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsDisplayUpdater(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater: WindowsFoundation.IID = .init(
+        Data1: 0x8ABBC53E, Data2: 0xFA55, Data3: 0x4ECF, Data4: ( 0xAD,0x8E,0xC9,0x84,0xE5,0xDD,0x15,0x50 ) // 8ABBC53E-FA55-4ECF-AD8E-C984E5DD1550
+    ) 
+
+    public class ISystemMediaTransportControlsDisplayUpdater: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater }
+
+        public func get_Type() throws -> UWP.MediaPlaybackType {
+            var value: __x_ABI_CWindows_CMedia_CMediaPlaybackType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Type(_ value: UWP.MediaPlaybackType) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Type(pThis, value))
+            }
+        }
+
+        public func get_AppMediaId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AppMediaId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_AppMediaId(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AppMediaId(pThis, _value.get()))
+            }
+        }
+
+        public func get_Thumbnail() throws -> UWP.RandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thumbnail(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Streams.RandomAccessStreamReferenceBridge.from(abi: value)
+        }
+
+        public func put_Thumbnail(_ value: UWP.RandomAccessStreamReference?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Thumbnail(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_MusicProperties() throws -> UWP.MusicDisplayProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MusicProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media.MusicDisplayPropertiesBridge.from(abi: value)
+        }
+
+        public func get_VideoProperties() throws -> UWP.VideoDisplayProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media.VideoDisplayPropertiesBridge.from(abi: value)
+        }
+
+        public func get_ImageProperties() throws -> UWP.ImageDisplayProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ImageProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media.ImageDisplayPropertiesBridge.from(abi: value)
+        }
+
+        public func CopyFromFileAsync(_ type: UWP.MediaPlaybackType, _ source: UWP.StorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CopyFromFileAsync(pThis, type, RawPointer(source), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func ClearAll() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ClearAll(pThis))
+            }
+        }
+
+        public func Update() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsDisplayUpdater.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Update(pThis))
+            }
+        }
+
+    }
+
+}
+// MARK: - SystemMediaTransportControlsPropertyChangedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolspropertychangedeventargs)
 public final class SystemMediaTransportControlsPropertyChangedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media.ISystemMediaTransportControlsPropertyChangedEventArgs
@@ -866,6 +2712,49 @@ public final class SystemMediaTransportControlsPropertyChangedEventArgs : WinRTC
         _default = nil
     }
 }
+
+// MARK: - SystemMediaTransportControlsPropertyChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum SystemMediaTransportControlsPropertyChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsPropertyChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs>?) -> SystemMediaTransportControlsPropertyChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsPropertyChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsPropertyChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsPropertyChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xD0CA0936, Data2: 0x339B, Data3: 0x4CB3, Data4: ( 0x8E,0xEB,0x73,0x76,0x07,0xF5,0x6E,0x08 ) // D0CA0936-339B-4CB3-8EEB-737607F56E08
+    ) 
+
+    public class ISystemMediaTransportControlsPropertyChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs }
+
+        public func get_Property() throws -> UWP.SystemMediaTransportControlsProperty {
+            var value: __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsPropertyChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Property(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - SystemMediaTransportControlsTimelineProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.systemmediatransportcontrolstimelineproperties)
 public final class SystemMediaTransportControlsTimelineProperties : WinRTClass {
@@ -925,6 +2814,111 @@ public final class SystemMediaTransportControlsTimelineProperties : WinRTClass {
     }
 }
 
+// MARK: - SystemMediaTransportControlsTimelineProperties Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum SystemMediaTransportControlsTimelinePropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = SystemMediaTransportControlsTimelineProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties>?) -> SystemMediaTransportControlsTimelineProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SystemMediaTransportControlsTimelinePropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = SystemMediaTransportControlsTimelineProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SystemMediaTransportControlsTimelineProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties: WindowsFoundation.IID = .init(
+        Data1: 0x5125316A, Data2: 0xC3A2, Data3: 0x475B, Data4: ( 0x85,0x07,0x93,0x53,0x4D,0xC8,0x8F,0x15 ) // 5125316A-C3A2-475B-8507-93534DC88F15
+    ) 
+
+    public class ISystemMediaTransportControlsTimelineProperties: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties }
+
+        public func get_StartTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StartTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_StartTime(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StartTime(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_EndTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EndTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_EndTime(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EndTime(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_MinSeekTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinSeekTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MinSeekTime(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinSeekTime(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_MaxSeekTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxSeekTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MaxSeekTime(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxSeekTime(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Position(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CISystemMediaTransportControlsTimelineProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Position(pThis, .from(swift: value)))
+            }
+        }
+
+    }
+
+}
+// MARK: - VideoDisplayProperties
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.videodisplayproperties)
 public final class VideoDisplayProperties : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media.IVideoDisplayProperties
@@ -967,190 +2961,86 @@ public final class VideoDisplayProperties : WinRTClass {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange)
-public struct MediaTimeRange: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange.start)
-    public var start: WindowsFoundation.TimeSpan = .init()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediatimerange.end)
-    public var end: WindowsFoundation.TimeSpan = .init()
-    public init() {}
-    public init(start: WindowsFoundation.TimeSpan, end: WindowsFoundation.TimeSpan) {
-        self.start = start
-        self.end = end
-    }
-}
+// MARK: - VideoDisplayProperties Internals
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe)
-public protocol IMediaFrame : WindowsFoundation.IClosable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.duration)
-    var duration: WindowsFoundation.TimeSpan? { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.extendedproperties)
-    var extendedProperties: WindowsFoundation.AnyIPropertySet! { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isdiscontinuous)
-    var isDiscontinuous: Bool { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.isreadonly)
-    var isReadOnly: Bool { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.relativetime)
-    var relativeTime: WindowsFoundation.TimeSpan? { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.systemrelativetime)
-    var systemRelativeTime: WindowsFoundation.TimeSpan? { get set }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.imediaframe.type)
-    var type: String { get }
-}
-
-extension IMediaFrame {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_Media.IMediaFrameWrapper.IID:
-                let wrapper = __ABI_Windows_Media.IMediaFrameWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_Foundation.IClosableWrapper.IID:
-                let wrapper = __ABI_Windows_Foundation.IClosableWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media {
+    public enum VideoDisplayPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = VideoDisplayProperties
+        public typealias CABI = __x_ABI_CWindows_CMedia_CIVideoDisplayProperties
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CIVideoDisplayProperties>?) -> VideoDisplayProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
         }
     }
-}
-public typealias AnyIMediaFrame = any IMediaFrame
 
-extension UWP.AudioBufferAccessMode {
-    public static var read : UWP.AudioBufferAccessMode {
-        __x_ABI_CWindows_CMedia_CAudioBufferAccessMode_Read
-    }
-    public static var readWrite : UWP.AudioBufferAccessMode {
-        __x_ABI_CWindows_CMedia_CAudioBufferAccessMode_ReadWrite
-    }
-    public static var write : UWP.AudioBufferAccessMode {
-        __x_ABI_CWindows_CMedia_CAudioBufferAccessMode_Write
+}
+@_spi(WinRTInternal)
+public class VideoDisplayPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = VideoDisplayProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoDisplayProperties(fromAbi: abi)
     }
 }
-extension UWP.AudioBufferAccessMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media {
+    private static let IID___x_ABI_CWindows_CMedia_CIVideoDisplayProperties: WindowsFoundation.IID = .init(
+        Data1: 0x5609FDB1, Data2: 0x5D2D, Data3: 0x4872, Data4: ( 0x81,0x70,0x45,0xDE,0xE5,0xBC,0x2F,0x5C ) // 5609FDB1-5D2D-4872-8170-45DEE5BC2F5C
+    ) 
 
-extension UWP.AudioProcessing {
-    public static var `default` : UWP.AudioProcessing {
-        __x_ABI_CWindows_CMedia_CAudioProcessing_Default
+    public class IVideoDisplayProperties: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIVideoDisplayProperties }
+
+        public func get_Title() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIVideoDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Title(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIVideoDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Title(pThis, _value.get()))
+            }
+        }
+
+        public func get_Subtitle() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIVideoDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtitle(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Subtitle(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CIVideoDisplayProperties.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Subtitle(pThis, _value.get()))
+            }
+        }
+
     }
-    public static var raw : UWP.AudioProcessing {
-        __x_ABI_CWindows_CMedia_CAudioProcessing_Raw
+
+    private static let IID___x_ABI_CWindows_CMedia_CIVideoDisplayProperties2: WindowsFoundation.IID = .init(
+        Data1: 0xB410E1CE, Data2: 0xAB52, Data3: 0x41AB, Data4: ( 0xA4,0x86,0xCC,0x10,0xFA,0xB1,0x52,0xF9 ) // B410E1CE-AB52-41AB-A486-CC10FAB152F9
+    ) 
+
+    public class IVideoDisplayProperties2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CIVideoDisplayProperties2 }
+
+        public func get_Genres() throws -> WindowsFoundation.AnyIVector<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CIVideoDisplayProperties2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Genres(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
     }
+
 }
-extension UWP.AudioProcessing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MediaPlaybackAutoRepeatMode {
-    public static var none : UWP.MediaPlaybackAutoRepeatMode {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode_None
-    }
-    public static var track : UWP.MediaPlaybackAutoRepeatMode {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode_Track
-    }
-    public static var list : UWP.MediaPlaybackAutoRepeatMode {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackAutoRepeatMode_List
-    }
-}
-extension UWP.MediaPlaybackAutoRepeatMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MediaPlaybackStatus {
-    public static var closed : UWP.MediaPlaybackStatus {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Closed
-    }
-    public static var changing : UWP.MediaPlaybackStatus {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Changing
-    }
-    public static var stopped : UWP.MediaPlaybackStatus {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Stopped
-    }
-    public static var playing : UWP.MediaPlaybackStatus {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Playing
-    }
-    public static var paused : UWP.MediaPlaybackStatus {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackStatus_Paused
-    }
-}
-extension UWP.MediaPlaybackStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MediaPlaybackType {
-    public static var unknown : UWP.MediaPlaybackType {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Unknown
-    }
-    public static var music : UWP.MediaPlaybackType {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Music
-    }
-    public static var video : UWP.MediaPlaybackType {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Video
-    }
-    public static var image : UWP.MediaPlaybackType {
-        __x_ABI_CWindows_CMedia_CMediaPlaybackType_Image
-    }
-}
-extension UWP.MediaPlaybackType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MediaTimelineControllerState {
-    public static var paused : UWP.MediaTimelineControllerState {
-        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Paused
-    }
-    public static var running : UWP.MediaTimelineControllerState {
-        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Running
-    }
-    public static var stalled : UWP.MediaTimelineControllerState {
-        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Stalled
-    }
-    public static var error : UWP.MediaTimelineControllerState {
-        __x_ABI_CWindows_CMedia_CMediaTimelineControllerState_Error
-    }
-}
-extension UWP.MediaTimelineControllerState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SoundLevel {
-    public static var muted : UWP.SoundLevel {
-        __x_ABI_CWindows_CMedia_CSoundLevel_Muted
-    }
-    public static var low : UWP.SoundLevel {
-        __x_ABI_CWindows_CMedia_CSoundLevel_Low
-    }
-    public static var full : UWP.SoundLevel {
-        __x_ABI_CWindows_CMedia_CSoundLevel_Full
-    }
-}
-extension UWP.SoundLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SystemMediaTransportControlsButton {
-    public static var play : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Play
-    }
-    public static var pause : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Pause
-    }
-    public static var stop : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Stop
-    }
-    public static var record : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Record
-    }
-    public static var fastForward : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_FastForward
-    }
-    public static var rewind : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Rewind
-    }
-    public static var next : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Next
-    }
-    public static var previous : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_Previous
-    }
-    public static var channelUp : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_ChannelUp
-    }
-    public static var channelDown : UWP.SystemMediaTransportControlsButton {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsButton_ChannelDown
-    }
-}
-extension UWP.SystemMediaTransportControlsButton: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SystemMediaTransportControlsProperty {
-    public static var soundLevel : UWP.SystemMediaTransportControlsProperty {
-        __x_ABI_CWindows_CMedia_CSystemMediaTransportControlsProperty_SoundLevel
-    }
-}
-extension UWP.SystemMediaTransportControlsProperty: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

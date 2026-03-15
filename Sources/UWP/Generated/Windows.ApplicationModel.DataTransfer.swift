@@ -4,14 +4,209 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - ClipboardHistoryItemsResultStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.clipboardhistoryitemsresultstatus)
 public typealias ClipboardHistoryItemsResultStatus = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus
+
+extension UWP.ClipboardHistoryItemsResultStatus {
+    public static var success : UWP.ClipboardHistoryItemsResultStatus {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus_Success
+    }
+    public static var accessDenied : UWP.ClipboardHistoryItemsResultStatus {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus_AccessDenied
+    }
+    public static var clipboardHistoryDisabled : UWP.ClipboardHistoryItemsResultStatus {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus_ClipboardHistoryDisabled
+    }
+}
+extension UWP.ClipboardHistoryItemsResultStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DataPackageOperation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackageoperation)
 public typealias DataPackageOperation = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation
+
+extension UWP.DataPackageOperation {
+    public static var none : UWP.DataPackageOperation {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_None
+    }
+    public static var copy : UWP.DataPackageOperation {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_Copy
+    }
+    public static var move : UWP.DataPackageOperation {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_Move
+    }
+    public static var link : UWP.DataPackageOperation {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_Link
+    }
+}
+extension UWP.DataPackageOperation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - SetHistoryItemAsContentStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sethistoryitemascontentstatus)
 public typealias SetHistoryItemAsContentStatus = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus
+
+extension UWP.SetHistoryItemAsContentStatus {
+    public static var success : UWP.SetHistoryItemAsContentStatus {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus_Success
+    }
+    public static var accessDenied : UWP.SetHistoryItemAsContentStatus {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus_AccessDenied
+    }
+    public static var itemDeleted : UWP.SetHistoryItemAsContentStatus {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus_ItemDeleted
+    }
+}
+extension UWP.SetHistoryItemAsContentStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - ShareUITheme
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.shareuitheme)
 public typealias ShareUITheme = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme
+
+extension UWP.ShareUITheme {
+    public static var `default` : UWP.ShareUITheme {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme_Default
+    }
+    public static var light : UWP.ShareUITheme {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme_Light
+    }
+    public static var dark : UWP.ShareUITheme {
+        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme_Dark
+    }
+}
+extension UWP.ShareUITheme: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DataProviderHandler
+
+public typealias DataProviderHandler = (DataProviderRequest?) throws -> ()
+
+// MARK: - DataProviderHandler Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public class DataProviderHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = DataProviderHandler
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandler
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.DataProviderHandler
+
+        public static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (request) in
+                try _default.Invoke(request)
+            }
+            return handler
+        }
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandler: WindowsFoundation.IID = .init(
+        Data1: 0xE7ECD720, Data2: 0xF2F4, Data3: 0x4A2D, Data4: ( 0x92,0x0E,0x17,0x0A,0x2F,0x48,0x2A,0x27 ) // E7ECD720-F2F4-4A2D-920E-170A2F482A27
+    ) 
+
+    public class DataProviderHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandler }
+
+        open func Invoke(_ request: UWP.DataProviderRequest?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(request)))
+            }
+        }
+
+    }
+
+
+    typealias DataProviderHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_DataTransfer.DataProviderHandlerBridge>
+    internal static var DataProviderHandlerVTable: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandlerVtbl = .init(
+        QueryInterface: { DataProviderHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { DataProviderHandlerWrapper.addRef($0) },
+        Release: { DataProviderHandlerWrapper.release($0) },
+        Invoke: {
+            do {
+                guard let __unwrapped__instance = DataProviderHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let request: UWP.DataProviderRequest? = __IMPL_Windows_ApplicationModel_DataTransfer.DataProviderRequestBridge.from(abi: ComPtr($1))
+                try __unwrapped__instance(request)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_DataTransfer.DataProviderHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+// MARK: - ShareProviderHandler
+
+public typealias ShareProviderHandler = (ShareProviderOperation?) throws -> ()
+
+// MARK: - ShareProviderHandler Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public class ShareProviderHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = ShareProviderHandler
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandler
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.ShareProviderHandler
+
+        public static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (operation) in
+                try _default.Invoke(operation)
+            }
+            return handler
+        }
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandler: WindowsFoundation.IID = .init(
+        Data1: 0xE7F9D9BA, Data2: 0xE1BA, Data3: 0x4E4D, Data4: ( 0xBD,0x65,0xD4,0x38,0x45,0xD3,0x21,0x2F ) // E7F9D9BA-E1BA-4E4D-BD65-D43845D3212F
+    ) 
+
+    public class ShareProviderHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandler }
+
+        open func Invoke(_ operation: UWP.ShareProviderOperation?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(operation)))
+            }
+        }
+
+    }
+
+
+    typealias ShareProviderHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_DataTransfer.ShareProviderHandlerBridge>
+    internal static var ShareProviderHandlerVTable: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandlerVtbl = .init(
+        QueryInterface: { ShareProviderHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ShareProviderHandlerWrapper.addRef($0) },
+        Release: { ShareProviderHandlerWrapper.release($0) },
+        Invoke: {
+            do {
+                guard let __unwrapped__instance = ShareProviderHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let operation: UWP.ShareProviderOperation? = __IMPL_Windows_ApplicationModel_DataTransfer.ShareProviderOperationBridge.from(abi: ComPtr($1))
+                try __unwrapped__instance(operation)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_DataTransfer.ShareProviderHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+// MARK: - Clipboard
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.clipboard)
 public final class Clipboard {
     private static let _IClipboardStatics: __ABI_Windows_ApplicationModel_DataTransfer.IClipboardStatics = try! RoGetActivationFactory("Windows.ApplicationModel.DataTransfer.Clipboard")
@@ -105,6 +300,179 @@ public final class Clipboard {
 
 }
 
+// MARK: - Clipboard Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC627E291, Data2: 0x34E2, Data3: 0x4963, Data4: ( 0x8E,0xED,0x93,0xCB,0xB0,0xEA,0x3D,0x70 ) // C627E291-34E2-4963-8EED-93CBB0EA3D70
+    ) 
+
+    public class IClipboardStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics }
+
+        public func GetContent() throws -> UWP.DataPackageView? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetContent(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: result)
+        }
+
+        public func SetContent(_ content: UWP.DataPackage?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetContent(pThis, RawPointer(content)))
+            }
+        }
+
+        public func Flush() throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Flush(pThis))
+            }
+        }
+
+        public func Clear() throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+            }
+        }
+
+        public func add_ContentChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ContentChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ContentChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ContentChanged(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2: WindowsFoundation.IID = .init(
+        Data1: 0xD2AC1B6A, Data2: 0xD29F, Data3: 0x554B, Data4: ( 0xB3,0x03,0xF0,0x45,0x23,0x45,0xFE,0x02 ) // D2AC1B6A-D29F-554B-B303-F0452345FE02
+    ) 
+
+    public class IClipboardStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2 }
+
+        public func GetHistoryItemsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ClipboardHistoryItemsResult?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetHistoryItemsAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CClipboardHistoryItemsResultWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func ClearHistory() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ClearHistory(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func DeleteItemFromHistory(_ item: UWP.ClipboardHistoryItem?) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DeleteItemFromHistory(pThis, RawPointer(item), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetHistoryItemAsContent(_ item: UWP.ClipboardHistoryItem?) throws -> UWP.SetHistoryItemAsContentStatus {
+            var result: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetHistoryItemAsContent(pThis, RawPointer(item), &result))
+            }
+            return result
+        }
+
+        public func IsHistoryEnabled() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsHistoryEnabled(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsRoamingEnabled() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsRoamingEnabled(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetContentWithOptions(_ content: UWP.DataPackage?, _ options: UWP.ClipboardContentOptions?) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetContentWithOptions(pThis, RawPointer(content), RawPointer(options), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func add_HistoryChanged(_ handler: EventHandler<UWP.ClipboardHistoryChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CClipboardHistoryChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_HistoryChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_HistoryChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_HistoryChanged(pThis, token))
+            }
+        }
+
+        public func add_RoamingEnabledChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_RoamingEnabledChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_RoamingEnabledChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_RoamingEnabledChanged(pThis, token))
+            }
+        }
+
+        public func add_HistoryEnabledChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_HistoryEnabledChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_HistoryEnabledChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_HistoryEnabledChanged(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - ClipboardContentOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.clipboardcontentoptions)
 public final class ClipboardContentOptions : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IClipboardContentOptions
@@ -155,6 +523,87 @@ public final class ClipboardContentOptions : WinRTClass {
     }
 }
 
+// MARK: - ClipboardContentOptions Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ClipboardContentOptionsBridge: AbiBridge {
+        public typealias SwiftProjection = ClipboardContentOptions
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions>?) -> ClipboardContentOptions? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ClipboardContentOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = ClipboardContentOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ClipboardContentOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions: WindowsFoundation.IID = .init(
+        Data1: 0xE888A98C, Data2: 0xAD4B, Data3: 0x5447, Data4: ( 0xA0,0x56,0xAB,0x35,0x56,0x27,0x6D,0x2B ) // E888A98C-AD4B-5447-A056-AB3556276D2B
+    ) 
+
+    public class IClipboardContentOptions: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions }
+
+        public func get_IsRoamable() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRoamable(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsRoamable(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsRoamable(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsAllowedInHistory() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAllowedInHistory(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsAllowedInHistory(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsAllowedInHistory(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_RoamingFormats() throws -> WindowsFoundation.AnyIVector<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RoamingFormats(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_HistoryFormats() throws -> WindowsFoundation.AnyIVector<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardContentOptions.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HistoryFormats(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ClipboardHistoryChangedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.clipboardhistorychangedeventargs)
 public final class ClipboardHistoryChangedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IClipboardHistoryChangedEventArgs
@@ -177,6 +626,41 @@ public final class ClipboardHistoryChangedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ClipboardHistoryChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ClipboardHistoryChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ClipboardHistoryChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryChangedEventArgs>?) -> ClipboardHistoryChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ClipboardHistoryChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ClipboardHistoryChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ClipboardHistoryChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xC0BE453F, Data2: 0x8EA2, Data3: 0x53CE, Data4: ( 0x9A,0xBA,0x8D,0x22,0x12,0x57,0x34,0x52 ) // C0BE453F-8EA2-53CE-9ABA-8D2212573452
+    ) 
+
+    public class IClipboardHistoryChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryChangedEventArgs }
+
+    }
+
+}
+// MARK: - ClipboardHistoryItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.clipboardhistoryitem)
 public final class ClipboardHistoryItem : WinRTClass {
@@ -216,6 +700,67 @@ public final class ClipboardHistoryItem : WinRTClass {
     }
 }
 
+// MARK: - ClipboardHistoryItem Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ClipboardHistoryItemBridge: AbiBridge {
+        public typealias SwiftProjection = ClipboardHistoryItem
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem>?) -> ClipboardHistoryItem? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ClipboardHistoryItemMaker: MakeFromAbi {
+    public typealias SwiftType = ClipboardHistoryItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ClipboardHistoryItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem: WindowsFoundation.IID = .init(
+        Data1: 0x0173BD8A, Data2: 0xAFFF, Data3: 0x5C50, Data4: ( 0xAB,0x92,0x3D,0x19,0xF4,0x81,0xEC,0x58 ) // 0173BD8A-AFFF-5C50-AB92-3D19F481EC58
+    ) 
+
+    public class IClipboardHistoryItem: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem }
+
+        public func get_Id() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Timestamp() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Timestamp(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Content() throws -> UWP.DataPackageView? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItem.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Content(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ClipboardHistoryItemsResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.clipboardhistoryitemsresult)
 public final class ClipboardHistoryItemsResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IClipboardHistoryItemsResult
@@ -248,6 +793,58 @@ public final class ClipboardHistoryItemsResult : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ClipboardHistoryItemsResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ClipboardHistoryItemsResultBridge: AbiBridge {
+        public typealias SwiftProjection = ClipboardHistoryItemsResult
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult>?) -> ClipboardHistoryItemsResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ClipboardHistoryItemsResultMaker: MakeFromAbi {
+    public typealias SwiftType = ClipboardHistoryItemsResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ClipboardHistoryItemsResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult: WindowsFoundation.IID = .init(
+        Data1: 0xE6DFDEE6, Data2: 0x0EE2, Data3: 0x52E3, Data4: ( 0x85,0x2B,0xF2,0x95,0xDB,0x65,0x93,0x9A ) // E6DFDEE6-0EE2-52E3-852B-F295DB65939A
+    ) 
+
+    public class IClipboardHistoryItemsResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult }
+
+        public func get_Status() throws -> UWP.ClipboardHistoryItemsResultStatus {
+            var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Items() throws -> WindowsFoundation.AnyIVectorView<UWP.ClipboardHistoryItem?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIClipboardHistoryItemsResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CClipboardHistoryItemWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - DataPackage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackage)
 public final class DataPackage : WinRTClass {
@@ -395,6 +992,227 @@ public final class DataPackage : WinRTClass {
         _IDataPackage3 = nil
     }
 }
+
+// MARK: - DataPackage Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataPackageBridge: AbiBridge {
+        public typealias SwiftProjection = DataPackage
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage>?) -> DataPackage? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataPackageMaker: MakeFromAbi {
+    public typealias SwiftType = DataPackage
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPackage(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage: WindowsFoundation.IID = .init(
+        Data1: 0x61EBF5C7, Data2: 0xEFEA, Data3: 0x4346, Data4: ( 0x95,0x54,0x98,0x1D,0x7E,0x19,0x8F,0xFE ) // 61EBF5C7-EFEA-4346-9554-981D7E198FFE
+    ) 
+
+    public class IDataPackage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage }
+
+        public func GetView() throws -> UWP.DataPackageView? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
+        }
+
+        public func get_Properties() throws -> UWP.DataPackagePropertySet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackagePropertySetBridge.from(abi: value)
+        }
+
+        public func get_RequestedOperation() throws -> UWP.DataPackageOperation {
+            var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedOperation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RequestedOperation(_ value: UWP.DataPackageOperation) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RequestedOperation(pThis, value))
+            }
+        }
+
+        public func add_OperationCompleted(_ handler: TypedEventHandler<UWP.DataPackage?, UWP.OperationCompletedEventArgs?>?) throws -> EventRegistrationToken {
+            var eventCookie: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackage___x_ABI_CWindows__CApplicationModel__CDataTransfer__COperationCompletedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_OperationCompleted(pThis, _handler, &eventCookie))
+            }
+            return eventCookie
+        }
+
+        public func remove_OperationCompleted(_ eventCookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_OperationCompleted(pThis, eventCookie))
+            }
+        }
+
+        public func add_Destroyed(_ handler: TypedEventHandler<UWP.DataPackage?, Any?>?) throws -> EventRegistrationToken {
+            var eventCookie: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackage_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Destroyed(pThis, _handler, &eventCookie))
+            }
+            return eventCookie
+        }
+
+        public func remove_Destroyed(_ eventCookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Destroyed(pThis, eventCookie))
+            }
+        }
+
+        public func SetData(_ formatId: String, _ value: Any?) throws {
+            let _formatId = try! HString(formatId)
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetData(pThis, _formatId.get(), _value))
+            }
+        }
+
+        public func SetDataProvider(_ formatId: String, _ delayRenderer: UWP.DataProviderHandler?) throws {
+            let _formatId = try! HString(formatId)
+            let delayRendererWrapper = __ABI_Windows_ApplicationModel_DataTransfer.DataProviderHandlerWrapper(delayRenderer)
+            let _delayRenderer = try! delayRendererWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDataProvider(pThis, _formatId.get(), _delayRenderer))
+            }
+        }
+
+        public func SetText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetText(pThis, _value.get()))
+            }
+        }
+
+        public func SetUri(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetUri(pThis, RawPointer(value)))
+            }
+        }
+
+        public func SetHtmlFormat(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetHtmlFormat(pThis, _value.get()))
+            }
+        }
+
+        public func get_ResourceMap() throws -> WindowsFoundation.AnyIMap<String, UWP.RandomAccessStreamReference?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceMap(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CStorage__CStreams__CRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
+        }
+
+        public func SetRtf(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetRtf(pThis, _value.get()))
+            }
+        }
+
+        public func SetBitmap(_ value: UWP.RandomAccessStreamReference?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetBitmap(pThis, RawPointer(value)))
+            }
+        }
+
+        public func SetStorageItemsReadOnly(_ value: WindowsFoundation.AnyIIterable<UWP.AnyIStorageItem?>?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CStorage__CIStorageItemWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetStorageItemsReadOnly(pThis, _value))
+            }
+        }
+
+        public func SetStorageItems(_ value: WindowsFoundation.AnyIIterable<UWP.AnyIStorageItem?>?, _ readOnly: Bool) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CStorage__CIStorageItemWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetStorageItems(pThis, _value, .init(from: readOnly)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage2: WindowsFoundation.IID = .init(
+        Data1: 0x041C1FE9, Data2: 0x2409, Data3: 0x45E1, Data4: ( 0xA5,0x38,0x4C,0x53,0xEE,0xEE,0x04,0xA7 ) // 041C1FE9-2409-45E1-A538-4C53EEEE04A7
+    ) 
+
+    public class IDataPackage2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage2 }
+
+        public func SetApplicationLink(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetApplicationLink(pThis, RawPointer(value)))
+            }
+        }
+
+        public func SetWebLink(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetWebLink(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage3: WindowsFoundation.IID = .init(
+        Data1: 0x88F31F5D, Data2: 0x787B, Data3: 0x4D32, Data4: ( 0x96,0x5A,0xA9,0x83,0x81,0x05,0xA0,0x56 ) // 88F31F5D-787B-4D32-965A-A9838105A056
+    ) 
+
+    public class IDataPackage3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage3 }
+
+        public func add_ShareCompleted(_ handler: TypedEventHandler<UWP.DataPackage?, UWP.ShareCompletedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataPackage___x_ABI_CWindows__CApplicationModel__CDataTransfer__CShareCompletedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ShareCompleted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ShareCompleted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackage3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShareCompleted(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - DataPackagePropertySet
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackagepropertyset)
 public final class DataPackagePropertySet : WinRTClass, IMap, IIterable {
@@ -552,6 +1370,266 @@ public final class DataPackagePropertySet : WinRTClass, IMap, IIterable {
     }
 }
 
+// MARK: - DataPackagePropertySet Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataPackagePropertySetBridge: AbiBridge {
+        public typealias SwiftProjection = DataPackagePropertySet
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet>?) -> DataPackagePropertySet? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataPackagePropertySetMaker: MakeFromAbi {
+    public typealias SwiftType = DataPackagePropertySet
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPackagePropertySet(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet: WindowsFoundation.IID = .init(
+        Data1: 0xCD1C93EB, Data2: 0x4C4C, Data3: 0x443A, Data4: ( 0xA8,0xD3,0xF5,0xC2,0x41,0xE9,0x16,0x89 ) // CD1C93EB-4C4C-443A-A8D3-F5C241E91689
+    ) 
+
+    public class IDataPackagePropertySet: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet }
+
+        public func get_Title() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Title(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Title(pThis, _value.get()))
+            }
+        }
+
+        public func get_Description() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Description(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Description(pThis, _value.get()))
+            }
+        }
+
+        public func get_Thumbnail() throws -> UWP.AnyIRandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thumbnail(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Thumbnail(_ value: UWP.AnyIRandomAccessStreamReference?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Thumbnail(pThis, _value))
+            }
+        }
+
+        public func get_FileTypes() throws -> WindowsFoundation.AnyIVector<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileTypes(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ApplicationName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_ApplicationName(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ApplicationName(pThis, _value.get()))
+            }
+        }
+
+        public func get_ApplicationListingUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationListingUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func put_ApplicationListingUri(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ApplicationListingUri(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2: WindowsFoundation.IID = .init(
+        Data1: 0xEB505D4A, Data2: 0x9800, Data3: 0x46AA, Data4: ( 0xB1,0x81,0x7B,0x6F,0x0F,0x2B,0x91,0x9A ) // EB505D4A-9800-46AA-B181-7B6F0F2B919A
+    ) 
+
+    public class IDataPackagePropertySet2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2 }
+
+        public func get_ContentSourceWebLink() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceWebLink(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func put_ContentSourceWebLink(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentSourceWebLink(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_ContentSourceApplicationLink() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceApplicationLink(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func put_ContentSourceApplicationLink(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentSourceApplicationLink(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PackageFamilyName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageFamilyName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_PackageFamilyName(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PackageFamilyName(pThis, _value.get()))
+            }
+        }
+
+        public func get_Square30x30Logo() throws -> UWP.AnyIRandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Square30x30Logo(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Square30x30Logo(_ value: UWP.AnyIRandomAccessStreamReference?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Square30x30Logo(pThis, _value))
+            }
+        }
+
+        public func get_LogoBackgroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LogoBackgroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_LogoBackgroundColor(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LogoBackgroundColor(pThis, .from(swift: value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet3: WindowsFoundation.IID = .init(
+        Data1: 0x9E87FD9B, Data2: 0x5205, Data3: 0x401B, Data4: ( 0x87,0x4A,0x45,0x56,0x53,0xBD,0x39,0xE8 ) // 9E87FD9B-5205-401B-874A-455653BD39E8
+    ) 
+
+    public class IDataPackagePropertySet3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet3 }
+
+        public func get_EnterpriseId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnterpriseId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_EnterpriseId(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnterpriseId(pThis, _value.get()))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet4: WindowsFoundation.IID = .init(
+        Data1: 0x6390EBF5, Data2: 0x1739, Data3: 0x4C74, Data4: ( 0xB2,0x2F,0x86,0x5F,0xAB,0x5E,0x85,0x45 ) // 6390EBF5-1739-4C74-B22F-865FAB5E8545
+    ) 
+
+    public class IDataPackagePropertySet4: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet4 }
+
+        public func get_ContentSourceUserActivityJson() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet4.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceUserActivityJson(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_ContentSourceUserActivityJson(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySet4.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentSourceUserActivityJson(pThis, _value.get()))
+            }
+        }
+
+    }
+
+}
+// MARK: - DataPackagePropertySetView
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackagepropertysetview)
 public final class DataPackagePropertySetView : WinRTClass, IMapView, IIterable {
     public typealias K = String
@@ -688,6 +1766,201 @@ public final class DataPackagePropertySetView : WinRTClass, IMapView, IIterable 
     }
 }
 
+// MARK: - DataPackagePropertySetView Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataPackagePropertySetViewBridge: AbiBridge {
+        public typealias SwiftProjection = DataPackagePropertySetView
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView>?) -> DataPackagePropertySetView? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataPackagePropertySetViewMaker: MakeFromAbi {
+    public typealias SwiftType = DataPackagePropertySetView
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPackagePropertySetView(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView: WindowsFoundation.IID = .init(
+        Data1: 0xB94CEC01, Data2: 0x0C1A, Data3: 0x4C57, Data4: ( 0xBE,0x55,0x75,0xD0,0x12,0x89,0x73,0x5D ) // B94CEC01-0C1A-4C57-BE55-75D01289735D
+    ) 
+
+    public class IDataPackagePropertySetView: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView }
+
+        public func get_Title() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Description() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Thumbnail() throws -> UWP.RandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Thumbnail(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Streams.RandomAccessStreamReferenceBridge.from(abi: value)
+        }
+
+        public func get_FileTypes() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileTypes(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ApplicationName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ApplicationListingUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationListingUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2: WindowsFoundation.IID = .init(
+        Data1: 0x6054509B, Data2: 0x8EBE, Data3: 0x4FEB, Data4: ( 0x9C,0x1E,0x75,0xE6,0x9D,0xE5,0x4B,0x84 ) // 6054509B-8EBE-4FEB-9C1E-75E69DE54B84
+    ) 
+
+    public class IDataPackagePropertySetView2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2 }
+
+        public func get_PackageFamilyName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageFamilyName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ContentSourceWebLink() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceWebLink(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func get_ContentSourceApplicationLink() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceApplicationLink(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func get_Square30x30Logo() throws -> UWP.AnyIRandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Square30x30Logo(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage_Streams.IRandomAccessStreamReferenceWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_LogoBackgroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LogoBackgroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView3: WindowsFoundation.IID = .init(
+        Data1: 0xDB764CE5, Data2: 0xD174, Data3: 0x495C, Data4: ( 0x84,0xFC,0x1A,0x51,0xF6,0xAB,0x45,0xD7 ) // DB764CE5-D174-495C-84FC-1A51F6AB45D7
+    ) 
+
+    public class IDataPackagePropertySetView3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView3 }
+
+        public func get_EnterpriseId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnterpriseId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView4: WindowsFoundation.IID = .init(
+        Data1: 0x4474C80D, Data2: 0xD16F, Data3: 0x40AE, Data4: ( 0x95,0x80,0x6F,0x85,0x62,0xB9,0x42,0x35 ) // 4474C80D-D16F-40AE-9580-6F8562B94235
+    ) 
+
+    public class IDataPackagePropertySetView4: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView4 }
+
+        public func get_ContentSourceUserActivityJson() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView4.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSourceUserActivityJson(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView5: WindowsFoundation.IID = .init(
+        Data1: 0x6F0A9445, Data2: 0x3760, Data3: 0x50BB, Data4: ( 0x85,0x23,0xC4,0x20,0x2D,0xED,0x7D,0x78 ) // 6F0A9445-3760-50BB-8523-C4202DED7D78
+    ) 
+
+    public class IDataPackagePropertySetView5: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView5 }
+
+        public func get_IsFromRoamingClipboard() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackagePropertySetView5.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFromRoamingClipboard(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - DataPackageView
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackageview)
 public final class DataPackageView : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IDataPackageView
@@ -817,6 +2090,244 @@ public final class DataPackageView : WinRTClass {
     }
 }
 
+// MARK: - DataPackageView Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataPackageViewBridge: AbiBridge {
+        public typealias SwiftProjection = DataPackageView
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView>?) -> DataPackageView? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataPackageViewMaker: MakeFromAbi {
+    public typealias SwiftType = DataPackageView
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataPackageView(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView: WindowsFoundation.IID = .init(
+        Data1: 0x7B840471, Data2: 0x5900, Data3: 0x4D85, Data4: ( 0xA9,0x0B,0x10,0xCB,0x85,0xFE,0x35,0x52 ) // 7B840471-5900-4D85-A90B-10CB85FE3552
+    ) 
+
+    public class IDataPackageView: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView }
+
+        public func get_Properties() throws -> UWP.DataPackagePropertySetView? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackagePropertySetViewBridge.from(abi: value)
+        }
+
+        public func get_RequestedOperation() throws -> UWP.DataPackageOperation {
+            var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestedOperation(pThis, &value))
+            }
+            return value
+        }
+
+        public func ReportOperationCompleted(_ value: UWP.DataPackageOperation) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReportOperationCompleted(pThis, value))
+            }
+        }
+
+        public func get_AvailableFormats() throws -> WindowsFoundation.AnyIVectorView<String>? {
+            let (formatIds) = try ComPtrs.initialize { formatIdsAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AvailableFormats(pThis, &formatIdsAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: formatIds)
+        }
+
+        public func Contains(_ formatId: String) throws -> Bool {
+            var value: boolean = 0
+            let _formatId = try! HString(formatId)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Contains(pThis, _formatId.get(), &value))
+            }
+            return .init(from: value)
+        }
+
+        public func GetDataAsync(_ formatId: String) throws -> WindowsFoundation.AnyIAsyncOperation<Any?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _formatId = try! HString(formatId)
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDataAsync(pThis, _formatId.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_IInspectableWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetTextAsync() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetTextAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetCustomTextAsync(_ formatId: String) throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _formatId = try! HString(formatId)
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetCustomTextAsync(pThis, _formatId.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetUriAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetUriAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CFoundation__CUriWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetHtmlFormatAsync() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetHtmlFormatAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetResourceMapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMapView<String, UWP.RandomAccessStreamReference?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetResourceMapAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CStorage__CStreams__CRandomAccessStreamReferenceWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetRtfAsync() throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetRtfAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetBitmapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.RandomAccessStreamReference?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetBitmapAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStreams__CRandomAccessStreamReferenceWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetStorageItemsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetStorageItemsAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CStorage__CIStorageItemWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView2: WindowsFoundation.IID = .init(
+        Data1: 0x40ECBA95, Data2: 0x2450, Data3: 0x4C1D, Data4: ( 0xB6,0xB4,0xED,0x45,0x46,0x3D,0xEE,0x9C ) // 40ECBA95-2450-4C1D-B6B4-ED45463DEE9C
+    ) 
+
+    public class IDataPackageView2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView2 }
+
+        public func GetApplicationLinkAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetApplicationLinkAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CFoundation__CUriWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetWebLinkAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.Uri?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetWebLinkAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CFoundation__CUriWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3: WindowsFoundation.IID = .init(
+        Data1: 0xD37771A8, Data2: 0xDDAD, Data3: 0x4288, Data4: ( 0x84,0x28,0xD1,0xCA,0xE3,0x94,0x12,0x8B ) // D37771A8-DDAD-4288-8428-D1CAE394128B
+    ) 
+
+    public class IDataPackageView3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3 }
+
+        public func RequestAccessAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ProtectionPolicyEvaluationResult>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RequestAccessAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSecurity__CEnterpriseData__CProtectionPolicyEvaluationResultWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func RequestAccessWithEnterpriseIdAsync(_ enterpriseId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ProtectionPolicyEvaluationResult>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _enterpriseId = try! HString(enterpriseId)
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RequestAccessWithEnterpriseIdAsync(pThis, _enterpriseId.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSecurity__CEnterpriseData__CProtectionPolicyEvaluationResultWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func UnlockAndAssumeEnterpriseIdentity() throws -> UWP.ProtectionPolicyEvaluationResult {
+            var result: __x_ABI_CWindows_CSecurity_CEnterpriseData_CProtectionPolicyEvaluationResult = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.UnlockAndAssumeEnterpriseIdentity(pThis, &result))
+            }
+            return result
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView4: WindowsFoundation.IID = .init(
+        Data1: 0xDFE96F1F, Data2: 0xE042, Data3: 0x4433, Data4: ( 0xA0,0x9F,0x26,0xD6,0xFF,0xDA,0x8B,0x85 ) // DFE96F1F-E042-4433-A09F-26D6FFDA8B85
+    ) 
+
+    public class IDataPackageView4: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView4 }
+
+        public func SetAcceptedFormatId(_ formatId: String) throws {
+            let _formatId = try! HString(formatId)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataPackageView4.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetAcceptedFormatId(pThis, _formatId.get()))
+            }
+        }
+
+    }
+
+}
+// MARK: - DataProviderDeferral
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dataproviderdeferral)
 public final class DataProviderDeferral : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IDataProviderDeferral
@@ -844,6 +2355,47 @@ public final class DataProviderDeferral : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DataProviderDeferral Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataProviderDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = DataProviderDeferral
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderDeferral
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderDeferral>?) -> DataProviderDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataProviderDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = DataProviderDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataProviderDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderDeferral: WindowsFoundation.IID = .init(
+        Data1: 0xC2CF2373, Data2: 0x2D26, Data3: 0x43D9, Data4: ( 0xB6,0x9D,0xDC,0xB8,0x6D,0x03,0xF6,0xDA ) // C2CF2373-2D26-43D9-B69D-DCB86D03F6DA
+    ) 
+
+    public class IDataProviderDeferral: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderDeferral }
+
+        public func Complete() throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderDeferral.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
+            }
+        }
+
+    }
+
+}
+// MARK: - DataProviderRequest
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dataproviderrequest)
 public final class DataProviderRequest : WinRTClass {
@@ -887,6 +2439,75 @@ public final class DataProviderRequest : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DataProviderRequest Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataProviderRequestBridge: AbiBridge {
+        public typealias SwiftProjection = DataProviderRequest
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest>?) -> DataProviderRequest? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataProviderRequestMaker: MakeFromAbi {
+    public typealias SwiftType = DataProviderRequest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataProviderRequest(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest: WindowsFoundation.IID = .init(
+        Data1: 0xEBBC7157, Data2: 0xD3C8, Data3: 0x47DA, Data4: ( 0xAC,0xDE,0xF8,0x23,0x88,0xD5,0xF7,0x16 ) // EBBC7157-D3C8-47DA-ACDE-F82388D5F716
+    ) 
+
+    public class IDataProviderRequest: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest }
+
+        public func get_FormatId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FormatId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Deadline() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Deadline(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func GetDeferral() throws -> UWP.DataProviderDeferral? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataProviderDeferralBridge.from(abi: value)
+        }
+
+        public func SetData(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataProviderRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetData(pThis, _value))
+            }
+        }
+
+    }
+
+}
+// MARK: - DataRequest
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequest)
 public final class DataRequest : WinRTClass {
@@ -932,6 +2553,80 @@ public final class DataRequest : WinRTClass {
     }
 }
 
+// MARK: - DataRequest Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataRequestBridge: AbiBridge {
+        public typealias SwiftProjection = DataRequest
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest>?) -> DataRequest? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataRequestMaker: MakeFromAbi {
+    public typealias SwiftType = DataRequest
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataRequest(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest: WindowsFoundation.IID = .init(
+        Data1: 0x4341AE3B, Data2: 0xFC12, Data3: 0x4E53, Data4: ( 0x8C,0x02,0xAC,0x71,0x4C,0x41,0x5A,0x27 ) // 4341AE3B-FC12-4E53-8C02-AC714C415A27
+    ) 
+
+    public class IDataRequest: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest }
+
+        public func get_Data() throws -> UWP.DataPackage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageBridge.from(abi: value)
+        }
+
+        public func put_Data(_ value: UWP.DataPackage?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Data(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Deadline() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Deadline(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func FailWithDisplayText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FailWithDisplayText(pThis, _value.get()))
+            }
+        }
+
+        public func GetDeferral() throws -> UWP.DataRequestDeferral? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequest.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataRequestDeferralBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - DataRequestDeferral
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequestdeferral)
 public final class DataRequestDeferral : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IDataRequestDeferral
@@ -960,6 +2655,47 @@ public final class DataRequestDeferral : WinRTClass {
     }
 }
 
+// MARK: - DataRequestDeferral Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataRequestDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = DataRequestDeferral
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestDeferral
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestDeferral>?) -> DataRequestDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataRequestDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = DataRequestDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataRequestDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestDeferral: WindowsFoundation.IID = .init(
+        Data1: 0x6DC4B89F, Data2: 0x0386, Data3: 0x4263, Data4: ( 0x87,0xC1,0xED,0x7D,0xCE,0x30,0x89,0x0E ) // 6DC4B89F-0386-4263-87C1-ED7DCE30890E
+    ) 
+
+    public class IDataRequestDeferral: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestDeferral }
+
+        public func Complete() throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestDeferral.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
+            }
+        }
+
+    }
+
+}
+// MARK: - DataRequestedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datarequestedeventargs)
 public final class DataRequestedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IDataRequestedEventArgs
@@ -987,6 +2723,50 @@ public final class DataRequestedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DataRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DataRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestedEventArgs>?) -> DataRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DataRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xCB8BA807, Data2: 0x6AC5, Data3: 0x43C9, Data4: ( 0x8A,0xC5,0x9B,0xA2,0x32,0x16,0x31,0x82 ) // CB8BA807-6AC5-43C9-8AC5-9BA232163182
+    ) 
+
+    public class IDataRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestedEventArgs }
+
+        public func get_Request() throws -> UWP.DataRequest? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Request(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataRequestBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - DataTransferManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager)
 public final class DataTransferManager : WinRTClass {
@@ -1075,6 +2855,154 @@ public final class DataTransferManager : WinRTClass {
     }
 }
 
+// MARK: - DataTransferManager Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum DataTransferManagerBridge: AbiBridge {
+        public typealias SwiftProjection = DataTransferManager
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager>?) -> DataTransferManager? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DataTransferManagerMaker: MakeFromAbi {
+    public typealias SwiftType = DataTransferManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DataTransferManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager: WindowsFoundation.IID = .init(
+        Data1: 0xA5CAEE9B, Data2: 0x8708, Data3: 0x49D1, Data4: ( 0x8D,0x36,0x67,0xD2,0x5A,0x8D,0xA0,0x0C ) // A5CAEE9B-8708-49D1-8D36-67D25A8DA00C
+    ) 
+
+    public class IDataTransferManager: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager }
+
+        public func add_DataRequested(_ eventHandler: TypedEventHandler<UWP.DataTransferManager?, UWP.DataRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var eventCookie: EventRegistrationToken = .init()
+            let eventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataTransferManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataRequestedEventArgsWrapper(eventHandler)
+            let _eventHandler = try! eventHandlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DataRequested(pThis, _eventHandler, &eventCookie))
+            }
+            return eventCookie
+        }
+
+        public func remove_DataRequested(_ eventCookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DataRequested(pThis, eventCookie))
+            }
+        }
+
+        public func add_TargetApplicationChosen(_ eventHandler: TypedEventHandler<UWP.DataTransferManager?, UWP.TargetApplicationChosenEventArgs?>?) throws -> EventRegistrationToken {
+            var eventCookie: EventRegistrationToken = .init()
+            let eventHandlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataTransferManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CTargetApplicationChosenEventArgsWrapper(eventHandler)
+            let _eventHandler = try! eventHandlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_TargetApplicationChosen(pThis, _eventHandler, &eventCookie))
+            }
+            return eventCookie
+        }
+
+        public func remove_TargetApplicationChosen(_ eventCookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TargetApplicationChosen(pThis, eventCookie))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager2: WindowsFoundation.IID = .init(
+        Data1: 0x30AE7D71, Data2: 0x8BA8, Data3: 0x4C02, Data4: ( 0x8E,0x3F,0xDD,0xB2,0x3B,0x38,0x87,0x15 ) // 30AE7D71-8BA8-4C02-8E3F-DDB23B388715
+    ) 
+
+    public class IDataTransferManager2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager2 }
+
+        public func add_ShareProvidersRequested(_ handler: TypedEventHandler<UWP.DataTransferManager?, UWP.ShareProvidersRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CDataTransfer__CDataTransferManager___x_ABI_CWindows__CApplicationModel__CDataTransfer__CShareProvidersRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ShareProvidersRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ShareProvidersRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManager2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ShareProvidersRequested(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics: WindowsFoundation.IID = .init(
+        Data1: 0xA9DA01AA, Data2: 0xE00E, Data3: 0x4CFE, Data4: ( 0xAA,0x44,0x2D,0xD9,0x32,0xDC,0xA3,0xD8 ) // A9DA01AA-E00E-4CFE-AA44-2DD932DCA3D8
+    ) 
+
+    public class IDataTransferManagerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics }
+
+        public func ShowShareUI() throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ShowShareUI(pThis))
+            }
+        }
+
+        public func GetForCurrentView() throws -> UWP.DataTransferManager? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentView(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataTransferManagerBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics2: WindowsFoundation.IID = .init(
+        Data1: 0xC54EC2EC, Data2: 0x9F97, Data3: 0x4D63, Data4: ( 0x98,0x68,0x39,0x5E,0x27,0x1A,0xD8,0xF5 ) // C54EC2EC-9F97-4D63-9868-395E271AD8F5
+    ) 
+
+    public class IDataTransferManagerStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics2 }
+
+        public func IsSupported() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsSupported(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics3: WindowsFoundation.IID = .init(
+        Data1: 0x05845473, Data2: 0x6C82, Data3: 0x4F5C, Data4: ( 0xAC,0x23,0x62,0xE4,0x58,0x36,0x1F,0xAC ) // 05845473-6C82-4F5C-AC23-62E458361FAC
+    ) 
+
+    public class IDataTransferManagerStatics3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics3 }
+
+        public func ShowShareUIWithOptions(_ options: UWP.ShareUIOptions?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIDataTransferManagerStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ShowShareUIWithOptions(pThis, RawPointer(options)))
+            }
+        }
+
+    }
+
+}
+// MARK: - HtmlFormatHelper
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.htmlformathelper)
 public final class HtmlFormatHelper {
     private static let _IHtmlFormatHelperStatics: __ABI_Windows_ApplicationModel_DataTransfer.IHtmlFormatHelperStatics = try! RoGetActivationFactory("Windows.ApplicationModel.DataTransfer.HtmlFormatHelper")
@@ -1089,6 +3017,42 @@ public final class HtmlFormatHelper {
     }
 
 }
+
+// MARK: - HtmlFormatHelper Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIHtmlFormatHelperStatics: WindowsFoundation.IID = .init(
+        Data1: 0xE22E7749, Data2: 0xDD70, Data3: 0x446F, Data4: ( 0xAE,0xFC,0x61,0xCE,0xE5,0x9F,0x65,0x5E ) // E22E7749-DD70-446F-AEFC-61CEE59F655E
+    ) 
+
+    public class IHtmlFormatHelperStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIHtmlFormatHelperStatics }
+
+        public func GetStaticFragment(_ htmlFormat: String) throws -> String {
+            var htmlFragment: HSTRING?
+            let _htmlFormat = try! HString(htmlFormat)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIHtmlFormatHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetStaticFragment(pThis, _htmlFormat.get(), &htmlFragment))
+            }
+            defer { WindowsDeleteString(htmlFragment) }
+            return .init(from: htmlFragment)
+        }
+
+        public func CreateHtmlFormat(_ htmlFragment: String) throws -> String {
+            var htmlFormat: HSTRING?
+            let _htmlFragment = try! HString(htmlFragment)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIHtmlFormatHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CreateHtmlFormat(pThis, _htmlFragment.get(), &htmlFormat))
+            }
+            defer { WindowsDeleteString(htmlFormat) }
+            return .init(from: htmlFormat)
+        }
+
+    }
+
+}
+// MARK: - OperationCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.operationcompletedeventargs)
 public final class OperationCompletedEventArgs : WinRTClass {
@@ -1125,6 +3089,67 @@ public final class OperationCompletedEventArgs : WinRTClass {
     }
 }
 
+// MARK: - OperationCompletedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum OperationCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = OperationCompletedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs>?) -> OperationCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class OperationCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = OperationCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return OperationCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xE7AF329D, Data2: 0x051D, Data3: 0x4FAB, Data4: ( 0xB1,0xA9,0x47,0xFD,0x77,0xF7,0x0A,0x41 ) // E7AF329D-051D-4FAB-B1A9-47FD77F70A41
+    ) 
+
+    public class IOperationCompletedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs }
+
+        public func get_Operation() throws -> UWP.DataPackageOperation {
+            var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Operation(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0x858FA073, Data2: 0x1E19, Data3: 0x4105, Data4: ( 0xB2,0xF7,0xC8,0x47,0x88,0x08,0xD5,0x62 ) // 858FA073-1E19-4105-B2F7-C8478808D562
+    ) 
+
+    public class IOperationCompletedEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs2 }
+
+        public func get_AcceptedFormatId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIOperationCompletedEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptedFormatId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - ShareCompletedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharecompletedeventargs)
 public final class ShareCompletedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IShareCompletedEventArgs
@@ -1152,6 +3177,50 @@ public final class ShareCompletedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ShareCompletedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ShareCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ShareCompletedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareCompletedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareCompletedEventArgs>?) -> ShareCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShareCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ShareCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShareCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareCompletedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x4574C442, Data2: 0xF913, Data3: 0x4F60, Data4: ( 0x9D,0xF7,0xCC,0x40,0x60,0xAB,0x19,0x16 ) // 4574C442-F913-4F60-9DF7-CC4060AB1916
+    ) 
+
+    public class IShareCompletedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareCompletedEventArgs }
+
+        public func get_ShareTarget() throws -> UWP.ShareTargetInfo? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareCompletedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShareTarget(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.ShareTargetInfoBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ShareProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.shareprovider)
 public final class ShareProvider : WinRTClass {
@@ -1202,6 +3271,105 @@ public final class ShareProvider : WinRTClass {
     }
 }
 
+// MARK: - ShareProvider Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ShareProviderBridge: AbiBridge {
+        public typealias SwiftProjection = ShareProvider
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider>?) -> ShareProvider? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShareProviderMaker: MakeFromAbi {
+    public typealias SwiftType = ShareProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShareProvider(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider: WindowsFoundation.IID = .init(
+        Data1: 0x2FABE026, Data2: 0x443E, Data3: 0x4CDA, Data4: ( 0xAF,0x25,0x8D,0x81,0x07,0x0E,0xFD,0x80 ) // 2FABE026-443E-4CDA-AF25-8D81070EFD80
+    ) 
+
+    public class IShareProvider: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider }
+
+        public func get_Title() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DisplayIcon() throws -> UWP.RandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayIcon(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Streams.RandomAccessStreamReferenceBridge.from(abi: value)
+        }
+
+        public func get_BackgroundColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Tag() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tag(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Tag(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvider.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Tag(pThis, _value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderFactory: WindowsFoundation.IID = .init(
+        Data1: 0x172A174C, Data2: 0xE79E, Data3: 0x4F6D, Data4: ( 0xB0,0x7D,0x12,0x8F,0x46,0x9E,0x02,0x96 ) // 172A174C-E79E-4F6D-B07D-128F469E0296
+    ) 
+
+    public class IShareProviderFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderFactory }
+
+        public func Create(_ title: String, _ displayIcon: UWP.RandomAccessStreamReference?, _ backgroundColor: UWP.Color, _ handler: UWP.ShareProviderHandler?) throws -> IShareProvider {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _title = try! HString(title)
+                let handlerWrapper = __ABI_Windows_ApplicationModel_DataTransfer.ShareProviderHandlerWrapper(handler)
+                let _handler = try! handlerWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Create(pThis, _title.get(), RawPointer(displayIcon), .from(swift: backgroundColor), _handler, &resultAbi))
+                }
+            }
+            return IShareProvider(result!)
+        }
+
+    }
+
+}
+// MARK: - ShareProviderOperation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.shareprovideroperation)
 public final class ShareProviderOperation : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IShareProviderOperation
@@ -1239,6 +3407,65 @@ public final class ShareProviderOperation : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ShareProviderOperation Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ShareProviderOperationBridge: AbiBridge {
+        public typealias SwiftProjection = ShareProviderOperation
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation>?) -> ShareProviderOperation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShareProviderOperationMaker: MakeFromAbi {
+    public typealias SwiftType = ShareProviderOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShareProviderOperation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation: WindowsFoundation.IID = .init(
+        Data1: 0x19CEF937, Data2: 0xD435, Data3: 0x4179, Data4: ( 0xB6,0xAF,0x14,0xE0,0x49,0x2B,0x69,0xF6 ) // 19CEF937-D435-4179-B6AF-14E0492B69F6
+    ) 
+
+    public class IShareProviderOperation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation }
+
+        public func get_Data() throws -> UWP.DataPackageView? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
+        }
+
+        public func get_Provider() throws -> UWP.ShareProvider? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Provider(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.ShareProviderBridge.from(abi: value)
+        }
+
+        public func ReportCompleted() throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProviderOperation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReportCompleted(pThis))
+            }
+        }
+
+    }
+
+}
+// MARK: - ShareProvidersRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.shareprovidersrequestedeventargs)
 public final class ShareProvidersRequestedEventArgs : WinRTClass {
@@ -1278,6 +3505,68 @@ public final class ShareProvidersRequestedEventArgs : WinRTClass {
     }
 }
 
+// MARK: - ShareProvidersRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ShareProvidersRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ShareProvidersRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs>?) -> ShareProvidersRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShareProvidersRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ShareProvidersRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShareProvidersRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xF888F356, Data2: 0xA3F8, Data3: 0x4FCE, Data4: ( 0x85,0xE4,0x88,0x26,0xE6,0x3B,0xE7,0x99 ) // F888F356-A3F8-4FCE-85E4-8826E63BE799
+    ) 
+
+    public class IShareProvidersRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs }
+
+        public func get_Providers() throws -> WindowsFoundation.AnyIVector<UWP.ShareProvider?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Providers(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CDataTransfer__CShareProviderWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_Data() throws -> UWP.DataPackageView? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.DataPackageViewBridge.from(abi: value)
+        }
+
+        public func GetDeferral() throws -> WindowsFoundation.Deferral? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareProvidersRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ShareTargetInfo
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharetargetinfo)
 public final class ShareTargetInfo : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.IShareTargetInfo
@@ -1310,6 +3599,59 @@ public final class ShareTargetInfo : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - ShareTargetInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ShareTargetInfoBridge: AbiBridge {
+        public typealias SwiftProjection = ShareTargetInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo>?) -> ShareTargetInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShareTargetInfoMaker: MakeFromAbi {
+    public typealias SwiftType = ShareTargetInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShareTargetInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo: WindowsFoundation.IID = .init(
+        Data1: 0x385BE607, Data2: 0xC6E8, Data3: 0x4114, Data4: ( 0xB2,0x94,0x28,0xF3,0xBB,0x6F,0x99,0x04 ) // 385BE607-C6E8-4114-B294-28F3BB6F9904
+    ) 
+
+    public class IShareTargetInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo }
+
+        public func get_AppUserModelId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AppUserModelId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ShareProvider() throws -> UWP.ShareProvider? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareTargetInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShareProvider(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_DataTransfer.ShareProviderBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ShareUIOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.shareuioptions)
 public final class ShareUIOptions : WinRTClass {
@@ -1351,6 +3693,72 @@ public final class ShareUIOptions : WinRTClass {
     }
 }
 
+// MARK: - ShareUIOptions Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum ShareUIOptionsBridge: AbiBridge {
+        public typealias SwiftProjection = ShareUIOptions
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions>?) -> ShareUIOptions? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShareUIOptionsMaker: MakeFromAbi {
+    public typealias SwiftType = ShareUIOptions
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShareUIOptions(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions: WindowsFoundation.IID = .init(
+        Data1: 0x72FA8A80, Data2: 0x342F, Data3: 0x4D90, Data4: ( 0x95,0x51,0x2A,0xE0,0x4E,0x37,0x68,0x0C ) // 72FA8A80-342F-4D90-9551-2AE04E37680C
+    ) 
+
+    public class IShareUIOptions: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions }
+
+        public func get_Theme() throws -> UWP.ShareUITheme {
+            var value: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Theme(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Theme(_ value: UWP.ShareUITheme) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Theme(pThis, value))
+            }
+        }
+
+        public func get_SelectionRect() throws -> WindowsFoundation.Rect? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionRect(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_SelectionRect(_ value: WindowsFoundation.Rect?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CRectWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIShareUIOptions.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionRect(pThis, _value))
+            }
+        }
+
+    }
+
+}
+// MARK: - SharedStorageAccessManager
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager)
 public final class SharedStorageAccessManager {
     private static let _ISharedStorageAccessManagerStatics: __ABI_Windows_ApplicationModel_DataTransfer.ISharedStorageAccessManagerStatics = try! RoGetActivationFactory("Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager")
@@ -1370,6 +3778,50 @@ public final class SharedStorageAccessManager {
     }
 
 }
+
+// MARK: - SharedStorageAccessManager Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC6132ADA, Data2: 0x34B1, Data3: 0x4849, Data4: ( 0xBD,0x5F,0xD0,0x9F,0xEE,0x31,0x58,0xC5 ) // C6132ADA-34B1-4849-BD5F-D09FEE3158C5
+    ) 
+
+    public class ISharedStorageAccessManagerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics }
+
+        public func AddFile(_ file: UWP.AnyIStorageFile?) throws -> String {
+            var outToken: HSTRING?
+            let fileWrapper = __ABI_Windows_Storage.IStorageFileWrapper(file)
+            let _file = try! fileWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.AddFile(pThis, _file, &outToken))
+            }
+            defer { WindowsDeleteString(outToken) }
+            return .init(from: outToken)
+        }
+
+        public func RedeemTokenForFileAsync(_ token: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _token = try! HString(token)
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RedeemTokenForFileAsync(pThis, _token.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStorageFileWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func RemoveFile(_ token: String) throws {
+            let _token = try! HString(token)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CISharedStorageAccessManagerStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveFile(pThis, _token.get()))
+            }
+        }
+
+    }
+
+}
+// MARK: - StandardDataFormats
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.standarddataformats)
 public final class StandardDataFormats {
@@ -1423,6 +3875,121 @@ public final class StandardDataFormats {
 
 }
 
+// MARK: - StandardDataFormats Internals
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics: WindowsFoundation.IID = .init(
+        Data1: 0x7ED681A1, Data2: 0xA880, Data3: 0x40C9, Data4: ( 0xB4,0xED,0x0B,0xEE,0x1E,0x15,0xF5,0x49 ) // 7ED681A1-A880-40C9-B4ED-0BEE1E15F549
+    ) 
+
+    public class IStandardDataFormatsStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics }
+
+        public func get_Text() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Uri() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Uri(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Html() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Html(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Rtf() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Rtf(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Bitmap() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bitmap(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_StorageItems() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StorageItems(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x42A254F4, Data2: 0x9D76, Data3: 0x42E8, Data4: ( 0x86,0x1B,0x47,0xC2,0x5D,0xD0,0xCF,0x71 ) // 42A254F4-9D76-42E8-861B-47C25DD0CF71
+    ) 
+
+    public class IStandardDataFormatsStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics2 }
+
+        public func get_WebLink() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_WebLink(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ApplicationLink() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationLink(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics3: WindowsFoundation.IID = .init(
+        Data1: 0x3B57B069, Data2: 0x01D4, Data3: 0x474C, Data4: ( 0x8B,0x5F,0xBC,0x8E,0x27,0xF3,0x8B,0x21 ) // 3B57B069-01D4-474C-8B5F-BC8E27F38B21
+    ) 
+
+    public class IStandardDataFormatsStatics3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics3 }
+
+        public func get_UserActivityJsonArray() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CIStandardDataFormatsStatics3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserActivityJsonArray(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - TargetApplicationChosenEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.targetapplicationchoseneventargs)
 public final class TargetApplicationChosenEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer.ITargetApplicationChosenEventArgs
@@ -1451,60 +4018,45 @@ public final class TargetApplicationChosenEventArgs : WinRTClass {
     }
 }
 
-public typealias DataProviderHandler = (DataProviderRequest?) throws -> ()
-public typealias ShareProviderHandler = (ShareProviderOperation?) throws -> ()
-extension UWP.ClipboardHistoryItemsResultStatus {
-    public static var success : UWP.ClipboardHistoryItemsResultStatus {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus_Success
+// MARK: - TargetApplicationChosenEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_DataTransfer {
+    public enum TargetApplicationChosenEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = TargetApplicationChosenEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CITargetApplicationChosenEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CDataTransfer_CITargetApplicationChosenEventArgs>?) -> TargetApplicationChosenEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var accessDenied : UWP.ClipboardHistoryItemsResultStatus {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus_AccessDenied
-    }
-    public static var clipboardHistoryDisabled : UWP.ClipboardHistoryItemsResultStatus {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CClipboardHistoryItemsResultStatus_ClipboardHistoryDisabled
+
+}
+@_spi(WinRTInternal)
+public class TargetApplicationChosenEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = TargetApplicationChosenEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TargetApplicationChosenEventArgs(fromAbi: abi)
     }
 }
-extension UWP.ClipboardHistoryItemsResultStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_DataTransfer {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CITargetApplicationChosenEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xCA6FB8AC, Data2: 0x2987, Data3: 0x4EE3, Data4: ( 0x9C,0x54,0xD8,0xAF,0xBC,0xB8,0x6C,0x1D ) // CA6FB8AC-2987-4EE3-9C54-D8AFBCB86C1D
+    ) 
 
-extension UWP.DataPackageOperation {
-    public static var none : UWP.DataPackageOperation {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_None
+    public class ITargetApplicationChosenEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CITargetApplicationChosenEventArgs }
+
+        public func get_ApplicationName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CITargetApplicationChosenEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ApplicationName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
     }
-    public static var copy : UWP.DataPackageOperation {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_Copy
-    }
-    public static var move : UWP.DataPackageOperation {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_Move
-    }
-    public static var link : UWP.DataPackageOperation {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDataPackageOperation_Link
-    }
+
 }
-extension UWP.DataPackageOperation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.SetHistoryItemAsContentStatus {
-    public static var success : UWP.SetHistoryItemAsContentStatus {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus_Success
-    }
-    public static var accessDenied : UWP.SetHistoryItemAsContentStatus {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus_AccessDenied
-    }
-    public static var itemDeleted : UWP.SetHistoryItemAsContentStatus {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CSetHistoryItemAsContentStatus_ItemDeleted
-    }
-}
-extension UWP.SetHistoryItemAsContentStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.ShareUITheme {
-    public static var `default` : UWP.ShareUITheme {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme_Default
-    }
-    public static var light : UWP.ShareUITheme {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme_Light
-    }
-    public static var dark : UWP.ShareUITheme {
-        __x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareUITheme_Dark
-    }
-}
-extension UWP.ShareUITheme: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

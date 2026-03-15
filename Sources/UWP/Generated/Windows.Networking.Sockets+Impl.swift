@@ -5,5 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __IMPL_Windows_Networking_Sockets {
-}
+public enum __IMPL_Windows_Networking_Sockets {}

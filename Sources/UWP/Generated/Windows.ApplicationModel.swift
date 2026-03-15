@@ -4,12 +4,747 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - PackageContentGroupState
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroupstate)
 public typealias PackageContentGroupState = __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState
+
+extension UWP.PackageContentGroupState {
+    public static var notStaged : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_NotStaged
+    }
+    public static var queued : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Queued
+    }
+    public static var staging : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Staging
+    }
+    public static var staged : UWP.PackageContentGroupState {
+        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Staged
+    }
+}
+extension UWP.PackageContentGroupState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PackageSignatureKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagesignaturekind)
 public typealias PackageSignatureKind = __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind
+
+extension UWP.PackageSignatureKind {
+    public static var none : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_None
+    }
+    public static var developer : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Developer
+    }
+    public static var enterprise : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Enterprise
+    }
+    public static var store : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Store
+    }
+    public static var system : UWP.PackageSignatureKind {
+        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_System
+    }
+}
+extension UWP.PackageSignatureKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PackageUpdateAvailability
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageupdateavailability)
 public typealias PackageUpdateAvailability = __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability
+
+extension UWP.PackageUpdateAvailability {
+    public static var unknown : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Unknown
+    }
+    public static var noUpdates : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_NoUpdates
+    }
+    public static var available : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Available
+    }
+    public static var required : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Required
+    }
+    public static var error : UWP.PackageUpdateAvailability {
+        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Error
+    }
+}
+extension UWP.PackageUpdateAvailability: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PackageVersion
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion)
+public struct PackageVersion: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.major)
+    public var major: UInt16 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.minor)
+    public var minor: UInt16 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.build)
+    public var build: UInt16 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.revision)
+    public var revision: UInt16 = 0
+    public init() {}
+    public init(major: UInt16, minor: UInt16, build: UInt16, revision: UInt16) {
+        self.major = major
+        self.minor = minor
+        self.build = build
+        self.revision = revision
+    }
+}
+
+// MARK: - PackageVersion Internals
+
+@_spi(WinRTInternal)
+extension PackageVersion: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CApplicationModel_CPackageVersion
+    public static func from(abi: ABI) -> Self {
+        .init(major: abi.Major, minor: abi.Minor, build: abi.Build, revision: abi.Revision)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CApplicationModel_CPackageVersion {
+    public static func from(swift: UWP.PackageVersion) -> __x_ABI_CWindows_CApplicationModel_CPackageVersion {
+        .init(Major: swift.major, Minor: swift.minor, Build: swift.build, Revision: swift.revision)
+    }
+}
+// MARK: - IEnteredBackgroundEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs)
+public protocol IEnteredBackgroundEventArgs : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs.getdeferral)
+    func getDeferral() throws -> WindowsFoundation.Deferral!
+}
+
+extension IEnteredBackgroundEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIEnteredBackgroundEventArgs = any IEnteredBackgroundEventArgs
+
+// MARK: - IEnteredBackgroundEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum IEnteredBackgroundEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgs
+        public typealias SwiftProjection = AnyIEnteredBackgroundEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IEnteredBackgroundEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IEnteredBackgroundEventArgsImpl: IEnteredBackgroundEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = IEnteredBackgroundEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs.getdeferral)
+        fileprivate func getDeferral() throws -> WindowsFoundation.Deferral! {
+            try _default.GetDeferral()
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xF722DCC2, Data2: 0x9827, Data3: 0x403D, Data4: ( 0xAA,0xED,0xEC,0xCA,0x9A,0xC1,0x73,0x98 ) // F722DCC2-9827-403D-AAED-ECCA9AC17398
+    ) 
+
+    public class IEnteredBackgroundEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs }
+
+        open func GetDeferral() throws -> WindowsFoundation.Deferral? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IEnteredBackgroundEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgsVtbl = .init(
+        QueryInterface: { IEnteredBackgroundEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IEnteredBackgroundEventArgsWrapper.addRef($0) },
+        Release: { IEnteredBackgroundEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.IEnteredBackgroundEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        GetDeferral: {
+            do {
+                guard let __unwrapped__instance = IEnteredBackgroundEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value = try __unwrapped__instance.getDeferral()
+                value?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias IEnteredBackgroundEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel.IEnteredBackgroundEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class IEnteredBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIEnteredBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.IEnteredBackgroundEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ILeavingBackgroundEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ileavingbackgroundeventargs)
+public protocol ILeavingBackgroundEventArgs : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ileavingbackgroundeventargs.getdeferral)
+    func getDeferral() throws -> WindowsFoundation.Deferral!
+}
+
+extension ILeavingBackgroundEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyILeavingBackgroundEventArgs = any ILeavingBackgroundEventArgs
+
+// MARK: - ILeavingBackgroundEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum ILeavingBackgroundEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgs
+        public typealias SwiftProjection = AnyILeavingBackgroundEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ILeavingBackgroundEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ILeavingBackgroundEventArgsImpl: ILeavingBackgroundEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = ILeavingBackgroundEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ileavingbackgroundeventargs.getdeferral)
+        fileprivate func getDeferral() throws -> WindowsFoundation.Deferral! {
+            try _default.GetDeferral()
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x39C6EC9A, Data2: 0xAE6E, Data3: 0x46F9, Data4: ( 0xA0,0x7A,0xCF,0xC2,0x3F,0x88,0x73,0x3E ) // 39C6EC9A-AE6E-46F9-A07A-CFC23F88733E
+    ) 
+
+    public class ILeavingBackgroundEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs }
+
+        open func GetDeferral() throws -> WindowsFoundation.Deferral? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.DeferralBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var ILeavingBackgroundEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgsVtbl = .init(
+        QueryInterface: { ILeavingBackgroundEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ILeavingBackgroundEventArgsWrapper.addRef($0) },
+        Release: { ILeavingBackgroundEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.ILeavingBackgroundEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        GetDeferral: {
+            do {
+                guard let __unwrapped__instance = ILeavingBackgroundEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let value = try __unwrapped__instance.getDeferral()
+                value?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ILeavingBackgroundEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel.ILeavingBackgroundEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class ILeavingBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyILeavingBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ILeavingBackgroundEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ISuspendingDeferral
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingdeferral)
+public protocol ISuspendingDeferral : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingdeferral.complete)
+    func complete() throws
+}
+
+extension ISuspendingDeferral {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel.ISuspendingDeferralWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel.ISuspendingDeferralWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyISuspendingDeferral = any ISuspendingDeferral
+
+// MARK: - ISuspendingDeferral Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum ISuspendingDeferralBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingDeferral
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingDeferral
+        public typealias SwiftProjection = AnyISuspendingDeferral
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ISuspendingDeferralImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel.ISuspendingDeferralVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ISuspendingDeferralImpl: ISuspendingDeferral, WinRTAbiImpl {
+        fileprivate typealias Bridge = ISuspendingDeferralBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingdeferral.complete)
+        fileprivate func complete() throws {
+            try _default.Complete()
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CISuspendingDeferral: WindowsFoundation.IID = .init(
+        Data1: 0x59140509, Data2: 0x8BC9, Data3: 0x4EB4, Data4: ( 0xB6,0x36,0xDA,0xBD,0xC4,0xF4,0x6F,0x66 ) // 59140509-8BC9-4EB4-B636-DABDC4F46F66
+    ) 
+
+    public class ISuspendingDeferral: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CISuspendingDeferral }
+
+        open func Complete() throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CISuspendingDeferral.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
+            }
+        }
+
+    }
+
+    internal static var ISuspendingDeferralVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingDeferralVtbl = .init(
+        QueryInterface: { ISuspendingDeferralWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ISuspendingDeferralWrapper.addRef($0) },
+        Release: { ISuspendingDeferralWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel.ISuspendingDeferralWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.ISuspendingDeferral").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        Complete: {
+            do {
+                guard let __unwrapped__instance = ISuspendingDeferralWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.complete()
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+
+    public typealias ISuspendingDeferralWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel.ISuspendingDeferralBridge>
+}
+@_spi(WinRTInternal)
+public class ISuspendingDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISuspendingDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ISuspendingDeferral = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ISuspendingDeferralBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ISuspendingEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingeventargs)
+public protocol ISuspendingEventArgs : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingeventargs.suspendingoperation)
+    var suspendingOperation: UWP.SuspendingOperation! { get }
+}
+
+extension ISuspendingEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel.ISuspendingEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel.ISuspendingEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyISuspendingEventArgs = any ISuspendingEventArgs
+
+// MARK: - ISuspendingEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum ISuspendingEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingEventArgs
+        public typealias SwiftProjection = AnyISuspendingEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ISuspendingEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel.ISuspendingEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ISuspendingEventArgsImpl: ISuspendingEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = ISuspendingEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingeventargs.suspendingoperation)
+        fileprivate var suspendingOperation : SuspendingOperation! {
+            get { try! _default.get_SuspendingOperation() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x96061C05, Data2: 0x2DBA, Data3: 0x4D08, Data4: ( 0xB0,0xBD,0x2B,0x30,0xA1,0x31,0xC6,0xAA ) // 96061C05-2DBA-4D08-B0BD-2B30A131C6AA
+    ) 
+
+    public class ISuspendingEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs }
+
+        open func get_SuspendingOperation() throws -> UWP.SuspendingOperation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuspendingOperation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.SuspendingOperationBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var ISuspendingEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgsVtbl = .init(
+        QueryInterface: { ISuspendingEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ISuspendingEventArgsWrapper.addRef($0) },
+        Release: { ISuspendingEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel.ISuspendingEventArgsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.ISuspendingEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_SuspendingOperation: {
+            guard let __unwrapped__instance = ISuspendingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.suspendingOperation
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias ISuspendingEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel.ISuspendingEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class ISuspendingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISuspendingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ISuspendingEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ISuspendingEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ISuspendingOperation
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation)
+public protocol ISuspendingOperation : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.getdeferral)
+    func getDeferral() throws -> UWP.SuspendingDeferral!
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.deadline)
+    var deadline: WindowsFoundation.DateTime { get }
+}
+
+extension ISuspendingOperation {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel.ISuspendingOperationWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel.ISuspendingOperationWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyISuspendingOperation = any ISuspendingOperation
+
+// MARK: - ISuspendingOperation Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum ISuspendingOperationBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingOperation
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingOperation
+        public typealias SwiftProjection = AnyISuspendingOperation
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ISuspendingOperationImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel.ISuspendingOperationVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ISuspendingOperationImpl: ISuspendingOperation, WinRTAbiImpl {
+        fileprivate typealias Bridge = ISuspendingOperationBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.getdeferral)
+        fileprivate func getDeferral() throws -> SuspendingDeferral! {
+            try _default.GetDeferral()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.deadline)
+        fileprivate var deadline : WindowsFoundation.DateTime {
+            get { try! _default.get_Deadline() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CISuspendingOperation: WindowsFoundation.IID = .init(
+        Data1: 0x9DA4CA41, Data2: 0x20E1, Data3: 0x4E9B, Data4: ( 0x9F,0x65,0xA9,0xF4,0x35,0x34,0x0C,0x3A ) // 9DA4CA41-20E1-4E9B-9F65-A9F435340C3A
+    ) 
+
+    public class ISuspendingOperation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CISuspendingOperation }
+
+        open func GetDeferral() throws -> UWP.SuspendingDeferral? {
+            let (deferral) = try ComPtrs.initialize { deferralAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CISuspendingOperation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &deferralAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.SuspendingDeferralBridge.from(abi: deferral)
+        }
+
+        open func get_Deadline() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CISuspendingOperation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Deadline(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    internal static var ISuspendingOperationVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingOperationVtbl = .init(
+        QueryInterface: { ISuspendingOperationWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ISuspendingOperationWrapper.addRef($0) },
+        Release: { ISuspendingOperationWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel.ISuspendingOperationWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.ISuspendingOperation").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        GetDeferral: {
+            do {
+                guard let __unwrapped__instance = ISuspendingOperationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let deferral = try __unwrapped__instance.getDeferral()
+                deferral?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        get_Deadline: {
+            guard let __unwrapped__instance = ISuspendingOperationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.deadline
+            $1?.initialize(to: .from(swift: value))
+            return S_OK
+        }
+    )
+
+    public typealias ISuspendingOperationWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel.ISuspendingOperationBridge>
+}
+@_spi(WinRTInternal)
+public class ISuspendingOperationMaker: MakeFromAbi {
+    public typealias SwiftType = AnyISuspendingOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel.ISuspendingOperation = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel.ISuspendingOperationBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - AppDisplayInfo
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appdisplayinfo)
 public final class AppDisplayInfo : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IAppDisplayInfo
@@ -47,6 +782,68 @@ public final class AppDisplayInfo : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AppDisplayInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum AppDisplayInfoBridge: AbiBridge {
+        public typealias SwiftProjection = AppDisplayInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo>?) -> AppDisplayInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AppDisplayInfoMaker: MakeFromAbi {
+    public typealias SwiftType = AppDisplayInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppDisplayInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo: WindowsFoundation.IID = .init(
+        Data1: 0x1AEB1103, Data2: 0xE4D4, Data3: 0x41AA, Data4: ( 0xA4,0xF6,0xC4,0xA2,0x76,0xE7,0x9E,0xAC ) // 1AEB1103-E4D4-41AA-A4F6-C4A276E79EAC
+    ) 
+
+    public class IAppDisplayInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo }
+
+        public func get_DisplayName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Description() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func GetLogo(_ size: WindowsFoundation.Size) throws -> UWP.RandomAccessStreamReference? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLogo(pThis, .from(swift: size), &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Streams.RandomAccessStreamReferenceBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AppInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appinfo)
 public final class AppInfo : WinRTClass {
@@ -91,6 +888,77 @@ public final class AppInfo : WinRTClass {
     }
 }
 
+// MARK: - AppInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum AppInfoBridge: AbiBridge {
+        public typealias SwiftProjection = AppInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIAppInfo>?) -> AppInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AppInfoMaker: MakeFromAbi {
+    public typealias SwiftType = AppInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIAppInfo: WindowsFoundation.IID = .init(
+        Data1: 0xCF7F59B3, Data2: 0x6A09, Data3: 0x4DE8, Data4: ( 0xA6,0xC0,0x57,0x92,0xD5,0x68,0x80,0xD1 ) // CF7F59B3-6A09-4DE8-A6C0-5792D56880D1
+    ) 
+
+    public class IAppInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIAppInfo }
+
+        public func get_Id() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_AppUserModelId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AppUserModelId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DisplayInfo() throws -> UWP.AppDisplayInfo? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayInfo(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.AppDisplayInfoBridge.from(abi: value)
+        }
+
+        public func get_PackageFamilyName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageFamilyName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - AppInstallerInfo
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appinstallerinfo)
 public final class AppInstallerInfo : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IAppInstallerInfo
@@ -118,6 +986,50 @@ public final class AppInstallerInfo : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AppInstallerInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum AppInstallerInfoBridge: AbiBridge {
+        public typealias SwiftProjection = AppInstallerInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo>?) -> AppInstallerInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AppInstallerInfoMaker: MakeFromAbi {
+    public typealias SwiftType = AppInstallerInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppInstallerInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo: WindowsFoundation.IID = .init(
+        Data1: 0x29AB2AC0, Data2: 0xD4F6, Data3: 0x42A3, Data4: ( 0xAD,0xCD,0xD6,0x58,0x3C,0x65,0x95,0x08 ) // 29AB2AC0-D4F6-42A3-ADCD-D6583C659508
+    ) 
+
+    public class IAppInstallerInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo }
+
+        public func get_Uri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Uri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - EnteredBackgroundEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.enteredbackgroundeventargs)
 public final class EnteredBackgroundEventArgs : WinRTClass, IEnteredBackgroundEventArgs {
@@ -150,6 +1062,32 @@ public final class EnteredBackgroundEventArgs : WinRTClass, IEnteredBackgroundEv
     }
 }
 
+// MARK: - EnteredBackgroundEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum EnteredBackgroundEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = EnteredBackgroundEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs>?) -> EnteredBackgroundEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class EnteredBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = EnteredBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return EnteredBackgroundEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+}
+// MARK: - LeavingBackgroundEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.leavingbackgroundeventargs)
 public final class LeavingBackgroundEventArgs : WinRTClass, ILeavingBackgroundEventArgs {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgs
@@ -180,6 +1118,32 @@ public final class LeavingBackgroundEventArgs : WinRTClass, ILeavingBackgroundEv
         _default = nil
     }
 }
+
+// MARK: - LeavingBackgroundEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum LeavingBackgroundEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = LeavingBackgroundEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs>?) -> LeavingBackgroundEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class LeavingBackgroundEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = LeavingBackgroundEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LeavingBackgroundEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+}
+// MARK: - Package
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package)
 public final class Package : WinRTClass {
@@ -369,6 +1333,378 @@ public final class Package : WinRTClass {
     }
 }
 
+// MARK: - Package Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum PackageBridge: AbiBridge {
+        public typealias SwiftProjection = Package
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackage
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackage>?) -> Package? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageMaker: MakeFromAbi {
+    public typealias SwiftType = Package
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Package(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackage: WindowsFoundation.IID = .init(
+        Data1: 0x163C792F, Data2: 0xBD75, Data3: 0x413C, Data4: ( 0xBF,0x23,0xB1,0xFE,0x7B,0x95,0xD8,0x25 ) // 163C792F-BD75-413C-BF23-B1FE7B95D825
+    ) 
+
+    public class IPackage: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage }
+
+        public func get_Id() throws -> UWP.PackageId? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.PackageIdBridge.from(abi: value)
+        }
+
+        public func get_InstalledLocation() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_InstalledLocation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage.StorageFolderBridge.from(abi: value)
+        }
+
+        public func get_IsFramework() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFramework(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_Dependencies() throws -> WindowsFoundation.AnyIVectorView<UWP.Package?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Dependencies(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackage2: WindowsFoundation.IID = .init(
+        Data1: 0xA6612FB6, Data2: 0x7688, Data3: 0x4ACE, Data4: ( 0x95,0xFB,0x35,0x95,0x38,0xE7,0xAA,0x01 ) // A6612FB6-7688-4ACE-95FB-359538E7AA01
+    ) 
+
+    public class IPackage2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage2 }
+
+        public func get_DisplayName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PublisherDisplayName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PublisherDisplayName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Description() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Logo() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Logo(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func get_IsResourcePackage() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsResourcePackage(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_IsBundle() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsBundle(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_IsDevelopmentMode() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDevelopmentMode(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackage3: WindowsFoundation.IID = .init(
+        Data1: 0x5F738B61, Data2: 0xF86A, Data3: 0x4917, Data4: ( 0x93,0xD1,0xF1,0xEE,0x9D,0x3B,0x35,0xD9 ) // 5F738B61-F86A-4917-93D1-F1EE9D3B35D9
+    ) 
+
+    public class IPackage3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage3 }
+
+        public func get_Status() throws -> UWP.PackageStatus? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.PackageStatusBridge.from(abi: value)
+        }
+
+        public func get_InstalledDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InstalledDate(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func GetAppListEntriesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AppListEntry?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAppListEntriesAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CApplicationModel__CCore__CAppListEntryWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageWithMetadata: WindowsFoundation.IID = .init(
+        Data1: 0x95949780, Data2: 0x1DE9, Data3: 0x40F2, Data4: ( 0xB4,0x52,0x0D,0xE9,0xF1,0x91,0x00,0x12 ) // 95949780-1DE9-40F2-B452-0DE9F1910012
+    ) 
+
+    public class IPackageWithMetadata: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageWithMetadata }
+
+        public func get_InstallDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageWithMetadata.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InstallDate(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func GetThumbnailToken() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageWithMetadata.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetThumbnailToken(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func Launch(_ parameters: String) throws {
+            let _parameters = try! HString(parameters)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageWithMetadata.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Launch(pThis, _parameters.get()))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackage4: WindowsFoundation.IID = .init(
+        Data1: 0x65AED1AE, Data2: 0xB95B, Data3: 0x450C, Data4: ( 0x88,0x2B,0x62,0x55,0x18,0x7F,0x39,0x7E ) // 65AED1AE-B95B-450C-882B-6255187F397E
+    ) 
+
+    public class IPackage4: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage4 }
+
+        public func get_SignatureKind() throws -> UWP.PackageSignatureKind {
+            var value: __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage4.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SignatureKind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_IsOptional() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage4.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOptional(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func VerifyContentIntegrityAsync() throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage4.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.VerifyContentIntegrityAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackage5: WindowsFoundation.IID = .init(
+        Data1: 0x0E842DD4, Data2: 0xD9AC, Data3: 0x45ED, Data4: ( 0x9A,0x1E,0x74,0xCE,0x05,0x6B,0x26,0x35 ) // 0E842DD4-D9AC-45ED-9A1E-74CE056B2635
+    ) 
+
+    public class IPackage5: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage5 }
+
+        public func GetContentGroupsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVector<UWP.PackageContentGroup?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetContentGroupsAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroupWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func GetContentGroupAsync(_ name: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PackageContentGroup?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _name = try! HString(name)
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetContentGroupAsync(pThis, _name.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroupWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func StageContentGroupsAsync(_ names: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVector<UWP.PackageContentGroup?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let namesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(names)
+                let _names = try! namesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StageContentGroupsAsync(pThis, _names, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroupWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func StageContentGroupsWithPriorityAsync(_ names: WindowsFoundation.AnyIIterable<String>?, _ moveToHeadOfQueue: Bool) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVector<UWP.PackageContentGroup?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let namesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(names)
+                let _names = try! namesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StageContentGroupsWithPriorityAsync(pThis, _names, .init(from: moveToHeadOfQueue), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroupWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func SetInUseAsync(_ inUse: Bool) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetInUseAsync(pThis, .init(from: inUse), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackage6: WindowsFoundation.IID = .init(
+        Data1: 0x8B1AD942, Data2: 0x12D7, Data3: 0x4754, Data4: ( 0xAE,0x4E,0x63,0x8C,0xBC,0x0E,0x3A,0x2E ) // 8B1AD942-12D7-4754-AE4E-638CBC0E3A2E
+    ) 
+
+    public class IPackage6: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage6 }
+
+        public func GetAppInstallerInfo() throws -> UWP.AppInstallerInfo? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAppInstallerInfo(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.AppInstallerInfoBridge.from(abi: value)
+        }
+
+        public func CheckUpdateAvailabilityAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PackageUpdateAvailabilityResult?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CheckUpdateAvailabilityAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CApplicationModel__CPackageUpdateAvailabilityResultWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackage7: WindowsFoundation.IID = .init(
+        Data1: 0x86FF8D31, Data2: 0xA2E4, Data3: 0x45E0, Data4: ( 0x97,0x32,0x28,0x3A,0x6D,0x88,0xFD,0xE1 ) // 86FF8D31-A2E4-45E0-9732-283A6D88FDE1
+    ) 
+
+    public class IPackage7: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage7 }
+
+        public func get_MutableLocation() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage7.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MutableLocation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage.StorageFolderBridge.from(abi: value)
+        }
+
+        public func get_EffectiveLocation() throws -> UWP.StorageFolder? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage7.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EffectiveLocation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage.StorageFolderBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageStatics: WindowsFoundation.IID = .init(
+        Data1: 0x4E534BDF, Data2: 0x2960, Data3: 0x4878, Data4: ( 0x97,0xA4,0x96,0x24,0xDE,0xB7,0x2F,0x2D ) // 4E534BDF-2960-4878-97A4-9624DEB72F2D
+    ) 
+
+    public class IPackageStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageStatics }
+
+        public func get_Current() throws -> UWP.Package? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.PackageBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - PackageContentGroup
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup)
 public final class PackageContentGroup : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageContentGroup
@@ -417,6 +1753,93 @@ public final class PackageContentGroup : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - PackageContentGroup Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum PackageContentGroupBridge: AbiBridge {
+        public typealias SwiftProjection = PackageContentGroup
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageContentGroup>?) -> PackageContentGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageContentGroupMaker: MakeFromAbi {
+    public typealias SwiftType = PackageContentGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageContentGroup(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageContentGroup: WindowsFoundation.IID = .init(
+        Data1: 0x8F62695D, Data2: 0x120A, Data3: 0x4798, Data4: ( 0xB5,0xE1,0x58,0x00,0xDD,0xA8,0xF2,0xE1 ) // 8F62695D-120A-4798-B5E1-5800DDA8F2E1
+    ) 
+
+    public class IPackageContentGroup: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageContentGroup }
+
+        public func get_Package() throws -> UWP.Package? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Package(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.PackageBridge.from(abi: value)
+        }
+
+        public func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_State() throws -> UWP.PackageContentGroupState {
+            var value: __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_State(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_IsRequired() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRequired(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageContentGroupStatics: WindowsFoundation.IID = .init(
+        Data1: 0x70EE7619, Data2: 0x5F12, Data3: 0x4B92, Data4: ( 0xB9,0xEA,0x6C,0xCA,0xDA,0x13,0xBC,0x75 ) // 70EE7619-5F12-4B92-B9EA-6CCADA13BC75
+    ) 
+
+    public class IPackageContentGroupStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageContentGroupStatics }
+
+        public func get_RequiredGroupName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageContentGroupStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequiredGroupName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - PackageId
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid)
 public final class PackageId : WinRTClass {
@@ -492,6 +1915,138 @@ public final class PackageId : WinRTClass {
         _IPackageIdWithMetadata = nil
     }
 }
+
+// MARK: - PackageId Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum PackageIdBridge: AbiBridge {
+        public typealias SwiftProjection = PackageId
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageId
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageId>?) -> PackageId? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageIdMaker: MakeFromAbi {
+    public typealias SwiftType = PackageId
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageId(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageId: WindowsFoundation.IID = .init(
+        Data1: 0x1ADB665E, Data2: 0x37C7, Data3: 0x4790, Data4: ( 0x99,0x80,0xDD,0x7A,0xE7,0x4E,0x8B,0xB2 ) // 1ADB665E-37C7-4790-9980-DD7AE74E8BB2
+    ) 
+
+    public class IPackageId: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageId }
+
+        public func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Version() throws -> UWP.PackageVersion {
+            var value: __x_ABI_CWindows_CApplicationModel_CPackageVersion = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Version(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_Architecture() throws -> UWP.ProcessorArchitecture {
+            var value: __x_ABI_CWindows_CSystem_CProcessorArchitecture = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Architecture(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ResourceId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Publisher() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Publisher(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PublisherId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PublisherId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FullName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FullName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FamilyName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FamilyName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageIdWithMetadata: WindowsFoundation.IID = .init(
+        Data1: 0x40577A7C, Data2: 0x0C9E, Data3: 0x443D, Data4: ( 0x90,0x74,0x85,0x5F,0x5C,0xE0,0xA0,0x8D ) // 40577A7C-0C9E-443D-9074-855F5CE0A08D
+    ) 
+
+    public class IPackageIdWithMetadata: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageIdWithMetadata }
+
+        public func get_ProductId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageIdWithMetadata.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProductId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Author() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageIdWithMetadata.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Author(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - PackageStatus
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus)
 public final class PackageStatus : WinRTClass {
@@ -583,6 +2138,154 @@ public final class PackageStatus : WinRTClass {
     }
 }
 
+// MARK: - PackageStatus Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum PackageStatusBridge: AbiBridge {
+        public typealias SwiftProjection = PackageStatus
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageStatus
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageStatus>?) -> PackageStatus? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageStatusMaker: MakeFromAbi {
+    public typealias SwiftType = PackageStatus
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageStatus(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageStatus: WindowsFoundation.IID = .init(
+        Data1: 0x5FE74F71, Data2: 0xA365, Data3: 0x4C09, Data4: ( 0xA0,0x2D,0x04,0x6D,0x52,0x5E,0xA1,0xDA ) // 5FE74F71-A365-4C09-A02D-046D525EA1DA
+    ) 
+
+    public class IPackageStatus: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageStatus }
+
+        public func VerifyIsOK() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.VerifyIsOK(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_NotAvailable() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NotAvailable(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_PackageOffline() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageOffline(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_DataOffline() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataOffline(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_Disabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Disabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_NeedsRemediation() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NeedsRemediation(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_LicenseIssue() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LicenseIssue(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_Modified() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Modified(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_Tampered() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tampered(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_DependencyIssue() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DependencyIssue(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_Servicing() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Servicing(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_DeploymentInProgress() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeploymentInProgress(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageStatus2: WindowsFoundation.IID = .init(
+        Data1: 0xF428FA93, Data2: 0x7C56, Data3: 0x4862, Data4: ( 0xAC,0xFA,0xAB,0xAE,0xDC,0xC0,0x69,0x4D ) // F428FA93-7C56-4862-ACFA-ABAEDCC0694D
+    ) 
+
+    public class IPackageStatus2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageStatus2 }
+
+        public func get_IsPartiallyStaged() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageStatus2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPartiallyStaged(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - PackageUpdateAvailabilityResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageupdateavailabilityresult)
 public final class PackageUpdateAvailabilityResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageUpdateAvailabilityResult
@@ -616,6 +2319,57 @@ public final class PackageUpdateAvailabilityResult : WinRTClass {
     }
 }
 
+// MARK: - PackageUpdateAvailabilityResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum PackageUpdateAvailabilityResultBridge: AbiBridge {
+        public typealias SwiftProjection = PackageUpdateAvailabilityResult
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult>?) -> PackageUpdateAvailabilityResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageUpdateAvailabilityResultMaker: MakeFromAbi {
+    public typealias SwiftType = PackageUpdateAvailabilityResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageUpdateAvailabilityResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult: WindowsFoundation.IID = .init(
+        Data1: 0x114E5009, Data2: 0x199A, Data3: 0x48A1, Data4: ( 0xA0,0x79,0x31,0x3C,0x45,0x63,0x4A,0x71 ) // 114E5009-199A-48A1-A079-313C45634A71
+    ) 
+
+    public class IPackageUpdateAvailabilityResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult }
+
+        public func get_Availability() throws -> UWP.PackageUpdateAvailability {
+            var value: __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Availability(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - SuspendingDeferral
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.suspendingdeferral)
 public final class SuspendingDeferral : WinRTClass, ISuspendingDeferral {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingDeferral
@@ -647,6 +2401,32 @@ public final class SuspendingDeferral : WinRTClass, ISuspendingDeferral {
     }
 }
 
+// MARK: - SuspendingDeferral Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum SuspendingDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = SuspendingDeferral
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingDeferral
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CISuspendingDeferral>?) -> SuspendingDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SuspendingDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = SuspendingDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SuspendingDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+}
+// MARK: - SuspendingEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.suspendingeventargs)
 public final class SuspendingEventArgs : WinRTClass, ISuspendingEventArgs {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingEventArgs
@@ -677,6 +2457,32 @@ public final class SuspendingEventArgs : WinRTClass, ISuspendingEventArgs {
         _default = nil
     }
 }
+
+// MARK: - SuspendingEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum SuspendingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SuspendingEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs>?) -> SuspendingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SuspendingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SuspendingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SuspendingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
+}
+// MARK: - SuspendingOperation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.suspendingoperation)
 public final class SuspendingOperation : WinRTClass, ISuspendingOperation {
@@ -714,168 +2520,27 @@ public final class SuspendingOperation : WinRTClass, ISuspendingOperation {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion)
-public struct PackageVersion: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.major)
-    public var major: UInt16 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.minor)
-    public var minor: UInt16 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.build)
-    public var build: UInt16 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageversion.revision)
-    public var revision: UInt16 = 0
-    public init() {}
-    public init(major: UInt16, minor: UInt16, build: UInt16, revision: UInt16) {
-        self.major = major
-        self.minor = minor
-        self.build = build
-        self.revision = revision
-    }
-}
+// MARK: - SuspendingOperation Internals
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs)
-public protocol IEnteredBackgroundEventArgs : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ienteredbackgroundeventargs.getdeferral)
-    func getDeferral() throws -> WindowsFoundation.Deferral!
-}
-
-extension IEnteredBackgroundEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel {
+    public enum SuspendingOperationBridge: AbiBridge {
+        public typealias SwiftProjection = SuspendingOperation
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingOperation
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CISuspendingOperation>?) -> SuspendingOperation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
         }
     }
-}
-public typealias AnyIEnteredBackgroundEventArgs = any IEnteredBackgroundEventArgs
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ileavingbackgroundeventargs)
-public protocol ILeavingBackgroundEventArgs : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.ileavingbackgroundeventargs.getdeferral)
-    func getDeferral() throws -> WindowsFoundation.Deferral!
 }
-
-extension ILeavingBackgroundEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
+@_spi(WinRTInternal)
+public class SuspendingOperationMaker: MakeFromAbi {
+    public typealias SwiftType = SuspendingOperation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SuspendingOperation(fromAbi: abi)
     }
 }
-public typealias AnyILeavingBackgroundEventArgs = any ILeavingBackgroundEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingdeferral)
-public protocol ISuspendingDeferral : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingdeferral.complete)
-    func complete() throws
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel {
 }
-
-extension ISuspendingDeferral {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel.ISuspendingDeferralWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel.ISuspendingDeferralWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyISuspendingDeferral = any ISuspendingDeferral
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingeventargs)
-public protocol ISuspendingEventArgs : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingeventargs.suspendingoperation)
-    var suspendingOperation: UWP.SuspendingOperation! { get }
-}
-
-extension ISuspendingEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel.ISuspendingEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel.ISuspendingEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyISuspendingEventArgs = any ISuspendingEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation)
-public protocol ISuspendingOperation : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.getdeferral)
-    func getDeferral() throws -> UWP.SuspendingDeferral!
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.isuspendingoperation.deadline)
-    var deadline: WindowsFoundation.DateTime { get }
-}
-
-extension ISuspendingOperation {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel.ISuspendingOperationWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel.ISuspendingOperationWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyISuspendingOperation = any ISuspendingOperation
-
-extension UWP.PackageContentGroupState {
-    public static var notStaged : UWP.PackageContentGroupState {
-        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_NotStaged
-    }
-    public static var queued : UWP.PackageContentGroupState {
-        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Queued
-    }
-    public static var staging : UWP.PackageContentGroupState {
-        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Staging
-    }
-    public static var staged : UWP.PackageContentGroupState {
-        __x_ABI_CWindows_CApplicationModel_CPackageContentGroupState_Staged
-    }
-}
-extension UWP.PackageContentGroupState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.PackageSignatureKind {
-    public static var none : UWP.PackageSignatureKind {
-        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_None
-    }
-    public static var developer : UWP.PackageSignatureKind {
-        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Developer
-    }
-    public static var enterprise : UWP.PackageSignatureKind {
-        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Enterprise
-    }
-    public static var store : UWP.PackageSignatureKind {
-        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_Store
-    }
-    public static var system : UWP.PackageSignatureKind {
-        __x_ABI_CWindows_CApplicationModel_CPackageSignatureKind_System
-    }
-}
-extension UWP.PackageSignatureKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.PackageUpdateAvailability {
-    public static var unknown : UWP.PackageUpdateAvailability {
-        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Unknown
-    }
-    public static var noUpdates : UWP.PackageUpdateAvailability {
-        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_NoUpdates
-    }
-    public static var available : UWP.PackageUpdateAvailability {
-        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Available
-    }
-    public static var required : UWP.PackageUpdateAvailability {
-        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Required
-    }
-    public static var error : UWP.PackageUpdateAvailability {
-        __x_ABI_CWindows_CApplicationModel_CPackageUpdateAvailability_Error
-    }
-}
-extension UWP.PackageUpdateAvailability: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

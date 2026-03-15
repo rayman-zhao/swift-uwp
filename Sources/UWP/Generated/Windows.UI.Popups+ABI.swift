@@ -5,5 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __ABI_Windows_UI_Popups {
-}
+public enum __ABI_Windows_UI_Popups {}

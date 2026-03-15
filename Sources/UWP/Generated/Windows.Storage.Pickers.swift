@@ -4,10 +4,62 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - PickerLocationId
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.pickerlocationid)
 public typealias PickerLocationId = __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId
+
+extension UWP.PickerLocationId {
+    public static var documentsLibrary : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_DocumentsLibrary
+    }
+    public static var computerFolder : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_ComputerFolder
+    }
+    public static var desktop : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Desktop
+    }
+    public static var downloads : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Downloads
+    }
+    public static var homeGroup : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_HomeGroup
+    }
+    public static var musicLibrary : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_MusicLibrary
+    }
+    public static var picturesLibrary : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_PicturesLibrary
+    }
+    public static var videosLibrary : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_VideosLibrary
+    }
+    public static var objects3D : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Objects3D
+    }
+    public static var unspecified : UWP.PickerLocationId {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Unspecified
+    }
+}
+extension UWP.PickerLocationId: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PickerViewMode
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.pickerviewmode)
 public typealias PickerViewMode = __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode
+
+extension UWP.PickerViewMode {
+    public static var list : UWP.PickerViewMode {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode_List
+    }
+    public static var thumbnail : UWP.PickerViewMode {
+        __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode_Thumbnail
+    }
+}
+extension UWP.PickerViewMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - FileExtensionVector
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector)
 public final class FileExtensionVector : WinRTClass, IVector, IIterable {
     public typealias T = String
@@ -133,6 +185,32 @@ public final class FileExtensionVector : WinRTClass, IVector, IIterable {
     }
 }
 
+// MARK: - FileExtensionVector Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Storage_Pickers {
+    public enum FileExtensionVectorBridge: AbiBridge {
+        public typealias SwiftProjection = FileExtensionVector
+        public typealias CABI = __x_ABI_C__FIVector_1_HSTRING
+        public static func from(abi: consuming ComPtr<__x_ABI_C__FIVector_1_HSTRING>?) -> FileExtensionVector? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FileExtensionVectorMaker: MakeFromAbi {
+    public typealias SwiftType = FileExtensionVector
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FileExtensionVector(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Storage_Pickers {
+}
+// MARK: - FileOpenPicker
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker)
 public final class FileOpenPicker : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Storage_Pickers.IFileOpenPicker
@@ -243,6 +321,231 @@ public final class FileOpenPicker : WinRTClass {
     }
 }
 
+// MARK: - FileOpenPicker Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Storage_Pickers {
+    public enum FileOpenPickerBridge: AbiBridge {
+        public typealias SwiftProjection = FileOpenPicker
+        public typealias CABI = __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker>?) -> FileOpenPicker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FileOpenPickerMaker: MakeFromAbi {
+    public typealias SwiftType = FileOpenPicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FileOpenPicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Storage_Pickers {
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker2: WindowsFoundation.IID = .init(
+        Data1: 0x8CEB6CD2, Data2: 0xB446, Data3: 0x46F7, Data4: ( 0xB2,0x65,0x90,0xF8,0xE5,0x5A,0xD6,0x50 ) // 8CEB6CD2-B446-46F7-B265-90F8E55AD650
+    ) 
+
+    public class IFileOpenPicker2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker2 }
+
+        public func get_ContinuationData() throws -> WindowsFoundation.ValueSet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContinuationData(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation_Collections.ValueSetBridge.from(abi: value)
+        }
+
+        public func PickSingleFileAndContinue() throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.PickSingleFileAndContinue(pThis))
+            }
+        }
+
+        public func PickMultipleFilesAndContinue() throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.PickMultipleFilesAndContinue(pThis))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerWithOperationId: WindowsFoundation.IID = .init(
+        Data1: 0x3F57B569, Data2: 0x2522, Data3: 0x4CA5, Data4: ( 0xAA,0x73,0xA1,0x55,0x09,0xF1,0xFC,0xBF ) // 3F57B569-2522-4CA5-AA73-A15509F1FCBF
+    ) 
+
+    public class IFileOpenPickerWithOperationId: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerWithOperationId }
+
+        public func PickSingleFileAsync(_ pickerOperationId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _pickerOperationId = try! HString(pickerOperationId)
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerWithOperationId.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PickSingleFileAsync(pThis, _pickerOperationId.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStorageFileWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker: WindowsFoundation.IID = .init(
+        Data1: 0x2CA8278A, Data2: 0x12C5, Data3: 0x4C5F, Data4: ( 0x89,0x77,0x94,0x54,0x77,0x93,0xC2,0x41 ) // 2CA8278A-12C5-4C5F-8977-94547793C241
+    ) 
+
+    public class IFileOpenPicker: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker }
+
+        public func get_ViewMode() throws -> UWP.PickerViewMode {
+            var value: __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ViewMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ViewMode(_ value: UWP.PickerViewMode) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ViewMode(pThis, value))
+            }
+        }
+
+        public func get_SettingsIdentifier() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SettingsIdentifier(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_SettingsIdentifier(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SettingsIdentifier(pThis, _value.get()))
+            }
+        }
+
+        public func get_SuggestedStartLocation() throws -> UWP.PickerLocationId {
+            var value: __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuggestedStartLocation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SuggestedStartLocation(_ value: UWP.PickerLocationId) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SuggestedStartLocation(pThis, value))
+            }
+        }
+
+        public func get_CommitButtonText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommitButtonText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_CommitButtonText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CommitButtonText(pThis, _value.get()))
+            }
+        }
+
+        public func get_FileTypeFilter() throws -> WindowsFoundation.AnyIVector<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileTypeFilter(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func PickSingleFileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PickSingleFileAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStorageFileWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func PickMultipleFilesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageFile?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PickMultipleFilesAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CStorage__CStorageFileWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker3: WindowsFoundation.IID = .init(
+        Data1: 0xD9A5C5B3, Data2: 0xC5DC, Data3: 0x5B98, Data4: ( 0xBD,0x80,0xA8,0xD0,0xCA,0x05,0x84,0xD8 ) // D9A5C5B3-C5DC-5B98-BD80-A8D0CA0584D8
+    ) 
+
+    public class IFileOpenPicker3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker3 }
+
+        public func get_User() throws -> UWP.User? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPicker3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_User(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System.UserBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerStatics: WindowsFoundation.IID = .init(
+        Data1: 0x6821573B, Data2: 0x2F02, Data3: 0x4833, Data4: ( 0x96,0xD4,0xAB,0xBF,0xAD,0x72,0xB6,0x7B ) // 6821573B-2F02-4833-96D4-ABBFAD72B67B
+    ) 
+
+    public class IFileOpenPickerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerStatics }
+
+        public func ResumePickSingleFileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ResumePickSingleFileAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStorageFileWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerStatics2: WindowsFoundation.IID = .init(
+        Data1: 0xE8917415, Data2: 0xEDDD, Data3: 0x5C98, Data4: ( 0xB6,0xF3,0x36,0x6F,0xDF,0xCA,0xD3,0x92 ) // E8917415-EDDD-5C98-B6F3-366FDFCAD392
+    ) 
+
+    public class IFileOpenPickerStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerStatics2 }
+
+        public func CreateForUser(_ user: UWP.User?) throws -> UWP.FileOpenPicker? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileOpenPickerStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForUser(pThis, RawPointer(user), &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Pickers.FileOpenPickerBridge.from(abi: result)
+        }
+
+    }
+
+}
+// MARK: - FilePickerFileTypesOrderedMap
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerfiletypesorderedmap)
 public final class FilePickerFileTypesOrderedMap : WinRTClass, IMap, IIterable {
     public typealias K = String
@@ -313,6 +616,32 @@ public final class FilePickerFileTypesOrderedMap : WinRTClass, IMap, IIterable {
         _IIterable = nil
     }
 }
+
+// MARK: - FilePickerFileTypesOrderedMap Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Storage_Pickers {
+    public enum FilePickerFileTypesOrderedMapBridge: AbiBridge {
+        public typealias SwiftProjection = FilePickerFileTypesOrderedMap
+        public typealias CABI = __x_ABI_C__FIMap_2_HSTRING___x_ABI_C__FIVector_1_HSTRING
+        public static func from(abi: consuming ComPtr<__x_ABI_C__FIMap_2_HSTRING___x_ABI_C__FIVector_1_HSTRING>?) -> FilePickerFileTypesOrderedMap? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FilePickerFileTypesOrderedMapMaker: MakeFromAbi {
+    public typealias SwiftType = FilePickerFileTypesOrderedMap
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FilePickerFileTypesOrderedMap(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Storage_Pickers {
+}
+// MARK: - FilePickerSelectedFilesArray
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filepickerselectedfilesarray)
 public final class FilePickerSelectedFilesArray : WinRTClass, IVectorView, IIterable {
@@ -389,6 +718,32 @@ public final class FilePickerSelectedFilesArray : WinRTClass, IVectorView, IIter
         _IIterable = nil
     }
 }
+
+// MARK: - FilePickerSelectedFilesArray Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Storage_Pickers {
+    public enum FilePickerSelectedFilesArrayBridge: AbiBridge {
+        public typealias SwiftProjection = FilePickerSelectedFilesArray
+        public typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CStorage__CStorageFile
+        public static func from(abi: consuming ComPtr<__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CStorage__CStorageFile>?) -> FilePickerSelectedFilesArray? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FilePickerSelectedFilesArrayMaker: MakeFromAbi {
+    public typealias SwiftType = FilePickerSelectedFilesArray
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FilePickerSelectedFilesArray(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Storage_Pickers {
+}
+// MARK: - FileSavePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker)
 public final class FileSavePicker : WinRTClass {
@@ -497,6 +852,237 @@ public final class FileSavePicker : WinRTClass {
     }
 }
 
+// MARK: - FileSavePicker Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Storage_Pickers {
+    public enum FileSavePickerBridge: AbiBridge {
+        public typealias SwiftProjection = FileSavePicker
+        public typealias CABI = __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker>?) -> FileSavePicker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FileSavePickerMaker: MakeFromAbi {
+    public typealias SwiftType = FileSavePicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FileSavePicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Storage_Pickers {
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker2: WindowsFoundation.IID = .init(
+        Data1: 0x0EC313A2, Data2: 0xD24B, Data3: 0x449A, Data4: ( 0x81,0x97,0xE8,0x91,0x04,0xFD,0x42,0xCC ) // 0EC313A2-D24B-449A-8197-E89104FD42CC
+    ) 
+
+    public class IFileSavePicker2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker2 }
+
+        public func get_ContinuationData() throws -> WindowsFoundation.ValueSet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContinuationData(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation_Collections.ValueSetBridge.from(abi: value)
+        }
+
+        public func PickSaveFileAndContinue() throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.PickSaveFileAndContinue(pThis))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker3: WindowsFoundation.IID = .init(
+        Data1: 0x698AEC69, Data2: 0xBA3C, Data3: 0x4E51, Data4: ( 0xBD,0x90,0x4A,0xBC,0xBB,0xF4,0xCF,0xAF ) // 698AEC69-BA3C-4E51-BD90-4ABCBBF4CFAF
+    ) 
+
+    public class IFileSavePicker3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker3 }
+
+        public func get_EnterpriseId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EnterpriseId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_EnterpriseId(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EnterpriseId(pThis, _value.get()))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker: WindowsFoundation.IID = .init(
+        Data1: 0x3286FFCB, Data2: 0x617F, Data3: 0x4CC5, Data4: ( 0xAF,0x6A,0xB3,0xFD,0xF2,0x9A,0xD1,0x45 ) // 3286FFCB-617F-4CC5-AF6A-B3FDF29AD145
+    ) 
+
+    public class IFileSavePicker: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker }
+
+        public func get_SettingsIdentifier() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SettingsIdentifier(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_SettingsIdentifier(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SettingsIdentifier(pThis, _value.get()))
+            }
+        }
+
+        public func get_SuggestedStartLocation() throws -> UWP.PickerLocationId {
+            var value: __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuggestedStartLocation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SuggestedStartLocation(_ value: UWP.PickerLocationId) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SuggestedStartLocation(pThis, value))
+            }
+        }
+
+        public func get_CommitButtonText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommitButtonText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_CommitButtonText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CommitButtonText(pThis, _value.get()))
+            }
+        }
+
+        public func get_FileTypeChoices() throws -> WindowsFoundation.AnyIMap<String, WindowsFoundation.AnyIVector<String>?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileTypeChoices(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIMap_2_HSTRING___x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_DefaultFileExtension() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultFileExtension(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_DefaultFileExtension(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DefaultFileExtension(pThis, _value.get()))
+            }
+        }
+
+        public func get_SuggestedSaveFile() throws -> UWP.StorageFile? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuggestedSaveFile(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage.StorageFileBridge.from(abi: value)
+        }
+
+        public func put_SuggestedSaveFile(_ value: UWP.StorageFile?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SuggestedSaveFile(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SuggestedFileName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuggestedFileName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_SuggestedFileName(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SuggestedFileName(pThis, _value.get()))
+            }
+        }
+
+        public func PickSaveFileAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PickSaveFileAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStorageFileWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker4: WindowsFoundation.IID = .init(
+        Data1: 0xE7D83A5A, Data2: 0xDDFA, Data3: 0x5DE0, Data4: ( 0x8B,0x70,0xC8,0x42,0xC2,0x19,0x88,0xEC ) // E7D83A5A-DDFA-5DE0-8B70-C842C21988EC
+    ) 
+
+    public class IFileSavePicker4: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker4 }
+
+        public func get_User() throws -> UWP.User? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePicker4.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_User(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System.UserBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePickerStatics: WindowsFoundation.IID = .init(
+        Data1: 0x28E3CF9E, Data2: 0x961C, Data3: 0x5E2C, Data4: ( 0xAE,0xD7,0xE6,0x47,0x37,0xF4,0xCE,0x37 ) // 28E3CF9E-961C-5E2C-AED7-E64737F4CE37
+    ) 
+
+    public class IFileSavePickerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFileSavePickerStatics }
+
+        public func CreateForUser(_ user: UWP.User?) throws -> UWP.FileSavePicker? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFileSavePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForUser(pThis, RawPointer(user), &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Pickers.FileSavePickerBridge.from(abi: result)
+        }
+
+    }
+
+}
+// MARK: - FolderPicker
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.pickers.folderpicker)
 public final class FolderPicker : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Storage_Pickers.IFolderPicker
@@ -584,47 +1170,174 @@ public final class FolderPicker : WinRTClass {
     }
 }
 
-extension UWP.PickerLocationId {
-    public static var documentsLibrary : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_DocumentsLibrary
+// MARK: - FolderPicker Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Storage_Pickers {
+    public enum FolderPickerBridge: AbiBridge {
+        public typealias SwiftProjection = FolderPicker
+        public typealias CABI = __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CStorage_CPickers_CIFolderPicker>?) -> FolderPicker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var computerFolder : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_ComputerFolder
-    }
-    public static var desktop : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Desktop
-    }
-    public static var downloads : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Downloads
-    }
-    public static var homeGroup : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_HomeGroup
-    }
-    public static var musicLibrary : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_MusicLibrary
-    }
-    public static var picturesLibrary : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_PicturesLibrary
-    }
-    public static var videosLibrary : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_VideosLibrary
-    }
-    public static var objects3D : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Objects3D
-    }
-    public static var unspecified : UWP.PickerLocationId {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId_Unspecified
+
+}
+@_spi(WinRTInternal)
+public class FolderPickerMaker: MakeFromAbi {
+    public typealias SwiftType = FolderPicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FolderPicker(fromAbi: abi)
     }
 }
-extension UWP.PickerLocationId: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Storage_Pickers {
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPicker2: WindowsFoundation.IID = .init(
+        Data1: 0x8EB3BA97, Data2: 0xDC85, Data3: 0x4616, Data4: ( 0xBE,0x94,0x96,0x60,0x88,0x1F,0x2F,0x5D ) // 8EB3BA97-DC85-4616-BE94-9660881F2F5D
+    ) 
 
-extension UWP.PickerViewMode {
-    public static var list : UWP.PickerViewMode {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode_List
+    public class IFolderPicker2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPicker2 }
+
+        public func get_ContinuationData() throws -> WindowsFoundation.ValueSet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContinuationData(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation_Collections.ValueSetBridge.from(abi: value)
+        }
+
+        public func PickFolderAndContinue() throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.PickFolderAndContinue(pThis))
+            }
+        }
+
     }
-    public static var thumbnail : UWP.PickerViewMode {
-        __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode_Thumbnail
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPicker: WindowsFoundation.IID = .init(
+        Data1: 0x084F7799, Data2: 0xF3FB, Data3: 0x400A, Data4: ( 0x99,0xB1,0x7B,0x4A,0x77,0x2F,0xD6,0x0D ) // 084F7799-F3FB-400A-99B1-7B4A772FD60D
+    ) 
+
+    public class IFolderPicker: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPicker }
+
+        public func get_ViewMode() throws -> UWP.PickerViewMode {
+            var value: __x_ABI_CWindows_CStorage_CPickers_CPickerViewMode = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ViewMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ViewMode(_ value: UWP.PickerViewMode) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ViewMode(pThis, value))
+            }
+        }
+
+        public func get_SettingsIdentifier() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SettingsIdentifier(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_SettingsIdentifier(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SettingsIdentifier(pThis, _value.get()))
+            }
+        }
+
+        public func get_SuggestedStartLocation() throws -> UWP.PickerLocationId {
+            var value: __x_ABI_CWindows_CStorage_CPickers_CPickerLocationId = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SuggestedStartLocation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SuggestedStartLocation(_ value: UWP.PickerLocationId) throws {
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SuggestedStartLocation(pThis, value))
+            }
+        }
+
+        public func get_CommitButtonText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommitButtonText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_CommitButtonText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CommitButtonText(pThis, _value.get()))
+            }
+        }
+
+        public func get_FileTypeFilter() throws -> WindowsFoundation.AnyIVector<String>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileTypeFilter(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1_HSTRINGWrapper.unwrapFrom(abi: value)
+        }
+
+        public func PickSingleFolderAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFolder?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PickSingleFolderAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CStorage__CStorageFolderWrapper.unwrapFrom(abi: operation)
+        }
+
     }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPicker3: WindowsFoundation.IID = .init(
+        Data1: 0x673B1E29, Data2: 0xD326, Data3: 0x53C0, Data4: ( 0xBD,0x24,0xA2,0x5C,0x71,0x4C,0xEE,0x36 ) // 673B1E29-D326-53C0-BD24-A25C714CEE36
+    ) 
+
+    public class IFolderPicker3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPicker3 }
+
+        public func get_User() throws -> UWP.User? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPicker3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_User(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System.UserBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPickerStatics: WindowsFoundation.IID = .init(
+        Data1: 0x9BE34740, Data2: 0x7CA1, Data3: 0x5942, Data4: ( 0xA3,0xC8,0x46,0xF2,0x55,0x1E,0xCF,0xF3 ) // 9BE34740-7CA1-5942-A3C8-46F2551ECFF3
+    ) 
+
+    public class IFolderPickerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CPickers_CIFolderPickerStatics }
+
+        public func CreateForUser(_ user: UWP.User?) throws -> UWP.FolderPicker? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CStorage_CPickers_CIFolderPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateForUser(pThis, RawPointer(user), &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Pickers.FolderPickerBridge.from(abi: result)
+        }
+
+    }
+
 }
-extension UWP.PickerViewMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

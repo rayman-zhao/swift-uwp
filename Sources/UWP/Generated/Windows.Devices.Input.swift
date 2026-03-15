@@ -4,8 +4,110 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - PointerDeviceType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevicetype)
 public typealias PointerDeviceType = __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType
+
+extension UWP.PointerDeviceType {
+    public static var touch : UWP.PointerDeviceType {
+        __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType_Touch
+    }
+    public static var pen : UWP.PointerDeviceType {
+        __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType_Pen
+    }
+    public static var mouse : UWP.PointerDeviceType {
+        __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType_Mouse
+    }
+}
+extension UWP.PointerDeviceType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MouseDelta
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta)
+public struct MouseDelta: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta.x)
+    public var x: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta.y)
+    public var y: Int32 = 0
+    public init() {}
+    public init(x: Int32, y: Int32) {
+        self.x = x
+        self.y = y
+    }
+}
+
+// MARK: - MouseDelta Internals
+
+@_spi(WinRTInternal)
+extension MouseDelta: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CDevices_CInput_CMouseDelta
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CDevices_CInput_CMouseDelta {
+    public static func from(swift: UWP.MouseDelta) -> __x_ABI_CWindows_CDevices_CInput_CMouseDelta {
+        .init(X: swift.x, Y: swift.y)
+    }
+}
+// MARK: - PointerDeviceUsage
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage)
+public struct PointerDeviceUsage: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.usagepage)
+    public var usagePage: UInt32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.usage)
+    public var usage: UInt32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.minlogical)
+    public var minLogical: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.maxlogical)
+    public var maxLogical: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.minphysical)
+    public var minPhysical: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.maxphysical)
+    public var maxPhysical: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.unit)
+    public var unit: UInt32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.physicalmultiplier)
+    public var physicalMultiplier: Float = 0.0
+    public init() {}
+    public init(usagePage: UInt32, usage: UInt32, minLogical: Int32, maxLogical: Int32, minPhysical: Int32, maxPhysical: Int32, unit: UInt32, physicalMultiplier: Float) {
+        self.usagePage = usagePage
+        self.usage = usage
+        self.minLogical = minLogical
+        self.maxLogical = maxLogical
+        self.minPhysical = minPhysical
+        self.maxPhysical = maxPhysical
+        self.unit = unit
+        self.physicalMultiplier = physicalMultiplier
+    }
+}
+
+// MARK: - PointerDeviceUsage Internals
+
+@_spi(WinRTInternal)
+extension PointerDeviceUsage: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CDevices_CInput_CPointerDeviceUsage
+    public static func from(abi: ABI) -> Self {
+        .init(usagePage: abi.UsagePage, usage: abi.Usage, minLogical: abi.MinLogical, maxLogical: abi.MaxLogical, minPhysical: abi.MinPhysical, maxPhysical: abi.MaxPhysical, unit: abi.Unit, physicalMultiplier: abi.PhysicalMultiplier)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CDevices_CInput_CPointerDeviceUsage {
+    public static func from(swift: UWP.PointerDeviceUsage) -> __x_ABI_CWindows_CDevices_CInput_CPointerDeviceUsage {
+        .init(UsagePage: swift.usagePage, Usage: swift.usage, MinLogical: swift.minLogical, MaxLogical: swift.maxLogical, MinPhysical: swift.minPhysical, MaxPhysical: swift.maxPhysical, Unit: swift.unit, PhysicalMultiplier: swift.physicalMultiplier)
+    }
+}
+// MARK: - KeyboardCapabilities
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.keyboardcapabilities)
 public final class KeyboardCapabilities : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IKeyboardCapabilities
@@ -38,6 +140,49 @@ public final class KeyboardCapabilities : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - KeyboardCapabilities Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Input {
+    public enum KeyboardCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = KeyboardCapabilities
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities>?) -> KeyboardCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class KeyboardCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = KeyboardCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return KeyboardCapabilities(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Input {
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities: WindowsFoundation.IID = .init(
+        Data1: 0x3A3F9B56, Data2: 0x6798, Data3: 0x4BBC, Data4: ( 0x83,0x3E,0x0F,0x34,0xB1,0x7C,0x65,0xFF ) // 3A3F9B56-6798-4BBC-833E-0F34B17C65FF
+    ) 
+
+    public class IKeyboardCapabilities: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities }
+
+        public func get_KeyboardPresent() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardPresent(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - MouseCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousecapabilities)
 public final class MouseCapabilities : WinRTClass {
@@ -92,6 +237,81 @@ public final class MouseCapabilities : WinRTClass {
     }
 }
 
+// MARK: - MouseCapabilities Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Input {
+    public enum MouseCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = MouseCapabilities
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities>?) -> MouseCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MouseCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = MouseCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MouseCapabilities(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Input {
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities: WindowsFoundation.IID = .init(
+        Data1: 0xBCA5E023, Data2: 0x7DD9, Data3: 0x4B6B, Data4: ( 0x9A,0x92,0x55,0xD4,0x3C,0xB3,0x8F,0x73 ) // BCA5E023-7DD9-4B6B-9A92-55D43CB38F73
+    ) 
+
+    public class IMouseCapabilities: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities }
+
+        public func get_MousePresent() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MousePresent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_VerticalWheelPresent() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalWheelPresent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_HorizontalWheelPresent() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalWheelPresent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_SwapButtons() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SwapButtons(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NumberOfButtons() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfButtons(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - MouseDevice
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedevice)
 public final class MouseDevice : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IMouseDevice
@@ -134,6 +354,75 @@ public final class MouseDevice : WinRTClass {
     }
 }
 
+// MARK: - MouseDevice Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Input {
+    public enum MouseDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = MouseDevice
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseDevice
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseDevice>?) -> MouseDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MouseDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = MouseDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MouseDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Input {
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIMouseDevice: WindowsFoundation.IID = .init(
+        Data1: 0x88EDF458, Data2: 0xF2C8, Data3: 0x49F4, Data4: ( 0xBE,0x1F,0xC2,0x56,0xB3,0x88,0xBC,0x11 ) // 88EDF458-F2C8-49F4-BE1F-C256B388BC11
+    ) 
+
+    public class IMouseDevice: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseDevice }
+
+        public func add_MouseMoved(_ handler: TypedEventHandler<UWP.MouseDevice?, UWP.MouseEventArgs?>?) throws -> EventRegistrationToken {
+            var cookie: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CDevices__CInput__CMouseDevice___x_ABI_CWindows__CDevices__CInput__CMouseEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_MouseMoved(pThis, _handler, &cookie))
+            }
+            return cookie
+        }
+
+        public func remove_MouseMoved(_ cookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_MouseMoved(pThis, cookie))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIMouseDeviceStatics: WindowsFoundation.IID = .init(
+        Data1: 0x484A9045, Data2: 0x6D70, Data3: 0x49DB, Data4: ( 0x8E,0x68,0x46,0xFF,0xBD,0x17,0xD3,0x8D ) // 484A9045-6D70-49DB-8E68-46FFBD17D38D
+    ) 
+
+    public class IMouseDeviceStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseDeviceStatics }
+
+        public func GetForCurrentView() throws -> UWP.MouseDevice? {
+            let (mouseDevice) = try ComPtrs.initialize { mouseDeviceAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseDeviceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetForCurrentView(pThis, &mouseDeviceAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Input.MouseDeviceBridge.from(abi: mouseDevice)
+        }
+
+    }
+
+}
+// MARK: - MouseEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mouseeventargs)
 public final class MouseEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IMouseEventArgs
@@ -161,6 +450,49 @@ public final class MouseEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - MouseEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Input {
+    public enum MouseEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = MouseEventArgs
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs>?) -> MouseEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MouseEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = MouseEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MouseEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Input {
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xF625AA5D, Data2: 0x2354, Data3: 0x4CC7, Data4: ( 0x92,0x30,0x96,0x94,0x1C,0x96,0x9F,0xDE ) // F625AA5D-2354-4CC7-9230-96941C969FDE
+    ) 
+
+    public class IMouseEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs }
+
+        public func get_MouseDelta() throws -> UWP.MouseDelta {
+            var value: __x_ABI_CWindows_CDevices_CInput_CMouseDelta = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MouseDelta(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - PenDevice
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pendevice)
 public final class PenDevice : WinRTClass {
@@ -195,6 +527,67 @@ public final class PenDevice : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - PenDevice Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Input {
+    public enum PenDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = PenDevice
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIPenDevice
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CInput_CIPenDevice>?) -> PenDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PenDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = PenDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PenDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Input {
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIPenDevice: WindowsFoundation.IID = .init(
+        Data1: 0x31856EBA, Data2: 0xA738, Data3: 0x5A8C, Data4: ( 0xB8,0xF6,0xF9,0x7E,0xF6,0x8D,0x18,0xEF ) // 31856EBA-A738-5A8C-B8F6-F97EF68D18EF
+    ) 
+
+    public class IPenDevice: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPenDevice }
+
+        public func get_PenId() throws -> Foundation.UUID {
+            var value: WindowsFoundation.GUID = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPenDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PenId(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIPenDeviceStatics: WindowsFoundation.IID = .init(
+        Data1: 0x9DFBBE01, Data2: 0x0966, Data3: 0x5180, Data4: ( 0xBC,0xB4,0xB8,0x50,0x60,0xE3,0x94,0x79 ) // 9DFBBE01-0966-5180-BCB4-B85060E39479
+    ) 
+
+    public class IPenDeviceStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPenDeviceStatics }
+
+        public func GetFromPointerId(_ pointerId: UInt32) throws -> UWP.PenDevice? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPenDeviceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFromPointerId(pThis, pointerId, &resultAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Input.PenDeviceBridge.from(abi: result)
+        }
+
+    }
+
+}
+// MARK: - PointerDevice
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice)
 public final class PointerDevice : WinRTClass {
@@ -267,6 +660,134 @@ public final class PointerDevice : WinRTClass {
     }
 }
 
+// MARK: - PointerDevice Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Input {
+    public enum PointerDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = PointerDevice
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIPointerDevice
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CInput_CIPointerDevice>?) -> PointerDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PointerDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = PointerDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PointerDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Input {
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice: WindowsFoundation.IID = .init(
+        Data1: 0x93C9BAFC, Data2: 0xEBCB, Data3: 0x467E, Data4: ( 0x82,0xC6,0x27,0x6F,0xEA,0xE3,0x6B,0x5A ) // 93C9BAFC-EBCB-467E-82C6-276FEAE36B5A
+    ) 
+
+    public class IPointerDevice: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice }
+
+        public func get_PointerDeviceType() throws -> UWP.PointerDeviceType {
+            var value: __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PointerDeviceType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_IsIntegrated() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsIntegrated(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_MaxContacts() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxContacts(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_PhysicalDeviceRect() throws -> WindowsFoundation.Rect {
+            var value: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PhysicalDeviceRect(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_ScreenRect() throws -> WindowsFoundation.Rect {
+            var value: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScreenRect(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_SupportedUsages() throws -> WindowsFoundation.AnyIVectorView<UWP.PointerDeviceUsage>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportedUsages(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CDevices__CInput__CPointerDeviceUsageWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice2: WindowsFoundation.IID = .init(
+        Data1: 0xF8A6D2A0, Data2: 0xC484, Data3: 0x489F, Data4: ( 0xAE,0x3E,0x30,0xD2,0xEE,0x1F,0xFD,0x3E ) // F8A6D2A0-C484-489F-AE3E-30D2EE1FFD3E
+    ) 
+
+    public class IPointerDevice2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice2 }
+
+        public func get_MaxPointersWithZDistance() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDevice2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxPointersWithZDistance(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics: WindowsFoundation.IID = .init(
+        Data1: 0xD8B89AA1, Data2: 0xD1C6, Data3: 0x416E, Data4: ( 0xBD,0x8D,0x57,0x90,0x91,0x4D,0xC5,0x63 ) // D8B89AA1-D1C6-416E-BD8D-5790914DC563
+    ) 
+
+    public class IPointerDeviceStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics }
+
+        public func GetPointerDevice(_ pointerId: UInt32) throws -> UWP.PointerDevice? {
+            let (pointerDevice) = try ComPtrs.initialize { pointerDeviceAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPointerDevice(pThis, pointerId, &pointerDeviceAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Input.PointerDeviceBridge.from(abi: pointerDevice)
+        }
+
+        public func GetPointerDevices() throws -> WindowsFoundation.AnyIVectorView<UWP.PointerDevice?>? {
+            let (pointerDevices) = try ComPtrs.initialize { pointerDevicesAbi in
+                _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPointerDevices(pThis, &pointerDevicesAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CDevices__CInput__CPointerDeviceWrapper.unwrapFrom(abi: pointerDevices)
+        }
+
+    }
+
+}
+// MARK: - TouchCapabilities
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.touchcapabilities)
 public final class TouchCapabilities : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.ITouchCapabilities
@@ -305,60 +826,52 @@ public final class TouchCapabilities : WinRTClass {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta)
-public struct MouseDelta: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta.x)
-    public var x: Int32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedelta.y)
-    public var y: Int32 = 0
-    public init() {}
-    public init(x: Int32, y: Int32) {
-        self.x = x
-        self.y = y
+// MARK: - TouchCapabilities Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Devices_Input {
+    public enum TouchCapabilitiesBridge: AbiBridge {
+        public typealias SwiftProjection = TouchCapabilities
+        public typealias CABI = __x_ABI_CWindows_CDevices_CInput_CITouchCapabilities
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CDevices_CInput_CITouchCapabilities>?) -> TouchCapabilities? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class TouchCapabilitiesMaker: MakeFromAbi {
+    public typealias SwiftType = TouchCapabilities
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TouchCapabilities(fromAbi: abi)
     }
 }
+@_spi(WinRTInternal)
+extension __ABI_Windows_Devices_Input {
+    private static let IID___x_ABI_CWindows_CDevices_CInput_CITouchCapabilities: WindowsFoundation.IID = .init(
+        Data1: 0x20DD55F9, Data2: 0x13F1, Data3: 0x46C8, Data4: ( 0x92,0x85,0x2C,0x05,0xFA,0x3E,0xDA,0x6F ) // 20DD55F9-13F1-46C8-9285-2C05FA3EDA6F
+    ) 
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage)
-public struct PointerDeviceUsage: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.usagepage)
-    public var usagePage: UInt32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.usage)
-    public var usage: UInt32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.minlogical)
-    public var minLogical: Int32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.maxlogical)
-    public var maxLogical: Int32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.minphysical)
-    public var minPhysical: Int32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.maxphysical)
-    public var maxPhysical: Int32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.unit)
-    public var unit: UInt32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdeviceusage.physicalmultiplier)
-    public var physicalMultiplier: Float = 0.0
-    public init() {}
-    public init(usagePage: UInt32, usage: UInt32, minLogical: Int32, maxLogical: Int32, minPhysical: Int32, maxPhysical: Int32, unit: UInt32, physicalMultiplier: Float) {
-        self.usagePage = usagePage
-        self.usage = usage
-        self.minLogical = minLogical
-        self.maxLogical = maxLogical
-        self.minPhysical = minPhysical
-        self.maxPhysical = maxPhysical
-        self.unit = unit
-        self.physicalMultiplier = physicalMultiplier
+    public class ITouchCapabilities: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CITouchCapabilities }
+
+        public func get_TouchPresent() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CITouchCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TouchPresent(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Contacts() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CDevices_CInput_CITouchCapabilities.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Contacts(pThis, &value))
+            }
+            return value
+        }
+
     }
+
 }
-
-extension UWP.PointerDeviceType {
-    public static var touch : UWP.PointerDeviceType {
-        __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType_Touch
-    }
-    public static var pen : UWP.PointerDeviceType {
-        __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType_Pen
-    }
-    public static var mouse : UWP.PointerDeviceType {
-        __x_ABI_CWindows_CDevices_CInput_CPointerDeviceType_Mouse
-    }
-}
-extension UWP.PointerDeviceType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

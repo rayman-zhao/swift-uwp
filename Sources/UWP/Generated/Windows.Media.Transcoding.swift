@@ -4,8 +4,11 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - TranscodeFailureReason
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.transcoding.transcodefailurereason)
 public typealias TranscodeFailureReason = __x_ABI_CWindows_CMedia_CTranscoding_CTranscodeFailureReason
+
 extension UWP.TranscodeFailureReason {
     public static var none : UWP.TranscodeFailureReason {
         __x_ABI_CWindows_CMedia_CTranscoding_CTranscodeFailureReason_None

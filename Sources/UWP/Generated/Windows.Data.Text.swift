@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - TextSegment
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.data.text.textsegment)
 public struct TextSegment: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.data.text.textsegment.startposition)
@@ -17,3 +19,21 @@ public struct TextSegment: Hashable, Codable, Sendable {
     }
 }
 
+// MARK: - TextSegment Internals
+
+@_spi(WinRTInternal)
+extension TextSegment: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CData_CText_CTextSegment
+    public static func from(abi: ABI) -> Self {
+        .init(startPosition: abi.StartPosition, length: abi.Length)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CData_CText_CTextSegment {
+    public static func from(swift: UWP.TextSegment) -> __x_ABI_CWindows_CData_CText_CTextSegment {
+        .init(StartPosition: swift.startPosition, Length: swift.length)
+    }
+}

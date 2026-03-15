@@ -4,20 +4,203 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AddPackageByAppInstallerOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.addpackagebyappinstalleroptions)
 public typealias AddPackageByAppInstallerOptions = __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions
+
+extension UWP.AddPackageByAppInstallerOptions {
+    public static var none : UWP.AddPackageByAppInstallerOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_None
+    }
+    public static var installAllResources : UWP.AddPackageByAppInstallerOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_InstallAllResources
+    }
+    public static var forceTargetAppShutdown : UWP.AddPackageByAppInstallerOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_ForceTargetAppShutdown
+    }
+    public static var requiredContentGroupOnly : UWP.AddPackageByAppInstallerOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_RequiredContentGroupOnly
+    }
+    public static var limitToExistingPackages : UWP.AddPackageByAppInstallerOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_LimitToExistingPackages
+    }
+}
+extension UWP.AddPackageByAppInstallerOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DeploymentOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentoptions)
 public typealias DeploymentOptions = __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions
+
+extension UWP.DeploymentOptions {
+    public static var none : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_None
+    }
+    public static var forceApplicationShutdown : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_ForceApplicationShutdown
+    }
+    public static var developmentMode : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_DevelopmentMode
+    }
+    public static var installAllResources : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_InstallAllResources
+    }
+    public static var forceTargetApplicationShutdown : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_ForceTargetApplicationShutdown
+    }
+    public static var requiredContentGroupOnly : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_RequiredContentGroupOnly
+    }
+    public static var forceUpdateFromAnyVersion : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_ForceUpdateFromAnyVersion
+    }
+    public static var retainFilesOnFailure : UWP.DeploymentOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_RetainFilesOnFailure
+    }
+}
+extension UWP.DeploymentOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DeploymentProgressState
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentprogressstate)
 public typealias DeploymentProgressState = __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgressState
+
+extension UWP.DeploymentProgressState {
+    public static var queued : UWP.DeploymentProgressState {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgressState_Queued
+    }
+    public static var processing : UWP.DeploymentProgressState {
+        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgressState_Processing
+    }
+}
+extension UWP.DeploymentProgressState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PackageInstallState
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packageinstallstate)
 public typealias PackageInstallState = __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState
+
+extension UWP.PackageInstallState {
+    public static var notInstalled : UWP.PackageInstallState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_NotInstalled
+    }
+    public static var staged : UWP.PackageInstallState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_Staged
+    }
+    public static var installed : UWP.PackageInstallState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_Installed
+    }
+    public static var paused : UWP.PackageInstallState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_Paused
+    }
+}
+extension UWP.PackageInstallState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PackageState
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagestate)
 public typealias PackageState = __x_ABI_CWindows_CManagement_CDeployment_CPackageState
+
+extension UWP.PackageState {
+    public static var normal : UWP.PackageState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_Normal
+    }
+    public static var licenseInvalid : UWP.PackageState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_LicenseInvalid
+    }
+    public static var modified : UWP.PackageState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_Modified
+    }
+    public static var tampered : UWP.PackageState {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_Tampered
+    }
+}
+extension UWP.PackageState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PackageTypes
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagetypes)
 public typealias PackageTypes = __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes
+
+extension UWP.PackageTypes {
+    public static var none : UWP.PackageTypes {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_None
+    }
+    public static var main : UWP.PackageTypes {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Main
+    }
+    public static var framework : UWP.PackageTypes {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Framework
+    }
+    public static var resource : UWP.PackageTypes {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Resource
+    }
+    public static var bundle : UWP.PackageTypes {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Bundle
+    }
+    public static var xap : UWP.PackageTypes {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Xap
+    }
+    public static var optional : UWP.PackageTypes {
+        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Optional
+    }
+}
+extension UWP.PackageTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - RemovalOptions
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.removaloptions)
 public typealias RemovalOptions = __x_ABI_CWindows_CManagement_CDeployment_CRemovalOptions
+
+extension UWP.RemovalOptions {
+    public static var none : UWP.RemovalOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CRemovalOptions_None
+    }
+    public static var preserveApplicationData : UWP.RemovalOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CRemovalOptions_PreserveApplicationData
+    }
+    public static var removeForAllUsers : UWP.RemovalOptions {
+        __x_ABI_CWindows_CManagement_CDeployment_CRemovalOptions_RemoveForAllUsers
+    }
+}
+extension UWP.RemovalOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DeploymentProgress
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentprogress)
+public struct DeploymentProgress: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentprogress.state)
+    public var state: DeploymentProgressState = .init(0)
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentprogress.percentage)
+    public var percentage: UInt32 = 0
+    public init() {}
+    public init(state: DeploymentProgressState, percentage: UInt32) {
+        self.state = state
+        self.percentage = percentage
+    }
+}
+
+// MARK: - DeploymentProgress Internals
+
+@_spi(WinRTInternal)
+extension DeploymentProgress: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgress
+    public static func from(abi: ABI) -> Self {
+        .init(state: abi.state, percentage: abi.percentage)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgress {
+    public static func from(swift: UWP.DeploymentProgress) -> __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgress {
+        .init(state: swift.state, percentage: swift.percentage)
+    }
+}
+// MARK: - DeploymentResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentresult)
 public final class DeploymentResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IDeploymentResult
@@ -62,6 +245,83 @@ public final class DeploymentResult : WinRTClass {
         _IDeploymentResult2 = nil
     }
 }
+
+// MARK: - DeploymentResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Management_Deployment {
+    public enum DeploymentResultBridge: AbiBridge {
+        public typealias SwiftProjection = DeploymentResult
+        public typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult>?) -> DeploymentResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DeploymentResultMaker: MakeFromAbi {
+    public typealias SwiftType = DeploymentResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DeploymentResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Management_Deployment {
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult: WindowsFoundation.IID = .init(
+        Data1: 0x2563B9AE, Data2: 0xB77D, Data3: 0x4C1F, Data4: ( 0x8A,0x7B,0x20,0xE6,0xAD,0x51,0x5E,0xF3 ) // 2563B9AE-B77D-4C1F-8A7B-20E6AD515EF3
+    ) 
+
+    public class IDeploymentResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult }
+
+        public func get_ErrorText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ErrorText(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_ActivityId() throws -> Foundation.UUID {
+            var value: WindowsFoundation.GUID = .init()
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActivityId(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_ExtendedErrorCode() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedErrorCode(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult2: WindowsFoundation.IID = .init(
+        Data1: 0xFC0E715C, Data2: 0x5A01, Data3: 0x4BD7, Data4: ( 0xBC,0xF1,0x38,0x1C,0x8C,0x82,0xE0,0x4A ) // FC0E715C-5A01-4BD7-BCF1-381C8C82E04A
+    ) 
+
+    public class IDeploymentResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult2 }
+
+        public func get_IsRegistered() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRegistered(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - PackageManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagemanager)
 public final class PackageManager : WinRTClass {
@@ -365,6 +625,666 @@ public final class PackageManager : WinRTClass {
     }
 }
 
+// MARK: - PackageManager Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Management_Deployment {
+    public enum PackageManagerBridge: AbiBridge {
+        public typealias SwiftProjection = PackageManager
+        public typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CManagement_CDeployment_CIPackageManager>?) -> PackageManager? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageManagerMaker: MakeFromAbi {
+    public typealias SwiftType = PackageManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Management_Deployment {
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager: WindowsFoundation.IID = .init(
+        Data1: 0x9A7D4B65, Data2: 0x5E8F, Data3: 0x4FC7, Data4: ( 0xA2,0xE5,0x7F,0x69,0x25,0xCB,0x8B,0x53 ) // 9A7D4B65-5E8F-4FC7-A2E5-7F6925CB8B53
+    ) 
+
+    public class IPackageManager: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager }
+
+        public func AddPackageAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddPackageAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func UpdatePackageAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.UpdatePackageAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func RemovePackageAsync(_ packageFullName: String) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RemovePackageAsync(pThis, _packageFullName.get(), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func StagePackageAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StagePackageAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func RegisterPackageAsync(_ manifestUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RegisterPackageAsync(pThis, RawPointer(manifestUri), _dependencyPackageUris, deploymentOptions, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func FindPackages() throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackages(pThis, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityId(_ userSecurityId: String) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityId(pThis, _userSecurityId.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByNamePublisher(_ packageName: String, _ packagePublisher: String) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByNamePublisher(pThis, _packageName.get(), _packagePublisher.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdNamePublisher(_ userSecurityId: String, _ packageName: String, _ packagePublisher: String) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdNamePublisher(pThis, _userSecurityId.get(), _packageName.get(), _packagePublisher.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindUsers(_ packageFullName: String) throws -> WindowsFoundation.AnyIIterable<UWP.PackageUserInformation?>? {
+            let (users) = try ComPtrs.initialize { usersAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindUsers(pThis, _packageFullName.get(), &usersAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CManagement__CDeployment__CPackageUserInformationWrapper.unwrapFrom(abi: users)
+        }
+
+        public func SetPackageState(_ packageFullName: String, _ packageState: UWP.PackageState) throws {
+            let _packageFullName = try! HString(packageFullName)
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetPackageState(pThis, _packageFullName.get(), packageState))
+            }
+        }
+
+        public func FindPackageByPackageFullName(_ packageFullName: String) throws -> UWP.Package? {
+            let (packageInformation) = try ComPtrs.initialize { packageInformationAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackageByPackageFullName(pThis, _packageFullName.get(), &packageInformationAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.PackageBridge.from(abi: packageInformation)
+        }
+
+        public func CleanupPackageForUserAsync(_ packageName: String, _ userSecurityId: String) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _packageName = try! HString(packageName)
+                let _userSecurityId = try! HString(userSecurityId)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CleanupPackageForUserAsync(pThis, _packageName.get(), _userSecurityId.get(), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func FindPackagesByPackageFamilyName(_ packageFamilyName: String) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByPackageFamilyName(pThis, _packageFamilyName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdPackageFamilyName(_ userSecurityId: String, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdPackageFamilyName(pThis, _userSecurityId.get(), _packageFamilyName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackageByUserSecurityIdPackageFullName(_ userSecurityId: String, _ packageFullName: String) throws -> UWP.Package? {
+            let (packageInformation) = try ComPtrs.initialize { packageInformationAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackageByUserSecurityIdPackageFullName(pThis, _userSecurityId.get(), _packageFullName.get(), &packageInformationAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel.PackageBridge.from(abi: packageInformation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2: WindowsFoundation.IID = .init(
+        Data1: 0xF7AAD08D, Data2: 0x0840, Data3: 0x46F2, Data4: ( 0xB5,0xD8,0xCA,0xD4,0x76,0x93,0xA0,0x95 ) // F7AAD08D-0840-46F2-B5D8-CAD47693A095
+    ) 
+
+    public class IPackageManager2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2 }
+
+        public func RemovePackageWithOptionsAsync(_ packageFullName: String, _ removalOptions: UWP.RemovalOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RemovePackageWithOptionsAsync(pThis, _packageFullName.get(), removalOptions, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func StagePackageWithOptionsAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StagePackageWithOptionsAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func RegisterPackageByFullNameAsync(_ mainPackageFullName: String, _ dependencyPackageFullNames: WindowsFoundation.AnyIIterable<String>?, _ deploymentOptions: UWP.DeploymentOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _mainPackageFullName = try! HString(mainPackageFullName)
+                let dependencyPackageFullNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(dependencyPackageFullNames)
+                let _dependencyPackageFullNames = try! dependencyPackageFullNamesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RegisterPackageByFullNameAsync(pThis, _mainPackageFullName.get(), _dependencyPackageFullNames, deploymentOptions, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func FindPackagesWithPackageTypes(_ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesWithPackageTypes(pThis, packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdWithPackageTypes(_ userSecurityId: String, _ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdWithPackageTypes(pThis, _userSecurityId.get(), packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByNamePublisherWithPackageTypes(_ packageName: String, _ packagePublisher: String, _ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByNamePublisherWithPackageTypes(pThis, _packageName.get(), _packagePublisher.get(), packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(_ userSecurityId: String, _ packageName: String, _ packagePublisher: String, _ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(pThis, _userSecurityId.get(), _packageName.get(), _packagePublisher.get(), packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByPackageFamilyNameWithPackageTypes(_ packageFamilyName: String, _ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByPackageFamilyNameWithPackageTypes(pThis, _packageFamilyName.get(), packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(_ userSecurityId: String, _ packageFamilyName: String, _ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIIterable<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(pThis, _userSecurityId.get(), _packageFamilyName.get(), packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func StageUserDataAsync(_ packageFullName: String) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StageUserDataAsync(pThis, _packageFullName.get(), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3: WindowsFoundation.IID = .init(
+        Data1: 0xDAAD9948, Data2: 0x36F1, Data3: 0x41A7, Data4: ( 0x91,0x88,0xBC,0x26,0x3E,0x0D,0xCB,0x72 ) // DAAD9948-36F1-41A7-9188-BC263E0DCB72
+    ) 
+
+    public class IPackageManager3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3 }
+
+        public func AddPackageVolumeAsync(_ packageStorePath: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PackageVolume?>? {
+            let (packageVolume) = try ComPtrs.initialize { packageVolumeAbi in
+                let _packageStorePath = try! HString(packageStorePath)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddPackageVolumeAsync(pThis, _packageStorePath.get(), &packageVolumeAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CManagement__CDeployment__CPackageVolumeWrapper.unwrapFrom(abi: packageVolume)
+        }
+
+        public func AddPackageToVolumeAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddPackageToVolumeAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, RawPointer(targetVolume), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func RegisterPackageWithAppDataVolumeAsync(_ manifestUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ appDataVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RegisterPackageWithAppDataVolumeAsync(pThis, RawPointer(manifestUri), _dependencyPackageUris, deploymentOptions, RawPointer(appDataVolume), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func FindPackageVolumeByName(_ volumeName: String) throws -> UWP.PackageVolume? {
+            let (volume) = try ComPtrs.initialize { volumeAbi in
+                let _volumeName = try! HString(volumeName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackageVolumeByName(pThis, _volumeName.get(), &volumeAbi))
+                }
+            }
+            return __IMPL_Windows_Management_Deployment.PackageVolumeBridge.from(abi: volume)
+        }
+
+        public func FindPackageVolumes() throws -> WindowsFoundation.AnyIIterable<UWP.PackageVolume?>? {
+            let (volumeCollection) = try ComPtrs.initialize { volumeCollectionAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackageVolumes(pThis, &volumeCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CManagement__CDeployment__CPackageVolumeWrapper.unwrapFrom(abi: volumeCollection)
+        }
+
+        public func GetDefaultPackageVolume() throws -> UWP.PackageVolume? {
+            let (volume) = try ComPtrs.initialize { volumeAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDefaultPackageVolume(pThis, &volumeAbi))
+                }
+            }
+            return __IMPL_Windows_Management_Deployment.PackageVolumeBridge.from(abi: volume)
+        }
+
+        public func MovePackageToVolumeAsync(_ packageFullName: String, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.MovePackageToVolumeAsync(pThis, _packageFullName.get(), deploymentOptions, RawPointer(targetVolume), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func RemovePackageVolumeAsync(_ volume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RemovePackageVolumeAsync(pThis, RawPointer(volume), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func SetDefaultPackageVolume(_ volume: UWP.PackageVolume?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDefaultPackageVolume(pThis, RawPointer(volume)))
+            }
+        }
+
+        public func SetPackageVolumeOfflineAsync(_ packageVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPackageVolumeOfflineAsync(pThis, RawPointer(packageVolume), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func SetPackageVolumeOnlineAsync(_ packageVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPackageVolumeOnlineAsync(pThis, RawPointer(packageVolume), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func StagePackageToVolumeAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StagePackageToVolumeAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, RawPointer(targetVolume), &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func StageUserDataWithOptionsAsync(_ packageFullName: String, _ deploymentOptions: UWP.DeploymentOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StageUserDataWithOptionsAsync(pThis, _packageFullName.get(), deploymentOptions, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager4: WindowsFoundation.IID = .init(
+        Data1: 0x3C719963, Data2: 0xBAB6, Data3: 0x46BF, Data4: ( 0x8F,0xF7,0xDA,0x47,0x19,0x23,0x0A,0xE6 ) // 3C719963-BAB6-46BF-8FF7-DA4719230AE6
+    ) 
+
+    public class IPackageManager4: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager4 }
+
+        public func GetPackageVolumesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.PackageVolume?>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager4.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPackageVolumesAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CManagement__CDeployment__CPackageVolumeWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager5: WindowsFoundation.IID = .init(
+        Data1: 0x711F3117, Data2: 0x1AFD, Data3: 0x4313, Data4: ( 0x97,0x8C,0x9B,0xB6,0xE1,0xB8,0x64,0xA7 ) // 711F3117-1AFD-4313-978C-9BB6E1B864A7
+    ) 
+
+    public class IPackageManager5: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager5 }
+
+        public func AddPackageToVolumeAndOptionalPackagesAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ externalPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                let optionalPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(optionalPackageFamilyNames)
+                let _optionalPackageFamilyNames = try! optionalPackageFamilyNamesWrapper?.toABI { $0 }
+                let externalPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(externalPackageUris)
+                let _externalPackageUris = try! externalPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddPackageToVolumeAndOptionalPackagesAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, RawPointer(targetVolume), _optionalPackageFamilyNames, _externalPackageUris, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func StagePackageToVolumeAndOptionalPackagesAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ externalPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                let optionalPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(optionalPackageFamilyNames)
+                let _optionalPackageFamilyNames = try! optionalPackageFamilyNamesWrapper?.toABI { $0 }
+                let externalPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(externalPackageUris)
+                let _externalPackageUris = try! externalPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StagePackageToVolumeAndOptionalPackagesAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, RawPointer(targetVolume), _optionalPackageFamilyNames, _externalPackageUris, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func RegisterPackageByFamilyNameAndOptionalPackagesAsync(_ mainPackageFamilyName: String, _ dependencyPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ deploymentOptions: UWP.DeploymentOptions, _ appDataVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (deploymentOperation) = try ComPtrs.initialize { deploymentOperationAbi in
+                let _mainPackageFamilyName = try! HString(mainPackageFamilyName)
+                let dependencyPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(dependencyPackageFamilyNames)
+                let _dependencyPackageFamilyNames = try! dependencyPackageFamilyNamesWrapper?.toABI { $0 }
+                let optionalPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(optionalPackageFamilyNames)
+                let _optionalPackageFamilyNames = try! optionalPackageFamilyNamesWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RegisterPackageByFamilyNameAndOptionalPackagesAsync(pThis, _mainPackageFamilyName.get(), _dependencyPackageFamilyNames, deploymentOptions, RawPointer(appDataVolume), _optionalPackageFamilyNames, &deploymentOperationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: deploymentOperation)
+        }
+
+        public func get_DebugSettings() throws -> UWP.PackageManagerDebugSettings? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager5.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DebugSettings(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Management_Deployment.PackageManagerDebugSettingsBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6: WindowsFoundation.IID = .init(
+        Data1: 0x0847E909, Data2: 0x53CD, Data3: 0x4E4F, Data4: ( 0x83,0x2E,0x57,0xD1,0x80,0xF6,0xE4,0x47 ) // 0847E909-53CD-4E4F-832E-57D180F6E447
+    ) 
+
+    public class IPackageManager6: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6 }
+
+        public func ProvisionPackageForAllUsersAsync(_ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ProvisionPackageForAllUsersAsync(pThis, _packageFamilyName.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func AddPackageByAppInstallerFileAsync(_ appInstallerFileUri: WindowsFoundation.Uri?, _ options: UWP.AddPackageByAppInstallerOptions, _ targetVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddPackageByAppInstallerFileAsync(pThis, RawPointer(appInstallerFileUri), options, RawPointer(targetVolume), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func RequestAddPackageByAppInstallerFileAsync(_ appInstallerFileUri: WindowsFoundation.Uri?, _ options: UWP.AddPackageByAppInstallerOptions, _ targetVolume: UWP.PackageVolume?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RequestAddPackageByAppInstallerFileAsync(pThis, RawPointer(appInstallerFileUri), options, RawPointer(targetVolume), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func AddPackageToVolumeAndRelatedSetAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ options: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ packageUrisToInstall: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ relatedPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                let optionalPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(optionalPackageFamilyNames)
+                let _optionalPackageFamilyNames = try! optionalPackageFamilyNamesWrapper?.toABI { $0 }
+                let packageUrisToInstallWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(packageUrisToInstall)
+                let _packageUrisToInstall = try! packageUrisToInstallWrapper?.toABI { $0 }
+                let relatedPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(relatedPackageUris)
+                let _relatedPackageUris = try! relatedPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.AddPackageToVolumeAndRelatedSetAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, options, RawPointer(targetVolume), _optionalPackageFamilyNames, _packageUrisToInstall, _relatedPackageUris, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func StagePackageToVolumeAndRelatedSetAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ options: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ packageUrisToInstall: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ relatedPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                let optionalPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(optionalPackageFamilyNames)
+                let _optionalPackageFamilyNames = try! optionalPackageFamilyNamesWrapper?.toABI { $0 }
+                let packageUrisToInstallWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(packageUrisToInstall)
+                let _packageUrisToInstall = try! packageUrisToInstallWrapper?.toABI { $0 }
+                let relatedPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(relatedPackageUris)
+                let _relatedPackageUris = try! relatedPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.StagePackageToVolumeAndRelatedSetAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, options, RawPointer(targetVolume), _optionalPackageFamilyNames, _packageUrisToInstall, _relatedPackageUris, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func RequestAddPackageAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ relatedPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                let optionalPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(optionalPackageFamilyNames)
+                let _optionalPackageFamilyNames = try! optionalPackageFamilyNamesWrapper?.toABI { $0 }
+                let relatedPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(relatedPackageUris)
+                let _relatedPackageUris = try! relatedPackageUrisWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RequestAddPackageAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, RawPointer(targetVolume), _optionalPackageFamilyNames, _relatedPackageUris, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager7: WindowsFoundation.IID = .init(
+        Data1: 0xF28654F4, Data2: 0x2BA7, Data3: 0x4B80, Data4: ( 0x88,0xD6,0xBE,0x15,0xF9,0xA2,0x3F,0xBA ) // F28654F4-2BA7-4B80-88D6-BE15F9A23FBA
+    ) 
+
+    public class IPackageManager7: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager7 }
+
+        public func RequestAddPackageAndRelatedSetAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ relatedPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ packageUrisToInstall: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let dependencyPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(dependencyPackageUris)
+                let _dependencyPackageUris = try! dependencyPackageUrisWrapper?.toABI { $0 }
+                let optionalPackageFamilyNamesWrapper = UWP.__x_ABI_C__FIIterable_1_HSTRINGWrapper(optionalPackageFamilyNames)
+                let _optionalPackageFamilyNames = try! optionalPackageFamilyNamesWrapper?.toABI { $0 }
+                let relatedPackageUrisWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(relatedPackageUris)
+                let _relatedPackageUris = try! relatedPackageUrisWrapper?.toABI { $0 }
+                let packageUrisToInstallWrapper = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CFoundation__CUriWrapper(packageUrisToInstall)
+                let _packageUrisToInstall = try! packageUrisToInstallWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager7.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RequestAddPackageAndRelatedSetAsync(pThis, RawPointer(packageUri), _dependencyPackageUris, deploymentOptions, RawPointer(targetVolume), _optionalPackageFamilyNames, _relatedPackageUris, _packageUrisToInstall, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager8: WindowsFoundation.IID = .init(
+        Data1: 0xB8575330, Data2: 0x1298, Data3: 0x4EE2, Data4: ( 0x80,0xEE,0x7F,0x65,0x9C,0x5D,0x27,0x82 ) // B8575330-1298-4EE2-80EE-7F659C5D2782
+    ) 
+
+    public class IPackageManager8: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager8 }
+
+        public func DeprovisionPackageForAllUsersAsync(_ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager8.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DeprovisionPackageForAllUsersAsync(pThis, _packageFamilyName.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperationWithProgress_2___x_ABI_CWindows__CManagement__CDeployment__CDeploymentResult___x_ABI_CWindows__CManagement__CDeployment__CDeploymentProgressWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+}
+// MARK: - PackageManagerDebugSettings
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagemanagerdebugsettings)
 public final class PackageManagerDebugSettings : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IPackageManagerDebugSettings
@@ -398,6 +1318,61 @@ public final class PackageManagerDebugSettings : WinRTClass {
     }
 }
 
+// MARK: - PackageManagerDebugSettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Management_Deployment {
+    public enum PackageManagerDebugSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = PackageManagerDebugSettings
+        public typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings>?) -> PackageManagerDebugSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageManagerDebugSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = PackageManagerDebugSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageManagerDebugSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Management_Deployment {
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings: WindowsFoundation.IID = .init(
+        Data1: 0x1A611683, Data2: 0xA988, Data3: 0x4FCF, Data4: ( 0x8F,0x0F,0xCE,0x17,0x58,0x98,0xE8,0xEB ) // 1A611683-A988-4FCF-8F0F-CE175898E8EB
+    ) 
+
+    public class IPackageManagerDebugSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings }
+
+        public func SetContentGroupStateAsync(_ package: UWP.Package?, _ contentGroupName: String, _ state: UWP.PackageContentGroupState) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (action) = try ComPtrs.initialize { actionAbi in
+                let _contentGroupName = try! HString(contentGroupName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetContentGroupStateAsync(pThis, RawPointer(package), _contentGroupName.get(), state, &actionAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: action)
+        }
+
+        public func SetContentGroupStateWithPercentageAsync(_ package: UWP.Package?, _ contentGroupName: String, _ state: UWP.PackageContentGroupState, _ completionPercentage: Double) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (action) = try ComPtrs.initialize { actionAbi in
+                let _contentGroupName = try! HString(contentGroupName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetContentGroupStateWithPercentageAsync(pThis, RawPointer(package), _contentGroupName.get(), state, completionPercentage, &actionAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: action)
+        }
+
+    }
+
+}
+// MARK: - PackageUserInformation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packageuserinformation)
 public final class PackageUserInformation : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IPackageUserInformation
@@ -430,6 +1405,58 @@ public final class PackageUserInformation : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - PackageUserInformation Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Management_Deployment {
+    public enum PackageUserInformationBridge: AbiBridge {
+        public typealias SwiftProjection = PackageUserInformation
+        public typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation>?) -> PackageUserInformation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageUserInformationMaker: MakeFromAbi {
+    public typealias SwiftType = PackageUserInformation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageUserInformation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Management_Deployment {
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation: WindowsFoundation.IID = .init(
+        Data1: 0xF6383423, Data2: 0xFA09, Data3: 0x4CBC, Data4: ( 0x90,0x55,0x15,0xCA,0x27,0x5E,0x2E,0x7E ) // F6383423-FA09-4CBC-9055-15CA275E2E7E
+    ) 
+
+    public class IPackageUserInformation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation }
+
+        public func get_UserSecurityId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserSecurityId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_InstallState() throws -> UWP.PackageInstallState {
+            var value: __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InstallState(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - PackageVolume
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagevolume)
 public final class PackageVolume : WinRTClass {
@@ -571,143 +1598,268 @@ public final class PackageVolume : WinRTClass {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentprogress)
-public struct DeploymentProgress: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentprogress.state)
-    public var state: DeploymentProgressState = .init(0)
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentprogress.percentage)
-    public var percentage: UInt32 = 0
-    public init() {}
-    public init(state: DeploymentProgressState, percentage: UInt32) {
-        self.state = state
-        self.percentage = percentage
+// MARK: - PackageVolume Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Management_Deployment {
+    public enum PackageVolumeBridge: AbiBridge {
+        public typealias SwiftProjection = PackageVolume
+        public typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume>?) -> PackageVolume? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PackageVolumeMaker: MakeFromAbi {
+    public typealias SwiftType = PackageVolume
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PackageVolume(fromAbi: abi)
     }
 }
+@_spi(WinRTInternal)
+extension __ABI_Windows_Management_Deployment {
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume: WindowsFoundation.IID = .init(
+        Data1: 0xCF2672C3, Data2: 0x1A40, Data3: 0x4450, Data4: ( 0x97,0x39,0x2A,0xCE,0x2E,0x89,0x88,0x53 ) // CF2672C3-1A40-4450-9739-2ACE2E898853
+    ) 
 
-extension UWP.AddPackageByAppInstallerOptions {
-    public static var none : UWP.AddPackageByAppInstallerOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_None
+    public class IPackageVolume: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume }
+
+        public func get_IsOffline() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOffline(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_IsSystemVolume() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSystemVolume(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_MountPoint() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MountPoint(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_PackageStorePath() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageStorePath(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SupportsHardLinks() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportsHardLinks(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func FindPackages() throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackages(pThis, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByNamePublisher(_ packageName: String, _ packagePublisher: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByNamePublisher(pThis, _packageName.get(), _packagePublisher.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByPackageFamilyName(_ packageFamilyName: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByPackageFamilyName(pThis, _packageFamilyName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesWithPackageTypes(_ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesWithPackageTypes(pThis, packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByNamePublisherWithPackagesTypes(_ packageTypes: UWP.PackageTypes, _ packageName: String, _ packagePublisher: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByNamePublisherWithPackagesTypes(pThis, packageTypes, _packageName.get(), _packagePublisher.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByPackageFamilyNameWithPackageTypes(_ packageTypes: UWP.PackageTypes, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByPackageFamilyNameWithPackageTypes(pThis, packageTypes, _packageFamilyName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackageByPackageFullName(_ packageFullName: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackageByPackageFullName(pThis, _packageFullName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityId(_ userSecurityId: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityId(pThis, _userSecurityId.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdNamePublisher(_ userSecurityId: String, _ packageName: String, _ packagePublisher: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdNamePublisher(pThis, _userSecurityId.get(), _packageName.get(), _packagePublisher.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdPackageFamilyName(_ userSecurityId: String, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdPackageFamilyName(pThis, _userSecurityId.get(), _packageFamilyName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdWithPackageTypes(_ userSecurityId: String, _ packageTypes: UWP.PackageTypes) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdWithPackageTypes(pThis, _userSecurityId.get(), packageTypes, &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(_ userSecurityId: String, _ packageTypes: UWP.PackageTypes, _ packageName: String, _ packagePublisher: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageName = try! HString(packageName)
+                let _packagePublisher = try! HString(packagePublisher)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(pThis, _userSecurityId.get(), packageTypes, _packageName.get(), _packagePublisher.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes(_ userSecurityId: String, _ packageTypes: UWP.PackageTypes, _ packageFamilyName: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageFamilyName = try! HString(packageFamilyName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes(pThis, _userSecurityId.get(), packageTypes, _packageFamilyName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
+        public func FindPackageByUserSecurityIdPackageFullName(_ userSecurityId: String, _ packageFullName: String) throws -> WindowsFoundation.AnyIVector<UWP.Package?>? {
+            let (packageCollection) = try ComPtrs.initialize { packageCollectionAbi in
+                let _userSecurityId = try! HString(userSecurityId)
+                let _packageFullName = try! HString(packageFullName)
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindPackageByUserSecurityIdPackageFullName(pThis, _userSecurityId.get(), _packageFullName.get(), &packageCollectionAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageWrapper.unwrapFrom(abi: packageCollection)
+        }
+
     }
-    public static var installAllResources : UWP.AddPackageByAppInstallerOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_InstallAllResources
+
+    private static let IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume2: WindowsFoundation.IID = .init(
+        Data1: 0x46ABCF2E, Data2: 0x9DD4, Data3: 0x47A2, Data4: ( 0xAB,0x8C,0xC6,0x40,0x83,0x49,0xBC,0xD8 ) // 46ABCF2E-9DD4-47A2-AB8C-C6408349BCD8
+    ) 
+
+    public class IPackageVolume2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume2 }
+
+        public func get_IsFullTrustPackageSupported() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsFullTrustPackageSupported(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_IsAppxInstallSupported() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAppxInstallSupported(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func GetAvailableSpaceAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UInt64>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAvailableSpaceAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_UINT64Wrapper.unwrapFrom(abi: operation)
+        }
+
     }
-    public static var forceTargetAppShutdown : UWP.AddPackageByAppInstallerOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_ForceTargetAppShutdown
-    }
-    public static var requiredContentGroupOnly : UWP.AddPackageByAppInstallerOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_RequiredContentGroupOnly
-    }
-    public static var limitToExistingPackages : UWP.AddPackageByAppInstallerOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CAddPackageByAppInstallerOptions_LimitToExistingPackages
-    }
+
 }
-extension UWP.AddPackageByAppInstallerOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DeploymentOptions {
-    public static var none : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_None
-    }
-    public static var forceApplicationShutdown : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_ForceApplicationShutdown
-    }
-    public static var developmentMode : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_DevelopmentMode
-    }
-    public static var installAllResources : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_InstallAllResources
-    }
-    public static var forceTargetApplicationShutdown : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_ForceTargetApplicationShutdown
-    }
-    public static var requiredContentGroupOnly : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_RequiredContentGroupOnly
-    }
-    public static var forceUpdateFromAnyVersion : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_ForceUpdateFromAnyVersion
-    }
-    public static var retainFilesOnFailure : UWP.DeploymentOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentOptions_RetainFilesOnFailure
-    }
-}
-extension UWP.DeploymentOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.DeploymentProgressState {
-    public static var queued : UWP.DeploymentProgressState {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgressState_Queued
-    }
-    public static var processing : UWP.DeploymentProgressState {
-        __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgressState_Processing
-    }
-}
-extension UWP.DeploymentProgressState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.PackageInstallState {
-    public static var notInstalled : UWP.PackageInstallState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_NotInstalled
-    }
-    public static var staged : UWP.PackageInstallState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_Staged
-    }
-    public static var installed : UWP.PackageInstallState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_Installed
-    }
-    public static var paused : UWP.PackageInstallState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageInstallState_Paused
-    }
-}
-extension UWP.PackageInstallState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.PackageState {
-    public static var normal : UWP.PackageState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_Normal
-    }
-    public static var licenseInvalid : UWP.PackageState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_LicenseInvalid
-    }
-    public static var modified : UWP.PackageState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_Modified
-    }
-    public static var tampered : UWP.PackageState {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageState_Tampered
-    }
-}
-extension UWP.PackageState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.PackageTypes {
-    public static var none : UWP.PackageTypes {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_None
-    }
-    public static var main : UWP.PackageTypes {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Main
-    }
-    public static var framework : UWP.PackageTypes {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Framework
-    }
-    public static var resource : UWP.PackageTypes {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Resource
-    }
-    public static var bundle : UWP.PackageTypes {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Bundle
-    }
-    public static var xap : UWP.PackageTypes {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Xap
-    }
-    public static var optional : UWP.PackageTypes {
-        __x_ABI_CWindows_CManagement_CDeployment_CPackageTypes_Optional
-    }
-}
-extension UWP.PackageTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.RemovalOptions {
-    public static var none : UWP.RemovalOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CRemovalOptions_None
-    }
-    public static var preserveApplicationData : UWP.RemovalOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CRemovalOptions_PreserveApplicationData
-    }
-    public static var removeForAllUsers : UWP.RemovalOptions {
-        __x_ABI_CWindows_CManagement_CDeployment_CRemovalOptions_RemoveForAllUsers
-    }
-}
-extension UWP.RemovalOptions: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

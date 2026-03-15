@@ -4,12 +4,89 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - MediaFrameSourceGetPropertyStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegetpropertystatus)
 public typealias MediaFrameSourceGetPropertyStatus = __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus
+
+extension UWP.MediaFrameSourceGetPropertyStatus {
+    public static var success : UWP.MediaFrameSourceGetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_Success
+    }
+    public static var unknownFailure : UWP.MediaFrameSourceGetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_UnknownFailure
+    }
+    public static var notSupported : UWP.MediaFrameSourceGetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_NotSupported
+    }
+    public static var deviceNotAvailable : UWP.MediaFrameSourceGetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_DeviceNotAvailable
+    }
+    public static var maxPropertyValueSizeTooSmall : UWP.MediaFrameSourceGetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_MaxPropertyValueSizeTooSmall
+    }
+    public static var maxPropertyValueSizeRequired : UWP.MediaFrameSourceGetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_MaxPropertyValueSizeRequired
+    }
+}
+extension UWP.MediaFrameSourceGetPropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaFrameSourceKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcekind)
 public typealias MediaFrameSourceKind = __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind
+
+extension UWP.MediaFrameSourceKind {
+    public static var custom : UWP.MediaFrameSourceKind {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Custom
+    }
+    public static var color : UWP.MediaFrameSourceKind {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Color
+    }
+    public static var infrared : UWP.MediaFrameSourceKind {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Infrared
+    }
+    public static var depth : UWP.MediaFrameSourceKind {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Depth
+    }
+    public static var audio : UWP.MediaFrameSourceKind {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Audio
+    }
+    public static var image : UWP.MediaFrameSourceKind {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Image
+    }
+}
+extension UWP.MediaFrameSourceKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - MediaFrameSourceSetPropertyStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcesetpropertystatus)
 public typealias MediaFrameSourceSetPropertyStatus = __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus
+
+extension UWP.MediaFrameSourceSetPropertyStatus {
+    public static var success : UWP.MediaFrameSourceSetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_Success
+    }
+    public static var unknownFailure : UWP.MediaFrameSourceSetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_UnknownFailure
+    }
+    public static var notSupported : UWP.MediaFrameSourceSetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_NotSupported
+    }
+    public static var invalidValue : UWP.MediaFrameSourceSetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_InvalidValue
+    }
+    public static var deviceNotAvailable : UWP.MediaFrameSourceSetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_DeviceNotAvailable
+    }
+    public static var notInControl : UWP.MediaFrameSourceSetPropertyStatus {
+        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_NotInControl
+    }
+}
+extension UWP.MediaFrameSourceSetPropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - DepthMediaFrameFormat
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.depthmediaframeformat)
 public final class DepthMediaFrameFormat : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Capture_Frames.IDepthMediaFrameFormat
@@ -42,6 +119,58 @@ public final class DepthMediaFrameFormat : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - DepthMediaFrameFormat Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum DepthMediaFrameFormatBridge: AbiBridge {
+        public typealias SwiftProjection = DepthMediaFrameFormat
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat>?) -> DepthMediaFrameFormat? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class DepthMediaFrameFormatMaker: MakeFromAbi {
+    public typealias SwiftType = DepthMediaFrameFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DepthMediaFrameFormat(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat: WindowsFoundation.IID = .init(
+        Data1: 0xC312CF40, Data2: 0xD729, Data3: 0x453E, Data4: ( 0x87,0x80,0x2E,0x04,0xF1,0x40,0xD2,0x8E ) // C312CF40-D729-453E-8780-2E04F140D28E
+    ) 
+
+    public class IDepthMediaFrameFormat: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat }
+
+        public func get_VideoFormat() throws -> UWP.VideoMediaFrameFormat? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoFormat(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.VideoMediaFrameFormatBridge.from(abi: value)
+        }
+
+        public func get_DepthScaleInMeters() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIDepthMediaFrameFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DepthScaleInMeters(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - MediaFrameFormat
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframeformat)
 public final class MediaFrameFormat : WinRTClass {
@@ -97,6 +226,104 @@ public final class MediaFrameFormat : WinRTClass {
         _IMediaFrameFormat2 = nil
     }
 }
+
+// MARK: - MediaFrameFormat Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum MediaFrameFormatBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameFormat
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat>?) -> MediaFrameFormat? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaFrameFormatMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameFormat(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat: WindowsFoundation.IID = .init(
+        Data1: 0x71902B4E, Data2: 0xB279, Data3: 0x4A97, Data4: ( 0xA9,0xDB,0xBD,0x5A,0x2F,0xB7,0x8F,0x39 ) // 71902B4E-B279-4A97-A9DB-BD5A2FB78F39
+    ) 
+
+    public class IMediaFrameFormat: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat }
+
+        public func get_MajorType() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MajorType(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Subtype() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtype(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FrameRate() throws -> UWP.MediaRatio? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FrameRate(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_MediaProperties.MediaRatioBridge.from(abi: value)
+        }
+
+        public func get_Properties() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, Any?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIMapView_2_GUID_IInspectableWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_VideoFormat() throws -> UWP.VideoMediaFrameFormat? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoFormat(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.VideoMediaFrameFormatBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat2: WindowsFoundation.IID = .init(
+        Data1: 0x63856340, Data2: 0x5E87, Data3: 0x4C10, Data4: ( 0x86,0xD1,0x6D,0xF0,0x97,0xA6,0xC6,0xA8 ) // 63856340-5E87-4C10-86D1-6DF097A6C6A8
+    ) 
+
+    public class IMediaFrameFormat2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat2 }
+
+        public func get_AudioEncodingProperties() throws -> UWP.AudioEncodingProperties? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameFormat2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioEncodingProperties(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_MediaProperties.AudioEncodingPropertiesBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - MediaFrameSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesource)
 public final class MediaFrameSource : WinRTClass {
@@ -164,6 +391,111 @@ public final class MediaFrameSource : WinRTClass {
     }
 }
 
+// MARK: - MediaFrameSource Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum MediaFrameSourceBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSource
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource>?) -> MediaFrameSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource: WindowsFoundation.IID = .init(
+        Data1: 0xD6782953, Data2: 0x90DB, Data3: 0x46A8, Data4: ( 0x8A,0xDD,0x2A,0xA8,0x84,0xA8,0xD2,0x53 ) // D6782953-90DB-46A8-8ADD-2AA884A8D253
+    ) 
+
+    public class IMediaFrameSource: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource }
+
+        public func get_Info() throws -> UWP.MediaFrameSourceInfo? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Info(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.MediaFrameSourceInfoBridge.from(abi: value)
+        }
+
+        public func get_Controller() throws -> UWP.MediaFrameSourceController? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Controller(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.MediaFrameSourceControllerBridge.from(abi: value)
+        }
+
+        public func get_SupportedFormats() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaFrameFormat?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportedFormats(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameFormatWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_CurrentFormat() throws -> UWP.MediaFrameFormat? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentFormat(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.MediaFrameFormatBridge.from(abi: value)
+        }
+
+        public func SetFormatAsync(_ format: UWP.MediaFrameFormat?) throws -> WindowsFoundation.AnyIAsyncAction? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetFormatAsync(pThis, RawPointer(format), &valueAbi))
+                }
+            }
+            return __ABI_Windows_Foundation.IAsyncActionWrapper.unwrapFrom(abi: value)
+        }
+
+        public func add_FormatChanged(_ handler: TypedEventHandler<UWP.MediaFrameSource?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSource_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_FormatChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_FormatChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_FormatChanged(pThis, token))
+            }
+        }
+
+        public func TryGetCameraIntrinsics(_ format: UWP.MediaFrameFormat?) throws -> UWP.CameraIntrinsics? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetCameraIntrinsics(pThis, RawPointer(format), &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Devices_Core.CameraIntrinsicsBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - MediaFrameSourceController
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcecontroller)
 public final class MediaFrameSourceController : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Capture_Frames.IMediaFrameSourceController
@@ -221,6 +553,125 @@ public final class MediaFrameSourceController : WinRTClass {
     }
 }
 
+// MARK: - MediaFrameSourceController Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum MediaFrameSourceControllerBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceController
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController>?) -> MediaFrameSourceController? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceControllerMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceController
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceController(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController: WindowsFoundation.IID = .init(
+        Data1: 0x6D076635, Data2: 0x316D, Data3: 0x4B8F, Data4: ( 0xB7,0xB6,0xEE,0xB0,0x4A,0x8C,0x65,0x25 ) // 6D076635-316D-4B8F-B7B6-EEB04A8C6525
+    ) 
+
+    public class IMediaFrameSourceController: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController }
+
+        public func GetPropertyAsync(_ propertyId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.MediaFrameSourceGetPropertyResult?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _propertyId = try! HString(propertyId)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertyAsync(pThis, _propertyId.get(), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSourceGetPropertyResultWrapper.unwrapFrom(abi: value)
+        }
+
+        public func SetPropertyAsync(_ propertyId: String, _ propertyValue: Any?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.MediaFrameSourceSetPropertyStatus>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _propertyId = try! HString(propertyId)
+                let propertyValueWrapper = __ABI_.AnyWrapper(propertyValue)
+                let _propertyValue = try! propertyValueWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.SetPropertyAsync(pThis, _propertyId.get(), _propertyValue, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSourceSetPropertyStatusWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_VideoDeviceController() throws -> UWP.VideoDeviceController? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoDeviceController(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Devices.VideoDeviceControllerBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController2: WindowsFoundation.IID = .init(
+        Data1: 0xEFC49FD4, Data2: 0xFCF2, Data3: 0x4A03, Data4: ( 0xB4,0xE4,0xAC,0x96,0x28,0x73,0x9B,0xEE ) // EFC49FD4-FCF2-4A03-B4E4-AC9628739BEE
+    ) 
+
+    public class IMediaFrameSourceController2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController2 }
+
+        public func GetPropertyByExtendedIdAsync(_ extendedPropertyId: [UInt8], _ maxPropertyValueSize: UInt32?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.MediaFrameSourceGetPropertyResult?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                try extendedPropertyId.toABI { _extendedPropertyId in
+                    let maxPropertyValueSizeWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(maxPropertyValueSize)
+                    let _maxPropertyValueSize = try! maxPropertyValueSizeWrapper?.toABI { $0 }
+                    _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController2.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertyByExtendedIdAsync(pThis, _extendedPropertyId.count, _extendedPropertyId.start, _maxPropertyValueSize, &operationAbi))
+                    }
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSourceGetPropertyResultWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func SetPropertyByExtendedIdAsync(_ extendedPropertyId: [UInt8], _ propertyValue: [UInt8]) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.MediaFrameSourceSetPropertyStatus>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                try extendedPropertyId.toABI { _extendedPropertyId in
+                    try propertyValue.toABI { _propertyValue in
+                    _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController2.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.SetPropertyByExtendedIdAsync(pThis, _extendedPropertyId.count, _extendedPropertyId.start, _propertyValue.count, _propertyValue.start, &operationAbi))
+                    }
+                }
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSourceSetPropertyStatusWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController3: WindowsFoundation.IID = .init(
+        Data1: 0x1F0CF815, Data2: 0x2464, Data3: 0x4651, Data4: ( 0xB1,0xE8,0x4A,0x82,0xDB,0xDB,0x54,0xDE ) // 1F0CF815-2464-4651-B1E8-4A82DBDB54DE
+    ) 
+
+    public class IMediaFrameSourceController3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController3 }
+
+        public func get_AudioDeviceController() throws -> UWP.AudioDeviceController? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceController3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioDeviceController(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Devices.AudioDeviceControllerBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - MediaFrameSourceGetPropertyResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegetpropertyresult)
 public final class MediaFrameSourceGetPropertyResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Capture_Frames.IMediaFrameSourceGetPropertyResult
@@ -253,6 +704,58 @@ public final class MediaFrameSourceGetPropertyResult : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - MediaFrameSourceGetPropertyResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum MediaFrameSourceGetPropertyResultBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceGetPropertyResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult>?) -> MediaFrameSourceGetPropertyResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceGetPropertyResultMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceGetPropertyResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceGetPropertyResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult: WindowsFoundation.IID = .init(
+        Data1: 0x088616C2, Data2: 0x3A64, Data3: 0x4BD5, Data4: ( 0xBD,0x2B,0xE7,0xC8,0x98,0xD2,0xF3,0x7A ) // 088616C2-3A64-4BD5-BD2B-E7C898D2F37A
+    ) 
+
+    public class IMediaFrameSourceGetPropertyResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult }
+
+        public func get_Status() throws -> UWP.MediaFrameSourceGetPropertyStatus {
+            var value: __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Value() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGetPropertyResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - MediaFrameSourceGroup
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourcegroup)
 public final class MediaFrameSourceGroup : WinRTClass {
@@ -307,6 +810,105 @@ public final class MediaFrameSourceGroup : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - MediaFrameSourceGroup Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum MediaFrameSourceGroupBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceGroup
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup>?) -> MediaFrameSourceGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceGroupMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceGroup(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup: WindowsFoundation.IID = .init(
+        Data1: 0x7F605B87, Data2: 0x4832, Data3: 0x4B5F, Data4: ( 0xAE,0x3D,0x41,0x2F,0xAA,0xB3,0x7D,0x34 ) // 7F605B87-4832-4B5F-AE3D-412FAAB37D34
+    ) 
+
+    public class IMediaFrameSourceGroup: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup }
+
+        public func get_Id() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_DisplayName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_SourceInfos() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaFrameSourceInfo?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroup.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceInfos(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSourceInfoWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroupStatics: WindowsFoundation.IID = .init(
+        Data1: 0x1C48BFC5, Data2: 0x436F, Data3: 0x4508, Data4: ( 0x94,0xCF,0xD5,0xD8,0xB7,0x32,0x64,0x45 ) // 1C48BFC5-436F-4508-94CF-D5D8B7326445
+    ) 
+
+    public class IMediaFrameSourceGroupStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroupStatics }
+
+        public func FindAllAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.MediaFrameSourceGroup?>?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllAsync(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSourceGroupWrapper.unwrapFrom(abi: value)
+        }
+
+        public func FromIdAsync(_ id: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.MediaFrameSourceGroup?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _id = try! HString(id)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroupStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FromIdAsync(pThis, _id.get(), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCapture__CFrames__CMediaFrameSourceGroupWrapper.unwrapFrom(abi: value)
+        }
+
+        public func GetDeviceSelector() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceGroupStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeviceSelector(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - MediaFrameSourceInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.mediaframesourceinfo)
 public final class MediaFrameSourceInfo : WinRTClass {
@@ -378,6 +980,129 @@ public final class MediaFrameSourceInfo : WinRTClass {
     }
 }
 
+// MARK: - MediaFrameSourceInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum MediaFrameSourceInfoBridge: AbiBridge {
+        public typealias SwiftProjection = MediaFrameSourceInfo
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo>?) -> MediaFrameSourceInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class MediaFrameSourceInfoMaker: MakeFromAbi {
+    public typealias SwiftType = MediaFrameSourceInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return MediaFrameSourceInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo: WindowsFoundation.IID = .init(
+        Data1: 0x87BDC9CD, Data2: 0x4601, Data3: 0x408F, Data4: ( 0x91,0xCF,0x03,0x83,0x18,0xCD,0x0A,0xF3 ) // 87BDC9CD-4601-408F-91CF-038318CD0AF3
+    ) 
+
+    public class IMediaFrameSourceInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo }
+
+        public func get_Id() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_MediaStreamType() throws -> UWP.MediaStreamType {
+            var value: __x_ABI_CWindows_CMedia_CCapture_CMediaStreamType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaStreamType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_SourceKind() throws -> UWP.MediaFrameSourceKind {
+            var value: __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceKind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_SourceGroup() throws -> UWP.MediaFrameSourceGroup? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourceGroup(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.MediaFrameSourceGroupBridge.from(abi: value)
+        }
+
+        public func get_DeviceInformation() throws -> UWP.DeviceInformation? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceInformation(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DeviceInformationBridge.from(abi: value)
+        }
+
+        public func get_Properties() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, Any?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Properties(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIMapView_2_GUID_IInspectableWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_CoordinateSystem() throws -> UWP.SpatialCoordinateSystem? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CoordinateSystem(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Perception_Spatial.SpatialCoordinateSystemBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo2: WindowsFoundation.IID = .init(
+        Data1: 0x195A7855, Data2: 0x6457, Data3: 0x42C6, Data4: ( 0xA7,0x69,0x19,0xB6,0x5B,0xD3,0x2E,0x6E ) // 195A7855-6457-42C6-A769-19B65BD32E6E
+    ) 
+
+    public class IMediaFrameSourceInfo2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo2 }
+
+        public func get_ProfileId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProfileId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_VideoProfileMediaDescription() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaCaptureVideoProfileMediaDescription?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VideoProfileMediaDescription(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCapture__CMediaCaptureVideoProfileMediaDescriptionWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - VideoMediaFrameFormat
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.frames.videomediaframeformat)
 public final class VideoMediaFrameFormat : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Capture_Frames.IVideoMediaFrameFormat
@@ -421,69 +1146,70 @@ public final class VideoMediaFrameFormat : WinRTClass {
     }
 }
 
-extension UWP.MediaFrameSourceGetPropertyStatus {
-    public static var success : UWP.MediaFrameSourceGetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_Success
+// MARK: - VideoMediaFrameFormat Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Capture_Frames {
+    public enum VideoMediaFrameFormatBridge: AbiBridge {
+        public typealias SwiftProjection = VideoMediaFrameFormat
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat>?) -> VideoMediaFrameFormat? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var unknownFailure : UWP.MediaFrameSourceGetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_UnknownFailure
-    }
-    public static var notSupported : UWP.MediaFrameSourceGetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_NotSupported
-    }
-    public static var deviceNotAvailable : UWP.MediaFrameSourceGetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_DeviceNotAvailable
-    }
-    public static var maxPropertyValueSizeTooSmall : UWP.MediaFrameSourceGetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_MaxPropertyValueSizeTooSmall
-    }
-    public static var maxPropertyValueSizeRequired : UWP.MediaFrameSourceGetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceGetPropertyStatus_MaxPropertyValueSizeRequired
+
+}
+@_spi(WinRTInternal)
+public class VideoMediaFrameFormatMaker: MakeFromAbi {
+    public typealias SwiftType = VideoMediaFrameFormat
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VideoMediaFrameFormat(fromAbi: abi)
     }
 }
-extension UWP.MediaFrameSourceGetPropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Capture_Frames {
+    private static let IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat: WindowsFoundation.IID = .init(
+        Data1: 0x46027FC0, Data2: 0xD71B, Data3: 0x45C7, Data4: ( 0x8F,0x14,0x6D,0x9A,0x0A,0xE6,0x04,0xE4 ) // 46027FC0-D71B-45C7-8F14-6D9A0AE604E4
+    ) 
 
-extension UWP.MediaFrameSourceKind {
-    public static var custom : UWP.MediaFrameSourceKind {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Custom
+    public class IVideoMediaFrameFormat: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat }
+
+        public func get_MediaFrameFormat() throws -> UWP.MediaFrameFormat? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaFrameFormat(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.MediaFrameFormatBridge.from(abi: value)
+        }
+
+        public func get_DepthFormat() throws -> UWP.DepthMediaFrameFormat? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DepthFormat(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Capture_Frames.DepthMediaFrameFormatBridge.from(abi: value)
+        }
+
+        public func get_Width() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Width(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Height() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CFrames_CIVideoMediaFrameFormat.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Height(pThis, &value))
+            }
+            return value
+        }
+
     }
-    public static var color : UWP.MediaFrameSourceKind {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Color
-    }
-    public static var infrared : UWP.MediaFrameSourceKind {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Infrared
-    }
-    public static var depth : UWP.MediaFrameSourceKind {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Depth
-    }
-    public static var audio : UWP.MediaFrameSourceKind {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Audio
-    }
-    public static var image : UWP.MediaFrameSourceKind {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind_Image
-    }
+
 }
-extension UWP.MediaFrameSourceKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.MediaFrameSourceSetPropertyStatus {
-    public static var success : UWP.MediaFrameSourceSetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_Success
-    }
-    public static var unknownFailure : UWP.MediaFrameSourceSetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_UnknownFailure
-    }
-    public static var notSupported : UWP.MediaFrameSourceSetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_NotSupported
-    }
-    public static var invalidValue : UWP.MediaFrameSourceSetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_InvalidValue
-    }
-    public static var deviceNotAvailable : UWP.MediaFrameSourceSetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_DeviceNotAvailable
-    }
-    public static var notInControl : UWP.MediaFrameSourceSetPropertyStatus {
-        __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceSetPropertyStatus_NotInControl
-    }
-}
-extension UWP.MediaFrameSourceSetPropertyStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

@@ -5,5 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __IMPL_Windows_Media_Transcoding {
-}
+public enum __IMPL_Windows_Media_Transcoding {}

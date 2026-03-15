@@ -4,493 +4,10 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - ActivationKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.activationkind)
 public typealias ActivationKind = __x_ABI_CWindows_CApplicationModel_CActivation_CActivationKind
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.applicationexecutionstate)
-public typealias ApplicationExecutionState = __x_ABI_CWindows_CApplicationModel_CActivation_CApplicationExecutionState
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs)
-public final class BackgroundActivatedEventArgs : WinRTClass, IBackgroundActivatedEventArgs {
-    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgs
-    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
-    @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
-        if T.self == CABI.self {
-            return RawPointer(_default)
-        }
-        return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
-        super.init(fromAbi)
-    }
-
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        return super.queryInterface(iid)
-    }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs.taskinstance)
-    public var taskInstance : UWP.AnyIBackgroundTaskInstance! {
-        get { try! _default.get_TaskInstance() }
-    }
-
-    deinit {
-        _default = nil
-    }
-}
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs)
-public final class LaunchActivatedEventArgs : WinRTClass, IActivatedEventArgs, ILaunchActivatedEventArgs, IApplicationViewActivatedEventArgs, IPrelaunchActivatedEventArgs, IViewSwitcherProvider, ILaunchActivatedEventArgs2, IActivatedEventArgsWithUser {
-    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs
-    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
-    @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
-        if T.self == CABI.self {
-            return RawPointer(_default)
-        }
-        return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
-        super.init(fromAbi)
-    }
-
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        return super.queryInterface(iid)
-    }
-    private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.kind)
-    public var kind : ActivationKind {
-        get { try! _IActivatedEventArgs.get_Kind() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate)
-    public var previousExecutionState : ApplicationExecutionState {
-        get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.splashscreen)
-    public var splashScreen : SplashScreen! {
-        get { try! _IActivatedEventArgs.get_SplashScreen() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.arguments)
-    public var arguments : String {
-        get { try! _default.get_Arguments() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileid)
-    public var tileId : String {
-        get { try! _default.get_TileId() }
-    }
-
-    private lazy var _IApplicationViewActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.currentlyshownapplicationviewid)
-    public var currentlyShownApplicationViewId : Int32 {
-        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewId() }
-    }
-
-    private lazy var _IPrelaunchActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgs! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.prelaunchactivated)
-    public var prelaunchActivated : Bool {
-        get { try! _IPrelaunchActivatedEventArgs.get_PrelaunchActivated() }
-    }
-
-    private lazy var _IViewSwitcherProvider: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.viewswitcher)
-    public var viewSwitcher : UWP.ActivationViewSwitcher! {
-        get { try! _IViewSwitcherProvider.get_ViewSwitcher() }
-    }
-
-    private lazy var _ILaunchActivatedEventArgs2: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileactivatedinfo)
-    public var tileActivatedInfo : TileActivatedInfo! {
-        get { try! _ILaunchActivatedEventArgs2.get_TileActivatedInfo() }
-    }
-
-    private lazy var _IActivatedEventArgsWithUser: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.user)
-    public var user : UWP.User! {
-        get { try! _IActivatedEventArgsWithUser.get_User() }
-    }
-
-    deinit {
-        _IActivatedEventArgs = nil
-        _default = nil
-        _IApplicationViewActivatedEventArgs = nil
-        _IPrelaunchActivatedEventArgs = nil
-        _IViewSwitcherProvider = nil
-        _ILaunchActivatedEventArgs2 = nil
-        _IActivatedEventArgsWithUser = nil
-    }
-}
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs)
-public final class ProtocolActivatedEventArgs : WinRTClass, IActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IApplicationViewActivatedEventArgs, IViewSwitcherProvider, IActivatedEventArgsWithUser {
-    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgs
-    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
-    @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
-        if T.self == CABI.self {
-            return RawPointer(_default)
-        }
-        return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
-        super.init(fromAbi)
-    }
-
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        return super.queryInterface(iid)
-    }
-    private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.kind)
-    public var kind : ActivationKind {
-        get { try! _IActivatedEventArgs.get_Kind() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.previousexecutionstate)
-    public var previousExecutionState : ApplicationExecutionState {
-        get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.splashscreen)
-    public var splashScreen : SplashScreen! {
-        get { try! _IActivatedEventArgs.get_SplashScreen() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.uri)
-    public var uri : WindowsFoundation.Uri! {
-        get { try! _default.get_Uri() }
-    }
-
-    private lazy var _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData: __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.callerpackagefamilyname)
-    public var callerPackageFamilyName : String {
-        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_CallerPackageFamilyName() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.data)
-    public var data : WindowsFoundation.ValueSet! {
-        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_Data() }
-    }
-
-    private lazy var _IApplicationViewActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.currentlyshownapplicationviewid)
-    public var currentlyShownApplicationViewId : Int32 {
-        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewId() }
-    }
-
-    private lazy var _IViewSwitcherProvider: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.viewswitcher)
-    public var viewSwitcher : UWP.ActivationViewSwitcher! {
-        get { try! _IViewSwitcherProvider.get_ViewSwitcher() }
-    }
-
-    private lazy var _IActivatedEventArgsWithUser: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser! = getInterfaceForCaching()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.user)
-    public var user : UWP.User! {
-        get { try! _IActivatedEventArgsWithUser.get_User() }
-    }
-
-    deinit {
-        _IActivatedEventArgs = nil
-        _default = nil
-        _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = nil
-        _IApplicationViewActivatedEventArgs = nil
-        _IViewSwitcherProvider = nil
-        _IActivatedEventArgsWithUser = nil
-    }
-}
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen)
-public final class SplashScreen : WinRTClass {
-    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ISplashScreen
-    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
-    @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
-        if T.self == CABI.self {
-            return RawPointer(_default)
-        }
-        return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
-        super.init(fromAbi)
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.imagelocation)
-    public var imageLocation : WindowsFoundation.Rect {
-        get { try! _default.get_ImageLocation() }
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.dismissed)
-    public lazy var dismissed : Event<TypedEventHandler<SplashScreen?, Any?>> = {
-      .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Dismissed($0)
-        },
-        remove: { [weak self] in
-         try? self?._default.remove_Dismissed($0)
-       }
-      )
-    }()
-
-    deinit {
-        _default = nil
-    }
-}
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)
-public final class TileActivatedInfo : WinRTClass {
-    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ITileActivatedInfo
-    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
-    @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
-        if T.self == CABI.self {
-            return RawPointer(_default)
-        }
-        return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
-        super.init(fromAbi)
-    }
-
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo.recentlyshownnotifications)
-    public var recentlyShownNotifications : WindowsFoundation.AnyIVectorView<UWP.ShownTileNotification?>! {
-        get { try! _default.get_RecentlyShownNotifications() }
-    }
-
-    deinit {
-        _default = nil
-    }
-}
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs)
-public protocol IActivatedEventArgs : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.kind)
-    var kind: UWP.ActivationKind { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate)
-    var previousExecutionState: UWP.ApplicationExecutionState { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.splashscreen)
-    var splashScreen: UWP.SplashScreen! { get }
-}
-
-extension IActivatedEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIActivatedEventArgs = any IActivatedEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser)
-public protocol IActivatedEventArgsWithUser : IActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.user)
-    var user: UWP.User! { get }
-}
-
-extension IActivatedEventArgsWithUser {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIActivatedEventArgsWithUser = any IActivatedEventArgsWithUser
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs)
-public protocol IApplicationViewActivatedEventArgs : IActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.currentlyshownapplicationviewid)
-    var currentlyShownApplicationViewId: Int32 { get }
-}
-
-extension IApplicationViewActivatedEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIApplicationViewActivatedEventArgs = any IApplicationViewActivatedEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ibackgroundactivatedeventargs)
-public protocol IBackgroundActivatedEventArgs : WinRTInterface {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ibackgroundactivatedeventargs.taskinstance)
-    var taskInstance: UWP.AnyIBackgroundTaskInstance! { get }
-}
-
-extension IBackgroundActivatedEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIBackgroundActivatedEventArgs = any IBackgroundActivatedEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs)
-public protocol ILaunchActivatedEventArgs : IActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.arguments)
-    var arguments: String { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.tileid)
-    var tileId: String { get }
-}
-
-extension ILaunchActivatedEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyILaunchActivatedEventArgs = any ILaunchActivatedEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2)
-public protocol ILaunchActivatedEventArgs2 : IActivatedEventArgs, ILaunchActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.tileactivatedinfo)
-    var tileActivatedInfo: UWP.TileActivatedInfo! { get }
-}
-
-extension ILaunchActivatedEventArgs2 {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Wrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Wrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyILaunchActivatedEventArgs2 = any ILaunchActivatedEventArgs2
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs)
-public protocol IPrelaunchActivatedEventArgs : IActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.prelaunchactivated)
-    var prelaunchActivated: Bool { get }
-}
-
-extension IPrelaunchActivatedEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIPrelaunchActivatedEventArgs = any IPrelaunchActivatedEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs)
-public protocol IProtocolActivatedEventArgs : IActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.uri)
-    var uri: WindowsFoundation.Uri! { get }
-}
-
-extension IProtocolActivatedEventArgs {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIProtocolActivatedEventArgs = any IProtocolActivatedEventArgs
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata)
-public protocol IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData : IActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.callerpackagefamilyname)
-    var callerPackageFamilyName: String { get }
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.data)
-    var data: WindowsFoundation.ValueSet! { get }
-}
-
-extension IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = any IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
-
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider)
-public protocol IViewSwitcherProvider : IActivatedEventArgs {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.viewswitcher)
-    var viewSwitcher: UWP.ActivationViewSwitcher! { get }
-}
-
-extension IViewSwitcherProvider {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        switch iid {
-            case __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProviderWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProviderWrapper(self)
-                return wrapper!.queryInterface(iid)
-            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
-                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
-                return wrapper!.queryInterface(iid)
-            default: return nil
-        }
-    }
-}
-public typealias AnyIViewSwitcherProvider = any IViewSwitcherProvider
 
 extension UWP.ActivationKind {
     public static var launch : UWP.ActivationKind {
@@ -616,6 +133,11 @@ extension UWP.ActivationKind {
 }
 extension UWP.ActivationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
+// MARK: - ApplicationExecutionState
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.applicationexecutionstate)
+public typealias ApplicationExecutionState = __x_ABI_CWindows_CApplicationModel_CActivation_CApplicationExecutionState
+
 extension UWP.ApplicationExecutionState {
     public static var notRunning : UWP.ApplicationExecutionState {
         __x_ABI_CWindows_CApplicationModel_CActivation_CApplicationExecutionState_NotRunning
@@ -635,3 +157,1927 @@ extension UWP.ApplicationExecutionState {
 }
 extension UWP.ApplicationExecutionState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
+// MARK: - IActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs)
+public protocol IActivatedEventArgs : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.kind)
+    var kind: UWP.ActivationKind { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate)
+    var previousExecutionState: UWP.ApplicationExecutionState { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.splashscreen)
+    var splashScreen: UWP.SplashScreen! { get }
+}
+
+extension IActivatedEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIActivatedEventArgs = any IActivatedEventArgs
+
+// MARK: - IActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IActivatedEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs
+        public typealias SwiftProjection = AnyIActivatedEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IActivatedEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IActivatedEventArgsImpl: IActivatedEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = IActivatedEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _default.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _default.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _default.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xCF651713, Data2: 0xCD08, Data3: 0x4FD8, Data4: ( 0xB6,0x97,0xA2,0x81,0xB6,0x54,0x4E,0x2E ) // CF651713-CD08-4FD8-B697-A281B6544E2E
+    ) 
+
+    public class IActivatedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs }
+
+        open func get_Kind() throws -> UWP.ActivationKind {
+            var value: __x_ABI_CWindows_CApplicationModel_CActivation_CActivationKind = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Kind(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_PreviousExecutionState() throws -> UWP.ApplicationExecutionState {
+            var value: __x_ABI_CWindows_CApplicationModel_CActivation_CApplicationExecutionState = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreviousExecutionState(pThis, &value))
+            }
+            return value
+        }
+
+        open func get_SplashScreen() throws -> UWP.SplashScreen? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SplashScreen(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_Activation.SplashScreenBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsVtbl = .init(
+        QueryInterface: { IActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IActivatedEventArgsWrapper.addRef($0) },
+        Release: { IActivatedEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IActivatedEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Kind: {
+            guard let __unwrapped__instance = IActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.kind
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_PreviousExecutionState: {
+            guard let __unwrapped__instance = IActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.previousExecutionState
+            $1?.initialize(to: value)
+            return S_OK
+        },
+
+        get_SplashScreen: {
+            guard let __unwrapped__instance = IActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.splashScreen
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IActivatedEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IActivatedEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class IActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IActivatedEventArgsWithUser
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser)
+public protocol IActivatedEventArgsWithUser : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.user)
+    var user: UWP.User! { get }
+}
+
+extension IActivatedEventArgsWithUser {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIActivatedEventArgsWithUser = any IActivatedEventArgsWithUser
+
+// MARK: - IActivatedEventArgsWithUser Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IActivatedEventArgsWithUserBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser
+        public typealias SwiftProjection = AnyIActivatedEventArgsWithUser
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IActivatedEventArgsWithUserImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IActivatedEventArgsWithUserImpl: IActivatedEventArgsWithUser, WinRTAbiImpl {
+        fileprivate typealias Bridge = IActivatedEventArgsWithUserBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.user)
+        fileprivate var user : UWP.User! {
+            get { try! _default.get_User() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargswithuser.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser: WindowsFoundation.IID = .init(
+        Data1: 0x1CF09B9E, Data2: 0x9962, Data3: 0x4936, Data4: ( 0x80,0xFF,0xAF,0xC8,0xE8,0xAE,0x5C,0x8C ) // 1CF09B9E-9962-4936-80FF-AFC8E8AE5C8C
+    ) 
+
+    public class IActivatedEventArgsWithUser: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser }
+
+        open func get_User() throws -> UWP.User? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_User(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_System.UserBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IActivatedEventArgsWithUserVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUserVtbl = .init(
+        QueryInterface: { IActivatedEventArgsWithUserWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IActivatedEventArgsWithUserWrapper.addRef($0) },
+        Release: { IActivatedEventArgsWithUserWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_User: {
+            guard let __unwrapped__instance = IActivatedEventArgsWithUserWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.user
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IActivatedEventArgsWithUserWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserBridge>
+}
+@_spi(WinRTInternal)
+public class IActivatedEventArgsWithUserMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIActivatedEventArgsWithUser
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUserBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IApplicationViewActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs)
+public protocol IApplicationViewActivatedEventArgs : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.currentlyshownapplicationviewid)
+    var currentlyShownApplicationViewId: Int32 { get }
+}
+
+extension IApplicationViewActivatedEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIApplicationViewActivatedEventArgs = any IApplicationViewActivatedEventArgs
+
+// MARK: - IApplicationViewActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IApplicationViewActivatedEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs
+        public typealias SwiftProjection = AnyIApplicationViewActivatedEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IApplicationViewActivatedEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IApplicationViewActivatedEventArgsImpl: IApplicationViewActivatedEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = IApplicationViewActivatedEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.currentlyshownapplicationviewid)
+        fileprivate var currentlyShownApplicationViewId : Int32 {
+            get { try! _default.get_CurrentlyShownApplicationViewId() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iapplicationviewactivatedeventargs.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x930CEF4B, Data2: 0xB829, Data3: 0x40FC, Data4: ( 0x88,0xF4,0x85,0x13,0xE8,0xA6,0x47,0x38 ) // 930CEF4B-B829-40FC-88F4-8513E8A64738
+    ) 
+
+    public class IApplicationViewActivatedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgs }
+
+        open func get_CurrentlyShownApplicationViewId() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentlyShownApplicationViewId(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    internal static var IApplicationViewActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgsVtbl = .init(
+        QueryInterface: { IApplicationViewActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IApplicationViewActivatedEventArgsWrapper.addRef($0) },
+        Release: { IApplicationViewActivatedEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IApplicationViewActivatedEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_CurrentlyShownApplicationViewId: {
+            guard let __unwrapped__instance = IApplicationViewActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.currentlyShownApplicationViewId
+            $1?.initialize(to: value)
+            return S_OK
+        }
+    )
+
+    public typealias IApplicationViewActivatedEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class IApplicationViewActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIApplicationViewActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IBackgroundActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ibackgroundactivatedeventargs)
+public protocol IBackgroundActivatedEventArgs : WinRTInterface {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ibackgroundactivatedeventargs.taskinstance)
+    var taskInstance: UWP.AnyIBackgroundTaskInstance! { get }
+}
+
+extension IBackgroundActivatedEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIBackgroundActivatedEventArgs = any IBackgroundActivatedEventArgs
+
+// MARK: - IBackgroundActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IBackgroundActivatedEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgs
+        public typealias SwiftProjection = AnyIBackgroundActivatedEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IBackgroundActivatedEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IBackgroundActivatedEventArgsImpl: IBackgroundActivatedEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = IBackgroundActivatedEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ibackgroundactivatedeventargs.taskinstance)
+        fileprivate var taskInstance : UWP.AnyIBackgroundTaskInstance! {
+            get { try! _default.get_TaskInstance() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xAB14BEE0, Data2: 0xE760, Data3: 0x440E, Data4: ( 0xA9,0x1C,0x44,0x79,0x6D,0xE3,0xA9,0x2D ) // AB14BEE0-E760-440E-A91C-44796DE3A92D
+    ) 
+
+    public class IBackgroundActivatedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs }
+
+        open func get_TaskInstance() throws -> UWP.AnyIBackgroundTaskInstance? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TaskInstance(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    internal static var IBackgroundActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgsVtbl = .init(
+        QueryInterface: { IBackgroundActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IBackgroundActivatedEventArgsWrapper.addRef($0) },
+        Release: { IBackgroundActivatedEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_TaskInstance: {
+            guard let __unwrapped__instance = IBackgroundActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.taskInstance
+            let valueWrapper = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IBackgroundActivatedEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class IBackgroundActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIBackgroundActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ILaunchActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs)
+public protocol ILaunchActivatedEventArgs : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.arguments)
+    var arguments: String { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.tileid)
+    var tileId: String { get }
+}
+
+extension ILaunchActivatedEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyILaunchActivatedEventArgs = any ILaunchActivatedEventArgs
+
+// MARK: - ILaunchActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum ILaunchActivatedEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs
+        public typealias SwiftProjection = AnyILaunchActivatedEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ILaunchActivatedEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ILaunchActivatedEventArgsImpl: ILaunchActivatedEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = ILaunchActivatedEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.arguments)
+        fileprivate var arguments : String {
+            get { try! _default.get_Arguments() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.tileid)
+        fileprivate var tileId : String {
+            get { try! _default.get_TileId() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xFBC93E26, Data2: 0xA14A, Data3: 0x4B4F, Data4: ( 0x82,0xB0,0x33,0xBE,0xD9,0x20,0xAF,0x52 ) // FBC93E26-A14A-4B4F-82B0-33BED920AF52
+    ) 
+
+    public class ILaunchActivatedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs }
+
+        open func get_Arguments() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Arguments(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func get_TileId() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TileId(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+    internal static var ILaunchActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgsVtbl = .init(
+        QueryInterface: { ILaunchActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ILaunchActivatedEventArgsWrapper.addRef($0) },
+        Release: { ILaunchActivatedEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Arguments: {
+            guard let __unwrapped__instance = ILaunchActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.arguments
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        get_TileId: {
+            guard let __unwrapped__instance = ILaunchActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.tileId
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        }
+    )
+
+    public typealias ILaunchActivatedEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class ILaunchActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyILaunchActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - ILaunchActivatedEventArgs2
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2)
+public protocol ILaunchActivatedEventArgs2 : IActivatedEventArgs, ILaunchActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.tileactivatedinfo)
+    var tileActivatedInfo: UWP.TileActivatedInfo! { get }
+}
+
+extension ILaunchActivatedEventArgs2 {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Wrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Wrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyILaunchActivatedEventArgs2 = any ILaunchActivatedEventArgs2
+
+// MARK: - ILaunchActivatedEventArgs2 Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum ILaunchActivatedEventArgs2Bridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2
+        public typealias SwiftProjection = AnyILaunchActivatedEventArgs2
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return ILaunchActivatedEventArgs2Impl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2VTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class ILaunchActivatedEventArgs2Impl: ILaunchActivatedEventArgs2, WinRTAbiImpl {
+        fileprivate typealias Bridge = ILaunchActivatedEventArgs2Bridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.tileactivatedinfo)
+        fileprivate var tileActivatedInfo : TileActivatedInfo! {
+            get { try! _default.get_TileActivatedInfo() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+        private lazy var _ILaunchActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.arguments)
+        fileprivate var arguments : String {
+            get { try! _ILaunchActivatedEventArgs.get_Arguments() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs2.tileid)
+        fileprivate var tileId : String {
+            get { try! _ILaunchActivatedEventArgs.get_TileId() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0x0FD37EBC, Data2: 0x9DC9, Data3: 0x46B5, Data4: ( 0x9A,0xCE,0xBD,0x95,0xD4,0x56,0x53,0x45 ) // 0FD37EBC-9DC9-46B5-9ACE-BD95D4565345
+    ) 
+
+    public class ILaunchActivatedEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2 }
+
+        open func get_TileActivatedInfo() throws -> UWP.TileActivatedInfo? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TileActivatedInfo(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_ApplicationModel_Activation.TileActivatedInfoBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var ILaunchActivatedEventArgs2VTable: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2Vtbl = .init(
+        QueryInterface: { ILaunchActivatedEventArgs2Wrapper.queryInterface($0, $1, $2) },
+        AddRef: { ILaunchActivatedEventArgs2Wrapper.addRef($0) },
+        Release: { ILaunchActivatedEventArgs2Wrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 5).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Wrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            iids[4] = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgsWrapper.IID
+            $1!.pointee = 5
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs2").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_TileActivatedInfo: {
+            guard let __unwrapped__instance = ILaunchActivatedEventArgs2Wrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.tileActivatedInfo
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias ILaunchActivatedEventArgs2Wrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Bridge>
+}
+@_spi(WinRTInternal)
+public class ILaunchActivatedEventArgs2Maker: MakeFromAbi {
+    public typealias SwiftType = AnyILaunchActivatedEventArgs2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2 = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2Bridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IPrelaunchActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs)
+public protocol IPrelaunchActivatedEventArgs : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.prelaunchactivated)
+    var prelaunchActivated: Bool { get }
+}
+
+extension IPrelaunchActivatedEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIPrelaunchActivatedEventArgs = any IPrelaunchActivatedEventArgs
+
+// MARK: - IPrelaunchActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IPrelaunchActivatedEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgs
+        public typealias SwiftProjection = AnyIPrelaunchActivatedEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IPrelaunchActivatedEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IPrelaunchActivatedEventArgsImpl: IPrelaunchActivatedEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = IPrelaunchActivatedEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.prelaunchactivated)
+        fileprivate var prelaunchActivated : Bool {
+            get { try! _default.get_PrelaunchActivated() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprelaunchactivatedeventargs.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x0C44717B, Data2: 0x19F7, Data3: 0x48D6, Data4: ( 0xB0,0x46,0xCF,0x22,0x82,0x6E,0xAA,0x74 ) // 0C44717B-19F7-48D6-B046-CF22826EAA74
+    ) 
+
+    public class IPrelaunchActivatedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs }
+
+        open func get_PrelaunchActivated() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrelaunchActivated(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    internal static var IPrelaunchActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgsVtbl = .init(
+        QueryInterface: { IPrelaunchActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IPrelaunchActivatedEventArgsWrapper.addRef($0) },
+        Release: { IPrelaunchActivatedEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IPrelaunchActivatedEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_PrelaunchActivated: {
+            guard let __unwrapped__instance = IPrelaunchActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.prelaunchActivated
+            $1?.initialize(to: .init(from: value))
+            return S_OK
+        }
+    )
+
+    public typealias IPrelaunchActivatedEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class IPrelaunchActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIPrelaunchActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IProtocolActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs)
+public protocol IProtocolActivatedEventArgs : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.uri)
+    var uri: WindowsFoundation.Uri! { get }
+}
+
+extension IProtocolActivatedEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIProtocolActivatedEventArgs = any IProtocolActivatedEventArgs
+
+// MARK: - IProtocolActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IProtocolActivatedEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgs
+        public typealias SwiftProjection = AnyIProtocolActivatedEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IProtocolActivatedEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IProtocolActivatedEventArgsImpl: IProtocolActivatedEventArgs, WinRTAbiImpl {
+        fileprivate typealias Bridge = IProtocolActivatedEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.uri)
+        fileprivate var uri : WindowsFoundation.Uri! {
+            get { try! _default.get_Uri() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargs.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x6095F4DD, Data2: 0xB7C0, Data3: 0x46AB, Data4: ( 0x81,0xFE,0xD9,0x0F,0x36,0xD0,0x0D,0x24 ) // 6095F4DD-B7C0-46AB-81FE-D90F36D00D24
+    ) 
+
+    public class IProtocolActivatedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs }
+
+        open func get_Uri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Uri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IProtocolActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsVtbl = .init(
+        QueryInterface: { IProtocolActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IProtocolActivatedEventArgsWrapper.addRef($0) },
+        Release: { IProtocolActivatedEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Uri: {
+            guard let __unwrapped__instance = IProtocolActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.uri
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IProtocolActivatedEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class IProtocolActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIProtocolActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata)
+public protocol IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.callerpackagefamilyname)
+    var callerPackageFamilyName: String { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.data)
+    var data: WindowsFoundation.ValueSet! { get }
+}
+
+extension IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = any IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
+
+// MARK: - IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
+        public typealias SwiftProjection = AnyIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataImpl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, WinRTAbiImpl {
+        fileprivate typealias Bridge = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.callerpackagefamilyname)
+        fileprivate var callerPackageFamilyName : String {
+            get { try! _default.get_CallerPackageFamilyName() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.data)
+        fileprivate var data : WindowsFoundation.ValueSet! {
+            get { try! _default.get_Data() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iprotocolactivatedeventargswithcallerpackagefamilynameanddata.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData: WindowsFoundation.IID = .init(
+        Data1: 0xD84A0C12, Data2: 0x5C8F, Data3: 0x438C, Data4: ( 0x83,0xCB,0xC2,0x8F,0xCC,0x0B,0x2F,0xDB ) // D84A0C12-5C8F-438C-83CB-C28FCC0B2FDB
+    ) 
+
+    public class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData }
+
+        open func get_CallerPackageFamilyName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CallerPackageFamilyName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        open func get_Data() throws -> WindowsFoundation.ValueSet? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation_Collections.ValueSetBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl = .init(
+        QueryInterface: { IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.addRef($0) },
+        Release: { IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_CallerPackageFamilyName: {
+            guard let __unwrapped__instance = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.callerPackageFamilyName
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        },
+
+        get_Data: {
+            guard let __unwrapped__instance = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.data
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataBridge>
+}
+@_spi(WinRTInternal)
+public class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IViewSwitcherProvider
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider)
+public protocol IViewSwitcherProvider : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.viewswitcher)
+    var viewSwitcher: UWP.ActivationViewSwitcher! { get }
+}
+
+extension IViewSwitcherProvider {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProviderWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProviderWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIViewSwitcherProvider = any IViewSwitcherProvider
+
+// MARK: - IViewSwitcherProvider Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IViewSwitcherProviderBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProvider
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider
+        public typealias SwiftProjection = AnyIViewSwitcherProvider
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IViewSwitcherProviderImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IViewSwitcherProviderVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IViewSwitcherProviderImpl: IViewSwitcherProvider, WinRTAbiImpl {
+        fileprivate typealias Bridge = IViewSwitcherProviderBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.viewswitcher)
+        fileprivate var viewSwitcher : UWP.ActivationViewSwitcher! {
+            get { try! _default.get_ViewSwitcher() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.iviewswitcherprovider.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProvider: WindowsFoundation.IID = .init(
+        Data1: 0x33F288A6, Data2: 0x5C2C, Data3: 0x4D27, Data4: ( 0xBA,0xC7,0x75,0x36,0x08,0x8F,0x12,0x19 ) // 33F288A6-5C2C-4D27-BAC7-7536088F1219
+    ) 
+
+    public class IViewSwitcherProvider: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProvider }
+
+        open func get_ViewSwitcher() throws -> UWP.ActivationViewSwitcher? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProvider.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ViewSwitcher(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_UI_ViewManagement.ActivationViewSwitcherBridge.from(abi: value)
+        }
+
+    }
+
+    internal static var IViewSwitcherProviderVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProviderVtbl = .init(
+        QueryInterface: { IViewSwitcherProviderWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IViewSwitcherProviderWrapper.addRef($0) },
+        Release: { IViewSwitcherProviderWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProviderWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IViewSwitcherProvider").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_ViewSwitcher: {
+            guard let __unwrapped__instance = IViewSwitcherProviderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.viewSwitcher
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IViewSwitcherProviderWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IViewSwitcherProviderBridge>
+}
+@_spi(WinRTInternal)
+public class IViewSwitcherProviderMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIViewSwitcherProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IViewSwitcherProviderBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - BackgroundActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs)
+public final class BackgroundActivatedEventArgs : WinRTClass, IBackgroundActivatedEventArgs {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgs
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs.taskinstance)
+    public var taskInstance : UWP.AnyIBackgroundTaskInstance! {
+        get { try! _default.get_TaskInstance() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - BackgroundActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum BackgroundActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = BackgroundActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs>?) -> BackgroundActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class BackgroundActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = BackgroundActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BackgroundActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+}
+// MARK: - LaunchActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs)
+public final class LaunchActivatedEventArgs : WinRTClass, IActivatedEventArgs, ILaunchActivatedEventArgs, IApplicationViewActivatedEventArgs, IPrelaunchActivatedEventArgs, IViewSwitcherProvider, ILaunchActivatedEventArgs2, IActivatedEventArgsWithUser {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.kind)
+    public var kind : ActivationKind {
+        get { try! _IActivatedEventArgs.get_Kind() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate)
+    public var previousExecutionState : ApplicationExecutionState {
+        get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.splashscreen)
+    public var splashScreen : SplashScreen! {
+        get { try! _IActivatedEventArgs.get_SplashScreen() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.arguments)
+    public var arguments : String {
+        get { try! _default.get_Arguments() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileid)
+    public var tileId : String {
+        get { try! _default.get_TileId() }
+    }
+
+    private lazy var _IApplicationViewActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.currentlyshownapplicationviewid)
+    public var currentlyShownApplicationViewId : Int32 {
+        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewId() }
+    }
+
+    private lazy var _IPrelaunchActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IPrelaunchActivatedEventArgs! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.prelaunchactivated)
+    public var prelaunchActivated : Bool {
+        get { try! _IPrelaunchActivatedEventArgs.get_PrelaunchActivated() }
+    }
+
+    private lazy var _IViewSwitcherProvider: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.viewswitcher)
+    public var viewSwitcher : UWP.ActivationViewSwitcher! {
+        get { try! _IViewSwitcherProvider.get_ViewSwitcher() }
+    }
+
+    private lazy var _ILaunchActivatedEventArgs2: __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileactivatedinfo)
+    public var tileActivatedInfo : TileActivatedInfo! {
+        get { try! _ILaunchActivatedEventArgs2.get_TileActivatedInfo() }
+    }
+
+    private lazy var _IActivatedEventArgsWithUser: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.user)
+    public var user : UWP.User! {
+        get { try! _IActivatedEventArgsWithUser.get_User() }
+    }
+
+    deinit {
+        _IActivatedEventArgs = nil
+        _default = nil
+        _IApplicationViewActivatedEventArgs = nil
+        _IPrelaunchActivatedEventArgs = nil
+        _IViewSwitcherProvider = nil
+        _ILaunchActivatedEventArgs2 = nil
+        _IActivatedEventArgsWithUser = nil
+    }
+}
+
+// MARK: - LaunchActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum LaunchActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = LaunchActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs>?) -> LaunchActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class LaunchActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = LaunchActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LaunchActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+}
+// MARK: - ProtocolActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs)
+public final class ProtocolActivatedEventArgs : WinRTClass, IActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IApplicationViewActivatedEventArgs, IViewSwitcherProvider, IActivatedEventArgsWithUser {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgs
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.kind)
+    public var kind : ActivationKind {
+        get { try! _IActivatedEventArgs.get_Kind() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.previousexecutionstate)
+    public var previousExecutionState : ApplicationExecutionState {
+        get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.splashscreen)
+    public var splashScreen : SplashScreen! {
+        get { try! _IActivatedEventArgs.get_SplashScreen() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.uri)
+    public var uri : WindowsFoundation.Uri! {
+        get { try! _default.get_Uri() }
+    }
+
+    private lazy var _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData: __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.callerpackagefamilyname)
+    public var callerPackageFamilyName : String {
+        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_CallerPackageFamilyName() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.data)
+    public var data : WindowsFoundation.ValueSet! {
+        get { try! _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.get_Data() }
+    }
+
+    private lazy var _IApplicationViewActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.currentlyshownapplicationviewid)
+    public var currentlyShownApplicationViewId : Int32 {
+        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewId() }
+    }
+
+    private lazy var _IViewSwitcherProvider: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.viewswitcher)
+    public var viewSwitcher : UWP.ActivationViewSwitcher! {
+        get { try! _IViewSwitcherProvider.get_ViewSwitcher() }
+    }
+
+    private lazy var _IActivatedEventArgsWithUser: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs.user)
+    public var user : UWP.User! {
+        get { try! _IActivatedEventArgsWithUser.get_User() }
+    }
+
+    deinit {
+        _IActivatedEventArgs = nil
+        _default = nil
+        _IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = nil
+        _IApplicationViewActivatedEventArgs = nil
+        _IViewSwitcherProvider = nil
+        _IActivatedEventArgsWithUser = nil
+    }
+}
+
+// MARK: - ProtocolActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum ProtocolActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ProtocolActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs>?) -> ProtocolActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ProtocolActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ProtocolActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ProtocolActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+}
+// MARK: - SplashScreen
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen)
+public final class SplashScreen : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ISplashScreen
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.imagelocation)
+    public var imageLocation : WindowsFoundation.Rect {
+        get { try! _default.get_ImageLocation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.dismissed)
+    public lazy var dismissed : Event<TypedEventHandler<SplashScreen?, Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Dismissed($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Dismissed($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - SplashScreen Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum SplashScreenBridge: AbiBridge {
+        public typealias SwiftProjection = SplashScreen
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen>?) -> SplashScreen? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SplashScreenMaker: MakeFromAbi {
+    public typealias SwiftType = SplashScreen
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SplashScreen(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen: WindowsFoundation.IID = .init(
+        Data1: 0xCA4D975C, Data2: 0xD4D6, Data3: 0x43F0, Data4: ( 0x97,0xC0,0x08,0x33,0xC6,0x39,0x1C,0x24 ) // CA4D975C-D4D6-43F0-97C0-0833C6391C24
+    ) 
+
+    public class ISplashScreen: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen }
+
+        public func get_ImageLocation() throws -> WindowsFoundation.Rect {
+            var value: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ImageLocation(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func add_Dismissed(_ handler: TypedEventHandler<UWP.SplashScreen?, Any?>?) throws -> EventRegistrationToken {
+            var cookie: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CApplicationModel__CActivation__CSplashScreen_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Dismissed(pThis, _handler, &cookie))
+            }
+            return cookie
+        }
+
+        public func remove_Dismissed(_ cookie: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Dismissed(pThis, cookie))
+            }
+        }
+
+    }
+
+}
+// MARK: - TileActivatedInfo
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)
+public final class TileActivatedInfo : WinRTClass {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ITileActivatedInfo
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo.recentlyshownnotifications)
+    public var recentlyShownNotifications : WindowsFoundation.AnyIVectorView<UWP.ShownTileNotification?>! {
+        get { try! _default.get_RecentlyShownNotifications() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - TileActivatedInfo Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum TileActivatedInfoBridge: AbiBridge {
+        public typealias SwiftProjection = TileActivatedInfo
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo>?) -> TileActivatedInfo? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class TileActivatedInfoMaker: MakeFromAbi {
+    public typealias SwiftType = TileActivatedInfo
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TileActivatedInfo(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo: WindowsFoundation.IID = .init(
+        Data1: 0x80E4A3B1, Data2: 0x3980, Data3: 0x4F17, Data4: ( 0xB7,0x38,0x89,0x19,0x4E,0x0B,0x8F,0x65 ) // 80E4A3B1-3980-4F17-B738-89194E0B8F65
+    ) 
+
+    public class ITileActivatedInfo: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo }
+
+        public func get_RecentlyShownNotifications() throws -> WindowsFoundation.AnyIVectorView<UWP.ShownTileNotification?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RecentlyShownNotifications(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CNotifications__CShownTileNotificationWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}

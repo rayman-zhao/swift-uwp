@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - SpatialCoordinateSystem
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.perception.spatial.spatialcoordinatesystem)
 public final class SpatialCoordinateSystem : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Perception_Spatial.ISpatialCoordinateSystem
@@ -32,3 +34,45 @@ public final class SpatialCoordinateSystem : WinRTClass {
     }
 }
 
+// MARK: - SpatialCoordinateSystem Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Perception_Spatial {
+    public enum SpatialCoordinateSystemBridge: AbiBridge {
+        public typealias SwiftProjection = SpatialCoordinateSystem
+        public typealias CABI = __x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem>?) -> SpatialCoordinateSystem? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SpatialCoordinateSystemMaker: MakeFromAbi {
+    public typealias SwiftType = SpatialCoordinateSystem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SpatialCoordinateSystem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Perception_Spatial {
+    private static let IID___x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem: WindowsFoundation.IID = .init(
+        Data1: 0x69EBCA4B, Data2: 0x60A3, Data3: 0x3586, Data4: ( 0xA6,0x53,0x59,0xA7,0xBD,0x67,0x6D,0x07 ) // 69EBCA4B-60A3-3586-A653-59A7BD676D07
+    ) 
+
+    public class ISpatialCoordinateSystem: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem }
+
+        public func TryGetTransformTo(_ target: UWP.SpatialCoordinateSystem?) throws -> WindowsFoundation.Matrix4x4? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetTransformTo(pThis, RawPointer(target), &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CNumerics__CMatrix4x4Wrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}

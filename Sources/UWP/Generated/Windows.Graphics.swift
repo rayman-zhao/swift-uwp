@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - DisplayAdapterId
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.displayadapterid)
 public struct DisplayAdapterId: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.displayadapterid.lowpart)
@@ -17,6 +19,26 @@ public struct DisplayAdapterId: Hashable, Codable, Sendable {
     }
 }
 
+// MARK: - DisplayAdapterId Internals
+
+@_spi(WinRTInternal)
+extension DisplayAdapterId: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CDisplayAdapterId
+    public static func from(abi: ABI) -> Self {
+        .init(lowPart: abi.LowPart, highPart: abi.HighPart)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CGraphics_CDisplayAdapterId {
+    public static func from(swift: UWP.DisplayAdapterId) -> __x_ABI_CWindows_CGraphics_CDisplayAdapterId {
+        .init(LowPart: swift.lowPart, HighPart: swift.highPart)
+    }
+}
+// MARK: - PointInt32
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.pointint32)
 public struct PointInt32: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.pointint32.x)
@@ -29,6 +51,26 @@ public struct PointInt32: Hashable, Codable, Sendable {
         self.y = y
     }
 }
+
+// MARK: - PointInt32 Internals
+
+@_spi(WinRTInternal)
+extension PointInt32: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CPointInt32
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CGraphics_CPointInt32 {
+    public static func from(swift: UWP.PointInt32) -> __x_ABI_CWindows_CGraphics_CPointInt32 {
+        .init(X: swift.x, Y: swift.y)
+    }
+}
+// MARK: - RectInt32
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.rectint32)
 public struct RectInt32: Hashable, Codable, Sendable {
@@ -49,6 +91,26 @@ public struct RectInt32: Hashable, Codable, Sendable {
     }
 }
 
+// MARK: - RectInt32 Internals
+
+@_spi(WinRTInternal)
+extension RectInt32: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CRectInt32
+    public static func from(abi: ABI) -> Self {
+        .init(x: abi.X, y: abi.Y, width: abi.Width, height: abi.Height)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CGraphics_CRectInt32 {
+    public static func from(swift: UWP.RectInt32) -> __x_ABI_CWindows_CGraphics_CRectInt32 {
+        .init(X: swift.x, Y: swift.y, Width: swift.width, Height: swift.height)
+    }
+}
+// MARK: - SizeInt32
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.sizeint32)
 public struct SizeInt32: Hashable, Codable, Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.sizeint32.width)
@@ -61,6 +123,26 @@ public struct SizeInt32: Hashable, Codable, Sendable {
         self.height = height
     }
 }
+
+// MARK: - SizeInt32 Internals
+
+@_spi(WinRTInternal)
+extension SizeInt32: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CGraphics_CSizeInt32
+    public static func from(abi: ABI) -> Self {
+        .init(width: abi.Width, height: abi.Height)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CGraphics_CSizeInt32 {
+    public static func from(swift: UWP.SizeInt32) -> __x_ABI_CWindows_CGraphics_CSizeInt32 {
+        .init(Width: swift.width, Height: swift.height)
+    }
+}
+// MARK: - IGeometrySource2D
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.igeometrysource2d)
 public protocol IGeometrySource2D : WinRTInterface {
@@ -78,3 +160,83 @@ extension IGeometrySource2D {
 }
 public typealias AnyIGeometrySource2D = any IGeometrySource2D
 
+// MARK: - IGeometrySource2D Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Graphics {
+    public enum IGeometrySource2DBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CGraphics_CIGeometrySource2D
+        public typealias SwiftABI = __ABI_Windows_Graphics.IGeometrySource2D
+        public typealias SwiftProjection = AnyIGeometrySource2D
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IGeometrySource2DImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_Graphics.IGeometrySource2DVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IGeometrySource2DImpl: IGeometrySource2D, WinRTAbiImpl {
+        fileprivate typealias Bridge = IGeometrySource2DBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Graphics {
+    private static let IID___x_ABI_CWindows_CGraphics_CIGeometrySource2D: WindowsFoundation.IID = .init(
+        Data1: 0xCAFF7902, Data2: 0x670C, Data3: 0x4181, Data4: ( 0xA6,0x24,0xDA,0x97,0x72,0x03,0xB8,0x45 ) // CAFF7902-670C-4181-A624-DA977203B845
+    ) 
+
+    public class IGeometrySource2D: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CIGeometrySource2D }
+
+    }
+
+    internal static var IGeometrySource2DVTable: __x_ABI_CWindows_CGraphics_CIGeometrySource2DVtbl = .init(
+        QueryInterface: { IGeometrySource2DWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IGeometrySource2DWrapper.addRef($0) },
+        Release: { IGeometrySource2DWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_Graphics.IGeometrySource2DWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.Graphics.IGeometrySource2D").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        }
+    )
+
+    public typealias IGeometrySource2DWrapper = InterfaceWrapperBase<__IMPL_Windows_Graphics.IGeometrySource2DBridge>
+}
+@_spi(WinRTInternal)
+public class IGeometrySource2DMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIGeometrySource2D
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_Graphics.IGeometrySource2D = try! abi.QueryInterface()
+        return __IMPL_Windows_Graphics.IGeometrySource2DBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}

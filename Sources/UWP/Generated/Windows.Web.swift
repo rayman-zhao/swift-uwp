@@ -4,8 +4,11 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - WebErrorStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.weberrorstatus)
 public typealias WebErrorStatus = __x_ABI_CWindows_CWeb_CWebErrorStatus
+
 extension UWP.WebErrorStatus {
     public static var unknown : UWP.WebErrorStatus {
         __x_ABI_CWindows_CWeb_CWebErrorStatus_Unknown

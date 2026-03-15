@@ -4,12 +4,83 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - CastingConnectionErrorStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnectionerrorstatus)
 public typealias CastingConnectionErrorStatus = __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus
+
+extension UWP.CastingConnectionErrorStatus {
+    public static var succeeded : UWP.CastingConnectionErrorStatus {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_Succeeded
+    }
+    public static var deviceDidNotRespond : UWP.CastingConnectionErrorStatus {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_DeviceDidNotRespond
+    }
+    public static var deviceError : UWP.CastingConnectionErrorStatus {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_DeviceError
+    }
+    public static var deviceLocked : UWP.CastingConnectionErrorStatus {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_DeviceLocked
+    }
+    public static var protectedPlaybackFailed : UWP.CastingConnectionErrorStatus {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_ProtectedPlaybackFailed
+    }
+    public static var invalidCastingSource : UWP.CastingConnectionErrorStatus {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_InvalidCastingSource
+    }
+    public static var unknown : UWP.CastingConnectionErrorStatus {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_Unknown
+    }
+}
+extension UWP.CastingConnectionErrorStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - CastingConnectionState
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnectionstate)
 public typealias CastingConnectionState = __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState
+
+extension UWP.CastingConnectionState {
+    public static var disconnected : UWP.CastingConnectionState {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Disconnected
+    }
+    public static var connected : UWP.CastingConnectionState {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Connected
+    }
+    public static var rendering : UWP.CastingConnectionState {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Rendering
+    }
+    public static var disconnecting : UWP.CastingConnectionState {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Disconnecting
+    }
+    public static var connecting : UWP.CastingConnectionState {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Connecting
+    }
+}
+extension UWP.CastingConnectionState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - CastingPlaybackTypes
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingplaybacktypes)
 public typealias CastingPlaybackTypes = __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes
+
+extension UWP.CastingPlaybackTypes {
+    public static var none : UWP.CastingPlaybackTypes {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_None
+    }
+    public static var audio : UWP.CastingPlaybackTypes {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_Audio
+    }
+    public static var video : UWP.CastingPlaybackTypes {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_Video
+    }
+    public static var picture : UWP.CastingPlaybackTypes {
+        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_Picture
+    }
+}
+extension UWP.CastingPlaybackTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - CastingConnection
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection)
 public final class CastingConnection : WinRTClass, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingConnection
@@ -95,6 +166,123 @@ public final class CastingConnection : WinRTClass, WindowsFoundation.IClosable {
     }
 }
 
+// MARK: - CastingConnection Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Casting {
+    public enum CastingConnectionBridge: AbiBridge {
+        public typealias SwiftProjection = CastingConnection
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingConnection
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingConnection>?) -> CastingConnection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CastingConnectionMaker: MakeFromAbi {
+    public typealias SwiftType = CastingConnection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingConnection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Casting {
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingConnection: WindowsFoundation.IID = .init(
+        Data1: 0xCD951653, Data2: 0xC2F1, Data3: 0x4498, Data4: ( 0x8B,0x78,0x5F,0xB4,0xCD,0x36,0x40,0xDD ) // CD951653-C2F1-4498-8B78-5FB4CD3640DD
+    ) 
+
+    public class ICastingConnection: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingConnection }
+
+        public func get_State() throws -> UWP.CastingConnectionState {
+            var value: __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_State(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Device() throws -> UWP.CastingDevice? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Device(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Casting.CastingDeviceBridge.from(abi: value)
+        }
+
+        public func get_Source() throws -> UWP.CastingSource? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Source(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Casting.CastingSourceBridge.from(abi: value)
+        }
+
+        public func put_Source(_ value: UWP.CastingSource?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Source(pThis, RawPointer(value)))
+            }
+        }
+
+        public func add_StateChanged(_ handler: TypedEventHandler<UWP.CastingConnection?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CCasting__CCastingConnection_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_StateChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_StateChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_StateChanged(pThis, token))
+            }
+        }
+
+        public func add_ErrorOccurred(_ handler: TypedEventHandler<UWP.CastingConnection?, UWP.CastingConnectionErrorOccurredEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CCasting__CCastingConnection___x_ABI_CWindows__CMedia__CCasting__CCastingConnectionErrorOccurredEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ErrorOccurred(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ErrorOccurred(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ErrorOccurred(pThis, token))
+            }
+        }
+
+        public func RequestStartCastingAsync(_ value: UWP.CastingSource?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CastingConnectionErrorStatus>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RequestStartCastingAsync(pThis, RawPointer(value), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCasting__CCastingConnectionErrorStatusWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func DisconnectAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CastingConnectionErrorStatus>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnection.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DisconnectAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCasting__CCastingConnectionErrorStatusWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+}
+// MARK: - CastingConnectionErrorOccurredEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnectionerroroccurredeventargs)
 public final class CastingConnectionErrorOccurredEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingConnectionErrorOccurredEventArgs
@@ -127,6 +315,58 @@ public final class CastingConnectionErrorOccurredEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - CastingConnectionErrorOccurredEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Casting {
+    public enum CastingConnectionErrorOccurredEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CastingConnectionErrorOccurredEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs>?) -> CastingConnectionErrorOccurredEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CastingConnectionErrorOccurredEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CastingConnectionErrorOccurredEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingConnectionErrorOccurredEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Casting {
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xA7FB3C69, Data2: 0x8719, Data3: 0x4F00, Data4: ( 0x81,0xFB,0x96,0x18,0x63,0xC7,0x9A,0x32 ) // A7FB3C69-8719-4F00-81FB-961863C79A32
+    ) 
+
+    public class ICastingConnectionErrorOccurredEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs }
+
+        public func get_ErrorStatus() throws -> UWP.CastingConnectionErrorStatus {
+            var value: __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ErrorStatus(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Message() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Message(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - CastingDevice
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice)
 public final class CastingDevice : WinRTClass {
@@ -196,6 +436,132 @@ public final class CastingDevice : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - CastingDevice Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Casting {
+    public enum CastingDeviceBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDevice
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevice
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevice>?) -> CastingDevice? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CastingDeviceMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDevice
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDevice(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Casting {
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevice: WindowsFoundation.IID = .init(
+        Data1: 0xDE721C83, Data2: 0x4A43, Data3: 0x4AD1, Data4: ( 0xA6,0xD2,0x24,0x92,0xA7,0x96,0xC3,0xF2 ) // DE721C83-4A43-4AD1-A6D2-2492A796C3F2
+    ) 
+
+    public class ICastingDevice: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevice }
+
+        public func get_Id() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FriendlyName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevice.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FriendlyName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Icon() throws -> UWP.AnyIRandomAccessStreamWithContentType? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevice.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Icon(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage_Streams.IRandomAccessStreamWithContentTypeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func GetSupportedCastingPlaybackTypesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CastingPlaybackTypes>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevice.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetSupportedCastingPlaybackTypesAsync(pThis, &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCasting__CCastingPlaybackTypesWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func CreateCastingConnection() throws -> UWP.CastingConnection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevice.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateCastingConnection(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Casting.CastingConnectionBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics: WindowsFoundation.IID = .init(
+        Data1: 0xE7D958D7, Data2: 0x4D13, Data3: 0x4237, Data4: ( 0xA3,0x65,0x4C,0x4F,0x6A,0x4C,0xFD,0x2F ) // E7D958D7-4D13-4237-A365-4C4F6A4CFD2F
+    ) 
+
+    public class ICastingDeviceStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics }
+
+        public func GetDeviceSelector(_ type: UWP.CastingPlaybackTypes) throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeviceSelector(pThis, type, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func GetDeviceSelectorFromCastingSourceAsync(_ castingSource: UWP.CastingSource?) throws -> WindowsFoundation.AnyIAsyncOperation<String>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeviceSelectorFromCastingSourceAsync(pThis, RawPointer(castingSource), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_HSTRINGWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func FromIdAsync(_ value: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CastingDevice?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                let _value = try! HString(value)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FromIdAsync(pThis, _value.get(), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CCasting__CCastingDeviceWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func DeviceInfoSupportsCastingAsync(_ device: UWP.DeviceInformation?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.DeviceInfoSupportsCastingAsync(pThis, RawPointer(device), &operationAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1_booleanWrapper.unwrapFrom(abi: operation)
+        }
+
+    }
+
+}
+// MARK: - CastingDevicePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker)
 public final class CastingDevicePicker : WinRTClass {
@@ -276,6 +642,109 @@ public final class CastingDevicePicker : WinRTClass {
     }
 }
 
+// MARK: - CastingDevicePicker Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Casting {
+    public enum CastingDevicePickerBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDevicePicker
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker>?) -> CastingDevicePicker? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CastingDevicePickerMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDevicePicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDevicePicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Casting {
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker: WindowsFoundation.IID = .init(
+        Data1: 0xDCD39924, Data2: 0x0591, Data3: 0x49BE, Data4: ( 0xAA,0xCB,0x4B,0x82,0xEE,0x75,0x6A,0x95 ) // DCD39924-0591-49BE-AACB-4B82EE756A95
+    ) 
+
+    public class ICastingDevicePicker: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker }
+
+        public func get_Filter() throws -> UWP.CastingDevicePickerFilter? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Filter(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Casting.CastingDevicePickerFilterBridge.from(abi: value)
+        }
+
+        public func get_Appearance() throws -> UWP.DevicePickerAppearance? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Appearance(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Devices_Enumeration.DevicePickerAppearanceBridge.from(abi: value)
+        }
+
+        public func add_CastingDeviceSelected(_ handler: TypedEventHandler<UWP.CastingDevicePicker?, UWP.CastingDeviceSelectedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CCasting__CCastingDevicePicker___x_ABI_CWindows__CMedia__CCasting__CCastingDeviceSelectedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CastingDeviceSelected(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CastingDeviceSelected(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CastingDeviceSelected(pThis, token))
+            }
+        }
+
+        public func add_CastingDevicePickerDismissed(_ handler: TypedEventHandler<UWP.CastingDevicePicker?, Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CCasting__CCastingDevicePicker_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CastingDevicePickerDismissed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CastingDevicePickerDismissed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CastingDevicePickerDismissed(pThis, token))
+            }
+        }
+
+        public func Show(_ selection: WindowsFoundation.Rect) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Show(pThis, .from(swift: selection)))
+            }
+        }
+
+        public func ShowWithPlacement(_ selection: WindowsFoundation.Rect, _ preferredPlacement: UWP.Placement) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ShowWithPlacement(pThis, .from(swift: selection), preferredPlacement))
+            }
+        }
+
+        public func Hide() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Hide(pThis))
+            }
+        }
+
+    }
+
+}
+// MARK: - CastingDevicePickerFilter
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepickerfilter)
 public final class CastingDevicePickerFilter : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingDevicePickerFilter
@@ -322,6 +791,92 @@ public final class CastingDevicePickerFilter : WinRTClass {
     }
 }
 
+// MARK: - CastingDevicePickerFilter Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Casting {
+    public enum CastingDevicePickerFilterBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDevicePickerFilter
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter>?) -> CastingDevicePickerFilter? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CastingDevicePickerFilterMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDevicePickerFilter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDevicePickerFilter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Casting {
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter: WindowsFoundation.IID = .init(
+        Data1: 0xBE8C619C, Data2: 0xB563, Data3: 0x4354, Data4: ( 0xAE,0x33,0x9F,0xDA,0xAD,0x8C,0x62,0x91 ) // BE8C619C-B563-4354-AE33-9FDAAD8C6291
+    ) 
+
+    public class ICastingDevicePickerFilter: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter }
+
+        public func get_SupportsAudio() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportsAudio(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_SupportsAudio(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SupportsAudio(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_SupportsVideo() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportsVideo(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_SupportsVideo(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SupportsVideo(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_SupportsPictures() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportsPictures(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_SupportsPictures(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SupportsPictures(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_SupportedCastingSources() throws -> WindowsFoundation.AnyIVector<UWP.CastingSource?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SupportedCastingSources(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CMedia__CCasting__CCastingSourceWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - CastingDeviceSelectedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdeviceselectedeventargs)
 public final class CastingDeviceSelectedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingDeviceSelectedEventArgs
@@ -349,6 +904,50 @@ public final class CastingDeviceSelectedEventArgs : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - CastingDeviceSelectedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Casting {
+    public enum CastingDeviceSelectedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CastingDeviceSelectedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs>?) -> CastingDeviceSelectedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CastingDeviceSelectedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CastingDeviceSelectedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingDeviceSelectedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Casting {
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xDC439E86, Data2: 0xDD57, Data3: 0x4D0D, Data4: ( 0x94,0x00,0xAF,0x45,0xE4,0xFB,0x36,0x63 ) // DC439E86-DD57-4D0D-9400-AF45E4FB3663
+    ) 
+
+    public class ICastingDeviceSelectedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs }
+
+        public func get_SelectedCastingDevice() throws -> UWP.CastingDevice? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedCastingDevice(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Casting.CastingDeviceBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - CastingSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingsource)
 public final class CastingSource : WinRTClass {
@@ -379,63 +978,51 @@ public final class CastingSource : WinRTClass {
     }
 }
 
-extension UWP.CastingConnectionErrorStatus {
-    public static var succeeded : UWP.CastingConnectionErrorStatus {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_Succeeded
+// MARK: - CastingSource Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Casting {
+    public enum CastingSourceBridge: AbiBridge {
+        public typealias SwiftProjection = CastingSource
+        public typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingSource
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CCasting_CICastingSource>?) -> CastingSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var deviceDidNotRespond : UWP.CastingConnectionErrorStatus {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_DeviceDidNotRespond
-    }
-    public static var deviceError : UWP.CastingConnectionErrorStatus {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_DeviceError
-    }
-    public static var deviceLocked : UWP.CastingConnectionErrorStatus {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_DeviceLocked
-    }
-    public static var protectedPlaybackFailed : UWP.CastingConnectionErrorStatus {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_ProtectedPlaybackFailed
-    }
-    public static var invalidCastingSource : UWP.CastingConnectionErrorStatus {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_InvalidCastingSource
-    }
-    public static var unknown : UWP.CastingConnectionErrorStatus {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionErrorStatus_Unknown
+
+}
+@_spi(WinRTInternal)
+public class CastingSourceMaker: MakeFromAbi {
+    public typealias SwiftType = CastingSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CastingSource(fromAbi: abi)
     }
 }
-extension UWP.CastingConnectionErrorStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Casting {
+    private static let IID___x_ABI_CWindows_CMedia_CCasting_CICastingSource: WindowsFoundation.IID = .init(
+        Data1: 0xF429EA72, Data2: 0x3467, Data3: 0x47E6, Data4: ( 0xA0,0x27,0x52,0x29,0x23,0xE9,0xD7,0x27 ) // F429EA72-3467-47E6-A027-522923E9D727
+    ) 
 
-extension UWP.CastingConnectionState {
-    public static var disconnected : UWP.CastingConnectionState {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Disconnected
+    public class ICastingSource: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingSource }
+
+        public func get_PreferredSourceUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreferredSourceUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func put_PreferredSourceUri(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreferredSourceUri(pThis, RawPointer(value)))
+            }
+        }
+
     }
-    public static var connected : UWP.CastingConnectionState {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Connected
-    }
-    public static var rendering : UWP.CastingConnectionState {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Rendering
-    }
-    public static var disconnecting : UWP.CastingConnectionState {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Disconnecting
-    }
-    public static var connecting : UWP.CastingConnectionState {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingConnectionState_Connecting
-    }
+
 }
-extension UWP.CastingConnectionState: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.CastingPlaybackTypes {
-    public static var none : UWP.CastingPlaybackTypes {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_None
-    }
-    public static var audio : UWP.CastingPlaybackTypes {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_Audio
-    }
-    public static var video : UWP.CastingPlaybackTypes {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_Video
-    }
-    public static var picture : UWP.CastingPlaybackTypes {
-        __x_ABI_CWindows_CMedia_CCasting_CCastingPlaybackTypes_Picture
-    }
-}
-extension UWP.CastingPlaybackTypes: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

@@ -4,14 +4,131 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AdaptiveMediaSourceCreationStatus
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecreationstatus)
 public typealias AdaptiveMediaSourceCreationStatus = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus
+
+extension UWP.AdaptiveMediaSourceCreationStatus {
+    public static var success : UWP.AdaptiveMediaSourceCreationStatus {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_Success
+    }
+    public static var manifestDownloadFailure : UWP.AdaptiveMediaSourceCreationStatus {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_ManifestDownloadFailure
+    }
+    public static var manifestParseFailure : UWP.AdaptiveMediaSourceCreationStatus {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_ManifestParseFailure
+    }
+    public static var unsupportedManifestContentType : UWP.AdaptiveMediaSourceCreationStatus {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnsupportedManifestContentType
+    }
+    public static var unsupportedManifestVersion : UWP.AdaptiveMediaSourceCreationStatus {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnsupportedManifestVersion
+    }
+    public static var unsupportedManifestProfile : UWP.AdaptiveMediaSourceCreationStatus {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnsupportedManifestProfile
+    }
+    public static var unknownFailure : UWP.AdaptiveMediaSourceCreationStatus {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnknownFailure
+    }
+}
+extension UWP.AdaptiveMediaSourceCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AdaptiveMediaSourceDiagnosticType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnostictype)
 public typealias AdaptiveMediaSourceDiagnosticType = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType
+
+extension UWP.AdaptiveMediaSourceDiagnosticType {
+    public static var manifestUnchangedUponReload : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ManifestUnchangedUponReload
+    }
+    public static var manifestMismatchUponReload : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ManifestMismatchUponReload
+    }
+    public static var manifestSignaledEndOfLiveEventUponReload : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ManifestSignaledEndOfLiveEventUponReload
+    }
+    public static var mediaSegmentSkipped : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_MediaSegmentSkipped
+    }
+    public static var resourceNotFound : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ResourceNotFound
+    }
+    public static var resourceTimedOut : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ResourceTimedOut
+    }
+    public static var resourceParsingError : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ResourceParsingError
+    }
+    public static var bitrateDisabled : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_BitrateDisabled
+    }
+    public static var fatalMediaSourceError : UWP.AdaptiveMediaSourceDiagnosticType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_FatalMediaSourceError
+    }
+}
+extension UWP.AdaptiveMediaSourceDiagnosticType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AdaptiveMediaSourceDownloadBitrateChangedReason
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadbitratechangedreason)
 public typealias AdaptiveMediaSourceDownloadBitrateChangedReason = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason
+
+extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+    public static var sufficientInboundBitsPerSecond : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_SufficientInboundBitsPerSecond
+    }
+    public static var insufficientInboundBitsPerSecond : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_InsufficientInboundBitsPerSecond
+    }
+    public static var lowBufferLevel : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_LowBufferLevel
+    }
+    public static var positionChanged : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_PositionChanged
+    }
+    public static var trackSelectionChanged : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_TrackSelectionChanged
+    }
+    public static var desiredBitratesChanged : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_DesiredBitratesChanged
+    }
+    public static var errorInPreviousBitrate : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_ErrorInPreviousBitrate
+    }
+}
+extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AdaptiveMediaSourceResourceType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceresourcetype)
 public typealias AdaptiveMediaSourceResourceType = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType
+
+extension UWP.AdaptiveMediaSourceResourceType {
+    public static var manifest : UWP.AdaptiveMediaSourceResourceType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_Manifest
+    }
+    public static var initializationSegment : UWP.AdaptiveMediaSourceResourceType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_InitializationSegment
+    }
+    public static var mediaSegment : UWP.AdaptiveMediaSourceResourceType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_MediaSegment
+    }
+    public static var key : UWP.AdaptiveMediaSourceResourceType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_Key
+    }
+    public static var initializationVector : UWP.AdaptiveMediaSourceResourceType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_InitializationVector
+    }
+    public static var mediaSegmentIndex : UWP.AdaptiveMediaSourceResourceType {
+        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_MediaSegmentIndex
+    }
+}
+extension UWP.AdaptiveMediaSourceResourceType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AdaptiveMediaSource
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasource)
 public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSource
@@ -233,6 +350,386 @@ public final class AdaptiveMediaSource : WinRTClass, UWP.IMediaSource, WindowsFo
     }
 }
 
+// MARK: - AdaptiveMediaSource Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSource
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource>?) -> AdaptiveMediaSource? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSource
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSource(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource: WindowsFoundation.IID = .init(
+        Data1: 0x4C7332EF, Data2: 0xD39F, Data3: 0x4396, Data4: ( 0xB4,0xD9,0x04,0x39,0x57,0xA7,0xC9,0x64 ) // 4C7332EF-D39F-4396-B4D9-043957A7C964
+    ) 
+
+    public class IAdaptiveMediaSource: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource }
+
+        public func get_IsLive() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsLive(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_DesiredLiveOffset() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredLiveOffset(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_DesiredLiveOffset(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredLiveOffset(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_InitialBitrate() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InitialBitrate(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_InitialBitrate(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_InitialBitrate(pThis, value))
+            }
+        }
+
+        public func get_CurrentDownloadBitrate() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentDownloadBitrate(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_CurrentPlaybackBitrate() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentPlaybackBitrate(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_AvailableBitrates() throws -> WindowsFoundation.AnyIVectorView<UInt32>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AvailableBitrates(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1_UINT32Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_DesiredMinBitrate() throws -> UInt32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredMinBitrate(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_DesiredMinBitrate(_ value: UInt32?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredMinBitrate(pThis, _value))
+            }
+        }
+
+        public func get_DesiredMaxBitrate() throws -> UInt32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredMaxBitrate(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_DesiredMaxBitrate(_ value: UInt32?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT32Wrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredMaxBitrate(pThis, _value))
+            }
+        }
+
+        public func get_AudioOnlyPlayback() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioOnlyPlayback(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_InboundBitsPerSecond() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InboundBitsPerSecond(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_InboundBitsPerSecondWindow() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InboundBitsPerSecondWindow(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_InboundBitsPerSecondWindow(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_InboundBitsPerSecondWindow(pThis, .from(swift: value)))
+            }
+        }
+
+        public func add_DownloadBitrateChanged(_ handler: TypedEventHandler<UWP.AdaptiveMediaSource?, UWP.AdaptiveMediaSourceDownloadBitrateChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSource___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceDownloadBitrateChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DownloadBitrateChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DownloadBitrateChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DownloadBitrateChanged(pThis, token))
+            }
+        }
+
+        public func add_PlaybackBitrateChanged(_ handler: TypedEventHandler<UWP.AdaptiveMediaSource?, UWP.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSource___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourcePlaybackBitrateChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_PlaybackBitrateChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_PlaybackBitrateChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_PlaybackBitrateChanged(pThis, token))
+            }
+        }
+
+        public func add_DownloadRequested(_ handler: TypedEventHandler<UWP.AdaptiveMediaSource?, UWP.AdaptiveMediaSourceDownloadRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSource___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceDownloadRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DownloadRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DownloadRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DownloadRequested(pThis, token))
+            }
+        }
+
+        public func add_DownloadCompleted(_ handler: TypedEventHandler<UWP.AdaptiveMediaSource?, UWP.AdaptiveMediaSourceDownloadCompletedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSource___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceDownloadCompletedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DownloadCompleted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DownloadCompleted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DownloadCompleted(pThis, token))
+            }
+        }
+
+        public func add_DownloadFailed(_ handler: TypedEventHandler<UWP.AdaptiveMediaSource?, UWP.AdaptiveMediaSourceDownloadFailedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSource___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceDownloadFailedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DownloadFailed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DownloadFailed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DownloadFailed(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource2: WindowsFoundation.IID = .init(
+        Data1: 0x17890342, Data2: 0x6760, Data3: 0x4BB9, Data4: ( 0xA5,0x8A,0xF7,0xAA,0x98,0xB0,0x8C,0x0E ) // 17890342-6760-4BB9-A58A-F7AA98B08C0E
+    ) 
+
+    public class IAdaptiveMediaSource2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource2 }
+
+        public func get_AdvancedSettings() throws -> UWP.AdaptiveMediaSourceAdvancedSettings? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AdvancedSettings(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceAdvancedSettingsBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3: WindowsFoundation.IID = .init(
+        Data1: 0xBA7023FD, Data2: 0xC334, Data3: 0x461B, Data4: ( 0xA3,0x6E,0xC9,0x9F,0x54,0xF7,0x17,0x4A ) // BA7023FD-C334-461B-A36E-C99F54F7174A
+    ) 
+
+    public class IAdaptiveMediaSource3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3 }
+
+        public func get_MinLiveOffset() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinLiveOffset(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_MaxSeekableWindowSize() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxSeekableWindowSize(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_DesiredSeekableWindowSize() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredSeekableWindowSize(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_DesiredSeekableWindowSize(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredSeekableWindowSize(pThis, _value))
+            }
+        }
+
+        public func get_Diagnostics() throws -> UWP.AdaptiveMediaSourceDiagnostics? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Diagnostics(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceDiagnosticsBridge.from(abi: value)
+        }
+
+        public func GetCorrelatedTimes() throws -> UWP.AdaptiveMediaSourceCorrelatedTimes? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSource3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetCorrelatedTimes(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceCorrelatedTimesBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceStatics: WindowsFoundation.IID = .init(
+        Data1: 0x50A6BD5D, Data2: 0x66EF, Data3: 0x4CD3, Data4: ( 0x95,0x79,0x9E,0x66,0x05,0x07,0xDC,0x3F ) // 50A6BD5D-66EF-4CD3-9579-9E660507DC3F
+    ) 
+
+    public class IAdaptiveMediaSourceStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceStatics }
+
+        public func IsContentTypeSupported(_ contentType: String) throws -> Bool {
+            var result: boolean = 0
+            let _contentType = try! HString(contentType)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsContentTypeSupported(pThis, _contentType.get(), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func CreateFromUriAsync(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AdaptiveMediaSourceCreationResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromUriAsync(pThis, RawPointer(uri), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceCreationResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFromUriWithDownloaderAsync(_ uri: WindowsFoundation.Uri?, _ httpClient: UWP.HttpClient?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AdaptiveMediaSourceCreationResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromUriWithDownloaderAsync(pThis, RawPointer(uri), RawPointer(httpClient), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceCreationResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFromStreamAsync(_ stream: UWP.AnyIInputStream?, _ uri: WindowsFoundation.Uri?, _ contentType: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AdaptiveMediaSourceCreationResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let streamWrapper = __ABI_Windows_Storage_Streams.IInputStreamWrapper(stream)
+                let _stream = try! streamWrapper?.toABI { $0 }
+                let _contentType = try! HString(contentType)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromStreamAsync(pThis, _stream, RawPointer(uri), _contentType.get(), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceCreationResultWrapper.unwrapFrom(abi: result)
+        }
+
+        public func CreateFromStreamWithDownloaderAsync(_ stream: UWP.AnyIInputStream?, _ uri: WindowsFoundation.Uri?, _ contentType: String, _ httpClient: UWP.HttpClient?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AdaptiveMediaSourceCreationResult?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let streamWrapper = __ABI_Windows_Storage_Streams.IInputStreamWrapper(stream)
+                let _stream = try! streamWrapper?.toABI { $0 }
+                let _contentType = try! HString(contentType)
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateFromStreamWithDownloaderAsync(pThis, _stream, RawPointer(uri), _contentType.get(), RawPointer(httpClient), &resultAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceCreationResultWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceAdvancedSettings
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceadvancedsettings)
 public final class AdaptiveMediaSourceAdvancedSettings : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceAdvancedSettings
@@ -274,6 +771,89 @@ public final class AdaptiveMediaSourceAdvancedSettings : WinRTClass {
     }
 }
 
+// MARK: - AdaptiveMediaSourceAdvancedSettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceAdvancedSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceAdvancedSettings
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings>?) -> AdaptiveMediaSourceAdvancedSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceAdvancedSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceAdvancedSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceAdvancedSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings: WindowsFoundation.IID = .init(
+        Data1: 0x55DB1680, Data2: 0x1AEB, Data3: 0x47DC, Data4: ( 0xAA,0x08,0x9A,0x11,0x61,0x0B,0xA4,0x5A ) // 55DB1680-1AEB-47DC-AA08-9A11610BA45A
+    ) 
+
+    public class IAdaptiveMediaSourceAdvancedSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings }
+
+        public func get_AllSegmentsIndependent() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllSegmentsIndependent(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AllSegmentsIndependent(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AllSegmentsIndependent(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_DesiredBitrateHeadroomRatio() throws -> Double? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredBitrateHeadroomRatio(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_doubleWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_DesiredBitrateHeadroomRatio(_ value: Double?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_doubleWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredBitrateHeadroomRatio(pThis, _value))
+            }
+        }
+
+        public func get_BitrateDowngradeTriggerRatio() throws -> Double? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BitrateDowngradeTriggerRatio(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_doubleWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_BitrateDowngradeTriggerRatio(_ value: Double?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_doubleWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceAdvancedSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_BitrateDowngradeTriggerRatio(pThis, _value))
+            }
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceCorrelatedTimes
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecorrelatedtimes)
 public final class AdaptiveMediaSourceCorrelatedTimes : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceCorrelatedTimes
@@ -311,6 +891,68 @@ public final class AdaptiveMediaSourceCorrelatedTimes : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AdaptiveMediaSourceCorrelatedTimes Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceCorrelatedTimesBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceCorrelatedTimes
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes>?) -> AdaptiveMediaSourceCorrelatedTimes? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceCorrelatedTimesMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceCorrelatedTimes
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceCorrelatedTimes(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes: WindowsFoundation.IID = .init(
+        Data1: 0x05108787, Data2: 0xE032, Data3: 0x48E1, Data4: ( 0xAB,0x8D,0x00,0x2B,0x0B,0x30,0x51,0xDF ) // 05108787-E032-48E1-AB8D-002B0B3051DF
+    ) 
+
+    public class IAdaptiveMediaSourceCorrelatedTimes: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_PresentationTimeStamp() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PresentationTimeStamp(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ProgramDateTime() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCorrelatedTimes.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProgramDateTime(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceCreationResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcecreationresult)
 public final class AdaptiveMediaSourceCreationResult : WinRTClass {
@@ -356,6 +998,84 @@ public final class AdaptiveMediaSourceCreationResult : WinRTClass {
         _IAdaptiveMediaSourceCreationResult2 = nil
     }
 }
+
+// MARK: - AdaptiveMediaSourceCreationResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceCreationResultBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceCreationResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult>?) -> AdaptiveMediaSourceCreationResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceCreationResultMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceCreationResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceCreationResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult: WindowsFoundation.IID = .init(
+        Data1: 0x4686B6B2, Data2: 0x800F, Data3: 0x4E31, Data4: ( 0x90,0x93,0x76,0xD4,0x78,0x20,0x13,0xE7 ) // 4686B6B2-800F-4E31-9093-76D4782013E7
+    ) 
+
+    public class IAdaptiveMediaSourceCreationResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult }
+
+        public func get_Status() throws -> UWP.AdaptiveMediaSourceCreationStatus {
+            var value: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Status(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_MediaSource() throws -> UWP.AdaptiveMediaSource? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaSource(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceBridge.from(abi: value)
+        }
+
+        public func get_HttpResponseMessage() throws -> UWP.HttpResponseMessage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HttpResponseMessage(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Web_Http.HttpResponseMessageBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult2: WindowsFoundation.IID = .init(
+        Data1: 0x1C3243BF, Data2: 0x1C44, Data3: 0x404B, Data4: ( 0xA2,0x01,0xDF,0x45,0xAC,0x78,0x98,0xE8 ) // 1C3243BF-1C44-404B-A201-DF45AC7898E8
+    ) 
+
+    public class IAdaptiveMediaSourceCreationResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceCreationResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDiagnosticAvailableEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnosticavailableeventargs)
 public final class AdaptiveMediaSourceDiagnosticAvailableEventArgs : WinRTClass {
@@ -444,6 +1164,165 @@ public final class AdaptiveMediaSourceDiagnosticAvailableEventArgs : WinRTClass 
     }
 }
 
+// MARK: - AdaptiveMediaSourceDiagnosticAvailableEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDiagnosticAvailableEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDiagnosticAvailableEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs>?) -> AdaptiveMediaSourceDiagnosticAvailableEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDiagnosticAvailableEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDiagnosticAvailableEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDiagnosticAvailableEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x3AF64F06, Data2: 0x6D9C, Data3: 0x494A, Data4: ( 0xB7,0xA9,0xB3,0xA5,0xDE,0xE6,0xAD,0x68 ) // 3AF64F06-6D9C-494A-B7A9-B3A5DEE6AD68
+    ) 
+
+    public class IAdaptiveMediaSourceDiagnosticAvailableEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs }
+
+        public func get_DiagnosticType() throws -> UWP.AdaptiveMediaSourceDiagnosticType {
+            var value: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DiagnosticType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_RequestId() throws -> Int32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_intWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_SegmentId() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SegmentId(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceType() throws -> UWP.AdaptiveMediaSourceResourceType? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceType(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceResourceTypeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func get_ResourceByteRangeOffset() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeOffset(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceByteRangeLength() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeLength(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_Bitrate() throws -> UInt32? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Bitrate(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT32Wrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0x8C6DD857, Data2: 0x16A5, Data3: 0x4D9F, Data4: ( 0x81,0x0E,0x00,0xBD,0x90,0x1B,0x3E,0xF9 ) // 8C6DD857-16A5-4D9F-810E-00BD901B3EF9
+    ) 
+
+    public class IAdaptiveMediaSourceDiagnosticAvailableEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs2 }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs3: WindowsFoundation.IID = .init(
+        Data1: 0xC3650CD5, Data2: 0xDAEB, Data3: 0x4103, Data4: ( 0x84,0xDA,0x68,0x76,0x9A,0xD5,0x13,0xFF ) // C3650CD5-DAEB-4103-84DA-68769AD513FF
+    ) 
+
+    public class IAdaptiveMediaSourceDiagnosticAvailableEventArgs3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs3 }
+
+        public func get_ResourceDuration() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceDuration(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceContentType() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnosticAvailableEventArgs3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceContentType(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDiagnostics
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcediagnostics)
 public final class AdaptiveMediaSourceDiagnostics : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDiagnostics
@@ -479,6 +1358,57 @@ public final class AdaptiveMediaSourceDiagnostics : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AdaptiveMediaSourceDiagnostics Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDiagnosticsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDiagnostics
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics>?) -> AdaptiveMediaSourceDiagnostics? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDiagnosticsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDiagnostics
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDiagnostics(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics: WindowsFoundation.IID = .init(
+        Data1: 0x9B24EE68, Data2: 0x962E, Data3: 0x448C, Data4: ( 0xAE,0xBF,0xB2,0x9B,0x56,0x09,0x8E,0x23 ) // 9B24EE68-962E-448C-AEBF-B29B56098E23
+    ) 
+
+    public class IAdaptiveMediaSourceDiagnostics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics }
+
+        public func add_DiagnosticAvailable(_ handler: TypedEventHandler<UWP.AdaptiveMediaSourceDiagnostics?, UWP.AdaptiveMediaSourceDiagnosticAvailableEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceDiagnostics___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceDiagnosticAvailableEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DiagnosticAvailable(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DiagnosticAvailable(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDiagnostics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DiagnosticAvailable(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDownloadBitrateChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadbitratechangedeventargs)
 public final class AdaptiveMediaSourceDownloadBitrateChangedEventArgs : WinRTClass {
@@ -519,6 +1449,74 @@ public final class AdaptiveMediaSourceDownloadBitrateChangedEventArgs : WinRTCla
         _IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 = nil
     }
 }
+
+// MARK: - AdaptiveMediaSourceDownloadBitrateChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDownloadBitrateChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadBitrateChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs>?) -> AdaptiveMediaSourceDownloadBitrateChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadBitrateChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadBitrateChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadBitrateChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x670C0A44, Data2: 0xE04E, Data3: 0x4EFF, Data4: ( 0x81,0x6A,0x17,0x39,0x9F,0x78,0xF4,0xBA ) // 670C0A44-E04E-4EFF-816A-17399F78F4BA
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadBitrateChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs }
+
+        public func get_OldValue() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldValue(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NewValue() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewValue(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0xF3F1F444, Data2: 0x96AE, Data3: 0x4DE0, Data4: ( 0xB5,0x40,0x2B,0x32,0x46,0xE6,0x96,0x8C ) // F3F1F444-96AE-4DE0-B540-2B3246E6968C
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 }
+
+        public func get_Reason() throws -> UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
+            var value: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadBitrateChangedEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Reason(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDownloadCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadcompletedeventargs)
 public final class AdaptiveMediaSourceDownloadCompletedEventArgs : WinRTClass {
@@ -596,6 +1594,147 @@ public final class AdaptiveMediaSourceDownloadCompletedEventArgs : WinRTClass {
         _IAdaptiveMediaSourceDownloadCompletedEventArgs3 = nil
     }
 }
+
+// MARK: - AdaptiveMediaSourceDownloadCompletedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDownloadCompletedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadCompletedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs>?) -> AdaptiveMediaSourceDownloadCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x19240DC3, Data2: 0x5B37, Data3: 0x4A1A, Data4: ( 0x89,0x70,0xD6,0x21,0xCB,0x6C,0xA8,0x3B ) // 19240DC3-5B37-4A1A-8970-D621CB6CA83B
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadCompletedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs }
+
+        public func get_ResourceType() throws -> UWP.AdaptiveMediaSourceResourceType {
+            var value: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ResourceUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func get_ResourceByteRangeOffset() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeOffset(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceByteRangeLength() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeLength(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_HttpResponseMessage() throws -> UWP.HttpResponseMessage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HttpResponseMessage(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Web_Http.HttpResponseMessageBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0x704744C4, Data2: 0x964A, Data3: 0x40E4, Data4: ( 0xAF,0x95,0x91,0x77,0xDD,0x6D,0xFA,0x00 ) // 704744C4-964A-40E4-AF95-9177DD6DFA00
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadCompletedEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs2 }
+
+        public func get_RequestId() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Statistics() throws -> UWP.AdaptiveMediaSourceDownloadStatistics? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Statistics(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceDownloadStatisticsBridge.from(abi: value)
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs3: WindowsFoundation.IID = .init(
+        Data1: 0x0F8A8BD1, Data2: 0x93B2, Data3: 0x47C6, Data4: ( 0xBA,0xDC,0x8B,0xE2,0xC8,0xF7,0xF6,0xE8 ) // 0F8A8BD1-93B2-47C6-BADC-8BE2C8F7F6E8
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadCompletedEventArgs3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs3 }
+
+        public func get_ResourceDuration() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceDuration(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceContentType() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadCompletedEventArgs3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceContentType(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDownloadFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadfailedeventargs)
 public final class AdaptiveMediaSourceDownloadFailedEventArgs : WinRTClass {
@@ -679,6 +1818,155 @@ public final class AdaptiveMediaSourceDownloadFailedEventArgs : WinRTClass {
     }
 }
 
+// MARK: - AdaptiveMediaSourceDownloadFailedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDownloadFailedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadFailedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs>?) -> AdaptiveMediaSourceDownloadFailedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadFailedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadFailedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadFailedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x37739048, Data2: 0xF4AB, Data3: 0x40A4, Data4: ( 0xB1,0x35,0xC6,0xDF,0xD8,0xBD,0x7F,0xF1 ) // 37739048-F4AB-40A4-B135-C6DFD8BD7FF1
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadFailedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs }
+
+        public func get_ResourceType() throws -> UWP.AdaptiveMediaSourceResourceType {
+            var value: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ResourceUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func get_ResourceByteRangeOffset() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeOffset(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceByteRangeLength() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeLength(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_HttpResponseMessage() throws -> UWP.HttpResponseMessage? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HttpResponseMessage(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Web_Http.HttpResponseMessageBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0x70919568, Data2: 0x967C, Data3: 0x4986, Data4: ( 0x90,0xC5,0xC6,0xFC,0x4B,0x31,0xE2,0xD8 ) // 70919568-967C-4986-90C5-C6FC4B31E2D8
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadFailedEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs2 }
+
+        public func get_RequestId() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ExtendedError() throws -> HRESULT {
+            var value: HRESULT = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedError(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Statistics() throws -> UWP.AdaptiveMediaSourceDownloadStatistics? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Statistics(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceDownloadStatisticsBridge.from(abi: value)
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs3: WindowsFoundation.IID = .init(
+        Data1: 0xD0354549, Data2: 0x1132, Data3: 0x4A10, Data4: ( 0x91,0x5A,0xC2,0x21,0x1B,0x5B,0x94,0x09 ) // D0354549-1132-4A10-915A-C2211B5B9409
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadFailedEventArgs3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs3 }
+
+        public func get_ResourceDuration() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceDuration(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceContentType() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadFailedEventArgs3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceContentType(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDownloadRequestedDeferral
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequesteddeferral)
 public final class AdaptiveMediaSourceDownloadRequestedDeferral : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadRequestedDeferral
@@ -706,6 +1994,47 @@ public final class AdaptiveMediaSourceDownloadRequestedDeferral : WinRTClass {
         _default = nil
     }
 }
+
+// MARK: - AdaptiveMediaSourceDownloadRequestedDeferral Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDownloadRequestedDeferralBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadRequestedDeferral
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral>?) -> AdaptiveMediaSourceDownloadRequestedDeferral? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadRequestedDeferralMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadRequestedDeferral
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadRequestedDeferral(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral: WindowsFoundation.IID = .init(
+        Data1: 0x05C68F64, Data2: 0xFA20, Data3: 0x4DBD, Data4: ( 0x98,0x21,0x4B,0xF4,0xC9,0xBF,0x77,0xAB ) // 05C68F64-FA20-4DBD-9821-4BF4C9BF77AB
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadRequestedDeferral: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral }
+
+        public func Complete() throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedDeferral.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Complete(pThis))
+            }
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDownloadRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadrequestedeventargs)
 public final class AdaptiveMediaSourceDownloadRequestedEventArgs : WinRTClass {
@@ -784,6 +2113,147 @@ public final class AdaptiveMediaSourceDownloadRequestedEventArgs : WinRTClass {
     }
 }
 
+// MARK: - AdaptiveMediaSourceDownloadRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDownloadRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadRequestedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs>?) -> AdaptiveMediaSourceDownloadRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xC83FDFFD, Data2: 0x44A9, Data3: 0x47A2, Data4: ( 0xBF,0x96,0x03,0x39,0x8B,0x4B,0xFA,0xAF ) // C83FDFFD-44A9-47A2-BF96-03398B4BFAAF
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs }
+
+        public func get_ResourceType() throws -> UWP.AdaptiveMediaSourceResourceType {
+            var value: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType = .init(0)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceType(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ResourceUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func get_ResourceByteRangeOffset() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeOffset(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceByteRangeLength() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeLength(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_Result() throws -> UWP.AdaptiveMediaSourceDownloadResult? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Result(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceDownloadResultBridge.from(abi: value)
+        }
+
+        public func GetDeferral() throws -> UWP.AdaptiveMediaSourceDownloadRequestedDeferral? {
+            let (deferral) = try ComPtrs.initialize { deferralAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeferral(pThis, &deferralAbi))
+                }
+            }
+            return __IMPL_Windows_Media_Streaming_Adaptive.AdaptiveMediaSourceDownloadRequestedDeferralBridge.from(abi: deferral)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs2: WindowsFoundation.IID = .init(
+        Data1: 0xB37D8BFE, Data2: 0xAA44, Data3: 0x4D82, Data4: ( 0x82,0x5B,0x61,0x1D,0xE3,0xBC,0xFE,0xCB ) // B37D8BFE-AA44-4D82-825B-611DE3BCFECB
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadRequestedEventArgs2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs2 }
+
+        public func get_RequestId() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequestId(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Position() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Position(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs3: WindowsFoundation.IID = .init(
+        Data1: 0x333C50FD, Data2: 0x4F62, Data3: 0x4481, Data4: ( 0xAB,0x44,0x1E,0x47,0xB0,0x57,0x42,0x25 ) // 333C50FD-4F62-4481-AB44-1E47B0574225
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadRequestedEventArgs3: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs3 }
+
+        public func get_ResourceDuration() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs3.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceDuration(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ResourceContentType() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadRequestedEventArgs3.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceContentType(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDownloadResult
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadresult)
 public final class AdaptiveMediaSourceDownloadResult : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadResult
@@ -851,6 +2321,163 @@ public final class AdaptiveMediaSourceDownloadResult : WinRTClass {
     }
 }
 
+// MARK: - AdaptiveMediaSourceDownloadResult Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDownloadResultBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadResult
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult>?) -> AdaptiveMediaSourceDownloadResult? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadResultMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadResult
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadResult(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult: WindowsFoundation.IID = .init(
+        Data1: 0xF4AFDC73, Data2: 0xBCEE, Data3: 0x4A6A, Data4: ( 0x9F,0x0A,0xFE,0xC4,0x1E,0x23,0x39,0xB0 ) // F4AFDC73-BCEE-4A6A-9F0A-FEC41E2339B0
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadResult: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult }
+
+        public func get_ResourceUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func put_ResourceUri(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ResourceUri(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_InputStream() throws -> UWP.AnyIInputStream? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_InputStream(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage_Streams.IInputStreamWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_InputStream(_ value: UWP.AnyIInputStream?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IInputStreamWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_InputStream(pThis, _value))
+            }
+        }
+
+        public func get_Buffer() throws -> UWP.AnyIBuffer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Buffer(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Storage_Streams.IBufferWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Buffer(_ value: UWP.AnyIBuffer?) throws {
+            let valueWrapper = __ABI_Windows_Storage_Streams.IBufferWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Buffer(pThis, _value))
+            }
+        }
+
+        public func get_ContentType() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentType(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_ContentType(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ContentType(pThis, _value.get()))
+            }
+        }
+
+        public func get_ExtendedStatus() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExtendedStatus(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ExtendedStatus(_ value: UInt32) throws {
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExtendedStatus(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult2: WindowsFoundation.IID = .init(
+        Data1: 0x15552CB7, Data2: 0x7B80, Data3: 0x4AC4, Data4: ( 0x86,0x60,0xA4,0xB9,0x7F,0x7C,0x70,0xF0 ) // 15552CB7-7B80-4AC4-8660-A4B97F7C70F0
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadResult2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult2 }
+
+        public func get_ResourceByteRangeOffset() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeOffset(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_ResourceByteRangeOffset(_ value: UInt64?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT64Wrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ResourceByteRangeOffset(pThis, _value))
+            }
+        }
+
+        public func get_ResourceByteRangeLength() throws -> UInt64? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceByteRangeLength(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_ResourceByteRangeLength(_ value: UInt64?) throws {
+            let valueWrapper = UWP.__x_ABI_C__FIReference_1_UINT64Wrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadResult2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ResourceByteRangeLength(pThis, _value))
+            }
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourceDownloadStatistics
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourcedownloadstatistics)
 public final class AdaptiveMediaSourceDownloadStatistics : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourceDownloadStatistics
@@ -894,6 +2521,76 @@ public final class AdaptiveMediaSourceDownloadStatistics : WinRTClass {
     }
 }
 
+// MARK: - AdaptiveMediaSourceDownloadStatistics Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourceDownloadStatisticsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourceDownloadStatistics
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics>?) -> AdaptiveMediaSourceDownloadStatistics? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourceDownloadStatisticsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourceDownloadStatistics
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourceDownloadStatistics(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics: WindowsFoundation.IID = .init(
+        Data1: 0xA306CEFB, Data2: 0xE96A, Data3: 0x4DFF, Data4: ( 0xA9,0xB8,0x1A,0xE0,0x8C,0x01,0xAE,0x98 ) // A306CEFB-E96A-4DFF-A9B8-1AE08C01AE98
+    ) 
+
+    public class IAdaptiveMediaSourceDownloadStatistics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics }
+
+        public func get_ContentBytesReceivedCount() throws -> UInt64 {
+            var value: UINT64 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentBytesReceivedCount(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_TimeToHeadersReceived() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TimeToHeadersReceived(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_TimeToFirstByteReceived() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TimeToFirstByteReceived(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_TimeToLastByteReceived() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourceDownloadStatistics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TimeToLastByteReceived(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.streaming.adaptive.adaptivemediasourceplaybackbitratechangedeventargs)
 public final class AdaptiveMediaSourcePlaybackBitrateChangedEventArgs : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_Media_Streaming_Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
@@ -932,106 +2629,60 @@ public final class AdaptiveMediaSourcePlaybackBitrateChangedEventArgs : WinRTCla
     }
 }
 
-extension UWP.AdaptiveMediaSourceCreationStatus {
-    public static var success : UWP.AdaptiveMediaSourceCreationStatus {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_Success
+// MARK: - AdaptiveMediaSourcePlaybackBitrateChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Media_Streaming_Adaptive {
+    public enum AdaptiveMediaSourcePlaybackBitrateChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs>?) -> AdaptiveMediaSourcePlaybackBitrateChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var manifestDownloadFailure : UWP.AdaptiveMediaSourceCreationStatus {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_ManifestDownloadFailure
-    }
-    public static var manifestParseFailure : UWP.AdaptiveMediaSourceCreationStatus {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_ManifestParseFailure
-    }
-    public static var unsupportedManifestContentType : UWP.AdaptiveMediaSourceCreationStatus {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnsupportedManifestContentType
-    }
-    public static var unsupportedManifestVersion : UWP.AdaptiveMediaSourceCreationStatus {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnsupportedManifestVersion
-    }
-    public static var unsupportedManifestProfile : UWP.AdaptiveMediaSourceCreationStatus {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnsupportedManifestProfile
-    }
-    public static var unknownFailure : UWP.AdaptiveMediaSourceCreationStatus {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceCreationStatus_UnknownFailure
+
+}
+@_spi(WinRTInternal)
+public class AdaptiveMediaSourcePlaybackBitrateChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AdaptiveMediaSourcePlaybackBitrateChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AdaptiveMediaSourcePlaybackBitrateChangedEventArgs(fromAbi: abi)
     }
 }
-extension UWP.AdaptiveMediaSourceCreationStatus: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Media_Streaming_Adaptive {
+    private static let IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x23A29F6D, Data2: 0x7DDA, Data3: 0x4A51, Data4: ( 0x87,0xA9,0x6F,0xA8,0xC5,0xB2,0x92,0xBE ) // 23A29F6D-7DDA-4A51-87A9-6FA8C5B292BE
+    ) 
 
-extension UWP.AdaptiveMediaSourceDiagnosticType {
-    public static var manifestUnchangedUponReload : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ManifestUnchangedUponReload
+    public class IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs }
+
+        public func get_OldValue() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldValue(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NewValue() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewValue(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_AudioOnly() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CIAdaptiveMediaSourcePlaybackBitrateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AudioOnly(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
     }
-    public static var manifestMismatchUponReload : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ManifestMismatchUponReload
-    }
-    public static var manifestSignaledEndOfLiveEventUponReload : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ManifestSignaledEndOfLiveEventUponReload
-    }
-    public static var mediaSegmentSkipped : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_MediaSegmentSkipped
-    }
-    public static var resourceNotFound : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ResourceNotFound
-    }
-    public static var resourceTimedOut : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ResourceTimedOut
-    }
-    public static var resourceParsingError : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_ResourceParsingError
-    }
-    public static var bitrateDisabled : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_BitrateDisabled
-    }
-    public static var fatalMediaSourceError : UWP.AdaptiveMediaSourceDiagnosticType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDiagnosticType_FatalMediaSourceError
-    }
+
 }
-extension UWP.AdaptiveMediaSourceDiagnosticType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-    public static var sufficientInboundBitsPerSecond : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_SufficientInboundBitsPerSecond
-    }
-    public static var insufficientInboundBitsPerSecond : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_InsufficientInboundBitsPerSecond
-    }
-    public static var lowBufferLevel : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_LowBufferLevel
-    }
-    public static var positionChanged : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_PositionChanged
-    }
-    public static var trackSelectionChanged : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_TrackSelectionChanged
-    }
-    public static var desiredBitratesChanged : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_DesiredBitratesChanged
-    }
-    public static var errorInPreviousBitrate : UWP.AdaptiveMediaSourceDownloadBitrateChangedReason {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceDownloadBitrateChangedReason_ErrorInPreviousBitrate
-    }
-}
-extension UWP.AdaptiveMediaSourceDownloadBitrateChangedReason: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension UWP.AdaptiveMediaSourceResourceType {
-    public static var manifest : UWP.AdaptiveMediaSourceResourceType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_Manifest
-    }
-    public static var initializationSegment : UWP.AdaptiveMediaSourceResourceType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_InitializationSegment
-    }
-    public static var mediaSegment : UWP.AdaptiveMediaSourceResourceType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_MediaSegment
-    }
-    public static var key : UWP.AdaptiveMediaSourceResourceType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_Key
-    }
-    public static var initializationVector : UWP.AdaptiveMediaSourceResourceType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_InitializationVector
-    }
-    public static var mediaSegmentIndex : UWP.AdaptiveMediaSourceResourceType {
-        __x_ABI_CWindows_CMedia_CStreaming_CAdaptive_CAdaptiveMediaSourceResourceType_MediaSegmentIndex
-    }
-}
-extension UWP.AdaptiveMediaSourceResourceType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

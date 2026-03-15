@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - ShownTileNotification
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.notifications.showntilenotification)
 public final class ShownTileNotification : WinRTClass {
     private typealias SwiftABI = __ABI_Windows_UI_Notifications.IShownTileNotification
@@ -32,3 +34,45 @@ public final class ShownTileNotification : WinRTClass {
     }
 }
 
+// MARK: - ShownTileNotification Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_UI_Notifications {
+    public enum ShownTileNotificationBridge: AbiBridge {
+        public typealias SwiftProjection = ShownTileNotification
+        public typealias CABI = __x_ABI_CWindows_CUI_CNotifications_CIShownTileNotification
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CUI_CNotifications_CIShownTileNotification>?) -> ShownTileNotification? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShownTileNotificationMaker: MakeFromAbi {
+    public typealias SwiftType = ShownTileNotification
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ShownTileNotification(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Notifications {
+    private static let IID___x_ABI_CWindows_CUI_CNotifications_CIShownTileNotification: WindowsFoundation.IID = .init(
+        Data1: 0x342D8988, Data2: 0x5AF2, Data3: 0x481A, Data4: ( 0xA6,0xA3,0xF2,0xFD,0xC7,0x8D,0xE8,0x8E ) // 342D8988-5AF2-481A-A6A3-F2FDC78DE88E
+    ) 
+
+    public class IShownTileNotification: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CNotifications_CIShownTileNotification }
+
+        public func get_Arguments() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CWindows_CUI_CNotifications_CIShownTileNotification.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Arguments(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+    }
+
+}
