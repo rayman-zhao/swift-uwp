@@ -33,6 +33,7 @@
     "Windows.Web.Http.HttpClient",
     "Windows.System.DispatcherQueueController",
 
+    "Windows.UI.StartScreen",
     "Windows.UI.Text",
     "Windows.Globalization",
     "Windows.Globalization.NumberFormatting"

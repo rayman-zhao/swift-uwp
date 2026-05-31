@@ -1648,6 +1648,59 @@ internal class __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVector
         return handler
     }
 }
+private var IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile: WindowsFoundation.IID {
+    .init(Data1: 0xb9d6d973, Data2: 0xa089, Data3: 0x550a, Data4: ( 0x83,0xb7,0xf6,0x59,0xea,0x0d,0xea,0x04 ))// b9d6d973-a089-550a-83b7-f659ea0dea04
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable: __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let asyncInfo: WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?>? = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.unwrapFrom(abi: ComPtr($1))
+            let asyncStatus: WindowsFoundation.AsyncStatus = $2
+            try __unwrapped__instance(asyncInfo, asyncStatus)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge>
+public class AsyncOperationCompletedHandlerIVectorViewSecondaryTile: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile }
+
+    open func Invoke(_ asyncInfo: WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?>?, _ asyncStatus: WindowsFoundation.AsyncStatus) throws {
+        let asyncInfoWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper(asyncInfo)
+        let _asyncInfo = try! asyncInfoWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _asyncInfo, asyncStatus))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.AsyncOperationCompletedHandler<WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?>
+    internal typealias CABI = __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile
+    internal typealias SwiftABI = UWP.AsyncOperationCompletedHandlerIVectorViewSecondaryTile
+
+    internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (asyncInfo, asyncStatus) in
+            try _default.Invoke(asyncInfo, asyncStatus)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroup: WindowsFoundation.IID {
     .init(Data1: 0x52465bf3, Data2: 0x3ca6, Data3: 0x5681, Data4: ( 0xa7,0xb4,0x91,0x84,0x77,0x57,0xb5,0xfd ))// 52465bf3-3ca6-5681-a7b4-91847757b5fd
 }
@@ -4288,6 +4341,59 @@ internal class __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__C
     internal typealias Handler = WindowsFoundation.AsyncOperationCompletedHandler<UWP.LaunchUriStatus>
     internal typealias CABI = __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CSystem__CLaunchUriStatus
     internal typealias SwiftABI = UWP.AsyncOperationCompletedHandlerLaunchUriStatus
+
+    internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (asyncInfo, asyncStatus) in
+            try _default.Invoke(asyncInfo, asyncStatus)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList: WindowsFoundation.IID {
+    .init(Data1: 0x3c047c6a, Data2: 0xc55b, Data3: 0x5485, Data4: ( 0xb6,0x73,0x8d,0x4b,0xd7,0xc3,0x42,0xe2 ))// 3c047c6a-c55b-5485-b673-8d4bd7c342e2
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListVTable: __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let asyncInfo: WindowsFoundation.AnyIAsyncOperation<UWP.JumpList?>? = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.unwrapFrom(abi: ComPtr($1))
+            let asyncStatus: WindowsFoundation.AsyncStatus = $2
+            try __unwrapped__instance(asyncInfo, asyncStatus)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListBridge>
+public class AsyncOperationCompletedHandlerJumpList: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList }
+
+    open func Invoke(_ asyncInfo: WindowsFoundation.AnyIAsyncOperation<UWP.JumpList?>?, _ asyncStatus: WindowsFoundation.AsyncStatus) throws {
+        let asyncInfoWrapper = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper(asyncInfo)
+        let _asyncInfo = try! asyncInfoWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _asyncInfo, asyncStatus))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.AsyncOperationCompletedHandler<UWP.JumpList?>
+    internal typealias CABI = __x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList
+    internal typealias SwiftABI = UWP.AsyncOperationCompletedHandlerJumpList
 
     internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
         guard let abi = abi else { return nil }
@@ -14783,6 +14889,267 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CNotifications_
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.ShownTileNotification?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem: WindowsFoundation.IID {
+    .init(Data1: 0x130a7274, Data2: 0x1afb, Data3: 0x5c10, Data4: ( 0xab,0xea,0x61,0xd8,0x16,0x92,0xa4,0x96 ))// 130a7274-1afb-5c10-abea-61d81692a496
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.JumpListItem>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge>
+public class IIterableJumpListItem: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<UWP.JumpListItem?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem
+    internal typealias SwiftABI = IIterableJumpListItem
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<UWP.JumpListItem?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl : IIterable, AbiInterfaceImpl {
+    typealias T = UWP.JumpListItem?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.JumpListItem?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile: WindowsFoundation.IID {
+    .init(Data1: 0x75651af0, Data2: 0x014a, Data3: 0x5593, Data4: ( 0xbc,0x48,0x83,0x6b,0xa3,0xd1,0xd5,0xd4 ))// 75651af0-014a-5593-bc48-836ba3d1d5d4
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTile>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge>
+public class IIterableSecondaryTile: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<UWP.SecondaryTile?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile
+    internal typealias SwiftABI = IIterableSecondaryTile
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<UWP.SecondaryTile?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl : IIterable, AbiInterfaceImpl {
+    typealias T = UWP.SecondaryTile?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.SecondaryTile?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements: WindowsFoundation.IID {
+    .init(Data1: 0x6ef7c354, Data2: 0xf153, Data3: 0x5b53, Data4: ( 0x99,0xc2,0xe0,0x45,0xc7,0x8c,0xce,0x08 ))// 6ef7c354-f153-5b53-99c2-e045c78cce08
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVTable: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTileVisualElements>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge>
+public class IIterableSecondaryTileVisualElements: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<UWP.SecondaryTileVisualElements?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements
+    internal typealias SwiftABI = IIterableSecondaryTileVisualElements
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<UWP.SecondaryTileVisualElements?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsImpl : IIterable, AbiInterfaceImpl {
+    typealias T = UWP.SecondaryTileVisualElements?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.SecondaryTileVisualElements?>? {
         try! _default.First()
     }
 
@@ -31154,6 +31521,459 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CNotifications_
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
     fileprivate var current : UWP.ShownTileNotification? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem: WindowsFoundation.IID {
+    .init(Data1: 0xf69f5cc4, Data2: 0x004f, Data3: 0x53eb, Data4: ( 0x89,0xe6,0x78,0x6e,0x46,0x05,0x88,0xa4 ))// f69f5cc4-004f-53eb-89e6-786e460588a4
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.UI.StartScreen.JumpListItem>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [UWP.JumpListItem?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge>
+public class IIteratorJumpListItem: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem }
+
+    open func get_Current() throws -> UWP.JumpListItem? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [UWP.JumpListItem?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem
+    internal typealias SwiftABI = IIteratorJumpListItem
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<UWP.JumpListItem?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl : IIterator, AbiInterfaceImpl {
+    typealias T = UWP.JumpListItem?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [UWP.JumpListItem?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : UWP.JumpListItem? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile: WindowsFoundation.IID {
+    .init(Data1: 0x391f7579, Data2: 0xa90e, Data3: 0x5352, Data4: ( 0x9d,0x01,0xfd,0xa9,0x95,0xd7,0x91,0x2f ))// 391f7579-a90e-5352-9d01-fda995d7912f
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.UI.StartScreen.SecondaryTile>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [UWP.SecondaryTile?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge>
+public class IIteratorSecondaryTile: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile }
+
+    open func get_Current() throws -> UWP.SecondaryTile? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [UWP.SecondaryTile?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile
+    internal typealias SwiftABI = IIteratorSecondaryTile
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<UWP.SecondaryTile?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl : IIterator, AbiInterfaceImpl {
+    typealias T = UWP.SecondaryTile?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [UWP.SecondaryTile?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : UWP.SecondaryTile? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements: WindowsFoundation.IID {
+    .init(Data1: 0xbbc6e16c, Data2: 0xcace, Data3: 0x5230, Data4: ( 0x88,0x04,0x22,0x98,0x37,0x51,0x68,0xac ))// bbc6e16c-cace-5230-8804-2298375168ac
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVTable: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.UI.StartScreen.SecondaryTileVisualElements>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [UWP.SecondaryTileVisualElements?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge>
+public class IIteratorSecondaryTileVisualElements: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements }
+
+    open func get_Current() throws -> UWP.SecondaryTileVisualElements? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [UWP.SecondaryTileVisualElements?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements
+    internal typealias SwiftABI = IIteratorSecondaryTileVisualElements
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<UWP.SecondaryTileVisualElements?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsImpl : IIterator, AbiInterfaceImpl {
+    typealias T = UWP.SecondaryTileVisualElements?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [UWP.SecondaryTileVisualElements?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : UWP.SecondaryTileVisualElements? {
         get { try! _default.get_Current() }
     }
 
@@ -53701,6 +54521,558 @@ fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CNotification
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem: WindowsFoundation.IID {
+    .init(Data1: 0xbe418be9, Data2: 0xab72, Data3: 0x56b0, Data4: ( 0xb6,0xd3,0xec,0x70,0xef,0x11,0xf6,0x63 ))// be418be9-ab72-56b0-b6d3-ec70ef11f663
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.JumpListItem>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.JumpListItem? = __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.JumpListItem?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge>
+public class IVectorViewJumpListItem: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.JumpListItem? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: UWP.JumpListItem?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.JumpListItem?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem
+    internal typealias SwiftABI = IVectorViewJumpListItem
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<UWP.JumpListItem?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = UWP.JumpListItem?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.JumpListItem? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: UWP.JumpListItem?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.JumpListItem?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableJumpListItem! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.JumpListItem?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile: WindowsFoundation.IID {
+    .init(Data1: 0x16f89727, Data2: 0xd811, Data3: 0x5051, Data4: ( 0x9a,0xb5,0x0c,0xb8,0x6a,0x0f,0x0a,0xc3 ))// 16f89727-d811-5051-9ab5-0cb86a0f0ac3
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTile>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.SecondaryTile? = __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.SecondaryTile?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge>
+public class IVectorViewSecondaryTile: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.SecondaryTile? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: UWP.SecondaryTile?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.SecondaryTile?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile
+    internal typealias SwiftABI = IVectorViewSecondaryTile
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = UWP.SecondaryTile?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.SecondaryTile? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: UWP.SecondaryTile?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.SecondaryTile?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableSecondaryTile! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.SecondaryTile?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements: WindowsFoundation.IID {
+    .init(Data1: 0x1cd2cc9b, Data2: 0xa41c, Data3: 0x5dc7, Data4: ( 0x9d,0x95,0x4c,0xef,0x69,0xa2,0x93,0xf4 ))// 1cd2cc9b-a41c-5dc7-9d95-4cef69a293f4
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVTable: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTileVisualElements>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.SecondaryTileVisualElements? = __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.SecondaryTileVisualElements?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge>
+public class IVectorViewSecondaryTileVisualElements: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.SecondaryTileVisualElements? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: UWP.SecondaryTileVisualElements?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.SecondaryTileVisualElements?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_StartScreen.SecondaryTileVisualElementsBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElements
+    internal typealias SwiftABI = IVectorViewSecondaryTileVisualElements
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<UWP.SecondaryTileVisualElements?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = UWP.SecondaryTileVisualElements?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVisualElementsBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.SecondaryTileVisualElements? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: UWP.SecondaryTileVisualElements?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.SecondaryTileVisualElements?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableSecondaryTileVisualElements! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.SecondaryTileVisualElements?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CWeb__CHttp__CHeaders__CHttpChallengeHeaderValue: WindowsFoundation.IID {
     .init(Data1: 0x8b79423f, Data2: 0xb4a3, Data3: 0x501d, Data4: ( 0xba,0xc2,0xb8,0x8e,0x78,0xe1,0x3a,0x21 ))// 8b79423f-b4a3-501d-bac2-b88e78e13a21
 }
@@ -67105,6 +68477,349 @@ fileprivate class __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CInput__CPointerP
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem: WindowsFoundation.IID {
+    .init(Data1: 0xaf8f3fb2, Data2: 0xf179, Data3: 0x5f0a, Data4: ( 0xaa,0x09,0x28,0x94,0x2e,0xed,0xf6,0x25 ))// af8f3fb2-f179-5f0a-aa09-28942eedf625
+}
+
+internal var __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVector`1<Windows.UI.StartScreen.JumpListItem>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    GetView: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.getView()
+        let resultWrapper = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.JumpListItem? = __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    SetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: UWP.JumpListItem? = __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.setAt(index, value)
+        return S_OK
+    },
+
+    InsertAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: UWP.JumpListItem? = __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.insertAt(index, value)
+        return S_OK
+    },
+
+    RemoveAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        __unwrapped__instance.removeAt(index)
+        return S_OK
+    },
+
+    Append: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.JumpListItem? = __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: ComPtr($1))
+        __unwrapped__instance.append(value)
+        return S_OK
+    },
+
+    RemoveAtEnd: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.removeAtEnd()
+        return S_OK
+    },
+
+    Clear: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.clear()
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.JumpListItem?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    },
+
+    ReplaceAll: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let items: [UWP.JumpListItem?] = .from(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self, abi: (count: $1, start: $2))
+        __unwrapped__instance.replaceAll(items)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge>
+public class IVectorJumpListItem: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.JumpListItem? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.JumpListItemBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func GetView() throws -> WindowsFoundation.AnyIVectorView<UWP.JumpListItem?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemWrapper.unwrapFrom(abi: result)
+    }
+
+    open func IndexOf(_ value: UWP.JumpListItem?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func SetAt(_ index: UInt32, _ value: UWP.JumpListItem?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.SetAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func InsertAt(_ index: UInt32, _ value: UWP.JumpListItem?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAt(_ index: UInt32) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAt(pThis, index))
+        }
+    }
+
+    open func Append(_ value: UWP.JumpListItem?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Append(pThis, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAtEnd() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAtEnd(pThis))
+        }
+    }
+
+    open func Clear() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+        }
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.JumpListItem?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self, abi: _items)
+        }
+        return result
+    }
+
+    open func ReplaceAll(_ items: [UWP.JumpListItem?]) throws {
+        try items.toABI(abiBridge: __IMPL_Windows_UI_StartScreen.JumpListItemBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReplaceAll(pThis, _items.count, _items.start))
+            }
+        }
+    }
+
+}
+
+internal enum __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItem
+    internal typealias SwiftABI = IVectorJumpListItem
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVector<UWP.JumpListItem?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemImpl : IVector, AbiInterfaceImpl {
+    typealias T = UWP.JumpListItem?
+    typealias Bridge = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListItemBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+        set(newValue) {
+            setAt(UInt32(position), newValue)
+        }
+    }
+
+    func removeLast() {
+        removeAtEnd()
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.JumpListItem? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getview)
+    fileprivate func getView() -> WindowsFoundation.AnyIVectorView<UWP.JumpListItem?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.indexof)
+    fileprivate func indexOf(_ value: UWP.JumpListItem?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.setat)
+    fileprivate func setAt(_ index: UInt32, _ value: UWP.JumpListItem?) {
+        try! _default.SetAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.insertat)
+    fileprivate func insertAt(_ index: UInt32, _ value: UWP.JumpListItem?) {
+        try! _default.InsertAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeat)
+    fileprivate func removeAt(_ index: UInt32) {
+        try! _default.RemoveAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.append)
+    fileprivate func append(_ value: UWP.JumpListItem?) {
+        try! _default.Append(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeatend)
+    fileprivate func removeAtEnd() {
+        try! _default.RemoveAtEnd()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.clear)
+    fileprivate func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.JumpListItem?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.replaceall)
+    fileprivate func replaceAll(_ items: [UWP.JumpListItem?]) {
+        try! _default.ReplaceAll(items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableJumpListItem! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.JumpListItem?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIVector_1___x_ABI_CWindows__CWeb__CHttp__CHeaders__CHttpChallengeHeaderValue: WindowsFoundation.IID {
     .init(Data1: 0x3737fc5e, Data2: 0x0b27, Data3: 0x52a3, Data4: ( 0x9e,0x40,0xcb,0xb9,0x84,0x4e,0x6a,0xb7 ))// 3737fc5e-0b27-52a3-9e40-cbb9844e6ab7
 }
@@ -79985,6 +81700,160 @@ fileprivate class __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_AB
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile: WindowsFoundation.IID {
+    .init(Data1: 0xf72d55b2, Data2: 0xb004, Data3: 0x5e35, Data4: ( 0xb5,0xc4,0x22,0xe8,0x76,0x19,0xb3,0x0a ))// f72d55b2-b004-5e35-b5c4-22e87619b30a
+}
+
+internal var __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable: __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IAsyncInfoWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IAsyncOperation`1<Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTile>>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    put_Completed: {
+        guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        guard let handler = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+        __unwrapped__instance.completed = handler
+        return S_OK
+    },
+
+    get_Completed: {
+        guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.completed
+        let resultWrapper = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    GetResults: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let result = try __unwrapped__instance.getResults()
+            let resultWrapper = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper(result)
+            resultWrapper?.copyTo($1)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge>
+public class IAsyncOperationIVectorViewSecondaryTile: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile }
+
+    open func put_Completed(_ handler: AsyncOperationCompletedHandler<WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?>?) throws {
+        let handlerWrapper = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper(handler)
+        let _handler = try! handlerWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.put_Completed(pThis, _handler))
+        }
+    }
+
+    open func get_Completed() throws -> AsyncOperationCompletedHandler<WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Completed(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.unwrapFrom(abi: result)
+    }
+
+    open func GetResults() throws -> WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetResults(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile
+    internal typealias SwiftABI = IAsyncOperationIVectorViewSecondaryTile
+    internal typealias SwiftProjection = WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileImpl : IAsyncOperation, AbiInterfaceImpl {
+    typealias TResult = WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?
+    typealias Bridge = __x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTileBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.getresults)
+    fileprivate func getResults() throws -> WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>? {
+        try _default.GetResults()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.completed)
+    fileprivate var completed : AsyncOperationCompletedHandler<WindowsFoundation.AnyIVectorView<UWP.SecondaryTile?>?>? {
+        get { try! _default.get_Completed() }
+        set { try! _default.put_Completed(newValue) }
+    }
+
+    private lazy var _IAsyncInfo: __ABI_Windows_Foundation.IAsyncInfo! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.cancel)
+    fileprivate func cancel() throws {
+        try _IAsyncInfo.Cancel()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.close)
+    fileprivate func close() throws {
+        try _IAsyncInfo.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.errorcode)
+    fileprivate var errorCode : HRESULT {
+        get { try! _IAsyncInfo.get_ErrorCode() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.id)
+    fileprivate var id : UInt32 {
+        get { try! _IAsyncInfo.get_Id() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.status)
+    fileprivate var status : WindowsFoundation.AsyncStatus {
+        get { try! _IAsyncInfo.get_Status() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPackageContentGroup: WindowsFoundation.IID {
     .init(Data1: 0x929e3c29, Data2: 0xbf29, Data3: 0x5594, Data4: ( 0xbc,0x63,0x67,0xdb,0x43,0xa5,0x39,0xea ))// 929e3c29-bf29-5594-bc63-67db43a539ea
 }
@@ -87632,6 +89501,159 @@ fileprivate class __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CSystem__CLaun
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList: WindowsFoundation.IID {
+    .init(Data1: 0x1c008c58, Data2: 0x733b, Data3: 0x5b42, Data4: ( 0x96,0x2a,0xb3,0x33,0x28,0x23,0x6c,0xd3 ))// 1c008c58-733b-5b42-962a-b33328236cd3
+}
+
+internal var __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListVTable: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IAsyncInfoWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IAsyncOperation`1<Windows.UI.StartScreen.JumpList>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    put_Completed: {
+        guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        guard let handler = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+        __unwrapped__instance.completed = handler
+        return S_OK
+    },
+
+    get_Completed: {
+        guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.completed
+        let resultWrapper = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    GetResults: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let result = try __unwrapped__instance.getResults()
+            result?.copyTo($1)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListBridge>
+public class IAsyncOperationJumpList: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList }
+
+    open func put_Completed(_ handler: AsyncOperationCompletedHandler<UWP.JumpList?>?) throws {
+        let handlerWrapper = UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper(handler)
+        let _handler = try! handlerWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.put_Completed(pThis, _handler))
+        }
+    }
+
+    open func get_Completed() throws -> AsyncOperationCompletedHandler<UWP.JumpList?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Completed(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIAsyncOperationCompletedHandler_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListWrapper.unwrapFrom(abi: result)
+    }
+
+    open func GetResults() throws -> UWP.JumpList? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetResults(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_UI_StartScreen.JumpListBridge.from(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpList
+    internal typealias SwiftABI = IAsyncOperationJumpList
+    internal typealias SwiftProjection = WindowsFoundation.AnyIAsyncOperation<UWP.JumpList?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListImpl : IAsyncOperation, AbiInterfaceImpl {
+    typealias TResult = UWP.JumpList?
+    typealias Bridge = __x_ABI_C__FIAsyncOperation_1___x_ABI_CWindows__CUI__CStartScreen__CJumpListBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.getresults)
+    fileprivate func getResults() throws -> UWP.JumpList? {
+        try _default.GetResults()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.completed)
+    fileprivate var completed : AsyncOperationCompletedHandler<UWP.JumpList?>? {
+        get { try! _default.get_Completed() }
+        set { try! _default.put_Completed(newValue) }
+    }
+
+    private lazy var _IAsyncInfo: __ABI_Windows_Foundation.IAsyncInfo! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.cancel)
+    fileprivate func cancel() throws {
+        try _IAsyncInfo.Cancel()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.close)
+    fileprivate func close() throws {
+        try _IAsyncInfo.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.errorcode)
+    fileprivate var errorCode : HRESULT {
+        get { try! _IAsyncInfo.get_ErrorCode() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.id)
+    fileprivate var id : UInt32 {
+        get { try! _IAsyncInfo.get_Id() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperation-1.status)
+    fileprivate var status : WindowsFoundation.AsyncStatus {
+        get { try! _IAsyncInfo.get_Status() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIReference_1_boolean: WindowsFoundation.IID {
     .init(Data1: 0x3c00fd60, Data2: 0x2950, Data3: 0x5939, Data4: ( 0xa2,0x1a,0x2d,0x12,0xc5,0xa0,0x1b,0x8a ))// 3c00fd60-2950-5939-a21a-2d12c5a01b8a
 }
@@ -88734,6 +90756,64 @@ internal var __x_ABI_C__FIReference_1___x_ABI_CWindows__CMedia__CStreaming__CAda
     }
 )
 typealias __x_ABI_C__FIReference_1___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceResourceTypeWrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CMedia__CStreaming__CAdaptive__CAdaptiveMediaSourceResourceTypeBridge>
+private var IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBox: WindowsFoundation.IID {
+    .init(Data1: 0xab3274d9, Data2: 0x9b82, Data3: 0x5396, Data4: ( 0xbb,0x00,0xd7,0x0c,0x53,0x97,0x96,0xb3 ))// ab3274d9-9b82-5396-bb00-d70c539796b3
+}
+
+internal enum __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxBridge: ReferenceBridge {
+    typealias CABI = __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBox
+    typealias SwiftProjection = UWP.SpatialBoundingBox
+    static var IID: WindowsFoundation.IID { IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBox }
+
+    static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let val = abi else { return nil }
+        var result: __x_ABI_CWindows_CPerception_CSpatial_CSpatialBoundingBox = .init()
+        try! CHECKED(val.get().pointee.lpVtbl.pointee.get_Value(val.get(), &result))
+        return .from(abi: result)
+    }
+
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+internal var __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxVTable: __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxWrapper.IID
+        iids[3] = __ABI_Windows_Foundation.IPropertyValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.IReference`1<Windows.Perception.Spatial.SpatialBoundingBox>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Value: {
+        guard let __unwrapped__instance = __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance
+        $1?.initialize(to: .from(swift: result))
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxWrapper = ReferenceWrapperBase<UWP.__x_ABI_C__FIReference_1___x_ABI_CWindows__CPerception__CSpatial__CSpatialBoundingBoxBridge>
 private var IID___x_ABI_C__FIReference_1___x_ABI_CWindows__CWeb__CWebErrorStatus: WindowsFoundation.IID {
     .init(Data1: 0xf2b26336, Data2: 0x6a9d, Data3: 0x54de, Data4: ( 0x8e,0xca,0x00,0xd6,0xc8,0x71,0xe4,0x69 ))// f2b26336-6a9d-54de-8eca-00d6c871e469
 }
@@ -94615,6 +96695,57 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CI
     internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CCore__CICorePointerRedirector___x_ABI_CWindows__CUI__CCore__CPointerEventArgs
     internal typealias SwiftABI = UWP.TypedEventHandlerICorePointerRedirector_PointerEventArgs
+
+    internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x02d9f968, Data2: 0xfa76, Data3: 0x5d77, Data4: ( 0x93,0x4b,0x66,0x5e,0x7c,0x3b,0xe7,0xcf ))// 02d9f968-fa76-5d77-934b-665e7c3be7cf
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: UWP.SecondaryTile? = __IMPL_Windows_UI_StartScreen.SecondaryTileBridge.from(abi: ComPtr($1))
+            let args: UWP.VisualElementsRequestedEventArgs? = __IMPL_Windows_UI_StartScreen.VisualElementsRequestedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsBridge>
+public class TypedEventHandlerSecondaryTile_VisualElementsRequestedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgs }
+
+    open func Invoke(_ sender: UWP.SecondaryTile?, _ args: UWP.VisualElementsRequestedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<UWP.SecondaryTile?, UWP.VisualElementsRequestedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CWindows__CUI__CStartScreen__CSecondaryTile___x_ABI_CWindows__CUI__CStartScreen__CVisualElementsRequestedEventArgs
+    internal typealias SwiftABI = UWP.TypedEventHandlerSecondaryTile_VisualElementsRequestedEventArgs
 
     internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
         guard let abi = abi else { return nil }

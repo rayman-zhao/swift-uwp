@@ -4,6 +4,39 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - SpatialBoundingBox
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.perception.spatial.spatialboundingbox)
+public struct SpatialBoundingBox: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.perception.spatial.spatialboundingbox.center)
+    public var center: WindowsFoundation.Vector3 = .init()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.perception.spatial.spatialboundingbox.extents)
+    public var extents: WindowsFoundation.Vector3 = .init()
+    public init() {}
+    public init(center: WindowsFoundation.Vector3, extents: WindowsFoundation.Vector3) {
+        self.center = center
+        self.extents = extents
+    }
+}
+
+// MARK: - SpatialBoundingBox Internals
+
+@_spi(WinRTInternal)
+extension SpatialBoundingBox: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CPerception_CSpatial_CSpatialBoundingBox
+    public static func from(abi: ABI) -> Self {
+        .init(center: .from(abi: abi.Center), extents: .from(abi: abi.Extents))
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CWindows_CPerception_CSpatial_CSpatialBoundingBox {
+    public static func from(swift: UWP.SpatialBoundingBox) -> __x_ABI_CWindows_CPerception_CSpatial_CSpatialBoundingBox {
+        .init(Center: .from(swift: swift.center), Extents: .from(swift: swift.extents))
+    }
+}
 // MARK: - SpatialCoordinateSystem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.perception.spatial.spatialcoordinatesystem)
