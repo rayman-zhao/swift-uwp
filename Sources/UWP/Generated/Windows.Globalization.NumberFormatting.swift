@@ -104,7 +104,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class INumberFormatterImpl: INumberFormatter, WinRTAbiImpl {
+    fileprivate class INumberFormatterImpl: INumberFormatter, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INumberFormatterBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -136,39 +136,45 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0xA5007C49, Data2: 0x7676, Data3: 0x4DB7, Data4: ( 0x86,0x31,0x1B,0x6F,0xF2,0x65,0xCA,0xA9 ) // A5007C49-7676-4DB7-8631-1B6FF265CAA9
     ) 
 
-    public class INumberFormatter: WindowsFoundation.IInspectable {
+    public class INumberFormatter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter }
 
         open func FormatInt(_ value: Int64) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FormatInt(pThis, value, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         open func FormatUInt(_ value: UInt64) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FormatUInt(pThis, value, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         open func FormatDouble(_ value: Double) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FormatDouble(pThis, value, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
     }
 
-    internal static var INumberFormatterVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterVtbl = .init(
+    internal static nonisolated(unsafe) var INumberFormatterVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterVtbl = .init(
         QueryInterface: { INumberFormatterWrapper.queryInterface($0, $1, $2) },
         AddRef: { INumberFormatterWrapper.addRef($0) },
         Release: { INumberFormatterWrapper.release($0) },
@@ -280,7 +286,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class INumberFormatter2Impl: INumberFormatter2, WinRTAbiImpl {
+    fileprivate class INumberFormatter2Impl: INumberFormatter2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INumberFormatter2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -312,39 +318,45 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0xD4A8C1F0, Data2: 0x80D0, Data3: 0x4B0D, Data4: ( 0xA8,0x9E,0x88,0x2C,0x1E,0x8F,0x83,0x10 ) // D4A8C1F0-80D0-4B0D-A89E-882C1E8F8310
     ) 
 
-    public class INumberFormatter2: WindowsFoundation.IInspectable {
+    public class INumberFormatter2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2 }
 
         open func FormatInt(_ value: Int64) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FormatInt(pThis, value, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         open func FormatUInt(_ value: UInt64) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FormatUInt(pThis, value, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         open func FormatDouble(_ value: Double) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.FormatDouble(pThis, value, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
     }
 
-    internal static var INumberFormatter2VTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2Vtbl = .init(
+    internal static nonisolated(unsafe) var INumberFormatter2VTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter2Vtbl = .init(
         QueryInterface: { INumberFormatter2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { INumberFormatter2Wrapper.addRef($0) },
         Release: { INumberFormatter2Wrapper.release($0) },
@@ -468,7 +480,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class INumberFormatterOptionsImpl: INumberFormatterOptions, WinRTAbiImpl {
+    fileprivate class INumberFormatterOptionsImpl: INumberFormatterOptions, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INumberFormatterOptionsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -535,7 +547,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x80332D21, Data2: 0xAEE1, Data3: 0x4A39, Data4: ( 0xBA,0xA2,0x07,0xED,0x8C,0x96,0xDA,0xF6 ) // 80332D21-AEE1-4A39-BAA2-07ED8C96DAF6
     ) 
 
-    public class INumberFormatterOptions: WindowsFoundation.IInspectable {
+    public class INumberFormatterOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions }
 
         open func get_Languages() throws -> WindowsFoundation.AnyIVectorView<String>? {
@@ -549,10 +561,12 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
         open func get_GeographicRegion() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GeographicRegion(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -614,10 +628,12 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
         open func get_NumeralSystem() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumeralSystem(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -630,25 +646,29 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
         open func get_ResolvedLanguage() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResolvedLanguage(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_ResolvedGeographicRegion() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResolvedGeographicRegion(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
     }
 
-    internal static var INumberFormatterOptionsVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptionsVtbl = .init(
+    internal static nonisolated(unsafe) var INumberFormatterOptionsVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatterOptionsVtbl = .init(
         QueryInterface: { INumberFormatterOptionsWrapper.queryInterface($0, $1, $2) },
         AddRef: { INumberFormatterOptionsWrapper.addRef($0) },
         Release: { INumberFormatterOptionsWrapper.release($0) },
@@ -829,7 +849,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class INumberParserImpl: INumberParser, WinRTAbiImpl {
+    fileprivate class INumberParserImpl: INumberParser, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INumberParserBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -861,7 +881,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0xE6659412, Data2: 0x4A13, Data3: 0x4A53, Data4: ( 0x83,0xA1,0x39,0x2F,0xBE,0x4C,0xFF,0x9F ) // E6659412-4A13-4A53-83A1-392FBE4CFF9F
     ) 
 
-    public class INumberParser: WindowsFoundation.IInspectable {
+    public class INumberParser: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParser }
 
         open func ParseInt(_ text: String) throws -> Int64? {
@@ -896,7 +916,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
     }
 
-    internal static var INumberParserVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParserVtbl = .init(
+    internal static nonisolated(unsafe) var INumberParserVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberParserVtbl = .init(
         QueryInterface: { INumberParserWrapper.queryInterface($0, $1, $2) },
         AddRef: { INumberParserWrapper.addRef($0) },
         Release: { INumberParserWrapper.release($0) },
@@ -1017,7 +1037,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class INumberRounderImpl: INumberRounder, WinRTAbiImpl {
+    fileprivate class INumberRounderImpl: INumberRounder, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INumberRounderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1064,7 +1084,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x5473C375, Data2: 0x38ED, Data3: 0x4631, Data4: ( 0xB8,0x0C,0xEF,0x34,0xFC,0x48,0xB7,0xF5 ) // 5473C375-38ED-4631-B80C-EF34FC48B7F5
     ) 
 
-    public class INumberRounder: WindowsFoundation.IInspectable {
+    public class INumberRounder: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder }
 
         open func RoundInt32(_ value: Int32) throws -> Int32 {
@@ -1117,7 +1137,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
     }
 
-    internal static var INumberRounderVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderVtbl = .init(
+    internal static nonisolated(unsafe) var INumberRounderVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderVtbl = .init(
         QueryInterface: { INumberRounderWrapper.queryInterface($0, $1, $2) },
         AddRef: { INumberRounderWrapper.addRef($0) },
         Release: { INumberRounderWrapper.release($0) },
@@ -1255,7 +1275,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class INumberRounderOptionImpl: INumberRounderOption, WinRTAbiImpl {
+    fileprivate class INumberRounderOptionImpl: INumberRounderOption, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INumberRounderOptionBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1278,7 +1298,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x3B088433, Data2: 0x646F, Data3: 0x4EFE, Data4: ( 0x8D,0x48,0x66,0xEB,0x2E,0x49,0xE7,0x36 ) // 3B088433-646F-4EFE-8D48-66EB2E49E736
     ) 
 
-    public class INumberRounderOption: WindowsFoundation.IInspectable {
+    public class INumberRounderOption: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOption }
 
         open func get_NumberRounder() throws -> UWP.AnyINumberRounder? {
@@ -1300,7 +1320,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
     }
 
-    internal static var INumberRounderOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOptionVtbl = .init(
+    internal static nonisolated(unsafe) var INumberRounderOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounderOptionVtbl = .init(
         QueryInterface: { INumberRounderOptionWrapper.queryInterface($0, $1, $2) },
         AddRef: { INumberRounderOptionWrapper.addRef($0) },
         Release: { INumberRounderOptionWrapper.release($0) },
@@ -1393,7 +1413,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class ISignedZeroOptionImpl: ISignedZeroOption, WinRTAbiImpl {
+    fileprivate class ISignedZeroOptionImpl: ISignedZeroOption, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ISignedZeroOptionBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1416,7 +1436,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0xFD1CDD31, Data2: 0x0A3C, Data3: 0x49C4, Data4: ( 0xA6,0x42,0x96,0xA1,0x56,0x4F,0x4F,0x30 ) // FD1CDD31-0A3C-49C4-A642-96A1564F4F30
     ) 
 
-    public class ISignedZeroOption: WindowsFoundation.IInspectable {
+    public class ISignedZeroOption: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOption }
 
         open func get_IsZeroSigned() throws -> Bool {
@@ -1435,7 +1455,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
     }
 
-    internal static var ISignedZeroOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOptionVtbl = .init(
+    internal static nonisolated(unsafe) var ISignedZeroOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignedZeroOptionVtbl = .init(
         QueryInterface: { ISignedZeroOptionWrapper.queryInterface($0, $1, $2) },
         AddRef: { ISignedZeroOptionWrapper.addRef($0) },
         Release: { ISignedZeroOptionWrapper.release($0) },
@@ -1527,7 +1547,7 @@ extension __IMPL_Windows_Globalization_NumberFormatting {
         }
     }
 
-    fileprivate class ISignificantDigitsOptionImpl: ISignificantDigitsOption, WinRTAbiImpl {
+    fileprivate class ISignificantDigitsOptionImpl: ISignificantDigitsOption, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ISignificantDigitsOptionBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1550,7 +1570,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x1D4DFCDD, Data2: 0x2D43, Data3: 0x4EE8, Data4: ( 0xBB,0xF1,0xC1,0xB2,0x6A,0x71,0x1A,0x58 ) // 1D4DFCDD-2D43-4EE8-BBF1-C1B26A711A58
     ) 
 
-    public class ISignificantDigitsOption: WindowsFoundation.IInspectable {
+    public class ISignificantDigitsOption: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOption }
 
         open func get_SignificantDigits() throws -> Int32 {
@@ -1569,7 +1589,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
     }
 
-    internal static var ISignificantDigitsOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOptionVtbl = .init(
+    internal static nonisolated(unsafe) var ISignificantDigitsOptionVTable: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsOptionVtbl = .init(
         QueryInterface: { ISignificantDigitsOptionWrapper.queryInterface($0, $1, $2) },
         AddRef: { ISignificantDigitsOptionWrapper.addRef($0) },
         Release: { ISignificantDigitsOptionWrapper.release($0) },
@@ -1625,7 +1645,7 @@ public class ISignificantDigitsOptionMaker: MakeFromAbi {
 // MARK: - CurrencyFormatter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.currencyformatter)
-public final class CurrencyFormatter : WinRTClass, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
+public final class CurrencyFormatter : WinRTClass, @unchecked Sendable, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
     private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.ICurrencyFormatter
     private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CICurrencyFormatter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1832,15 +1852,17 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x11730CA5, Data2: 0x4B00, Data3: 0x41B2, Data4: ( 0xB3,0x32,0x73,0xB1,0x2A,0x49,0x7D,0x54 ) // 11730CA5-4B00-41B2-B332-73B12A497D54
     ) 
 
-    public class ICurrencyFormatter: WindowsFoundation.IInspectable {
+    public class ICurrencyFormatter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CICurrencyFormatter }
 
         public func get_Currency() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CICurrencyFormatter.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Currency(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1857,7 +1879,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x072C2F1D, Data2: 0xE7BA, Data3: 0x4197, Data4: ( 0x92,0x0E,0x24,0x7C,0x92,0xF7,0xDE,0xA6 ) // 072C2F1D-E7BA-4197-920E-247C92F7DEA6
     ) 
 
-    public class ICurrencyFormatter2: WindowsFoundation.IInspectable {
+    public class ICurrencyFormatter2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CICurrencyFormatter2 }
 
         public func get_Mode() throws -> UWP.CurrencyFormatterMode {
@@ -1886,7 +1908,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x86C7537E, Data2: 0xB938, Data3: 0x4AA2, Data4: ( 0x84,0xB0,0x2C,0x33,0xDC,0x5B,0x14,0x50 ) // 86C7537E-B938-4AA2-84B0-2C33DC5B1450
     ) 
 
-    public class ICurrencyFormatterFactory: WindowsFoundation.IInspectable {
+    public class ICurrencyFormatterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CICurrencyFormatterFactory }
 
         public func CreateCurrencyFormatterCode(_ currencyCode: String) throws -> ICurrencyFormatter {
@@ -1918,7 +1940,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 // MARK: - DecimalFormatter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.decimalformatter)
-public final class DecimalFormatter : WinRTClass, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
+public final class DecimalFormatter : WinRTClass, @unchecked Sendable, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
     private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter
     private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2105,7 +2127,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x0D018C9A, Data2: 0xE393, Data3: 0x46B8, Data4: ( 0xB8,0x30,0x7A,0x69,0xC8,0xF8,0x9F,0xBB ) // 0D018C9A-E393-46B8-B830-7A69C8F89FBB
     ) 
 
-    public class IDecimalFormatterFactory: WindowsFoundation.IInspectable {
+    public class IDecimalFormatterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CIDecimalFormatterFactory }
 
         public func CreateDecimalFormatter(_ languages: WindowsFoundation.AnyIIterable<String>?, _ geographicRegion: String) throws -> INumberFormatter {
@@ -2126,7 +2148,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 // MARK: - IncrementNumberRounder
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.incrementnumberrounder)
-public final class IncrementNumberRounder : WinRTClass, INumberRounder {
+public final class IncrementNumberRounder : WinRTClass, @unchecked Sendable, INumberRounder {
     private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberRounder
     private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2227,7 +2249,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x70A64FF8, Data2: 0x66AB, Data3: 0x4155, Data4: ( 0x9D,0xA1,0x73,0x9E,0x46,0x76,0x45,0x43 ) // 70A64FF8-66AB-4155-9DA1-739E46764543
     ) 
 
-    public class IIncrementNumberRounder: WindowsFoundation.IInspectable {
+    public class IIncrementNumberRounder: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CIIncrementNumberRounder }
 
         public func get_RoundingAlgorithm() throws -> UWP.RoundingAlgorithm {
@@ -2264,7 +2286,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 // MARK: - NumeralSystemTranslator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.numeralsystemtranslator)
-public final class NumeralSystemTranslator : WinRTClass {
+public final class NumeralSystemTranslator : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumeralSystemTranslator
     private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumeralSystemTranslator
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2344,7 +2366,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x28F5BC2C, Data2: 0x8C23, Data3: 0x4234, Data4: ( 0xAD,0x2E,0xFA,0x5A,0x3A,0x42,0x6E,0x9B ) // 28F5BC2C-8C23-4234-AD2E-FA5A3A426E9B
     ) 
 
-    public class INumeralSystemTranslator: WindowsFoundation.IInspectable {
+    public class INumeralSystemTranslator: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumeralSystemTranslator }
 
         public func get_Languages() throws -> WindowsFoundation.AnyIVectorView<String>? {
@@ -2358,19 +2380,23 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
         public func get_ResolvedLanguage() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumeralSystemTranslator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResolvedLanguage(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_NumeralSystem() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumeralSystemTranslator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumeralSystem(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2383,11 +2409,13 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 
         public func TranslateNumerals(_ value: String) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             let _value = try! HString(value)
             _ = try perform(as: __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumeralSystemTranslator.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TranslateNumerals(pThis, _value.get(), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2397,7 +2425,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x9630C8DA, Data2: 0x36EF, Data3: 0x4D88, Data4: ( 0xA8,0x5C,0x6F,0x0D,0x98,0xD6,0x20,0xA6 ) // 9630C8DA-36EF-4D88-A85C-6F0D98D620A6
     ) 
 
-    public class INumeralSystemTranslatorFactory: WindowsFoundation.IInspectable {
+    public class INumeralSystemTranslatorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumeralSystemTranslatorFactory }
 
         public func Create(_ languages: WindowsFoundation.AnyIIterable<String>?) throws -> INumeralSystemTranslator {
@@ -2417,7 +2445,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 // MARK: - PercentFormatter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.percentformatter)
-public final class PercentFormatter : WinRTClass, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
+public final class PercentFormatter : WinRTClass, @unchecked Sendable, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
     private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter
     private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2604,7 +2632,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0xB7828AEF, Data2: 0xFED4, Data3: 0x4018, Data4: ( 0xA6,0xE2,0xE0,0x99,0x61,0xE0,0x37,0x65 ) // B7828AEF-FED4-4018-A6E2-E09961E03765
     ) 
 
-    public class IPercentFormatterFactory: WindowsFoundation.IInspectable {
+    public class IPercentFormatterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CIPercentFormatterFactory }
 
         public func CreatePercentFormatter(_ languages: WindowsFoundation.AnyIIterable<String>?, _ geographicRegion: String) throws -> INumberFormatter {
@@ -2625,7 +2653,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 // MARK: - PermilleFormatter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.permilleformatter)
-public final class PermilleFormatter : WinRTClass, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
+public final class PermilleFormatter : WinRTClass, @unchecked Sendable, INumberFormatterOptions, INumberFormatter, INumberFormatter2, INumberParser, ISignificantDigitsOption, INumberRounderOption, ISignedZeroOption {
     private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter
     private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberFormatter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2812,7 +2840,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0x2B37B4AC, Data2: 0xE638, Data3: 0x4ED5, Data4: ( 0xA9,0x98,0x62,0xF6,0xB0,0x6A,0x49,0xAE ) // 2B37B4AC-E638-4ED5-A998-62F6B06A49AE
     ) 
 
-    public class IPermilleFormatterFactory: WindowsFoundation.IInspectable {
+    public class IPermilleFormatterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CIPermilleFormatterFactory }
 
         public func CreatePermilleFormatter(_ languages: WindowsFoundation.AnyIIterable<String>?, _ geographicRegion: String) throws -> INumberFormatter {
@@ -2833,7 +2861,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
 // MARK: - SignificantDigitsNumberRounder
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.globalization.numberformatting.significantdigitsnumberrounder)
-public final class SignificantDigitsNumberRounder : WinRTClass, INumberRounder {
+public final class SignificantDigitsNumberRounder : WinRTClass, @unchecked Sendable, INumberRounder {
     private typealias SwiftABI = __ABI_Windows_Globalization_NumberFormatting.INumberRounder
     private typealias CABI = __x_ABI_CWindows_CGlobalization_CNumberFormatting_CINumberRounder
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2934,7 +2962,7 @@ extension __ABI_Windows_Globalization_NumberFormatting {
         Data1: 0xF5941BCA, Data2: 0x6646, Data3: 0x4913, Data4: ( 0x8C,0x76,0x1B,0x19,0x1F,0xF9,0x4D,0xFD ) // F5941BCA-6646-4913-8C76-1B191FF94DFD
     ) 
 
-    public class ISignificantDigitsNumberRounder: WindowsFoundation.IInspectable {
+    public class ISignificantDigitsNumberRounder: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGlobalization_CNumberFormatting_CISignificantDigitsNumberRounder }
 
         public func get_RoundingAlgorithm() throws -> UWP.RoundingAlgorithm {

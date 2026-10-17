@@ -45,7 +45,7 @@ extension __IMPL_Windows_Media_Effects {
         }
     }
 
-    fileprivate class IAudioEffectDefinitionImpl: IAudioEffectDefinition, WinRTAbiImpl {
+    fileprivate class IAudioEffectDefinitionImpl: IAudioEffectDefinition, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IAudioEffectDefinitionBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -72,15 +72,17 @@ extension __ABI_Windows_Media_Effects {
         Data1: 0xE4D7F974, Data2: 0x7D80, Data3: 0x4F73, Data4: ( 0x90,0x89,0xE3,0x1C,0x9D,0xB9,0xC2,0x94 ) // E4D7F974-7D80-4F73-9089-E31C9DB9C294
     ) 
 
-    public class IAudioEffectDefinition: WindowsFoundation.IInspectable {
+    public class IAudioEffectDefinition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition }
 
         open func get_ActivatableClassId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinition.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActivatableClassId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -95,7 +97,7 @@ extension __ABI_Windows_Media_Effects {
 
     }
 
-    internal static var IAudioEffectDefinitionVTable: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinitionVtbl = .init(
+    internal static nonisolated(unsafe) var IAudioEffectDefinitionVTable: __x_ABI_CWindows_CMedia_CEffects_CIAudioEffectDefinitionVtbl = .init(
         QueryInterface: { IAudioEffectDefinitionWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAudioEffectDefinitionWrapper.addRef($0) },
         Release: { IAudioEffectDefinitionWrapper.release($0) },

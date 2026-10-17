@@ -46,7 +46,7 @@ extension __IMPL_Windows_Web_Http_Filters {
         }
     }
 
-    fileprivate class IHttpFilterImpl: IHttpFilter, WinRTAbiImpl {
+    fileprivate class IHttpFilterImpl: IHttpFilter, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IHttpFilterBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -74,7 +74,7 @@ extension __ABI_Windows_Web_Http_Filters {
         Data1: 0xA4CB6DD5, Data2: 0x0902, Data3: 0x439E, Data4: ( 0xBF,0xD7,0xE1,0x25,0x52,0xB1,0x65,0xCE ) // A4CB6DD5-0902-439E-BFD7-E12552B165CE
     ) 
 
-    public class IHttpFilter: WindowsFoundation.IInspectable {
+    public class IHttpFilter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CFilters_CIHttpFilter }
 
         open func SendRequestAsync(_ request: UWP.HttpRequestMessage?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.HttpResponseMessage?, UWP.HttpProgress>? {
@@ -88,7 +88,7 @@ extension __ABI_Windows_Web_Http_Filters {
 
     }
 
-    internal static var IHttpFilterVTable: __x_ABI_CWindows_CWeb_CHttp_CFilters_CIHttpFilterVtbl = .init(
+    internal static nonisolated(unsafe) var IHttpFilterVTable: __x_ABI_CWindows_CWeb_CHttp_CFilters_CIHttpFilterVtbl = .init(
         QueryInterface: { IHttpFilterWrapper.queryInterface($0, $1, $2) },
         AddRef: { IHttpFilterWrapper.addRef($0) },
         Release: { IHttpFilterWrapper.release($0) },

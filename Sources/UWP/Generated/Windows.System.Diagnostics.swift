@@ -7,7 +7,7 @@ import CWinRT
 // MARK: - SystemCpuUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusage)
-public final class SystemCpuUsage : WinRTClass {
+public final class SystemCpuUsage : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System_Diagnostics.ISystemCpuUsage
     private typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -61,7 +61,7 @@ extension __ABI_Windows_System_Diagnostics {
         Data1: 0x6037B3AC, Data2: 0x02D6, Data3: 0x4234, Data4: ( 0x83,0x62,0x7F,0xE3,0xAD,0xC8,0x1F,0x5F ) // 6037B3AC-02D6-4234-8362-7FE3ADC81F5F
     ) 
 
-    public class ISystemCpuUsage: WindowsFoundation.IInspectable {
+    public class ISystemCpuUsage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsage }
 
         public func GetReport() throws -> UWP.SystemCpuUsageReport? {
@@ -79,7 +79,7 @@ extension __ABI_Windows_System_Diagnostics {
 // MARK: - SystemCpuUsageReport
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemcpuusagereport)
-public final class SystemCpuUsageReport : WinRTClass {
+public final class SystemCpuUsageReport : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System_Diagnostics.ISystemCpuUsageReport
     private typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -143,7 +143,7 @@ extension __ABI_Windows_System_Diagnostics {
         Data1: 0x2C26D0B2, Data2: 0x9483, Data3: 0x4F62, Data4: ( 0xAB,0x57,0x82,0xB2,0x9D,0x97,0x19,0xB8 ) // 2C26D0B2-9483-4F62-AB57-82B29D9719B8
     ) 
 
-    public class ISystemCpuUsageReport: WindowsFoundation.IInspectable {
+    public class ISystemCpuUsageReport: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemCpuUsageReport }
 
         public func get_KernelTime() throws -> WindowsFoundation.TimeSpan {
@@ -176,7 +176,7 @@ extension __ABI_Windows_System_Diagnostics {
 // MARK: - SystemDiagnosticInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemdiagnosticinfo)
-public final class SystemDiagnosticInfo : WinRTClass {
+public final class SystemDiagnosticInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System_Diagnostics.ISystemDiagnosticInfo
     private typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -241,7 +241,7 @@ extension __ABI_Windows_System_Diagnostics {
         Data1: 0xA290FE05, Data2: 0xDFF3, Data3: 0x407F, Data4: ( 0x9A,0x1B,0x0B,0x2B,0x31,0x7C,0xA8,0x00 ) // A290FE05-DFF3-407F-9A1B-0B2B317CA800
     ) 
 
-    public class ISystemDiagnosticInfo: WindowsFoundation.IInspectable {
+    public class ISystemDiagnosticInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo }
 
         public func get_MemoryUsage() throws -> UWP.SystemMemoryUsage? {
@@ -268,7 +268,7 @@ extension __ABI_Windows_System_Diagnostics {
         Data1: 0xD404AC21, Data2: 0xFC7D, Data3: 0x45F0, Data4: ( 0x9A,0x3F,0x39,0x20,0x3A,0xED,0x9F,0x7E ) // D404AC21-FC7D-45F0-9A3F-39203AED9F7E
     ) 
 
-    public class ISystemDiagnosticInfoStatics: WindowsFoundation.IInspectable {
+    public class ISystemDiagnosticInfoStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics }
 
         public func GetForCurrentSystem() throws -> UWP.SystemDiagnosticInfo? {
@@ -286,7 +286,7 @@ extension __ABI_Windows_System_Diagnostics {
 // MARK: - SystemMemoryUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusage)
-public final class SystemMemoryUsage : WinRTClass {
+public final class SystemMemoryUsage : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System_Diagnostics.ISystemMemoryUsage
     private typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -340,7 +340,7 @@ extension __ABI_Windows_System_Diagnostics {
         Data1: 0x17FFC595, Data2: 0x1702, Data3: 0x49CF, Data4: ( 0xAA,0x27,0x2F,0x0A,0x32,0x59,0x14,0x04 ) // 17FFC595-1702-49CF-AA27-2F0A32591404
     ) 
 
-    public class ISystemMemoryUsage: WindowsFoundation.IInspectable {
+    public class ISystemMemoryUsage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage }
 
         public func GetReport() throws -> UWP.SystemMemoryUsageReport? {
@@ -358,7 +358,7 @@ extension __ABI_Windows_System_Diagnostics {
 // MARK: - SystemMemoryUsageReport
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.diagnostics.systemmemoryusagereport)
-public final class SystemMemoryUsageReport : WinRTClass {
+public final class SystemMemoryUsageReport : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System_Diagnostics.ISystemMemoryUsageReport
     private typealias CABI = __x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -422,7 +422,7 @@ extension __ABI_Windows_System_Diagnostics {
         Data1: 0x38663C87, Data2: 0x2A9F, Data3: 0x403A, Data4: ( 0xBD,0x19,0x2C,0xF3,0xE8,0x16,0x95,0x00 ) // 38663C87-2A9F-403A-BD19-2CF3E8169500
     ) 
 
-    public class ISystemMemoryUsageReport: WindowsFoundation.IInspectable {
+    public class ISystemMemoryUsageReport: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsageReport }
 
         public func get_TotalPhysicalSizeInBytes() throws -> UInt64 {

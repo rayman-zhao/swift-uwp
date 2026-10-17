@@ -238,7 +238,7 @@ extension __IMPL_Windows_ApplicationModel_Contacts {
         }
     }
 
-    fileprivate class IContactFieldImpl: IContactField, WinRTAbiImpl {
+    fileprivate class IContactFieldImpl: IContactField, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IContactFieldBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -275,7 +275,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0xB176486A, Data2: 0xD293, Data3: 0x492C, Data4: ( 0xA0,0x58,0xDB,0x57,0x5B,0x3E,0x3C,0x0F ) // B176486A-D293-492C-A058-DB575B3E3C0F
     ) 
 
-    public class IContactField: WindowsFoundation.IInspectable {
+    public class IContactField: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactField }
 
         open func get_Type() throws -> UWP.ContactFieldType {
@@ -296,25 +296,29 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         open func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactField.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_Value() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactField.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
     }
 
-    internal static var IContactFieldVTable: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactFieldVtbl = .init(
+    internal static nonisolated(unsafe) var IContactFieldVTable: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactFieldVtbl = .init(
         QueryInterface: { IContactFieldWrapper.queryInterface($0, $1, $2) },
         AddRef: { IContactFieldWrapper.addRef($0) },
         Release: { IContactFieldWrapper.release($0) },
@@ -384,7 +388,7 @@ public class IContactFieldMaker: MakeFromAbi {
 // MARK: - Contact
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contact)
-public final class Contact : WinRTClass {
+public final class Contact : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContact
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContact
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -662,15 +666,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0xEC0072F3, Data2: 0x2118, Data3: 0x4049, Data4: ( 0x9E,0xBC,0x17,0xF0,0xAB,0x69,0x2B,0x64 ) // EC0072F3-2118-4049-9EBC-17F0AB692B64
     ) 
 
-    public class IContact: WindowsFoundation.IInspectable {
+    public class IContact: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContact }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -713,15 +719,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0xF312F365, Data2: 0xBB77, Data3: 0x4C94, Data4: ( 0x80,0x2D,0x83,0x28,0xCE,0xE4,0x0C,0x08 ) // F312F365-BB77-4C94-802D-8328CEE40C08
     ) 
 
-    public class IContact2: WindowsFoundation.IInspectable {
+    public class IContact2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContact2 }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -734,10 +742,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Notes() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Notes(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -844,15 +854,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0xF404E97B, Data2: 0x9034, Data3: 0x453C, Data4: ( 0x8E,0xBF,0x14,0x0A,0x38,0xC8,0x6F,0x1D ) // F404E97B-9034-453C-8EBF-140A38C86F1D
     ) 
 
-    public class IContactName: WindowsFoundation.IInspectable {
+    public class IContactName: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactName }
 
         public func get_FirstName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -865,10 +877,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_LastName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -881,10 +895,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_MiddleName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MiddleName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -897,10 +913,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_YomiGivenName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_YomiGivenName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -913,10 +931,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_YomiFamilyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_YomiFamilyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -929,10 +949,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_HonorificNameSuffix() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HonorificNameSuffix(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -945,10 +967,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_HonorificNamePrefix() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HonorificNamePrefix(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -961,19 +985,23 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_YomiDisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactName.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_YomiDisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -983,15 +1011,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x48201E67, Data2: 0xE08E, Data3: 0x42A4, Data4: ( 0xB5,0x61,0x41,0xD0,0x8C,0xA9,0x57,0x5D ) // 48201E67-E08E-42A4-B561-41D08CA9575D
     ) 
 
-    public class IContact3: WindowsFoundation.IInspectable {
+    public class IContact3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContact3 }
 
         public func get_ContactListId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContactListId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1019,19 +1049,23 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_AggregateId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AggregateId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_RemoteId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RemoteId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1044,10 +1078,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_RingToneToken() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RingToneToken(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1103,10 +1139,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_TextToneToken() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextToneToken(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1127,19 +1165,23 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_FullName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FullName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DisplayNameOverride() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayNameOverride(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1152,10 +1194,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Nickname() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Nickname(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1168,10 +1212,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_SortName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContact3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SortName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1181,7 +1227,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactAddress
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactaddress)
-public final class ContactAddress : WinRTClass {
+public final class ContactAddress : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactAddress
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1277,15 +1323,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x9739D39A, Data2: 0x42CE, Data3: 0x4872, Data4: ( 0x8D,0x70,0x30,0x63,0xAA,0x58,0x4B,0x70 ) // 9739D39A-42CE-4872-8D70-3063AA584B70
     ) 
 
-    public class IContactAddress: WindowsFoundation.IInspectable {
+    public class IContactAddress: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress }
 
         public func get_StreetAddress() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StreetAddress(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1298,10 +1346,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Locality() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Locality(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1314,10 +1364,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Region() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Region(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1330,10 +1382,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Country() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Country(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1346,10 +1400,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_PostalCode() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PostalCode(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1376,10 +1432,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactAddress.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1396,7 +1454,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactConnectedServiceAccount
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactconnectedserviceaccount)
-public final class ContactConnectedServiceAccount : WinRTClass {
+public final class ContactConnectedServiceAccount : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactConnectedServiceAccount
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactConnectedServiceAccount
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1462,15 +1520,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0xF6F83553, Data2: 0xAA27, Data3: 0x4731, Data4: ( 0x8E,0x4A,0x3D,0xEC,0x5C,0xE9,0xEE,0xC9 ) // F6F83553-AA27-4731-8E4A-3DEC5CE9EEC9
     ) 
 
-    public class IContactConnectedServiceAccount: WindowsFoundation.IInspectable {
+    public class IContactConnectedServiceAccount: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactConnectedServiceAccount }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactConnectedServiceAccount.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1483,10 +1543,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_ServiceName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactConnectedServiceAccount.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ServiceName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1503,7 +1565,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactDate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactdate)
-public final class ContactDate : WinRTClass {
+public final class ContactDate : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactDate
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactDate
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1587,7 +1649,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0xFE98AE66, Data2: 0xB205, Data3: 0x4934, Data4: ( 0x91,0x74,0x0F,0xF2,0xB0,0x56,0x57,0x07 ) // FE98AE66-B205-4934-9174-0FF2B0565707
     ) 
 
-    public class IContactDate: WindowsFoundation.IInspectable {
+    public class IContactDate: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactDate }
 
         public func get_Day() throws -> UInt32? {
@@ -1657,10 +1719,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactDate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1677,7 +1741,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactEmail
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactemail)
-public final class ContactEmail : WinRTClass {
+public final class ContactEmail : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactEmail
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactEmail
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1749,15 +1813,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x90A219A9, Data2: 0xE3D3, Data3: 0x4D63, Data4: ( 0x99,0x3B,0x05,0xB9,0xA5,0x39,0x3A,0xBF ) // 90A219A9-E3D3-4D63-993B-05B9A5393ABF
     ) 
 
-    public class IContactEmail: WindowsFoundation.IInspectable {
+    public class IContactEmail: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactEmail }
 
         public func get_Address() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactEmail.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Address(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1784,10 +1850,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactEmail.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1804,7 +1872,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactJobInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactjobinfo)
-public final class ContactJobInfo : WinRTClass {
+public final class ContactJobInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactJobInfo
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1906,15 +1974,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x6D117B4C, Data2: 0xCE50, Data3: 0x4B43, Data4: ( 0x9E,0x69,0xB1,0x82,0x58,0xEA,0x53,0x15 ) // 6D117B4C-CE50-4B43-9E69-B18258EA5315
     ) 
 
-    public class IContactJobInfo: WindowsFoundation.IInspectable {
+    public class IContactJobInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo }
 
         public func get_CompanyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompanyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1927,10 +1997,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_CompanyYomiName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompanyYomiName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1943,10 +2015,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Department() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Department(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1959,10 +2033,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1975,10 +2051,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Manager() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Manager(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1991,10 +2069,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Office() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Office(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2007,10 +2087,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_CompanyAddress() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompanyAddress(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2023,10 +2105,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactJobInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2043,7 +2127,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactPhone
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactphone)
-public final class ContactPhone : WinRTClass {
+public final class ContactPhone : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactPhone
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactPhone
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2115,15 +2199,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x467DAB65, Data2: 0x2712, Data3: 0x4F52, Data4: ( 0xB7,0x83,0x9E,0xA8,0x11,0x1C,0x63,0xCD ) // 467DAB65-2712-4F52-B783-9EA8111C63CD
     ) 
 
-    public class IContactPhone: WindowsFoundation.IInspectable {
+    public class IContactPhone: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactPhone }
 
         public func get_Number() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactPhone.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Number(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2150,10 +2236,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactPhone.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2170,7 +2258,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactSignificantOther
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactsignificantother)
-public final class ContactSignificantOther : WinRTClass {
+public final class ContactSignificantOther : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactSignificantOther
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactSignificantOther
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2244,15 +2332,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x8873B5AB, Data2: 0xC5FB, Data3: 0x46D8, Data4: ( 0x93,0xFE,0xDA,0x3F,0xF1,0x93,0x40,0x54 ) // 8873B5AB-C5FB-46D8-93FE-DA3FF1934054
     ) 
 
-    public class IContactSignificantOther: WindowsFoundation.IInspectable {
+    public class IContactSignificantOther: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactSignificantOther }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactSignificantOther.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2265,10 +2355,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactSignificantOther.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2285,7 +2377,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x8D7BD474, Data2: 0x3F03, Data3: 0x45F8, Data4: ( 0xBA,0x0F,0xC4,0xED,0x37,0xD6,0x42,0x19 ) // 8D7BD474-3F03-45F8-BA0F-C4ED37D64219
     ) 
 
-    public class IContactSignificantOther2: WindowsFoundation.IInspectable {
+    public class IContactSignificantOther2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactSignificantOther2 }
 
         public func get_Relationship() throws -> UWP.ContactRelationship {
@@ -2308,7 +2400,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 // MARK: - ContactWebsite
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactwebsite)
-public final class ContactWebsite : WinRTClass {
+public final class ContactWebsite : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Contacts.IContactWebsite
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CContacts_CIContactWebsite
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2382,7 +2474,7 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0x9F130176, Data2: 0xDC1B, Data3: 0x4055, Data4: ( 0xAD,0x66,0x65,0x2F,0x39,0xD9,0x90,0xE8 ) // 9F130176-DC1B-4055-AD66-652F39D990E8
     ) 
 
-    public class IContactWebsite: WindowsFoundation.IInspectable {
+    public class IContactWebsite: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactWebsite }
 
         public func get_Uri() throws -> WindowsFoundation.Uri? {
@@ -2402,10 +2494,12 @@ extension __ABI_Windows_ApplicationModel_Contacts {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactWebsite.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2422,15 +2516,17 @@ extension __ABI_Windows_ApplicationModel_Contacts {
         Data1: 0xF87EE91E, Data2: 0x5647, Data3: 0x4068, Data4: ( 0xBB,0x5E,0x4B,0x6F,0x43,0x7C,0xE3,0x08 ) // F87EE91E-5647-4068-BB5E-4B6F437CE308
     ) 
 
-    public class IContactWebsite2: WindowsFoundation.IInspectable {
+    public class IContactWebsite2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CContacts_CIContactWebsite2 }
 
         public func get_RawValue() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CContacts_CIContactWebsite2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RawValue(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 

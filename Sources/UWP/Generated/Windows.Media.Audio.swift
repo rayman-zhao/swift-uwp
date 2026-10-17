@@ -286,7 +286,7 @@ extension __IMPL_Windows_Media_Audio {
         }
     }
 
-    fileprivate class IAudioInputNodeImpl: IAudioInputNode, WinRTAbiImpl {
+    fileprivate class IAudioInputNodeImpl: IAudioInputNode, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IAudioInputNodeBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -377,7 +377,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xD148005C, Data2: 0x8428, Data3: 0x4784, Data4: ( 0xB7,0xFD,0xA9,0x9D,0x46,0x8C,0x5D,0x20 ) // D148005C-8428-4784-B7FD-A99D468C5D20
     ) 
 
-    public class IAudioInputNode: WindowsFoundation.IInspectable {
+    public class IAudioInputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode }
 
         open func get_OutgoingConnections() throws -> WindowsFoundation.AnyIVectorView<UWP.AudioGraphConnection?>? {
@@ -415,7 +415,7 @@ extension __ABI_Windows_Media_Audio {
 
     }
 
-    internal static var IAudioInputNodeVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNodeVtbl = .init(
+    internal static nonisolated(unsafe) var IAudioInputNodeVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNodeVtbl = .init(
         QueryInterface: { IAudioInputNodeWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAudioInputNodeWrapper.addRef($0) },
         Release: { IAudioInputNodeWrapper.release($0) },
@@ -540,7 +540,7 @@ extension __IMPL_Windows_Media_Audio {
         }
     }
 
-    fileprivate class IAudioInputNode2Impl: IAudioInputNode2, WinRTAbiImpl {
+    fileprivate class IAudioInputNode2Impl: IAudioInputNode2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IAudioInputNode2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -637,7 +637,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x905156B7, Data2: 0xCA68, Data3: 0x4C6D, Data4: ( 0xA8,0xBC,0xE3,0xEE,0x17,0xFE,0x3F,0xD2 ) // 905156B7-CA68-4C6D-A8BC-E3EE17FE3FD2
     ) 
 
-    public class IAudioInputNode2: WindowsFoundation.IInspectable {
+    public class IAudioInputNode2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2 }
 
         open func get_Emitter() throws -> UWP.AudioNodeEmitter? {
@@ -651,7 +651,7 @@ extension __ABI_Windows_Media_Audio {
 
     }
 
-    internal static var IAudioInputNode2VTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2Vtbl = .init(
+    internal static nonisolated(unsafe) var IAudioInputNode2VTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode2Vtbl = .init(
         QueryInterface: { IAudioInputNode2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IAudioInputNode2Wrapper.addRef($0) },
         Release: { IAudioInputNode2Wrapper.release($0) },
@@ -758,7 +758,7 @@ extension __IMPL_Windows_Media_Audio {
         }
     }
 
-    fileprivate class IAudioNodeImpl: IAudioNode, WinRTAbiImpl {
+    fileprivate class IAudioNodeImpl: IAudioNode, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IAudioNodeBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -828,7 +828,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x15389D7F, Data2: 0xDBD8, Data3: 0x4819, Data4: ( 0xBF,0x03,0x66,0x8E,0x93,0x57,0xCD,0x6D ) // 15389D7F-DBD8-4819-BF03-668E9357CD6D
     ) 
 
-    public class IAudioNode: WindowsFoundation.IInspectable {
+    public class IAudioNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNode }
 
         open func get_EffectDefinitions() throws -> WindowsFoundation.AnyIVector<UWP.AnyIAudioEffectDefinition?>? {
@@ -913,7 +913,7 @@ extension __ABI_Windows_Media_Audio {
 
     }
 
-    internal static var IAudioNodeVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeVtbl = .init(
+    internal static nonisolated(unsafe) var IAudioNodeVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeVtbl = .init(
         QueryInterface: { IAudioNodeWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAudioNodeWrapper.addRef($0) },
         Release: { IAudioNodeWrapper.release($0) },
@@ -1083,7 +1083,7 @@ extension __IMPL_Windows_Media_Audio {
         }
     }
 
-    fileprivate class IAudioNodeWithListenerImpl: IAudioNodeWithListener, WinRTAbiImpl {
+    fileprivate class IAudioNodeWithListenerImpl: IAudioNodeWithListener, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IAudioNodeWithListenerBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1160,7 +1160,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x0E0F907C, Data2: 0x79FF, Data3: 0x4544, Data4: ( 0x9E,0xEB,0x01,0x25,0x7B,0x15,0x10,0x5A ) // 0E0F907C-79FF-4544-9EEB-01257B15105A
     ) 
 
-    public class IAudioNodeWithListener: WindowsFoundation.IInspectable {
+    public class IAudioNodeWithListener: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListener }
 
         open func put_Listener(_ value: UWP.AudioNodeListener?) throws {
@@ -1180,7 +1180,7 @@ extension __ABI_Windows_Media_Audio {
 
     }
 
-    internal static var IAudioNodeWithListenerVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListenerVtbl = .init(
+    internal static nonisolated(unsafe) var IAudioNodeWithListenerVTable: __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeWithListenerVtbl = .init(
         QueryInterface: { IAudioNodeWithListenerWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAudioNodeWithListenerWrapper.addRef($0) },
         Release: { IAudioNodeWithListenerWrapper.release($0) },
@@ -1238,7 +1238,7 @@ public class IAudioNodeWithListenerMaker: MakeFromAbi {
 // MARK: - AudioDeviceInputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceinputnode)
-public final class AudioDeviceInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
+public final class AudioDeviceInputNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioDeviceInputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1380,7 +1380,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xB01B6BE1, Data2: 0x6F4E, Data3: 0x49E2, Data4: ( 0xAC,0x01,0x55,0x9D,0x62,0xBE,0xB3,0xA9 ) // B01B6BE1-6F4E-49E2-AC01-559D62BEB3A9
     ) 
 
-    public class IAudioDeviceInputNode: WindowsFoundation.IInspectable {
+    public class IAudioDeviceInputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceInputNode }
 
         public func get_Device() throws -> UWP.DeviceInformation? {
@@ -1398,7 +1398,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioDeviceOutputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiodeviceoutputnode)
-public final class AudioDeviceOutputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioNodeWithListener {
+public final class AudioDeviceOutputNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode, IAudioNodeWithListener {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioDeviceOutputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1519,7 +1519,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x362EDBFF, Data2: 0xFF1C, Data3: 0x4434, Data4: ( 0x9E,0x0F,0xBD,0x2E,0xF5,0x22,0xAC,0x82 ) // 362EDBFF-FF1C-4434-9E0F-BD2EF522AC82
     ) 
 
-    public class IAudioDeviceOutputNode: WindowsFoundation.IInspectable {
+    public class IAudioDeviceOutputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioDeviceOutputNode }
 
         public func get_Device() throws -> UWP.DeviceInformation? {
@@ -1537,7 +1537,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioFileInputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileinputnode)
-public final class AudioFileInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
+public final class AudioFileInputNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFileInputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1731,7 +1731,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x905B67C8, Data2: 0x6F65, Data3: 0x4CD4, Data4: ( 0x88,0x90,0x46,0x94,0x84,0x3C,0x27,0x6D ) // 905B67C8-6F65-4CD4-8890-4694843C276D
     ) 
 
-    public class IAudioFileInputNode: WindowsFoundation.IInspectable {
+    public class IAudioFileInputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFileInputNode }
 
         public func put_PlaybackSpeedFactor(_ value: Double) throws {
@@ -1852,7 +1852,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioFileOutputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiofileoutputnode)
-public final class AudioFileOutputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode {
+public final class AudioFileOutputNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFileOutputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1975,7 +1975,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x50E01980, Data2: 0x5166, Data3: 0x4093, Data4: ( 0x80,0xF8,0xAD,0xA0,0x00,0x89,0xE9,0xCF ) // 50E01980-5166-4093-80F8-ADA00089E9CF
     ) 
 
-    public class IAudioFileOutputNode: WindowsFoundation.IInspectable {
+    public class IAudioFileOutputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFileOutputNode }
 
         public func get_File() throws -> UWP.AnyIStorageFile? {
@@ -2011,7 +2011,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioFrameCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframecompletedeventargs)
-public final class AudioFrameCompletedEventArgs : WinRTClass {
+public final class AudioFrameCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFrameCompletedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2065,7 +2065,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xDC7C829E, Data2: 0x0208, Data3: 0x4504, Data4: ( 0xA5,0xA8,0xF0,0xF2,0x68,0x92,0x0A,0x65 ) // DC7C829E-0208-4504-A5A8-F0F268920A65
     ) 
 
-    public class IAudioFrameCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class IAudioFrameCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameCompletedEventArgs }
 
         public func get_Frame() throws -> UWP.AudioFrame? {
@@ -2083,7 +2083,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioFrameInputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeinputnode)
-public final class AudioFrameInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
+public final class AudioFrameInputNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFrameInputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2267,7 +2267,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x01B266C7, Data2: 0xFD96, Data3: 0x4FF5, Data4: ( 0xA3,0xC5,0xD2,0x7A,0x9B,0xF4,0x42,0x37 ) // 01B266C7-FD96-4FF5-A3C5-D27A9BF44237
     ) 
 
-    public class IAudioFrameInputNode: WindowsFoundation.IInspectable {
+    public class IAudioFrameInputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameInputNode }
 
         public func put_PlaybackSpeedFactor(_ value: Double) throws {
@@ -2342,7 +2342,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioFrameOutputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audioframeoutputnode)
-public final class AudioFrameOutputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode {
+public final class AudioFrameOutputNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioFrameOutputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2455,7 +2455,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xB847371B, Data2: 0x3299, Data3: 0x45F5, Data4: ( 0x88,0xB3,0xC9,0xD1,0x2A,0x3F,0x1C,0xC8 ) // B847371B-3299-45F5-88B3-C9D12A3F1CC8
     ) 
 
-    public class IAudioFrameOutputNode: WindowsFoundation.IInspectable {
+    public class IAudioFrameOutputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioFrameOutputNode }
 
         public func GetFrame() throws -> UWP.AudioFrame? {
@@ -2473,7 +2473,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioGraph
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiograph)
-public final class AudioGraph : WinRTClass, WindowsFoundation.IClosable {
+public final class AudioGraph : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioGraph
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraph
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2726,7 +2726,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x1AD46EED, Data2: 0xE48C, Data3: 0x4E14, Data4: ( 0x96,0x60,0x2C,0x4F,0x83,0xE9,0xCD,0xD8 ) // 1AD46EED-E48C-4E14-9660-2C4F83E9CDD8
     ) 
 
-    public class IAudioGraph: WindowsFoundation.IInspectable {
+    public class IAudioGraph: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph }
 
         public func CreateFrameInputNode() throws -> UWP.AudioFrameInputNode? {
@@ -2974,7 +2974,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x4E4C3BD5, Data2: 0x4FC1, Data3: 0x45F6, Data4: ( 0xA9,0x47,0x3C,0xD3,0x8F,0x4F,0xD8,0x39 ) // 4E4C3BD5-4FC1-45F6-A947-3CD38F4FD839
     ) 
 
-    public class IAudioGraph2: WindowsFoundation.IInspectable {
+    public class IAudioGraph2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph2 }
 
         public func CreateFrameInputNodeWithFormatAndEmitter(_ encodingProperties: UWP.AudioEncodingProperties?, _ emitter: UWP.AudioNodeEmitter?) throws -> UWP.AudioFrameInputNode? {
@@ -3030,7 +3030,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xDDCD25AE, Data2: 0x1185, Data3: 0x42A7, Data4: ( 0x83,0x1D,0x6A,0x9B,0x0F,0xC8,0x68,0x20 ) // DDCD25AE-1185-42A7-831D-6A9B0FC86820
     ) 
 
-    public class IAudioGraph3: WindowsFoundation.IInspectable {
+    public class IAudioGraph3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraph3 }
 
         public func CreateMediaSourceAudioInputNodeAsync(_ mediaSource: UWP.MediaSource?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateMediaSourceAudioInputNodeResult?>? {
@@ -3057,7 +3057,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x76EC3132, Data2: 0xE159, Data3: 0x4AB7, Data4: ( 0xA8,0x2A,0x17,0xBE,0xB4,0xB3,0x1E,0x94 ) // 76EC3132-E159-4AB7-A82A-17BEB4B31E94
     ) 
 
-    public class IAudioGraphStatics: WindowsFoundation.IInspectable {
+    public class IAudioGraphStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphStatics }
 
         public func CreateAsync(_ settings: UWP.AudioGraphSettings?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CreateAudioGraphResult?>? {
@@ -3075,7 +3075,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioGraphBatchUpdater
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographbatchupdater)
-public final class AudioGraphBatchUpdater : WinRTClass, WindowsFoundation.IClosable {
+public final class AudioGraphBatchUpdater : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Foundation.IClosable
     private typealias CABI = __x_ABI_CWindows_CFoundation_CIClosable
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3132,7 +3132,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioGraphConnection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographconnection)
-public final class AudioGraphConnection : WinRTClass {
+public final class AudioGraphConnection : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioGraphConnection
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3192,7 +3192,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x763070ED, Data2: 0xD04E, Data3: 0x4FAC, Data4: ( 0xB2,0x33,0x60,0x0B,0x42,0xED,0xD4,0x69 ) // 763070ED-D04E-4FAC-B233-600B42EDD469
     ) 
 
-    public class IAudioGraphConnection: WindowsFoundation.IInspectable {
+    public class IAudioGraphConnection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphConnection }
 
         public func get_Destination() throws -> UWP.AnyIAudioNode? {
@@ -3224,7 +3224,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioGraphSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographsettings)
-public final class AudioGraphSettings : WinRTClass {
+public final class AudioGraphSettings : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioGraphSettings
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3322,7 +3322,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x1D59647F, Data2: 0xE6FE, Data3: 0x4628, Data4: ( 0x84,0xF8,0x9D,0x8B,0xDB,0xA2,0x57,0x85 ) // 1D59647F-E6FE-4628-84F8-9D8BDBA25785
     ) 
 
-    public class IAudioGraphSettings: WindowsFoundation.IInspectable {
+    public class IAudioGraphSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings }
 
         public func get_EncodingProperties() throws -> UWP.AudioEncodingProperties? {
@@ -3417,7 +3417,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x72919787, Data2: 0x4DAB, Data3: 0x46E3, Data4: ( 0xB4,0xC9,0xD8,0xE1,0xA2,0x63,0x60,0x62 ) // 72919787-4DAB-46E3-B4C9-D8E1A2636062
     ) 
 
-    public class IAudioGraphSettings2: WindowsFoundation.IInspectable {
+    public class IAudioGraphSettings2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettings2 }
 
         public func put_MaxPlaybackSpeedFactor(_ value: Double) throws {
@@ -3440,7 +3440,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xA5D91CC6, Data2: 0xC2EB, Data3: 0x4A61, Data4: ( 0xA2,0x14,0x1D,0x66,0xD7,0x5F,0x83,0xDA ) // A5D91CC6-C2EB-4A61-A214-1D66D75F83DA
     ) 
 
-    public class IAudioGraphSettingsFactory: WindowsFoundation.IInspectable {
+    public class IAudioGraphSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphSettingsFactory }
 
         public func Create(_ audioRenderCategory: UWP.AudioRenderCategory) throws -> IAudioGraphSettings {
@@ -3458,7 +3458,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioGraphUnrecoverableErrorOccurredEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiographunrecoverableerroroccurredeventargs)
-public final class AudioGraphUnrecoverableErrorOccurredEventArgs : WinRTClass {
+public final class AudioGraphUnrecoverableErrorOccurredEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3512,7 +3512,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xC3D9CBE0, Data2: 0x3FF6, Data3: 0x4FB3, Data4: ( 0xB2,0x62,0x50,0xD4,0x35,0xC5,0x54,0x23 ) // C3D9CBE0-3FF6-4FB3-B262-50D435C55423
     ) 
 
-    public class IAudioGraphUnrecoverableErrorOccurredEventArgs: WindowsFoundation.IInspectable {
+    public class IAudioGraphUnrecoverableErrorOccurredEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioGraphUnrecoverableErrorOccurredEventArgs }
 
         public func get_Error() throws -> UWP.AudioGraphUnrecoverableError {
@@ -3529,7 +3529,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioNodeEmitter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitter)
-public final class AudioNodeEmitter : WinRTClass {
+public final class AudioNodeEmitter : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeEmitter
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3647,7 +3647,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x3676971D, Data2: 0x880A, Data3: 0x47B8, Data4: ( 0xAD,0xF7,0x13,0x23,0xA9,0xD9,0x65,0xBE ) // 3676971D-880A-47B8-ADF7-1323A9D965BE
     ) 
 
-    public class IAudioNodeEmitter: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter }
 
         public func get_Position() throws -> WindowsFoundation.Vector3 {
@@ -3766,7 +3766,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x4AB6EECB, Data2: 0xEC29, Data3: 0x47F8, Data4: ( 0x81,0x8C,0xB6,0xB6,0x60,0xA5,0xAE,0xB1 ) // 4AB6EECB-EC29-47F8-818C-B6B660A5AEB1
     ) 
 
-    public class IAudioNodeEmitter2: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitter2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitter2 }
 
         public func get_SpatialAudioModel() throws -> UWP.SpatialAudioModel {
@@ -3789,7 +3789,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xFDC8489A, Data2: 0x6AD6, Data3: 0x4CE4, Data4: ( 0xB7,0xF7,0xA9,0x93,0x70,0xDF,0x7E,0xE9 ) // FDC8489A-6AD6-4CE4-B7F7-A99370DF7EE9
     ) 
 
-    public class IAudioNodeEmitterFactory: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterFactory }
 
         public func CreateAudioNodeEmitter(_ shape: UWP.AudioNodeEmitterShape?, _ decayModel: UWP.AudioNodeEmitterDecayModel?, _ settings: UWP.AudioNodeEmitterSettings) throws -> IAudioNodeEmitter {
@@ -3807,7 +3807,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioNodeEmitterConeProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterconeproperties)
-public final class AudioNodeEmitterConeProperties : WinRTClass {
+public final class AudioNodeEmitterConeProperties : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeEmitterConeProperties
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3871,7 +3871,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xE99B2CEE, Data2: 0x02CA, Data3: 0x4375, Data4: ( 0x93,0x26,0x0C,0x6A,0xE4,0xBC,0xDF,0xB5 ) // E99B2CEE-02CA-4375-9326-0C6AE4BCDFB5
     ) 
 
-    public class IAudioNodeEmitterConeProperties: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitterConeProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterConeProperties }
 
         public func get_InnerAngle() throws -> Double {
@@ -3904,7 +3904,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioNodeEmitterDecayModel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitterdecaymodel)
-public final class AudioNodeEmitterDecayModel : WinRTClass {
+public final class AudioNodeEmitterDecayModel : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeEmitterDecayModel
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3984,7 +3984,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x1D1D5AF7, Data2: 0x0D53, Data3: 0x4FA9, Data4: ( 0xBD,0x84,0xD5,0x81,0x6A,0x86,0xF3,0xFF ) // 1D1D5AF7-0D53-4FA9-BD84-D5816A86F3FF
     ) 
 
-    public class IAudioNodeEmitterDecayModel: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitterDecayModel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModel }
 
         public func get_Kind() throws -> UWP.AudioNodeEmitterDecayKind {
@@ -4026,7 +4026,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xC7787CA8, Data2: 0xF178, Data3: 0x462F, Data4: ( 0xBC,0x81,0x8D,0xD5,0xCB,0xE5,0xDA,0xE8 ) // C7787CA8-F178-462F-BC81-8DD5CBE5DAE8
     ) 
 
-    public class IAudioNodeEmitterDecayModelStatics: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitterDecayModelStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterDecayModelStatics }
 
         public func CreateNatural(_ minGain: Double, _ maxGain: Double, _ unityGainDistance: Double, _ cutoffDistance: Double) throws -> UWP.AudioNodeEmitterDecayModel? {
@@ -4053,7 +4053,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioNodeEmitterNaturalDecayModelProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemitternaturaldecaymodelproperties)
-public final class AudioNodeEmitterNaturalDecayModelProperties : WinRTClass {
+public final class AudioNodeEmitterNaturalDecayModelProperties : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeEmitterNaturalDecayModelProperties
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4112,7 +4112,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x48934BCF, Data2: 0xCF2C, Data3: 0x4EFC, Data4: ( 0x93,0x31,0x75,0xBD,0x22,0xDF,0x1F,0x0C ) // 48934BCF-CF2C-4EFC-9331-75BD22DF1F0C
     ) 
 
-    public class IAudioNodeEmitterNaturalDecayModelProperties: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitterNaturalDecayModelProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterNaturalDecayModelProperties }
 
         public func get_UnityGainDistance() throws -> Double {
@@ -4137,7 +4137,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioNodeEmitterShape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodeemittershape)
-public final class AudioNodeEmitterShape : WinRTClass {
+public final class AudioNodeEmitterShape : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeEmitterShape
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4207,7 +4207,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xEA0311C5, Data2: 0xE73D, Data3: 0x44BC, Data4: ( 0x85,0x9C,0x45,0x55,0x3B,0xBC,0x48,0x28 ) // EA0311C5-E73D-44BC-859C-45553BBC4828
     ) 
 
-    public class IAudioNodeEmitterShape: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitterShape: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShape }
 
         public func get_Kind() throws -> UWP.AudioNodeEmitterShapeKind {
@@ -4233,7 +4233,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x57BB2771, Data2: 0xFFA5, Data3: 0x4B86, Data4: ( 0xA7,0x79,0xE2,0x64,0xAE,0xB9,0x14,0x5F ) // 57BB2771-FFA5-4B86-A779-E264AEB9145F
     ) 
 
-    public class IAudioNodeEmitterShapeStatics: WindowsFoundation.IInspectable {
+    public class IAudioNodeEmitterShapeStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeEmitterShapeStatics }
 
         public func CreateCone(_ innerAngle: Double, _ outerAngle: Double, _ outerAngleGain: Double) throws -> UWP.AudioNodeEmitterShape? {
@@ -4260,7 +4260,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioNodeListener
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audionodelistener)
-public final class AudioNodeListener : WinRTClass {
+public final class AudioNodeListener : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioNodeListener
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4338,7 +4338,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xD9722E16, Data2: 0x0C0A, Data3: 0x41DA, Data4: ( 0xB7,0x55,0x6C,0x77,0x83,0x5F,0xB1,0xEB ) // D9722E16-0C0A-41DA-B755-6C77835FB1EB
     ) 
 
-    public class IAudioNodeListener: WindowsFoundation.IInspectable {
+    public class IAudioNodeListener: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioNodeListener }
 
         public func get_Position() throws -> WindowsFoundation.Vector3 {
@@ -4403,7 +4403,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioStateMonitor
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiostatemonitor)
-public final class AudioStateMonitor : WinRTClass {
+public final class AudioStateMonitor : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioStateMonitor
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4511,7 +4511,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x1D13D136, Data2: 0x0199, Data3: 0x4CDC, Data4: ( 0xB8,0x4E,0xE7,0x2C,0x2B,0x58,0x1E,0xCE ) // 1D13D136-0199-4CDC-B84E-E72C2B581ECE
     ) 
 
-    public class IAudioStateMonitor: WindowsFoundation.IInspectable {
+    public class IAudioStateMonitor: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitor }
 
         public func add_SoundLevelChanged(_ handler: TypedEventHandler<UWP.AudioStateMonitor?, Any?>?) throws -> EventRegistrationToken {
@@ -4544,7 +4544,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x6374EA4C, Data2: 0x1B3B, Data3: 0x4001, Data4: ( 0x94,0xD9,0xDD,0x22,0x53,0x30,0xFA,0x40 ) // 6374EA4C-1B3B-4001-94D9-DD225330FA40
     ) 
 
-    public class IAudioStateMonitorStatics: WindowsFoundation.IInspectable {
+    public class IAudioStateMonitorStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIAudioStateMonitorStatics }
 
         public func CreateForRenderMonitoring() throws -> UWP.AudioStateMonitor? {
@@ -4627,7 +4627,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - AudioSubmixNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.audiosubmixnode)
-public final class AudioSubmixNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
+public final class AudioSubmixNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IAudioInputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIAudioInputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4762,7 +4762,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - CreateAudioDeviceInputNodeResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceinputnoderesult)
-public final class CreateAudioDeviceInputNodeResult : WinRTClass {
+public final class CreateAudioDeviceInputNodeResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioDeviceInputNodeResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4828,7 +4828,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x16EEC7A8, Data2: 0x1CA7, Data3: 0x40EF, Data4: ( 0x91,0xA4,0xD3,0x46,0xE0,0xAA,0x1B,0xBA ) // 16EEC7A8-1CA7-40EF-91A4-D346E0AA1BBA
     ) 
 
-    public class ICreateAudioDeviceInputNodeResult: WindowsFoundation.IInspectable {
+    public class ICreateAudioDeviceInputNodeResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult }
 
         public func get_Status() throws -> UWP.AudioDeviceNodeCreationStatus {
@@ -4854,7 +4854,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x921C69CE, Data2: 0x3F35, Data3: 0x41C7, Data4: ( 0x96,0x22,0x79,0xF6,0x08,0xBA,0xED,0xC2 ) // 921C69CE-3F35-41C7-9622-79F608BAEDC2
     ) 
 
-    public class ICreateAudioDeviceInputNodeResult2: WindowsFoundation.IInspectable {
+    public class ICreateAudioDeviceInputNodeResult2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceInputNodeResult2 }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -4871,7 +4871,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - CreateAudioDeviceOutputNodeResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiodeviceoutputnoderesult)
-public final class CreateAudioDeviceOutputNodeResult : WinRTClass {
+public final class CreateAudioDeviceOutputNodeResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioDeviceOutputNodeResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4937,7 +4937,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xF7776D27, Data2: 0x1D9A, Data3: 0x47F7, Data4: ( 0x9C,0xD4,0x28,0x59,0xCC,0x1B,0x7B,0xFF ) // F7776D27-1D9A-47F7-9CD4-2859CC1B7BFF
     ) 
 
-    public class ICreateAudioDeviceOutputNodeResult: WindowsFoundation.IInspectable {
+    public class ICreateAudioDeviceOutputNodeResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult }
 
         public func get_Status() throws -> UWP.AudioDeviceNodeCreationStatus {
@@ -4963,7 +4963,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x4864269F, Data2: 0xBDCE, Data3: 0x4AB1, Data4: ( 0xBD,0x38,0xFB,0xAE,0x93,0xAE,0xDA,0xCA ) // 4864269F-BDCE-4AB1-BD38-FBAE93AEDACA
     ) 
 
-    public class ICreateAudioDeviceOutputNodeResult2: WindowsFoundation.IInspectable {
+    public class ICreateAudioDeviceOutputNodeResult2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioDeviceOutputNodeResult2 }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -4980,7 +4980,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - CreateAudioFileInputNodeResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileinputnoderesult)
-public final class CreateAudioFileInputNodeResult : WinRTClass {
+public final class CreateAudioFileInputNodeResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioFileInputNodeResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5046,7 +5046,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xCE83D61C, Data2: 0xE297, Data3: 0x4C50, Data4: ( 0x9C,0xE7,0x1C,0x7A,0x69,0xD6,0xBD,0x09 ) // CE83D61C-E297-4C50-9CE7-1C7A69D6BD09
     ) 
 
-    public class ICreateAudioFileInputNodeResult: WindowsFoundation.IInspectable {
+    public class ICreateAudioFileInputNodeResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult }
 
         public func get_Status() throws -> UWP.AudioFileNodeCreationStatus {
@@ -5072,7 +5072,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xF9082020, Data2: 0x3D80, Data3: 0x4FE0, Data4: ( 0x81,0xC1,0x76,0x8F,0xEA,0x7C,0xA7,0xE0 ) // F9082020-3D80-4FE0-81C1-768FEA7CA7E0
     ) 
 
-    public class ICreateAudioFileInputNodeResult2: WindowsFoundation.IInspectable {
+    public class ICreateAudioFileInputNodeResult2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileInputNodeResult2 }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -5089,7 +5089,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - CreateAudioFileOutputNodeResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiofileoutputnoderesult)
-public final class CreateAudioFileOutputNodeResult : WinRTClass {
+public final class CreateAudioFileOutputNodeResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioFileOutputNodeResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5155,7 +5155,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x47D6BA7B, Data2: 0xE909, Data3: 0x453F, Data4: ( 0x86,0x6E,0x55,0x40,0xCD,0xA7,0x34,0xFF ) // 47D6BA7B-E909-453F-866E-5540CDA734FF
     ) 
 
-    public class ICreateAudioFileOutputNodeResult: WindowsFoundation.IInspectable {
+    public class ICreateAudioFileOutputNodeResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult }
 
         public func get_Status() throws -> UWP.AudioFileNodeCreationStatus {
@@ -5181,7 +5181,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x9F01B50D, Data2: 0x3318, Data3: 0x47B3, Data4: ( 0xA6,0x0A,0x1B,0x49,0x2B,0xE7,0xFC,0x0D ) // 9F01B50D-3318-47B3-A60A-1B492BE7FC0D
     ) 
 
-    public class ICreateAudioFileOutputNodeResult2: WindowsFoundation.IInspectable {
+    public class ICreateAudioFileOutputNodeResult2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioFileOutputNodeResult2 }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -5198,7 +5198,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - CreateAudioGraphResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createaudiographresult)
-public final class CreateAudioGraphResult : WinRTClass {
+public final class CreateAudioGraphResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateAudioGraphResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5264,7 +5264,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x5453EF7E, Data2: 0x7BDE, Data3: 0x4B76, Data4: ( 0xBB,0x5D,0x48,0xF7,0x9C,0xFC,0x8C,0x0B ) // 5453EF7E-7BDE-4B76-BB5D-48F79CFC8C0B
     ) 
 
-    public class ICreateAudioGraphResult: WindowsFoundation.IInspectable {
+    public class ICreateAudioGraphResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult }
 
         public func get_Status() throws -> UWP.AudioGraphCreationStatus {
@@ -5290,7 +5290,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x6D738DFC, Data2: 0x88C6, Data3: 0x4FCB, Data4: ( 0xA5,0x34,0x85,0xCE,0xDD,0x40,0x50,0xA1 ) // 6D738DFC-88C6-4FCB-A534-85CEDD4050A1
     ) 
 
-    public class ICreateAudioGraphResult2: WindowsFoundation.IInspectable {
+    public class ICreateAudioGraphResult2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateAudioGraphResult2 }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -5307,7 +5307,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - CreateMediaSourceAudioInputNodeResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult)
-public final class CreateMediaSourceAudioInputNodeResult : WinRTClass {
+public final class CreateMediaSourceAudioInputNodeResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ICreateMediaSourceAudioInputNodeResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5373,7 +5373,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x46A658A3, Data2: 0x53C0, Data3: 0x4D59, Data4: ( 0x9E,0x51,0xCC,0x1D,0x10,0x44,0xA4,0xC4 ) // 46A658A3-53C0-4D59-9E51-CC1D1044A4C4
     ) 
 
-    public class ICreateMediaSourceAudioInputNodeResult: WindowsFoundation.IInspectable {
+    public class ICreateMediaSourceAudioInputNodeResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult }
 
         public func get_Status() throws -> UWP.MediaSourceAudioInputNodeCreationStatus {
@@ -5399,7 +5399,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x63514CE8, Data2: 0x6A1A, Data3: 0x49E3, Data4: ( 0x97,0xEC,0x28,0xFD,0x5B,0xE1,0x14,0xE5 ) // 63514CE8-6A1A-49E3-97EC-28FD5BE114E5
     ) 
 
-    public class ICreateMediaSourceAudioInputNodeResult2: WindowsFoundation.IInspectable {
+    public class ICreateMediaSourceAudioInputNodeResult2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CICreateMediaSourceAudioInputNodeResult2 }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -5416,7 +5416,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - EchoEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.echoeffectdefinition)
-public final class EchoEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
+public final class EchoEffectDefinition : WinRTClass, @unchecked Sendable, UWP.IAudioEffectDefinition {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IEchoEffectDefinition
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5503,7 +5503,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x0E4D3FAA, Data2: 0x36B8, Data3: 0x4C91, Data4: ( 0xB9,0xDA,0x11,0xF4,0x4A,0x8A,0x66,0x10 ) // 0E4D3FAA-36B8-4C91-B9DA-11F44A8A6610
     ) 
 
-    public class IEchoEffectDefinition: WindowsFoundation.IInspectable {
+    public class IEchoEffectDefinition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinition }
 
         public func put_WetDryMix(_ value: Double) throws {
@@ -5554,7 +5554,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x0D4E2257, Data2: 0xAAF2, Data3: 0x4E86, Data4: ( 0xA5,0x4C,0xFB,0x79,0xDB,0x8F,0x6C,0x12 ) // 0D4E2257-AAF2-4E86-A54C-FB79DB8F6C12
     ) 
 
-    public class IEchoEffectDefinitionFactory: WindowsFoundation.IInspectable {
+    public class IEchoEffectDefinitionFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEchoEffectDefinitionFactory }
 
         public func Create(_ audioGraph: UWP.AudioGraph?) throws -> IEchoEffectDefinition {
@@ -5572,7 +5572,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - EqualizerBand
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizerband)
-public final class EqualizerBand : WinRTClass {
+public final class EqualizerBand : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IEqualizerBand
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5639,7 +5639,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xC00A5A6A, Data2: 0x262D, Data3: 0x4B85, Data4: ( 0x9B,0xB7,0x43,0x28,0x0B,0x62,0xED,0x0C ) // C00A5A6A-262D-4B85-9BB7-43280B62ED0C
     ) 
 
-    public class IEqualizerBand: WindowsFoundation.IInspectable {
+    public class IEqualizerBand: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerBand }
 
         public func get_Bandwidth() throws -> Double {
@@ -5690,7 +5690,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - EqualizerEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.equalizereffectdefinition)
-public final class EqualizerEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
+public final class EqualizerEffectDefinition : WinRTClass, @unchecked Sendable, UWP.IAudioEffectDefinition {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IEqualizerEffectDefinition
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5764,7 +5764,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x023F6F1F, Data2: 0x83FE, Data3: 0x449A, Data4: ( 0xA8,0x22,0xC6,0x96,0x44,0x2D,0x16,0xB0 ) // 023F6F1F-83FE-449A-A822-C696442D16B0
     ) 
 
-    public class IEqualizerEffectDefinition: WindowsFoundation.IInspectable {
+    public class IEqualizerEffectDefinition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinition }
 
         public func get_Bands() throws -> WindowsFoundation.AnyIVectorView<UWP.EqualizerBand?>? {
@@ -5782,7 +5782,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xD2876FC4, Data2: 0xD410, Data3: 0x4EB5, Data4: ( 0x9E,0x69,0xC9,0xAA,0x12,0x77,0xEA,0xF0 ) // D2876FC4-D410-4EB5-9E69-C9AA1277EAF0
     ) 
 
-    public class IEqualizerEffectDefinitionFactory: WindowsFoundation.IInspectable {
+    public class IEqualizerEffectDefinitionFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIEqualizerEffectDefinitionFactory }
 
         public func Create(_ audioGraph: UWP.AudioGraph?) throws -> IEqualizerEffectDefinition {
@@ -5800,7 +5800,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - FrameInputNodeQuantumStartedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.frameinputnodequantumstartedeventargs)
-public final class FrameInputNodeQuantumStartedEventArgs : WinRTClass {
+public final class FrameInputNodeQuantumStartedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IFrameInputNodeQuantumStartedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5854,7 +5854,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x3D9BD498, Data2: 0xA306, Data3: 0x4F06, Data4: ( 0xBD,0x9F,0xE9,0xEF,0xC8,0x22,0x63,0x04 ) // 3D9BD498-A306-4F06-BD9F-E9EFC8226304
     ) 
 
-    public class IFrameInputNodeQuantumStartedEventArgs: WindowsFoundation.IInspectable {
+    public class IFrameInputNodeQuantumStartedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIFrameInputNodeQuantumStartedEventArgs }
 
         public func get_RequiredSamples() throws -> Int32 {
@@ -5871,7 +5871,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - LimiterEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.limitereffectdefinition)
-public final class LimiterEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
+public final class LimiterEffectDefinition : WinRTClass, @unchecked Sendable, UWP.IAudioEffectDefinition {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ILimiterEffectDefinition
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5952,7 +5952,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x6B755D19, Data2: 0x2603, Data3: 0x47BA, Data4: ( 0xBD,0xEB,0x39,0x05,0x5E,0x34,0x86,0xDC ) // 6B755D19-2603-47BA-BDEB-39055E3486DC
     ) 
 
-    public class ILimiterEffectDefinition: WindowsFoundation.IInspectable {
+    public class ILimiterEffectDefinition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinition }
 
         public func put_Release(_ value: UInt32) throws {
@@ -5989,7 +5989,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xECBAE6F1, Data2: 0x61FF, Data3: 0x45EF, Data4: ( 0xB8,0xF5,0x48,0x65,0x9A,0x57,0xC7,0x2D ) // ECBAE6F1-61FF-45EF-B8F5-48659A57C72D
     ) 
 
-    public class ILimiterEffectDefinitionFactory: WindowsFoundation.IInspectable {
+    public class ILimiterEffectDefinitionFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CILimiterEffectDefinitionFactory }
 
         public func Create(_ audioGraph: UWP.AudioGraph?) throws -> ILimiterEffectDefinition {
@@ -6007,7 +6007,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - MediaSourceAudioInputNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.mediasourceaudioinputnode)
-public final class MediaSourceAudioInputNode : WinRTClass, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
+public final class MediaSourceAudioInputNode : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAudioNode, IAudioInputNode, IAudioInputNode2 {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IMediaSourceAudioInputNode
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6201,7 +6201,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x99D8983B, Data2: 0xA88A, Data3: 0x4041, Data4: ( 0x8E,0x4F,0xDD,0xBA,0xC0,0xC9,0x1F,0xD3 ) // 99D8983B-A88A-4041-8E4F-DDBAC0C91FD3
     ) 
 
-    public class IMediaSourceAudioInputNode: WindowsFoundation.IInspectable {
+    public class IMediaSourceAudioInputNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIMediaSourceAudioInputNode }
 
         public func put_PlaybackSpeedFactor(_ value: Double) throws {
@@ -6322,7 +6322,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - ReverbEffectDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.reverbeffectdefinition)
-public final class ReverbEffectDefinition : WinRTClass, UWP.IAudioEffectDefinition {
+public final class ReverbEffectDefinition : WinRTClass, @unchecked Sendable, UWP.IAudioEffectDefinition {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.IReverbEffectDefinition
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6529,7 +6529,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x4606AA89, Data2: 0xF563, Data3: 0x4D0A, Data4: ( 0x8F,0x6E,0xF0,0xCD,0xDF,0xF3,0x5D,0x84 ) // 4606AA89-F563-4D0A-8F6E-F0CDDFF35D84
     ) 
 
-    public class IReverbEffectDefinition: WindowsFoundation.IInspectable {
+    public class IReverbEffectDefinition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinition }
 
         public func put_WetDryMix(_ value: Double) throws {
@@ -6860,7 +6860,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xA7D5CBFE, Data2: 0x100B, Data3: 0x4FF0, Data4: ( 0x9D,0xA6,0xDC,0x4E,0x05,0xA7,0x59,0xF0 ) // A7D5CBFE-100B-4FF0-9DA6-DC4E05A759F0
     ) 
 
-    public class IReverbEffectDefinitionFactory: WindowsFoundation.IInspectable {
+    public class IReverbEffectDefinitionFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CIReverbEffectDefinitionFactory }
 
         public func Create(_ audioGraph: UWP.AudioGraph?) throws -> IReverbEffectDefinition {
@@ -6878,7 +6878,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - SetDefaultSpatialAudioFormatResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.setdefaultspatialaudioformatresult)
-public final class SetDefaultSpatialAudioFormatResult : WinRTClass {
+public final class SetDefaultSpatialAudioFormatResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ISetDefaultSpatialAudioFormatResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6932,7 +6932,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x1C2AA511, Data2: 0x1400, Data3: 0x5E70, Data4: ( 0x9E,0xA9,0xAE,0x15,0x12,0x41,0xE8,0xEA ) // 1C2AA511-1400-5E70-9EA9-AE151241E8EA
     ) 
 
-    public class ISetDefaultSpatialAudioFormatResult: WindowsFoundation.IInspectable {
+    public class ISetDefaultSpatialAudioFormatResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISetDefaultSpatialAudioFormatResult }
 
         public func get_Status() throws -> UWP.SetDefaultSpatialAudioFormatStatus {
@@ -6949,7 +6949,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - SpatialAudioDeviceConfiguration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudiodeviceconfiguration)
-public final class SpatialAudioDeviceConfiguration : WinRTClass {
+public final class SpatialAudioDeviceConfiguration : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ISpatialAudioDeviceConfiguration
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7047,15 +7047,17 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xEE830034, Data2: 0x61CF, Data3: 0x5749, Data4: ( 0x9D,0xA4,0x10,0xF0,0xFE,0x02,0x81,0x99 ) // EE830034-61CF-5749-9DA4-10F0FE028199
     ) 
 
-    public class ISpatialAudioDeviceConfiguration: WindowsFoundation.IInspectable {
+    public class ISpatialAudioDeviceConfiguration: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration }
 
         public func get_DeviceId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -7078,19 +7080,23 @@ extension __ABI_Windows_Media_Audio {
 
         public func get_ActiveSpatialAudioFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActiveSpatialAudioFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DefaultSpatialAudioFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfiguration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DefaultSpatialAudioFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -7126,7 +7132,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x3EC37F7B, Data2: 0x936D, Data3: 0x4E04, Data4: ( 0x97,0x28,0x28,0x27,0xD9,0xF7,0x58,0xC4 ) // 3EC37F7B-936D-4E04-9728-2827D9F758C4
     ) 
 
-    public class ISpatialAudioDeviceConfigurationStatics: WindowsFoundation.IInspectable {
+    public class ISpatialAudioDeviceConfigurationStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioDeviceConfigurationStatics }
 
         public func GetForDeviceId(_ deviceId: String) throws -> UWP.SpatialAudioDeviceConfiguration? {
@@ -7145,7 +7151,7 @@ extension __ABI_Windows_Media_Audio {
 // MARK: - SpatialAudioFormatConfiguration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.audio.spatialaudioformatconfiguration)
-public final class SpatialAudioFormatConfiguration : WinRTClass {
+public final class SpatialAudioFormatConfiguration : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Audio.ISpatialAudioFormatConfiguration
     private typealias CABI = __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7216,7 +7222,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x32DF09A8, Data2: 0x50F0, Data3: 0x5395, Data4: ( 0x99,0x23,0x7D,0x44,0xCA,0x71,0xED,0x6D ) // 32DF09A8-50F0-5395-9923-7D44CA71ED6D
     ) 
 
-    public class ISpatialAudioFormatConfiguration: WindowsFoundation.IInspectable {
+    public class ISpatialAudioFormatConfiguration: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfiguration }
 
         public func ReportLicenseChangedAsync(_ subtype: String) throws -> WindowsFoundation.AnyIAsyncAction? {
@@ -7259,7 +7265,7 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0x2B5FEF71, Data2: 0x67C9, Data3: 0x4E5F, Data4: ( 0xA3,0x5B,0x41,0x68,0x07,0x11,0xF8,0xC7 ) // 2B5FEF71-67C9-4E5F-A35B-41680711F8C7
     ) 
 
-    public class ISpatialAudioFormatConfigurationStatics: WindowsFoundation.IInspectable {
+    public class ISpatialAudioFormatConfigurationStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfigurationStatics }
 
         public func GetDefault() throws -> UWP.SpatialAudioFormatConfiguration? {
@@ -7319,60 +7325,72 @@ extension __ABI_Windows_Media_Audio {
         Data1: 0xB3DE8A47, Data2: 0x83EE, Data3: 0x4266, Data4: ( 0xA9,0x45,0xBE,0xDF,0x50,0x7A,0xFE,0xED ) // B3DE8A47-83EE-4266-A945-BEDF507AFEED
     ) 
 
-    public class ISpatialAudioFormatSubtypeStatics: WindowsFoundation.IInspectable {
+    public class ISpatialAudioFormatSubtypeStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics }
 
         public func get_WindowsSonic() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_WindowsSonic(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DolbyAtmosForHeadphones() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DolbyAtmosForHeadphones(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DolbyAtmosForHomeTheater() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DolbyAtmosForHomeTheater(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DolbyAtmosForSpeakers() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DolbyAtmosForSpeakers(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DTSHeadphoneX() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DTSHeadphoneX(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DTSXUltra() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DTSXUltra(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 

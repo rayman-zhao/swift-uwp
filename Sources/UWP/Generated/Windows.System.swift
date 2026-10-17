@@ -744,7 +744,7 @@ extension UWP.VirtualKeyModifiers: @retroactive Hashable, @retroactive Codable, 
 
 // MARK: - DispatcherQueueHandler
 
-public typealias DispatcherQueueHandler = () throws -> ()
+public typealias DispatcherQueueHandler = @Sendable () throws -> ()
 
 // MARK: - DispatcherQueueHandler Internals
 
@@ -771,7 +771,7 @@ extension __ABI_Windows_System {
         Data1: 0xDFA2DC9C, Data2: 0x1A2D, Data3: 0x4917, Data4: ( 0x98,0xF2,0x93,0x9A,0xF1,0xD6,0xE0,0xC8 ) // DFA2DC9C-1A2D-4917-98F2-939AF1D6E0C8
     ) 
 
-    public class DispatcherQueueHandler: WindowsFoundation.IUnknown {
+    public class DispatcherQueueHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueHandler }
 
         open func Invoke() throws {
@@ -784,7 +784,7 @@ extension __ABI_Windows_System {
 
 
     typealias DispatcherQueueHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_System.DispatcherQueueHandlerBridge>
-    internal static var DispatcherQueueHandlerVTable: __x_ABI_CWindows_CSystem_CIDispatcherQueueHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var DispatcherQueueHandlerVTable: __x_ABI_CWindows_CSystem_CIDispatcherQueueHandlerVtbl = .init(
         QueryInterface: { DispatcherQueueHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DispatcherQueueHandlerWrapper.addRef($0) },
         Release: { DispatcherQueueHandlerWrapper.release($0) },
@@ -843,7 +843,7 @@ extension __IMPL_Windows_System {
         }
     }
 
-    fileprivate class ILauncherViewOptionsImpl: ILauncherViewOptions, WinRTAbiImpl {
+    fileprivate class ILauncherViewOptionsImpl: ILauncherViewOptions, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ILauncherViewOptionsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -866,7 +866,7 @@ extension __ABI_Windows_System {
         Data1: 0x8A9B29F1, Data2: 0x7CA7, Data3: 0x49DE, Data4: ( 0x9B,0xD3,0x3C,0x5B,0x71,0x84,0xF6,0x16 ) // 8A9B29F1-7CA7-49DE-9BD3-3C5B7184F616
     ) 
 
-    public class ILauncherViewOptions: WindowsFoundation.IInspectable {
+    public class ILauncherViewOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherViewOptions }
 
         open func get_DesiredRemainingView() throws -> UWP.ViewSizePreference {
@@ -885,7 +885,7 @@ extension __ABI_Windows_System {
 
     }
 
-    internal static var ILauncherViewOptionsVTable: __x_ABI_CWindows_CSystem_CILauncherViewOptionsVtbl = .init(
+    internal static nonisolated(unsafe) var ILauncherViewOptionsVTable: __x_ABI_CWindows_CSystem_CILauncherViewOptionsVtbl = .init(
         QueryInterface: { ILauncherViewOptionsWrapper.queryInterface($0, $1, $2) },
         AddRef: { ILauncherViewOptionsWrapper.addRef($0) },
         Release: { ILauncherViewOptionsWrapper.release($0) },
@@ -941,7 +941,7 @@ public class ILauncherViewOptionsMaker: MakeFromAbi {
 // MARK: - DispatcherQueue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueue)
-public final class DispatcherQueue : WinRTClass {
+public final class DispatcherQueue : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IDispatcherQueue
     private typealias CABI = __x_ABI_CWindows_CSystem_CIDispatcherQueue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1044,7 +1044,7 @@ extension __ABI_Windows_System {
         Data1: 0x603E88E4, Data2: 0xA338, Data3: 0x4FFE, Data4: ( 0xA4,0x57,0xA5,0xCF,0xB9,0xCE,0xB8,0x99 ) // 603E88E4-A338-4FFE-A457-A5CFB9CEB899
     ) 
 
-    public class IDispatcherQueue: WindowsFoundation.IInspectable {
+    public class IDispatcherQueue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueue }
 
         public func CreateTimer() throws -> UWP.DispatcherQueueTimer? {
@@ -1114,7 +1114,7 @@ extension __ABI_Windows_System {
         Data1: 0xC822C647, Data2: 0x30EF, Data3: 0x506E, Data4: ( 0xBD,0x1E,0xA6,0x47,0xAE,0x66,0x75,0xFF ) // C822C647-30EF-506E-BD1E-A647AE6675FF
     ) 
 
-    public class IDispatcherQueue2: WindowsFoundation.IInspectable {
+    public class IDispatcherQueue2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueue2 }
 
         public func get_HasThreadAccess() throws -> Bool {
@@ -1131,7 +1131,7 @@ extension __ABI_Windows_System {
         Data1: 0xA96D83D7, Data2: 0x9371, Data3: 0x4517, Data4: ( 0x92,0x45,0xD0,0x82,0x4A,0xC1,0x2C,0x74 ) // A96D83D7-9371-4517-9245-D0824AC12C74
     ) 
 
-    public class IDispatcherQueueStatics: WindowsFoundation.IInspectable {
+    public class IDispatcherQueueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueStatics }
 
         public func GetForCurrentThread() throws -> UWP.DispatcherQueue? {
@@ -1149,7 +1149,7 @@ extension __ABI_Windows_System {
 // MARK: - DispatcherQueueController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuecontroller)
-public final class DispatcherQueueController : WinRTClass {
+public final class DispatcherQueueController : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IDispatcherQueueController
     private typealias CABI = __x_ABI_CWindows_CSystem_CIDispatcherQueueController
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1214,7 +1214,7 @@ extension __ABI_Windows_System {
         Data1: 0x22F34E66, Data2: 0x50DB, Data3: 0x4E36, Data4: ( 0xA9,0x8D,0x61,0xC0,0x1B,0x38,0x4D,0x20 ) // 22F34E66-50DB-4E36-A98D-61C01B384D20
     ) 
 
-    public class IDispatcherQueueController: WindowsFoundation.IInspectable {
+    public class IDispatcherQueueController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueController }
 
         public func get_DispatcherQueue() throws -> UWP.DispatcherQueue? {
@@ -1241,7 +1241,7 @@ extension __ABI_Windows_System {
         Data1: 0x0A6C98E0, Data2: 0x5198, Data3: 0x49A2, Data4: ( 0xA3,0x13,0x3F,0x70,0xD1,0xF1,0x3C,0x27 ) // 0A6C98E0-5198-49A2-A313-3F70D1F13C27
     ) 
 
-    public class IDispatcherQueueControllerStatics: WindowsFoundation.IInspectable {
+    public class IDispatcherQueueControllerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueControllerStatics }
 
         public func CreateOnDedicatedThread() throws -> UWP.DispatcherQueueController? {
@@ -1259,7 +1259,7 @@ extension __ABI_Windows_System {
 // MARK: - DispatcherQueueShutdownStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueueshutdownstartingeventargs)
-public final class DispatcherQueueShutdownStartingEventArgs : WinRTClass {
+public final class DispatcherQueueShutdownStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IDispatcherQueueShutdownStartingEventArgs
     private typealias CABI = __x_ABI_CWindows_CSystem_CIDispatcherQueueShutdownStartingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1313,7 +1313,7 @@ extension __ABI_Windows_System {
         Data1: 0xC4724C4C, Data2: 0xFF97, Data3: 0x40C0, Data4: ( 0xA2,0x26,0xCC,0x0A,0xAA,0x54,0x5E,0x89 ) // C4724C4C-FF97-40C0-A226-CC0AAA545E89
     ) 
 
-    public class IDispatcherQueueShutdownStartingEventArgs: WindowsFoundation.IInspectable {
+    public class IDispatcherQueueShutdownStartingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueShutdownStartingEventArgs }
 
         public func GetDeferral() throws -> WindowsFoundation.Deferral? {
@@ -1331,7 +1331,7 @@ extension __ABI_Windows_System {
 // MARK: - DispatcherQueueTimer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.dispatcherqueuetimer)
-public final class DispatcherQueueTimer : WinRTClass {
+public final class DispatcherQueueTimer : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IDispatcherQueueTimer
     private typealias CABI = __x_ABI_CWindows_CSystem_CIDispatcherQueueTimer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1420,7 +1420,7 @@ extension __ABI_Windows_System {
         Data1: 0x5FEABB1D, Data2: 0xA31C, Data3: 0x4727, Data4: ( 0xB1,0xAC,0x37,0x45,0x46,0x49,0xD5,0x6A ) // 5FEABB1D-A31C-4727-B1AC-37454649D56A
     ) 
 
-    public class IDispatcherQueueTimer: WindowsFoundation.IInspectable {
+    public class IDispatcherQueueTimer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIDispatcherQueueTimer }
 
         public func get_Interval() throws -> WindowsFoundation.TimeSpan {
@@ -1493,7 +1493,7 @@ extension __ABI_Windows_System {
 // MARK: - FolderLauncherOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.folderlauncheroptions)
-public final class FolderLauncherOptions : WinRTClass, ILauncherViewOptions {
+public final class FolderLauncherOptions : WinRTClass, @unchecked Sendable, ILauncherViewOptions {
     private typealias SwiftABI = __ABI_Windows_System.IFolderLauncherOptions
     private typealias CABI = __x_ABI_CWindows_CSystem_CIFolderLauncherOptions
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1563,7 +1563,7 @@ extension __ABI_Windows_System {
         Data1: 0xBB91C27D, Data2: 0x6B87, Data3: 0x432A, Data4: ( 0xBD,0x04,0x77,0x6C,0x6F,0x5F,0xB2,0xAB ) // BB91C27D-6B87-432A-BD04-776C6F5FB2AB
     ) 
 
-    public class IFolderLauncherOptions: WindowsFoundation.IInspectable {
+    public class IFolderLauncherOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIFolderLauncherOptions }
 
         public func get_ItemsToSelect() throws -> WindowsFoundation.AnyIVector<UWP.AnyIStorageItem?>? {
@@ -1581,7 +1581,7 @@ extension __ABI_Windows_System {
 // MARK: - LaunchUriResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launchuriresult)
-public final class LaunchUriResult : WinRTClass {
+public final class LaunchUriResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.ILaunchUriResult
     private typealias CABI = __x_ABI_CWindows_CSystem_CILaunchUriResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1640,7 +1640,7 @@ extension __ABI_Windows_System {
         Data1: 0xEC27A8DF, Data2: 0xF6D5, Data3: 0x45CA, Data4: ( 0x91,0x3A,0x70,0xA4,0x0C,0x5C,0x82,0x21 ) // EC27A8DF-F6D5-45CA-913A-70A40C5C8221
     ) 
 
-    public class ILaunchUriResult: WindowsFoundation.IInspectable {
+    public class ILaunchUriResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILaunchUriResult }
 
         public func get_Status() throws -> UWP.LaunchUriStatus {
@@ -1822,7 +1822,7 @@ extension __ABI_Windows_System {
         Data1: 0x277151C3, Data2: 0x9E3E, Data3: 0x42F6, Data4: ( 0x91,0xA4,0x5D,0xFD,0xEB,0x23,0x24,0x51 ) // 277151C3-9E3E-42F6-91A4-5DFDEB232451
     ) 
 
-    public class ILauncherStatics: WindowsFoundation.IInspectable {
+    public class ILauncherStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics }
 
         public func LaunchFileAsync(_ file: UWP.AnyIStorageFile?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
@@ -1871,7 +1871,7 @@ extension __ABI_Windows_System {
         Data1: 0x59BA2FBB, Data2: 0x24CB, Data3: 0x4C02, Data4: ( 0xA4,0xC4,0x82,0x94,0x56,0x9D,0x54,0xF1 ) // 59BA2FBB-24CB-4C02-A4C4-8294569D54F1
     ) 
 
-    public class ILauncherStatics2: WindowsFoundation.IInspectable {
+    public class ILauncherStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics2 }
 
         public func LaunchUriForResultsAsync(_ uri: WindowsFoundation.Uri?, _ options: UWP.LauncherOptions?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchUriResult?>? {
@@ -1975,7 +1975,7 @@ extension __ABI_Windows_System {
         Data1: 0x234261A8, Data2: 0x9DB3, Data3: 0x4683, Data4: ( 0xAA,0x42,0xDC,0x6F,0x51,0xD3,0x38,0x47 ) // 234261A8-9DB3-4683-AA42-DC6F51D33847
     ) 
 
-    public class ILauncherStatics3: WindowsFoundation.IInspectable {
+    public class ILauncherStatics3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics3 }
 
         public func LaunchFolderAsync(_ folder: UWP.AnyIStorageFolder?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
@@ -2006,7 +2006,7 @@ extension __ABI_Windows_System {
         Data1: 0xB9EC819F, Data2: 0xB5A5, Data3: 0x41C6, Data4: ( 0xB3,0xB3,0xDD,0x1B,0x31,0x78,0xBC,0xF2 ) // B9EC819F-B5A5-41C6-B3B3-DD1B3178BCF2
     ) 
 
-    public class ILauncherStatics4: WindowsFoundation.IInspectable {
+    public class ILauncherStatics4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics4 }
 
         public func QueryAppUriSupportAsync(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.LaunchQuerySupportStatus>? {
@@ -2088,7 +2088,7 @@ extension __ABI_Windows_System {
         Data1: 0x5B24EF84, Data2: 0xD895, Data3: 0x5FEA, Data4: ( 0x91,0x53,0x1A,0xC4,0x9A,0xED,0x9B,0xA9 ) // 5B24EF84-D895-5FEA-9153-1AC49AED9BA9
     ) 
 
-    public class ILauncherStatics5: WindowsFoundation.IInspectable {
+    public class ILauncherStatics5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherStatics5 }
 
         public func LaunchFolderPathAsync(_ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
@@ -2137,7 +2137,7 @@ extension __ABI_Windows_System {
 // MARK: - LauncherOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheroptions)
-public final class LauncherOptions : WinRTClass, ILauncherViewOptions {
+public final class LauncherOptions : WinRTClass, @unchecked Sendable, ILauncherViewOptions {
     private typealias SwiftABI = __ABI_Windows_System.ILauncherOptions
     private typealias CABI = __x_ABI_CWindows_CSystem_CILauncherOptions
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2273,15 +2273,17 @@ extension __ABI_Windows_System {
         Data1: 0x3BA08EB4, Data2: 0x6E40, Data3: 0x4DCE, Data4: ( 0xA1,0xA3,0x2F,0x53,0x95,0x0A,0xFB,0x49 ) // 3BA08EB4-6E40-4DCE-A1A3-2F53950AFB49
     ) 
 
-    public class ILauncherOptions2: WindowsFoundation.IInspectable {
+    public class ILauncherOptions2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions2 }
 
         public func get_TargetApplicationPackageFamilyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetApplicationPackageFamilyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2313,7 +2315,7 @@ extension __ABI_Windows_System {
         Data1: 0xBAFA21D8, Data2: 0xB071, Data3: 0x4CD8, Data4: ( 0x85,0x3E,0x34,0x12,0x03,0xE5,0x57,0xD3 ) // BAFA21D8-B071-4CD8-853E-341203E557D3
     ) 
 
-    public class ILauncherOptions: WindowsFoundation.IInspectable {
+    public class ILauncherOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions }
 
         public func get_TreatAsUntrusted() throws -> Bool {
@@ -2355,10 +2357,12 @@ extension __ABI_Windows_System {
 
         public func get_PreferredApplicationPackageFamilyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreferredApplicationPackageFamilyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2371,10 +2375,12 @@ extension __ABI_Windows_System {
 
         public func get_PreferredApplicationDisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreferredApplicationDisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2402,10 +2408,12 @@ extension __ABI_Windows_System {
 
         public func get_ContentType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSystem_CILauncherOptions.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2422,7 +2430,7 @@ extension __ABI_Windows_System {
         Data1: 0xF0770655, Data2: 0x4B63, Data3: 0x4E3A, Data4: ( 0x91,0x07,0x4E,0x68,0x78,0x41,0x92,0x3A ) // F0770655-4B63-4E3A-9107-4E687841923A
     ) 
 
-    public class ILauncherOptions3: WindowsFoundation.IInspectable {
+    public class ILauncherOptions3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions3 }
 
         public func get_IgnoreAppUriHandlers() throws -> Bool {
@@ -2445,7 +2453,7 @@ extension __ABI_Windows_System {
         Data1: 0xEF6FD10E, Data2: 0xE6FB, Data3: 0x4814, Data4: ( 0xA4,0x4E,0x57,0xE8,0xB9,0xD9,0xA0,0x1B ) // EF6FD10E-E6FB-4814-A44E-57E8B9D9A01B
     ) 
 
-    public class ILauncherOptions4: WindowsFoundation.IInspectable {
+    public class ILauncherOptions4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherOptions4 }
 
         public func get_LimitPickerToCurrentAppAndAppUriHandlers() throws -> Bool {
@@ -2468,7 +2476,7 @@ extension __ABI_Windows_System {
 // MARK: - LauncherUIOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.launcheruioptions)
-public final class LauncherUIOptions : WinRTClass {
+public final class LauncherUIOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.ILauncherUIOptions
     private typealias CABI = __x_ABI_CWindows_CSystem_CILauncherUIOptions
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2535,7 +2543,7 @@ extension __ABI_Windows_System {
         Data1: 0x1B25DA6E, Data2: 0x8AA6, Data3: 0x41E9, Data4: ( 0x82,0x51,0x41,0x65,0xF5,0x98,0x5F,0x49 ) // 1B25DA6E-8AA6-41E9-8251-4165F5985F49
     ) 
 
-    public class ILauncherUIOptions: WindowsFoundation.IInspectable {
+    public class ILauncherUIOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CILauncherUIOptions }
 
         public func get_InvocationPoint() throws -> WindowsFoundation.Point? {
@@ -2592,7 +2600,7 @@ extension __ABI_Windows_System {
 // MARK: - User
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.user)
-public final class User : WinRTClass {
+public final class User : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IUser
     private typealias CABI = __x_ABI_CWindows_CSystem_CIUser
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2697,15 +2705,17 @@ extension __ABI_Windows_System {
         Data1: 0xDF9A26C6, Data2: 0xE746, Data3: 0x4BCD, Data4: ( 0xB5,0xD4,0x12,0x01,0x03,0xC4,0x20,0x9B ) // DF9A26C6-E746-4BCD-B5D4-120103C4209B
     ) 
 
-    public class IUser: WindowsFoundation.IInspectable {
+    public class IUser: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUser }
 
         public func get_NonRoamableId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NonRoamableId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2761,7 +2771,7 @@ extension __ABI_Windows_System {
         Data1: 0x155EB23B, Data2: 0x242A, Data3: 0x45E0, Data4: ( 0xA2,0xE9,0x31,0x71,0xFC,0x6A,0x7F,0xDD ) // 155EB23B-242A-45E0-A2E9-3171FC6A7FDD
     ) 
 
-    public class IUserStatics: WindowsFoundation.IInspectable {
+    public class IUserStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserStatics }
 
         public func CreateWatcher() throws -> UWP.UserWatcher? {
@@ -2816,7 +2826,7 @@ extension __ABI_Windows_System {
 // MARK: - UserAuthenticationStatusChangeDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatuschangedeferral)
-public final class UserAuthenticationStatusChangeDeferral : WinRTClass {
+public final class UserAuthenticationStatusChangeDeferral : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IUserAuthenticationStatusChangeDeferral
     private typealias CABI = __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangeDeferral
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2870,7 +2880,7 @@ extension __ABI_Windows_System {
         Data1: 0x88B59568, Data2: 0xBB30, Data3: 0x42FB, Data4: ( 0xA2,0x70,0xE9,0x90,0x2E,0x40,0xEF,0xA7 ) // 88B59568-BB30-42FB-A270-E9902E40EFA7
     ) 
 
-    public class IUserAuthenticationStatusChangeDeferral: WindowsFoundation.IInspectable {
+    public class IUserAuthenticationStatusChangeDeferral: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangeDeferral }
 
         public func Complete() throws {
@@ -2885,7 +2895,7 @@ extension __ABI_Windows_System {
 // MARK: - UserAuthenticationStatusChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userauthenticationstatuschangingeventargs)
-public final class UserAuthenticationStatusChangingEventArgs : WinRTClass {
+public final class UserAuthenticationStatusChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IUserAuthenticationStatusChangingEventArgs
     private typealias CABI = __x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2954,7 +2964,7 @@ extension __ABI_Windows_System {
         Data1: 0x8C030F28, Data2: 0xA711, Data3: 0x4C1E, Data4: ( 0xAB,0x48,0x04,0x17,0x9C,0x15,0x93,0x8F ) // 8C030F28-A711-4C1E-AB48-04179C15938F
     ) 
 
-    public class IUserAuthenticationStatusChangingEventArgs: WindowsFoundation.IInspectable {
+    public class IUserAuthenticationStatusChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserAuthenticationStatusChangingEventArgs }
 
         public func GetDeferral() throws -> UWP.UserAuthenticationStatusChangeDeferral? {
@@ -2997,7 +3007,7 @@ extension __ABI_Windows_System {
 // MARK: - UserChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userchangedeventargs)
-public final class UserChangedEventArgs : WinRTClass {
+public final class UserChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IUserChangedEventArgs
     private typealias CABI = __x_ABI_CWindows_CSystem_CIUserChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3051,7 +3061,7 @@ extension __ABI_Windows_System {
         Data1: 0x086459DC, Data2: 0x18C6, Data3: 0x48DB, Data4: ( 0xBC,0x99,0x72,0x4F,0xB9,0x20,0x3C,0xCC ) // 086459DC-18C6-48DB-BC99-724FB9203CCC
     ) 
 
-    public class IUserChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IUserChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserChangedEventArgs }
 
         public func get_User() throws -> UWP.User? {
@@ -3069,7 +3079,7 @@ extension __ABI_Windows_System {
 // MARK: - UserWatcher
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.system.userwatcher)
-public final class UserWatcher : WinRTClass {
+public final class UserWatcher : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_System.IUserWatcher
     private typealias CABI = __x_ABI_CWindows_CSystem_CIUserWatcher
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3224,7 +3234,7 @@ extension __ABI_Windows_System {
         Data1: 0x155EB23B, Data2: 0x242A, Data3: 0x45E0, Data4: ( 0xA2,0xE9,0x31,0x71,0xFC,0x6A,0x7F,0xBB ) // 155EB23B-242A-45E0-A2E9-3171FC6A7FBB
     ) 
 
-    public class IUserWatcher: WindowsFoundation.IInspectable {
+    public class IUserWatcher: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSystem_CIUserWatcher }
 
         public func get_Status() throws -> UWP.UserWatcherStatus {

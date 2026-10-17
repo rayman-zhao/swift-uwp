@@ -202,7 +202,7 @@ extension __x_ABI_CWindows_CManagement_CDeployment_CDeploymentProgress {
 // MARK: - DeploymentResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.deploymentresult)
-public final class DeploymentResult : WinRTClass {
+public final class DeploymentResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IDeploymentResult
     private typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -273,15 +273,17 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0x2563B9AE, Data2: 0xB77D, Data3: 0x4C1F, Data4: ( 0x8A,0x7B,0x20,0xE6,0xAD,0x51,0x5E,0xF3 ) // 2563B9AE-B77D-4C1F-8A7B-20E6AD515EF3
     ) 
 
-    public class IDeploymentResult: WindowsFoundation.IInspectable {
+    public class IDeploymentResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult }
 
         public func get_ErrorText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ErrorText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -307,7 +309,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0xFC0E715C, Data2: 0x5A01, Data3: 0x4BD7, Data4: ( 0xBC,0xF1,0x38,0x1C,0x8C,0x82,0xE0,0x4A ) // FC0E715C-5A01-4BD7-BCF1-381C8C82E04A
     ) 
 
-    public class IDeploymentResult2: WindowsFoundation.IInspectable {
+    public class IDeploymentResult2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIDeploymentResult2 }
 
         public func get_IsRegistered() throws -> Bool {
@@ -324,7 +326,7 @@ extension __ABI_Windows_Management_Deployment {
 // MARK: - PackageManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagemanager)
-public final class PackageManager : WinRTClass {
+public final class PackageManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IPackageManager
     private typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -652,7 +654,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0x9A7D4B65, Data2: 0x5E8F, Data3: 0x4FC7, Data4: ( 0xA2,0xE5,0x7F,0x69,0x25,0xCB,0x8B,0x53 ) // 9A7D4B65-5E8F-4FC7-A2E5-7F6925CB8B53
     ) 
 
-    public class IPackageManager: WindowsFoundation.IInspectable {
+    public class IPackageManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager }
 
         public func AddPackageAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
@@ -827,7 +829,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0xF7AAD08D, Data2: 0x0840, Data3: 0x46F2, Data4: ( 0xB5,0xD8,0xCA,0xD4,0x76,0x93,0xA0,0x95 ) // F7AAD08D-0840-46F2-B5D8-CAD47693A095
     ) 
 
-    public class IPackageManager2: WindowsFoundation.IInspectable {
+    public class IPackageManager2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager2 }
 
         public func RemovePackageWithOptionsAsync(_ packageFullName: String, _ removalOptions: UWP.RemovalOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
@@ -942,7 +944,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0xDAAD9948, Data2: 0x36F1, Data3: 0x41A7, Data4: ( 0x91,0x88,0xBC,0x26,0x3E,0x0D,0xCB,0x72 ) // DAAD9948-36F1-41A7-9188-BC263E0DCB72
     ) 
 
-    public class IPackageManager3: WindowsFoundation.IInspectable {
+    public class IPackageManager3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager3 }
 
         public func AddPackageVolumeAsync(_ packageStorePath: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.PackageVolume?>? {
@@ -1075,7 +1077,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0x3C719963, Data2: 0xBAB6, Data3: 0x46BF, Data4: ( 0x8F,0xF7,0xDA,0x47,0x19,0x23,0x0A,0xE6 ) // 3C719963-BAB6-46BF-8FF7-DA4719230AE6
     ) 
 
-    public class IPackageManager4: WindowsFoundation.IInspectable {
+    public class IPackageManager4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager4 }
 
         public func GetPackageVolumesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.PackageVolume?>?>? {
@@ -1093,7 +1095,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0x711F3117, Data2: 0x1AFD, Data3: 0x4313, Data4: ( 0x97,0x8C,0x9B,0xB6,0xE1,0xB8,0x64,0xA7 ) // 711F3117-1AFD-4313-978C-9BB6E1B864A7
     ) 
 
-    public class IPackageManager5: WindowsFoundation.IInspectable {
+    public class IPackageManager5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager5 }
 
         public func AddPackageToVolumeAndOptionalPackagesAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ externalPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
@@ -1155,7 +1157,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0x0847E909, Data2: 0x53CD, Data3: 0x4E4F, Data4: ( 0x83,0x2E,0x57,0xD1,0x80,0xF6,0xE4,0x47 ) // 0847E909-53CD-4E4F-832E-57D180F6E447
     ) 
 
-    public class IPackageManager6: WindowsFoundation.IInspectable {
+    public class IPackageManager6: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager6 }
 
         public func ProvisionPackageForAllUsersAsync(_ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
@@ -1241,7 +1243,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0xF28654F4, Data2: 0x2BA7, Data3: 0x4B80, Data4: ( 0x88,0xD6,0xBE,0x15,0xF9,0xA2,0x3F,0xBA ) // F28654F4-2BA7-4B80-88D6-BE15F9A23FBA
     ) 
 
-    public class IPackageManager7: WindowsFoundation.IInspectable {
+    public class IPackageManager7: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager7 }
 
         public func RequestAddPackageAndRelatedSetAsync(_ packageUri: WindowsFoundation.Uri?, _ dependencyPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ deploymentOptions: UWP.DeploymentOptions, _ targetVolume: UWP.PackageVolume?, _ optionalPackageFamilyNames: WindowsFoundation.AnyIIterable<String>?, _ relatedPackageUris: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?, _ packageUrisToInstall: WindowsFoundation.AnyIIterable<WindowsFoundation.Uri?>?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
@@ -1267,7 +1269,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0xB8575330, Data2: 0x1298, Data3: 0x4EE2, Data4: ( 0x80,0xEE,0x7F,0x65,0x9C,0x5D,0x27,0x82 ) // B8575330-1298-4EE2-80EE-7F659C5D2782
     ) 
 
-    public class IPackageManager8: WindowsFoundation.IInspectable {
+    public class IPackageManager8: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManager8 }
 
         public func DeprovisionPackageForAllUsersAsync(_ packageFamilyName: String) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.DeploymentResult?, UWP.DeploymentProgress>? {
@@ -1286,7 +1288,7 @@ extension __ABI_Windows_Management_Deployment {
 // MARK: - PackageManagerDebugSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagemanagerdebugsettings)
-public final class PackageManagerDebugSettings : WinRTClass {
+public final class PackageManagerDebugSettings : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IPackageManagerDebugSettings
     private typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1345,7 +1347,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0x1A611683, Data2: 0xA988, Data3: 0x4FCF, Data4: ( 0x8F,0x0F,0xCE,0x17,0x58,0x98,0xE8,0xEB ) // 1A611683-A988-4FCF-8F0F-CE175898E8EB
     ) 
 
-    public class IPackageManagerDebugSettings: WindowsFoundation.IInspectable {
+    public class IPackageManagerDebugSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageManagerDebugSettings }
 
         public func SetContentGroupStateAsync(_ package: UWP.Package?, _ contentGroupName: String, _ state: UWP.PackageContentGroupState) throws -> WindowsFoundation.AnyIAsyncAction? {
@@ -1374,7 +1376,7 @@ extension __ABI_Windows_Management_Deployment {
 // MARK: - PackageUserInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packageuserinformation)
-public final class PackageUserInformation : WinRTClass {
+public final class PackageUserInformation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IPackageUserInformation
     private typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1433,15 +1435,17 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0xF6383423, Data2: 0xFA09, Data3: 0x4CBC, Data4: ( 0x90,0x55,0x15,0xCA,0x27,0x5E,0x2E,0x7E ) // F6383423-FA09-4CBC-9055-15CA275E2E7E
     ) 
 
-    public class IPackageUserInformation: WindowsFoundation.IInspectable {
+    public class IPackageUserInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation }
 
         public func get_UserSecurityId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageUserInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserSecurityId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1459,7 +1463,7 @@ extension __ABI_Windows_Management_Deployment {
 // MARK: - PackageVolume
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.management.deployment.packagevolume)
-public final class PackageVolume : WinRTClass {
+public final class PackageVolume : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Management_Deployment.IPackageVolume
     private typealias CABI = __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1625,7 +1629,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0xCF2672C3, Data2: 0x1A40, Data3: 0x4450, Data4: ( 0x97,0x39,0x2A,0xCE,0x2E,0x89,0x88,0x53 ) // CF2672C3-1A40-4450-9739-2ACE2E898853
     ) 
 
-    public class IPackageVolume: WindowsFoundation.IInspectable {
+    public class IPackageVolume: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume }
 
         public func get_IsOffline() throws -> Bool {
@@ -1646,28 +1650,34 @@ extension __ABI_Windows_Management_Deployment {
 
         public func get_MountPoint() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MountPoint(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_PackageStorePath() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageStorePath(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1832,7 +1842,7 @@ extension __ABI_Windows_Management_Deployment {
         Data1: 0x46ABCF2E, Data2: 0x9DD4, Data3: 0x47A2, Data4: ( 0xAB,0x8C,0xC6,0x40,0x83,0x49,0xBC,0xD8 ) // 46ABCF2E-9DD4-47A2-AB8C-C6408349BCD8
     ) 
 
-    public class IPackageVolume2: WindowsFoundation.IInspectable {
+    public class IPackageVolume2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CManagement_CDeployment_CIPackageVolume2 }
 
         public func get_IsFullTrustPackageSupported() throws -> Bool {

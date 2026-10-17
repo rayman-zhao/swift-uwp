@@ -79,7 +79,7 @@ extension UWP.ChainValidationResult: @retroactive Hashable, @retroactive Codable
 // MARK: - Certificate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificate)
-public final class Certificate : WinRTClass {
+public final class Certificate : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Cryptography_Certificates.ICertificate
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -253,7 +253,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x333F740C, Data2: 0x04D8, Data3: 0x43B3, Data4: ( 0xB2,0x78,0x8C,0x5F,0xCC,0x9B,0xE5,0xA0 ) // 333F740C-04D8-43B3-B278-8C5FCC9BE5A0
     ) 
 
-    public class ICertificate: WindowsFoundation.IInspectable {
+    public class ICertificate: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate }
 
         public func BuildChainAsync(_ certificates: WindowsFoundation.AnyIIterable<UWP.Certificate?>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.CertificateChain?>? {
@@ -280,31 +280,37 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 
         public func get_SerialNumber() throws -> [UInt8] {
             var value: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SerialNumber(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abi: value)
 
         }
 
         public func GetHashValue() throws -> [UInt8] {
             var value: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHashValue(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abi: value)
 
         }
 
         public func GetHashValueWithAlgorithm(_ hashAlgorithmName: String) throws -> [UInt8] {
             var value: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(value.start)
+            }
             let _hashAlgorithmName = try! HString(hashAlgorithmName)
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHashValueWithAlgorithm(pThis, _hashAlgorithmName.get(), &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abi: value)
 
         }
@@ -320,19 +326,23 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 
         public func get_Subject() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subject(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Issuer() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Issuer(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -386,10 +396,12 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 
         public func get_FriendlyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FriendlyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -399,7 +411,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x17B8374C, Data2: 0x8A25, Data3: 0x4D96, Data4: ( 0xA4,0x92,0x8F,0xC2,0x9A,0xC4,0xFD,0xA6 ) // 17B8374C-8A25-4D96-A492-8FC29AC4FDA6
     ) 
 
-    public class ICertificate2: WindowsFoundation.IInspectable {
+    public class ICertificate2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2 }
 
         public func get_IsSecurityDeviceBound() throws -> Bool {
@@ -421,28 +433,34 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 
         public func get_KeyAlgorithmName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyAlgorithmName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_SignatureAlgorithmName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SignatureAlgorithmName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_SignatureHashAlgorithmName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SignatureHashAlgorithmName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -461,7 +479,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0xBE51A966, Data2: 0xAE5F, Data3: 0x4652, Data4: ( 0xAC,0xE7,0xC6,0xD7,0xE7,0x72,0x4C,0xF3 ) // BE51A966-AE5F-4652-ACE7-C6D7E7724CF3
     ) 
 
-    public class ICertificate3: WindowsFoundation.IInspectable {
+    public class ICertificate3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate3 }
 
         public func get_IsPerUser() throws -> Bool {
@@ -474,19 +492,23 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 
         public func get_StoreName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_StoreName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_KeyStorageProviderName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificate3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyStorageProviderName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -496,7 +518,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x17B4221C, Data2: 0x4BAF, Data3: 0x44A2, Data4: ( 0x96,0x08,0x04,0xFB,0x62,0xB1,0x69,0x42 ) // 17B4221C-4BAF-44A2-9608-04FB62B16942
     ) 
 
-    public class ICertificateFactory: WindowsFoundation.IInspectable {
+    public class ICertificateFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateFactory }
 
         public func CreateCertificate(_ certBlob: UWP.AnyIBuffer?) throws -> ICertificate {
@@ -516,7 +538,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 // MARK: - CertificateChain
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatechain)
-public final class CertificateChain : WinRTClass {
+public final class CertificateChain : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Cryptography_Certificates.ICertificateChain
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -580,7 +602,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x20BF5385, Data2: 0x3691, Data3: 0x4501, Data4: ( 0xA6,0x2C,0xFD,0x97,0x27,0x8B,0x31,0xEE ) // 20BF5385-3691-4501-A62C-FD97278B31EE
     ) 
 
-    public class ICertificateChain: WindowsFoundation.IInspectable {
+    public class ICertificateChain: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateChain }
 
         public func Validate() throws -> UWP.ChainValidationResult {
@@ -614,7 +636,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 // MARK: - CertificateExtension
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificateextension)
-public final class CertificateExtension : WinRTClass {
+public final class CertificateExtension : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Cryptography_Certificates.ICertificateExtension
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -691,15 +713,17 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x84CF0656, Data2: 0xA9E6, Data3: 0x454D, Data4: ( 0x8E,0x45,0x2E,0xA7,0xC4,0xBC,0xD5,0x3B ) // 84CF0656-A9E6-454D-8E45-2EA7C4BCD53B
     ) 
 
-    public class ICertificateExtension: WindowsFoundation.IInspectable {
+    public class ICertificateExtension: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension }
 
         public func get_ObjectId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ObjectId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -733,10 +757,12 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 
         public func get_Value() throws -> [UInt8] {
             var value: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateExtension.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abi: value)
 
         }
@@ -755,7 +781,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 // MARK: - CertificateKeyUsages
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.certificatekeyusages)
-public final class CertificateKeyUsages : WinRTClass {
+public final class CertificateKeyUsages : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Cryptography_Certificates.ICertificateKeyUsages
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -857,7 +883,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x6AC6206F, Data2: 0xE1CF, Data3: 0x486A, Data4: ( 0xB4,0x85,0xA6,0x9C,0x83,0xE4,0x6F,0xD1 ) // 6AC6206F-E1CF-486A-B485-A69C83E46FD1
     ) 
 
-    public class ICertificateKeyUsages: WindowsFoundation.IInspectable {
+    public class ICertificateKeyUsages: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CICertificateKeyUsages }
 
         public func get_EncipherOnly() throws -> Bool {
@@ -978,7 +1004,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 // MARK: - ChainBuildingParameters
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainbuildingparameters)
-public final class ChainBuildingParameters : WinRTClass {
+public final class ChainBuildingParameters : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Cryptography_Certificates.IChainBuildingParameters
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1072,7 +1098,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x422BA922, Data2: 0x7C8D, Data3: 0x47B7, Data4: ( 0xB5,0x9B,0xB1,0x27,0x03,0x73,0x3A,0xC3 ) // 422BA922-7C8D-47B7-B59B-B12703733AC3
     ) 
 
-    public class IChainBuildingParameters: WindowsFoundation.IInspectable {
+    public class IChainBuildingParameters: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainBuildingParameters }
 
         public func get_EnhancedKeyUsages() throws -> WindowsFoundation.AnyIVector<String>? {
@@ -1169,7 +1195,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 // MARK: - ChainValidationParameters
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.chainvalidationparameters)
-public final class ChainValidationParameters : WinRTClass {
+public final class ChainValidationParameters : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Cryptography_Certificates.IChainValidationParameters
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1235,7 +1261,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0xC4743B4A, Data2: 0x7EB0, Data3: 0x4B56, Data4: ( 0xA0,0x40,0xB9,0xC8,0xE6,0x55,0xDD,0xF3 ) // C4743B4A-7EB0-4B56-A040-B9C8E655DDF3
     ) 
 
-    public class IChainValidationParameters: WindowsFoundation.IInspectable {
+    public class IChainValidationParameters: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CIChainValidationParameters }
 
         public func get_CertificateChainPolicy() throws -> UWP.CertificateChainPolicy {
@@ -1273,7 +1299,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
 // MARK: - SubjectAlternativeNameInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.cryptography.certificates.subjectalternativenameinfo)
-public final class SubjectAlternativeNameInfo : WinRTClass {
+public final class SubjectAlternativeNameInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Cryptography_Certificates.ISubjectAlternativeNameInfo
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1394,7 +1420,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x582859F1, Data2: 0x569D, Data3: 0x4C20, Data4: ( 0xBE,0x7B,0x4E,0x1C,0x9A,0x0B,0xC5,0x2B ) // 582859F1-569D-4C20-BE7B-4E1C9A0BC52B
     ) 
 
-    public class ISubjectAlternativeNameInfo: WindowsFoundation.IInspectable {
+    public class ISubjectAlternativeNameInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo }
 
         public func get_EmailName() throws -> WindowsFoundation.AnyIVectorView<String>? {
@@ -1457,7 +1483,7 @@ extension __ABI_Windows_Security_Cryptography_Certificates {
         Data1: 0x437A78C6, Data2: 0x1C51, Data3: 0x41EA, Data4: ( 0xB3,0x4A,0x3D,0x65,0x43,0x98,0xA3,0x70 ) // 437A78C6-1C51-41EA-B34A-3D654398A370
     ) 
 
-    public class ISubjectAlternativeNameInfo2: WindowsFoundation.IInspectable {
+    public class ISubjectAlternativeNameInfo2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCryptography_CCertificates_CISubjectAlternativeNameInfo2 }
 
         public func get_EmailNames() throws -> WindowsFoundation.AnyIVector<String>? {

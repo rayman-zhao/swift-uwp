@@ -293,7 +293,7 @@ extension __IMPL_Windows_Devices_Enumeration {
         }
     }
 
-    fileprivate class IDevicePairingSettingsImpl: IDevicePairingSettings, WinRTAbiImpl {
+    fileprivate class IDevicePairingSettingsImpl: IDevicePairingSettings, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IDevicePairingSettingsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -310,12 +310,12 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x482CB27C, Data2: 0x83BB, Data3: 0x420E, Data4: ( 0xBE,0x51,0x66,0x02,0xB2,0x22,0xDE,0x54 ) // 482CB27C-83BB-420E-BE51-6602B222DE54
     ) 
 
-    public class IDevicePairingSettings: WindowsFoundation.IInspectable {
+    public class IDevicePairingSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettings }
 
     }
 
-    internal static var IDevicePairingSettingsVTable: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettingsVtbl = .init(
+    internal static nonisolated(unsafe) var IDevicePairingSettingsVTable: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingSettingsVtbl = .init(
         QueryInterface: { IDevicePairingSettingsWrapper.queryInterface($0, $1, $2) },
         AddRef: { IDevicePairingSettingsWrapper.addRef($0) },
         Release: { IDevicePairingSettingsWrapper.release($0) },
@@ -357,7 +357,7 @@ public class IDevicePairingSettingsMaker: MakeFromAbi {
 // MARK: - DeviceInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation)
-public final class DeviceInformation : WinRTClass {
+public final class DeviceInformation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceInformation
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -535,24 +535,28 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xABA0FB95, Data2: 0x4398, Data3: 0x489D, Data4: ( 0x8E,0x44,0xE6,0x13,0x09,0x27,0x01,0x1F ) // ABA0FB95-4398-489D-8E44-E6130927011F
     ) 
 
-    public class IDeviceInformation: WindowsFoundation.IInspectable {
+    public class IDeviceInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -620,7 +624,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xF156A638, Data2: 0x7997, Data3: 0x48D9, Data4: ( 0xA1,0x0C,0x26,0x9D,0x46,0x53,0x3F,0x48 ) // F156A638-7997-48D9-A10C-269D46533F48
     ) 
 
-    public class IDeviceInformation2: WindowsFoundation.IInspectable {
+    public class IDeviceInformation2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformation2 }
 
         public func get_Kind() throws -> UWP.DeviceInformationKind {
@@ -646,7 +650,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xC17F100E, Data2: 0x3A46, Data3: 0x4A78, Data4: ( 0x80,0x13,0x76,0x9D,0xC9,0xB9,0x73,0x90 ) // C17F100E-3A46-4A78-8013-769DC9B97390
     ) 
 
-    public class IDeviceInformationStatics: WindowsFoundation.IInspectable {
+    public class IDeviceInformationStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics }
 
         public func CreateFromIdAsync(_ deviceId: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DeviceInformation?>? {
@@ -757,15 +761,17 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x493B4F34, Data2: 0xA84F, Data3: 0x45FD, Data4: ( 0x91,0x67,0x15,0xD1,0xCB,0x1B,0xD1,0xF9 ) // 493B4F34-A84F-45FD-9167-15D1CB1BD1F9
     ) 
 
-    public class IDeviceInformationStatics2: WindowsFoundation.IInspectable {
+    public class IDeviceInformationStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2 }
 
         public func GetAqsFilterFromDeviceClass(_ deviceClass: UWP.DeviceClass) throws -> String {
             var aqsFilter: HSTRING?
+            defer {
+                WindowsDeleteString(aqsFilter)
+            }
             _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationStatics2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAqsFilterFromDeviceClass(pThis, deviceClass, &aqsFilter))
             }
-            defer { WindowsDeleteString(aqsFilter) }
             return .init(from: aqsFilter)
         }
 
@@ -811,7 +817,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DeviceInformationCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationcollection)
-public final class DeviceInformationCollection : WinRTClass, IVectorView, IIterable {
+public final class DeviceInformationCollection : WinRTClass, @unchecked Sendable, IVectorView, IIterable {
     public typealias T = DeviceInformation?
     private typealias SwiftABI = UWP.IVectorViewDeviceInformation
     private typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CDevices__CEnumeration__CDeviceInformation
@@ -913,7 +919,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DeviceInformationCustomPairing
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationcustompairing)
-public final class DeviceInformationCustomPairing : WinRTClass {
+public final class DeviceInformationCustomPairing : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceInformationCustomPairing
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -990,7 +996,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x85138C02, Data2: 0x4EE6, Data3: 0x4914, Data4: ( 0x83,0x70,0x10,0x7A,0x39,0x14,0x4C,0x0E ) // 85138C02-4EE6-4914-8370-107A39144C0E
     ) 
 
-    public class IDeviceInformationCustomPairing: WindowsFoundation.IInspectable {
+    public class IDeviceInformationCustomPairing: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationCustomPairing }
 
         public func PairAsync(_ pairingKindsSupported: UWP.DevicePairingKinds) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DevicePairingResult?>? {
@@ -1044,7 +1050,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DeviceInformationPairing
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationpairing)
-public final class DeviceInformationPairing : WinRTClass {
+public final class DeviceInformationPairing : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceInformationPairing
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1147,7 +1153,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x2C4769F5, Data2: 0xF684, Data3: 0x40D5, Data4: ( 0x84,0x69,0xE8,0xDB,0xAA,0xB7,0x04,0x85 ) // 2C4769F5-F684-40D5-8469-E8DBAAB70485
     ) 
 
-    public class IDeviceInformationPairing: WindowsFoundation.IInspectable {
+    public class IDeviceInformationPairing: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing }
 
         public func get_IsPaired() throws -> Bool {
@@ -1190,7 +1196,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xF68612FD, Data2: 0x0AEE, Data3: 0x4328, Data4: ( 0x85,0xCC,0x1C,0x74,0x2B,0xB1,0x79,0x0D ) // F68612FD-0AEE-4328-85CC-1C742BB1790D
     ) 
 
-    public class IDeviceInformationPairing2: WindowsFoundation.IInspectable {
+    public class IDeviceInformationPairing2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairing2 }
 
         public func get_ProtectionLevel() throws -> UWP.DevicePairingProtectionLevel {
@@ -1236,7 +1242,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xE915C408, Data2: 0x36D4, Data3: 0x49A1, Data4: ( 0xBF,0x13,0x51,0x41,0x73,0x79,0x9B,0x6B ) // E915C408-36D4-49A1-BF13-514173799B6B
     ) 
 
-    public class IDeviceInformationPairingStatics: WindowsFoundation.IInspectable {
+    public class IDeviceInformationPairingStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics }
 
         public func TryRegisterForAllInboundPairingRequests(_ pairingKindsSupported: UWP.DevicePairingKinds) throws -> Bool {
@@ -1253,7 +1259,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x04DE5372, Data2: 0xB7B7, Data3: 0x476B, Data4: ( 0xA7,0x4F,0xC5,0x83,0x6A,0x70,0x4D,0x98 ) // 04DE5372-B7B7-476B-A74F-C5836A704D98
     ) 
 
-    public class IDeviceInformationPairingStatics2: WindowsFoundation.IInspectable {
+    public class IDeviceInformationPairingStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationPairingStatics2 }
 
         public func TryRegisterForAllInboundPairingRequestsWithProtectionLevel(_ pairingKindsSupported: UWP.DevicePairingKinds, _ minProtectionLevel: UWP.DevicePairingProtectionLevel) throws -> Bool {
@@ -1270,7 +1276,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DeviceInformationUpdate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformationupdate)
-public final class DeviceInformationUpdate : WinRTClass {
+public final class DeviceInformationUpdate : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceInformationUpdate
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1336,15 +1342,17 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x8F315305, Data2: 0xD972, Data3: 0x44B7, Data4: ( 0xA3,0x7E,0x9E,0x82,0x2C,0x78,0x21,0x3B ) // 8F315305-D972-44B7-A37E-9E822C78213B
     ) 
 
-    public class IDeviceInformationUpdate: WindowsFoundation.IInspectable {
+    public class IDeviceInformationUpdate: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1363,7 +1371,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x5D9D148C, Data2: 0xA873, Data3: 0x485E, Data4: ( 0xBA,0xA6,0xAA,0x62,0x07,0x88,0xE3,0xCC ) // 5D9D148C-A873-485E-BAA6-AA620788E3CC
     ) 
 
-    public class IDeviceInformationUpdate2: WindowsFoundation.IInspectable {
+    public class IDeviceInformationUpdate2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceInformationUpdate2 }
 
         public func get_Kind() throws -> UWP.DeviceInformationKind {
@@ -1380,7 +1388,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DevicePairingRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingrequestedeventargs)
-public final class DevicePairingRequestedEventArgs : WinRTClass {
+public final class DevicePairingRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDevicePairingRequestedEventArgs
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1466,7 +1474,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xF717FC56, Data2: 0xDE6B, Data3: 0x487F, Data4: ( 0x83,0x76,0x01,0x80,0xAC,0xA6,0x99,0x63 ) // F717FC56-DE6B-487F-8376-0180ACA69963
     ) 
 
-    public class IDevicePairingRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IDevicePairingRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs }
 
         public func get_DeviceInformation() throws -> UWP.DeviceInformation? {
@@ -1488,10 +1496,12 @@ extension __ABI_Windows_Devices_Enumeration {
 
         public func get_Pin() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Pin(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1523,7 +1533,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xC83752D9, Data2: 0xE4D3, Data3: 0x4DB0, Data4: ( 0xA3,0x60,0xA1,0x05,0xE4,0x37,0xDB,0xDC ) // C83752D9-E4D3-4DB0-A360-A105E437DBDC
     ) 
 
-    public class IDevicePairingRequestedEventArgs2: WindowsFoundation.IInspectable {
+    public class IDevicePairingRequestedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingRequestedEventArgs2 }
 
         public func AcceptWithPasswordCredential(_ passwordCredential: UWP.PasswordCredential?) throws {
@@ -1538,7 +1548,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DevicePairingResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepairingresult)
-public final class DevicePairingResult : WinRTClass {
+public final class DevicePairingResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDevicePairingResult
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1597,7 +1607,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x072B02BF, Data2: 0xDD95, Data3: 0x4025, Data4: ( 0x9B,0x37,0xDE,0x51,0xAD,0xBA,0x37,0xB7 ) // 072B02BF-DD95-4025-9B37-DE51ADBA37B7
     ) 
 
-    public class IDevicePairingResult: WindowsFoundation.IInspectable {
+    public class IDevicePairingResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePairingResult }
 
         public func get_Status() throws -> UWP.DevicePairingResultStatus {
@@ -1622,7 +1632,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DevicePickerAppearance
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicepickerappearance)
-public final class DevicePickerAppearance : WinRTClass {
+public final class DevicePickerAppearance : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDevicePickerAppearance
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1713,15 +1723,17 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xE69A12C6, Data2: 0xE627, Data3: 0x4ED8, Data4: ( 0x9B,0x6C,0x46,0x0A,0xF4,0x45,0xE5,0x6D ) // E69A12C6-E627-4ED8-9B6C-460AF445E56D
     ) 
 
-    public class IDevicePickerAppearance: WindowsFoundation.IInspectable {
+    public class IDevicePickerAppearance: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance }
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CDevices_CEnumeration_CIDevicePickerAppearance.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1822,7 +1834,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DeviceThumbnail
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicethumbnail)
-public final class DeviceThumbnail : WinRTClass, WindowsFoundation.IClosable, UWP.IInputStream, UWP.IOutputStream, UWP.IRandomAccessStream, UWP.IContentTypeProvider, UWP.IRandomAccessStreamWithContentType {
+public final class DeviceThumbnail : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, UWP.IInputStream, UWP.IOutputStream, UWP.IRandomAccessStream, UWP.IContentTypeProvider, UWP.IRandomAccessStreamWithContentType {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IRandomAccessStreamWithContentType
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1950,7 +1962,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DeviceUnpairingResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.deviceunpairingresult)
-public final class DeviceUnpairingResult : WinRTClass {
+public final class DeviceUnpairingResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceUnpairingResult
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2004,7 +2016,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x66F44AD3, Data2: 0x79D9, Data3: 0x444B, Data4: ( 0x92,0xCF,0xA9,0x2E,0xF7,0x25,0x71,0xC7 ) // 66F44AD3-79D9-444B-92CF-A92EF72571C7
     ) 
 
-    public class IDeviceUnpairingResult: WindowsFoundation.IInspectable {
+    public class IDeviceUnpairingResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceUnpairingResult }
 
         public func get_Status() throws -> UWP.DeviceUnpairingResultStatus {
@@ -2021,7 +2033,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - DeviceWatcher
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher)
-public final class DeviceWatcher : WinRTClass {
+public final class DeviceWatcher : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IDeviceWatcher
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2157,7 +2169,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xC9EAB97D, Data2: 0x8F6B, Data3: 0x4F96, Data4: ( 0xA9,0xF4,0xAB,0xC8,0x14,0xE2,0x22,0x71 ) // C9EAB97D-8F6B-4F96-A9F4-ABC814E22271
     ) 
 
-    public class IDeviceWatcher: WindowsFoundation.IInspectable {
+    public class IDeviceWatcher: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher }
 
         public func add_Added(_ handler: TypedEventHandler<UWP.DeviceWatcher?, UWP.DeviceInformation?>?) throws -> EventRegistrationToken {
@@ -2266,7 +2278,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0xFF08456E, Data2: 0xED14, Data3: 0x49E9, Data4: ( 0x9A,0x69,0x81,0x17,0xC5,0x4A,0xE9,0x71 ) // FF08456E-ED14-49E9-9A69-8117C54AE971
     ) 
 
-    public class IDeviceWatcher2: WindowsFoundation.IInspectable {
+    public class IDeviceWatcher2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIDeviceWatcher2 }
 
         public func GetBackgroundTrigger(_ requestedEventKinds: WindowsFoundation.AnyIIterable<UWP.DeviceWatcherEventKind>?) throws -> UWP.DeviceWatcherTrigger? {
@@ -2286,7 +2298,7 @@ extension __ABI_Windows_Devices_Enumeration {
 // MARK: - EnclosureLocation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.enumeration.enclosurelocation)
-public final class EnclosureLocation : WinRTClass {
+public final class EnclosureLocation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Enumeration.IEnclosureLocation
     private typealias CABI = __x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2352,7 +2364,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x42340A27, Data2: 0x5810, Data3: 0x459C, Data4: ( 0xAA,0xBB,0xC6,0x5E,0x1F,0x81,0x3E,0xCF ) // 42340A27-5810-459C-AABB-C65E1F813ECF
     ) 
 
-    public class IEnclosureLocation: WindowsFoundation.IInspectable {
+    public class IEnclosureLocation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation }
 
         public func get_InDock() throws -> Bool {
@@ -2377,7 +2389,7 @@ extension __ABI_Windows_Devices_Enumeration {
         Data1: 0x2885995B, Data2: 0xE07D, Data3: 0x485D, Data4: ( 0x8A,0x9E,0xBD,0xF2,0x9A,0xEF,0x4F,0x66 ) // 2885995B-E07D-485D-8A9E-BDF29AEF4F66
     ) 
 
-    public class IEnclosureLocation2: WindowsFoundation.IInspectable {
+    public class IEnclosureLocation2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CEnumeration_CIEnclosureLocation2 }
 
         public func get_RotationAngleInDegreesClockwise() throws -> UInt32 {

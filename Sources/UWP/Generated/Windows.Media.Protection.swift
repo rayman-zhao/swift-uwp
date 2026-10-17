@@ -60,7 +60,7 @@ extension UWP.RevocationAndRenewalReasons: @retroactive Hashable, @retroactive C
 
 // MARK: - ComponentLoadFailedEventHandler
 
-public typealias ComponentLoadFailedEventHandler = (MediaProtectionManager?, ComponentLoadFailedEventArgs?) throws -> ()
+public typealias ComponentLoadFailedEventHandler = @Sendable (MediaProtectionManager?, ComponentLoadFailedEventArgs?) throws -> ()
 
 // MARK: - ComponentLoadFailedEventHandler Internals
 
@@ -87,7 +87,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x95DA643C, Data2: 0x6DB9, Data3: 0x424B, Data4: ( 0x86,0xCA,0x09,0x1A,0xF4,0x32,0x08,0x1C ) // 95DA643C-6DB9-424B-86CA-091AF432081C
     ) 
 
-    public class ComponentLoadFailedEventHandler: WindowsFoundation.IUnknown {
+    public class ComponentLoadFailedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventHandler }
 
         open func Invoke(_ sender: UWP.MediaProtectionManager?, _ e: UWP.ComponentLoadFailedEventArgs?) throws {
@@ -100,7 +100,7 @@ extension __ABI_Windows_Media_Protection {
 
 
     typealias ComponentLoadFailedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Protection.ComponentLoadFailedEventHandlerBridge>
-    internal static var ComponentLoadFailedEventHandlerVTable: __x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ComponentLoadFailedEventHandlerVTable: __x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventHandlerVtbl = .init(
         QueryInterface: { ComponentLoadFailedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ComponentLoadFailedEventHandlerWrapper.addRef($0) },
         Release: { ComponentLoadFailedEventHandlerWrapper.release($0) },
@@ -124,7 +124,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CMedia_CProt
 
 // MARK: - RebootNeededEventHandler
 
-public typealias RebootNeededEventHandler = (MediaProtectionManager?) throws -> ()
+public typealias RebootNeededEventHandler = @Sendable (MediaProtectionManager?) throws -> ()
 
 // MARK: - RebootNeededEventHandler Internals
 
@@ -151,7 +151,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x64E12A45, Data2: 0x973B, Data3: 0x4A3A, Data4: ( 0xB2,0x60,0x91,0x89,0x8A,0x49,0xA8,0x2C ) // 64E12A45-973B-4A3A-B260-91898A49A82C
     ) 
 
-    public class RebootNeededEventHandler: WindowsFoundation.IUnknown {
+    public class RebootNeededEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIRebootNeededEventHandler }
 
         open func Invoke(_ sender: UWP.MediaProtectionManager?) throws {
@@ -164,7 +164,7 @@ extension __ABI_Windows_Media_Protection {
 
 
     typealias RebootNeededEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Protection.RebootNeededEventHandlerBridge>
-    internal static var RebootNeededEventHandlerVTable: __x_ABI_CWindows_CMedia_CProtection_CIRebootNeededEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var RebootNeededEventHandlerVTable: __x_ABI_CWindows_CMedia_CProtection_CIRebootNeededEventHandlerVtbl = .init(
         QueryInterface: { RebootNeededEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { RebootNeededEventHandlerWrapper.addRef($0) },
         Release: { RebootNeededEventHandlerWrapper.release($0) },
@@ -187,7 +187,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CMedia_CProt
 
 // MARK: - ServiceRequestedEventHandler
 
-public typealias ServiceRequestedEventHandler = (MediaProtectionManager?, ServiceRequestedEventArgs?) throws -> ()
+public typealias ServiceRequestedEventHandler = @Sendable (MediaProtectionManager?, ServiceRequestedEventArgs?) throws -> ()
 
 // MARK: - ServiceRequestedEventHandler Internals
 
@@ -214,7 +214,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0xD2D690BA, Data2: 0xCAC9, Data3: 0x48E1, Data4: ( 0x95,0xC0,0xD3,0x84,0x95,0xA8,0x40,0x55 ) // D2D690BA-CAC9-48E1-95C0-D38495A84055
     ) 
 
-    public class ServiceRequestedEventHandler: WindowsFoundation.IUnknown {
+    public class ServiceRequestedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventHandler }
 
         open func Invoke(_ sender: UWP.MediaProtectionManager?, _ e: UWP.ServiceRequestedEventArgs?) throws {
@@ -227,7 +227,7 @@ extension __ABI_Windows_Media_Protection {
 
 
     typealias ServiceRequestedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_Media_Protection.ServiceRequestedEventHandlerBridge>
-    internal static var ServiceRequestedEventHandlerVTable: __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ServiceRequestedEventHandlerVTable: __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventHandlerVtbl = .init(
         QueryInterface: { ServiceRequestedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ServiceRequestedEventHandlerWrapper.addRef($0) },
         Release: { ServiceRequestedEventHandlerWrapper.release($0) },
@@ -290,7 +290,7 @@ extension __IMPL_Windows_Media_Protection {
         }
     }
 
-    fileprivate class IMediaProtectionServiceRequestImpl: IMediaProtectionServiceRequest, WinRTAbiImpl {
+    fileprivate class IMediaProtectionServiceRequestImpl: IMediaProtectionServiceRequest, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IMediaProtectionServiceRequestBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -317,7 +317,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0xB1DE0EA6, Data2: 0x2094, Data3: 0x478D, Data4: ( 0x87,0xA4,0x8B,0x95,0x20,0x0F,0x85,0xC6 ) // B1DE0EA6-2094-478D-87A4-8B95200F85C6
     ) 
 
-    public class IMediaProtectionServiceRequest: WindowsFoundation.IInspectable {
+    public class IMediaProtectionServiceRequest: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceRequest }
 
         open func get_ProtectionSystem() throws -> Foundation.UUID {
@@ -338,7 +338,7 @@ extension __ABI_Windows_Media_Protection {
 
     }
 
-    internal static var IMediaProtectionServiceRequestVTable: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceRequestVtbl = .init(
+    internal static nonisolated(unsafe) var IMediaProtectionServiceRequestVTable: __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceRequestVtbl = .init(
         QueryInterface: { IMediaProtectionServiceRequestWrapper.queryInterface($0, $1, $2) },
         AddRef: { IMediaProtectionServiceRequestWrapper.addRef($0) },
         Release: { IMediaProtectionServiceRequestWrapper.release($0) },
@@ -394,7 +394,7 @@ public class IMediaProtectionServiceRequestMaker: MakeFromAbi {
 // MARK: - ComponentLoadFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.componentloadfailedeventargs)
-public final class ComponentLoadFailedEventArgs : WinRTClass {
+public final class ComponentLoadFailedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Protection.IComponentLoadFailedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -453,7 +453,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x95972E93, Data2: 0x7746, Data3: 0x417E, Data4: ( 0x84,0x95,0xF0,0x31,0xBB,0xC5,0x86,0x2C ) // 95972E93-7746-417E-8495-F031BBC5862C
     ) 
 
-    public class IComponentLoadFailedEventArgs: WindowsFoundation.IInspectable {
+    public class IComponentLoadFailedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIComponentLoadFailedEventArgs }
 
         public func get_Information() throws -> UWP.RevocationAndRenewalInformation? {
@@ -480,7 +480,7 @@ extension __ABI_Windows_Media_Protection {
 // MARK: - MediaProtectionManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.mediaprotectionmanager)
-public final class MediaProtectionManager : WinRTClass {
+public final class MediaProtectionManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Protection.IMediaProtectionManager
     private typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -578,7 +578,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x45694947, Data2: 0xC741, Data3: 0x434B, Data4: ( 0xA7,0x9E,0x47,0x4C,0x12,0xD9,0x3D,0x2F ) // 45694947-C741-434B-A79E-474C12D93D2F
     ) 
 
-    public class IMediaProtectionManager: WindowsFoundation.IInspectable {
+    public class IMediaProtectionManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionManager }
 
         public func add_ServiceRequested(_ handler: UWP.ServiceRequestedEventHandler?) throws -> EventRegistrationToken {
@@ -644,7 +644,7 @@ extension __ABI_Windows_Media_Protection {
 // MARK: - MediaProtectionServiceCompletion
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.mediaprotectionservicecompletion)
-public final class MediaProtectionServiceCompletion : WinRTClass {
+public final class MediaProtectionServiceCompletion : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Protection.IMediaProtectionServiceCompletion
     private typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceCompletion
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -698,7 +698,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x8B5CCA18, Data2: 0xCFD5, Data3: 0x44EE, Data4: ( 0xA2,0xED,0xDF,0x76,0x01,0x0C,0x14,0xB5 ) // 8B5CCA18-CFD5-44EE-A2ED-DF76010C14B5
     ) 
 
-    public class IMediaProtectionServiceCompletion: WindowsFoundation.IInspectable {
+    public class IMediaProtectionServiceCompletion: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIMediaProtectionServiceCompletion }
 
         public func Complete(_ success: Bool) throws {
@@ -713,7 +713,7 @@ extension __ABI_Windows_Media_Protection {
 // MARK: - RevocationAndRenewalInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalinformation)
-public final class RevocationAndRenewalInformation : WinRTClass {
+public final class RevocationAndRenewalInformation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Protection.IRevocationAndRenewalInformation
     private typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalInformation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -767,7 +767,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0xF3A1937B, Data2: 0x2501, Data3: 0x439E, Data4: ( 0xA6,0xE7,0x6F,0xC9,0x5E,0x17,0x5F,0xCF ) // F3A1937B-2501-439E-A6E7-6FC95E175FCF
     ) 
 
-    public class IRevocationAndRenewalInformation: WindowsFoundation.IInspectable {
+    public class IRevocationAndRenewalInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalInformation }
 
         public func get_Items() throws -> WindowsFoundation.AnyIVector<UWP.RevocationAndRenewalItem?>? {
@@ -785,7 +785,7 @@ extension __ABI_Windows_Media_Protection {
 // MARK: - RevocationAndRenewalItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.revocationandrenewalitem)
-public final class RevocationAndRenewalItem : WinRTClass {
+public final class RevocationAndRenewalItem : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Protection.IRevocationAndRenewalItem
     private typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -859,7 +859,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x3099C20C, Data2: 0x3CF0, Data3: 0x49EA, Data4: ( 0x90,0x2D,0xCA,0xF3,0x2D,0x2D,0xDE,0x2C ) // 3099C20C-3CF0-49EA-902D-CAF32D2DDE2C
     ) 
 
-    public class IRevocationAndRenewalItem: WindowsFoundation.IInspectable {
+    public class IRevocationAndRenewalItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem }
 
         public func get_Reasons() throws -> UWP.RevocationAndRenewalReasons {
@@ -872,37 +872,45 @@ extension __ABI_Windows_Media_Protection {
 
         public func get_HeaderHash() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderHash(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_PublicKeyHash() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PublicKeyHash(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Name() throws -> String {
             var name: HSTRING?
+            defer {
+                WindowsDeleteString(name)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &name))
             }
-            defer { WindowsDeleteString(name) }
             return .init(from: name)
         }
 
         public func get_RenewalId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CProtection_CIRevocationAndRenewalItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RenewalId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -912,7 +920,7 @@ extension __ABI_Windows_Media_Protection {
 // MARK: - ServiceRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.protection.servicerequestedeventargs)
-public final class ServiceRequestedEventArgs : WinRTClass {
+public final class ServiceRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Protection.IServiceRequestedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -978,7 +986,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x34283BAF, Data2: 0xABB4, Data3: 0x4FC1, Data4: ( 0xBD,0x89,0x93,0xF1,0x06,0x57,0x3A,0x49 ) // 34283BAF-ABB4-4FC1-BD89-93F106573A49
     ) 
 
-    public class IServiceRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IServiceRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs }
 
         public func get_Request() throws -> UWP.AnyIMediaProtectionServiceRequest? {
@@ -1005,7 +1013,7 @@ extension __ABI_Windows_Media_Protection {
         Data1: 0x553C69D6, Data2: 0xFAFE, Data3: 0x4128, Data4: ( 0x8D,0xFA,0x13,0x0E,0x39,0x8A,0x13,0xA7 ) // 553C69D6-FAFE-4128-8DFA-130E398A13A7
     ) 
 
-    public class IServiceRequestedEventArgs2: WindowsFoundation.IInspectable {
+    public class IServiceRequestedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CProtection_CIServiceRequestedEventArgs2 }
 
         public func get_MediaPlaybackItem() throws -> UWP.MediaPlaybackItem? {

@@ -64,7 +64,7 @@ extension __IMPL_Windows_ApplicationModel_Core {
         }
     }
 
-    fileprivate class ICoreApplicationUnhandledErrorImpl: ICoreApplicationUnhandledError, WinRTAbiImpl {
+    fileprivate class ICoreApplicationUnhandledErrorImpl: ICoreApplicationUnhandledError, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICoreApplicationUnhandledErrorBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -94,7 +94,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0xF0E24AB0, Data2: 0xDD09, Data3: 0x42E1, Data4: ( 0xB0,0xBC,0xE0,0xE1,0x31,0xF7,0x8D,0x7E ) // F0E24AB0-DD09-42E1-B0BC-E0E131F78D7E
     ) 
 
-    public class ICoreApplicationUnhandledError: WindowsFoundation.IInspectable {
+    public class ICoreApplicationUnhandledError: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationUnhandledError }
 
         open func add_UnhandledErrorDetected(_ handler: EventHandler<UWP.UnhandledErrorDetectedEventArgs?>?) throws -> EventRegistrationToken {
@@ -115,7 +115,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 
     }
 
-    internal static var ICoreApplicationUnhandledErrorVTable: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationUnhandledErrorVtbl = .init(
+    internal static nonisolated(unsafe) var ICoreApplicationUnhandledErrorVTable: __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationUnhandledErrorVtbl = .init(
         QueryInterface: { ICoreApplicationUnhandledErrorWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICoreApplicationUnhandledErrorWrapper.addRef($0) },
         Release: { ICoreApplicationUnhandledErrorWrapper.release($0) },
@@ -216,7 +216,7 @@ extension __IMPL_Windows_ApplicationModel_Core {
         }
     }
 
-    fileprivate class IFrameworkViewImpl: IFrameworkView, WinRTAbiImpl {
+    fileprivate class IFrameworkViewImpl: IFrameworkView, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IFrameworkViewBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -258,7 +258,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0xFAAB5CD0, Data2: 0x8924, Data3: 0x45AC, Data4: ( 0xAD,0x0F,0xA0,0x8F,0xAE,0x5D,0x03,0x24 ) // FAAB5CD0-8924-45AC-AD0F-A08FAE5D0324
     ) 
 
-    public class IFrameworkView: WindowsFoundation.IInspectable {
+    public class IFrameworkView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkView }
 
         open func Initialize(_ applicationView: UWP.CoreApplicationView?) throws {
@@ -294,7 +294,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 
     }
 
-    internal static var IFrameworkViewVTable: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkViewVtbl = .init(
+    internal static nonisolated(unsafe) var IFrameworkViewVTable: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkViewVtbl = .init(
         QueryInterface: { IFrameworkViewWrapper.queryInterface($0, $1, $2) },
         AddRef: { IFrameworkViewWrapper.addRef($0) },
         Release: { IFrameworkViewWrapper.release($0) },
@@ -415,7 +415,7 @@ extension __IMPL_Windows_ApplicationModel_Core {
         }
     }
 
-    fileprivate class IFrameworkViewSourceImpl: IFrameworkViewSource, WinRTAbiImpl {
+    fileprivate class IFrameworkViewSourceImpl: IFrameworkViewSource, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IFrameworkViewSourceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -437,7 +437,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0xCD770614, Data2: 0x65C4, Data3: 0x426C, Data4: ( 0x94,0x94,0x34,0xFC,0x43,0x55,0x48,0x62 ) // CD770614-65C4-426C-9494-34FC43554862
     ) 
 
-    public class IFrameworkViewSource: WindowsFoundation.IInspectable {
+    public class IFrameworkViewSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkViewSource }
 
         open func CreateView() throws -> UWP.AnyIFrameworkView? {
@@ -451,7 +451,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 
     }
 
-    internal static var IFrameworkViewSourceVTable: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkViewSourceVtbl = .init(
+    internal static nonisolated(unsafe) var IFrameworkViewSourceVTable: __x_ABI_CWindows_CApplicationModel_CCore_CIFrameworkViewSourceVtbl = .init(
         QueryInterface: { IFrameworkViewSourceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IFrameworkViewSourceWrapper.addRef($0) },
         Release: { IFrameworkViewSourceWrapper.release($0) },
@@ -503,7 +503,7 @@ public class IFrameworkViewSourceMaker: MakeFromAbi {
 // MARK: - AppListEntry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.applistentry)
-public final class AppListEntry : WinRTClass {
+public final class AppListEntry : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Core.IAppListEntry
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -576,7 +576,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0xEF00F07F, Data2: 0x2108, Data3: 0x490A, Data4: ( 0x87,0x7A,0x8A,0x9F,0x17,0xC2,0x5F,0xAD ) // EF00F07F-2108-490A-877A-8A9F17C25FAD
     ) 
 
-    public class IAppListEntry: WindowsFoundation.IInspectable {
+    public class IAppListEntry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry }
 
         public func get_DisplayInfo() throws -> UWP.AppDisplayInfo? {
@@ -603,15 +603,17 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0xD0A618AD, Data2: 0xBF35, Data3: 0x42AC, Data4: ( 0xAC,0x06,0x86,0xEE,0xEB,0x41,0xD0,0x4B ) // D0A618AD-BF35-42AC-AC06-86EEEB41D04B
     ) 
 
-    public class IAppListEntry2: WindowsFoundation.IInspectable {
+    public class IAppListEntry2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry2 }
 
         public func get_AppUserModelId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AppUserModelId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -621,7 +623,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x6099F28D, Data2: 0xFC32, Data3: 0x470A, Data4: ( 0xBC,0x69,0x4B,0x06,0x1A,0x76,0xEF,0x2E ) // 6099F28D-FC32-470A-BC69-4B061A76EF2E
     ) 
 
-    public class IAppListEntry3: WindowsFoundation.IInspectable {
+    public class IAppListEntry3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIAppListEntry3 }
 
         public func LaunchForUserAsync(_ user: UWP.User?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
@@ -639,7 +641,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 // MARK: - CoreApplicationView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview)
-public final class CoreApplicationView : WinRTClass {
+public final class CoreApplicationView : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Core.ICoreApplicationView
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -762,7 +764,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x638BB2DB, Data2: 0x451D, Data3: 0x4661, Data4: ( 0xB0,0x99,0x41,0x4F,0x34,0xFF,0xB9,0xF1 ) // 638BB2DB-451D-4661-B099-414F34FFB9F1
     ) 
 
-    public class ICoreApplicationView: WindowsFoundation.IInspectable {
+    public class ICoreApplicationView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView }
 
         public func get_CoreWindow() throws -> UWP.CoreWindow? {
@@ -812,7 +814,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x68EB7ADF, Data2: 0x917F, Data3: 0x48EB, Data4: ( 0x9A,0xEB,0x7D,0xE5,0x3E,0x08,0x6A,0xB1 ) // 68EB7ADF-917F-48EB-9AEB-7DE53E086AB1
     ) 
 
-    public class ICoreApplicationView2: WindowsFoundation.IInspectable {
+    public class ICoreApplicationView2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView2 }
 
         public func get_Dispatcher() throws -> UWP.CoreDispatcher? {
@@ -830,7 +832,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x07EBE1B3, Data2: 0xA4CF, Data3: 0x4550, Data4: ( 0xAB,0x70,0xB0,0x7E,0x85,0x33,0x0B,0xC8 ) // 07EBE1B3-A4CF-4550-AB70-B07E85330BC8
     ) 
 
-    public class ICoreApplicationView3: WindowsFoundation.IInspectable {
+    public class ICoreApplicationView3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView3 }
 
         public func get_IsComponent() throws -> Bool {
@@ -872,7 +874,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x2BC095A8, Data2: 0x8EF0, Data3: 0x446D, Data4: ( 0x9E,0x60,0x3A,0x3E,0x04,0x28,0xC6,0x71 ) // 2BC095A8-8EF0-446D-9E60-3A3E0428C671
     ) 
 
-    public class ICoreApplicationView5: WindowsFoundation.IInspectable {
+    public class ICoreApplicationView5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView5 }
 
         public func get_Properties() throws -> WindowsFoundation.AnyIPropertySet? {
@@ -890,7 +892,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0xC119D49A, Data2: 0x0679, Data3: 0x49BA, Data4: ( 0x80,0x3F,0xB7,0x9C,0x5C,0xF3,0x4C,0xCA ) // C119D49A-0679-49BA-803F-B79C5CF34CCA
     ) 
 
-    public class ICoreApplicationView6: WindowsFoundation.IInspectable {
+    public class ICoreApplicationView6: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationView6 }
 
         public func get_DispatcherQueue() throws -> UWP.DispatcherQueue? {
@@ -908,7 +910,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 // MARK: - CoreApplicationViewTitleBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar)
-public final class CoreApplicationViewTitleBar : WinRTClass {
+public final class CoreApplicationViewTitleBar : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Core.ICoreApplicationViewTitleBar
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1009,7 +1011,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x006D35E3, Data2: 0xE1F1, Data3: 0x431B, Data4: ( 0x95,0x08,0x29,0xB9,0x69,0x26,0xAC,0x53 ) // 006D35E3-E1F1-431B-9508-29B96926AC53
     ) 
 
-    public class ICoreApplicationViewTitleBar: WindowsFoundation.IInspectable {
+    public class ICoreApplicationViewTitleBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CICoreApplicationViewTitleBar }
 
         public func put_ExtendViewIntoTitleBar(_ value: Bool) throws {
@@ -1096,7 +1098,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 // MARK: - HostedViewClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.hostedviewclosingeventargs)
-public final class HostedViewClosingEventArgs : WinRTClass {
+public final class HostedViewClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Core.IHostedViewClosingEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CCore_CIHostedViewClosingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1150,7 +1152,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0xD238943C, Data2: 0xB24E, Data3: 0x4790, Data4: ( 0xAC,0xB5,0x3E,0x42,0x43,0xC4,0xFF,0x87 ) // D238943C-B24E-4790-ACB5-3E4243C4FF87
     ) 
 
-    public class IHostedViewClosingEventArgs: WindowsFoundation.IInspectable {
+    public class IHostedViewClosingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIHostedViewClosingEventArgs }
 
         public func GetDeferral() throws -> WindowsFoundation.Deferral? {
@@ -1168,7 +1170,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 // MARK: - UnhandledError
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.unhandlederror)
-public final class UnhandledError : WinRTClass {
+public final class UnhandledError : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Core.IUnhandledError
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledError
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1227,7 +1229,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x9459B726, Data2: 0x53B5, Data3: 0x4686, Data4: ( 0x9E,0xAF,0xFA,0x81,0x62,0xDC,0x39,0x80 ) // 9459B726-53B5-4686-9EAF-FA8162DC3980
     ) 
 
-    public class IUnhandledError: WindowsFoundation.IInspectable {
+    public class IUnhandledError: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledError }
 
         public func get_Handled() throws -> Bool {
@@ -1250,7 +1252,7 @@ extension __ABI_Windows_ApplicationModel_Core {
 // MARK: - UnhandledErrorDetectedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.core.unhandlederrordetectedeventargs)
-public final class UnhandledErrorDetectedEventArgs : WinRTClass {
+public final class UnhandledErrorDetectedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Core.IUnhandledErrorDetectedEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledErrorDetectedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1304,7 +1306,7 @@ extension __ABI_Windows_ApplicationModel_Core {
         Data1: 0x679AB78B, Data2: 0xB336, Data3: 0x4822, Data4: ( 0xAC,0x40,0x0D,0x75,0x0F,0x0B,0x7A,0x2B ) // 679AB78B-B336-4822-AC40-0D750F0B7A2B
     ) 
 
-    public class IUnhandledErrorDetectedEventArgs: WindowsFoundation.IInspectable {
+    public class IUnhandledErrorDetectedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CCore_CIUnhandledErrorDetectedEventArgs }
 
         public func get_UnhandledError() throws -> UWP.UnhandledError? {

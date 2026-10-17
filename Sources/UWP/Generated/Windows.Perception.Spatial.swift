@@ -40,7 +40,7 @@ extension __x_ABI_CWindows_CPerception_CSpatial_CSpatialBoundingBox {
 // MARK: - SpatialCoordinateSystem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.perception.spatial.spatialcoordinatesystem)
-public final class SpatialCoordinateSystem : WinRTClass {
+public final class SpatialCoordinateSystem : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Perception_Spatial.ISpatialCoordinateSystem
     private typealias CABI = __x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -94,7 +94,7 @@ extension __ABI_Windows_Perception_Spatial {
         Data1: 0x69EBCA4B, Data2: 0x60A3, Data3: 0x3586, Data4: ( 0xA6,0x53,0x59,0xA7,0xBD,0x67,0x6D,0x07 ) // 69EBCA4B-60A3-3586-A653-59A7BD676D07
     ) 
 
-    public class ISpatialCoordinateSystem: WindowsFoundation.IInspectable {
+    public class ISpatialCoordinateSystem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CPerception_CSpatial_CISpatialCoordinateSystem }
 
         public func TryGetTransformTo(_ target: UWP.SpatialCoordinateSystem?) throws -> WindowsFoundation.Matrix4x4? {

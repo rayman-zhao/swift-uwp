@@ -151,7 +151,7 @@ extension __IMPL_Windows_ApplicationModel {
         }
     }
 
-    fileprivate class IEnteredBackgroundEventArgsImpl: IEnteredBackgroundEventArgs, WinRTAbiImpl {
+    fileprivate class IEnteredBackgroundEventArgsImpl: IEnteredBackgroundEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IEnteredBackgroundEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -173,7 +173,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0xF722DCC2, Data2: 0x9827, Data3: 0x403D, Data4: ( 0xAA,0xED,0xEC,0xCA,0x9A,0xC1,0x73,0x98 ) // F722DCC2-9827-403D-AAED-ECCA9AC17398
     ) 
 
-    public class IEnteredBackgroundEventArgs: WindowsFoundation.IInspectable {
+    public class IEnteredBackgroundEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs }
 
         open func GetDeferral() throws -> WindowsFoundation.Deferral? {
@@ -187,7 +187,7 @@ extension __ABI_Windows_ApplicationModel {
 
     }
 
-    internal static var IEnteredBackgroundEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var IEnteredBackgroundEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgsVtbl = .init(
         QueryInterface: { IEnteredBackgroundEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { IEnteredBackgroundEventArgsWrapper.addRef($0) },
         Release: { IEnteredBackgroundEventArgsWrapper.release($0) },
@@ -274,7 +274,7 @@ extension __IMPL_Windows_ApplicationModel {
         }
     }
 
-    fileprivate class ILeavingBackgroundEventArgsImpl: ILeavingBackgroundEventArgs, WinRTAbiImpl {
+    fileprivate class ILeavingBackgroundEventArgsImpl: ILeavingBackgroundEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ILeavingBackgroundEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -296,7 +296,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x39C6EC9A, Data2: 0xAE6E, Data3: 0x46F9, Data4: ( 0xA0,0x7A,0xCF,0xC2,0x3F,0x88,0x73,0x3E ) // 39C6EC9A-AE6E-46F9-A07A-CFC23F88733E
     ) 
 
-    public class ILeavingBackgroundEventArgs: WindowsFoundation.IInspectable {
+    public class ILeavingBackgroundEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs }
 
         open func GetDeferral() throws -> WindowsFoundation.Deferral? {
@@ -310,7 +310,7 @@ extension __ABI_Windows_ApplicationModel {
 
     }
 
-    internal static var ILeavingBackgroundEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var ILeavingBackgroundEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgsVtbl = .init(
         QueryInterface: { ILeavingBackgroundEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { ILeavingBackgroundEventArgsWrapper.addRef($0) },
         Release: { ILeavingBackgroundEventArgsWrapper.release($0) },
@@ -397,7 +397,7 @@ extension __IMPL_Windows_ApplicationModel {
         }
     }
 
-    fileprivate class ISuspendingDeferralImpl: ISuspendingDeferral, WinRTAbiImpl {
+    fileprivate class ISuspendingDeferralImpl: ISuspendingDeferral, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ISuspendingDeferralBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -419,7 +419,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x59140509, Data2: 0x8BC9, Data3: 0x4EB4, Data4: ( 0xB6,0x36,0xDA,0xBD,0xC4,0xF4,0x6F,0x66 ) // 59140509-8BC9-4EB4-B636-DABDC4F46F66
     ) 
 
-    public class ISuspendingDeferral: WindowsFoundation.IInspectable {
+    public class ISuspendingDeferral: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CISuspendingDeferral }
 
         open func Complete() throws {
@@ -430,7 +430,7 @@ extension __ABI_Windows_ApplicationModel {
 
     }
 
-    internal static var ISuspendingDeferralVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingDeferralVtbl = .init(
+    internal static nonisolated(unsafe) var ISuspendingDeferralVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingDeferralVtbl = .init(
         QueryInterface: { ISuspendingDeferralWrapper.queryInterface($0, $1, $2) },
         AddRef: { ISuspendingDeferralWrapper.addRef($0) },
         Release: { ISuspendingDeferralWrapper.release($0) },
@@ -516,7 +516,7 @@ extension __IMPL_Windows_ApplicationModel {
         }
     }
 
-    fileprivate class ISuspendingEventArgsImpl: ISuspendingEventArgs, WinRTAbiImpl {
+    fileprivate class ISuspendingEventArgsImpl: ISuspendingEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ISuspendingEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -538,7 +538,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x96061C05, Data2: 0x2DBA, Data3: 0x4D08, Data4: ( 0xB0,0xBD,0x2B,0x30,0xA1,0x31,0xC6,0xAA ) // 96061C05-2DBA-4D08-B0BD-2B30A131C6AA
     ) 
 
-    public class ISuspendingEventArgs: WindowsFoundation.IInspectable {
+    public class ISuspendingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs }
 
         open func get_SuspendingOperation() throws -> UWP.SuspendingOperation? {
@@ -552,7 +552,7 @@ extension __ABI_Windows_ApplicationModel {
 
     }
 
-    internal static var ISuspendingEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var ISuspendingEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgsVtbl = .init(
         QueryInterface: { ISuspendingEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { ISuspendingEventArgsWrapper.addRef($0) },
         Release: { ISuspendingEventArgsWrapper.release($0) },
@@ -639,7 +639,7 @@ extension __IMPL_Windows_ApplicationModel {
         }
     }
 
-    fileprivate class ISuspendingOperationImpl: ISuspendingOperation, WinRTAbiImpl {
+    fileprivate class ISuspendingOperationImpl: ISuspendingOperation, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ISuspendingOperationBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -666,7 +666,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x9DA4CA41, Data2: 0x20E1, Data3: 0x4E9B, Data4: ( 0x9F,0x65,0xA9,0xF4,0x35,0x34,0x0C,0x3A ) // 9DA4CA41-20E1-4E9B-9F65-A9F435340C3A
     ) 
 
-    public class ISuspendingOperation: WindowsFoundation.IInspectable {
+    public class ISuspendingOperation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CISuspendingOperation }
 
         open func GetDeferral() throws -> UWP.SuspendingDeferral? {
@@ -688,7 +688,7 @@ extension __ABI_Windows_ApplicationModel {
 
     }
 
-    internal static var ISuspendingOperationVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingOperationVtbl = .init(
+    internal static nonisolated(unsafe) var ISuspendingOperationVTable: __x_ABI_CWindows_CApplicationModel_CISuspendingOperationVtbl = .init(
         QueryInterface: { ISuspendingOperationWrapper.queryInterface($0, $1, $2) },
         AddRef: { ISuspendingOperationWrapper.addRef($0) },
         Release: { ISuspendingOperationWrapper.release($0) },
@@ -746,7 +746,7 @@ public class ISuspendingOperationMaker: MakeFromAbi {
 // MARK: - AppDisplayInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appdisplayinfo)
-public final class AppDisplayInfo : WinRTClass {
+public final class AppDisplayInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IAppDisplayInfo
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -810,24 +810,28 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x1AEB1103, Data2: 0xE4D4, Data3: 0x41AA, Data4: ( 0xA4,0xF6,0xC4,0xA2,0x76,0xE7,0x9E,0xAC ) // 1AEB1103-E4D4-41AA-A4F6-C4A276E79EAC
     ) 
 
-    public class IAppDisplayInfo: WindowsFoundation.IInspectable {
+    public class IAppDisplayInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo }
 
         public func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppDisplayInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -846,7 +850,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - AppInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appinfo)
-public final class AppInfo : WinRTClass {
+public final class AppInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IAppInfo
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -915,24 +919,28 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0xCF7F59B3, Data2: 0x6A09, Data3: 0x4DE8, Data4: ( 0xA6,0xC0,0x57,0x92,0xD5,0x68,0x80,0xD1 ) // CF7F59B3-6A09-4DE8-A6C0-5792D56880D1
     ) 
 
-    public class IAppInfo: WindowsFoundation.IInspectable {
+    public class IAppInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIAppInfo }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_AppUserModelId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AppUserModelId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -947,10 +955,12 @@ extension __ABI_Windows_ApplicationModel {
 
         public func get_PackageFamilyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIAppInfo.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PackageFamilyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -960,7 +970,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - AppInstallerInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.appinstallerinfo)
-public final class AppInstallerInfo : WinRTClass {
+public final class AppInstallerInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IAppInstallerInfo
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1014,7 +1024,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x29AB2AC0, Data2: 0xD4F6, Data3: 0x42A3, Data4: ( 0xAD,0xCD,0xD6,0x58,0x3C,0x65,0x95,0x08 ) // 29AB2AC0-D4F6-42A3-ADCD-D6583C659508
     ) 
 
-    public class IAppInstallerInfo: WindowsFoundation.IInspectable {
+    public class IAppInstallerInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIAppInstallerInfo }
 
         public func get_Uri() throws -> WindowsFoundation.Uri? {
@@ -1032,7 +1042,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - EnteredBackgroundEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.enteredbackgroundeventargs)
-public final class EnteredBackgroundEventArgs : WinRTClass, IEnteredBackgroundEventArgs {
+public final class EnteredBackgroundEventArgs : WinRTClass, @unchecked Sendable, IEnteredBackgroundEventArgs {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IEnteredBackgroundEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIEnteredBackgroundEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1089,7 +1099,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - LeavingBackgroundEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.leavingbackgroundeventargs)
-public final class LeavingBackgroundEventArgs : WinRTClass, ILeavingBackgroundEventArgs {
+public final class LeavingBackgroundEventArgs : WinRTClass, @unchecked Sendable, ILeavingBackgroundEventArgs {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.ILeavingBackgroundEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CILeavingBackgroundEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1146,7 +1156,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - Package
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.package)
-public final class Package : WinRTClass {
+public final class Package : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackage
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1360,7 +1370,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x163C792F, Data2: 0xBD75, Data3: 0x413C, Data4: ( 0xBF,0x23,0xB1,0xFE,0x7B,0x95,0xD8,0x25 ) // 163C792F-BD75-413C-BF23-B1FE7B95D825
     ) 
 
-    public class IPackage: WindowsFoundation.IInspectable {
+    public class IPackage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage }
 
         public func get_Id() throws -> UWP.PackageId? {
@@ -1404,33 +1414,39 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0xA6612FB6, Data2: 0x7688, Data3: 0x4ACE, Data4: ( 0x95,0xFB,0x35,0x95,0x38,0xE7,0xAA,0x01 ) // A6612FB6-7688-4ACE-95FB-359538E7AA01
     ) 
 
-    public class IPackage2: WindowsFoundation.IInspectable {
+    public class IPackage2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage2 }
 
         public func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_PublisherDisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PublisherDisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackage2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1473,7 +1489,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x5F738B61, Data2: 0xF86A, Data3: 0x4917, Data4: ( 0x93,0xD1,0xF1,0xEE,0x9D,0x3B,0x35,0xD9 ) // 5F738B61-F86A-4917-93D1-F1EE9D3B35D9
     ) 
 
-    public class IPackage3: WindowsFoundation.IInspectable {
+    public class IPackage3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage3 }
 
         public func get_Status() throws -> UWP.PackageStatus? {
@@ -1508,7 +1524,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x95949780, Data2: 0x1DE9, Data3: 0x40F2, Data4: ( 0xB4,0x52,0x0D,0xE9,0xF1,0x91,0x00,0x12 ) // 95949780-1DE9-40F2-B452-0DE9F1910012
     ) 
 
-    public class IPackageWithMetadata: WindowsFoundation.IInspectable {
+    public class IPackageWithMetadata: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageWithMetadata }
 
         public func get_InstallDate() throws -> WindowsFoundation.DateTime {
@@ -1521,10 +1537,12 @@ extension __ABI_Windows_ApplicationModel {
 
         public func GetThumbnailToken() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageWithMetadata.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetThumbnailToken(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1541,7 +1559,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x65AED1AE, Data2: 0xB95B, Data3: 0x450C, Data4: ( 0x88,0x2B,0x62,0x55,0x18,0x7F,0x39,0x7E ) // 65AED1AE-B95B-450C-882B-6255187F397E
     ) 
 
-    public class IPackage4: WindowsFoundation.IInspectable {
+    public class IPackage4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage4 }
 
         public func get_SignatureKind() throws -> UWP.PackageSignatureKind {
@@ -1575,7 +1593,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x0E842DD4, Data2: 0xD9AC, Data3: 0x45ED, Data4: ( 0x9A,0x1E,0x74,0xCE,0x05,0x6B,0x26,0x35 ) // 0E842DD4-D9AC-45ED-9A1E-74CE056B2635
     ) 
 
-    public class IPackage5: WindowsFoundation.IInspectable {
+    public class IPackage5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage5 }
 
         public func GetContentGroupsAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVector<UWP.PackageContentGroup?>?>? {
@@ -1634,7 +1652,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x8B1AD942, Data2: 0x12D7, Data3: 0x4754, Data4: ( 0xAE,0x4E,0x63,0x8C,0xBC,0x0E,0x3A,0x2E ) // 8B1AD942-12D7-4754-AE4E-638CBC0E3A2E
     ) 
 
-    public class IPackage6: WindowsFoundation.IInspectable {
+    public class IPackage6: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage6 }
 
         public func GetAppInstallerInfo() throws -> UWP.AppInstallerInfo? {
@@ -1661,7 +1679,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x86FF8D31, Data2: 0xA2E4, Data3: 0x45E0, Data4: ( 0x97,0x32,0x28,0x3A,0x6D,0x88,0xFD,0xE1 ) // 86FF8D31-A2E4-45E0-9732-283A6D88FDE1
     ) 
 
-    public class IPackage7: WindowsFoundation.IInspectable {
+    public class IPackage7: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackage7 }
 
         public func get_MutableLocation() throws -> UWP.StorageFolder? {
@@ -1688,7 +1706,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x4E534BDF, Data2: 0x2960, Data3: 0x4878, Data4: ( 0x97,0xA4,0x96,0x24,0xDE,0xB7,0x2F,0x2D ) // 4E534BDF-2960-4878-97A4-9624DEB72F2D
     ) 
 
-    public class IPackageStatics: WindowsFoundation.IInspectable {
+    public class IPackageStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageStatics }
 
         public func get_Current() throws -> UWP.Package? {
@@ -1706,7 +1724,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - PackageContentGroup
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagecontentgroup)
-public final class PackageContentGroup : WinRTClass {
+public final class PackageContentGroup : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageContentGroup
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1781,7 +1799,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x8F62695D, Data2: 0x120A, Data3: 0x4798, Data4: ( 0xB5,0xE1,0x58,0x00,0xDD,0xA8,0xF2,0xE1 ) // 8F62695D-120A-4798-B5E1-5800DDA8F2E1
     ) 
 
-    public class IPackageContentGroup: WindowsFoundation.IInspectable {
+    public class IPackageContentGroup: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageContentGroup }
 
         public func get_Package() throws -> UWP.Package? {
@@ -1795,10 +1813,12 @@ extension __ABI_Windows_ApplicationModel {
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageContentGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1824,15 +1844,17 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x70EE7619, Data2: 0x5F12, Data3: 0x4B92, Data4: ( 0xB9,0xEA,0x6C,0xCA,0xDA,0x13,0xBC,0x75 ) // 70EE7619-5F12-4B92-B9EA-6CCADA13BC75
     ) 
 
-    public class IPackageContentGroupStatics: WindowsFoundation.IInspectable {
+    public class IPackageContentGroupStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageContentGroupStatics }
 
         public func get_RequiredGroupName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageContentGroupStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_RequiredGroupName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1842,7 +1864,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - PackageId
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageid)
-public final class PackageId : WinRTClass {
+public final class PackageId : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageId
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageId
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1943,15 +1965,17 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x1ADB665E, Data2: 0x37C7, Data3: 0x4790, Data4: ( 0x99,0x80,0xDD,0x7A,0xE7,0x4E,0x8B,0xB2 ) // 1ADB665E-37C7-4790-9980-DD7AE74E8BB2
     ) 
 
-    public class IPackageId: WindowsFoundation.IInspectable {
+    public class IPackageId: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageId }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1973,46 +1997,56 @@ extension __ABI_Windows_ApplicationModel {
 
         public func get_ResourceId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ResourceId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Publisher() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Publisher(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_PublisherId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PublisherId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_FullName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FullName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_FamilyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageId.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FamilyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2022,24 +2056,28 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x40577A7C, Data2: 0x0C9E, Data3: 0x443D, Data4: ( 0x90,0x74,0x85,0x5F,0x5C,0xE0,0xA0,0x8D ) // 40577A7C-0C9E-443D-9074-855F5CE0A08D
     ) 
 
-    public class IPackageIdWithMetadata: WindowsFoundation.IInspectable {
+    public class IPackageIdWithMetadata: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageIdWithMetadata }
 
         public func get_ProductId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageIdWithMetadata.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProductId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Author() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CIPackageIdWithMetadata.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Author(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2049,7 +2087,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - PackageStatus
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packagestatus)
-public final class PackageStatus : WinRTClass {
+public final class PackageStatus : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageStatus
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageStatus
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2165,7 +2203,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x5FE74F71, Data2: 0xA365, Data3: 0x4C09, Data4: ( 0xA0,0x2D,0x04,0x6D,0x52,0x5E,0xA1,0xDA ) // 5FE74F71-A365-4C09-A02D-046D525EA1DA
     ) 
 
-    public class IPackageStatus: WindowsFoundation.IInspectable {
+    public class IPackageStatus: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageStatus }
 
         public func VerifyIsOK() throws -> Bool {
@@ -2270,7 +2308,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0xF428FA93, Data2: 0x7C56, Data3: 0x4862, Data4: ( 0xAC,0xFA,0xAB,0xAE,0xDC,0xC0,0x69,0x4D ) // F428FA93-7C56-4862-ACFA-ABAEDCC0694D
     ) 
 
-    public class IPackageStatus2: WindowsFoundation.IInspectable {
+    public class IPackageStatus2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageStatus2 }
 
         public func get_IsPartiallyStaged() throws -> Bool {
@@ -2287,7 +2325,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - PackageUpdateAvailabilityResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.packageupdateavailabilityresult)
-public final class PackageUpdateAvailabilityResult : WinRTClass {
+public final class PackageUpdateAvailabilityResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.IPackageUpdateAvailabilityResult
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2346,7 +2384,7 @@ extension __ABI_Windows_ApplicationModel {
         Data1: 0x114E5009, Data2: 0x199A, Data3: 0x48A1, Data4: ( 0xA0,0x79,0x31,0x3C,0x45,0x63,0x4A,0x71 ) // 114E5009-199A-48A1-A079-313C45634A71
     ) 
 
-    public class IPackageUpdateAvailabilityResult: WindowsFoundation.IInspectable {
+    public class IPackageUpdateAvailabilityResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CIPackageUpdateAvailabilityResult }
 
         public func get_Availability() throws -> UWP.PackageUpdateAvailability {
@@ -2371,7 +2409,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - SuspendingDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.suspendingdeferral)
-public final class SuspendingDeferral : WinRTClass, ISuspendingDeferral {
+public final class SuspendingDeferral : WinRTClass, @unchecked Sendable, ISuspendingDeferral {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingDeferral
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingDeferral
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2428,7 +2466,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - SuspendingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.suspendingeventargs)
-public final class SuspendingEventArgs : WinRTClass, ISuspendingEventArgs {
+public final class SuspendingEventArgs : WinRTClass, @unchecked Sendable, ISuspendingEventArgs {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2485,7 +2523,7 @@ extension __ABI_Windows_ApplicationModel {
 // MARK: - SuspendingOperation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.suspendingoperation)
-public final class SuspendingOperation : WinRTClass, ISuspendingOperation {
+public final class SuspendingOperation : WinRTClass, @unchecked Sendable, ISuspendingOperation {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel.ISuspendingOperation
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CISuspendingOperation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()

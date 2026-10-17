@@ -179,7 +179,7 @@ extension __IMPL_Windows_Graphics {
         }
     }
 
-    fileprivate class IGeometrySource2DImpl: IGeometrySource2D, WinRTAbiImpl {
+    fileprivate class IGeometrySource2DImpl: IGeometrySource2D, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IGeometrySource2DBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -196,12 +196,12 @@ extension __ABI_Windows_Graphics {
         Data1: 0xCAFF7902, Data2: 0x670C, Data3: 0x4181, Data4: ( 0xA6,0x24,0xDA,0x97,0x72,0x03,0xB8,0x45 ) // CAFF7902-670C-4181-A624-DA977203B845
     ) 
 
-    public class IGeometrySource2D: WindowsFoundation.IInspectable {
+    public class IGeometrySource2D: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CIGeometrySource2D }
 
     }
 
-    internal static var IGeometrySource2DVTable: __x_ABI_CWindows_CGraphics_CIGeometrySource2DVtbl = .init(
+    internal static nonisolated(unsafe) var IGeometrySource2DVTable: __x_ABI_CWindows_CGraphics_CIGeometrySource2DVtbl = .init(
         QueryInterface: { IGeometrySource2DWrapper.queryInterface($0, $1, $2) },
         AddRef: { IGeometrySource2DWrapper.addRef($0) },
         Release: { IGeometrySource2DWrapper.release($0) },

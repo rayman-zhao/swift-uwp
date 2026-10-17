@@ -315,6 +315,10 @@ extension HttpProgress: WinRTBridgeable {
     public static func from(abi: ABI) -> Self {
         .init(stage: abi.Stage, bytesSent: abi.BytesSent, totalBytesToSend: UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: ComPtr(abi.TotalBytesToSend)), bytesReceived: abi.BytesReceived, totalBytesToReceive: UWP.__x_ABI_C__FIReference_1_UINT64Wrapper.unwrapFrom(abi: ComPtr(abi.TotalBytesToReceive)), retries: abi.Retries)
     }
+    public static func release(abi: ABI) {
+        _ = abi.TotalBytesToSend?.pointee.lpVtbl.pointee.Release(abi.TotalBytesToSend)
+        _ = abi.TotalBytesToReceive?.pointee.lpVtbl.pointee.Release(abi.TotalBytesToReceive)
+    }
     public func toABI() -> ABI {
         __ABI_Windows_Web_Http._ABI_HttpProgress(from: self).detach()
     }
@@ -338,14 +342,12 @@ extension __ABI_Windows_Web_Http {
 
         public func detach() -> __x_ABI_CWindows_CWeb_CHttp_CHttpProgress {
             let result = val
-            val.TotalBytesToSend = nil
-            val.TotalBytesToReceive = nil
+            val = .init()
             return result
         }
 
         deinit {
-            _ = val.TotalBytesToSend?.pointee.lpVtbl.pointee.Release(val.TotalBytesToSend)
-            _ = val.TotalBytesToReceive?.pointee.lpVtbl.pointee.Release(val.TotalBytesToReceive)
+            UWP.HttpProgress.release(abi: val)
         }
     }
 }
@@ -403,7 +405,7 @@ extension __IMPL_Windows_Web_Http {
         }
     }
 
-    fileprivate class IHttpContentImpl: IHttpContent, WinRTAbiImpl {
+    fileprivate class IHttpContentImpl: IHttpContent, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IHttpContentBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -461,7 +463,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x6B14A441, Data2: 0xFBA7, Data3: 0x4BD2, Data4: ( 0xAF,0x0A,0x83,0x9D,0xE7,0xC2,0x95,0xDA ) // 6B14A441-FBA7-4BD2-AF0A-839DE7C295DA
     ) 
 
-    public class IHttpContent: WindowsFoundation.IInspectable {
+    public class IHttpContent: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpContent }
 
         open func get_Headers() throws -> UWP.HttpContentHeaderCollection? {
@@ -530,7 +532,7 @@ extension __ABI_Windows_Web_Http {
 
     }
 
-    internal static var IHttpContentVTable: __x_ABI_CWindows_CWeb_CHttp_CIHttpContentVtbl = .init(
+    internal static nonisolated(unsafe) var IHttpContentVTable: __x_ABI_CWindows_CWeb_CHttp_CIHttpContentVtbl = .init(
         QueryInterface: { IHttpContentWrapper.queryInterface($0, $1, $2) },
         AddRef: { IHttpContentWrapper.addRef($0) },
         Release: { IHttpContentWrapper.release($0) },
@@ -642,7 +644,7 @@ public class IHttpContentMaker: MakeFromAbi {
 // MARK: - HttpClient
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpclient)
-public final class HttpClient : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
+public final class HttpClient : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpClient
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpClient
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -825,7 +827,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x7FDA1151, Data2: 0x3574, Data3: 0x4880, Data4: ( 0xA8,0xBA,0xE6,0xB1,0xE0,0x06,0x1F,0x3D ) // 7FDA1151-3574-4880-A8BA-E6B1E0061F3D
     ) 
 
-    public class IHttpClient: WindowsFoundation.IInspectable {
+    public class IHttpClient: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpClient }
 
         public func DeleteAsync(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.HttpResponseMessage?, UWP.HttpProgress>? {
@@ -937,7 +939,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0xCDD83348, Data2: 0xE8B7, Data3: 0x4CEC, Data4: ( 0xB1,0xB0,0xDC,0x45,0x5F,0xE7,0x2C,0x92 ) // CDD83348-E8B7-4CEC-B1B0-DC455FE72C92
     ) 
 
-    public class IHttpClient2: WindowsFoundation.IInspectable {
+    public class IHttpClient2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpClient2 }
 
         public func TryDeleteAsync(_ uri: WindowsFoundation.Uri?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.HttpRequestResult?, UWP.HttpProgress>? {
@@ -1040,7 +1042,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0xC30C4ECA, Data2: 0xE3FA, Data3: 0x4F99, Data4: ( 0xAF,0xB4,0x63,0xCC,0x65,0x00,0x94,0x62 ) // C30C4ECA-E3FA-4F99-AFB4-63CC65009462
     ) 
 
-    public class IHttpClientFactory: WindowsFoundation.IInspectable {
+    public class IHttpClientFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpClientFactory }
 
         public func Create(_ filter: UWP.AnyIHttpFilter?) throws -> IHttpClient {
@@ -1060,7 +1062,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpGetBufferResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetbufferresult)
-public final class HttpGetBufferResult : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
+public final class HttpGetBufferResult : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpGetBufferResult
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpGetBufferResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1151,7 +1153,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x53D08E7C, Data2: 0xE209, Data3: 0x404E, Data4: ( 0x9A,0x49,0x74,0x2D,0x82,0x36,0xFD,0x3A ) // 53D08E7C-E209-404E-9A49-742D8236FD3A
     ) 
 
-    public class IHttpGetBufferResult: WindowsFoundation.IInspectable {
+    public class IHttpGetBufferResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpGetBufferResult }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -1203,7 +1205,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpGetInputStreamResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetinputstreamresult)
-public final class HttpGetInputStreamResult : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
+public final class HttpGetInputStreamResult : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpGetInputStreamResult
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpGetInputStreamResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1294,7 +1296,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0xD5D63463, Data2: 0x13AA, Data3: 0x4EE0, Data4: ( 0xBE,0x95,0xA0,0xC3,0x9F,0xE9,0x12,0x03 ) // D5D63463-13AA-4EE0-BE95-A0C39FE91203
     ) 
 
-    public class IHttpGetInputStreamResult: WindowsFoundation.IInspectable {
+    public class IHttpGetInputStreamResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpGetInputStreamResult }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -1346,7 +1348,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpGetStringResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpgetstringresult)
-public final class HttpGetStringResult : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
+public final class HttpGetStringResult : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpGetStringResult
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpGetStringResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1437,7 +1439,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x9BAC466D, Data2: 0x8509, Data3: 0x4775, Data4: ( 0xB1,0x6D,0x89,0x53,0xF4,0x7A,0x7F,0x5F ) // 9BAC466D-8509-4775-B16D-8953F47A7F5F
     ) 
 
-    public class IHttpGetStringResult: WindowsFoundation.IInspectable {
+    public class IHttpGetStringResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpGetStringResult }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -1476,10 +1478,12 @@ extension __ABI_Windows_Web_Http {
 
         public func get_Value() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CIHttpGetStringResult.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1489,7 +1493,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpMethod
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpmethod)
-public final class HttpMethod : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpMethod : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpMethod
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpMethod
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1594,15 +1598,17 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x728D4022, Data2: 0x700D, Data3: 0x4FE0, Data4: ( 0xAF,0xA5,0x40,0x29,0x9C,0x58,0xDB,0xFD ) // 728D4022-700D-4FE0-AFA5-40299C58DBFD
     ) 
 
-    public class IHttpMethod: WindowsFoundation.IInspectable {
+    public class IHttpMethod: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpMethod }
 
         public func get_Method() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CIHttpMethod.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Method(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1612,7 +1618,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x3C51D10D, Data2: 0x36D7, Data3: 0x40F8, Data4: ( 0xA8,0x6D,0xE7,0x59,0xCA,0xF2,0xF8,0x3F ) // 3C51D10D-36D7-40F8-A86D-E759CAF2F83F
     ) 
 
-    public class IHttpMethodFactory: WindowsFoundation.IInspectable {
+    public class IHttpMethodFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpMethodFactory }
 
         public func Create(_ method: String) throws -> IHttpMethod {
@@ -1631,7 +1637,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x64D171F0, Data2: 0xD99A, Data3: 0x4153, Data4: ( 0x8D,0xC6,0xD6,0x8C,0xC4,0xCC,0xE3,0x17 ) // 64D171F0-D99A-4153-8DC6-D68CC4CCE317
     ) 
 
-    public class IHttpMethodStatics: WindowsFoundation.IInspectable {
+    public class IHttpMethodStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpMethodStatics }
 
         public func get_Delete() throws -> UWP.HttpMethod? {
@@ -1703,7 +1709,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpRequestMessage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestmessage)
-public final class HttpRequestMessage : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
+public final class HttpRequestMessage : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpRequestMessage
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpRequestMessage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1812,7 +1818,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0xF5762B3C, Data2: 0x74D4, Data3: 0x4811, Data4: ( 0xB5,0xDC,0x9F,0x8B,0x4E,0x2F,0x9A,0xBF ) // F5762B3C-74D4-4811-B5DC-9F8B4E2F9ABF
     ) 
 
-    public class IHttpRequestMessage: WindowsFoundation.IInspectable {
+    public class IHttpRequestMessage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpRequestMessage }
 
         public func get_Content() throws -> UWP.AnyIHttpContent? {
@@ -1895,7 +1901,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x5BAC994E, Data2: 0x3886, Data3: 0x412E, Data4: ( 0xAE,0xC3,0x52,0xEC,0x7F,0x25,0x61,0x6F ) // 5BAC994E-3886-412E-AEC3-52EC7F25616F
     ) 
 
-    public class IHttpRequestMessageFactory: WindowsFoundation.IInspectable {
+    public class IHttpRequestMessageFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpRequestMessageFactory }
 
         public func Create(_ method: UWP.HttpMethod?, _ uri: WindowsFoundation.Uri?) throws -> IHttpRequestMessage {
@@ -1913,7 +1919,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpRequestResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httprequestresult)
-public final class HttpRequestResult : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
+public final class HttpRequestResult : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpRequestResult
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpRequestResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1999,7 +2005,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x6ACF4DA8, Data2: 0xB5EB, Data3: 0x4A35, Data4: ( 0xA9,0x02,0x42,0x17,0xFB,0xE8,0x20,0xC5 ) // 6ACF4DA8-B5EB-4A35-A902-4217FBE820C5
     ) 
 
-    public class IHttpRequestResult: WindowsFoundation.IInspectable {
+    public class IHttpRequestResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpRequestResult }
 
         public func get_ExtendedError() throws -> HRESULT {
@@ -2042,7 +2048,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpResponseMessage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httpresponsemessage)
-public final class HttpResponseMessage : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
+public final class HttpResponseMessage : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpResponseMessage
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpResponseMessage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2169,7 +2175,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0xFEE200FB, Data2: 0x8664, Data3: 0x44E0, Data4: ( 0x95,0xD9,0x42,0x69,0x61,0x99,0xBF,0xFC ) // FEE200FB-8664-44E0-95D9-42696199BFFC
     ) 
 
-    public class IHttpResponseMessage: WindowsFoundation.IInspectable {
+    public class IHttpResponseMessage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpResponseMessage }
 
         public func get_Content() throws -> UWP.AnyIHttpContent? {
@@ -2208,10 +2214,12 @@ extension __ABI_Windows_Web_Http {
 
         public func get_ReasonPhrase() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CIHttpResponseMessage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ReasonPhrase(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2294,7 +2302,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x52A8AF99, Data2: 0xF095, Data3: 0x43DA, Data4: ( 0xB6,0x0F,0x7C,0xFC,0x2B,0xC7,0xEA,0x2F ) // 52A8AF99-F095-43DA-B60F-7CFC2BC7EA2F
     ) 
 
-    public class IHttpResponseMessageFactory: WindowsFoundation.IInspectable {
+    public class IHttpResponseMessageFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpResponseMessageFactory }
 
         public func Create(_ statusCode: UWP.HttpStatusCode) throws -> IHttpResponseMessage {
@@ -2312,7 +2320,7 @@ extension __ABI_Windows_Web_Http {
 // MARK: - HttpTransportInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.httptransportinformation)
-public final class HttpTransportInformation : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpTransportInformation : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http.IHttpTransportInformation
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CIHttpTransportInformation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2391,7 +2399,7 @@ extension __ABI_Windows_Web_Http {
         Data1: 0x70127198, Data2: 0xC6A7, Data3: 0x4ED0, Data4: ( 0x83,0x3A,0x83,0xFD,0x8B,0x8F,0x17,0x8D ) // 70127198-C6A7-4ED0-833A-83FD8B8F178D
     ) 
 
-    public class IHttpTransportInformation: WindowsFoundation.IInspectable {
+    public class IHttpTransportInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CIHttpTransportInformation }
 
         public func get_ServerCertificate() throws -> UWP.Certificate? {

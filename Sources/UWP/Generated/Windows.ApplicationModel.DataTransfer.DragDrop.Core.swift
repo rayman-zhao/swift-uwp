@@ -64,7 +64,7 @@ extension __IMPL_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         }
     }
 
-    fileprivate class ICoreDropOperationTargetImpl: ICoreDropOperationTarget, WinRTAbiImpl {
+    fileprivate class ICoreDropOperationTargetImpl: ICoreDropOperationTarget, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICoreDropOperationTargetBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -101,7 +101,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0xD9126196, Data2: 0x4C5B, Data3: 0x417D, Data4: ( 0xBB,0x37,0x76,0x38,0x1D,0xEF,0x8D,0xB4 ) // D9126196-4C5B-417D-BB37-76381DEF8DB4
     ) 
 
-    public class ICoreDropOperationTarget: WindowsFoundation.IInspectable {
+    public class ICoreDropOperationTarget: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDropOperationTarget }
 
         open func EnterAsync(_ dragInfo: UWP.CoreDragInfo?, _ dragUIOverride: UWP.CoreDragUIOverride?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.DataPackageOperation>? {
@@ -142,7 +142,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
 
     }
 
-    internal static var ICoreDropOperationTargetVTable: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDropOperationTargetVtbl = .init(
+    internal static nonisolated(unsafe) var ICoreDropOperationTargetVTable: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDropOperationTargetVtbl = .init(
         QueryInterface: { ICoreDropOperationTargetWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICoreDropOperationTargetWrapper.addRef($0) },
         Release: { ICoreDropOperationTargetWrapper.release($0) },
@@ -230,7 +230,7 @@ public class ICoreDropOperationTargetMaker: MakeFromAbi {
 // MARK: - CoreDragDropManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredragdropmanager)
-public final class CoreDragDropManager : WinRTClass {
+public final class CoreDragDropManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core.ICoreDragDropManager
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragDropManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -304,7 +304,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0x7D56D344, Data2: 0x8464, Data3: 0x4FAF, Data4: ( 0xAA,0x49,0x37,0xEA,0x6E,0x2D,0x7B,0xD1 ) // 7D56D344-8464-4FAF-AA49-37EA6E2D7BD1
     ) 
 
-    public class ICoreDragDropManager: WindowsFoundation.IInspectable {
+    public class ICoreDragDropManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragDropManager }
 
         public func add_TargetRequested(_ value: TypedEventHandler<UWP.CoreDragDropManager?, UWP.CoreDropOperationTargetRequestedEventArgs?>?) throws -> EventRegistrationToken {
@@ -343,7 +343,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0x9542FDCA, Data2: 0xDA12, Data3: 0x4C1C, Data4: ( 0x8D,0x06,0x04,0x1D,0xB2,0x97,0x33,0xC3 ) // 9542FDCA-DA12-4C1C-8D06-041DB29733C3
     ) 
 
-    public class ICoreDragDropManagerStatics: WindowsFoundation.IInspectable {
+    public class ICoreDragDropManagerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragDropManagerStatics }
 
         public func GetForCurrentView() throws -> UWP.CoreDragDropManager? {
@@ -361,7 +361,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
 // MARK: - CoreDragInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredraginfo)
-public final class CoreDragInfo : WinRTClass {
+public final class CoreDragInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core.ICoreDragInfo
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -432,7 +432,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0x48353A8B, Data2: 0xCB50, Data3: 0x464E, Data4: ( 0x95,0x75,0xCD,0x4E,0x3A,0x7A,0xB0,0x28 ) // 48353A8B-CB50-464E-9575-CD4E3A7AB028
     ) 
 
-    public class ICoreDragInfo: WindowsFoundation.IInspectable {
+    public class ICoreDragInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragInfo }
 
         public func get_Data() throws -> UWP.DataPackageView? {
@@ -466,7 +466,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0xC54691E5, Data2: 0xE6FB, Data3: 0x4D74, Data4: ( 0xB4,0xB1,0x8A,0x3C,0x17,0xF2,0x5E,0x9E ) // C54691E5-E6FB-4D74-B4B1-8A3C17F25E9E
     ) 
 
-    public class ICoreDragInfo2: WindowsFoundation.IInspectable {
+    public class ICoreDragInfo2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragInfo2 }
 
         public func get_AllowedOperations() throws -> UWP.DataPackageOperation {
@@ -483,7 +483,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
 // MARK: - CoreDragOperation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredragoperation)
-public final class CoreDragOperation : WinRTClass {
+public final class CoreDragOperation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core.ICoreDragOperation
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragOperation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -576,7 +576,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0xCC06DE4F, Data2: 0x6DB0, Data3: 0x4E62, Data4: ( 0xAB,0x1B,0xA7,0x4A,0x02,0xDC,0x6D,0x85 ) // CC06DE4F-6DB0-4E62-AB1B-A74A02DC6D85
     ) 
 
-    public class ICoreDragOperation: WindowsFoundation.IInspectable {
+    public class ICoreDragOperation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragOperation }
 
         public func get_Data() throws -> UWP.DataPackage? {
@@ -635,7 +635,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0x824B1E2C, Data2: 0xD99A, Data3: 0x4FC3, Data4: ( 0x85,0x07,0x6C,0x18,0x2F,0x33,0xB4,0x6A ) // 824B1E2C-D99A-4FC3-8507-6C182F33B46A
     ) 
 
-    public class ICoreDragOperation2: WindowsFoundation.IInspectable {
+    public class ICoreDragOperation2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragOperation2 }
 
         public func get_AllowedOperations() throws -> UWP.DataPackageOperation {
@@ -658,7 +658,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
 // MARK: - CoreDragUIOverride
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredraguioverride)
-public final class CoreDragUIOverride : WinRTClass {
+public final class CoreDragUIOverride : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core.ICoreDragUIOverride
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragUIOverride
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -746,7 +746,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0x89A85064, Data2: 0x3389, Data3: 0x4F4F, Data4: ( 0x88,0x97,0x7E,0x8A,0x3F,0xFB,0x3C,0x93 ) // 89A85064-3389-4F4F-8897-7E8A3FFB3C93
     ) 
 
-    public class ICoreDragUIOverride: WindowsFoundation.IInspectable {
+    public class ICoreDragUIOverride: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragUIOverride }
 
         public func SetContentFromSoftwareBitmap(_ softwareBitmap: UWP.SoftwareBitmap?) throws {
@@ -777,10 +777,12 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
 
         public func get_Caption() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDragUIOverride.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Caption(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -831,7 +833,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
 // MARK: - CoreDropOperationTargetRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.dragdrop.core.coredropoperationtargetrequestedeventargs)
-public final class CoreDropOperationTargetRequestedEventArgs : WinRTClass {
+public final class CoreDropOperationTargetRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core.ICoreDropOperationTargetRequestedEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDropOperationTargetRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -885,7 +887,7 @@ extension __ABI_Windows_ApplicationModel_DataTransfer_DragDrop_Core {
         Data1: 0x2ACA929A, Data2: 0x5E28, Data3: 0x4EA6, Data4: ( 0x82,0x9E,0x29,0x13,0x4E,0x66,0x5D,0x6D ) // 2ACA929A-5E28-4EA6-829E-29134E665D6D
     ) 
 
-    public class ICoreDropOperationTargetRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class ICoreDropOperationTargetRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CDragDrop_CCore_CICoreDropOperationTargetRequestedEventArgs }
 
         public func SetTarget(_ target: UWP.AnyICoreDropOperationTarget?) throws {

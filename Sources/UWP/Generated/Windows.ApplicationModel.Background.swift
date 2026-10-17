@@ -51,7 +51,7 @@ extension UWP.BackgroundTaskCancellationReason: @retroactive Hashable, @retroact
 
 // MARK: - BackgroundTaskCanceledEventHandler
 
-public typealias BackgroundTaskCanceledEventHandler = (AnyIBackgroundTaskInstance?, BackgroundTaskCancellationReason) throws -> ()
+public typealias BackgroundTaskCanceledEventHandler = @Sendable (AnyIBackgroundTaskInstance?, BackgroundTaskCancellationReason) throws -> ()
 
 // MARK: - BackgroundTaskCanceledEventHandler Internals
 
@@ -78,7 +78,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0xA6C4BAC0, Data2: 0x51F8, Data3: 0x4C57, Data4: ( 0xAC,0x3F,0x15,0x6D,0xD1,0x68,0x0C,0x4F ) // A6C4BAC0-51F8-4C57-AC3F-156DD1680C4F
     ) 
 
-    public class BackgroundTaskCanceledEventHandler: WindowsFoundation.IUnknown {
+    public class BackgroundTaskCanceledEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCanceledEventHandler }
 
         open func Invoke(_ sender: UWP.AnyIBackgroundTaskInstance?, _ reason: UWP.BackgroundTaskCancellationReason) throws {
@@ -93,7 +93,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 
 
     typealias BackgroundTaskCanceledEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Background.BackgroundTaskCanceledEventHandlerBridge>
-    internal static var BackgroundTaskCanceledEventHandlerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCanceledEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var BackgroundTaskCanceledEventHandlerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCanceledEventHandlerVtbl = .init(
         QueryInterface: { BackgroundTaskCanceledEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { BackgroundTaskCanceledEventHandlerWrapper.addRef($0) },
         Release: { BackgroundTaskCanceledEventHandlerWrapper.release($0) },
@@ -117,7 +117,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CApplication
 
 // MARK: - BackgroundTaskCompletedEventHandler
 
-public typealias BackgroundTaskCompletedEventHandler = (BackgroundTaskRegistration?, BackgroundTaskCompletedEventArgs?) throws -> ()
+public typealias BackgroundTaskCompletedEventHandler = @Sendable (BackgroundTaskRegistration?, BackgroundTaskCompletedEventArgs?) throws -> ()
 
 // MARK: - BackgroundTaskCompletedEventHandler Internals
 
@@ -144,7 +144,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x5B38E929, Data2: 0xA086, Data3: 0x46A7, Data4: ( 0xA6,0x78,0x43,0x91,0x35,0x82,0x2B,0xCF ) // 5B38E929-A086-46A7-A678-439135822BCF
     ) 
 
-    public class BackgroundTaskCompletedEventHandler: WindowsFoundation.IUnknown {
+    public class BackgroundTaskCompletedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventHandler }
 
         open func Invoke(_ sender: UWP.BackgroundTaskRegistration?, _ args: UWP.BackgroundTaskCompletedEventArgs?) throws {
@@ -157,7 +157,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 
 
     typealias BackgroundTaskCompletedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Background.BackgroundTaskCompletedEventHandlerBridge>
-    internal static var BackgroundTaskCompletedEventHandlerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var BackgroundTaskCompletedEventHandlerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventHandlerVtbl = .init(
         QueryInterface: { BackgroundTaskCompletedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { BackgroundTaskCompletedEventHandlerWrapper.addRef($0) },
         Release: { BackgroundTaskCompletedEventHandlerWrapper.release($0) },
@@ -181,7 +181,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CApplication
 
 // MARK: - BackgroundTaskProgressEventHandler
 
-public typealias BackgroundTaskProgressEventHandler = (BackgroundTaskRegistration?, BackgroundTaskProgressEventArgs?) throws -> ()
+public typealias BackgroundTaskProgressEventHandler = @Sendable (BackgroundTaskRegistration?, BackgroundTaskProgressEventArgs?) throws -> ()
 
 // MARK: - BackgroundTaskProgressEventHandler Internals
 
@@ -208,7 +208,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x46E0683C, Data2: 0x8A88, Data3: 0x4C99, Data4: ( 0x80,0x4C,0x76,0x89,0x7F,0x62,0x77,0xA6 ) // 46E0683C-8A88-4C99-804C-76897F6277A6
     ) 
 
-    public class BackgroundTaskProgressEventHandler: WindowsFoundation.IUnknown {
+    public class BackgroundTaskProgressEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventHandler }
 
         open func Invoke(_ sender: UWP.BackgroundTaskRegistration?, _ args: UWP.BackgroundTaskProgressEventArgs?) throws {
@@ -221,7 +221,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 
 
     typealias BackgroundTaskProgressEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Background.BackgroundTaskProgressEventHandlerBridge>
-    internal static var BackgroundTaskProgressEventHandlerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var BackgroundTaskProgressEventHandlerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventHandlerVtbl = .init(
         QueryInterface: { BackgroundTaskProgressEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { BackgroundTaskProgressEventHandlerWrapper.addRef($0) },
         Release: { BackgroundTaskProgressEventHandlerWrapper.release($0) },
@@ -300,7 +300,7 @@ extension __IMPL_Windows_ApplicationModel_Background {
         }
     }
 
-    fileprivate class IBackgroundTaskInstanceImpl: IBackgroundTaskInstance, WinRTAbiImpl {
+    fileprivate class IBackgroundTaskInstanceImpl: IBackgroundTaskInstance, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundTaskInstanceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -361,7 +361,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x865BDA7A, Data2: 0x21D8, Data3: 0x4573, Data4: ( 0x8F,0x32,0x92,0x8A,0x1B,0x06,0x41,0xF6 ) // 865BDA7A-21D8-4573-8F32-928A1B0641F6
     ) 
 
-    public class IBackgroundTaskInstance: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskInstance: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstance }
 
         open func get_InstanceId() throws -> Foundation.UUID {
@@ -439,7 +439,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 
     }
 
-    internal static var IBackgroundTaskInstanceVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstanceVtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundTaskInstanceVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskInstanceVtbl = .init(
         QueryInterface: { IBackgroundTaskInstanceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundTaskInstanceWrapper.addRef($0) },
         Release: { IBackgroundTaskInstanceWrapper.release($0) },
@@ -604,7 +604,7 @@ extension __IMPL_Windows_ApplicationModel_Background {
         }
     }
 
-    fileprivate class IBackgroundTaskRegistrationImpl: IBackgroundTaskRegistration, WinRTAbiImpl {
+    fileprivate class IBackgroundTaskRegistrationImpl: IBackgroundTaskRegistration, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundTaskRegistrationBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -662,7 +662,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x10654CC2, Data2: 0xA26E, Data3: 0x43BF, Data4: ( 0x8C,0x12,0x1F,0xB4,0x0D,0xBF,0xBF,0xA0 ) // 10654CC2-A26E-43BF-8C12-1FB40DBFBFA0
     ) 
 
-    public class IBackgroundTaskRegistration: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskRegistration: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration }
 
         open func get_TaskId() throws -> Foundation.UUID {
@@ -675,10 +675,12 @@ extension __ABI_Windows_ApplicationModel_Background {
 
         open func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -722,7 +724,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 
     }
 
-    internal static var IBackgroundTaskRegistrationVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationVtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundTaskRegistrationVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationVtbl = .init(
         QueryInterface: { IBackgroundTaskRegistrationWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundTaskRegistrationWrapper.addRef($0) },
         Release: { IBackgroundTaskRegistrationWrapper.release($0) },
@@ -856,7 +858,7 @@ extension __IMPL_Windows_ApplicationModel_Background {
         }
     }
 
-    fileprivate class IBackgroundTaskRegistration2Impl: IBackgroundTaskRegistration2, WinRTAbiImpl {
+    fileprivate class IBackgroundTaskRegistration2Impl: IBackgroundTaskRegistration2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundTaskRegistration2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -920,7 +922,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x6138C703, Data2: 0xBB86, Data3: 0x4112, Data4: ( 0xAF,0xC3,0x7F,0x93,0x9B,0x16,0x6E,0x3B ) // 6138C703-BB86-4112-AFC3-7F939B166E3B
     ) 
 
-    public class IBackgroundTaskRegistration2: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskRegistration2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration2 }
 
         open func get_Trigger() throws -> UWP.AnyIBackgroundTrigger? {
@@ -934,7 +936,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 
     }
 
-    internal static var IBackgroundTaskRegistration2VTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration2Vtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundTaskRegistration2VTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration2Vtbl = .init(
         QueryInterface: { IBackgroundTaskRegistration2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundTaskRegistration2Wrapper.addRef($0) },
         Release: { IBackgroundTaskRegistration2Wrapper.release($0) },
@@ -1024,7 +1026,7 @@ extension __IMPL_Windows_ApplicationModel_Background {
         }
     }
 
-    fileprivate class IBackgroundTaskRegistration3Impl: IBackgroundTaskRegistration3, WinRTAbiImpl {
+    fileprivate class IBackgroundTaskRegistration3Impl: IBackgroundTaskRegistration3, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundTaskRegistration3Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1088,7 +1090,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0xFE338195, Data2: 0x9423, Data3: 0x4D8B, Data4: ( 0x83,0x0D,0xB1,0xDD,0x2C,0x7B,0xAD,0xD5 ) // FE338195-9423-4D8B-830D-B1DD2C7BADD5
     ) 
 
-    public class IBackgroundTaskRegistration3: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskRegistration3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration3 }
 
         open func get_TaskGroup() throws -> UWP.BackgroundTaskRegistrationGroup? {
@@ -1102,7 +1104,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 
     }
 
-    internal static var IBackgroundTaskRegistration3VTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration3Vtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundTaskRegistration3VTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration3Vtbl = .init(
         QueryInterface: { IBackgroundTaskRegistration3Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundTaskRegistration3Wrapper.addRef($0) },
         Release: { IBackgroundTaskRegistration3Wrapper.release($0) },
@@ -1186,7 +1188,7 @@ extension __IMPL_Windows_ApplicationModel_Background {
         }
     }
 
-    fileprivate class IBackgroundTriggerImpl: IBackgroundTrigger, WinRTAbiImpl {
+    fileprivate class IBackgroundTriggerImpl: IBackgroundTrigger, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundTriggerBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1203,12 +1205,12 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x84B3A058, Data2: 0x6027, Data3: 0x4B87, Data4: ( 0x97,0x90,0xBD,0xF3,0xF7,0x57,0xDB,0xD7 ) // 84B3A058-6027-4B87-9790-BDF3F757DBD7
     ) 
 
-    public class IBackgroundTrigger: WindowsFoundation.IInspectable {
+    public class IBackgroundTrigger: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTrigger }
 
     }
 
-    internal static var IBackgroundTriggerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTriggerVtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundTriggerVTable: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTriggerVtbl = .init(
         QueryInterface: { IBackgroundTriggerWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundTriggerWrapper.addRef($0) },
         Release: { IBackgroundTriggerWrapper.release($0) },
@@ -1250,7 +1252,7 @@ public class IBackgroundTriggerMaker: MakeFromAbi {
 // MARK: - BackgroundTaskCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskcompletedeventargs)
-public final class BackgroundTaskCompletedEventArgs : WinRTClass {
+public final class BackgroundTaskCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskCompletedEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1309,7 +1311,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x565D25CF, Data2: 0xF209, Data3: 0x48F4, Data4: ( 0x99,0x67,0x2B,0x18,0x4F,0x7B,0xFB,0xF0 ) // 565D25CF-F209-48F4-9967-2B184F7BFBF0
     ) 
 
-    public class IBackgroundTaskCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskCompletedEventArgs }
 
         public func get_InstanceId() throws -> Foundation.UUID {
@@ -1332,7 +1334,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 // MARK: - BackgroundTaskDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskdeferral)
-public final class BackgroundTaskDeferral : WinRTClass {
+public final class BackgroundTaskDeferral : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskDeferral
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskDeferral
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1386,7 +1388,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x93CC156D, Data2: 0xAF27, Data3: 0x4DD3, Data4: ( 0x84,0x6E,0x24,0xEE,0x40,0xCA,0xDD,0x25 ) // 93CC156D-AF27-4DD3-846E-24EE40CADD25
     ) 
 
-    public class IBackgroundTaskDeferral: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskDeferral: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskDeferral }
 
         public func Complete() throws {
@@ -1401,7 +1403,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 // MARK: - BackgroundTaskProgressEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskprogresseventargs)
-public final class BackgroundTaskProgressEventArgs : WinRTClass {
+public final class BackgroundTaskProgressEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskProgressEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1460,7 +1462,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0xFB1468AC, Data2: 0x8332, Data3: 0x4D0A, Data4: ( 0x95,0x32,0x03,0xEA,0xE6,0x84,0xDA,0x31 ) // FB1468AC-8332-4D0A-9532-03EAE684DA31
     ) 
 
-    public class IBackgroundTaskProgressEventArgs: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskProgressEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskProgressEventArgs }
 
         public func get_InstanceId() throws -> Foundation.UUID {
@@ -1485,7 +1487,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 // MARK: - BackgroundTaskRegistration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistration)
-public final class BackgroundTaskRegistration : WinRTClass, IBackgroundTaskRegistration, IBackgroundTaskRegistration2, IBackgroundTaskRegistration3 {
+public final class BackgroundTaskRegistration : WinRTClass, @unchecked Sendable, IBackgroundTaskRegistration, IBackgroundTaskRegistration2, IBackgroundTaskRegistration3 {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskRegistration
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistration
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1609,7 +1611,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x4C542F69, Data2: 0xB000, Data3: 0x42BA, Data4: ( 0xA0,0x93,0x6A,0x56,0x3C,0x65,0xE3,0xF8 ) // 4C542F69-B000-42BA-A093-6A563C65E3F8
     ) 
 
-    public class IBackgroundTaskRegistrationStatics: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskRegistrationStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationStatics }
 
         public func get_AllTasks() throws -> WindowsFoundation.AnyIMapView<Foundation.UUID, UWP.AnyIBackgroundTaskRegistration?>? {
@@ -1627,7 +1629,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x174B671E, Data2: 0xB20D, Data3: 0x4FA9, Data4: ( 0xAD,0x9A,0xE9,0x3A,0xD6,0xC7,0x1E,0x01 ) // 174B671E-B20D-4FA9-AD9A-E93AD6C71E01
     ) 
 
-    public class IBackgroundTaskRegistrationStatics2: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskRegistrationStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationStatics2 }
 
         public func get_AllTaskGroups() throws -> WindowsFoundation.AnyIMapView<String, UWP.BackgroundTaskRegistrationGroup?>? {
@@ -1655,7 +1657,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 // MARK: - BackgroundTaskRegistrationGroup
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistrationgroup)
-public final class BackgroundTaskRegistrationGroup : WinRTClass {
+public final class BackgroundTaskRegistrationGroup : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskRegistrationGroup
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1741,24 +1743,28 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x2AB1919A, Data2: 0x871B, Data3: 0x4167, Data4: ( 0x8A,0x76,0x05,0x5C,0xD6,0x7B,0x5B,0x23 ) // 2AB1919A-871B-4167-8A76-055CD67B5B23
     ) 
 
-    public class IBackgroundTaskRegistrationGroup: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskRegistrationGroup: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1793,7 +1799,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0x83D92B69, Data2: 0x44CF, Data3: 0x4631, Data4: ( 0x97,0x40,0x03,0xC7,0xD8,0x74,0x1B,0xC5 ) // 83D92B69-44CF-4631-9740-03C7D8741BC5
     ) 
 
-    public class IBackgroundTaskRegistrationGroupFactory: WindowsFoundation.IInspectable {
+    public class IBackgroundTaskRegistrationGroupFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskRegistrationGroupFactory }
 
         public func Create(_ id: String) throws -> IBackgroundTaskRegistrationGroup {
@@ -1823,7 +1829,7 @@ extension __ABI_Windows_ApplicationModel_Background {
 // MARK: - DeviceWatcherTrigger
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.background.devicewatchertrigger)
-public final class DeviceWatcherTrigger : WinRTClass, IBackgroundTrigger {
+public final class DeviceWatcherTrigger : WinRTClass, @unchecked Sendable, IBackgroundTrigger {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Background.IDeviceWatcherTrigger
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CBackground_CIDeviceWatcherTrigger
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1877,7 +1883,7 @@ extension __ABI_Windows_ApplicationModel_Background {
         Data1: 0xA4617FDD, Data2: 0x8573, Data3: 0x4260, Data4: ( 0xBE,0xFC,0x5B,0xEC,0x89,0xCB,0x69,0x3D ) // A4617FDD-8573-4260-BEFC-5BEC89CB693D
     ) 
 
-    public class IDeviceWatcherTrigger: WindowsFoundation.IInspectable {
+    public class IDeviceWatcherTrigger: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CBackground_CIDeviceWatcherTrigger }
 
     }

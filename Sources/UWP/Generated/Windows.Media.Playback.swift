@@ -356,7 +356,7 @@ extension __IMPL_Windows_Media_Playback {
         }
     }
 
-    fileprivate class IMediaPlaybackSourceImpl: IMediaPlaybackSource, WinRTAbiImpl {
+    fileprivate class IMediaPlaybackSourceImpl: IMediaPlaybackSource, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IMediaPlaybackSourceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -373,12 +373,12 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xEF9DC2BC, Data2: 0x9317, Data3: 0x4696, Data4: ( 0xB0,0x51,0x2B,0xAD,0x64,0x31,0x77,0xB5 ) // EF9DC2BC-9317-4696-B051-2BAD643177B5
     ) 
 
-    public class IMediaPlaybackSource: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSource }
 
     }
 
-    internal static var IMediaPlaybackSourceVTable: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSourceVtbl = .init(
+    internal static nonisolated(unsafe) var IMediaPlaybackSourceVTable: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSourceVtbl = .init(
         QueryInterface: { IMediaPlaybackSourceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IMediaPlaybackSourceWrapper.addRef($0) },
         Release: { IMediaPlaybackSourceWrapper.release($0) },
@@ -420,7 +420,7 @@ public class IMediaPlaybackSourceMaker: MakeFromAbi {
 // MARK: - CurrentMediaPlaybackItemChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.currentmediaplaybackitemchangedeventargs)
-public final class CurrentMediaPlaybackItemChangedEventArgs : WinRTClass {
+public final class CurrentMediaPlaybackItemChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.ICurrentMediaPlaybackItemChangedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -486,7 +486,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x1743A892, Data2: 0x5C43, Data3: 0x4A15, Data4: ( 0x96,0x7A,0x57,0x2D,0x2D,0x0F,0x26,0xC6 ) // 1743A892-5C43-4A15-967A-572D2D0F26C6
     ) 
 
-    public class ICurrentMediaPlaybackItemChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ICurrentMediaPlaybackItemChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs }
 
         public func get_NewItem() throws -> UWP.MediaPlaybackItem? {
@@ -513,7 +513,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x1D80A51E, Data2: 0x996E, Data3: 0x40A9, Data4: ( 0xBE,0x48,0xE6,0x6E,0xC9,0x0B,0x2B,0x7D ) // 1D80A51E-996E-40A9-BE48-E66EC90B2B7D
     ) 
 
-    public class ICurrentMediaPlaybackItemChangedEventArgs2: WindowsFoundation.IInspectable {
+    public class ICurrentMediaPlaybackItemChangedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CICurrentMediaPlaybackItemChangedEventArgs2 }
 
         public func get_Reason() throws -> UWP.MediaPlaybackItemChangedReason {
@@ -530,7 +530,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaBreak
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediabreak)
-public final class MediaBreak : WinRTClass {
+public final class MediaBreak : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaBreak
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -614,7 +614,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x714BE270, Data2: 0x0DEF, Data3: 0x4EBC, Data4: ( 0xA4,0x89,0x6B,0x34,0x93,0x0E,0x15,0x58 ) // 714BE270-0DEF-4EBC-A489-6B34930E1558
     ) 
 
-    public class IMediaBreak: WindowsFoundation.IInspectable {
+    public class IMediaBreak: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreak }
 
         public func get_PlaybackList() throws -> UWP.MediaPlaybackList? {
@@ -672,7 +672,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x4516E002, Data2: 0x18E0, Data3: 0x4079, Data4: ( 0x8B,0x5F,0xD3,0x34,0x95,0xC1,0x5D,0x2E ) // 4516E002-18E0-4079-8B5F-D33495C15D2E
     ) 
 
-    public class IMediaBreakFactory: WindowsFoundation.IInspectable {
+    public class IMediaBreakFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakFactory }
 
         public func Create(_ insertionMethod: UWP.MediaBreakInsertionMethod) throws -> IMediaBreak {
@@ -699,7 +699,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaBreakEndedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediabreakendedeventargs)
-public final class MediaBreakEndedEventArgs : WinRTClass {
+public final class MediaBreakEndedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaBreakEndedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakEndedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -753,7 +753,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x32B93276, Data2: 0x1C5D, Data3: 0x4FEE, Data4: ( 0x87,0x32,0x23,0x6D,0xC3,0xA8,0x85,0x80 ) // 32B93276-1C5D-4FEE-8732-236DC3A88580
     ) 
 
-    public class IMediaBreakEndedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaBreakEndedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakEndedEventArgs }
 
         public func get_MediaBreak() throws -> UWP.MediaBreak? {
@@ -771,7 +771,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaBreakManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediabreakmanager)
-public final class MediaBreakManager : WinRTClass {
+public final class MediaBreakManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaBreakManager
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -892,7 +892,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xA854DDB1, Data2: 0xFEB4, Data3: 0x4D9B, Data4: ( 0x9D,0x97,0x0F,0xDB,0xE5,0x8E,0x5E,0x39 ) // A854DDB1-FEB4-4D9B-9D97-0FDBE58E5E39
     ) 
 
-    public class IMediaBreakManager: WindowsFoundation.IInspectable {
+    public class IMediaBreakManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakManager }
 
         public func add_BreaksSeekedOver(_ handler: TypedEventHandler<UWP.MediaBreakManager?, UWP.MediaBreakSeekedOverEventArgs?>?) throws -> EventRegistrationToken {
@@ -995,7 +995,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaBreakSchedule
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediabreakschedule)
-public final class MediaBreakSchedule : WinRTClass {
+public final class MediaBreakSchedule : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaBreakSchedule
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1089,7 +1089,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xA19A5813, Data2: 0x98B6, Data3: 0x41D8, Data4: ( 0x83,0xDA,0xF9,0x71,0xD2,0x2B,0x7B,0xBA ) // A19A5813-98B6-41D8-83DA-F971D22B7BBA
     ) 
 
-    public class IMediaBreakSchedule: WindowsFoundation.IInspectable {
+    public class IMediaBreakSchedule: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSchedule }
 
         public func add_ScheduleChanged(_ handler: TypedEventHandler<UWP.MediaBreakSchedule?, Any?>?) throws -> EventRegistrationToken {
@@ -1174,7 +1174,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaBreakSeekedOverEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediabreakseekedovereventargs)
-public final class MediaBreakSeekedOverEventArgs : WinRTClass {
+public final class MediaBreakSeekedOverEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaBreakSeekedOverEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1238,7 +1238,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xE5AA6746, Data2: 0x0606, Data3: 0x4492, Data4: ( 0xB9,0xD3,0xC3,0xC8,0xFD,0xE0,0xA4,0xEA ) // E5AA6746-0606-4492-B9D3-C3C8FDE0A4EA
     ) 
 
-    public class IMediaBreakSeekedOverEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaBreakSeekedOverEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSeekedOverEventArgs }
 
         public func get_SeekedOverBreaks() throws -> WindowsFoundation.AnyIVectorView<UWP.MediaBreak?>? {
@@ -1272,7 +1272,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaBreakSkippedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediabreakskippedeventargs)
-public final class MediaBreakSkippedEventArgs : WinRTClass {
+public final class MediaBreakSkippedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaBreakSkippedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSkippedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1326,7 +1326,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x6EE94C05, Data2: 0x2F54, Data3: 0x4A3E, Data4: ( 0xA3,0xAB,0x24,0xC3,0xB2,0x70,0xB4,0xA3 ) // 6EE94C05-2F54-4A3E-A3AB-24C3B270B4A3
     ) 
 
-    public class IMediaBreakSkippedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaBreakSkippedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakSkippedEventArgs }
 
         public func get_MediaBreak() throws -> UWP.MediaBreak? {
@@ -1344,7 +1344,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaBreakStartedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediabreakstartedeventargs)
-public final class MediaBreakStartedEventArgs : WinRTClass {
+public final class MediaBreakStartedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaBreakStartedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakStartedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1398,7 +1398,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xA87EFE71, Data2: 0xDFD4, Data3: 0x454A, Data4: ( 0x95,0x6E,0x0A,0x4A,0x64,0x83,0x95,0xF8 ) // A87EFE71-DFD4-454A-956E-0A4A648395F8
     ) 
 
-    public class IMediaBreakStartedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaBreakStartedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaBreakStartedEventArgs }
 
         public func get_MediaBreak() throws -> UWP.MediaBreak? {
@@ -1416,7 +1416,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaItemDisplayProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaitemdisplayproperties)
-public final class MediaItemDisplayProperties : WinRTClass {
+public final class MediaItemDisplayProperties : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaItemDisplayProperties
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1492,7 +1492,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x1E3C1B48, Data2: 0x7097, Data3: 0x4384, Data4: ( 0xA2,0x17,0xC1,0x29,0x1D,0xFA,0x8C,0x16 ) // 1E3C1B48-7097-4384-A217-C1291DFA8C16
     ) 
 
-    public class IMediaItemDisplayProperties: WindowsFoundation.IInspectable {
+    public class IMediaItemDisplayProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaItemDisplayProperties }
 
         public func get_Type() throws -> UWP.MediaPlaybackType {
@@ -1554,7 +1554,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackAudioTrackList
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackaudiotracklist)
-public final class MediaPlaybackAudioTrackList : WinRTClass, IVectorView, IIterable, UWP.ISingleSelectMediaTrackList {
+public final class MediaPlaybackAudioTrackList : WinRTClass, @unchecked Sendable, IVectorView, IIterable, UWP.ISingleSelectMediaTrackList {
     public typealias T = UWP.AudioTrack?
     private typealias SwiftABI = UWP.IVectorViewAudioTrack
     private typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CAudioTrack
@@ -1677,7 +1677,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanager)
-public final class MediaPlaybackCommandManager : WinRTClass {
+public final class MediaPlaybackCommandManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManager
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1917,7 +1917,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x5ACEE5A6, Data2: 0x5CB6, Data3: 0x4A5A, Data4: ( 0x85,0x21,0xCC,0x86,0xB1,0xC1,0xED,0x37 ) // 5ACEE5A6-5CB6-4A5A-8521-CC86B1C1ED37
     ) 
 
-    public class IMediaPlaybackCommandManager: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManager }
 
         public func get_IsEnabled() throws -> Bool {
@@ -2199,7 +2199,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerautorepeatmodereceivedeventargs)
-public final class MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2264,7 +2264,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x3D6F4F23, Data2: 0x5230, Data3: 0x4411, Data4: ( 0xA0,0xE9,0xBA,0xD9,0x4C,0x2A,0x04,0x5C ) // 3D6F4F23-5230-4411-A0E9-BAD94C2A045C
     ) 
 
-    public class IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -2304,7 +2304,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerCommandBehavior
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagercommandbehavior)
-public final class MediaPlaybackCommandManagerCommandBehavior : WinRTClass {
+public final class MediaPlaybackCommandManagerCommandBehavior : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerCommandBehavior
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2382,7 +2382,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x786C1E78, Data2: 0xCE78, Data3: 0x4A10, Data4: ( 0xAF,0xD6,0x84,0x3F,0xCB,0xB9,0x0C,0x2E ) // 786C1E78-CE78-4A10-AFD6-843FCBB90C2E
     ) 
 
-    public class IMediaPlaybackCommandManagerCommandBehavior: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerCommandBehavior: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerCommandBehavior }
 
         public func get_CommandManager() throws -> UWP.MediaPlaybackCommandManager? {
@@ -2438,7 +2438,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerFastForwardReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerfastforwardreceivedeventargs)
-public final class MediaPlaybackCommandManagerFastForwardReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerFastForwardReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerFastForwardReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2498,7 +2498,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x30F064D9, Data2: 0xB491, Data3: 0x4D0A, Data4: ( 0xBC,0x21,0x30,0x98,0xBD,0x13,0x32,0xE9 ) // 30F064D9-B491-4D0A-BC21-3098BD1332E9
     ) 
 
-    public class IMediaPlaybackCommandManagerFastForwardReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerFastForwardReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerFastForwardReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -2530,7 +2530,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerNextReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagernextreceivedeventargs)
-public final class MediaPlaybackCommandManagerNextReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerNextReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerNextReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2590,7 +2590,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xE1504433, Data2: 0xA2B0, Data3: 0x45D4, Data4: ( 0xB9,0xDE,0x5F,0x42,0xAC,0x14,0xA8,0x39 ) // E1504433-A2B0-45D4-B9DE-5F42AC14A839
     ) 
 
-    public class IMediaPlaybackCommandManagerNextReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerNextReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerNextReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -2622,7 +2622,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerPauseReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerpausereceivedeventargs)
-public final class MediaPlaybackCommandManagerPauseReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerPauseReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerPauseReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2682,7 +2682,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x5CECCD1C, Data2: 0xC25C, Data3: 0x4221, Data4: ( 0xB1,0x6C,0xC3,0xC9,0x8C,0xE0,0x12,0xD6 ) // 5CECCD1C-C25C-4221-B16C-C3C98CE012D6
     ) 
 
-    public class IMediaPlaybackCommandManagerPauseReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerPauseReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPauseReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -2714,7 +2714,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerPlayReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerplayreceivedeventargs)
-public final class MediaPlaybackCommandManagerPlayReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerPlayReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerPlayReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2774,7 +2774,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x9AF0004E, Data2: 0x578B, Data3: 0x4C56, Data4: ( 0xA0,0x06,0x16,0x15,0x9D,0x88,0x8A,0x48 ) // 9AF0004E-578B-4C56-A006-16159D888A48
     ) 
 
-    public class IMediaPlaybackCommandManagerPlayReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerPlayReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPlayReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -2806,7 +2806,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerPositionReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerpositionreceivedeventargs)
-public final class MediaPlaybackCommandManagerPositionReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerPositionReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerPositionReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2871,7 +2871,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x5591A754, Data2: 0xD627, Data3: 0x4BDD, Data4: ( 0xA9,0x0D,0x86,0xA0,0x15,0xB2,0x49,0x02 ) // 5591A754-D627-4BDD-A90D-86A015B24902
     ) 
 
-    public class IMediaPlaybackCommandManagerPositionReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerPositionReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPositionReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -2911,7 +2911,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerPreviousReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerpreviousreceivedeventargs)
-public final class MediaPlaybackCommandManagerPreviousReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerPreviousReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerPreviousReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2971,7 +2971,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x525E3081, Data2: 0x4632, Data3: 0x4F76, Data4: ( 0x99,0xB1,0xD7,0x71,0x62,0x3F,0x62,0x87 ) // 525E3081-4632-4F76-99B1-D771623F6287
     ) 
 
-    public class IMediaPlaybackCommandManagerPreviousReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerPreviousReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerPreviousReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -3003,7 +3003,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerRateReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerratereceivedeventargs)
-public final class MediaPlaybackCommandManagerRateReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerRateReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerRateReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3068,7 +3068,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x18EA3939, Data2: 0x4A16, Data3: 0x4169, Data4: ( 0x8B,0x05,0x3E,0xB9,0xF5,0xFF,0x78,0xEB ) // 18EA3939-4A16-4169-8B05-3EB9F5FF78EB
     ) 
 
-    public class IMediaPlaybackCommandManagerRateReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerRateReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRateReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -3108,7 +3108,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerRewindReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagerrewindreceivedeventargs)
-public final class MediaPlaybackCommandManagerRewindReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerRewindReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerRewindReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3168,7 +3168,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x9F085947, Data2: 0xA3C0, Data3: 0x425D, Data4: ( 0xAA,0xEF,0x97,0xBA,0x78,0x98,0xB1,0x41 ) // 9F085947-A3C0-425D-AAEF-97BA7898B141
     ) 
 
-    public class IMediaPlaybackCommandManagerRewindReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerRewindReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerRewindReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -3200,7 +3200,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackCommandManagerShuffleReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackcommandmanagershufflereceivedeventargs)
-public final class MediaPlaybackCommandManagerShuffleReceivedEventArgs : WinRTClass {
+public final class MediaPlaybackCommandManagerShuffleReceivedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackCommandManagerShuffleReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3265,7 +3265,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x50A05CEF, Data2: 0x63EE, Data3: 0x4A96, Data4: ( 0xB7,0xB5,0xFE,0xE0,0x8B,0x9F,0xF9,0x0C ) // 50A05CEF-63EE-4A96-B7B5-FEE08B9FF90C
     ) 
 
-    public class IMediaPlaybackCommandManagerShuffleReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackCommandManagerShuffleReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackCommandManagerShuffleReceivedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -3305,7 +3305,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitem)
-public final class MediaPlaybackItem : WinRTClass, IMediaPlaybackSource {
+public final class MediaPlaybackItem : WinRTClass, @unchecked Sendable, IMediaPlaybackSource {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackItem
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3490,7 +3490,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x047097D2, Data2: 0xE4AF, Data3: 0x48AB, Data4: ( 0xB2,0x83,0x69,0x29,0xE6,0x74,0xEC,0xE2 ) // 047097D2-E4AF-48AB-B283-6929E674ECE2
     ) 
 
-    public class IMediaPlaybackItem: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem }
 
         public func add_AudioTracksChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackItem?, WindowsFoundation.AnyIVectorChangedEventArgs?>?) throws -> EventRegistrationToken {
@@ -3583,7 +3583,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xD859D171, Data2: 0xD7EF, Data3: 0x4B81, Data4: ( 0xAC,0x1F,0xF4,0x04,0x93,0xCB,0xB0,0x91 ) // D859D171-D7EF-4B81-AC1F-F40493CBB091
     ) 
 
-    public class IMediaPlaybackItem2: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItem2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem2 }
 
         public func get_BreakSchedule() throws -> UWP.MediaBreakSchedule? {
@@ -3647,7 +3647,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x0D328220, Data2: 0xB80A, Data3: 0x4D09, Data4: ( 0x9F,0xF8,0xF8,0x70,0x94,0xA1,0xC8,0x31 ) // 0D328220-B80A-4D09-9FF8-F87094A1C831
     ) 
 
-    public class IMediaPlaybackItem3: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItem3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItem3 }
 
         public func get_IsDisabledInPlaybackList() throws -> Bool {
@@ -3692,7 +3692,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x7133FCE1, Data2: 0x1769, Data3: 0x4FF9, Data4: ( 0xA7,0xC1,0x38,0xD2,0xC4,0xD4,0x23,0x60 ) // 7133FCE1-1769-4FF9-A7C1-38D2C4D42360
     ) 
 
-    public class IMediaPlaybackItemFactory: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFactory }
 
         public func Create(_ source: UWP.MediaSource?) throws -> IMediaPlaybackItem {
@@ -3710,7 +3710,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xD77CDF3A, Data2: 0xB947, Data3: 0x4972, Data4: ( 0xB3,0x5D,0xAD,0xFB,0x93,0x1A,0x71,0xE6 ) // D77CDF3A-B947-4972-B35D-ADFB931A71E6
     ) 
 
-    public class IMediaPlaybackItemFactory2: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItemFactory2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFactory2 }
 
         public func CreateWithStartTime(_ source: UWP.MediaSource?, _ startTime: WindowsFoundation.TimeSpan) throws -> IMediaPlaybackItem {
@@ -3737,7 +3737,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x4B1BE7F4, Data2: 0x4345, Data3: 0x403C, Data4: ( 0x8A,0x67,0xF5,0xDE,0x91,0xDF,0x4C,0x86 ) // 4B1BE7F4-4345-403C-8A67-F5DE91DF4C86
     ) 
 
-    public class IMediaPlaybackItemStatics: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemStatics }
 
         public func FindFromMediaSource(_ source: UWP.MediaSource?) throws -> UWP.MediaPlaybackItem? {
@@ -3755,7 +3755,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackItemError
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitemerror)
-public final class MediaPlaybackItemError : WinRTClass {
+public final class MediaPlaybackItemError : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackItemError
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemError
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3814,7 +3814,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x69FBEF2B, Data2: 0xDCD6, Data3: 0x4DF9, Data4: ( 0xA4,0x50,0xDB,0xF4,0xC6,0xF1,0xC2,0xC2 ) // 69FBEF2B-DCD6-4DF9-A450-DBF4C6F1C2C2
     ) 
 
-    public class IMediaPlaybackItemError: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItemError: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemError }
 
         public func get_ErrorCode() throws -> UWP.MediaPlaybackItemErrorCode {
@@ -3839,7 +3839,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackItemFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitemfailedeventargs)
-public final class MediaPlaybackItemFailedEventArgs : WinRTClass {
+public final class MediaPlaybackItemFailedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackItemFailedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFailedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3898,7 +3898,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x7703134A, Data2: 0xE9A7, Data3: 0x47C3, Data4: ( 0x86,0x2C,0xC6,0x56,0xD3,0x06,0x83,0xD4 ) // 7703134A-E9A7-47C3-862C-C656D30683D4
     ) 
 
-    public class IMediaPlaybackItemFailedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItemFailedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemFailedEventArgs }
 
         public func get_Item() throws -> UWP.MediaPlaybackItem? {
@@ -3925,7 +3925,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackItemOpenedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackitemopenedeventargs)
-public final class MediaPlaybackItemOpenedEventArgs : WinRTClass {
+public final class MediaPlaybackItemOpenedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackItemOpenedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemOpenedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3979,7 +3979,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xCBD9BD82, Data2: 0x3037, Data3: 0x4FBE, Data4: ( 0xAE,0x8F,0x39,0xFC,0x39,0xED,0xF4,0xEF ) // CBD9BD82-3037-4FBE-AE8F-39FC39EDF4EF
     ) 
 
-    public class IMediaPlaybackItemOpenedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackItemOpenedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackItemOpenedEventArgs }
 
         public func get_Item() throws -> UWP.MediaPlaybackItem? {
@@ -3997,7 +3997,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackList
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybacklist)
-public final class MediaPlaybackList : WinRTClass, IMediaPlaybackSource {
+public final class MediaPlaybackList : WinRTClass, @unchecked Sendable, IMediaPlaybackSource {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackList
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4169,7 +4169,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x7F77EE9C, Data2: 0xDC42, Data3: 0x4E26, Data4: ( 0xA9,0x8D,0x78,0x50,0xDF,0x8E,0xC9,0x25 ) // 7F77EE9C-DC42-4E26-A98D-7850DF8EC925
     ) 
 
-    public class IMediaPlaybackList: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackList: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList }
 
         public func add_ItemFailed(_ handler: TypedEventHandler<UWP.MediaPlaybackList?, UWP.MediaPlaybackItemFailedEventArgs?>?) throws -> EventRegistrationToken {
@@ -4307,7 +4307,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x0E09B478, Data2: 0x600A, Data3: 0x4274, Data4: ( 0xA1,0x4B,0x0B,0x67,0x23,0xD0,0xF4,0x8B ) // 0E09B478-600A-4274-A14B-0B6723D0F48B
     ) 
 
-    public class IMediaPlaybackList2: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackList2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList2 }
 
         public func get_MaxPrefetchTime() throws -> WindowsFoundation.TimeSpan? {
@@ -4365,7 +4365,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xDD24BBA9, Data2: 0xBC47, Data3: 0x4463, Data4: ( 0xAA,0x90,0xC1,0x8B,0x7E,0x5F,0xFD,0xE1 ) // DD24BBA9-BC47-4463-AA90-C18B7E5FFDE1
     ) 
 
-    public class IMediaPlaybackList3: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackList3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackList3 }
 
         public func get_MaxPlayedItemsToKeepOpen() throws -> UInt32? {
@@ -4391,7 +4391,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackSession
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksession)
-public final class MediaPlaybackSession : WinRTClass {
+public final class MediaPlaybackSession : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackSession
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4742,7 +4742,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xC32B683D, Data2: 0x0407, Data3: 0x41BA, Data4: ( 0x89,0x46,0x8B,0x34,0x5A,0x5A,0x54,0x35 ) // C32B683D-0407-41BA-8946-8B345A5A5435
     ) 
 
-    public class IMediaPlaybackSession: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackSession: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession }
 
         public func add_PlaybackStateChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
@@ -5048,7 +5048,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xF8BA7C79, Data2: 0x1FC8, Data3: 0x4097, Data4: ( 0xAD,0x70,0xC0,0xFA,0x18,0xCC,0x00,0x50 ) // F8BA7C79-1FC8-4097-AD70-C0FA18CC0050
     ) 
 
-    public class IMediaPlaybackSession2: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackSession2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession2 }
 
         public func add_BufferedRangesChanged(_ value: TypedEventHandler<UWP.MediaPlaybackSession?, Any?>?) throws -> EventRegistrationToken {
@@ -5179,7 +5179,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x7BA2B41A, Data2: 0xA3E2, Data3: 0x405F, Data4: ( 0xB7,0x7B,0xA4,0x81,0x2C,0x23,0x8B,0x66 ) // 7BA2B41A-A3E2-405F-B77B-A4812C238B66
     ) 
 
-    public class IMediaPlaybackSession3: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackSession3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSession3 }
 
         public func get_PlaybackRotation() throws -> UWP.MediaRotation {
@@ -5211,7 +5211,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackSessionOutputDegradationPolicyState
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksessionoutputdegradationpolicystate)
-public final class MediaPlaybackSessionOutputDegradationPolicyState : WinRTClass {
+public final class MediaPlaybackSessionOutputDegradationPolicyState : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackSessionOutputDegradationPolicyState
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSessionOutputDegradationPolicyState
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5265,7 +5265,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x558E727D, Data2: 0xF633, Data3: 0x49F9, Data4: ( 0x96,0x5A,0xAB,0xAA,0x1D,0xB7,0x09,0xBE ) // 558E727D-F633-49F9-965A-ABAA1DB709BE
     ) 
 
-    public class IMediaPlaybackSessionOutputDegradationPolicyState: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackSessionOutputDegradationPolicyState: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSessionOutputDegradationPolicyState }
 
         public func get_VideoConstrictionReason() throws -> UWP.MediaPlaybackSessionVideoConstrictionReason {
@@ -5282,7 +5282,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackSphericalVideoProjection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybacksphericalvideoprojection)
-public final class MediaPlaybackSphericalVideoProjection : WinRTClass {
+public final class MediaPlaybackSphericalVideoProjection : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlaybackSphericalVideoProjection
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5361,7 +5361,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xD405B37C, Data2: 0x6F0E, Data3: 0x4661, Data4: ( 0xB8,0xEE,0xD4,0x87,0xBA,0x97,0x52,0xD5 ) // D405B37C-6F0E-4661-B8EE-D487BA9752D5
     ) 
 
-    public class IMediaPlaybackSphericalVideoProjection: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackSphericalVideoProjection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackSphericalVideoProjection }
 
         public func get_IsEnabled() throws -> Bool {
@@ -5440,7 +5440,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackTimedMetadataTrackList
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybacktimedmetadatatracklist)
-public final class MediaPlaybackTimedMetadataTrackList : WinRTClass, IVectorView, IIterable {
+public final class MediaPlaybackTimedMetadataTrackList : WinRTClass, @unchecked Sendable, IVectorView, IIterable {
     public typealias T = UWP.TimedMetadataTrack?
     private typealias SwiftABI = UWP.IVectorViewTimedMetadataTrack
     private typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CTimedMetadataTrack
@@ -5567,7 +5567,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x72B41319, Data2: 0xBBFB, Data3: 0x46A3, Data4: ( 0x93,0x72,0x9C,0x9C,0x74,0x4B,0x94,0x38 ) // 72B41319-BBFB-46A3-9372-9C9C744B9438
     ) 
 
-    public class IMediaPlaybackTimedMetadataTrackList: WindowsFoundation.IInspectable {
+    public class IMediaPlaybackTimedMetadataTrackList: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlaybackTimedMetadataTrackList }
 
         public func add_PresentationModeChanged(_ handler: TypedEventHandler<UWP.MediaPlaybackTimedMetadataTrackList?, UWP.TimedMetadataPresentationModeChangedEventArgs?>?) throws -> EventRegistrationToken {
@@ -5606,7 +5606,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlaybackVideoTrackList
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplaybackvideotracklist)
-public final class MediaPlaybackVideoTrackList : WinRTClass, IVectorView, IIterable, UWP.ISingleSelectMediaTrackList {
+public final class MediaPlaybackVideoTrackList : WinRTClass, @unchecked Sendable, IVectorView, IIterable, UWP.ISingleSelectMediaTrackList {
     public typealias T = UWP.VideoTrack?
     private typealias SwiftABI = UWP.IVectorViewVideoTrack
     private typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CMedia__CCore__CVideoTrack
@@ -5729,7 +5729,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlayer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplayer)
-public final class MediaPlayer : WinRTClass, WindowsFoundation.IClosable {
+public final class MediaPlayer : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlayer
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6252,7 +6252,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x381A83CB, Data2: 0x6FFF, Data3: 0x499B, Data4: ( 0x8D,0x64,0x28,0x85,0xDF,0xC1,0x24,0x9E ) // 381A83CB-6FFF-499B-8D64-2885DFC1249E
     ) 
 
-    public class IMediaPlayer: WindowsFoundation.IInspectable {
+    public class IMediaPlayer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer }
 
         public func get_AutoPlay() throws -> Bool {
@@ -6580,7 +6580,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xBD4F8897, Data2: 0x1423, Data3: 0x4C3E, Data4: ( 0x82,0xC5,0x0F,0xB1,0xAF,0x94,0xF7,0x15 ) // BD4F8897-1423-4C3E-82C5-0FB1AF94F715
     ) 
 
-    public class IMediaPlayerSource: WindowsFoundation.IInspectable {
+    public class IMediaPlayerSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource }
 
         public func get_ProtectionManager() throws -> UWP.MediaProtectionManager? {
@@ -6628,7 +6628,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x82449B9F, Data2: 0x7322, Data3: 0x4C0B, Data4: ( 0xB0,0x3B,0x3E,0x69,0xA4,0x82,0x60,0xC5 ) // 82449B9F-7322-4C0B-B03B-3E69A48260C5
     ) 
 
-    public class IMediaPlayerSource2: WindowsFoundation.IInspectable {
+    public class IMediaPlayerSource2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSource2 }
 
         public func get_Source() throws -> UWP.AnyIMediaPlaybackSource? {
@@ -6654,7 +6654,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x3C841218, Data2: 0x2123, Data3: 0x4FC5, Data4: ( 0x90,0x82,0x2F,0x88,0x3F,0x77,0xBD,0xF5 ) // 3C841218-2123-4FC5-9082-2F883F77BDF5
     ) 
 
-    public class IMediaPlayer2: WindowsFoundation.IInspectable {
+    public class IMediaPlayer2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer2 }
 
         public func get_SystemMediaTransportControls() throws -> UWP.SystemMediaTransportControls? {
@@ -6700,7 +6700,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x85A1DEDA, Data2: 0xCAB6, Data3: 0x4CC0, Data4: ( 0x8B,0xE3,0x60,0x35,0xF4,0xDE,0x25,0x91 ) // 85A1DEDA-CAB6-4CC0-8BE3-6035F4DE2591
     ) 
 
-    public class IMediaPlayerEffects: WindowsFoundation.IInspectable {
+    public class IMediaPlayerEffects: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerEffects }
 
         public func AddAudioEffect(_ activatableClassId: String, _ effectOptional: Bool, _ configuration: WindowsFoundation.AnyIPropertySet?) throws {
@@ -6724,7 +6724,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xEE0660DA, Data2: 0x031B, Data3: 0x4FEB, Data4: ( 0xBD,0x9B,0x92,0xE0,0xA0,0xA8,0xD2,0x99 ) // EE0660DA-031B-4FEB-BD9B-92E0A0A8D299
     ) 
 
-    public class IMediaPlayer3: WindowsFoundation.IInspectable {
+    public class IMediaPlayer3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer3 }
 
         public func add_IsMutedChanged(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
@@ -6899,7 +6899,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x80035DB0, Data2: 0x7448, Data3: 0x4770, Data4: ( 0xAF,0xCF,0x2A,0x57,0x45,0x09,0x14,0xC5 ) // 80035DB0-7448-4770-AFCF-2A57450914C5
     ) 
 
-    public class IMediaPlayer4: WindowsFoundation.IInspectable {
+    public class IMediaPlayer4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer4 }
 
         public func SetSurfaceSize(_ size: WindowsFoundation.Size) throws {
@@ -6923,7 +6923,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xFA419A79, Data2: 0x1BBE, Data3: 0x46C5, Data4: ( 0xAE,0x1F,0x8E,0xE6,0x9F,0xB3,0xC2,0xC7 ) // FA419A79-1BBE-46C5-AE1F-8EE69FB3C2C7
     ) 
 
-    public class IMediaPlayerEffects2: WindowsFoundation.IInspectable {
+    public class IMediaPlayerEffects2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerEffects2 }
 
         public func AddVideoEffect(_ activatableClassId: String, _ effectOptional: Bool, _ effectConfiguration: WindowsFoundation.AnyIPropertySet?) throws {
@@ -6941,7 +6941,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xCFE537FD, Data2: 0xF86A, Data3: 0x4446, Data4: ( 0xBF,0x4D,0xC8,0xE7,0x92,0xB7,0xB4,0xB3 ) // CFE537FD-F86A-4446-BF4D-C8E792B7B4B3
     ) 
 
-    public class IMediaPlayer5: WindowsFoundation.IInspectable {
+    public class IMediaPlayer5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer5 }
 
         public func add_VideoFrameAvailable(_ value: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
@@ -7006,7 +7006,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xE0CAA086, Data2: 0xAE65, Data3: 0x414C, Data4: ( 0xB0,0x10,0x8B,0xC5,0x5F,0x00,0xE6,0x92 ) // E0CAA086-AE65-414C-B010-8BC55F00E692
     ) 
 
-    public class IMediaPlayer6: WindowsFoundation.IInspectable {
+    public class IMediaPlayer6: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer6 }
 
         public func add_SubtitleFrameChanged(_ handler: TypedEventHandler<UWP.MediaPlayer?, Any?>?) throws -> EventRegistrationToken {
@@ -7051,7 +7051,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x5D1DC478, Data2: 0x4500, Data3: 0x4531, Data4: ( 0xB3,0xF4,0x77,0x7A,0x71,0x49,0x1F,0x7F ) // 5D1DC478-4500-4531-B3F4-777A71491F7F
     ) 
 
-    public class IMediaPlayer7: WindowsFoundation.IInspectable {
+    public class IMediaPlayer7: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayer7 }
 
         public func get_AudioStateMonitor() throws -> UWP.AudioStateMonitor? {
@@ -7069,7 +7069,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlayerFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplayerfailedeventargs)
-public final class MediaPlayerFailedEventArgs : WinRTClass {
+public final class MediaPlayerFailedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlayerFailedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7133,7 +7133,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x2744E9B9, Data2: 0xA7E3, Data3: 0x4F16, Data4: ( 0xBA,0xC4,0x79,0x14,0xEB,0xC0,0x83,0x01 ) // 2744E9B9-A7E3-4F16-BAC4-7914EBC08301
     ) 
 
-    public class IMediaPlayerFailedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlayerFailedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs }
 
         public func get_Error() throws -> UWP.MediaPlayerError {
@@ -7154,10 +7154,12 @@ extension __ABI_Windows_Media_Playback {
 
         public func get_ErrorMessage() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ErrorMessage(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -7167,7 +7169,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlayerRateChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplayerratechangedeventargs)
-public final class MediaPlayerRateChangedEventArgs : WinRTClass {
+public final class MediaPlayerRateChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlayerRateChangedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerRateChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7221,7 +7223,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x40600D58, Data2: 0x3B61, Data3: 0x4BB2, Data4: ( 0x98,0x9F,0xFC,0x65,0x60,0x8B,0x6C,0xAB ) // 40600D58-3B61-4BB2-989F-FC65608B6CAB
     ) 
 
-    public class IMediaPlayerRateChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IMediaPlayerRateChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerRateChangedEventArgs }
 
         public func get_NewRate() throws -> Double {
@@ -7238,7 +7240,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - MediaPlayerSurface
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.mediaplayersurface)
-public final class MediaPlayerSurface : WinRTClass, WindowsFoundation.IClosable {
+public final class MediaPlayerSurface : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IMediaPlayerSurface
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7312,7 +7314,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x0ED653BC, Data2: 0xB736, Data3: 0x49C3, Data4: ( 0x83,0x0B,0x76,0x4A,0x38,0x45,0x31,0x3A ) // 0ED653BC-B736-49C3-830B-764A3845313A
     ) 
 
-    public class IMediaPlayerSurface: WindowsFoundation.IInspectable {
+    public class IMediaPlayerSurface: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIMediaPlayerSurface }
 
         public func get_CompositionSurface() throws -> UWP.AnyICompositionSurface? {
@@ -7348,7 +7350,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - PlaybackMediaMarker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.playbackmediamarker)
-public final class PlaybackMediaMarker : WinRTClass {
+public final class PlaybackMediaMarker : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IPlaybackMediaMarker
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7421,7 +7423,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xC4D22F5C, Data2: 0x3C1C, Data3: 0x4444, Data4: ( 0xB6,0xB9,0x77,0x8B,0x04,0x22,0xD4,0x1A ) // C4D22F5C-3C1C-4444-B6B9-778B0422D41A
     ) 
 
-    public class IPlaybackMediaMarker: WindowsFoundation.IInspectable {
+    public class IPlaybackMediaMarker: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker }
 
         public func get_Time() throws -> WindowsFoundation.TimeSpan {
@@ -7434,19 +7436,23 @@ extension __ABI_Windows_Media_Playback {
 
         public func get_MediaMarkerType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaMarkerType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -7456,7 +7462,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x8C530A78, Data2: 0xE0AE, Data3: 0x4E1A, Data4: ( 0xA8,0xC8,0xE2,0x3F,0x98,0x2A,0x93,0x7B ) // 8C530A78-E0AE-4E1A-A8C8-E23F982A937B
     ) 
 
-    public class IPlaybackMediaMarkerFactory: WindowsFoundation.IInspectable {
+    public class IPlaybackMediaMarkerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerFactory }
 
         public func CreateFromTime(_ value: WindowsFoundation.TimeSpan) throws -> IPlaybackMediaMarker {
@@ -7485,7 +7491,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - PlaybackMediaMarkerReachedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.playbackmediamarkerreachedeventargs)
-public final class PlaybackMediaMarkerReachedEventArgs : WinRTClass {
+public final class PlaybackMediaMarkerReachedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IPlaybackMediaMarkerReachedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerReachedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7539,7 +7545,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0x578CD1B9, Data2: 0x90E2, Data3: 0x4E60, Data4: ( 0xAB,0xC4,0x87,0x40,0xB0,0x1F,0x61,0x96 ) // 578CD1B9-90E2-4E60-ABC4-8740B01F6196
     ) 
 
-    public class IPlaybackMediaMarkerReachedEventArgs: WindowsFoundation.IInspectable {
+    public class IPlaybackMediaMarkerReachedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerReachedEventArgs }
 
         public func get_PlaybackMediaMarker() throws -> UWP.PlaybackMediaMarker? {
@@ -7557,7 +7563,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - PlaybackMediaMarkerSequence
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.playbackmediamarkersequence)
-public final class PlaybackMediaMarkerSequence : WinRTClass, IIterable {
+public final class PlaybackMediaMarkerSequence : WinRTClass, @unchecked Sendable, IIterable {
     public typealias T = PlaybackMediaMarker?
     private typealias SwiftABI = __ABI_Windows_Media_Playback.IPlaybackMediaMarkerSequence
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence
@@ -7632,7 +7638,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xF2810CEE, Data2: 0x638B, Data3: 0x46CF, Data4: ( 0x88,0x17,0x1D,0x11,0x1F,0xE9,0xD8,0xC4 ) // F2810CEE-638B-46CF-8817-1D111FE9D8C4
     ) 
 
-    public class IPlaybackMediaMarkerSequence: WindowsFoundation.IInspectable {
+    public class IPlaybackMediaMarkerSequence: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CIPlaybackMediaMarkerSequence }
 
         public func get_Size() throws -> UInt32 {
@@ -7661,7 +7667,7 @@ extension __ABI_Windows_Media_Playback {
 // MARK: - TimedMetadataPresentationModeChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.playback.timedmetadatapresentationmodechangedeventargs)
-public final class TimedMetadataPresentationModeChangedEventArgs : WinRTClass {
+public final class TimedMetadataPresentationModeChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Playback.ITimedMetadataPresentationModeChangedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7725,7 +7731,7 @@ extension __ABI_Windows_Media_Playback {
         Data1: 0xD1636099, Data2: 0x65DF, Data3: 0x45AE, Data4: ( 0x8C,0xEF,0xDC,0x0B,0x53,0xFD,0xC2,0xBB ) // D1636099-65DF-45AE-8CEF-DC0B53FDC2BB
     ) 
 
-    public class ITimedMetadataPresentationModeChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ITimedMetadataPresentationModeChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CPlayback_CITimedMetadataPresentationModeChangedEventArgs }
 
         public func get_Track() throws -> UWP.TimedMetadataTrack? {

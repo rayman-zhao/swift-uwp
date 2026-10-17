@@ -124,7 +124,7 @@ extension UWP.TileSize: @retroactive Hashable, @retroactive Codable, @retroactiv
 // MARK: - JumpList
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.jumplist)
-public final class JumpList : WinRTClass {
+public final class JumpList : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.IJumpList
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CIJumpList
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -200,7 +200,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xB0234C3E, Data2: 0xCD6F, Data3: 0x4CB6, Data4: ( 0xA6,0x11,0x61,0xFD,0x50,0x5F,0x3E,0xD1 ) // B0234C3E-CD6F-4CB6-A611-61FD505F3ED1
     ) 
 
-    public class IJumpList: WindowsFoundation.IInspectable {
+    public class IJumpList: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIJumpList }
 
         public func get_Items() throws -> WindowsFoundation.AnyIVector<UWP.JumpListItem?>? {
@@ -241,7 +241,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xA7E0C681, Data2: 0xE67E, Data3: 0x4B74, Data4: ( 0x82,0x50,0x3F,0x32,0x2C,0x4D,0x92,0xC3 ) // A7E0C681-E67E-4B74-8250-3F322C4D92C3
     ) 
 
-    public class IJumpListStatics: WindowsFoundation.IInspectable {
+    public class IJumpListStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIJumpListStatics }
 
         public func LoadCurrentAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.JumpList?>? {
@@ -267,7 +267,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - JumpListItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.jumplistitem)
-public final class JumpListItem : WinRTClass {
+public final class JumpListItem : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.IJumpListItem
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CIJumpListItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -366,7 +366,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x7ADB6717, Data2: 0x8B5D, Data3: 0x4820, Data4: ( 0x99,0x5B,0x9B,0x41,0x8D,0xBE,0x48,0xB0 ) // 7ADB6717-8B5D-4820-995B-9B418DBE48B0
     ) 
 
-    public class IJumpListItem: WindowsFoundation.IInspectable {
+    public class IJumpListItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIJumpListItem }
 
         public func get_Kind() throws -> UWP.JumpListItemKind {
@@ -379,10 +379,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_Arguments() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CIJumpListItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Arguments(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -396,10 +398,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_Description() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CIJumpListItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -412,10 +416,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CIJumpListItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -428,10 +434,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_GroupName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CIJumpListItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -463,7 +471,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xF1BFC4E8, Data2: 0xC7AA, Data3: 0x49CB, Data4: ( 0x8D,0xDE,0xEC,0xFC,0xCD,0x7A,0xD7,0xE4 ) // F1BFC4E8-C7AA-49CB-8DDE-ECFCCD7AD7E4
     ) 
 
-    public class IJumpListItemStatics: WindowsFoundation.IInspectable {
+    public class IJumpListItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIJumpListItemStatics }
 
         public func CreateWithArguments(_ arguments: String, _ displayName: String) throws -> UWP.JumpListItem? {
@@ -492,7 +500,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - SecondaryTile
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.secondarytile)
-public final class SecondaryTile : WinRTClass {
+public final class SecondaryTile : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.ISecondaryTile
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -734,7 +742,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x9E9E51E0, Data2: 0x2BB5, Data3: 0x4BC0, Data4: ( 0xBB,0x8D,0x42,0xB2,0x3A,0xBC,0xC8,0x8D ) // 9E9E51E0-2BB5-4BC0-BB8D-42B23ABCC88D
     ) 
 
-    public class ISecondaryTile: WindowsFoundation.IInspectable {
+    public class ISecondaryTile: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile }
 
         public func put_TileId(_ value: String) throws {
@@ -746,10 +754,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_TileId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TileId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -762,10 +772,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_Arguments() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Arguments(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -778,10 +790,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_ShortName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ShortName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -794,10 +808,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1004,7 +1020,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xB2F6CC35, Data2: 0x3250, Data3: 0x4990, Data4: ( 0x92,0x3C,0x29,0x4A,0xB4,0xB6,0x94,0xDD ) // B2F6CC35-3250-4990-923C-294AB4B694DD
     ) 
 
-    public class ISecondaryTile2: WindowsFoundation.IInspectable {
+    public class ISecondaryTile2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile2 }
 
         public func put_PhoneticName(_ value: String) throws {
@@ -1016,10 +1032,12 @@ extension __ABI_Windows_UI_StartScreen {
 
         public func get_PhoneticName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CStartScreen_CISecondaryTile2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PhoneticName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1068,7 +1086,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x57F52CA0, Data2: 0x51BC, Data3: 0x4ABF, Data4: ( 0x8E,0xBF,0x62,0x7A,0x03,0x98,0xB0,0x5A ) // 57F52CA0-51BC-4ABF-8EBF-627A0398B05A
     ) 
 
-    public class ISecondaryTileFactory: WindowsFoundation.IInspectable {
+    public class ISecondaryTileFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileFactory }
 
         public func CreateTile(_ tileId: String, _ shortName: String, _ displayName: String, _ arguments: String, _ tileOptions: UWP.TileOptions, _ logoReference: WindowsFoundation.Uri?) throws -> ISecondaryTile {
@@ -1113,7 +1131,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x274B8A3B, Data2: 0x522D, Data3: 0x448E, Data4: ( 0x9E,0xB2,0xD0,0x67,0x2A,0xB3,0x45,0xC8 ) // 274B8A3B-522D-448E-9EB2-D0672AB345C8
     ) 
 
-    public class ISecondaryTileFactory2: WindowsFoundation.IInspectable {
+    public class ISecondaryTileFactory2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileFactory2 }
 
         public func CreateMinimalTile(_ tileId: String, _ displayName: String, _ arguments: String, _ square150x150Logo: WindowsFoundation.Uri?, _ desiredSize: UWP.TileSize) throws -> ISecondaryTile {
@@ -1134,7 +1152,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x99908DAE, Data2: 0xD051, Data3: 0x4676, Data4: ( 0x87,0xFE,0x9E,0xC2,0x42,0xD8,0x3C,0x74 ) // 99908DAE-D051-4676-87FE-9EC242D83C74
     ) 
 
-    public class ISecondaryTileStatics: WindowsFoundation.IInspectable {
+    public class ISecondaryTileStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileStatics }
 
         public func Exists(_ tileId: String) throws -> Bool {
@@ -1180,7 +1198,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - SecondaryTileVisualElements
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.secondarytilevisualelements)
-public final class SecondaryTileVisualElements : WinRTClass {
+public final class SecondaryTileVisualElements : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.ISecondaryTileVisualElements
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileVisualElements
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1312,7 +1330,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x1D8DF333, Data2: 0x815E, Data3: 0x413F, Data4: ( 0x9F,0x50,0xA8,0x1D,0xA7,0x0A,0x96,0xB2 ) // 1D8DF333-815E-413F-9F50-A81DA70A96B2
     ) 
 
-    public class ISecondaryTileVisualElements: WindowsFoundation.IInspectable {
+    public class ISecondaryTileVisualElements: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileVisualElements }
 
         public func put_Square30x30Logo(_ value: WindowsFoundation.Uri?) throws {
@@ -1466,7 +1484,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xFD2E31D0, Data2: 0x57DC, Data3: 0x4794, Data4: ( 0x8E,0xCF,0x56,0x82,0xF5,0xF3,0xE6,0xEF ) // FD2E31D0-57DC-4794-8ECF-5682F5F3E6EF
     ) 
 
-    public class ISecondaryTileVisualElements2: WindowsFoundation.IInspectable {
+    public class ISecondaryTileVisualElements2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileVisualElements2 }
 
         public func put_Square71x71Logo(_ value: WindowsFoundation.Uri?) throws {
@@ -1490,7 +1508,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x56B55AD6, Data2: 0xD15C, Data3: 0x40F4, Data4: ( 0x81,0xE7,0x57,0xFF,0xD8,0xF8,0xA4,0xE9 ) // 56B55AD6-D15C-40F4-81E7-57FFD8F8A4E9
     ) 
 
-    public class ISecondaryTileVisualElements3: WindowsFoundation.IInspectable {
+    public class ISecondaryTileVisualElements3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileVisualElements3 }
 
         public func put_Square44x44Logo(_ value: WindowsFoundation.Uri?) throws {
@@ -1514,7 +1532,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x66566117, Data2: 0xB544, Data3: 0x40D2, Data4: ( 0x8D,0x12,0x74,0xD4,0xEC,0x24,0xD0,0x4C ) // 66566117-B544-40D2-8D12-74D4EC24D04C
     ) 
 
-    public class ISecondaryTileVisualElements4: WindowsFoundation.IInspectable {
+    public class ISecondaryTileVisualElements4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CISecondaryTileVisualElements4 }
 
         public func get_MixedRealityModel() throws -> UWP.TileMixedRealityModel? {
@@ -1532,7 +1550,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - StartScreenManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.startscreenmanager)
-public final class StartScreenManager : WinRTClass {
+public final class StartScreenManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.IStartScreenManager
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CIStartScreenManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1624,7 +1642,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x4A1DCBCB, Data2: 0x26E9, Data3: 0x4EB4, Data4: ( 0x89,0x33,0x85,0x9E,0xB6,0xEC,0xDB,0x29 ) // 4A1DCBCB-26E9-4EB4-8933-859EB6ECDB29
     ) 
 
-    public class IStartScreenManager: WindowsFoundation.IInspectable {
+    public class IStartScreenManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIStartScreenManager }
 
         public func get_User() throws -> UWP.User? {
@@ -1668,7 +1686,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x08A716B6, Data2: 0x316B, Data3: 0x4AD9, Data4: ( 0xAC,0xB8,0xFE,0x9C,0xF0,0x0B,0xD6,0x08 ) // 08A716B6-316B-4AD9-ACB8-FE9CF00BD608
     ) 
 
-    public class IStartScreenManager2: WindowsFoundation.IInspectable {
+    public class IStartScreenManager2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIStartScreenManager2 }
 
         public func ContainsSecondaryTileAsync(_ tileId: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
@@ -1697,7 +1715,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x7865EF0F, Data2: 0xB585, Data3: 0x464E, Data4: ( 0x89,0x93,0x34,0xE8,0xF8,0x73,0x8D,0x48 ) // 7865EF0F-B585-464E-8993-34E8F8738D48
     ) 
 
-    public class IStartScreenManagerStatics: WindowsFoundation.IInspectable {
+    public class IStartScreenManagerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIStartScreenManagerStatics }
 
         public func GetDefault() throws -> UWP.StartScreenManager? {
@@ -1724,7 +1742,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - TileMixedRealityModel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.tilemixedrealitymodel)
-public final class TileMixedRealityModel : WinRTClass {
+public final class TileMixedRealityModel : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.ITileMixedRealityModel
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CITileMixedRealityModel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1793,7 +1811,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xB0764E5B, Data2: 0x887D, Data3: 0x4242, Data4: ( 0x9A,0x19,0x3D,0x0A,0x4E,0xA7,0x80,0x31 ) // B0764E5B-887D-4242-9A19-3D0A4EA78031
     ) 
 
-    public class ITileMixedRealityModel: WindowsFoundation.IInspectable {
+    public class ITileMixedRealityModel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CITileMixedRealityModel }
 
         public func put_Uri(_ value: WindowsFoundation.Uri?) throws {
@@ -1834,7 +1852,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x439470B2, Data2: 0xD7C5, Data3: 0x410B, Data4: ( 0x83,0x19,0x94,0x86,0xA2,0x7B,0x6C,0x67 ) // 439470B2-D7C5-410B-8319-9486A27B6C67
     ) 
 
-    public class ITileMixedRealityModel2: WindowsFoundation.IInspectable {
+    public class ITileMixedRealityModel2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CITileMixedRealityModel2 }
 
         public func put_ActivationBehavior(_ value: UWP.TileMixedRealityModelActivationBehavior) throws {
@@ -1857,7 +1875,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - VisualElementsRequest
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.visualelementsrequest)
-public final class VisualElementsRequest : WinRTClass {
+public final class VisualElementsRequest : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.IVisualElementsRequest
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CIVisualElementsRequest
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1926,7 +1944,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xC138333A, Data2: 0x9308, Data3: 0x4072, Data4: ( 0x88,0xCC,0xD0,0x68,0xDB,0x34,0x7C,0x68 ) // C138333A-9308-4072-88CC-D068DB347C68
     ) 
 
-    public class IVisualElementsRequest: WindowsFoundation.IInspectable {
+    public class IVisualElementsRequest: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIVisualElementsRequest }
 
         public func get_VisualElements() throws -> UWP.SecondaryTileVisualElements? {
@@ -1970,7 +1988,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - VisualElementsRequestDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.visualelementsrequestdeferral)
-public final class VisualElementsRequestDeferral : WinRTClass {
+public final class VisualElementsRequestDeferral : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.IVisualElementsRequestDeferral
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CIVisualElementsRequestDeferral
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2024,7 +2042,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0xA1656EB0, Data2: 0x0126, Data3: 0x4357, Data4: ( 0x82,0x04,0xBD,0x82,0xBB,0x2A,0x04,0x6D ) // A1656EB0-0126-4357-8204-BD82BB2A046D
     ) 
 
-    public class IVisualElementsRequestDeferral: WindowsFoundation.IInspectable {
+    public class IVisualElementsRequestDeferral: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIVisualElementsRequestDeferral }
 
         public func Complete() throws {
@@ -2039,7 +2057,7 @@ extension __ABI_Windows_UI_StartScreen {
 // MARK: - VisualElementsRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.startscreen.visualelementsrequestedeventargs)
-public final class VisualElementsRequestedEventArgs : WinRTClass {
+public final class VisualElementsRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_StartScreen.IVisualElementsRequestedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CStartScreen_CIVisualElementsRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2093,7 +2111,7 @@ extension __ABI_Windows_UI_StartScreen {
         Data1: 0x7B6FC982, Data2: 0x3A0D, Data3: 0x4ECE, Data4: ( 0xAF,0x96,0xCD,0x17,0xE1,0xB0,0x0B,0x2D ) // 7B6FC982-3A0D-4ECE-AF96-CD17E1B00B2D
     ) 
 
-    public class IVisualElementsRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IVisualElementsRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CStartScreen_CIVisualElementsRequestedEventArgs }
 
         public func get_Request() throws -> UWP.VisualElementsRequest? {

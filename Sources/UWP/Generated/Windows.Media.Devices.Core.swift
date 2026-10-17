@@ -25,7 +25,7 @@ extension UWP.FrameFlashMode: @retroactive Hashable, @retroactive Codable, @retr
 // MARK: - CameraIntrinsics
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.cameraintrinsics)
-public final class CameraIntrinsics : WinRTClass {
+public final class CameraIntrinsics : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.ICameraIntrinsics
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -156,7 +156,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x0AA6ED32, Data2: 0x6589, Data3: 0x49DA, Data4: ( 0xAF,0xDE,0x59,0x42,0x70,0xCA,0x0A,0xAC ) // 0AA6ED32-6589-49DA-AFDE-594270CA0AAC
     ) 
 
-    public class ICameraIntrinsics: WindowsFoundation.IInspectable {
+    public class ICameraIntrinsics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics }
 
         public func get_FocalLength() throws -> WindowsFoundation.Vector2 {
@@ -225,22 +225,26 @@ extension __ABI_Windows_Media_Devices_Core {
 
         public func ProjectManyOntoFrame(_ coordinates: [WindowsFoundation.Vector3], _ results: inout [WindowsFoundation.Point]) throws {
             try coordinates.toABI { _coordinates in
-                try results.toABI { _results in
+                var _resultsBuffer = results.map { $0.toABI() }
+                try _resultsBuffer.withUnsafeMutableBufferPointer { buffer in
+                let _results: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CPoint> = (UInt32(buffer.count), buffer.baseAddress)
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.ProjectManyOntoFrame(pThis, _coordinates.count, _coordinates.start, _results.count, _results.start))
                 }
-                results = .from(abi: _results)
+                    results = .from(abi: _results)
             }
             }
         }
 
         public func UnprojectPixelsAtUnitDepth(_ pixelCoordinates: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Vector2]) throws {
             try pixelCoordinates.toABI { _pixelCoordinates in
-                try results.toABI { _results in
+                var _resultsBuffer = results.map { $0.toABI() }
+                try _resultsBuffer.withUnsafeMutableBufferPointer { buffer in
+                let _results: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CNumerics_CVector2> = (UInt32(buffer.count), buffer.baseAddress)
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.UnprojectPixelsAtUnitDepth(pThis, _pixelCoordinates.count, _pixelCoordinates.start, _results.count, _results.start))
                 }
-                results = .from(abi: _results)
+                    results = .from(abi: _results)
             }
             }
         }
@@ -251,7 +255,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x0CDAA447, Data2: 0x0798, Data3: 0x4B4D, Data4: ( 0x83,0x9F,0xC5,0xEC,0x41,0x4D,0xB2,0x7A ) // 0CDAA447-0798-4B4D-839F-C5EC414DB27A
     ) 
 
-    public class ICameraIntrinsics2: WindowsFoundation.IInspectable {
+    public class ICameraIntrinsics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2 }
 
         public func get_UndistortedProjectionTransform() throws -> WindowsFoundation.Matrix4x4 {
@@ -272,11 +276,13 @@ extension __ABI_Windows_Media_Devices_Core {
 
         public func DistortPoints(_ inputs: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Point]) throws {
             try inputs.toABI { _inputs in
-                try results.toABI { _results in
+                var _resultsBuffer = results.map { $0.toABI() }
+                try _resultsBuffer.withUnsafeMutableBufferPointer { buffer in
+                let _results: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CPoint> = (UInt32(buffer.count), buffer.baseAddress)
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.DistortPoints(pThis, _inputs.count, _inputs.start, _results.count, _results.start))
                 }
-                results = .from(abi: _results)
+                    results = .from(abi: _results)
             }
             }
         }
@@ -291,11 +297,13 @@ extension __ABI_Windows_Media_Devices_Core {
 
         public func UndistortPoints(_ inputs: [WindowsFoundation.Point], _ results: inout [WindowsFoundation.Point]) throws {
             try inputs.toABI { _inputs in
-                try results.toABI { _results in
+                var _resultsBuffer = results.map { $0.toABI() }
+                try _resultsBuffer.withUnsafeMutableBufferPointer { buffer in
+                let _results: WinRTArrayAbi<__x_ABI_CWindows_CFoundation_CPoint> = (UInt32(buffer.count), buffer.baseAddress)
                 _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsics2.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.UndistortPoints(pThis, _inputs.count, _inputs.start, _results.count, _results.start))
                 }
-                results = .from(abi: _results)
+                    results = .from(abi: _results)
             }
             }
         }
@@ -306,7 +314,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xC0DDC486, Data2: 0x2132, Data3: 0x4A34, Data4: ( 0xA6,0x59,0x9B,0xFE,0x2A,0x05,0x57,0x12 ) // C0DDC486-2132-4A34-A659-9BFE2A055712
     ) 
 
-    public class ICameraIntrinsicsFactory: WindowsFoundation.IInspectable {
+    public class ICameraIntrinsicsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CICameraIntrinsicsFactory }
 
         public func Create(_ focalLength: WindowsFoundation.Vector2, _ principalPoint: WindowsFoundation.Vector2, _ radialDistortion: WindowsFoundation.Vector3, _ tangentialDistortion: WindowsFoundation.Vector2, _ imageWidth: UInt32, _ imageHeight: UInt32) throws -> ICameraIntrinsics {
@@ -324,7 +332,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameControlCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities)
-public final class FrameControlCapabilities : WinRTClass {
+public final class FrameControlCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameControlCapabilities
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -405,7 +413,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xA8FFAE60, Data2: 0x4E9E, Data3: 0x4377, Data4: ( 0xA7,0x89,0xE2,0x4C,0x4A,0xE7,0xE5,0x44 ) // A8FFAE60-4E9E-4377-A789-E24C4AE7E544
     ) 
 
-    public class IFrameControlCapabilities: WindowsFoundation.IInspectable {
+    public class IFrameControlCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities }
 
         public func get_Exposure() throws -> UWP.FrameExposureCapabilities? {
@@ -458,7 +466,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xCE9B0464, Data2: 0x4730, Data3: 0x440F, Data4: ( 0xBD,0x3E,0xEF,0xE8,0xA8,0xF2,0x30,0xA8 ) // CE9B0464-4730-440F-BD3E-EFE8A8F230A8
     ) 
 
-    public class IFrameControlCapabilities2: WindowsFoundation.IInspectable {
+    public class IFrameControlCapabilities2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameControlCapabilities2 }
 
         public func get_Flash() throws -> UWP.FrameFlashCapabilities? {
@@ -476,7 +484,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framecontroller)
-public final class FrameController : WinRTClass {
+public final class FrameController : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameController
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -563,7 +571,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xC16459D9, Data2: 0xBAEF, Data3: 0x4052, Data4: ( 0x91,0x77,0x48,0xAF,0xF2,0xAF,0x75,0x22 ) // C16459D9-BAEF-4052-9177-48AFF2AF7522
     ) 
 
-    public class IFrameController: WindowsFoundation.IInspectable {
+    public class IFrameController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController }
 
         public func get_ExposureControl() throws -> UWP.FrameExposureControl? {
@@ -625,7 +633,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x00D3BC75, Data2: 0xD87C, Data3: 0x485B, Data4: ( 0x8A,0x09,0x5C,0x35,0x85,0x68,0xB4,0x27 ) // 00D3BC75-D87C-485B-8A09-5C358568B427
     ) 
 
-    public class IFrameController2: WindowsFoundation.IInspectable {
+    public class IFrameController2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameController2 }
 
         public func get_FlashControl() throws -> UWP.FrameFlashControl? {
@@ -643,7 +651,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameExposureCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecapabilities)
-public final class FrameExposureCapabilities : WinRTClass {
+public final class FrameExposureCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameExposureCapabilities
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -712,7 +720,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xBDBE9CE3, Data2: 0x3985, Data3: 0x4E72, Data4: ( 0x97,0xC2,0x05,0x90,0xD6,0x13,0x07,0xA1 ) // BDBE9CE3-3985-4E72-97C2-0590D61307A1
     ) 
 
-    public class IFrameExposureCapabilities: WindowsFoundation.IInspectable {
+    public class IFrameExposureCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCapabilities }
 
         public func get_Supported() throws -> Bool {
@@ -753,7 +761,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameExposureCompensationCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecompensationcapabilities)
-public final class FrameExposureCompensationCapabilities : WinRTClass {
+public final class FrameExposureCompensationCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameExposureCompensationCapabilities
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -822,7 +830,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xB988A823, Data2: 0x8065, Data3: 0x41EE, Data4: ( 0xB0,0x4F,0x72,0x22,0x65,0x95,0x45,0x00 ) // B988A823-8065-41EE-B04F-722265954500
     ) 
 
-    public class IFrameExposureCompensationCapabilities: WindowsFoundation.IInspectable {
+    public class IFrameExposureCompensationCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationCapabilities }
 
         public func get_Supported() throws -> Bool {
@@ -863,7 +871,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameExposureCompensationControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecompensationcontrol)
-public final class FrameExposureCompensationControl : WinRTClass {
+public final class FrameExposureCompensationControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameExposureCompensationControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -918,7 +926,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xE95896C9, Data2: 0xF7F9, Data3: 0x48CA, Data4: ( 0x85,0x91,0xA2,0x65,0x31,0xCB,0x15,0x78 ) // E95896C9-F7F9-48CA-8591-A26531CB1578
     ) 
 
-    public class IFrameExposureCompensationControl: WindowsFoundation.IInspectable {
+    public class IFrameExposureCompensationControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureCompensationControl }
 
         public func get_Value() throws -> Float? {
@@ -944,7 +952,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameExposureControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameexposurecontrol)
-public final class FrameExposureControl : WinRTClass {
+public final class FrameExposureControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameExposureControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1005,7 +1013,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xB1605A61, Data2: 0xFFAF, Data3: 0x4752, Data4: ( 0xB6,0x21,0xF5,0xB6,0xF1,0x17,0xF4,0x32 ) // B1605A61-FFAF-4752-B621-F5B6F117F432
     ) 
 
-    public class IFrameExposureControl: WindowsFoundation.IInspectable {
+    public class IFrameExposureControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameExposureControl }
 
         public func get_Auto() throws -> Bool {
@@ -1045,7 +1053,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameFlashCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcapabilities)
-public final class FrameFlashCapabilities : WinRTClass {
+public final class FrameFlashCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameFlashCapabilities
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1109,7 +1117,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0xBB9341A2, Data2: 0x5EBE, Data3: 0x4F62, Data4: ( 0x82,0x23,0x0E,0x2B,0x05,0xBF,0xBB,0xD0 ) // BB9341A2-5EBE-4F62-8223-0E2B05BFBBD0
     ) 
 
-    public class IFrameFlashCapabilities: WindowsFoundation.IInspectable {
+    public class IFrameFlashCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashCapabilities }
 
         public func get_Supported() throws -> Bool {
@@ -1142,7 +1150,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameFlashControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameflashcontrol)
-public final class FrameFlashControl : WinRTClass {
+public final class FrameFlashControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameFlashControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1215,7 +1223,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x75D5F6C7, Data2: 0xBD45, Data3: 0x4FAB, Data4: ( 0x93,0x75,0x45,0xAC,0x04,0xB3,0x32,0xC2 ) // 75D5F6C7-BD45-4FAB-9375-45AC04B332C2
     ) 
 
-    public class IFrameFlashControl: WindowsFoundation.IInspectable {
+    public class IFrameFlashControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFlashControl }
 
         public func get_Mode() throws -> UWP.FrameFlashMode {
@@ -1280,7 +1288,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameFocusCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framefocuscapabilities)
-public final class FrameFocusCapabilities : WinRTClass {
+public final class FrameFocusCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameFocusCapabilities
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1349,7 +1357,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x7B25CD58, Data2: 0x01C0, Data3: 0x4065, Data4: ( 0x9C,0x40,0xC1,0xA7,0x21,0x42,0x5C,0x1A ) // 7B25CD58-01C0-4065-9C40-C1A721425C1A
     ) 
 
-    public class IFrameFocusCapabilities: WindowsFoundation.IInspectable {
+    public class IFrameFocusCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusCapabilities }
 
         public func get_Supported() throws -> Bool {
@@ -1390,7 +1398,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameFocusControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.framefocuscontrol)
-public final class FrameFocusControl : WinRTClass {
+public final class FrameFocusControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameFocusControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1445,7 +1453,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x272DF1D0, Data2: 0xD912, Data3: 0x4214, Data4: ( 0xA6,0x7B,0xE3,0x8A,0x8D,0x48,0xD8,0xC6 ) // 272DF1D0-D912-4214-A67B-E38A8D48D8C6
     ) 
 
-    public class IFrameFocusControl: WindowsFoundation.IInspectable {
+    public class IFrameFocusControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameFocusControl }
 
         public func get_Value() throws -> UInt32? {
@@ -1471,7 +1479,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameIsoSpeedCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcapabilities)
-public final class FrameIsoSpeedCapabilities : WinRTClass {
+public final class FrameIsoSpeedCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameIsoSpeedCapabilities
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1540,7 +1548,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x16BDFF61, Data2: 0x6DF6, Data3: 0x4AC9, Data4: ( 0xB9,0x2A,0x9F,0x6E,0xCD,0x1A,0xD2,0xFA ) // 16BDFF61-6DF6-4AC9-B92A-9F6ECD1AD2FA
     ) 
 
-    public class IFrameIsoSpeedCapabilities: WindowsFoundation.IInspectable {
+    public class IFrameIsoSpeedCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedCapabilities }
 
         public func get_Supported() throws -> Bool {
@@ -1581,7 +1589,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - FrameIsoSpeedControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.frameisospeedcontrol)
-public final class FrameIsoSpeedControl : WinRTClass {
+public final class FrameIsoSpeedControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IFrameIsoSpeedControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1642,7 +1650,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x1A03EFED, Data2: 0x786A, Data3: 0x4C75, Data4: ( 0xA5,0x57,0x7A,0xB9,0xA8,0x5F,0x58,0x8C ) // 1A03EFED-786A-4C75-A557-7AB9A85F588C
     ) 
 
-    public class IFrameIsoSpeedControl: WindowsFoundation.IInspectable {
+    public class IFrameIsoSpeedControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIFrameIsoSpeedControl }
 
         public func get_Auto() throws -> Bool {
@@ -1682,7 +1690,7 @@ extension __ABI_Windows_Media_Devices_Core {
 // MARK: - VariablePhotoSequenceController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller)
-public final class VariablePhotoSequenceController : WinRTClass {
+public final class VariablePhotoSequenceController : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices_Core.IVariablePhotoSequenceController
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1767,7 +1775,7 @@ extension __ABI_Windows_Media_Devices_Core {
         Data1: 0x7FBFF880, Data2: 0xED8C, Data3: 0x43FD, Data4: ( 0xA7,0xC3,0xB3,0x58,0x09,0xE4,0x22,0x9A ) // 7FBFF880-ED8C-43FD-A7C3-B35809E4229A
     ) 
 
-    public class IVariablePhotoSequenceController: WindowsFoundation.IInspectable {
+    public class IVariablePhotoSequenceController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CCore_CIVariablePhotoSequenceController }
 
         public func get_Supported() throws -> Bool {

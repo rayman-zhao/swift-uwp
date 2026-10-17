@@ -200,7 +200,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IActivatedEventArgsImpl: IActivatedEventArgs, WinRTAbiImpl {
+    fileprivate class IActivatedEventArgsImpl: IActivatedEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IActivatedEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -232,7 +232,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0xCF651713, Data2: 0xCD08, Data3: 0x4FD8, Data4: ( 0xB6,0x97,0xA2,0x81,0xB6,0x54,0x4E,0x2E ) // CF651713-CD08-4FD8-B697-A281B6544E2E
     ) 
 
-    public class IActivatedEventArgs: WindowsFoundation.IInspectable {
+    public class IActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs }
 
         open func get_Kind() throws -> UWP.ActivationKind {
@@ -262,7 +262,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var IActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsVtbl = .init(
         QueryInterface: { IActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { IActivatedEventArgsWrapper.addRef($0) },
         Release: { IActivatedEventArgsWrapper.release($0) },
@@ -364,7 +364,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IActivatedEventArgsWithUserImpl: IActivatedEventArgsWithUser, WinRTAbiImpl {
+    fileprivate class IActivatedEventArgsWithUserImpl: IActivatedEventArgsWithUser, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IActivatedEventArgsWithUserBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -402,7 +402,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0x1CF09B9E, Data2: 0x9962, Data3: 0x4936, Data4: ( 0x80,0xFF,0xAF,0xC8,0xE8,0xAE,0x5C,0x8C ) // 1CF09B9E-9962-4936-80FF-AFC8E8AE5C8C
     ) 
 
-    public class IActivatedEventArgsWithUser: WindowsFoundation.IInspectable {
+    public class IActivatedEventArgsWithUser: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser }
 
         open func get_User() throws -> UWP.User? {
@@ -416,7 +416,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IActivatedEventArgsWithUserVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUserVtbl = .init(
+    internal static nonisolated(unsafe) var IActivatedEventArgsWithUserVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUserVtbl = .init(
         QueryInterface: { IActivatedEventArgsWithUserWrapper.queryInterface($0, $1, $2) },
         AddRef: { IActivatedEventArgsWithUserWrapper.addRef($0) },
         Release: { IActivatedEventArgsWithUserWrapper.release($0) },
@@ -505,7 +505,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IApplicationViewActivatedEventArgsImpl: IApplicationViewActivatedEventArgs, WinRTAbiImpl {
+    fileprivate class IApplicationViewActivatedEventArgsImpl: IApplicationViewActivatedEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IApplicationViewActivatedEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -543,7 +543,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0x930CEF4B, Data2: 0xB829, Data3: 0x40FC, Data4: ( 0x88,0xF4,0x85,0x13,0xE8,0xA6,0x47,0x38 ) // 930CEF4B-B829-40FC-88F4-8513E8A64738
     ) 
 
-    public class IApplicationViewActivatedEventArgs: WindowsFoundation.IInspectable {
+    public class IApplicationViewActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgs }
 
         open func get_CurrentlyShownApplicationViewId() throws -> Int32 {
@@ -556,7 +556,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IApplicationViewActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var IApplicationViewActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIApplicationViewActivatedEventArgsVtbl = .init(
         QueryInterface: { IApplicationViewActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { IApplicationViewActivatedEventArgsWrapper.addRef($0) },
         Release: { IApplicationViewActivatedEventArgsWrapper.release($0) },
@@ -642,7 +642,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IBackgroundActivatedEventArgsImpl: IBackgroundActivatedEventArgs, WinRTAbiImpl {
+    fileprivate class IBackgroundActivatedEventArgsImpl: IBackgroundActivatedEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundActivatedEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -664,7 +664,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0xAB14BEE0, Data2: 0xE760, Data3: 0x440E, Data4: ( 0xA9,0x1C,0x44,0x79,0x6D,0xE3,0xA9,0x2D ) // AB14BEE0-E760-440E-A91C-44796DE3A92D
     ) 
 
-    public class IBackgroundActivatedEventArgs: WindowsFoundation.IInspectable {
+    public class IBackgroundActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs }
 
         open func get_TaskInstance() throws -> UWP.AnyIBackgroundTaskInstance? {
@@ -678,7 +678,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IBackgroundActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgsVtbl = .init(
         QueryInterface: { IBackgroundActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundActivatedEventArgsWrapper.addRef($0) },
         Release: { IBackgroundActivatedEventArgsWrapper.release($0) },
@@ -769,7 +769,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class ILaunchActivatedEventArgsImpl: ILaunchActivatedEventArgs, WinRTAbiImpl {
+    fileprivate class ILaunchActivatedEventArgsImpl: ILaunchActivatedEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ILaunchActivatedEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -812,30 +812,34 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0xFBC93E26, Data2: 0xA14A, Data3: 0x4B4F, Data4: ( 0x82,0xB0,0x33,0xBE,0xD9,0x20,0xAF,0x52 ) // FBC93E26-A14A-4B4F-82B0-33BED920AF52
     ) 
 
-    public class ILaunchActivatedEventArgs: WindowsFoundation.IInspectable {
+    public class ILaunchActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs }
 
         open func get_Arguments() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Arguments(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_TileId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TileId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
     }
 
-    internal static var ILaunchActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var ILaunchActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgsVtbl = .init(
         QueryInterface: { ILaunchActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { ILaunchActivatedEventArgsWrapper.addRef($0) },
         Release: { ILaunchActivatedEventArgsWrapper.release($0) },
@@ -934,7 +938,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class ILaunchActivatedEventArgs2Impl: ILaunchActivatedEventArgs2, WinRTAbiImpl {
+    fileprivate class ILaunchActivatedEventArgs2Impl: ILaunchActivatedEventArgs2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ILaunchActivatedEventArgs2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -983,7 +987,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0x0FD37EBC, Data2: 0x9DC9, Data3: 0x46B5, Data4: ( 0x9A,0xCE,0xBD,0x95,0xD4,0x56,0x53,0x45 ) // 0FD37EBC-9DC9-46B5-9ACE-BD95D4565345
     ) 
 
-    public class ILaunchActivatedEventArgs2: WindowsFoundation.IInspectable {
+    public class ILaunchActivatedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2 }
 
         open func get_TileActivatedInfo() throws -> UWP.TileActivatedInfo? {
@@ -997,7 +1001,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var ILaunchActivatedEventArgs2VTable: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2Vtbl = .init(
+    internal static nonisolated(unsafe) var ILaunchActivatedEventArgs2VTable: __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs2Vtbl = .init(
         QueryInterface: { ILaunchActivatedEventArgs2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { ILaunchActivatedEventArgs2Wrapper.addRef($0) },
         Release: { ILaunchActivatedEventArgs2Wrapper.release($0) },
@@ -1087,7 +1091,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IPrelaunchActivatedEventArgsImpl: IPrelaunchActivatedEventArgs, WinRTAbiImpl {
+    fileprivate class IPrelaunchActivatedEventArgsImpl: IPrelaunchActivatedEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IPrelaunchActivatedEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1125,7 +1129,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0x0C44717B, Data2: 0x19F7, Data3: 0x48D6, Data4: ( 0xB0,0x46,0xCF,0x22,0x82,0x6E,0xAA,0x74 ) // 0C44717B-19F7-48D6-B046-CF22826EAA74
     ) 
 
-    public class IPrelaunchActivatedEventArgs: WindowsFoundation.IInspectable {
+    public class IPrelaunchActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs }
 
         open func get_PrelaunchActivated() throws -> Bool {
@@ -1138,7 +1142,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IPrelaunchActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var IPrelaunchActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgsVtbl = .init(
         QueryInterface: { IPrelaunchActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { IPrelaunchActivatedEventArgsWrapper.addRef($0) },
         Release: { IPrelaunchActivatedEventArgsWrapper.release($0) },
@@ -1227,7 +1231,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IProtocolActivatedEventArgsImpl: IProtocolActivatedEventArgs, WinRTAbiImpl {
+    fileprivate class IProtocolActivatedEventArgsImpl: IProtocolActivatedEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IProtocolActivatedEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1265,7 +1269,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0x6095F4DD, Data2: 0xB7C0, Data3: 0x46AB, Data4: ( 0x81,0xFE,0xD9,0x0F,0x36,0xD0,0x0D,0x24 ) // 6095F4DD-B7C0-46AB-81FE-D90F36D00D24
     ) 
 
-    public class IProtocolActivatedEventArgs: WindowsFoundation.IInspectable {
+    public class IProtocolActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs }
 
         open func get_Uri() throws -> WindowsFoundation.Uri? {
@@ -1279,7 +1283,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IProtocolActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var IProtocolActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsVtbl = .init(
         QueryInterface: { IProtocolActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { IProtocolActivatedEventArgsWrapper.addRef($0) },
         Release: { IProtocolActivatedEventArgsWrapper.release($0) },
@@ -1370,7 +1374,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataImpl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, WinRTAbiImpl {
+    fileprivate class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataImpl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1413,15 +1417,17 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0xD84A0C12, Data2: 0x5C8F, Data3: 0x438C, Data4: ( 0x83,0xCB,0xC2,0x8F,0xCC,0x0B,0x2F,0xDB ) // D84A0C12-5C8F-438C-83CB-C28FCC0B2FDB
     ) 
 
-    public class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData: WindowsFoundation.IInspectable {
+    public class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData }
 
         open func get_CallerPackageFamilyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CallerPackageFamilyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1436,7 +1442,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl = .init(
+    internal static nonisolated(unsafe) var IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl = .init(
         QueryInterface: { IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.queryInterface($0, $1, $2) },
         AddRef: { IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.addRef($0) },
         Release: { IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataWrapper.release($0) },
@@ -1532,7 +1538,7 @@ extension __IMPL_Windows_ApplicationModel_Activation {
         }
     }
 
-    fileprivate class IViewSwitcherProviderImpl: IViewSwitcherProvider, WinRTAbiImpl {
+    fileprivate class IViewSwitcherProviderImpl: IViewSwitcherProvider, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IViewSwitcherProviderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1570,7 +1576,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0x33F288A6, Data2: 0x5C2C, Data3: 0x4D27, Data4: ( 0xBA,0xC7,0x75,0x36,0x08,0x8F,0x12,0x19 ) // 33F288A6-5C2C-4D27-BAC7-7536088F1219
     ) 
 
-    public class IViewSwitcherProvider: WindowsFoundation.IInspectable {
+    public class IViewSwitcherProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProvider }
 
         open func get_ViewSwitcher() throws -> UWP.ActivationViewSwitcher? {
@@ -1584,7 +1590,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 
     }
 
-    internal static var IViewSwitcherProviderVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProviderVtbl = .init(
+    internal static nonisolated(unsafe) var IViewSwitcherProviderVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIViewSwitcherProviderVtbl = .init(
         QueryInterface: { IViewSwitcherProviderWrapper.queryInterface($0, $1, $2) },
         AddRef: { IViewSwitcherProviderWrapper.addRef($0) },
         Release: { IViewSwitcherProviderWrapper.release($0) },
@@ -1634,7 +1640,7 @@ public class IViewSwitcherProviderMaker: MakeFromAbi {
 // MARK: - BackgroundActivatedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.backgroundactivatedeventargs)
-public final class BackgroundActivatedEventArgs : WinRTClass, IBackgroundActivatedEventArgs {
+public final class BackgroundActivatedEventArgs : WinRTClass, @unchecked Sendable, IBackgroundActivatedEventArgs {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIBackgroundActivatedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1691,7 +1697,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 // MARK: - LaunchActivatedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs)
-public final class LaunchActivatedEventArgs : WinRTClass, IActivatedEventArgs, ILaunchActivatedEventArgs, IApplicationViewActivatedEventArgs, IPrelaunchActivatedEventArgs, IViewSwitcherProvider, ILaunchActivatedEventArgs2, IActivatedEventArgsWithUser {
+public final class LaunchActivatedEventArgs : WinRTClass, @unchecked Sendable, IActivatedEventArgs, ILaunchActivatedEventArgs, IApplicationViewActivatedEventArgs, IPrelaunchActivatedEventArgs, IViewSwitcherProvider, ILaunchActivatedEventArgs2, IActivatedEventArgsWithUser {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ILaunchActivatedEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CILaunchActivatedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1805,7 +1811,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 // MARK: - ProtocolActivatedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs)
-public final class ProtocolActivatedEventArgs : WinRTClass, IActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IApplicationViewActivatedEventArgs, IViewSwitcherProvider, IActivatedEventArgsWithUser {
+public final class ProtocolActivatedEventArgs : WinRTClass, @unchecked Sendable, IActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IApplicationViewActivatedEventArgs, IViewSwitcherProvider, IActivatedEventArgsWithUser {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IProtocolActivatedEventArgs
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIProtocolActivatedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1912,7 +1918,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 // MARK: - SplashScreen
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen)
-public final class SplashScreen : WinRTClass {
+public final class SplashScreen : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ISplashScreen
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1979,7 +1985,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0xCA4D975C, Data2: 0xD4D6, Data3: 0x43F0, Data4: ( 0x97,0xC0,0x08,0x33,0xC6,0x39,0x1C,0x24 ) // CA4D975C-D4D6-43F0-97C0-0833C6391C24
     ) 
 
-    public class ISplashScreen: WindowsFoundation.IInspectable {
+    public class ISplashScreen: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CISplashScreen }
 
         public func get_ImageLocation() throws -> WindowsFoundation.Rect {
@@ -2012,7 +2018,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
 // MARK: - TileActivatedInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)
-public final class TileActivatedInfo : WinRTClass {
+public final class TileActivatedInfo : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.ITileActivatedInfo
     private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2066,7 +2072,7 @@ extension __ABI_Windows_ApplicationModel_Activation {
         Data1: 0x80E4A3B1, Data2: 0x3980, Data3: 0x4F17, Data4: ( 0xB7,0x38,0x89,0x19,0x4E,0x0B,0x8F,0x65 ) // 80E4A3B1-3980-4F17-B738-89194E0B8F65
     ) 
 
-    public class ITileActivatedInfo: WindowsFoundation.IInspectable {
+    public class ITileActivatedInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CITileActivatedInfo }
 
         public func get_RecentlyShownNotifications() throws -> WindowsFoundation.AnyIVectorView<UWP.ShownTileNotification?>? {

@@ -195,7 +195,7 @@ extension UWP.StreamedFileFailureMode: @retroactive Hashable, @retroactive Codab
 
 // MARK: - StreamedFileDataRequestedHandler
 
-public typealias StreamedFileDataRequestedHandler = (StreamedFileDataRequest?) throws -> ()
+public typealias StreamedFileDataRequestedHandler = @Sendable (StreamedFileDataRequest?) throws -> ()
 
 // MARK: - StreamedFileDataRequestedHandler Internals
 
@@ -222,7 +222,7 @@ extension __ABI_Windows_Storage {
         Data1: 0xFEF6A824, Data2: 0x2FE1, Data3: 0x4D07, Data4: ( 0xA3,0x5B,0xB7,0x7C,0x50,0xB5,0xF4,0xCC ) // FEF6A824-2FE1-4D07-A35B-B77C50B5F4CC
     ) 
 
-    public class StreamedFileDataRequestedHandler: WindowsFoundation.IUnknown {
+    public class StreamedFileDataRequestedHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStreamedFileDataRequestedHandler }
 
         open func Invoke(_ stream: UWP.StreamedFileDataRequest?) throws {
@@ -235,7 +235,7 @@ extension __ABI_Windows_Storage {
 
 
     typealias StreamedFileDataRequestedHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_Storage.StreamedFileDataRequestedHandlerBridge>
-    internal static var StreamedFileDataRequestedHandlerVTable: __x_ABI_CWindows_CStorage_CIStreamedFileDataRequestedHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var StreamedFileDataRequestedHandlerVTable: __x_ABI_CWindows_CStorage_CIStreamedFileDataRequestedHandlerVtbl = .init(
         QueryInterface: { StreamedFileDataRequestedHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { StreamedFileDataRequestedHandlerWrapper.addRef($0) },
         Release: { StreamedFileDataRequestedHandlerWrapper.release($0) },
@@ -326,7 +326,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageFileImpl: IStorageFile, WinRTAbiImpl {
+    fileprivate class IStorageFileImpl: IStorageFile, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageFileBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -466,24 +466,28 @@ extension __ABI_Windows_Storage {
         Data1: 0xFA3F6186, Data2: 0x4214, Data3: 0x428C, Data4: ( 0xA6,0x4C,0x14,0xC9,0xAC,0x73,0x15,0xEA ) // FA3F6186-4214-428C-A64C-14C9AC7315EA
     ) 
 
-    public class IStorageFile: WindowsFoundation.IInspectable {
+    public class IStorageFile: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFile }
 
         open func get_FileType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageFile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_ContentType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageFile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -599,7 +603,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageFileVTable: __x_ABI_CWindows_CStorage_CIStorageFileVtbl = .init(
+    internal static nonisolated(unsafe) var IStorageFileVTable: __x_ABI_CWindows_CStorage_CIStorageFileVtbl = .init(
         QueryInterface: { IStorageFileWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageFileWrapper.addRef($0) },
         Release: { IStorageFileWrapper.release($0) },
@@ -811,7 +815,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageFile2Impl: IStorageFile2, WinRTAbiImpl {
+    fileprivate class IStorageFile2Impl: IStorageFile2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageFile2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -838,7 +842,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x954E4BCF, Data2: 0x0A77, Data3: 0x42FB, Data4: ( 0xB7,0x77,0xC2,0xED,0x58,0xA5,0x2E,0x44 ) // 954E4BCF-0A77-42FB-B777-C2ED58A52E44
     ) 
 
-    public class IStorageFile2: WindowsFoundation.IInspectable {
+    public class IStorageFile2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFile2 }
 
         open func OpenWithOptionsAsync(_ accessMode: UWP.FileAccessMode, _ options: UWP.StorageOpenOptions) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStream?>? {
@@ -861,7 +865,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageFile2VTable: __x_ABI_CWindows_CStorage_CIStorageFile2Vtbl = .init(
+    internal static nonisolated(unsafe) var IStorageFile2VTable: __x_ABI_CWindows_CStorage_CIStorageFile2Vtbl = .init(
         QueryInterface: { IStorageFile2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageFile2Wrapper.addRef($0) },
         Release: { IStorageFile2Wrapper.release($0) },
@@ -962,7 +966,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageFilePropertiesWithAvailabilityImpl: IStorageFilePropertiesWithAvailability, WinRTAbiImpl {
+    fileprivate class IStorageFilePropertiesWithAvailabilityImpl: IStorageFilePropertiesWithAvailability, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageFilePropertiesWithAvailabilityBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -984,7 +988,7 @@ extension __ABI_Windows_Storage {
         Data1: 0xAFCBBE9B, Data2: 0x582B, Data3: 0x4133, Data4: ( 0x96,0x48,0xE4,0x4C,0xA4,0x6E,0xE4,0x91 ) // AFCBBE9B-582B-4133-9648-E44CA46EE491
     ) 
 
-    public class IStorageFilePropertiesWithAvailability: WindowsFoundation.IInspectable {
+    public class IStorageFilePropertiesWithAvailability: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFilePropertiesWithAvailability }
 
         open func get_IsAvailable() throws -> Bool {
@@ -997,7 +1001,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageFilePropertiesWithAvailabilityVTable: __x_ABI_CWindows_CStorage_CIStorageFilePropertiesWithAvailabilityVtbl = .init(
+    internal static nonisolated(unsafe) var IStorageFilePropertiesWithAvailabilityVTable: __x_ABI_CWindows_CStorage_CIStorageFilePropertiesWithAvailabilityVtbl = .init(
         QueryInterface: { IStorageFilePropertiesWithAvailabilityWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageFilePropertiesWithAvailabilityWrapper.addRef($0) },
         Release: { IStorageFilePropertiesWithAvailabilityWrapper.release($0) },
@@ -1103,7 +1107,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageFolderImpl: IStorageFolder, WinRTAbiImpl {
+    fileprivate class IStorageFolderImpl: IStorageFolder, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageFolderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1221,7 +1225,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x72D1CB78, Data2: 0xB3EF, Data3: 0x4F75, Data4: ( 0xA8,0x0B,0x6F,0xD9,0xDA,0xE2,0x94,0x4B ) // 72D1CB78-B3EF-4F75-A80B-6FD9DAE2944B
     ) 
 
-    public class IStorageFolder: WindowsFoundation.IInspectable {
+    public class IStorageFolder: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFolder }
 
         open func CreateFileAsyncOverloadDefaultOptions(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
@@ -1323,7 +1327,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageFolderVTable: __x_ABI_CWindows_CStorage_CIStorageFolderVtbl = .init(
+    internal static nonisolated(unsafe) var IStorageFolderVTable: __x_ABI_CWindows_CStorage_CIStorageFolderVtbl = .init(
         QueryInterface: { IStorageFolderWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageFolderWrapper.addRef($0) },
         Release: { IStorageFolderWrapper.release($0) },
@@ -1511,7 +1515,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageFolder2Impl: IStorageFolder2, WinRTAbiImpl {
+    fileprivate class IStorageFolder2Impl: IStorageFolder2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageFolder2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1533,7 +1537,7 @@ extension __ABI_Windows_Storage {
         Data1: 0xE827E8B9, Data2: 0x08D9, Data3: 0x4A8E, Data4: ( 0xA0,0xAC,0xFE,0x5E,0xD3,0xCB,0xBB,0xD3 ) // E827E8B9-08D9-4A8E-A0AC-FE5ED3CBBBD3
     ) 
 
-    public class IStorageFolder2: WindowsFoundation.IInspectable {
+    public class IStorageFolder2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFolder2 }
 
         open func TryGetItemAsync(_ name: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIStorageItem?>? {
@@ -1548,7 +1552,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageFolder2VTable: __x_ABI_CWindows_CStorage_CIStorageFolder2Vtbl = .init(
+    internal static nonisolated(unsafe) var IStorageFolder2VTable: __x_ABI_CWindows_CStorage_CIStorageFolder2Vtbl = .init(
         QueryInterface: { IStorageFolder2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageFolder2Wrapper.addRef($0) },
         Release: { IStorageFolder2Wrapper.release($0) },
@@ -1655,7 +1659,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageItemImpl: IStorageItem, WinRTAbiImpl {
+    fileprivate class IStorageItemImpl: IStorageItem, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageItemBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1722,7 +1726,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x4207A996, Data2: 0xCA2F, Data3: 0x42F7, Data4: ( 0xBD,0xE8,0x8B,0x10,0x45,0x7A,0x7F,0x30 ) // 4207A996-CA2F-42F7-BDE8-8B10457A7F30
     ) 
 
-    public class IStorageItem: WindowsFoundation.IInspectable {
+    public class IStorageItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageItem }
 
         open func RenameAsyncOverloadDefaultOptions(_ desiredName: String) throws -> WindowsFoundation.AnyIAsyncAction? {
@@ -1774,19 +1778,23 @@ extension __ABI_Windows_Storage {
 
         open func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_Path() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Path(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1816,7 +1824,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageItemVTable: __x_ABI_CWindows_CStorage_CIStorageItemVtbl = .init(
+    internal static nonisolated(unsafe) var IStorageItemVTable: __x_ABI_CWindows_CStorage_CIStorageItemVtbl = .init(
         QueryInterface: { IStorageItemWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageItemWrapper.addRef($0) },
         Release: { IStorageItemWrapper.release($0) },
@@ -1991,7 +1999,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageItem2Impl: IStorageItem2, WinRTAbiImpl {
+    fileprivate class IStorageItem2Impl: IStorageItem2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageItem2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2069,7 +2077,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x53F926D2, Data2: 0x083C, Data3: 0x4283, Data4: ( 0xB4,0x5B,0x81,0xC0,0x07,0x23,0x7E,0x44 ) // 53F926D2-083C-4283-B45B-81C007237E44
     ) 
 
-    public class IStorageItem2: WindowsFoundation.IInspectable {
+    public class IStorageItem2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageItem2 }
 
         open func GetParentAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFolder?>? {
@@ -2093,7 +2101,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageItem2VTable: __x_ABI_CWindows_CStorage_CIStorageItem2Vtbl = .init(
+    internal static nonisolated(unsafe) var IStorageItem2VTable: __x_ABI_CWindows_CStorage_CIStorageItem2Vtbl = .init(
         QueryInterface: { IStorageItem2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageItem2Wrapper.addRef($0) },
         Release: { IStorageItem2Wrapper.release($0) },
@@ -2204,7 +2212,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageItemPropertiesImpl: IStorageItemProperties, WinRTAbiImpl {
+    fileprivate class IStorageItemPropertiesImpl: IStorageItemProperties, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageItemPropertiesBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2256,7 +2264,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x86664478, Data2: 0x8029, Data3: 0x46FE, Data4: ( 0xA7,0x89,0x1C,0x2F,0x3E,0x2F,0xFB,0x5C ) // 86664478-8029-46FE-A789-1C2F3E2FFB5C
     ) 
 
-    public class IStorageItemProperties: WindowsFoundation.IInspectable {
+    public class IStorageItemProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageItemProperties }
 
         open func GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(_ mode: UWP.ThumbnailMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>? {
@@ -2288,28 +2296,34 @@ extension __ABI_Windows_Storage {
 
         open func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageItemProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_DisplayType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageItemProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_FolderRelativeId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageItemProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FolderRelativeId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2324,7 +2338,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageItemPropertiesVTable: __x_ABI_CWindows_CStorage_CIStorageItemPropertiesVtbl = .init(
+    internal static nonisolated(unsafe) var IStorageItemPropertiesVTable: __x_ABI_CWindows_CStorage_CIStorageItemPropertiesVtbl = .init(
         QueryInterface: { IStorageItemPropertiesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageItemPropertiesWrapper.addRef($0) },
         Release: { IStorageItemPropertiesWrapper.release($0) },
@@ -2473,7 +2487,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageItemProperties2Impl: IStorageItemProperties2, WinRTAbiImpl {
+    fileprivate class IStorageItemProperties2Impl: IStorageItemProperties2, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageItemProperties2Bridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2541,7 +2555,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x8E86A951, Data2: 0x04B9, Data3: 0x4BD2, Data4: ( 0x92,0x9D,0xFE,0xF3,0xF7,0x16,0x21,0xD0 ) // 8E86A951-04B9-4BD2-929D-FEF3F71621D0
     ) 
 
-    public class IStorageItemProperties2: WindowsFoundation.IInspectable {
+    public class IStorageItemProperties2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageItemProperties2 }
 
         open func GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(_ mode: UWP.ThumbnailMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageItemThumbnail?>? {
@@ -2573,7 +2587,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageItemProperties2VTable: __x_ABI_CWindows_CStorage_CIStorageItemProperties2Vtbl = .init(
+    internal static nonisolated(unsafe) var IStorageItemProperties2VTable: __x_ABI_CWindows_CStorage_CIStorageItemProperties2Vtbl = .init(
         QueryInterface: { IStorageItemProperties2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageItemProperties2Wrapper.addRef($0) },
         Release: { IStorageItemProperties2Wrapper.release($0) },
@@ -2691,7 +2705,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStorageItemPropertiesWithProviderImpl: IStorageItemPropertiesWithProvider, WinRTAbiImpl {
+    fileprivate class IStorageItemPropertiesWithProviderImpl: IStorageItemPropertiesWithProvider, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageItemPropertiesWithProviderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2749,7 +2763,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x861BF39B, Data2: 0x6368, Data3: 0x4DEE, Data4: ( 0xB4,0x0E,0x74,0x68,0x4A,0x5C,0xE7,0x14 ) // 861BF39B-6368-4DEE-B40E-74684A5CE714
     ) 
 
-    public class IStorageItemPropertiesWithProvider: WindowsFoundation.IInspectable {
+    public class IStorageItemPropertiesWithProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageItemPropertiesWithProvider }
 
         open func get_Provider() throws -> UWP.StorageProvider? {
@@ -2763,7 +2777,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStorageItemPropertiesWithProviderVTable: __x_ABI_CWindows_CStorage_CIStorageItemPropertiesWithProviderVtbl = .init(
+    internal static nonisolated(unsafe) var IStorageItemPropertiesWithProviderVTable: __x_ABI_CWindows_CStorage_CIStorageItemPropertiesWithProviderVtbl = .init(
         QueryInterface: { IStorageItemPropertiesWithProviderWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageItemPropertiesWithProviderWrapper.addRef($0) },
         Release: { IStorageItemPropertiesWithProviderWrapper.release($0) },
@@ -2849,7 +2863,7 @@ extension __IMPL_Windows_Storage {
         }
     }
 
-    fileprivate class IStreamedFileDataRequestImpl: IStreamedFileDataRequest, WinRTAbiImpl {
+    fileprivate class IStreamedFileDataRequestImpl: IStreamedFileDataRequest, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStreamedFileDataRequestBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2871,7 +2885,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x1673FCCE, Data2: 0xDABD, Data3: 0x4D50, Data4: ( 0xBE,0xEE,0x18,0x0B,0x8A,0x81,0x91,0xB6 ) // 1673FCCE-DABD-4D50-BEEE-180B8A8191B6
     ) 
 
-    public class IStreamedFileDataRequest: WindowsFoundation.IInspectable {
+    public class IStreamedFileDataRequest: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStreamedFileDataRequest }
 
         open func FailAndClose(_ failureMode: UWP.StreamedFileFailureMode) throws {
@@ -2882,7 +2896,7 @@ extension __ABI_Windows_Storage {
 
     }
 
-    internal static var IStreamedFileDataRequestVTable: __x_ABI_CWindows_CStorage_CIStreamedFileDataRequestVtbl = .init(
+    internal static nonisolated(unsafe) var IStreamedFileDataRequestVTable: __x_ABI_CWindows_CStorage_CIStreamedFileDataRequestVtbl = .init(
         QueryInterface: { IStreamedFileDataRequestWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStreamedFileDataRequestWrapper.addRef($0) },
         Release: { IStreamedFileDataRequestWrapper.release($0) },
@@ -2933,7 +2947,7 @@ public class IStreamedFileDataRequestMaker: MakeFromAbi {
 // MARK: - StorageFile
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storagefile)
-public final class StorageFile : WinRTClass, IStorageItem, UWP.IRandomAccessStreamReference, UWP.IInputStreamReference, IStorageFile, IStorageItemProperties, IStorageItemProperties2, IStorageItem2, IStorageItemPropertiesWithProvider, IStorageFilePropertiesWithAvailability, IStorageFile2 {
+public final class StorageFile : WinRTClass, @unchecked Sendable, IStorageItem, UWP.IRandomAccessStreamReference, UWP.IInputStreamReference, IStorageFile, IStorageItemProperties, IStorageItemProperties2, IStorageItem2, IStorageItemPropertiesWithProvider, IStorageFilePropertiesWithAvailability, IStorageFile2 {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageFile
     private typealias CABI = __x_ABI_CWindows_CStorage_CIStorageFile
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3234,7 +3248,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x5984C710, Data2: 0xDAF2, Data3: 0x43C8, Data4: ( 0x8B,0xB4,0xA4,0xD3,0xEA,0xCF,0xD0,0x3F ) // 5984C710-DAF2-43C8-8BB4-A4D3EACFD03F
     ) 
 
-    public class IStorageFileStatics: WindowsFoundation.IInspectable {
+    public class IStorageFileStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFileStatics }
 
         public func GetFileFromPathAsync(_ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFile?>? {
@@ -3316,7 +3330,7 @@ extension __ABI_Windows_Storage {
 // MARK: - StorageFolder
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storagefolder)
-public final class StorageFolder : WinRTClass, IStorageItem, IStorageFolder, UWP.IStorageFolderQueryOperations, IStorageItemProperties, IStorageItemProperties2, IStorageItem2, IStorageFolder2, IStorageItemPropertiesWithProvider {
+public final class StorageFolder : WinRTClass, @unchecked Sendable, IStorageItem, IStorageFolder, UWP.IStorageFolderQueryOperations, IStorageItemProperties, IStorageItemProperties2, IStorageItem2, IStorageFolder2, IStorageItemPropertiesWithProvider {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageFolder
     private typealias CABI = __x_ABI_CWindows_CStorage_CIStorageFolder
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3650,7 +3664,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x9F617899, Data2: 0xBDE1, Data3: 0x4124, Data4: ( 0xAE,0xB3,0xB0,0x6A,0xD9,0x6F,0x98,0xD4 ) // 9F617899-BDE1-4124-AEB3-B06AD96F98D4
     ) 
 
-    public class IStorageFolder3: WindowsFoundation.IInspectable {
+    public class IStorageFolder3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFolder3 }
 
         public func TryGetChangeTracker() throws -> UWP.StorageLibraryChangeTracker? {
@@ -3668,7 +3682,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x08F327FF, Data2: 0x85D5, Data3: 0x48B9, Data4: ( 0xAE,0xE9,0x28,0x51,0x1E,0x33,0x9F,0x9F ) // 08F327FF-85D5-48B9-AEE9-28511E339F9F
     ) 
 
-    public class IStorageFolderStatics: WindowsFoundation.IInspectable {
+    public class IStorageFolderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageFolderStatics }
 
         public func GetFolderFromPathAsync(_ path: String) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.StorageFolder?>? {
@@ -3687,7 +3701,7 @@ extension __ABI_Windows_Storage {
 // MARK: - StorageLibraryChange
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storagelibrarychange)
-public final class StorageLibraryChange : WinRTClass {
+public final class StorageLibraryChange : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageLibraryChange
     private typealias CABI = __x_ABI_CWindows_CStorage_CIStorageLibraryChange
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3761,7 +3775,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x00980B23, Data2: 0x2BE2, Data3: 0x4909, Data4: ( 0xAA,0x48,0x15,0x9F,0x52,0x03,0xA5,0x1E ) // 00980B23-2BE2-4909-AA48-159F5203A51E
     ) 
 
-    public class IStorageLibraryChange: WindowsFoundation.IInspectable {
+    public class IStorageLibraryChange: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageLibraryChange }
 
         public func get_ChangeType() throws -> UWP.StorageLibraryChangeType {
@@ -3774,19 +3788,23 @@ extension __ABI_Windows_Storage {
 
         public func get_Path() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageLibraryChange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Path(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_PreviousPath() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageLibraryChange.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreviousPath(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -3813,7 +3831,7 @@ extension __ABI_Windows_Storage {
 // MARK: - StorageLibraryChangeReader
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storagelibrarychangereader)
-public final class StorageLibraryChangeReader : WinRTClass {
+public final class StorageLibraryChangeReader : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageLibraryChangeReader
     private typealias CABI = __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3872,7 +3890,7 @@ extension __ABI_Windows_Storage {
         Data1: 0xF205BC83, Data2: 0xFCA2, Data3: 0x41F9, Data4: ( 0x89,0x54,0xEE,0x2E,0x99,0x1E,0xB9,0x6F ) // F205BC83-FCA2-41F9-8954-EE2E991EB96F
     ) 
 
-    public class IStorageLibraryChangeReader: WindowsFoundation.IInspectable {
+    public class IStorageLibraryChangeReader: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader }
 
         public func ReadBatchAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.StorageLibraryChange?>?>? {
@@ -3899,7 +3917,7 @@ extension __ABI_Windows_Storage {
 // MARK: - StorageLibraryChangeTracker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storagelibrarychangetracker)
-public final class StorageLibraryChangeTracker : WinRTClass {
+public final class StorageLibraryChangeTracker : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageLibraryChangeTracker
     private typealias CABI = __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3963,7 +3981,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x9E157316, Data2: 0x6073, Data3: 0x44F6, Data4: ( 0x96,0x81,0x74,0x92,0xD1,0x28,0x6C,0x90 ) // 9E157316-6073-44F6-9681-7492D1286C90
     ) 
 
-    public class IStorageLibraryChangeTracker: WindowsFoundation.IInspectable {
+    public class IStorageLibraryChangeTracker: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker }
 
         public func GetChangeReader() throws -> UWP.StorageLibraryChangeReader? {
@@ -3993,7 +4011,7 @@ extension __ABI_Windows_Storage {
 // MARK: - StorageProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storageprovider)
-public final class StorageProvider : WinRTClass {
+public final class StorageProvider : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageProvider
     private typealias CABI = __x_ABI_CWindows_CStorage_CIStorageProvider
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4059,24 +4077,28 @@ extension __ABI_Windows_Storage {
         Data1: 0xE705EED4, Data2: 0xD478, Data3: 0x47D6, Data4: ( 0xBA,0x46,0x1A,0x8E,0xBE,0x11,0x4A,0x20 ) // E705EED4-D478-47D6-BA46-1A8EBE114A20
     ) 
 
-    public class IStorageProvider: WindowsFoundation.IInspectable {
+    public class IStorageProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageProvider }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageProvider.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CIStorageProvider.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -4086,7 +4108,7 @@ extension __ABI_Windows_Storage {
         Data1: 0x010D1917, Data2: 0x3404, Data3: 0x414B, Data4: ( 0x9F,0xD7,0xCD,0x44,0x47,0x2E,0xAA,0x39 ) // 010D1917-3404-414B-9FD7-CD44472EAA39
     ) 
 
-    public class IStorageProvider2: WindowsFoundation.IInspectable {
+    public class IStorageProvider2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageProvider2 }
 
         public func IsPropertySupportedForPartialFileAsync(_ propertyCanonicalName: String) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
@@ -4105,7 +4127,7 @@ extension __ABI_Windows_Storage {
 // MARK: - StorageStreamTransaction
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.storagestreamtransaction)
-public final class StorageStreamTransaction : WinRTClass, WindowsFoundation.IClosable {
+public final class StorageStreamTransaction : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Storage.IStorageStreamTransaction
     private typealias CABI = __x_ABI_CWindows_CStorage_CIStorageStreamTransaction
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4174,7 +4196,7 @@ extension __ABI_Windows_Storage {
         Data1: 0xF67CF363, Data2: 0xA53D, Data3: 0x4D94, Data4: ( 0xAE,0x2C,0x67,0x23,0x2D,0x93,0xAC,0xDD ) // F67CF363-A53D-4D94-AE2C-67232D93ACDD
     ) 
 
-    public class IStorageStreamTransaction: WindowsFoundation.IInspectable {
+    public class IStorageStreamTransaction: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CIStorageStreamTransaction }
 
         public func get_Stream() throws -> UWP.AnyIRandomAccessStream? {
@@ -4201,7 +4223,7 @@ extension __ABI_Windows_Storage {
 // MARK: - StreamedFileDataRequest
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streamedfiledatarequest)
-public final class StreamedFileDataRequest : WinRTClass, WindowsFoundation.IClosable, UWP.IOutputStream, IStreamedFileDataRequest {
+public final class StreamedFileDataRequest : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, UWP.IOutputStream, IStreamedFileDataRequest {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IOutputStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()

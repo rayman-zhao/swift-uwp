@@ -126,6 +126,8 @@ extension BackgroundDownloadProgress: WinRTBridgeable {
     public static func from(abi: ABI) -> Self {
         .init(bytesReceived: abi.BytesReceived, totalBytesToReceive: abi.TotalBytesToReceive, status: abi.Status, hasResponseChanged: .init(from: abi.HasResponseChanged), hasRestarted: .init(from: abi.HasRestarted))
     }
+    public static func release(abi: ABI) {
+    }
     public func toABI() -> ABI {
         __ABI_Windows_Networking_BackgroundTransfer._ABI_BackgroundDownloadProgress(from: self).detach()
     }
@@ -146,10 +148,12 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
 
         public func detach() -> __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CBackgroundDownloadProgress {
             let result = val
+            val = .init()
             return result
         }
 
         deinit {
+            UWP.BackgroundDownloadProgress.release(abi: val)
         }
     }
 }
@@ -237,7 +241,7 @@ extension __IMPL_Windows_Networking_BackgroundTransfer {
         }
     }
 
-    fileprivate class IBackgroundTransferOperationImpl: IBackgroundTransferOperation, WinRTAbiImpl {
+    fileprivate class IBackgroundTransferOperationImpl: IBackgroundTransferOperation, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundTransferOperationBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -290,7 +294,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0xDED06846, Data2: 0x90CA, Data3: 0x44FB, Data4: ( 0x8F,0xB1,0x12,0x41,0x54,0xC0,0xD5,0x39 ) // DED06846-90CA-44FB-8FB1-124154C0D539
     ) 
 
-    public class IBackgroundTransferOperation: WindowsFoundation.IInspectable {
+    public class IBackgroundTransferOperation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation }
 
         open func get_Guid() throws -> Foundation.UUID {
@@ -312,19 +316,23 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
 
         open func get_Method() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Method(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         open func get_Group() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Group(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -362,7 +370,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
 
     }
 
-    internal static var IBackgroundTransferOperationVTable: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationVtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundTransferOperationVTable: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationVtbl = .init(
         QueryInterface: { IBackgroundTransferOperationWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundTransferOperationWrapper.addRef($0) },
         Release: { IBackgroundTransferOperationWrapper.release($0) },
@@ -502,7 +510,7 @@ extension __IMPL_Windows_Networking_BackgroundTransfer {
         }
     }
 
-    fileprivate class IBackgroundTransferOperationPriorityImpl: IBackgroundTransferOperationPriority, WinRTAbiImpl {
+    fileprivate class IBackgroundTransferOperationPriorityImpl: IBackgroundTransferOperationPriority, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBackgroundTransferOperationPriorityBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -525,7 +533,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0x04854327, Data2: 0x5254, Data3: 0x4B3A, Data4: ( 0x91,0x5E,0x0A,0xA4,0x92,0x75,0xC0,0xF9 ) // 04854327-5254-4B3A-915E-0AA49275C0F9
     ) 
 
-    public class IBackgroundTransferOperationPriority: WindowsFoundation.IInspectable {
+    public class IBackgroundTransferOperationPriority: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationPriority }
 
         open func get_Priority() throws -> UWP.BackgroundTransferPriority {
@@ -544,7 +552,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
 
     }
 
-    internal static var IBackgroundTransferOperationPriorityVTable: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationPriorityVtbl = .init(
+    internal static nonisolated(unsafe) var IBackgroundTransferOperationPriorityVTable: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferOperationPriorityVtbl = .init(
         QueryInterface: { IBackgroundTransferOperationPriorityWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBackgroundTransferOperationPriorityWrapper.addRef($0) },
         Release: { IBackgroundTransferOperationPriorityWrapper.release($0) },
@@ -600,7 +608,7 @@ public class IBackgroundTransferOperationPriorityMaker: MakeFromAbi {
 // MARK: - BackgroundTransferGroup
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransfergroup)
-public final class BackgroundTransferGroup : WinRTClass {
+public final class BackgroundTransferGroup : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferGroup
     private typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -666,15 +674,17 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0xD8C3E3E4, Data2: 0x6459, Data3: 0x4540, Data4: ( 0x85,0xEB,0xAA,0xA1,0xC8,0x90,0x36,0x77 ) // D8C3E3E4-6459-4540-85EB-AAA1C8903677
     ) 
 
-    public class IBackgroundTransferGroup: WindowsFoundation.IInspectable {
+    public class IBackgroundTransferGroup: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroup.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -698,7 +708,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0x02EC50B2, Data2: 0x7D18, Data3: 0x495B, Data4: ( 0xAA,0x22,0x32,0xA9,0x7D,0x45,0xD3,0xE2 ) // 02EC50B2-7D18-495B-AA22-32A97D45D3E2
     ) 
 
-    public class IBackgroundTransferGroupStatics: WindowsFoundation.IInspectable {
+    public class IBackgroundTransferGroupStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferGroupStatics }
 
         public func CreateGroup(_ name: String) throws -> UWP.BackgroundTransferGroup? {
@@ -717,7 +727,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
 // MARK: - BackgroundTransferRangesDownloadedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.backgroundtransferrangesdownloadedeventargs)
-public final class BackgroundTransferRangesDownloadedEventArgs : WinRTClass {
+public final class BackgroundTransferRangesDownloadedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs
     private typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -781,7 +791,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0x3EBC7453, Data2: 0xBF48, Data3: 0x4A88, Data4: ( 0x92,0x48,0xB0,0xC1,0x65,0x18,0x4F,0x5C ) // 3EBC7453-BF48-4A88-9248-B0C165184F5C
     ) 
 
-    public class IBackgroundTransferRangesDownloadedEventArgs: WindowsFoundation.IInspectable {
+    public class IBackgroundTransferRangesDownloadedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIBackgroundTransferRangesDownloadedEventArgs }
 
         public func get_WasDownloadRestarted() throws -> Bool {
@@ -816,7 +826,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
 // MARK: - DownloadOperation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.downloadoperation)
-public final class DownloadOperation : WinRTClass, IBackgroundTransferOperation, IBackgroundTransferOperationPriority {
+public final class DownloadOperation : WinRTClass, @unchecked Sendable, IBackgroundTransferOperation, IBackgroundTransferOperationPriority {
     private typealias SwiftABI = __ABI_Windows_Networking_BackgroundTransfer.IDownloadOperation
     private typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1000,7 +1010,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0xBD87EBB0, Data2: 0x5714, Data3: 0x4E09, Data4: ( 0xBA,0x68,0xBE,0xF7,0x39,0x03,0xB0,0xD7 ) // BD87EBB0-5714-4E09-BA68-BEF73903B0D7
     ) 
 
-    public class IDownloadOperation: WindowsFoundation.IInspectable {
+    public class IDownloadOperation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation }
 
         public func get_ResultFile() throws -> UWP.AnyIStorageFile? {
@@ -1056,7 +1066,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0xA3CCED40, Data2: 0x8F9C, Data3: 0x4353, Data4: ( 0x9C,0xD4,0x29,0x0D,0xEE,0x38,0x7C,0x38 ) // A3CCED40-8F9C-4353-9CD4-290DEE387C38
     ) 
 
-    public class IDownloadOperation2: WindowsFoundation.IInspectable {
+    public class IDownloadOperation2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation2 }
 
         public func get_TransferGroup() throws -> UWP.BackgroundTransferGroup? {
@@ -1074,7 +1084,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0x5027351C, Data2: 0x7D5E, Data3: 0x4ADC, Data4: ( 0xB8,0xD3,0xDF,0x5C,0x60,0x31,0xB9,0xCC ) // 5027351C-7D5E-4ADC-B8D3-DF5C6031B9CC
     ) 
 
-    public class IDownloadOperation3: WindowsFoundation.IInspectable {
+    public class IDownloadOperation3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation3 }
 
         public func get_IsRandomAccessRequired() throws -> Bool {
@@ -1155,7 +1165,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0x0CDAAEF4, Data2: 0x8CEF, Data3: 0x404A, Data4: ( 0x96,0x6D,0xF0,0x58,0x40,0x0B,0xED,0x80 ) // 0CDAAEF4-8CEF-404A-966D-F058400BED80
     ) 
 
-    public class IDownloadOperation4: WindowsFoundation.IInspectable {
+    public class IDownloadOperation4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIDownloadOperation4 }
 
         public func MakeCurrentInTransferGroup() throws {
@@ -1170,7 +1180,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
 // MARK: - ResponseInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.backgroundtransfer.responseinformation)
-public final class ResponseInformation : WinRTClass {
+public final class ResponseInformation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_BackgroundTransfer.IResponseInformation
     private typealias CABI = __x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1239,7 +1249,7 @@ extension __ABI_Windows_Networking_BackgroundTransfer {
         Data1: 0xF8BB9A12, Data2: 0xF713, Data3: 0x4792, Data4: ( 0x8B,0x68,0xD9,0xD2,0x97,0xF9,0x1D,0x2E ) // F8BB9A12-F713-4792-8B68-D9D297F91D2E
     ) 
 
-    public class IResponseInformation: WindowsFoundation.IInspectable {
+    public class IResponseInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIResponseInformation }
 
         public func get_IsResumable() throws -> Bool {

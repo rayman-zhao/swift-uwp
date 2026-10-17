@@ -129,7 +129,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IBufferImpl: IBuffer, WinRTAbiImpl {
+    fileprivate class IBufferImpl: IBuffer, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBufferBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -164,7 +164,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x905A0FE0, Data2: 0xBC53, Data3: 0x11DF, Data4: ( 0x8C,0x49,0x00,0x1E,0x4F,0xC6,0x86,0xDA ) // 905A0FE0-BC53-11DF-8C49-001E4FC686DA
     ) 
 
-    public class IBuffer: WindowsFoundation.IInspectable {
+    public class IBuffer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIBuffer }
 
         open func get_Capacity() throws -> UInt32 {
@@ -191,7 +191,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IBufferVTable: __x_ABI_CWindows_CStorage_CStreams_CIBufferVtbl = .init(
+    internal static nonisolated(unsafe) var IBufferVTable: __x_ABI_CWindows_CStorage_CStreams_CIBufferVtbl = .init(
         QueryInterface: { IBufferWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBufferWrapper.addRef($0) },
         Release: { IBufferWrapper.release($0) },
@@ -291,7 +291,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IContentTypeProviderImpl: IContentTypeProvider, WinRTAbiImpl {
+    fileprivate class IContentTypeProviderImpl: IContentTypeProvider, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IContentTypeProviderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -313,21 +313,23 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x97D098A5, Data2: 0x3B99, Data3: 0x4DE9, Data4: ( 0x88,0xA5,0xE1,0x1D,0x2F,0x50,0xC7,0x95 ) // 97D098A5-3B99-4DE9-88A5-E11D2F50C795
     ) 
 
-    public class IContentTypeProvider: WindowsFoundation.IInspectable {
+    public class IContentTypeProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider }
 
         open func get_ContentType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProvider.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
     }
 
-    internal static var IContentTypeProviderVTable: __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProviderVtbl = .init(
+    internal static nonisolated(unsafe) var IContentTypeProviderVTable: __x_ABI_CWindows_CStorage_CStreams_CIContentTypeProviderVtbl = .init(
         QueryInterface: { IContentTypeProviderWrapper.queryInterface($0, $1, $2) },
         AddRef: { IContentTypeProviderWrapper.addRef($0) },
         Release: { IContentTypeProviderWrapper.release($0) },
@@ -456,7 +458,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IDataReaderImpl: IDataReader, WinRTAbiImpl {
+    fileprivate class IDataReaderImpl: IDataReader, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IDataReaderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -591,7 +593,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0xE2B50029, Data2: 0xB4C1, Data3: 0x4314, Data4: ( 0xA4,0xB8,0xFB,0x81,0x3A,0x2F,0x27,0x5E ) // E2B50029-B4C1-4314-A4B8-FB813A2F275E
     ) 
 
-    public class IDataReader: WindowsFoundation.IInspectable {
+    public class IDataReader: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIDataReader }
 
         open func get_UnconsumedBufferLength() throws -> UInt32 {
@@ -751,10 +753,12 @@ extension __ABI_Windows_Storage_Streams {
 
         open func ReadString(_ codeUnitCount: UInt32) throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CStreams_CIDataReader.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.ReadString(pThis, codeUnitCount, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -803,7 +807,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IDataReaderVTable: __x_ABI_CWindows_CStorage_CStreams_CIDataReaderVtbl = .init(
+    internal static nonisolated(unsafe) var IDataReaderVTable: __x_ABI_CWindows_CStorage_CStreams_CIDataReaderVtbl = .init(
         QueryInterface: { IDataReaderWrapper.queryInterface($0, $1, $2) },
         AddRef: { IDataReaderWrapper.addRef($0) },
         Release: { IDataReaderWrapper.release($0) },
@@ -1156,7 +1160,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IDataWriterImpl: IDataWriter, WinRTAbiImpl {
+    fileprivate class IDataWriterImpl: IDataWriter, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IDataWriterBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1300,7 +1304,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x64B89265, Data2: 0xD341, Data3: 0x4922, Data4: ( 0xB3,0x8A,0xDD,0x4A,0xF8,0x80,0x8C,0x4E ) // 64B89265-D341-4922-B38A-DD4AF8808C4E
     ) 
 
-    public class IDataWriter: WindowsFoundation.IInspectable {
+    public class IDataWriter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIDataWriter }
 
         open func get_UnstoredBufferLength() throws -> UInt32 {
@@ -1497,7 +1501,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IDataWriterVTable: __x_ABI_CWindows_CStorage_CStreams_CIDataWriterVtbl = .init(
+    internal static nonisolated(unsafe) var IDataWriterVTable: __x_ABI_CWindows_CStorage_CStreams_CIDataWriterVtbl = .init(
         QueryInterface: { IDataWriterWrapper.queryInterface($0, $1, $2) },
         AddRef: { IDataWriterWrapper.addRef($0) },
         Release: { IDataWriterWrapper.release($0) },
@@ -1818,7 +1822,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IInputStreamImpl: IInputStream, WinRTAbiImpl {
+    fileprivate class IInputStreamImpl: IInputStream, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IInputStreamBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1846,7 +1850,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x905A0FE2, Data2: 0xBC53, Data3: 0x11DF, Data4: ( 0x8C,0x49,0x00,0x1E,0x4F,0xC6,0x86,0xDA ) // 905A0FE2-BC53-11DF-8C49-001E4FC686DA
     ) 
 
-    public class IInputStream: WindowsFoundation.IInspectable {
+    public class IInputStream: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIInputStream }
 
         open func ReadAsync(_ buffer: UWP.AnyIBuffer?, _ count: UInt32, _ options: UWP.InputStreamOptions) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UWP.AnyIBuffer?, UInt32>? {
@@ -1862,7 +1866,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IInputStreamVTable: __x_ABI_CWindows_CStorage_CStreams_CIInputStreamVtbl = .init(
+    internal static nonisolated(unsafe) var IInputStreamVTable: __x_ABI_CWindows_CStorage_CStreams_CIInputStreamVtbl = .init(
         QueryInterface: { IInputStreamWrapper.queryInterface($0, $1, $2) },
         AddRef: { IInputStreamWrapper.addRef($0) },
         Release: { IInputStreamWrapper.release($0) },
@@ -1954,7 +1958,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IInputStreamReferenceImpl: IInputStreamReference, WinRTAbiImpl {
+    fileprivate class IInputStreamReferenceImpl: IInputStreamReference, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IInputStreamReferenceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1976,7 +1980,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x43929D18, Data2: 0x5EC9, Data3: 0x4B5A, Data4: ( 0x91,0x9C,0x42,0x05,0xB0,0xC8,0x04,0xB6 ) // 43929D18-5EC9-4B5A-919C-4205B0C804B6
     ) 
 
-    public class IInputStreamReference: WindowsFoundation.IInspectable {
+    public class IInputStreamReference: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIInputStreamReference }
 
         open func OpenSequentialReadAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIInputStream?>? {
@@ -1990,7 +1994,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IInputStreamReferenceVTable: __x_ABI_CWindows_CStorage_CStreams_CIInputStreamReferenceVtbl = .init(
+    internal static nonisolated(unsafe) var IInputStreamReferenceVTable: __x_ABI_CWindows_CStorage_CStreams_CIInputStreamReferenceVtbl = .init(
         QueryInterface: { IInputStreamReferenceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IInputStreamReferenceWrapper.addRef($0) },
         Release: { IInputStreamReferenceWrapper.release($0) },
@@ -2083,7 +2087,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IOutputStreamImpl: IOutputStream, WinRTAbiImpl {
+    fileprivate class IOutputStreamImpl: IOutputStream, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IOutputStreamBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2116,7 +2120,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x905A0FE6, Data2: 0xBC53, Data3: 0x11DF, Data4: ( 0x8C,0x49,0x00,0x1E,0x4F,0xC6,0x86,0xDA ) // 905A0FE6-BC53-11DF-8C49-001E4FC686DA
     ) 
 
-    public class IOutputStream: WindowsFoundation.IInspectable {
+    public class IOutputStream: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIOutputStream }
 
         open func WriteAsync(_ buffer: UWP.AnyIBuffer?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt32, UInt32>? {
@@ -2141,7 +2145,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IOutputStreamVTable: __x_ABI_CWindows_CStorage_CStreams_CIOutputStreamVtbl = .init(
+    internal static nonisolated(unsafe) var IOutputStreamVTable: __x_ABI_CWindows_CStorage_CStreams_CIOutputStreamVtbl = .init(
         QueryInterface: { IOutputStreamWrapper.queryInterface($0, $1, $2) },
         AddRef: { IOutputStreamWrapper.addRef($0) },
         Release: { IOutputStreamWrapper.release($0) },
@@ -2264,7 +2268,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IRandomAccessStreamImpl: IRandomAccessStream, WinRTAbiImpl {
+    fileprivate class IRandomAccessStreamImpl: IRandomAccessStream, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IRandomAccessStreamBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2345,7 +2349,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x905A0FE1, Data2: 0xBC53, Data3: 0x11DF, Data4: ( 0x8C,0x49,0x00,0x1E,0x4F,0xC6,0x86,0xDA ) // 905A0FE1-BC53-11DF-8C49-001E4FC686DA
     ) 
 
-    public class IRandomAccessStream: WindowsFoundation.IInspectable {
+    public class IRandomAccessStream: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream }
 
         open func get_Size() throws -> UInt64 {
@@ -2421,7 +2425,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IRandomAccessStreamVTable: __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamVtbl = .init(
+    internal static nonisolated(unsafe) var IRandomAccessStreamVTable: __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamVtbl = .init(
         QueryInterface: { IRandomAccessStreamWrapper.queryInterface($0, $1, $2) },
         AddRef: { IRandomAccessStreamWrapper.addRef($0) },
         Release: { IRandomAccessStreamWrapper.release($0) },
@@ -2578,7 +2582,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IRandomAccessStreamReferenceImpl: IRandomAccessStreamReference, WinRTAbiImpl {
+    fileprivate class IRandomAccessStreamReferenceImpl: IRandomAccessStreamReference, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IRandomAccessStreamReferenceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2600,7 +2604,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x33EE3134, Data2: 0x1DD6, Data3: 0x4E3A, Data4: ( 0x80,0x67,0xD1,0xC1,0x62,0xE8,0x64,0x2B ) // 33EE3134-1DD6-4E3A-8067-D1C162E8642B
     ) 
 
-    public class IRandomAccessStreamReference: WindowsFoundation.IInspectable {
+    public class IRandomAccessStreamReference: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference }
 
         open func OpenReadAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStreamWithContentType?>? {
@@ -2614,7 +2618,7 @@ extension __ABI_Windows_Storage_Streams {
 
     }
 
-    internal static var IRandomAccessStreamReferenceVTable: __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceVtbl = .init(
+    internal static nonisolated(unsafe) var IRandomAccessStreamReferenceVTable: __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceVtbl = .init(
         QueryInterface: { IRandomAccessStreamReferenceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IRandomAccessStreamReferenceWrapper.addRef($0) },
         Release: { IRandomAccessStreamReferenceWrapper.release($0) },
@@ -2715,7 +2719,7 @@ extension __IMPL_Windows_Storage_Streams {
         }
     }
 
-    fileprivate class IRandomAccessStreamWithContentTypeImpl: IRandomAccessStreamWithContentType, WinRTAbiImpl {
+    fileprivate class IRandomAccessStreamWithContentTypeImpl: IRandomAccessStreamWithContentType, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IRandomAccessStreamWithContentTypeBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2803,12 +2807,12 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0xCC254827, Data2: 0x4B3D, Data3: 0x438F, Data4: ( 0x92,0x32,0x10,0xC7,0x6B,0xC7,0xE0,0x38 ) // CC254827-4B3D-438F-9232-10C76BC7E038
     ) 
 
-    public class IRandomAccessStreamWithContentType: WindowsFoundation.IInspectable {
+    public class IRandomAccessStreamWithContentType: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType }
 
     }
 
-    internal static var IRandomAccessStreamWithContentTypeVTable: __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentTypeVtbl = .init(
+    internal static nonisolated(unsafe) var IRandomAccessStreamWithContentTypeVTable: __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentTypeVtbl = .init(
         QueryInterface: { IRandomAccessStreamWithContentTypeWrapper.queryInterface($0, $1, $2) },
         AddRef: { IRandomAccessStreamWithContentTypeWrapper.addRef($0) },
         Release: { IRandomAccessStreamWithContentTypeWrapper.release($0) },
@@ -2855,7 +2859,7 @@ public class IRandomAccessStreamWithContentTypeMaker: MakeFromAbi {
 // MARK: - Buffer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.buffer)
-public final class Buffer : WinRTClass, IBufferByteAccess, IBuffer {
+public final class Buffer : WinRTClass, @unchecked Sendable, IBufferByteAccess, IBuffer {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IBuffer
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIBuffer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2942,7 +2946,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x71AF914D, Data2: 0xC10F, Data3: 0x484B, Data4: ( 0xBC,0x50,0x14,0xBC,0x62,0x3B,0x3A,0x27 ) // 71AF914D-C10F-484B-BC50-14BC623B3A27
     ) 
 
-    public class IBufferFactory: WindowsFoundation.IInspectable {
+    public class IBufferFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIBufferFactory }
 
         public func Create(_ capacity: UInt32) throws -> IBuffer {
@@ -2960,7 +2964,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0xE901E65B, Data2: 0xD716, Data3: 0x475A, Data4: ( 0xA9,0x0A,0xAF,0x72,0x29,0xB1,0xE7,0x41 ) // E901E65B-D716-475A-A90A-AF7229B1E741
     ) 
 
-    public class IBufferStatics: WindowsFoundation.IInspectable {
+    public class IBufferStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIBufferStatics }
 
         public func CreateCopyFromMemoryBuffer(_ input: WindowsFoundation.AnyIMemoryBuffer?) throws -> UWP.Buffer? {
@@ -2991,7 +2995,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - DataReader
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.datareader)
-public final class DataReader : WinRTClass, IDataReader, WindowsFoundation.IClosable {
+public final class DataReader : WinRTClass, @unchecked Sendable, IDataReader, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IDataReader
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIDataReader
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3179,7 +3183,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0xD7527847, Data2: 0x57DA, Data3: 0x4E15, Data4: ( 0x91,0x4C,0x06,0x80,0x66,0x99,0xA0,0x98 ) // D7527847-57DA-4E15-914C-06806699A098
     ) 
 
-    public class IDataReaderFactory: WindowsFoundation.IInspectable {
+    public class IDataReaderFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIDataReaderFactory }
 
         public func CreateDataReader(_ inputStream: UWP.AnyIInputStream?) throws -> IDataReader {
@@ -3199,7 +3203,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x11FCBFC8, Data2: 0xF93A, Data3: 0x471B, Data4: ( 0xB1,0x21,0xF3,0x79,0xE3,0x49,0x31,0x3C ) // 11FCBFC8-F93A-471B-B121-F379E349313C
     ) 
 
-    public class IDataReaderStatics: WindowsFoundation.IInspectable {
+    public class IDataReaderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIDataReaderStatics }
 
         public func FromBuffer(_ buffer: UWP.AnyIBuffer?) throws -> UWP.DataReader? {
@@ -3219,7 +3223,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - DataReaderLoadOperation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.datareaderloadoperation)
-public final class DataReaderLoadOperation : WinRTClass, IAsyncOperation, WindowsFoundation.IAsyncInfo {
+public final class DataReaderLoadOperation : WinRTClass, @unchecked Sendable, IAsyncOperation, WindowsFoundation.IAsyncInfo {
     public typealias TResult = UInt32
     private typealias SwiftABI = UWP.IAsyncOperationUInt32
     private typealias CABI = __x_ABI_C__FIAsyncOperation_1_UINT32
@@ -3310,7 +3314,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - DataWriter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.datawriter)
-public final class DataWriter : WinRTClass, IDataWriter, WindowsFoundation.IClosable {
+public final class DataWriter : WinRTClass, @unchecked Sendable, IDataWriter, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IDataWriter
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIDataWriter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3506,7 +3510,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x338C67C2, Data2: 0x8B84, Data3: 0x4C2B, Data4: ( 0x9C,0x50,0x7B,0x87,0x67,0x84,0x7A,0x1F ) // 338C67C2-8B84-4C2B-9C50-7B8767847A1F
     ) 
 
-    public class IDataWriterFactory: WindowsFoundation.IInspectable {
+    public class IDataWriterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIDataWriterFactory }
 
         public func CreateDataWriter(_ outputStream: UWP.AnyIOutputStream?) throws -> IDataWriter {
@@ -3526,7 +3530,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - DataWriterStoreOperation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.datawriterstoreoperation)
-public final class DataWriterStoreOperation : WinRTClass, IAsyncOperation, WindowsFoundation.IAsyncInfo {
+public final class DataWriterStoreOperation : WinRTClass, @unchecked Sendable, IAsyncOperation, WindowsFoundation.IAsyncInfo {
     public typealias TResult = UInt32
     private typealias SwiftABI = UWP.IAsyncOperationUInt32
     private typealias CABI = __x_ABI_C__FIAsyncOperation_1_UINT32
@@ -3617,7 +3621,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - FileInputStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.fileinputstream)
-public final class FileInputStream : WinRTClass, WindowsFoundation.IClosable, IInputStream {
+public final class FileInputStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IInputStream {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IInputStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIInputStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3681,7 +3685,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - FileOutputStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.fileoutputstream)
-public final class FileOutputStream : WinRTClass, WindowsFoundation.IClosable, IOutputStream {
+public final class FileOutputStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IOutputStream {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IOutputStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3750,7 +3754,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - FileRandomAccessStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.filerandomaccessstream)
-public final class FileRandomAccessStream : WinRTClass, WindowsFoundation.IClosable, IInputStream, IOutputStream, IRandomAccessStream {
+public final class FileRandomAccessStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IInputStream, IOutputStream, IRandomAccessStream {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IRandomAccessStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3910,7 +3914,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x73550107, Data2: 0x3B57, Data3: 0x4B5D, Data4: ( 0x83,0x45,0x55,0x4D,0x2F,0xC6,0x21,0xF0 ) // 73550107-3B57-4B5D-8345-554D2FC621F0
     ) 
 
-    public class IFileRandomAccessStreamStatics: WindowsFoundation.IInspectable {
+    public class IFileRandomAccessStreamStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIFileRandomAccessStreamStatics }
 
         public func OpenAsync(_ filePath: String, _ accessMode: UWP.FileAccessMode) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.AnyIRandomAccessStream?>? {
@@ -3999,7 +4003,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - InMemoryRandomAccessStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.inmemoryrandomaccessstream)
-public final class InMemoryRandomAccessStream : WinRTClass, WindowsFoundation.IClosable, IInputStream, IOutputStream, IRandomAccessStream {
+public final class InMemoryRandomAccessStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IInputStream, IOutputStream, IRandomAccessStream {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IRandomAccessStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4123,7 +4127,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - InputStreamOverStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.inputstreamoverstream)
-public final class InputStreamOverStream : WinRTClass, WindowsFoundation.IClosable, IInputStream {
+public final class InputStreamOverStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IInputStream {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IInputStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIInputStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4187,7 +4191,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - OutputStreamOverStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.outputstreamoverstream)
-public final class OutputStreamOverStream : WinRTClass, WindowsFoundation.IClosable, IOutputStream {
+public final class OutputStreamOverStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IOutputStream {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IOutputStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4283,7 +4287,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x524CEDCF, Data2: 0x6E29, Data3: 0x4CE5, Data4: ( 0x95,0x73,0x6B,0x75,0x3D,0xB6,0x6C,0x3A ) // 524CEDCF-6E29-4CE5-9573-6B753DB66C3A
     ) 
 
-    public class IRandomAccessStreamStatics: WindowsFoundation.IInspectable {
+    public class IRandomAccessStreamStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamStatics }
 
         public func CopyAsync(_ source: UWP.AnyIInputStream?, _ destination: UWP.AnyIOutputStream?) throws -> WindowsFoundation.AnyIAsyncOperationWithProgress<UInt64, UInt64>? {
@@ -4331,7 +4335,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - RandomAccessStreamOverStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.randomaccessstreamoverstream)
-public final class RandomAccessStreamOverStream : WinRTClass, WindowsFoundation.IClosable, IInputStream, IOutputStream, IRandomAccessStream {
+public final class RandomAccessStreamOverStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IInputStream, IOutputStream, IRandomAccessStream {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IRandomAccessStream
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4450,7 +4454,7 @@ extension __ABI_Windows_Storage_Streams {
 // MARK: - RandomAccessStreamReference
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.streams.randomaccessstreamreference)
-public final class RandomAccessStreamReference : WinRTClass, IRandomAccessStreamReference {
+public final class RandomAccessStreamReference : WinRTClass, @unchecked Sendable, IRandomAccessStreamReference {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IRandomAccessStreamReference
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4523,7 +4527,7 @@ extension __ABI_Windows_Storage_Streams {
         Data1: 0x857309DC, Data2: 0x3FBF, Data3: 0x4E7D, Data4: ( 0x98,0x6F,0xEF,0x3B,0x1A,0x07,0xA9,0x64 ) // 857309DC-3FBF-4E7D-986F-EF3B1A07A964
     ) 
 
-    public class IRandomAccessStreamReferenceStatics: WindowsFoundation.IInspectable {
+    public class IRandomAccessStreamReferenceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReferenceStatics }
 
         public func CreateFromFile(_ file: UWP.AnyIStorageFile?) throws -> UWP.RandomAccessStreamReference? {

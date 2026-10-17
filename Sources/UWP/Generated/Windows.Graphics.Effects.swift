@@ -46,7 +46,7 @@ extension __IMPL_Windows_Graphics_Effects {
         }
     }
 
-    fileprivate class IGraphicsEffectImpl: IGraphicsEffect, WinRTAbiImpl {
+    fileprivate class IGraphicsEffectImpl: IGraphicsEffect, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IGraphicsEffectBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -70,15 +70,17 @@ extension __ABI_Windows_Graphics_Effects {
         Data1: 0xCB51C0CE, Data2: 0x8FE6, Data3: 0x4636, Data4: ( 0xB2,0x02,0x86,0x1F,0xAA,0x07,0xD8,0xF3 ) // CB51C0CE-8FE6-4636-B202-861FAA07D8F3
     ) 
 
-    public class IGraphicsEffect: WindowsFoundation.IInspectable {
+    public class IGraphicsEffect: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffect }
 
         open func get_Name() throws -> String {
             var name: HSTRING?
+            defer {
+                WindowsDeleteString(name)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffect.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &name))
             }
-            defer { WindowsDeleteString(name) }
             return .init(from: name)
         }
 
@@ -91,7 +93,7 @@ extension __ABI_Windows_Graphics_Effects {
 
     }
 
-    internal static var IGraphicsEffectVTable: __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffectVtbl = .init(
+    internal static nonisolated(unsafe) var IGraphicsEffectVTable: __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffectVtbl = .init(
         QueryInterface: { IGraphicsEffectWrapper.queryInterface($0, $1, $2) },
         AddRef: { IGraphicsEffectWrapper.addRef($0) },
         Release: { IGraphicsEffectWrapper.release($0) },
@@ -182,7 +184,7 @@ extension __IMPL_Windows_Graphics_Effects {
         }
     }
 
-    fileprivate class IGraphicsEffectSourceImpl: IGraphicsEffectSource, WinRTAbiImpl {
+    fileprivate class IGraphicsEffectSourceImpl: IGraphicsEffectSource, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IGraphicsEffectSourceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -199,12 +201,12 @@ extension __ABI_Windows_Graphics_Effects {
         Data1: 0x2D8F9DDC, Data2: 0x4339, Data3: 0x4EB9, Data4: ( 0x92,0x16,0xF9,0xDE,0xB7,0x56,0x58,0xA2 ) // 2D8F9DDC-4339-4EB9-9216-F9DEB75658A2
     ) 
 
-    public class IGraphicsEffectSource: WindowsFoundation.IInspectable {
+    public class IGraphicsEffectSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffectSource }
 
     }
 
-    internal static var IGraphicsEffectSourceVTable: __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffectSourceVtbl = .init(
+    internal static nonisolated(unsafe) var IGraphicsEffectSourceVTable: __x_ABI_CWindows_CGraphics_CEffects_CIGraphicsEffectSourceVtbl = .init(
         QueryInterface: { IGraphicsEffectSourceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IGraphicsEffectSourceWrapper.addRef($0) },
         Release: { IGraphicsEffectSourceWrapper.release($0) },

@@ -178,7 +178,7 @@ extension __IMPL_Windows_Graphics_DirectX_Direct3D11 {
         }
     }
 
-    fileprivate class IDirect3DDeviceImpl: IDirect3DDevice, WinRTAbiImpl {
+    fileprivate class IDirect3DDeviceImpl: IDirect3DDevice, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IDirect3DDeviceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -206,7 +206,7 @@ extension __ABI_Windows_Graphics_DirectX_Direct3D11 {
         Data1: 0xA37624AB, Data2: 0x8D5F, Data3: 0x4650, Data4: ( 0x9D,0x3E,0x9E,0xAE,0x3D,0x9B,0xC6,0x70 ) // A37624AB-8D5F-4650-9D3E-9EAE3D9BC670
     ) 
 
-    public class IDirect3DDevice: WindowsFoundation.IInspectable {
+    public class IDirect3DDevice: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DDevice }
 
         open func Trim() throws {
@@ -217,7 +217,7 @@ extension __ABI_Windows_Graphics_DirectX_Direct3D11 {
 
     }
 
-    internal static var IDirect3DDeviceVTable: __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DDeviceVtbl = .init(
+    internal static nonisolated(unsafe) var IDirect3DDeviceVTable: __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DDeviceVtbl = .init(
         QueryInterface: { IDirect3DDeviceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IDirect3DDeviceWrapper.addRef($0) },
         Release: { IDirect3DDeviceWrapper.release($0) },
@@ -307,7 +307,7 @@ extension __IMPL_Windows_Graphics_DirectX_Direct3D11 {
         }
     }
 
-    fileprivate class IDirect3DSurfaceImpl: IDirect3DSurface, WinRTAbiImpl {
+    fileprivate class IDirect3DSurfaceImpl: IDirect3DSurface, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IDirect3DSurfaceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -335,7 +335,7 @@ extension __ABI_Windows_Graphics_DirectX_Direct3D11 {
         Data1: 0x0BF4A146, Data2: 0x13C1, Data3: 0x4694, Data4: ( 0xBE,0xE3,0x7A,0xBF,0x15,0xEA,0xF5,0x86 ) // 0BF4A146-13C1-4694-BEE3-7ABF15EAF586
     ) 
 
-    public class IDirect3DSurface: WindowsFoundation.IInspectable {
+    public class IDirect3DSurface: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurface }
 
         open func get_Description() throws -> UWP.Direct3DSurfaceDescription {
@@ -348,7 +348,7 @@ extension __ABI_Windows_Graphics_DirectX_Direct3D11 {
 
     }
 
-    internal static var IDirect3DSurfaceVTable: __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurfaceVtbl = .init(
+    internal static nonisolated(unsafe) var IDirect3DSurfaceVTable: __x_ABI_CWindows_CGraphics_CDirectX_CDirect3D11_CIDirect3DSurfaceVtbl = .init(
         QueryInterface: { IDirect3DSurfaceWrapper.queryInterface($0, $1, $2) },
         AddRef: { IDirect3DSurfaceWrapper.addRef($0) },
         Release: { IDirect3DSurfaceWrapper.release($0) },

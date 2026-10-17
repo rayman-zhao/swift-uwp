@@ -422,7 +422,7 @@ extension __IMPL_Windows_Graphics_Imaging {
         }
     }
 
-    fileprivate class IBitmapFrameImpl: IBitmapFrame, WinRTAbiImpl {
+    fileprivate class IBitmapFrameImpl: IBitmapFrame, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBitmapFrameBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -499,7 +499,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x72A49A1C, Data2: 0x8081, Data3: 0x438D, Data4: ( 0x91,0xBC,0x94,0xEC,0xFC,0x81,0x85,0xC6 ) // 72A49A1C-8081-438D-91BC-94ECFC8185C6
     ) 
 
-    public class IBitmapFrame: WindowsFoundation.IInspectable {
+    public class IBitmapFrame: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame }
 
         open func GetThumbnailAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.ImageStream?>? {
@@ -604,7 +604,7 @@ extension __ABI_Windows_Graphics_Imaging {
 
     }
 
-    internal static var IBitmapFrameVTable: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameVtbl = .init(
+    internal static nonisolated(unsafe) var IBitmapFrameVTable: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameVtbl = .init(
         QueryInterface: { IBitmapFrameWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBitmapFrameWrapper.addRef($0) },
         Release: { IBitmapFrameWrapper.release($0) },
@@ -787,7 +787,7 @@ extension __IMPL_Windows_Graphics_Imaging {
         }
     }
 
-    fileprivate class IBitmapFrameWithSoftwareBitmapImpl: IBitmapFrameWithSoftwareBitmap, WinRTAbiImpl {
+    fileprivate class IBitmapFrameWithSoftwareBitmapImpl: IBitmapFrameWithSoftwareBitmap, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBitmapFrameWithSoftwareBitmapBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -880,7 +880,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xFE287C9A, Data2: 0x420C, Data3: 0x4963, Data4: ( 0x87,0xAD,0x69,0x14,0x36,0xE0,0x83,0x83 ) // FE287C9A-420C-4963-87AD-691436E08383
     ) 
 
-    public class IBitmapFrameWithSoftwareBitmap: WindowsFoundation.IInspectable {
+    public class IBitmapFrameWithSoftwareBitmap: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameWithSoftwareBitmap }
 
         open func GetSoftwareBitmapAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.SoftwareBitmap?>? {
@@ -912,7 +912,7 @@ extension __ABI_Windows_Graphics_Imaging {
 
     }
 
-    internal static var IBitmapFrameWithSoftwareBitmapVTable: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameWithSoftwareBitmapVtbl = .init(
+    internal static nonisolated(unsafe) var IBitmapFrameWithSoftwareBitmapVTable: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrameWithSoftwareBitmapVtbl = .init(
         QueryInterface: { IBitmapFrameWithSoftwareBitmapWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBitmapFrameWithSoftwareBitmapWrapper.addRef($0) },
         Release: { IBitmapFrameWithSoftwareBitmapWrapper.release($0) },
@@ -1028,7 +1028,7 @@ extension __IMPL_Windows_Graphics_Imaging {
         }
     }
 
-    fileprivate class IBitmapPropertiesViewImpl: IBitmapPropertiesView, WinRTAbiImpl {
+    fileprivate class IBitmapPropertiesViewImpl: IBitmapPropertiesView, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBitmapPropertiesViewBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1050,7 +1050,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x7E0FE87A, Data2: 0x3A70, Data3: 0x48F8, Data4: ( 0x9C,0x55,0x19,0x6C,0xF5,0xA5,0x45,0xF5 ) // 7E0FE87A-3A70-48F8-9C55-196CF5A545F5
     ) 
 
-    public class IBitmapPropertiesView: WindowsFoundation.IInspectable {
+    public class IBitmapPropertiesView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapPropertiesView }
 
         open func GetPropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<UWP.BitmapPropertySet?>? {
@@ -1066,7 +1066,7 @@ extension __ABI_Windows_Graphics_Imaging {
 
     }
 
-    internal static var IBitmapPropertiesViewVTable: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapPropertiesViewVtbl = .init(
+    internal static nonisolated(unsafe) var IBitmapPropertiesViewVTable: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapPropertiesViewVtbl = .init(
         QueryInterface: { IBitmapPropertiesViewWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBitmapPropertiesViewWrapper.addRef($0) },
         Release: { IBitmapPropertiesViewWrapper.release($0) },
@@ -1119,7 +1119,7 @@ public class IBitmapPropertiesViewMaker: MakeFromAbi {
 // MARK: - BitmapBuffer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapbuffer)
-public final class BitmapBuffer : WinRTClass, WindowsFoundation.IClosable, WindowsFoundation.IMemoryBuffer {
+public final class BitmapBuffer : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, WindowsFoundation.IMemoryBuffer {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapBuffer
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapBuffer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1195,7 +1195,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xA53E04C4, Data2: 0x399C, Data3: 0x438C, Data4: ( 0xB2,0x8F,0xA6,0x3A,0x6B,0x83,0xD1,0xA1 ) // A53E04C4-399C-438C-B28F-A63A6B83D1A1
     ) 
 
-    public class IBitmapBuffer: WindowsFoundation.IInspectable {
+    public class IBitmapBuffer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapBuffer }
 
         public func GetPlaneCount() throws -> Int32 {
@@ -1220,7 +1220,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapCodecInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapcodecinformation)
-public final class BitmapCodecInformation : WinRTClass {
+public final class BitmapCodecInformation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapCodecInformation
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1289,7 +1289,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x400CAAF2, Data2: 0xC4B0, Data3: 0x4392, Data4: ( 0xA3,0xB0,0x6F,0x6F,0x9B,0xA9,0x5C,0xB4 ) // 400CAAF2-C4B0-4392-A3B0-6F6F9BA95CB4
     ) 
 
-    public class IBitmapCodecInformation: WindowsFoundation.IInspectable {
+    public class IBitmapCodecInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation }
 
         public func get_CodecId() throws -> Foundation.UUID {
@@ -1311,10 +1311,12 @@ extension __ABI_Windows_Graphics_Imaging {
 
         public func get_FriendlyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIBitmapCodecInformation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FriendlyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1333,7 +1335,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapDecoder
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapdecoder)
-public final class BitmapDecoder : WinRTClass, IBitmapFrame, IBitmapFrameWithSoftwareBitmap {
+public final class BitmapDecoder : WinRTClass, @unchecked Sendable, IBitmapFrame, IBitmapFrameWithSoftwareBitmap {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapDecoder
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1551,7 +1553,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xACEF22BA, Data2: 0x1D74, Data3: 0x4C91, Data4: ( 0x9D,0xFC,0x96,0x20,0x74,0x52,0x33,0xE6 ) // ACEF22BA-1D74-4C91-9DFC-9620745233E6
     ) 
 
-    public class IBitmapDecoder: WindowsFoundation.IInspectable {
+    public class IBitmapDecoder: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoder }
 
         public func get_BitmapContainerProperties() throws -> UWP.BitmapPropertiesView? {
@@ -1604,7 +1606,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x438CCB26, Data2: 0xBCEF, Data3: 0x4E95, Data4: ( 0xBA,0xD6,0x23,0xA8,0x22,0xE5,0x8D,0x01 ) // 438CCB26-BCEF-4E95-BAD6-23A822E58D01
     ) 
 
-    public class IBitmapDecoderStatics: WindowsFoundation.IInspectable {
+    public class IBitmapDecoderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics }
 
         public func get_BmpDecoderId() throws -> Foundation.UUID {
@@ -1700,7 +1702,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x50BA68EA, Data2: 0x99A1, Data3: 0x40C4, Data4: ( 0x80,0xD9,0xAE,0xF0,0xDA,0xFA,0x6C,0x3F ) // 50BA68EA-99A1-40C4-80D9-AEF0DAFA6C3F
     ) 
 
-    public class IBitmapDecoderStatics2: WindowsFoundation.IInspectable {
+    public class IBitmapDecoderStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapDecoderStatics2 }
 
         public func get_HeifDecoderId() throws -> Foundation.UUID {
@@ -1725,7 +1727,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapEncoder
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapencoder)
-public final class BitmapEncoder : WinRTClass {
+public final class BitmapEncoder : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapEncoder
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1901,7 +1903,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x2BC468E3, Data2: 0xE1F8, Data3: 0x4B54, Data4: ( 0x95,0xE8,0x32,0x91,0x95,0x51,0xCE,0x62 ) // 2BC468E3-E1F8-4B54-95E8-32919551CE62
     ) 
 
-    public class IBitmapEncoder: WindowsFoundation.IInspectable {
+    public class IBitmapEncoder: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoder }
 
         public func get_EncoderInformation() throws -> UWP.BitmapCodecInformation? {
@@ -2025,7 +2027,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x686CD241, Data2: 0x4330, Data3: 0x4C77, Data4: ( 0xAC,0xE4,0x03,0x34,0x96,0x8B,0x17,0x68 ) // 686CD241-4330-4C77-ACE4-0334968B1768
     ) 
 
-    public class IBitmapEncoderWithSoftwareBitmap: WindowsFoundation.IInspectable {
+    public class IBitmapEncoderWithSoftwareBitmap: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderWithSoftwareBitmap }
 
         public func SetSoftwareBitmap(_ bitmap: UWP.SoftwareBitmap?) throws {
@@ -2040,7 +2042,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xA74356A7, Data2: 0xA4E4, Data3: 0x4EB9, Data4: ( 0x8E,0x40,0x56,0x4D,0xE7,0xE1,0xCC,0xB2 ) // A74356A7-A4E4-4EB9-8E40-564DE7E1CCB2
     ) 
 
-    public class IBitmapEncoderStatics: WindowsFoundation.IInspectable {
+    public class IBitmapEncoderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics }
 
         public func get_BmpEncoderId() throws -> Foundation.UUID {
@@ -2150,7 +2152,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x33CBC259, Data2: 0xFE31, Data3: 0x41B1, Data4: ( 0xB8,0x12,0x08,0x6D,0x21,0xE8,0x7E,0x16 ) // 33CBC259-FE31-41B1-B812-086D21E87E16
     ) 
 
-    public class IBitmapEncoderStatics2: WindowsFoundation.IInspectable {
+    public class IBitmapEncoderStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapEncoderStatics2 }
 
         public func get_HeifEncoderId() throws -> Foundation.UUID {
@@ -2167,7 +2169,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapframe)
-public final class BitmapFrame : WinRTClass, IBitmapFrame, IBitmapFrameWithSoftwareBitmap {
+public final class BitmapFrame : WinRTClass, @unchecked Sendable, IBitmapFrame, IBitmapFrameWithSoftwareBitmap {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapFrame
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapFrame
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2296,7 +2298,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmapproperties)
-public final class BitmapProperties : WinRTClass, IBitmapPropertiesView {
+public final class BitmapProperties : WinRTClass, @unchecked Sendable, IBitmapPropertiesView {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapProperties
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2360,7 +2362,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xEA9F4F1B, Data2: 0xB505, Data3: 0x4450, Data4: ( 0xA4,0xD1,0xE8,0xCA,0x94,0x52,0x9D,0x8D ) // EA9F4F1B-B505-4450-A4D1-E8CA94529D8D
     ) 
 
-    public class IBitmapProperties: WindowsFoundation.IInspectable {
+    public class IBitmapProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapProperties }
 
         public func SetPropertiesAsync(_ propertiesToSet: WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.BitmapTypedValue?>?>?) throws -> WindowsFoundation.AnyIAsyncAction? {
@@ -2380,7 +2382,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapPropertiesView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertiesview)
-public final class BitmapPropertiesView : WinRTClass, IBitmapPropertiesView {
+public final class BitmapPropertiesView : WinRTClass, @unchecked Sendable, IBitmapPropertiesView {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapPropertiesView
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapPropertiesView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2437,7 +2439,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapPropertySet
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmappropertyset)
-public final class BitmapPropertySet : WinRTClass, IMap, IIterable {
+public final class BitmapPropertySet : WinRTClass, @unchecked Sendable, IMap, IIterable {
     public typealias K = String
     public typealias V = BitmapTypedValue?
     public typealias T = WindowsFoundation.AnyIKeyValuePair<String, BitmapTypedValue?>?
@@ -2539,7 +2541,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapTransform
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptransform)
-public final class BitmapTransform : WinRTClass {
+public final class BitmapTransform : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapTransform
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2629,7 +2631,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xAE755344, Data2: 0xE268, Data3: 0x4D35, Data4: ( 0xAD,0xCF,0xE9,0x95,0xD3,0x1A,0x8D,0x34 ) // AE755344-E268-4D35-ADCF-E995D31A8D34
     ) 
 
-    public class IBitmapTransform: WindowsFoundation.IInspectable {
+    public class IBitmapTransform: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapTransform }
 
         public func get_ScaledWidth() throws -> UInt32 {
@@ -2722,7 +2724,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - BitmapTypedValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.bitmaptypedvalue)
-public final class BitmapTypedValue : WinRTClass {
+public final class BitmapTypedValue : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IBitmapTypedValue
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2786,7 +2788,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xCD8044A9, Data2: 0x2443, Data3: 0x4000, Data4: ( 0xB0,0xCD,0x79,0x31,0x6C,0x56,0xF5,0x89 ) // CD8044A9-2443-4000-B0CD-79316C56F589
     ) 
 
-    public class IBitmapTypedValue: WindowsFoundation.IInspectable {
+    public class IBitmapTypedValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValue }
 
         public func get_Value() throws -> Any? {
@@ -2812,7 +2814,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x92DBB599, Data2: 0xCE13, Data3: 0x46BB, Data4: ( 0x95,0x45,0xCB,0x3A,0x3F,0x63,0xEB,0x8B ) // 92DBB599-CE13-46BB-9545-CB3A3F63EB8B
     ) 
 
-    public class IBitmapTypedValueFactory: WindowsFoundation.IInspectable {
+    public class IBitmapTypedValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIBitmapTypedValueFactory }
 
         public func Create(_ value: Any?, _ type: WindowsFoundation.PropertyType) throws -> IBitmapTypedValue {
@@ -2832,7 +2834,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - ImageStream
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.imagestream)
-public final class ImageStream : WinRTClass, WindowsFoundation.IClosable, UWP.IInputStream, UWP.IOutputStream, UWP.IRandomAccessStream, UWP.IContentTypeProvider, UWP.IRandomAccessStreamWithContentType {
+public final class ImageStream : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, UWP.IInputStream, UWP.IOutputStream, UWP.IRandomAccessStream, UWP.IContentTypeProvider, UWP.IRandomAccessStreamWithContentType {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IRandomAccessStreamWithContentType
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2960,7 +2962,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - PixelDataProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.pixeldataprovider)
-public final class PixelDataProvider : WinRTClass {
+public final class PixelDataProvider : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.IPixelDataProvider
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CIPixelDataProvider
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3014,15 +3016,17 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xDD831F25, Data2: 0x185C, Data3: 0x4595, Data4: ( 0x9F,0xB9,0xCC,0xBE,0x6E,0xC1,0x8A,0x6F ) // DD831F25-185C-4595-9FB9-CCBE6EC18A6F
     ) 
 
-    public class IPixelDataProvider: WindowsFoundation.IInspectable {
+    public class IPixelDataProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CIPixelDataProvider }
 
         public func DetachPixelData() throws -> [UInt8] {
             var pixelData: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(pixelData.start)
+            }
             _ = try perform(as: __x_ABI_CWindows_CGraphics_CImaging_CIPixelDataProvider.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.DetachPixelData(pThis, &pixelData.count, &pixelData.start))
             }
-            defer { CoTaskMemFree(pixelData.start) }
             return .from(abi: pixelData)
 
         }
@@ -3033,7 +3037,7 @@ extension __ABI_Windows_Graphics_Imaging {
 // MARK: - SoftwareBitmap
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.graphics.imaging.softwarebitmap)
-public final class SoftwareBitmap : WinRTClass, WindowsFoundation.IClosable {
+public final class SoftwareBitmap : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Graphics_Imaging.ISoftwareBitmap
     private typealias CABI = __x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3199,7 +3203,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0x689E0708, Data2: 0x7EEF, Data3: 0x483F, Data4: ( 0x96,0x3F,0xDA,0x93,0x88,0x18,0xE0,0x73 ) // 689E0708-7EEF-483F-963F-DA938818E073
     ) 
 
-    public class ISoftwareBitmap: WindowsFoundation.IInspectable {
+    public class ISoftwareBitmap: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmap }
 
         public func get_BitmapPixelFormat() throws -> UWP.BitmapPixelFormat {
@@ -3316,7 +3320,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xC99FEB69, Data2: 0x2D62, Data3: 0x4D47, Data4: ( 0xA6,0xB3,0x4F,0xDB,0x6A,0x07,0xFD,0xF8 ) // C99FEB69-2D62-4D47-A6B3-4FDB6A07FDF8
     ) 
 
-    public class ISoftwareBitmapFactory: WindowsFoundation.IInspectable {
+    public class ISoftwareBitmapFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapFactory }
 
         public func Create(_ format: UWP.BitmapPixelFormat, _ width: Int32, _ height: Int32) throws -> ISoftwareBitmap {
@@ -3343,7 +3347,7 @@ extension __ABI_Windows_Graphics_Imaging {
         Data1: 0xDF0385DB, Data2: 0x672F, Data3: 0x4A9D, Data4: ( 0x80,0x6E,0xC2,0x44,0x2F,0x34,0x3E,0x86 ) // DF0385DB-672F-4A9D-806E-C2442F343E86
     ) 
 
-    public class ISoftwareBitmapStatics: WindowsFoundation.IInspectable {
+    public class ISoftwareBitmapStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CGraphics_CImaging_CISoftwareBitmapStatics }
 
         public func Copy(_ source: UWP.SoftwareBitmap?) throws -> UWP.SoftwareBitmap? {

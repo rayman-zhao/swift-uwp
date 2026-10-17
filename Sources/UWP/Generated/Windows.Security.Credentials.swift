@@ -7,7 +7,7 @@ import CWinRT
 // MARK: - PasswordCredential
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordcredential)
-public final class PasswordCredential : WinRTClass {
+public final class PasswordCredential : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Security_Credentials.IPasswordCredential
     private typealias CABI = __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -94,15 +94,17 @@ extension __ABI_Windows_Security_Credentials {
         Data1: 0x6AB18989, Data2: 0xC720, Data3: 0x41A7, Data4: ( 0xA6,0xC1,0xFE,0xAD,0xB3,0x63,0x29,0xA0 ) // 6AB18989-C720-41A7-A6C1-FEADB36329A0
     ) 
 
-    public class IPasswordCredential: WindowsFoundation.IInspectable {
+    public class IPasswordCredential: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential }
 
         public func get_Resource() throws -> String {
             var resource: HSTRING?
+            defer {
+                WindowsDeleteString(resource)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Resource(pThis, &resource))
             }
-            defer { WindowsDeleteString(resource) }
             return .init(from: resource)
         }
 
@@ -115,10 +117,12 @@ extension __ABI_Windows_Security_Credentials {
 
         public func get_UserName() throws -> String {
             var userName: HSTRING?
+            defer {
+                WindowsDeleteString(userName)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UserName(pThis, &userName))
             }
-            defer { WindowsDeleteString(userName) }
             return .init(from: userName)
         }
 
@@ -131,10 +135,12 @@ extension __ABI_Windows_Security_Credentials {
 
         public func get_Password() throws -> String {
             var password: HSTRING?
+            defer {
+                WindowsDeleteString(password)
+            }
             _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Password(pThis, &password))
             }
-            defer { WindowsDeleteString(password) }
             return .init(from: password)
         }
 
@@ -166,7 +172,7 @@ extension __ABI_Windows_Security_Credentials {
         Data1: 0x54EF13A1, Data2: 0xBF26, Data3: 0x47B5, Data4: ( 0x97,0xDD,0xDE,0x77,0x9B,0x7C,0xAD,0x58 ) // 54EF13A1-BF26-47B5-97DD-DE779B7CAD58
     ) 
 
-    public class ICredentialFactory: WindowsFoundation.IInspectable {
+    public class ICredentialFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCredentials_CICredentialFactory }
 
         public func CreatePasswordCredential(_ resource: String, _ userName: String, _ password: String) throws -> IPasswordCredential {

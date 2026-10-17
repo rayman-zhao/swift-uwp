@@ -388,7 +388,7 @@ extension __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkUsageStates {
 // MARK: - AttributedNetworkUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.attributednetworkusage)
-public final class AttributedNetworkUsage : WinRTClass {
+public final class AttributedNetworkUsage : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IAttributedNetworkUsage
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -462,7 +462,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0xF769B039, Data2: 0xECA2, Data3: 0x45EB, Data4: ( 0xAD,0xE1,0xB0,0x36,0x8B,0x75,0x6C,0x49 ) // F769B039-ECA2-45EB-ADE1-B0368B756C49
     ) 
 
-    public class IAttributedNetworkUsage: WindowsFoundation.IInspectable {
+    public class IAttributedNetworkUsage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage }
 
         public func get_BytesSent() throws -> UInt64 {
@@ -483,19 +483,23 @@ extension __ABI_Windows_Networking_Connectivity {
 
         public func get_AttributionId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_AttributionName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIAttributedNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AttributionName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -514,7 +518,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - ConnectionCost
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectioncost)
-public final class ConnectionCost : WinRTClass {
+public final class ConnectionCost : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IConnectionCost
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -590,7 +594,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0xBAD7D829, Data2: 0x3416, Data3: 0x4B10, Data4: ( 0xA2,0x02,0xBA,0xC0,0xB0,0x75,0xBD,0xAE ) // BAD7D829-3416-4B10-A202-BAC0B075BDAE
     ) 
 
-    public class IConnectionCost: WindowsFoundation.IInspectable {
+    public class IConnectionCost: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost }
 
         public func get_NetworkCostType() throws -> UWP.NetworkCostType {
@@ -631,7 +635,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x8E113A05, Data2: 0xE209, Data3: 0x4549, Data4: ( 0xBB,0x25,0x5E,0x0D,0xB6,0x91,0xCB,0x05 ) // 8E113A05-E209-4549-BB25-5E0DB691CB05
     ) 
 
-    public class IConnectionCost2: WindowsFoundation.IInspectable {
+    public class IConnectionCost2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionCost2 }
 
         public func get_BackgroundDataUsageRestricted() throws -> Bool {
@@ -648,7 +652,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - ConnectionProfile
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectionprofile)
-public final class ConnectionProfile : WinRTClass {
+public final class ConnectionProfile : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IConnectionProfile
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -815,15 +819,17 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x71BA143C, Data2: 0x598E, Data3: 0x49D0, Data4: ( 0x84,0xEB,0x8F,0xEB,0xAE,0xDC,0xC1,0x95 ) // 71BA143C-598E-49D0-84EB-8FEBAEDCC195
     ) 
 
-    public class IConnectionProfile: WindowsFoundation.IInspectable {
+    public class IConnectionProfile: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile }
 
         public func get_ProfileName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProfileName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -904,7 +910,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0xE2045145, Data2: 0x4C9F, Data3: 0x400C, Data4: ( 0x91,0x50,0x7E,0xC7,0xD6,0xE2,0x88,0x8A ) // E2045145-4C9F-400C-9150-7EC7D6E2888A
     ) 
 
-    public class IConnectionProfile2: WindowsFoundation.IInspectable {
+    public class IConnectionProfile2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile2 }
 
         public func get_IsWwanConnectionProfile() throws -> Bool {
@@ -991,7 +997,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x578C2528, Data2: 0x4CD9, Data3: 0x4161, Data4: ( 0x80,0x45,0x20,0x1C,0xFD,0x5B,0x11,0x5C ) // 578C2528-4CD9-4161-8045-201CFD5B115C
     ) 
 
-    public class IConnectionProfile3: WindowsFoundation.IInspectable {
+    public class IConnectionProfile3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile3 }
 
         public func GetAttributedNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.AttributedNetworkUsage?>?>? {
@@ -1009,7 +1015,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x7A2D42CD, Data2: 0x81E0, Data3: 0x4AE6, Data4: ( 0xAB,0xED,0xAB,0x9C,0xA1,0x3E,0xB7,0x14 ) // 7A2D42CD-81E0-4AE6-ABED-AB9CA13EB714
     ) 
 
-    public class IConnectionProfile4: WindowsFoundation.IInspectable {
+    public class IConnectionProfile4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile4 }
 
         public func GetProviderNetworkUsageAsync(_ startTime: WindowsFoundation.DateTime, _ endTime: WindowsFoundation.DateTime, _ states: UWP.NetworkUsageStates) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<UWP.ProviderNetworkUsage?>?>? {
@@ -1027,7 +1033,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x85361EC7, Data2: 0x9C73, Data3: 0x4BE0, Data4: ( 0x8F,0x14,0x57,0x8E,0xEC,0x71,0xEE,0x0E ) // 85361EC7-9C73-4BE0-8F14-578EEC71EE0E
     ) 
 
-    public class IConnectionProfile5: WindowsFoundation.IInspectable {
+    public class IConnectionProfile5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectionProfile5 }
 
         public func get_CanDelete() throws -> Bool {
@@ -1053,7 +1059,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - ConnectivityInterval
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.connectivityinterval)
-public final class ConnectivityInterval : WinRTClass {
+public final class ConnectivityInterval : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IConnectivityInterval
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1112,7 +1118,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x4FAA3FFF, Data2: 0x6746, Data3: 0x4824, Data4: ( 0xA9,0x64,0xEE,0xD8,0xE8,0x7F,0x87,0x09 ) // 4FAA3FFF-6746-4824-A964-EED8E87F8709
     ) 
 
-    public class IConnectivityInterval: WindowsFoundation.IInspectable {
+    public class IConnectivityInterval: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIConnectivityInterval }
 
         public func get_StartTime() throws -> WindowsFoundation.DateTime {
@@ -1137,7 +1143,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - DataPlanStatus
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanstatus)
-public final class DataPlanStatus : WinRTClass {
+public final class DataPlanStatus : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IDataPlanStatus
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1216,7 +1222,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x977A8B8C, Data2: 0x3885, Data3: 0x40F3, Data4: ( 0x88,0x51,0x42,0xCD,0x2B,0xD5,0x68,0xBB ) // 977A8B8C-3885-40F3-8851-42CD2BD568BB
     ) 
 
-    public class IDataPlanStatus: WindowsFoundation.IInspectable {
+    public class IDataPlanStatus: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanStatus }
 
         public func get_DataPlanUsage() throws -> UWP.DataPlanUsage? {
@@ -1279,7 +1285,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - DataPlanUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.dataplanusage)
-public final class DataPlanUsage : WinRTClass {
+public final class DataPlanUsage : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IDataPlanUsage
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1338,7 +1344,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0xB921492D, Data2: 0x3B44, Data3: 0x47FF, Data4: ( 0xB3,0x61,0xBE,0x59,0xE6,0x9E,0xD1,0xB0 ) // B921492D-3B44-47FF-B361-BE59E69ED1B0
     ) 
 
-    public class IDataPlanUsage: WindowsFoundation.IInspectable {
+    public class IDataPlanUsage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataPlanUsage }
 
         public func get_MegabytesUsed() throws -> UInt32 {
@@ -1363,7 +1369,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - DataUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.datausage)
-public final class DataUsage : WinRTClass {
+public final class DataUsage : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IDataUsage
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1422,7 +1428,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0xC1431DD3, Data2: 0xB146, Data3: 0x4D39, Data4: ( 0xB9,0x59,0x0C,0x69,0xB0,0x96,0xC5,0x12 ) // C1431DD3-B146-4D39-B959-0C69B096C512
     ) 
 
-    public class IDataUsage: WindowsFoundation.IInspectable {
+    public class IDataUsage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIDataUsage }
 
         public func get_BytesSent() throws -> UInt64 {
@@ -1447,7 +1453,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - IPInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.ipinformation)
-public final class IPInformation : WinRTClass {
+public final class IPInformation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IIPInformation
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1506,7 +1512,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0xD85145E0, Data2: 0x138F, Data3: 0x47D7, Data4: ( 0x9B,0x3A,0x36,0xBB,0x48,0x8C,0xEF,0x33 ) // D85145E0-138F-47D7-9B3A-36BB488CEF33
     ) 
 
-    public class IIPInformation: WindowsFoundation.IInspectable {
+    public class IIPInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIIPInformation }
 
         public func get_NetworkAdapter() throws -> UWP.NetworkAdapter? {
@@ -1533,7 +1539,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - NetworkAdapter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkadapter)
-public final class NetworkAdapter : WinRTClass {
+public final class NetworkAdapter : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.INetworkAdapter
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1612,7 +1618,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x3B542E03, Data2: 0x5388, Data3: 0x496C, Data4: ( 0xA8,0xA3,0xAF,0xFD,0x39,0xAE,0xC2,0xE6 ) // 3B542E03-5388-496C-A8A3-AFFD39AEC2E6
     ) 
 
-    public class INetworkAdapter: WindowsFoundation.IInspectable {
+    public class INetworkAdapter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkAdapter }
 
         public func get_OutboundMaxBitsPerSecond() throws -> UInt64 {
@@ -1671,7 +1677,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - NetworkItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkitem)
-public final class NetworkItem : WinRTClass {
+public final class NetworkItem : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.INetworkItem
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1730,7 +1736,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x01BC4D39, Data2: 0xF5E0, Data3: 0x4567, Data4: ( 0xA2,0x8C,0x42,0x08,0x0C,0x83,0x1B,0x2B ) // 01BC4D39-F5E0-4567-A28C-42080C831B2B
     ) 
 
-    public class INetworkItem: WindowsFoundation.IInspectable {
+    public class INetworkItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkItem }
 
         public func get_NetworkId() throws -> Foundation.UUID {
@@ -1755,7 +1761,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - NetworkSecuritySettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networksecuritysettings)
-public final class NetworkSecuritySettings : WinRTClass {
+public final class NetworkSecuritySettings : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.INetworkSecuritySettings
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1814,7 +1820,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x7CA07E8D, Data2: 0x917B, Data3: 0x4B5F, Data4: ( 0xB8,0x4D,0x28,0xF7,0xA5,0xAC,0x54,0x02 ) // 7CA07E8D-917B-4B5F-B84D-28F7A5AC5402
     ) 
 
-    public class INetworkSecuritySettings: WindowsFoundation.IInspectable {
+    public class INetworkSecuritySettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkSecuritySettings }
 
         public func get_NetworkAuthenticationType() throws -> UWP.NetworkAuthenticationType {
@@ -1839,7 +1845,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - NetworkUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkusage)
-public final class NetworkUsage : WinRTClass {
+public final class NetworkUsage : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.INetworkUsage
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1903,7 +1909,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x49DA8FCE, Data2: 0x9985, Data3: 0x4927, Data4: ( 0xBF,0x5B,0x07,0x2B,0x5C,0x65,0xF8,0xD9 ) // 49DA8FCE-9985-4927-BF5B-072B5C65F8D9
     ) 
 
-    public class INetworkUsage: WindowsFoundation.IInspectable {
+    public class INetworkUsage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CINetworkUsage }
 
         public func get_BytesSent() throws -> UInt64 {
@@ -1936,7 +1942,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - ProviderNetworkUsage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.providernetworkusage)
-public final class ProviderNetworkUsage : WinRTClass {
+public final class ProviderNetworkUsage : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IProviderNetworkUsage
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2000,7 +2006,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x5EC69E04, Data2: 0x7931, Data3: 0x48C8, Data4: ( 0xB8,0xF3,0x46,0x30,0x0F,0xA4,0x27,0x28 ) // 5EC69E04-7931-48C8-B8F3-46300FA42728
     ) 
 
-    public class IProviderNetworkUsage: WindowsFoundation.IInspectable {
+    public class IProviderNetworkUsage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage }
 
         public func get_BytesSent() throws -> UInt64 {
@@ -2021,10 +2027,12 @@ extension __ABI_Windows_Networking_Connectivity {
 
         public func get_ProviderId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIProviderNetworkUsage.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProviderId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2034,7 +2042,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - WlanConnectionProfileDetails
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wlanconnectionprofiledetails)
-public final class WlanConnectionProfileDetails : WinRTClass {
+public final class WlanConnectionProfileDetails : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IWlanConnectionProfileDetails
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2088,15 +2096,17 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x562098CB, Data2: 0xB35A, Data3: 0x4BF1, Data4: ( 0xA8,0x84,0xB7,0x55,0x7E,0x88,0xFF,0x86 ) // 562098CB-B35A-4BF1-A884-B7557E88FF86
     ) 
 
-    public class IWlanConnectionProfileDetails: WindowsFoundation.IInspectable {
+    public class IWlanConnectionProfileDetails: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails }
 
         public func GetConnectedSsid() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWlanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetConnectedSsid(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2106,7 +2116,7 @@ extension __ABI_Windows_Networking_Connectivity {
 // MARK: - WwanConnectionProfileDetails
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.networking.connectivity.wwanconnectionprofiledetails)
-public final class WwanConnectionProfileDetails : WinRTClass {
+public final class WwanConnectionProfileDetails : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Networking_Connectivity.IWwanConnectionProfileDetails
     private typealias CABI = __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2187,24 +2197,28 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x0E4DA8FE, Data2: 0x835F, Data3: 0x4DF3, Data4: ( 0x82,0xFD,0xDF,0x55,0x6E,0xBC,0x09,0xEF ) // 0E4DA8FE-835F-4DF3-82FD-DF556EBC09EF
     ) 
 
-    public class IWwanConnectionProfileDetails: WindowsFoundation.IInspectable {
+    public class IWwanConnectionProfileDetails: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails }
 
         public func get_HomeProviderId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_HomeProviderId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_AccessPointName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessPointName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2230,7 +2244,7 @@ extension __ABI_Windows_Networking_Connectivity {
         Data1: 0x7A754EDE, Data2: 0xA1ED, Data3: 0x48B2, Data4: ( 0x8E,0x92,0xB4,0x60,0x03,0x3D,0x52,0xE2 ) // 7A754EDE-A1ED-48B2-8E92-B460033D52E2
     ) 
 
-    public class IWwanConnectionProfileDetails2: WindowsFoundation.IInspectable {
+    public class IWwanConnectionProfileDetails2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CNetworking_CConnectivity_CIWwanConnectionProfileDetails2 }
 
         public func get_IPKind() throws -> UWP.WwanNetworkIPKind {

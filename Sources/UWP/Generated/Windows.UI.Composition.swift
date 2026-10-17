@@ -442,7 +442,7 @@ extension __IMPL_Windows_UI_Composition {
         }
     }
 
-    fileprivate class IAnimationObjectImpl: IAnimationObject, WinRTAbiImpl {
+    fileprivate class IAnimationObjectImpl: IAnimationObject, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IAnimationObjectBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -464,7 +464,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xE7141E0A, Data2: 0x04B8, Data3: 0x4FC5, Data4: ( 0xA4,0xDC,0x19,0x53,0x92,0xE5,0x78,0x07 ) // E7141E0A-04B8-4FC5-A4DC-195392E57807
     ) 
 
-    public class IAnimationObject: WindowsFoundation.IInspectable {
+    public class IAnimationObject: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIAnimationObject }
 
         open func PopulatePropertyInfo(_ propertyName: String, _ propertyInfo: UWP.AnimationPropertyInfo?) throws {
@@ -476,7 +476,7 @@ extension __ABI_Windows_UI_Composition {
 
     }
 
-    internal static var IAnimationObjectVTable: __x_ABI_CWindows_CUI_CComposition_CIAnimationObjectVtbl = .init(
+    internal static nonisolated(unsafe) var IAnimationObjectVTable: __x_ABI_CWindows_CUI_CComposition_CIAnimationObjectVtbl = .init(
         QueryInterface: { IAnimationObjectWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAnimationObjectWrapper.addRef($0) },
         Release: { IAnimationObjectWrapper.release($0) },
@@ -562,7 +562,7 @@ extension __IMPL_Windows_UI_Composition {
         }
     }
 
-    fileprivate class ICompositionAnimationBaseImpl: ICompositionAnimationBase, WinRTAbiImpl {
+    fileprivate class ICompositionAnimationBaseImpl: ICompositionAnimationBase, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICompositionAnimationBaseBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -579,12 +579,12 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x1C2C2999, Data2: 0xE818, Data3: 0x48D3, Data4: ( 0xA6,0xDD,0xD7,0x8C,0x82,0xF8,0xAC,0xE9 ) // 1C2C2999-E818-48D3-A6DD-D78C82F8ACE9
     ) 
 
-    public class ICompositionAnimationBase: WindowsFoundation.IInspectable {
+    public class ICompositionAnimationBase: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionAnimationBase }
 
     }
 
-    internal static var ICompositionAnimationBaseVTable: __x_ABI_CWindows_CUI_CComposition_CICompositionAnimationBaseVtbl = .init(
+    internal static nonisolated(unsafe) var ICompositionAnimationBaseVTable: __x_ABI_CWindows_CUI_CComposition_CICompositionAnimationBaseVtbl = .init(
         QueryInterface: { ICompositionAnimationBaseWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICompositionAnimationBaseWrapper.addRef($0) },
         Release: { ICompositionAnimationBaseWrapper.release($0) },
@@ -660,7 +660,7 @@ extension __IMPL_Windows_UI_Composition {
         }
     }
 
-    fileprivate class ICompositionSurfaceImpl: ICompositionSurface, WinRTAbiImpl {
+    fileprivate class ICompositionSurfaceImpl: ICompositionSurface, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICompositionSurfaceBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -677,12 +677,12 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x1527540D, Data2: 0x42C7, Data3: 0x47A6, Data4: ( 0xA4,0x08,0x66,0x8F,0x79,0xA9,0x0D,0xFB ) // 1527540D-42C7-47A6-A408-668F79A90DFB
     ) 
 
-    public class ICompositionSurface: WindowsFoundation.IInspectable {
+    public class ICompositionSurface: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurface }
 
     }
 
-    internal static var ICompositionSurfaceVTable: __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceVtbl = .init(
+    internal static nonisolated(unsafe) var ICompositionSurfaceVTable: __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceVtbl = .init(
         QueryInterface: { ICompositionSurfaceWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICompositionSurfaceWrapper.addRef($0) },
         Release: { ICompositionSurfaceWrapper.release($0) },
@@ -724,7 +724,7 @@ public class ICompositionSurfaceMaker: MakeFromAbi {
 // MARK: - AmbientLight
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.ambientlight)
-public final class AmbientLight : UWP.CompositionLight {
+public final class AmbientLight : UWP.CompositionLight, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IAmbientLight
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIAmbientLight
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -787,7 +787,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xA48130A1, Data2: 0xB7C4, Data3: 0x46F7, Data4: ( 0xB9,0xBF,0xDA,0xF4,0x3A,0x44,0xE6,0xEE ) // A48130A1-B7C4-46F7-B9BF-DAF43A44E6EE
     ) 
 
-    public class IAmbientLight: WindowsFoundation.IInspectable {
+    public class IAmbientLight: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIAmbientLight }
 
         public func get_Color() throws -> UWP.Color {
@@ -810,7 +810,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x3B64A6BF, Data2: 0x5F97, Data3: 0x4C94, Data4: ( 0x86,0xE5,0x04,0x2D,0xD3,0x86,0xB2,0x7D ) // 3B64A6BF-5F97-4C94-86E5-042DD386B27D
     ) 
 
-    public class IAmbientLight2: WindowsFoundation.IInspectable {
+    public class IAmbientLight2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIAmbientLight2 }
 
         public func get_Intensity() throws -> Float {
@@ -833,7 +833,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - AnimationController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.animationcontroller)
-public final class AnimationController : UWP.CompositionObject {
+public final class AnimationController : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IAnimationController
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIAnimationController
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -921,7 +921,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xC934EFD2, Data2: 0x0722, Data3: 0x4F5F, Data4: ( 0xA4,0xE2,0x95,0x10,0xF3,0xD4,0x3B,0xF7 ) // C934EFD2-0722-4F5F-A4E2-9510F3D43BF7
     ) 
 
-    public class IAnimationController: WindowsFoundation.IInspectable {
+    public class IAnimationController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIAnimationController }
 
         public func get_PlaybackRate() throws -> Float {
@@ -984,7 +984,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xE71164DF, Data2: 0x651B, Data3: 0x4800, Data4: ( 0xB9,0xE5,0x6A,0x3B,0xCF,0xED,0x33,0x65 ) // E71164DF-651B-4800-B9E5-6A3BCFED3365
     ) 
 
-    public class IAnimationControllerStatics: WindowsFoundation.IInspectable {
+    public class IAnimationControllerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIAnimationControllerStatics }
 
         public func get_MaxPlaybackRate() throws -> Float {
@@ -1009,7 +1009,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - AnimationPropertyInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.animationpropertyinfo)
-public final class AnimationPropertyInfo : UWP.CompositionObject {
+public final class AnimationPropertyInfo : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IAnimationPropertyInfo
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1064,7 +1064,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xF4716F05, Data2: 0xED77, Data3: 0x4E3C, Data4: ( 0xB3,0x28,0x5C,0x39,0x85,0xB3,0x73,0x8F ) // F4716F05-ED77-4E3C-B328-5C3985B3738F
     ) 
 
-    public class IAnimationPropertyInfo: WindowsFoundation.IInspectable {
+    public class IAnimationPropertyInfo: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo }
 
         public func get_AccessMode() throws -> UWP.AnimationPropertyAccessMode {
@@ -1087,7 +1087,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - BooleanKeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.booleankeyframeanimation)
-public final class BooleanKeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class BooleanKeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IBooleanKeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1141,7 +1141,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x95E23A08, Data2: 0xD1F4, Data3: 0x4972, Data4: ( 0x97,0x70,0x3E,0xFE,0x68,0xD8,0x2E,0x14 ) // 95E23A08-D1F4-4972-9770-3EFE68D82E14
     ) 
 
-    public class IBooleanKeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IBooleanKeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation }
 
         public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: Bool) throws {
@@ -1156,7 +1156,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - BounceScalarNaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.bouncescalarnaturalmotionanimation)
-public final class BounceScalarNaturalMotionAnimation : UWP.ScalarNaturalMotionAnimation {
+public final class BounceScalarNaturalMotionAnimation : UWP.ScalarNaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IBounceScalarNaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1217,7 +1217,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xBAA30DCC, Data2: 0xA633, Data3: 0x4618, Data4: ( 0x9B,0x06,0x7F,0x7C,0x72,0xC8,0x7C,0xFF ) // BAA30DCC-A633-4618-9B06-7F7C72C87CFF
     ) 
 
-    public class IBounceScalarNaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class IBounceScalarNaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation }
 
         public func get_Acceleration() throws -> Float {
@@ -1254,7 +1254,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - BounceVector2NaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.bouncevector2naturalmotionanimation)
-public final class BounceVector2NaturalMotionAnimation : UWP.Vector2NaturalMotionAnimation {
+public final class BounceVector2NaturalMotionAnimation : UWP.Vector2NaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IBounceVector2NaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIBounceVector2NaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1315,7 +1315,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xDA344196, Data2: 0x2154, Data3: 0x4B3C, Data4: ( 0x88,0xAA,0x47,0x36,0x12,0x04,0xEC,0xCD ) // DA344196-2154-4B3C-88AA-47361204ECCD
     ) 
 
-    public class IBounceVector2NaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class IBounceVector2NaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIBounceVector2NaturalMotionAnimation }
 
         public func get_Acceleration() throws -> Float {
@@ -1352,7 +1352,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - BounceVector3NaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.bouncevector3naturalmotionanimation)
-public final class BounceVector3NaturalMotionAnimation : UWP.Vector3NaturalMotionAnimation {
+public final class BounceVector3NaturalMotionAnimation : UWP.Vector3NaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IBounceVector3NaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1413,7 +1413,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x47DABC31, Data2: 0x10D3, Data3: 0x4518, Data4: ( 0x86,0xF1,0x09,0xCA,0xF7,0x42,0xD1,0x13 ) // 47DABC31-10D3-4518-86F1-09CAF742D113
     ) 
 
-    public class IBounceVector3NaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class IBounceVector3NaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation }
 
         public func get_Acceleration() throws -> Float {
@@ -1450,7 +1450,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - ColorKeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.colorkeyframeanimation)
-public final class ColorKeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class ColorKeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IColorKeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1515,7 +1515,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x93ADB5E9, Data2: 0x8E05, Data3: 0x4593, Data4: ( 0x84,0xA3,0xDC,0xA1,0x52,0x78,0x1E,0x56 ) // 93ADB5E9-8E05-4593-84A3-DCA152781E56
     ) 
 
-    public class IColorKeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IColorKeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation }
 
         public func get_InterpolationColorSpace() throws -> UWP.CompositionColorSpace {
@@ -1550,7 +1550,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionanimation)
-open class CompositionAnimation : UWP.CompositionObject, ICompositionAnimationBase {
+open class CompositionAnimation : UWP.CompositionObject, @unchecked Sendable, ICompositionAnimationBase {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1577,7 +1577,7 @@ open class CompositionAnimation : UWP.CompositionObject, ICompositionAnimationBa
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionAnimationFactory : __ABI_Windows_UI_Composition.ICompositionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionAnimation")
+    private static nonisolated(unsafe) var _ICompositionAnimationFactory : __ABI_Windows_UI_Composition.ICompositionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionanimation.clearallparameters)
     public func clearAllParameters() throws {
@@ -1707,7 +1707,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x464C4C2C, Data2: 0x1CAA, Data3: 0x4061, Data4: ( 0x9B,0x40,0xE1,0x3F,0xDE,0x15,0x03,0xCA ) // 464C4C2C-1CAA-4061-9B40-E13FDE1503CA
     ) 
 
-    public class ICompositionAnimation: WindowsFoundation.IInspectable {
+    public class ICompositionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionAnimation }
 
         public func ClearAllParameters() throws {
@@ -1792,7 +1792,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x369B603E, Data2: 0xA80F, Data3: 0x4948, Data4: ( 0x93,0xE3,0xED,0x23,0xFB,0x38,0xC6,0xCB ) // 369B603E-A80F-4948-93E3-ED23FB38C6CB
     ) 
 
-    public class ICompositionAnimation2: WindowsFoundation.IInspectable {
+    public class ICompositionAnimation2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionAnimation2 }
 
         public func SetBooleanParameter(_ key: String, _ value: Bool) throws {
@@ -1804,10 +1804,12 @@ extension __ABI_Windows_UI_Composition {
 
         public func get_Target() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CComposition_CICompositionAnimation2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Target(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1824,7 +1826,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xD51E030D, Data2: 0x7DA4, Data3: 0x4BD7, Data4: ( 0xBC,0x2D,0xF4,0x51,0x75,0x29,0xF4,0x3A ) // D51E030D-7DA4-4BD7-BC2D-F4517529F43A
     ) 
 
-    public class ICompositionAnimation3: WindowsFoundation.IInspectable {
+    public class ICompositionAnimation3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionAnimation3 }
 
         public func get_InitialValueExpressions() throws -> UWP.InitialValueExpressionCollection? {
@@ -1842,7 +1844,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x770137BE, Data2: 0x76BC, Data3: 0x4E23, Data4: ( 0xBF,0xED,0xFE,0x9C,0xC2,0x0F,0x6E,0xC9 ) // 770137BE-76BC-4E23-BFED-FE9CC20F6EC9
     ) 
 
-    public class ICompositionAnimation4: WindowsFoundation.IInspectable {
+    public class ICompositionAnimation4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionAnimation4 }
 
         public func SetExpressionReferenceParameter(_ parameterName: String, _ source: UWP.AnyIAnimationObject?) throws {
@@ -1860,7 +1862,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x10F6C4FB, Data2: 0x6E51, Data3: 0x4C25, Data4: ( 0xBB,0xD3,0x58,0x6A,0x9B,0xEC,0x3E,0xF4 ) // 10F6C4FB-6E51-4C25-BBD3-586A9BEC3EF4
     ) 
 
-    public class ICompositionAnimationFactory: WindowsFoundation.IInspectable {
+    public class ICompositionAnimationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionAnimationFactory }
 
     }
@@ -1869,7 +1871,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionAnimationGroup
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionanimationgroup)
-public final class CompositionAnimationGroup : UWP.CompositionObject, IIterable, ICompositionAnimationBase {
+public final class CompositionAnimationGroup : UWP.CompositionObject, @unchecked Sendable, IIterable, ICompositionAnimationBase {
     public typealias T = CompositionAnimation?
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionAnimationGroup
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionAnimationGroup
@@ -1951,7 +1953,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x5E7CC90C, Data2: 0xCD14, Data3: 0x4E07, Data4: ( 0x8A,0x55,0xC7,0x25,0x27,0xAA,0xBD,0xAC ) // 5E7CC90C-CD14-4E07-8A55-C72527AABDAC
     ) 
 
-    public class ICompositionAnimationGroup: WindowsFoundation.IInspectable {
+    public class ICompositionAnimationGroup: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionAnimationGroup }
 
         public func get_Count() throws -> Int32 {
@@ -1986,7 +1988,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionBackdropBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionbackdropbrush)
-public final class CompositionBackdropBrush : UWP.CompositionBrush {
+public final class CompositionBackdropBrush : UWP.CompositionBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionBackdropBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionBackdropBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2035,7 +2037,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xC5ACAE58, Data2: 0x3898, Data3: 0x499E, Data4: ( 0x8D,0x7F,0x22,0x4E,0x91,0x28,0x6A,0x5D ) // C5ACAE58-3898-499E-8D7F-224E91286A5D
     ) 
 
-    public class ICompositionBackdropBrush: WindowsFoundation.IInspectable {
+    public class ICompositionBackdropBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionBackdropBrush }
 
     }
@@ -2044,7 +2046,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionBatchCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionbatchcompletedeventargs)
-public final class CompositionBatchCompletedEventArgs : UWP.CompositionObject {
+public final class CompositionBatchCompletedEventArgs : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionBatchCompletedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionBatchCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2093,7 +2095,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0D00DAD0, Data2: 0x9464, Data3: 0x450A, Data4: ( 0xA5,0x62,0x2E,0x26,0x98,0xB0,0xA8,0x12 ) // 0D00DAD0-9464-450A-A562-2E2698B0A812
     ) 
 
-    public class ICompositionBatchCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class ICompositionBatchCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionBatchCompletedEventArgs }
 
     }
@@ -2102,7 +2104,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionbrush)
-open class CompositionBrush : UWP.CompositionObject {
+open class CompositionBrush : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2129,7 +2131,7 @@ open class CompositionBrush : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionBrushFactory : __ABI_Windows_UI_Composition.ICompositionBrushFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionBrush")
+    private static nonisolated(unsafe) var _ICompositionBrushFactory : __ABI_Windows_UI_Composition.ICompositionBrushFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionBrush")
 
     deinit {
         _default = nil
@@ -2175,7 +2177,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xAB0D7608, Data2: 0x30C0, Data3: 0x40E9, Data4: ( 0xB5,0x68,0xB6,0x0A,0x6B,0xD1,0xFB,0x46 ) // AB0D7608-30C0-40E9-B568-B60A6BD1FB46
     ) 
 
-    public class ICompositionBrush: WindowsFoundation.IInspectable {
+    public class ICompositionBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionBrush }
 
     }
@@ -2184,7 +2186,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xDA53FB4C, Data2: 0x4650, Data3: 0x47C4, Data4: ( 0xAD,0x76,0x76,0x53,0x79,0x60,0x7E,0xD6 ) // DA53FB4C-4650-47C4-AD76-765379607ED6
     ) 
 
-    public class ICompositionBrushFactory: WindowsFoundation.IInspectable {
+    public class ICompositionBrushFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionBrushFactory }
 
     }
@@ -2193,7 +2195,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionClip
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionclip)
-open class CompositionClip : UWP.CompositionObject {
+open class CompositionClip : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionClip
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionClip
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2220,7 +2222,7 @@ open class CompositionClip : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionClipFactory : __ABI_Windows_UI_Composition.ICompositionClipFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionClip")
+    private static nonisolated(unsafe) var _ICompositionClipFactory : __ABI_Windows_UI_Composition.ICompositionClipFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionClip")
 
     private lazy var _ICompositionClip2: __ABI_Windows_UI_Composition.ICompositionClip2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionclip.anchorpoint)
@@ -2310,7 +2312,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x1CCD2A52, Data2: 0xCFC7, Data3: 0x4ACE, Data4: ( 0x99,0x83,0x14,0x6B,0xB8,0xEB,0x6A,0x3C ) // 1CCD2A52-CFC7-4ACE-9983-146BB8EB6A3C
     ) 
 
-    public class ICompositionClip: WindowsFoundation.IInspectable {
+    public class ICompositionClip: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionClip }
 
     }
@@ -2319,7 +2321,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x5893E069, Data2: 0x3516, Data3: 0x40E1, Data4: ( 0x89,0xE0,0x5B,0xA9,0x24,0x92,0x72,0x35 ) // 5893E069-3516-40E1-89E0-5BA924927235
     ) 
 
-    public class ICompositionClip2: WindowsFoundation.IInspectable {
+    public class ICompositionClip2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionClip2 }
 
         public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
@@ -2426,7 +2428,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xB9484CAF, Data2: 0x20C7, Data3: 0x4AED, Data4: ( 0xAC,0x4A,0x9C,0x78,0xBA,0x13,0x02,0xCF ) // B9484CAF-20C7-4AED-AC4A-9C78BA1302CF
     ) 
 
-    public class ICompositionClipFactory: WindowsFoundation.IInspectable {
+    public class ICompositionClipFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionClipFactory }
 
     }
@@ -2435,7 +2437,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionColorBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioncolorbrush)
-public final class CompositionColorBrush : UWP.CompositionBrush {
+public final class CompositionColorBrush : UWP.CompositionBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionColorBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionColorBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2490,7 +2492,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x2B264C5E, Data2: 0xBF35, Data3: 0x4831, Data4: ( 0x86,0x42,0xCF,0x70,0xC2,0x0F,0xFF,0x2F ) // 2B264C5E-BF35-4831-8642-CF70C20FFF2F
     ) 
 
-    public class ICompositionColorBrush: WindowsFoundation.IInspectable {
+    public class ICompositionColorBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionColorBrush }
 
         public func get_Color() throws -> UWP.Color {
@@ -2513,7 +2515,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionColorGradientStop
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioncolorgradientstop)
-public final class CompositionColorGradientStop : UWP.CompositionObject {
+public final class CompositionColorGradientStop : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionColorGradientStop
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionColorGradientStop
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2574,7 +2576,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x6F00CA92, Data2: 0xC801, Data3: 0x4E41, Data4: ( 0x9A,0x8F,0xA5,0x3E,0x20,0xF5,0x77,0x78 ) // 6F00CA92-C801-4E41-9A8F-A53E20F57778
     ) 
 
-    public class ICompositionColorGradientStop: WindowsFoundation.IInspectable {
+    public class ICompositionColorGradientStop: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionColorGradientStop }
 
         public func get_Color() throws -> UWP.Color {
@@ -2611,7 +2613,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionColorGradientStopCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioncolorgradientstopcollection)
-public final class CompositionColorGradientStopCollection : WinRTClass, IVector, IIterable {
+public final class CompositionColorGradientStopCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = CompositionColorGradientStop?
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionColorGradientStopCollection
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionColorGradientStopCollection
@@ -2764,7 +2766,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x9F1D20EC, Data2: 0x7B04, Data3: 0x4B1D, Data4: ( 0x90,0xBC,0x9F,0xA3,0x2C,0x0C,0xFD,0x26 ) // 9F1D20EC-7B04-4B1D-90BC-9FA32C0CFD26
     ) 
 
-    public class ICompositionColorGradientStopCollection: WindowsFoundation.IInspectable {
+    public class ICompositionColorGradientStopCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionColorGradientStopCollection }
 
     }
@@ -2773,7 +2775,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionCommitBatch
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioncommitbatch)
-public final class CompositionCommitBatch : UWP.CompositionObject {
+public final class CompositionCommitBatch : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionCommitBatch
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionCommitBatch
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2845,7 +2847,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0D00DAD0, Data2: 0xCA07, Data3: 0x4400, Data4: ( 0x8C,0x8E,0xCB,0x5D,0xB0,0x85,0x59,0xCC ) // 0D00DAD0-CA07-4400-8C8E-CB5DB08559CC
     ) 
 
-    public class ICompositionCommitBatch: WindowsFoundation.IInspectable {
+    public class ICompositionCommitBatch: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionCommitBatch }
 
         public func get_IsActive() throws -> Bool {
@@ -2886,7 +2888,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionContainerShape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioncontainershape)
-public final class CompositionContainerShape : UWP.CompositionShape {
+public final class CompositionContainerShape : UWP.CompositionShape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionContainerShape
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionContainerShape
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2940,7 +2942,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x4F5E859B, Data2: 0x2E5B, Data3: 0x44A8, Data4: ( 0x98,0x2C,0xAA,0x0F,0x69,0xC1,0x60,0x59 ) // 4F5E859B-2E5B-44A8-982C-AA0F69C16059
     ) 
 
-    public class ICompositionContainerShape: WindowsFoundation.IInspectable {
+    public class ICompositionContainerShape: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionContainerShape }
 
         public func get_Shapes() throws -> UWP.CompositionShapeCollection? {
@@ -2958,7 +2960,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionEasingFunction
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioneasingfunction)
-open class CompositionEasingFunction : UWP.CompositionObject {
+open class CompositionEasingFunction : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionEasingFunction
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunction
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2985,7 +2987,7 @@ open class CompositionEasingFunction : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionEasingFunctionFactory : __ABI_Windows_UI_Composition.ICompositionEasingFunctionFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionEasingFunction")
+    private static nonisolated(unsafe) var _ICompositionEasingFunctionFactory : __ABI_Windows_UI_Composition.ICompositionEasingFunctionFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionEasingFunction")
 
     deinit {
         _default = nil
@@ -3031,7 +3033,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x5145E356, Data2: 0xBF79, Data3: 0x4EA8, Data4: ( 0x8C,0xC2,0x6B,0x5B,0x47,0x2E,0x6C,0x9A ) // 5145E356-BF79-4EA8-8CC2-6B5B472E6C9A
     ) 
 
-    public class ICompositionEasingFunction: WindowsFoundation.IInspectable {
+    public class ICompositionEasingFunction: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunction }
 
     }
@@ -3040,7 +3042,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x60840774, Data2: 0x3DA0, Data3: 0x4949, Data4: ( 0x82,0x00,0x72,0x06,0xC0,0x01,0x90,0xA0 ) // 60840774-3DA0-4949-8200-7206C00190A0
     ) 
 
-    public class ICompositionEasingFunctionFactory: WindowsFoundation.IInspectable {
+    public class ICompositionEasingFunctionFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory }
 
     }
@@ -3049,7 +3051,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionEffectBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioneffectbrush)
-public final class CompositionEffectBrush : UWP.CompositionBrush {
+public final class CompositionEffectBrush : UWP.CompositionBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionEffectBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3108,7 +3110,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xBF7F795E, Data2: 0x83CC, Data3: 0x44BF, Data4: ( 0xA4,0x47,0x3E,0x3C,0x07,0x17,0x89,0xEC ) // BF7F795E-83CC-44BF-A447-3E3C071789EC
     ) 
 
-    public class ICompositionEffectBrush: WindowsFoundation.IInspectable {
+    public class ICompositionEffectBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush }
 
         public func GetSourceParameter(_ name: String) throws -> UWP.CompositionBrush? {
@@ -3134,7 +3136,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionEffectFactory
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositioneffectfactory)
-public final class CompositionEffectFactory : UWP.CompositionObject {
+public final class CompositionEffectFactory : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionEffectFactory
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionEffectFactory
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3198,7 +3200,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xBE5624AF, Data2: 0xBA7E, Data3: 0x4510, Data4: ( 0x98,0x50,0x41,0xC0,0xB4,0xFF,0x74,0xDF ) // BE5624AF-BA7E-4510-9850-41C0B4FF74DF
     ) 
 
-    public class ICompositionEffectFactory: WindowsFoundation.IInspectable {
+    public class ICompositionEffectFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionEffectFactory }
 
         public func CreateBrush() throws -> UWP.CompositionEffectBrush? {
@@ -3232,7 +3234,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionEllipseGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionellipsegeometry)
-public final class CompositionEllipseGeometry : UWP.CompositionGeometry {
+public final class CompositionEllipseGeometry : UWP.CompositionGeometry, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionEllipseGeometry
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionEllipseGeometry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3293,7 +3295,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x4801F884, Data2: 0xF6AD, Data3: 0x4B93, Data4: ( 0xAF,0xA9,0x89,0x7B,0x64,0xE5,0x7B,0x1F ) // 4801F884-F6AD-4B93-AFA9-897B64E57B1F
     ) 
 
-    public class ICompositionEllipseGeometry: WindowsFoundation.IInspectable {
+    public class ICompositionEllipseGeometry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionEllipseGeometry }
 
         public func get_Center() throws -> WindowsFoundation.Vector2 {
@@ -3330,7 +3332,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionGeometricClip
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositiongeometricclip)
-public final class CompositionGeometricClip : UWP.CompositionClip {
+public final class CompositionGeometricClip : UWP.CompositionClip, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionGeometricClip
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionGeometricClip
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3391,7 +3393,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xC840B581, Data2: 0x81C9, Data3: 0x4444, Data4: ( 0xA2,0xC1,0xCC,0xAE,0xCE,0x3A,0x50,0xE5 ) // C840B581-81C9-4444-A2C1-CCAECE3A50E5
     ) 
 
-    public class ICompositionGeometricClip: WindowsFoundation.IInspectable {
+    public class ICompositionGeometricClip: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionGeometricClip }
 
         public func get_Geometry() throws -> UWP.CompositionGeometry? {
@@ -3430,7 +3432,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositiongeometry)
-open class CompositionGeometry : UWP.CompositionObject {
+open class CompositionGeometry : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionGeometry
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionGeometry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3457,7 +3459,7 @@ open class CompositionGeometry : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionGeometryFactory : __ABI_Windows_UI_Composition.ICompositionGeometryFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionGeometry")
+    private static nonisolated(unsafe) var _ICompositionGeometryFactory : __ABI_Windows_UI_Composition.ICompositionGeometryFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionGeometry")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositiongeometry.trimend)
     public var trimEnd : Float {
@@ -3521,7 +3523,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xE985217C, Data2: 0x6A17, Data3: 0x4207, Data4: ( 0xAB,0xD8,0x5F,0xD3,0xDD,0x61,0x2A,0x9D ) // E985217C-6A17-4207-ABD8-5FD3DD612A9D
     ) 
 
-    public class ICompositionGeometry: WindowsFoundation.IInspectable {
+    public class ICompositionGeometry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionGeometry }
 
         public func get_TrimEnd() throws -> Float {
@@ -3572,7 +3574,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xBFFEBFE1, Data2: 0x8C25, Data3: 0x480B, Data4: ( 0x9F,0x56,0xFE,0xD6,0xB2,0x88,0x05,0x5D ) // BFFEBFE1-8C25-480B-9F56-FED6B288055D
     ) 
 
-    public class ICompositionGeometryFactory: WindowsFoundation.IInspectable {
+    public class ICompositionGeometryFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionGeometryFactory }
 
     }
@@ -3581,7 +3583,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionGradientBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositiongradientbrush)
-open class CompositionGradientBrush : UWP.CompositionBrush {
+open class CompositionGradientBrush : UWP.CompositionBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionGradientBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionGradientBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3608,7 +3610,7 @@ open class CompositionGradientBrush : UWP.CompositionBrush {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionGradientBrushFactory : __ABI_Windows_UI_Composition.ICompositionGradientBrushFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionGradientBrush")
+    private static nonisolated(unsafe) var _ICompositionGradientBrushFactory : __ABI_Windows_UI_Composition.ICompositionGradientBrushFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionGradientBrush")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositiongradientbrush.anchorpoint)
     public var anchorPoint : WindowsFoundation.Vector2 {
@@ -3721,7 +3723,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x1D9709E0, Data2: 0xFFC6, Data3: 0x4C0E, Data4: ( 0xA9,0xAB,0x34,0x14,0x4D,0x4C,0x90,0x98 ) // 1D9709E0-FFC6-4C0E-A9AB-34144D4C9098
     ) 
 
-    public class ICompositionGradientBrush: WindowsFoundation.IInspectable {
+    public class ICompositionGradientBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionGradientBrush }
 
         public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
@@ -3865,7 +3867,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x899DD5A1, Data2: 0xB4C7, Data3: 0x4B33, Data4: ( 0xA1,0xB6,0x26,0x4A,0xDD,0xC2,0x6D,0x10 ) // 899DD5A1-B4C7-4B33-A1B6-264ADDC26D10
     ) 
 
-    public class ICompositionGradientBrush2: WindowsFoundation.IInspectable {
+    public class ICompositionGradientBrush2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionGradientBrush2 }
 
         public func get_MappingMode() throws -> UWP.CompositionMappingMode {
@@ -3888,7 +3890,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x56D765D7, Data2: 0xF189, Data3: 0x48C9, Data4: ( 0x9C,0x8D,0x94,0xDA,0xF1,0xBE,0xC0,0x10 ) // 56D765D7-F189-48C9-9C8D-94DAF1BEC010
     ) 
 
-    public class ICompositionGradientBrushFactory: WindowsFoundation.IInspectable {
+    public class ICompositionGradientBrushFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionGradientBrushFactory }
 
     }
@@ -3897,7 +3899,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionLight
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionlight)
-open class CompositionLight : UWP.CompositionObject {
+open class CompositionLight : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionLight
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionLight
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3924,7 +3926,7 @@ open class CompositionLight : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionLightFactory : __ABI_Windows_UI_Composition.ICompositionLightFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionLight")
+    private static nonisolated(unsafe) var _ICompositionLightFactory : __ABI_Windows_UI_Composition.ICompositionLightFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionLight")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionlight.targets)
     public var targets : VisualUnorderedCollection! {
@@ -3990,7 +3992,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x41A6D7C2, Data2: 0x2E5D, Data3: 0x4BC1, Data4: ( 0xB0,0x9E,0x8F,0x0A,0x03,0xE3,0xD8,0xD3 ) // 41A6D7C2-2E5D-4BC1-B09E-8F0A03E3D8D3
     ) 
 
-    public class ICompositionLight: WindowsFoundation.IInspectable {
+    public class ICompositionLight: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionLight }
 
         public func get_Targets() throws -> UWP.VisualUnorderedCollection? {
@@ -4008,7 +4010,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xA7BCDA72, Data2: 0xF35D, Data3: 0x425D, Data4: ( 0x9B,0x98,0x23,0xF4,0x20,0x5F,0x66,0x69 ) // A7BCDA72-F35D-425D-9B98-23F4205F6669
     ) 
 
-    public class ICompositionLight2: WindowsFoundation.IInspectable {
+    public class ICompositionLight2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionLight2 }
 
         public func get_ExclusionsFromTargets() throws -> UWP.VisualUnorderedCollection? {
@@ -4026,7 +4028,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x4B0B00E4, Data2: 0xDF07, Data3: 0x4959, Data4: ( 0xB7,0xA4,0x4F,0x7E,0x42,0x33,0xF8,0x38 ) // 4B0B00E4-DF07-4959-B7A4-4F7E4233F838
     ) 
 
-    public class ICompositionLight3: WindowsFoundation.IInspectable {
+    public class ICompositionLight3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionLight3 }
 
         public func get_IsEnabled() throws -> Bool {
@@ -4049,7 +4051,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x069CF306, Data2: 0xDA3C, Data3: 0x4B44, Data4: ( 0x83,0x8A,0x5E,0x03,0xD5,0x1A,0xCE,0x55 ) // 069CF306-DA3C-4B44-838A-5E03D51ACE55
     ) 
 
-    public class ICompositionLightFactory: WindowsFoundation.IInspectable {
+    public class ICompositionLightFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionLightFactory }
 
     }
@@ -4058,7 +4060,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionLineGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionlinegeometry)
-public final class CompositionLineGeometry : UWP.CompositionGeometry {
+public final class CompositionLineGeometry : UWP.CompositionGeometry, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionLineGeometry
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionLineGeometry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4119,7 +4121,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xDD7615A4, Data2: 0x0C9A, Data3: 0x4B67, Data4: ( 0x8D,0xCE,0x44,0x0A,0x5B,0xF9,0xCD,0xEC ) // DD7615A4-0C9A-4B67-8DCE-440A5BF9CDEC
     ) 
 
-    public class ICompositionLineGeometry: WindowsFoundation.IInspectable {
+    public class ICompositionLineGeometry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionLineGeometry }
 
         public func get_Start() throws -> WindowsFoundation.Vector2 {
@@ -4156,7 +4158,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionLinearGradientBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionlineargradientbrush)
-public final class CompositionLinearGradientBrush : UWP.CompositionGradientBrush {
+public final class CompositionLinearGradientBrush : UWP.CompositionGradientBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionLinearGradientBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionLinearGradientBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4217,7 +4219,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x983BC519, Data2: 0xA9DB, Data3: 0x413C, Data4: ( 0xA2,0xD8,0x2A,0x90,0x56,0xFC,0x52,0x5E ) // 983BC519-A9DB-413C-A2D8-2A9056FC525E
     ) 
 
-    public class ICompositionLinearGradientBrush: WindowsFoundation.IInspectable {
+    public class ICompositionLinearGradientBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionLinearGradientBrush }
 
         public func get_EndPoint() throws -> WindowsFoundation.Vector2 {
@@ -4254,7 +4256,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionMaskBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionmaskbrush)
-public final class CompositionMaskBrush : UWP.CompositionBrush {
+public final class CompositionMaskBrush : UWP.CompositionBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionMaskBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionMaskBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4315,7 +4317,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x522CF09E, Data2: 0xBE6B, Data3: 0x4F41, Data4: ( 0xBE,0x49,0xF9,0x22,0x6D,0x47,0x1B,0x4A ) // 522CF09E-BE6B-4F41-BE49-F9226D471B4A
     ) 
 
-    public class ICompositionMaskBrush: WindowsFoundation.IInspectable {
+    public class ICompositionMaskBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionMaskBrush }
 
         public func get_Mask() throws -> UWP.CompositionBrush? {
@@ -4354,7 +4356,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionNineGridBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionninegridbrush)
-public final class CompositionNineGridBrush : UWP.CompositionBrush {
+public final class CompositionNineGridBrush : UWP.CompositionBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionNineGridBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionNineGridBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4483,7 +4485,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xF25154E4, Data2: 0xBC8C, Data3: 0x4BE7, Data4: ( 0xB8,0x0F,0x86,0x85,0xB8,0x3C,0x01,0x86 ) // F25154E4-BC8C-4BE7-B80F-8685B83C0186
     ) 
 
-    public class ICompositionNineGridBrush: WindowsFoundation.IInspectable {
+    public class ICompositionNineGridBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionNineGridBrush }
 
         public func get_BottomInset() throws -> Float {
@@ -4657,7 +4659,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionObject
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionobject)
-open class CompositionObject : WinRTClass, WindowsFoundation.IClosable, IAnimationObject {
+open class CompositionObject : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, IAnimationObject {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionObject
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionObject
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4685,7 +4687,7 @@ open class CompositionObject : WinRTClass, WindowsFoundation.IClosable, IAnimati
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionObjectFactory : __ABI_Windows_UI_Composition.ICompositionObjectFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionObject")
+    private static nonisolated(unsafe) var _ICompositionObjectFactory : __ABI_Windows_UI_Composition.ICompositionObjectFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionObject")
 
     private static let _ICompositionObjectStatics: __ABI_Windows_UI_Composition.ICompositionObjectStatics = try! RoGetActivationFactory("Windows.UI.Composition.CompositionObject")
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionobject.startanimationwithianimationobject)
@@ -4819,7 +4821,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xBCB4AD45, Data2: 0x7609, Data3: 0x4550, Data4: ( 0x93,0x4F,0x16,0x00,0x2A,0x68,0xFD,0xED ) // BCB4AD45-7609-4550-934F-16002A68FDED
     ) 
 
-    public class ICompositionObject: WindowsFoundation.IInspectable {
+    public class ICompositionObject: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject }
 
         public func get_Compositor() throws -> UWP.Compositor? {
@@ -4869,15 +4871,17 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xEF874EA1, Data2: 0x5CFF, Data3: 0x4B68, Data4: ( 0x9E,0x30,0xA1,0x51,0x9D,0x08,0xBA,0x03 ) // EF874EA1-5CFF-4B68-9E30-A1519D08BA03
     ) 
 
-    public class ICompositionObject2: WindowsFoundation.IInspectable {
+    public class ICompositionObject2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject2 }
 
         public func get_Comment() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CComposition_CICompositionObject2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Comment(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -4925,7 +4929,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x4BC27925, Data2: 0xDACD, Data3: 0x4CF2, Data4: ( 0x98,0xB1,0x98,0x6B,0x76,0xE7,0xEB,0xE6 ) // 4BC27925-DACD-4CF2-98B1-986B76E7EBE6
     ) 
 
-    public class ICompositionObject3: WindowsFoundation.IInspectable {
+    public class ICompositionObject3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject3 }
 
         public func get_DispatcherQueue() throws -> UWP.DispatcherQueue? {
@@ -4943,7 +4947,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0BB3784C, Data2: 0x346B, Data3: 0x4A7C, Data4: ( 0x96,0x6B,0x73,0x10,0x96,0x65,0x53,0xD5 ) // 0BB3784C-346B-4A7C-966B-7310966553D5
     ) 
 
-    public class ICompositionObject4: WindowsFoundation.IInspectable {
+    public class ICompositionObject4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject4 }
 
         public func TryGetAnimationController(_ propertyName: String) throws -> UWP.AnimationController? {
@@ -4962,7 +4966,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x51205C5E, Data2: 0x558A, Data3: 0x4F2A, Data4: ( 0x8D,0x39,0x37,0xBF,0xE1,0xE2,0x0D,0xDD ) // 51205C5E-558A-4F2A-8D39-37BFE1E20DDD
     ) 
 
-    public class ICompositionObjectFactory: WindowsFoundation.IInspectable {
+    public class ICompositionObjectFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionObjectFactory }
 
     }
@@ -4971,7 +4975,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xC1ED052F, Data2: 0x1BA2, Data3: 0x44BA, Data4: ( 0xA9,0x04,0x6A,0x88,0x2A,0x0A,0x5A,0xDB ) // C1ED052F-1BA2-44BA-A904-6A882A0A5ADB
     ) 
 
-    public class ICompositionObjectStatics: WindowsFoundation.IInspectable {
+    public class ICompositionObjectStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionObjectStatics }
 
         public func StartAnimationWithIAnimationObject(_ target: UWP.AnyIAnimationObject?, _ propertyName: String, _ animation: UWP.CompositionAnimation?) throws {
@@ -4999,7 +5003,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionPath
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionpath)
-public final class CompositionPath : WinRTClass, UWP.IGeometrySource2D {
+public final class CompositionPath : WinRTClass, @unchecked Sendable, UWP.IGeometrySource2D {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionPath
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionPath
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5058,7 +5062,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x66DA1D5F, Data2: 0x2E10, Data3: 0x4F22, Data4: ( 0x8A,0x06,0x0A,0x81,0x51,0x91,0x9E,0x60 ) // 66DA1D5F-2E10-4F22-8A06-0A8151919E60
     ) 
 
-    public class ICompositionPath: WindowsFoundation.IInspectable {
+    public class ICompositionPath: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionPath }
 
     }
@@ -5067,7 +5071,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x9C1E8C6A, Data2: 0x0F33, Data3: 0x4751, Data4: ( 0x94,0x37,0xEB,0x3F,0xB9,0xD3,0xAB,0x07 ) // 9C1E8C6A-0F33-4751-9437-EB3FB9D3AB07
     ) 
 
-    public class ICompositionPathFactory: WindowsFoundation.IInspectable {
+    public class ICompositionPathFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionPathFactory }
 
         public func Create(_ source: UWP.AnyIGeometrySource2D?) throws -> ICompositionPath {
@@ -5087,7 +5091,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionPathGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionpathgeometry)
-public final class CompositionPathGeometry : UWP.CompositionGeometry {
+public final class CompositionPathGeometry : UWP.CompositionGeometry, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionPathGeometry
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionPathGeometry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5142,7 +5146,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0B6A417E, Data2: 0x2C77, Data3: 0x4C23, Data4: ( 0xAF,0x5E,0x63,0x04,0xC1,0x47,0xBB,0x61 ) // 0B6A417E-2C77-4C23-AF5E-6304C147BB61
     ) 
 
-    public class ICompositionPathGeometry: WindowsFoundation.IInspectable {
+    public class ICompositionPathGeometry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionPathGeometry }
 
         public func get_Path() throws -> UWP.CompositionPath? {
@@ -5166,7 +5170,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionProjectedShadow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionprojectedshadow)
-public final class CompositionProjectedShadow : UWP.CompositionObject {
+public final class CompositionProjectedShadow : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionProjectedShadow
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadow
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5249,7 +5253,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x285B8E72, Data2: 0x4328, Data3: 0x523F, Data4: ( 0xBC,0xF2,0x55,0x57,0xC5,0x2C,0x3B,0x25 ) // 285B8E72-4328-523F-BCF2-5557C52C3B25
     ) 
 
-    public class ICompositionProjectedShadow: WindowsFoundation.IInspectable {
+    public class ICompositionProjectedShadow: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadow }
 
         public func get_BlurRadiusMultiplier() throws -> Float {
@@ -5333,7 +5337,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionProjectedShadowCaster
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionprojectedshadowcaster)
-public final class CompositionProjectedShadowCaster : UWP.CompositionObject {
+public final class CompositionProjectedShadowCaster : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionProjectedShadowCaster
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowCaster
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5394,7 +5398,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xB1D7D426, Data2: 0x1E36, Data3: 0x5A62, Data4: ( 0xBE,0x56,0xA1,0x61,0x12,0xFD,0xD1,0x48 ) // B1D7D426-1E36-5A62-BE56-A16112FDD148
     ) 
 
-    public class ICompositionProjectedShadowCaster: WindowsFoundation.IInspectable {
+    public class ICompositionProjectedShadowCaster: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowCaster }
 
         public func get_Brush() throws -> UWP.CompositionBrush? {
@@ -5433,7 +5437,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionProjectedShadowCasterCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionprojectedshadowcastercollection)
-public final class CompositionProjectedShadowCasterCollection : UWP.CompositionObject, IIterable {
+public final class CompositionProjectedShadowCasterCollection : UWP.CompositionObject, @unchecked Sendable, IIterable {
     public typealias T = CompositionProjectedShadowCaster?
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionProjectedShadowCasterCollection
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowCasterCollection
@@ -5534,7 +5538,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xD2525C0C, Data2: 0xE07F, Data3: 0x58A3, Data4: ( 0xAC,0x91,0x37,0xF7,0x3E,0xE9,0x17,0x40 ) // D2525C0C-E07F-58A3-AC91-37F73EE91740
     ) 
 
-    public class ICompositionProjectedShadowCasterCollection: WindowsFoundation.IInspectable {
+    public class ICompositionProjectedShadowCasterCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowCasterCollection }
 
         public func get_Count() throws -> Int32 {
@@ -5587,7 +5591,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x56FBB136, Data2: 0xE94F, Data3: 0x5299, Data4: ( 0xAB,0x5B,0x6E,0x15,0xE3,0x8B,0xD8,0x99 ) // 56FBB136-E94F-5299-AB5B-6E15E38BD899
     ) 
 
-    public class ICompositionProjectedShadowCasterCollectionStatics: WindowsFoundation.IInspectable {
+    public class ICompositionProjectedShadowCasterCollectionStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowCasterCollectionStatics }
 
         public func get_MaxRespectedCasters() throws -> Int32 {
@@ -5604,7 +5608,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionProjectedShadowReceiver
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionprojectedshadowreceiver)
-public final class CompositionProjectedShadowReceiver : UWP.CompositionObject {
+public final class CompositionProjectedShadowReceiver : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionProjectedShadowReceiver
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowReceiver
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5659,7 +5663,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x1377985A, Data2: 0x6A49, Data3: 0x536A, Data4: ( 0x9B,0xE4,0xA9,0x6A,0x8E,0x52,0x98,0xA9 ) // 1377985A-6A49-536A-9BE4-A96A8E5298A9
     ) 
 
-    public class ICompositionProjectedShadowReceiver: WindowsFoundation.IInspectable {
+    public class ICompositionProjectedShadowReceiver: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowReceiver }
 
         public func get_ReceivingVisual() throws -> UWP.Visual? {
@@ -5683,7 +5687,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionProjectedShadowReceiverUnorderedCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionprojectedshadowreceiverunorderedcollection)
-public final class CompositionProjectedShadowReceiverUnorderedCollection : UWP.CompositionObject, IIterable {
+public final class CompositionProjectedShadowReceiverUnorderedCollection : UWP.CompositionObject, @unchecked Sendable, IIterable {
     public typealias T = CompositionProjectedShadowReceiver?
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionProjectedShadowReceiverUnorderedCollection
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection
@@ -5763,7 +5767,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x02B3E3B7, Data2: 0x27D2, Data3: 0x599F, Data4: ( 0xAC,0x4B,0xAB,0x78,0x7C,0xDD,0xE6,0xFD ) // 02B3E3B7-27D2-599F-AC4B-AB787CDDE6FD
     ) 
 
-    public class ICompositionProjectedShadowReceiverUnorderedCollection: WindowsFoundation.IInspectable {
+    public class ICompositionProjectedShadowReceiverUnorderedCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionProjectedShadowReceiverUnorderedCollection }
 
         public func Add(_ value: UWP.CompositionProjectedShadowReceiver?) throws {
@@ -5798,7 +5802,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionPropertySet
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionpropertyset)
-public final class CompositionPropertySet : UWP.CompositionObject {
+public final class CompositionPropertySet : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionPropertySet
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionPropertySet
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5939,7 +5943,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xC9D6D202, Data2: 0x5F67, Data3: 0x4453, Data4: ( 0x91,0x17,0x9E,0xAD,0xD4,0x30,0xD3,0xC2 ) // C9D6D202-5F67-4453-9117-9EADD430D3C2
     ) 
 
-    public class ICompositionPropertySet: WindowsFoundation.IInspectable {
+    public class ICompositionPropertySet: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionPropertySet }
 
         public func InsertColor(_ propertyName: String, _ value: UWP.Color) throws {
@@ -6090,7 +6094,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xDE80731E, Data2: 0xA211, Data3: 0x4455, Data4: ( 0x88,0x80,0x7D,0x0F,0x3F,0x6A,0x44,0xFD ) // DE80731E-A211-4455-8880-7D0F3F6A44FD
     ) 
 
-    public class ICompositionPropertySet2: WindowsFoundation.IInspectable {
+    public class ICompositionPropertySet2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionPropertySet2 }
 
         public func InsertBoolean(_ propertyName: String, _ value: Bool) throws {
@@ -6117,7 +6121,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionRadialGradientBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionradialgradientbrush)
-public final class CompositionRadialGradientBrush : UWP.CompositionGradientBrush {
+public final class CompositionRadialGradientBrush : UWP.CompositionGradientBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionRadialGradientBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionRadialGradientBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6184,7 +6188,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x3D3B50C5, Data2: 0xE3FA, Data3: 0x4CE2, Data4: ( 0xB9,0xFC,0x3E,0xE1,0x25,0x61,0x78,0x8F ) // 3D3B50C5-E3FA-4CE2-B9FC-3EE12561788F
     ) 
 
-    public class ICompositionRadialGradientBrush: WindowsFoundation.IInspectable {
+    public class ICompositionRadialGradientBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionRadialGradientBrush }
 
         public func get_EllipseCenter() throws -> WindowsFoundation.Vector2 {
@@ -6235,7 +6239,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionRectangleGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionrectanglegeometry)
-public final class CompositionRectangleGeometry : UWP.CompositionGeometry {
+public final class CompositionRectangleGeometry : UWP.CompositionGeometry, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionRectangleGeometry
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionRectangleGeometry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6296,7 +6300,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0CD51428, Data2: 0x5356, Data3: 0x4246, Data4: ( 0xAE,0xCF,0x7A,0x0B,0x76,0x97,0x54,0x00 ) // 0CD51428-5356-4246-AECF-7A0B76975400
     ) 
 
-    public class ICompositionRectangleGeometry: WindowsFoundation.IInspectable {
+    public class ICompositionRectangleGeometry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionRectangleGeometry }
 
         public func get_Offset() throws -> WindowsFoundation.Vector2 {
@@ -6333,7 +6337,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionRoundedRectangleGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionroundedrectanglegeometry)
-public final class CompositionRoundedRectangleGeometry : UWP.CompositionGeometry {
+public final class CompositionRoundedRectangleGeometry : UWP.CompositionGeometry, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionRoundedRectangleGeometry
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionRoundedRectangleGeometry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6400,7 +6404,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x8770C822, Data2: 0x1D50, Data3: 0x4B8B, Data4: ( 0xB0,0x13,0x7C,0x9A,0x0E,0x46,0x93,0x5F ) // 8770C822-1D50-4B8B-B013-7C9A0E46935F
     ) 
 
-    public class ICompositionRoundedRectangleGeometry: WindowsFoundation.IInspectable {
+    public class ICompositionRoundedRectangleGeometry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionRoundedRectangleGeometry }
 
         public func get_CornerRadius() throws -> WindowsFoundation.Vector2 {
@@ -6451,7 +6455,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionScopedBatch
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionscopedbatch)
-public final class CompositionScopedBatch : UWP.CompositionObject {
+public final class CompositionScopedBatch : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionScopedBatch
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionScopedBatch
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6538,7 +6542,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0D00DAD0, Data2: 0xFB07, Data3: 0x46FD, Data4: ( 0x8C,0x72,0x62,0x80,0xD1,0xA3,0xD1,0xDD ) // 0D00DAD0-FB07-46FD-8C72-6280D1A3D1DD
     ) 
 
-    public class ICompositionScopedBatch: WindowsFoundation.IInspectable {
+    public class ICompositionScopedBatch: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionScopedBatch }
 
         public func get_IsActive() throws -> Bool {
@@ -6597,7 +6601,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionShadow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionshadow)
-open class CompositionShadow : UWP.CompositionObject {
+open class CompositionShadow : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionShadow
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionShadow
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6624,7 +6628,7 @@ open class CompositionShadow : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionShadowFactory : __ABI_Windows_UI_Composition.ICompositionShadowFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionShadow")
+    private static nonisolated(unsafe) var _ICompositionShadowFactory : __ABI_Windows_UI_Composition.ICompositionShadowFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionShadow")
 
     deinit {
         _default = nil
@@ -6670,7 +6674,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x329E52E2, Data2: 0x4335, Data3: 0x49CC, Data4: ( 0xB1,0x4A,0x37,0x78,0x2D,0x10,0xF0,0xC4 ) // 329E52E2-4335-49CC-B14A-37782D10F0C4
     ) 
 
-    public class ICompositionShadow: WindowsFoundation.IInspectable {
+    public class ICompositionShadow: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionShadow }
 
     }
@@ -6679,7 +6683,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x221F492F, Data2: 0xDCBA, Data3: 0x4B91, Data4: ( 0x99,0x9E,0x1D,0xC2,0x17,0xA0,0x15,0x30 ) // 221F492F-DCBA-4B91-999E-1DC217A01530
     ) 
 
-    public class ICompositionShadowFactory: WindowsFoundation.IInspectable {
+    public class ICompositionShadowFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionShadowFactory }
 
     }
@@ -6688,7 +6692,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionShape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionshape)
-open class CompositionShape : UWP.CompositionObject {
+open class CompositionShape : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionShape
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionShape
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6715,7 +6719,7 @@ open class CompositionShape : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionShapeFactory : __ABI_Windows_UI_Composition.ICompositionShapeFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionShape")
+    private static nonisolated(unsafe) var _ICompositionShapeFactory : __ABI_Windows_UI_Composition.ICompositionShapeFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionShape")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionshape.centerpoint)
     public var centerPoint : WindowsFoundation.Vector2 {
@@ -6797,7 +6801,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xB47CE2F7, Data2: 0x9A88, Data3: 0x42C4, Data4: ( 0x9E,0x87,0x2E,0x50,0x0C,0xA8,0x68,0x8C ) // B47CE2F7-9A88-42C4-9E87-2E500CA8688C
     ) 
 
-    public class ICompositionShape: WindowsFoundation.IInspectable {
+    public class ICompositionShape: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionShape }
 
         public func get_CenterPoint() throws -> WindowsFoundation.Vector2 {
@@ -6890,7 +6894,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x1DFC36D0, Data2: 0xB05A, Data3: 0x44EF, Data4: ( 0x82,0xB0,0x12,0x11,0x8B,0xCD,0x4C,0xD0 ) // 1DFC36D0-B05A-44EF-82B0-12118BCD4CD0
     ) 
 
-    public class ICompositionShapeFactory: WindowsFoundation.IInspectable {
+    public class ICompositionShapeFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionShapeFactory }
 
     }
@@ -6899,7 +6903,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionShapeCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionshapecollection)
-public final class CompositionShapeCollection : UWP.CompositionObject, IVector, IIterable {
+public final class CompositionShapeCollection : UWP.CompositionObject, @unchecked Sendable, IVector, IIterable {
     public typealias T = CompositionShape?
     private typealias SwiftABI = UWP.IVectorCompositionShape
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CWindows__CUI__CComposition__CCompositionShape
@@ -7050,7 +7054,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionSpriteShape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionspriteshape)
-public final class CompositionSpriteShape : UWP.CompositionShape {
+public final class CompositionSpriteShape : UWP.CompositionShape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionSpriteShape
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShape
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7170,7 +7174,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x401B61BB, Data2: 0x0007, Data3: 0x4363, Data4: ( 0xB1,0xF3,0x6B,0xCC,0x00,0x3F,0xB8,0x3E ) // 401B61BB-0007-4363-B1F3-6BCC003FB83E
     ) 
 
-    public class ICompositionSpriteShape: WindowsFoundation.IInspectable {
+    public class ICompositionSpriteShape: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShape }
 
         public func get_FillBrush() throws -> UWP.CompositionBrush? {
@@ -7345,7 +7349,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionStrokeDashArray
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionstrokedasharray)
-public final class CompositionStrokeDashArray : UWP.CompositionObject, IVector, IIterable {
+public final class CompositionStrokeDashArray : UWP.CompositionObject, @unchecked Sendable, IVector, IIterable {
     public typealias T = Float
     private typealias SwiftABI = UWP.IVectorFloat
     private typealias CABI = __x_ABI_C__FIVector_1_float
@@ -7496,7 +7500,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionSurfaceBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionsurfacebrush)
-public final class CompositionSurfaceBrush : UWP.CompositionBrush {
+public final class CompositionSurfaceBrush : UWP.CompositionBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionSurfaceBrush
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7627,7 +7631,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xAD016D79, Data2: 0x1E4C, Data3: 0x4C0D, Data4: ( 0x9C,0x29,0x83,0x33,0x8C,0x87,0xC1,0x62 ) // AD016D79-1E4C-4C0D-9C29-83338C87C162
     ) 
 
-    public class ICompositionSurfaceBrush: WindowsFoundation.IInspectable {
+    public class ICompositionSurfaceBrush: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush }
 
         public func get_BitmapInterpolationMode() throws -> UWP.CompositionBitmapInterpolationMode {
@@ -7709,7 +7713,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xD27174D5, Data2: 0x64F5, Data3: 0x4692, Data4: ( 0x9D,0xC7,0x71,0xB6,0x1D,0x7E,0x58,0x80 ) // D27174D5-64F5-4692-9DC7-71B61D7E5880
     ) 
 
-    public class ICompositionSurfaceBrush2: WindowsFoundation.IInspectable {
+    public class ICompositionSurfaceBrush2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush2 }
 
         public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
@@ -7816,7 +7820,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x550BB289, Data2: 0x1FE0, Data3: 0x42E5, Data4: ( 0x81,0x95,0x1E,0xEF,0xA8,0x7F,0xF0,0x8E ) // 550BB289-1FE0-42E5-8195-1EEFA87FF08E
     ) 
 
-    public class ICompositionSurfaceBrush3: WindowsFoundation.IInspectable {
+    public class ICompositionSurfaceBrush3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3 }
 
         public func get_SnapToPixels() throws -> Bool {
@@ -7839,7 +7843,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionTarget
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositiontarget)
-open class CompositionTarget : UWP.CompositionObject {
+open class CompositionTarget : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionTarget
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionTarget
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7866,7 +7870,7 @@ open class CompositionTarget : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICompositionTargetFactory : __ABI_Windows_UI_Composition.ICompositionTargetFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionTarget")
+    private static nonisolated(unsafe) var _ICompositionTargetFactory : __ABI_Windows_UI_Composition.ICompositionTargetFactory =  try! RoGetActivationFactory("Windows.UI.Composition.CompositionTarget")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositiontarget.root)
     public var root : Visual! {
@@ -7918,7 +7922,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xA1BEA8BA, Data2: 0xD726, Data3: 0x4663, Data4: ( 0x81,0x29,0x6B,0x5E,0x79,0x27,0xFF,0xA6 ) // A1BEA8BA-D726-4663-8129-6B5E7927FFA6
     ) 
 
-    public class ICompositionTarget: WindowsFoundation.IInspectable {
+    public class ICompositionTarget: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionTarget }
 
         public func get_Root() throws -> UWP.Visual? {
@@ -7942,7 +7946,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x93CD9D2B, Data2: 0x8516, Data3: 0x4B14, Data4: ( 0xA8,0xCE,0xF4,0x9E,0x21,0x19,0xEC,0x42 ) // 93CD9D2B-8516-4B14-A8CE-F49E2119EC42
     ) 
 
-    public class ICompositionTargetFactory: WindowsFoundation.IInspectable {
+    public class ICompositionTargetFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionTargetFactory }
 
     }
@@ -7951,7 +7955,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionViewBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionviewbox)
-public final class CompositionViewBox : UWP.CompositionObject {
+public final class CompositionViewBox : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionViewBox
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionViewBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -8030,7 +8034,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xB440BF07, Data2: 0x068F, Data3: 0x4537, Data4: ( 0x84,0xC6,0x4E,0xCB,0xE0,0x19,0xE1,0xF4 ) // B440BF07-068F-4537-84C6-4ECBE019E1F4
     ) 
 
-    public class ICompositionViewBox: WindowsFoundation.IInspectable {
+    public class ICompositionViewBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionViewBox }
 
         public func get_HorizontalAlignmentRatio() throws -> Float {
@@ -8109,7 +8113,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CompositionVisualSurface
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositionvisualsurface)
-public final class CompositionVisualSurface : UWP.CompositionObject, ICompositionSurface {
+public final class CompositionVisualSurface : UWP.CompositionObject, @unchecked Sendable, ICompositionSurface {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositionVisualSurface
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositionVisualSurface
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -8181,7 +8185,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xB224D803, Data2: 0x4F6E, Data3: 0x4A3F, Data4: ( 0x8C,0xAE,0x3D,0xC1,0xCD,0xA7,0x4F,0xC6 ) // B224D803-4F6E-4A3F-8CAE-3DC1CDA74FC6
     ) 
 
-    public class ICompositionVisualSurface: WindowsFoundation.IInspectable {
+    public class ICompositionVisualSurface: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositionVisualSurface }
 
         public func get_SourceVisual() throws -> UWP.Visual? {
@@ -8233,7 +8237,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - Compositor
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.compositor)
-public final class Compositor : WinRTClass, WindowsFoundation.IClosable {
+public final class Compositor : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICompositor
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICompositor
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -8686,7 +8690,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xB403CA50, Data2: 0x7F8C, Data3: 0x4E83, Data4: ( 0x98,0x5F,0xCC,0x45,0x06,0x00,0x36,0xD8 ) // B403CA50-7F8C-4E83-985F-CC45060036D8
     ) 
 
-    public class ICompositor: WindowsFoundation.IInspectable {
+    public class ICompositor: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositor }
 
         public func CreateColorKeyFrameAnimation() throws -> UWP.ColorKeyFrameAnimation? {
@@ -8920,7 +8924,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x735081DC, Data2: 0x5E24, Data3: 0x45DA, Data4: ( 0xA3,0x8F,0xE3,0x2C,0xC3,0x49,0xA9,0xA0 ) // 735081DC-5E24-45DA-A38F-E32CC349A9A0
     ) 
 
-    public class ICompositor2: WindowsFoundation.IInspectable {
+    public class ICompositor2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositor2 }
 
         public func CreateAmbientLight() throws -> UWP.AmbientLight? {
@@ -9046,7 +9050,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xC9DD8EF0, Data2: 0x6EB1, Data3: 0x4E3C, Data4: ( 0xA6,0x58,0x67,0x5D,0x9C,0x64,0xD4,0xAB ) // C9DD8EF0-6EB1-4E3C-A658-675D9C64D4AB
     ) 
 
-    public class ICompositor3: WindowsFoundation.IInspectable {
+    public class ICompositor3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositor3 }
 
         public func CreateHostBackdropBrush() throws -> UWP.CompositionBackdropBrush? {
@@ -9064,7 +9068,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xAE47E78A, Data2: 0x7910, Data3: 0x4425, Data4: ( 0xA4,0x82,0xA0,0x5B,0x75,0x8A,0xDC,0xE9 ) // AE47E78A-7910-4425-A482-A05B758ADCE9
     ) 
 
-    public class ICompositor4: WindowsFoundation.IInspectable {
+    public class ICompositor4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositor4 }
 
         public func CreateColorGradientStop() throws -> UWP.CompositionColorGradientStop? {
@@ -9127,15 +9131,17 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x48EA31AD, Data2: 0x7FCD, Data3: 0x4076, Data4: ( 0xA7,0x9C,0x90,0xCC,0x4B,0x85,0x2C,0x9B ) // 48EA31AD-7FCD-4076-A79C-90CC4B852C9B
     ) 
 
-    public class ICompositor5: WindowsFoundation.IInspectable {
+    public class ICompositor5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositor5 }
 
         public func get_Comment() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CComposition_CICompositor5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Comment(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -9310,7 +9316,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x7A38B2BD, Data2: 0xCEC8, Data3: 0x4EEB, Data4: ( 0x83,0x0F,0xD8,0xD0,0x7A,0xED,0xEB,0xC3 ) // 7A38B2BD-CEC8-4EEB-830F-D8D07AEDEBC3
     ) 
 
-    public class ICompositor6: WindowsFoundation.IInspectable {
+    public class ICompositor6: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositor6 }
 
         public func CreateGeometricClip() throws -> UWP.CompositionGeometricClip? {
@@ -9364,7 +9370,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xA2E6330E, Data2: 0x8A60, Data3: 0x5A38, Data4: ( 0xBB,0x85,0xB4,0x4E,0xA9,0x01,0x67,0x7C ) // A2E6330E-8A60-5A38-BB85-B44EA901677C
     ) 
 
-    public class ICompositorWithProjectedShadow: WindowsFoundation.IInspectable {
+    public class ICompositorWithProjectedShadow: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositorWithProjectedShadow }
 
         public func CreateProjectedShadowCaster() throws -> UWP.CompositionProjectedShadowCaster? {
@@ -9400,7 +9406,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x98B9C1A7, Data2: 0x8E71, Data3: 0x4B53, Data4: ( 0xB4,0xA8,0x69,0xBA,0x5D,0x19,0xDC,0x5B ) // 98B9C1A7-8E71-4B53-B4A8-69BA5D19DC5B
     ) 
 
-    public class ICompositorWithRadialGradient: WindowsFoundation.IInspectable {
+    public class ICompositorWithRadialGradient: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositorWithRadialGradient }
 
         public func CreateRadialGradientBrush() throws -> UWP.CompositionRadialGradientBrush? {
@@ -9418,7 +9424,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xCFA1658B, Data2: 0x0123, Data3: 0x4551, Data4: ( 0x88,0x91,0x89,0xBD,0xCC,0x40,0x32,0x2B ) // CFA1658B-0123-4551-8891-89BDCC40322B
     ) 
 
-    public class ICompositorWithVisualSurface: WindowsFoundation.IInspectable {
+    public class ICompositorWithVisualSurface: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositorWithVisualSurface }
 
         public func CreateVisualSurface() throws -> UWP.CompositionVisualSurface? {
@@ -9436,7 +9442,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x080DB93E, Data2: 0x121E, Data3: 0x4D97, Data4: ( 0x8B,0x74,0x1D,0xFC,0xF9,0x19,0x87,0xEA ) // 080DB93E-121E-4D97-8B74-1DFCF91987EA
     ) 
 
-    public class ICompositorStatics: WindowsFoundation.IInspectable {
+    public class ICompositorStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICompositorStatics }
 
         public func get_MaxGlobalPlaybackRate() throws -> Float {
@@ -9461,7 +9467,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - ContainerVisual
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.containervisual)
-open class ContainerVisual : UWP.Visual {
+open class ContainerVisual : UWP.Visual, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IContainerVisual
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIContainerVisual
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -9488,7 +9494,7 @@ open class ContainerVisual : UWP.Visual {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IContainerVisualFactory : __ABI_Windows_UI_Composition.IContainerVisualFactory =  try! RoGetActivationFactory("Windows.UI.Composition.ContainerVisual")
+    private static nonisolated(unsafe) var _IContainerVisualFactory : __ABI_Windows_UI_Composition.IContainerVisualFactory =  try! RoGetActivationFactory("Windows.UI.Composition.ContainerVisual")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.containervisual.children)
     public var children : VisualCollection! {
@@ -9539,7 +9545,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x02F6BC74, Data2: 0xED20, Data3: 0x4773, Data4: ( 0xAF,0xE6,0xD4,0x9B,0x4A,0x93,0xDB,0x32 ) // 02F6BC74-ED20-4773-AFE6-D49B4A93DB32
     ) 
 
-    public class IContainerVisual: WindowsFoundation.IInspectable {
+    public class IContainerVisual: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIContainerVisual }
 
         public func get_Children() throws -> UWP.VisualCollection? {
@@ -9557,7 +9563,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0363A65B, Data2: 0xC7DA, Data3: 0x4D9A, Data4: ( 0x95,0xF4,0x69,0xB5,0xC8,0xDF,0x67,0x0B ) // 0363A65B-C7DA-4D9A-95F4-69B5C8DF670B
     ) 
 
-    public class IContainerVisualFactory: WindowsFoundation.IInspectable {
+    public class IContainerVisualFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIContainerVisualFactory }
 
     }
@@ -9566,7 +9572,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - CubicBezierEasingFunction
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.cubicbeziereasingfunction)
-public final class CubicBezierEasingFunction : UWP.CompositionEasingFunction {
+public final class CubicBezierEasingFunction : UWP.CompositionEasingFunction, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ICubicBezierEasingFunction
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -9625,7 +9631,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x32350666, Data2: 0xC1E8, Data3: 0x44F9, Data4: ( 0x96,0xB8,0xC9,0x8A,0xCF,0x0A,0xE6,0x98 ) // 32350666-C1E8-44F9-96B8-C98ACF0AE698
     ) 
 
-    public class ICubicBezierEasingFunction: WindowsFoundation.IInspectable {
+    public class ICubicBezierEasingFunction: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction }
 
         public func get_ControlPoint1() throws -> WindowsFoundation.Vector2 {
@@ -9650,7 +9656,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - DistantLight
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.distantlight)
-public final class DistantLight : UWP.CompositionLight {
+public final class DistantLight : UWP.CompositionLight, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IDistantLight
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIDistantLight
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -9725,7 +9731,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x318CFAFC, Data2: 0x5CE3, Data3: 0x4B55, Data4: ( 0xAB,0x5D,0x07,0xA0,0x03,0x53,0xAC,0x99 ) // 318CFAFC-5CE3-4B55-AB5D-07A00353AC99
     ) 
 
-    public class IDistantLight: WindowsFoundation.IInspectable {
+    public class IDistantLight: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIDistantLight }
 
         public func get_Color() throws -> UWP.Color {
@@ -9777,7 +9783,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xDBCDAA1C, Data2: 0x294B, Data3: 0x48D7, Data4: ( 0xB6,0x0E,0x76,0xDF,0x64,0xAA,0x39,0x2B ) // DBCDAA1C-294B-48D7-B60E-76DF64AA392B
     ) 
 
-    public class IDistantLight2: WindowsFoundation.IInspectable {
+    public class IDistantLight2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIDistantLight2 }
 
         public func get_Intensity() throws -> Float {
@@ -9800,7 +9806,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - DropShadow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.dropshadow)
-public final class DropShadow : UWP.CompositionShadow {
+public final class DropShadow : UWP.CompositionShadow, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IDropShadow
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIDropShadow
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -9887,7 +9893,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xCB977C07, Data2: 0xA154, Data3: 0x4851, Data4: ( 0x85,0xE7,0xA8,0x92,0x4C,0x84,0xFA,0xD8 ) // CB977C07-A154-4851-85E7-A8924C84FAD8
     ) 
 
-    public class IDropShadow: WindowsFoundation.IInspectable {
+    public class IDropShadow: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIDropShadow }
 
         public func get_BlurRadius() throws -> Float {
@@ -9967,7 +9973,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x6C4218BC, Data2: 0x15B9, Data3: 0x4C2D, Data4: ( 0x8D,0x4A,0x07,0x67,0xDF,0x11,0x97,0x7A ) // 6C4218BC-15B9-4C2D-8D4A-0767DF11977A
     ) 
 
-    public class IDropShadow2: WindowsFoundation.IInspectable {
+    public class IDropShadow2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIDropShadow2 }
 
         public func get_SourcePolicy() throws -> UWP.CompositionDropShadowSourcePolicy {
@@ -9990,7 +9996,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - ExpressionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.expressionanimation)
-public final class ExpressionAnimation : UWP.CompositionAnimation {
+public final class ExpressionAnimation : UWP.CompositionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IExpressionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -10045,15 +10051,17 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x6ACC5431, Data2: 0x7D3D, Data3: 0x4BF3, Data4: ( 0xAB,0xB6,0xF4,0x4B,0xDC,0x48,0x88,0xC1 ) // 6ACC5431-7D3D-4BF3-ABB6-F44BDC4888C1
     ) 
 
-    public class IExpressionAnimation: WindowsFoundation.IInspectable {
+    public class IExpressionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation }
 
         public func get_Expression() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Expression(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -10070,7 +10078,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - ImplicitAnimationCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.implicitanimationcollection)
-public final class ImplicitAnimationCollection : UWP.CompositionObject, IMap, IIterable {
+public final class ImplicitAnimationCollection : UWP.CompositionObject, @unchecked Sendable, IMap, IIterable {
     public typealias K = String
     public typealias V = AnyICompositionAnimationBase?
     public typealias T = WindowsFoundation.AnyIKeyValuePair<String, AnyICompositionAnimationBase?>?
@@ -10169,7 +10177,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0598A3FF, Data2: 0x0A92, Data3: 0x4C9D, Data4: ( 0xA4,0x27,0xB2,0x55,0x19,0x25,0x0D,0xBF ) // 0598A3FF-0A92-4C9D-A427-B25519250DBF
     ) 
 
-    public class IImplicitAnimationCollection: WindowsFoundation.IInspectable {
+    public class IImplicitAnimationCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIImplicitAnimationCollection }
 
     }
@@ -10178,7 +10186,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - InitialValueExpressionCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.initialvalueexpressioncollection)
-public final class InitialValueExpressionCollection : UWP.CompositionObject, IMap, IIterable {
+public final class InitialValueExpressionCollection : UWP.CompositionObject, @unchecked Sendable, IMap, IIterable {
     public typealias K = String
     public typealias V = String
     public typealias T = WindowsFoundation.AnyIKeyValuePair<String, String>?
@@ -10275,7 +10283,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - InsetClip
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.insetclip)
-public final class InsetClip : UWP.CompositionClip {
+public final class InsetClip : UWP.CompositionClip, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IInsetClip
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIInsetClip
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -10348,7 +10356,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x1E73E647, Data2: 0x84C7, Data3: 0x477A, Data4: ( 0xB4,0x74,0x58,0x80,0xE0,0x44,0x2E,0x15 ) // 1E73E647-84C7-477A-B474-5880E0442E15
     ) 
 
-    public class IInsetClip: WindowsFoundation.IInspectable {
+    public class IInsetClip: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIInsetClip }
 
         public func get_BottomInset() throws -> Float {
@@ -10413,7 +10421,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - KeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.keyframeanimation)
-open class KeyFrameAnimation : UWP.CompositionAnimation {
+open class KeyFrameAnimation : UWP.CompositionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IKeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIKeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -10440,7 +10448,7 @@ open class KeyFrameAnimation : UWP.CompositionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IKeyFrameAnimationFactory : __ABI_Windows_UI_Composition.IKeyFrameAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.KeyFrameAnimation")
+    private static nonisolated(unsafe) var _IKeyFrameAnimationFactory : __ABI_Windows_UI_Composition.IKeyFrameAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.KeyFrameAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.keyframeanimation.insertexpressionkeyframe)
     public func insertExpressionKeyFrame(_ normalizedProgressKey: Float, _ value: String) throws {
@@ -10547,7 +10555,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x126E7F22, Data2: 0x3AE9, Data3: 0x4540, Data4: ( 0x9A,0x8A,0xDE,0xAE,0x8A,0x4A,0x4A,0x84 ) // 126E7F22-3AE9-4540-9A8A-DEAE8A4A4A84
     ) 
 
-    public class IKeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IKeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIKeyFrameAnimation }
 
         public func get_DelayTime() throws -> WindowsFoundation.TimeSpan {
@@ -10648,7 +10656,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xF4B488BB, Data2: 0x2940, Data3: 0x4EC0, Data4: ( 0xA4,0x1A,0xEB,0x6D,0x80,0x1A,0x2F,0x18 ) // F4B488BB-2940-4EC0-A41A-EB6D801A2F18
     ) 
 
-    public class IKeyFrameAnimation2: WindowsFoundation.IInspectable {
+    public class IKeyFrameAnimation2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIKeyFrameAnimation2 }
 
         public func get_Direction() throws -> UWP.AnimationDirection {
@@ -10671,7 +10679,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x845BF0B4, Data2: 0xD8DE, Data3: 0x462F, Data4: ( 0x87,0x53,0xC8,0x0D,0x43,0xC6,0xFF,0x5A ) // 845BF0B4-D8DE-462F-8753-C80D43C6FF5A
     ) 
 
-    public class IKeyFrameAnimation3: WindowsFoundation.IInspectable {
+    public class IKeyFrameAnimation3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIKeyFrameAnimation3 }
 
         public func get_DelayBehavior() throws -> UWP.AnimationDelayBehavior {
@@ -10694,7 +10702,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xBF0803F8, Data2: 0x712A, Data3: 0x4FC1, Data4: ( 0x8C,0x87,0x97,0x08,0x59,0xED,0x8D,0x2E ) // BF0803F8-712A-4FC1-8C87-970859ED8D2E
     ) 
 
-    public class IKeyFrameAnimationFactory: WindowsFoundation.IInspectable {
+    public class IKeyFrameAnimationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIKeyFrameAnimationFactory }
 
     }
@@ -10703,7 +10711,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - LayerVisual
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.layervisual)
-public final class LayerVisual : UWP.ContainerVisual {
+public final class LayerVisual : UWP.ContainerVisual, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ILayerVisual
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CILayerVisual
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -10766,7 +10774,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xAF843985, Data2: 0x0444, Data3: 0x4887, Data4: ( 0x8E,0x83,0xB4,0x0B,0x25,0x3F,0x82,0x2C ) // AF843985-0444-4887-8E83-B40B253F822C
     ) 
 
-    public class ILayerVisual: WindowsFoundation.IInspectable {
+    public class ILayerVisual: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CILayerVisual }
 
         public func get_Effect() throws -> UWP.CompositionEffectBrush? {
@@ -10790,7 +10798,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x98F9AEEB, Data2: 0x6F23, Data3: 0x49F1, Data4: ( 0x90,0xB1,0x1F,0x59,0xA1,0x4F,0xBC,0xE3 ) // 98F9AEEB-6F23-49F1-90B1-1F59A14FBCE3
     ) 
 
-    public class ILayerVisual2: WindowsFoundation.IInspectable {
+    public class ILayerVisual2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CILayerVisual2 }
 
         public func get_Shadow() throws -> UWP.CompositionShadow? {
@@ -10814,7 +10822,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - LinearEasingFunction
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.lineareasingfunction)
-public final class LinearEasingFunction : UWP.CompositionEasingFunction {
+public final class LinearEasingFunction : UWP.CompositionEasingFunction, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ILinearEasingFunction
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CILinearEasingFunction
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -10863,7 +10871,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x9400975A, Data2: 0xC7A6, Data3: 0x46B3, Data4: ( 0xAC,0xF7,0x1A,0x26,0x8A,0x0A,0x11,0x7D ) // 9400975A-C7A6-46B3-ACF7-1A268A0A117D
     ) 
 
-    public class ILinearEasingFunction: WindowsFoundation.IInspectable {
+    public class ILinearEasingFunction: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CILinearEasingFunction }
 
     }
@@ -10872,7 +10880,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - NaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.naturalmotionanimation)
-open class NaturalMotionAnimation : UWP.CompositionAnimation {
+open class NaturalMotionAnimation : UWP.CompositionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.INaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CINaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -10899,7 +10907,7 @@ open class NaturalMotionAnimation : UWP.CompositionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.INaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.NaturalMotionAnimation")
+    private static nonisolated(unsafe) var _INaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.INaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.NaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.naturalmotionanimation.delaybehavior)
     public var delayBehavior : AnimationDelayBehavior {
@@ -10963,7 +10971,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x438DE12D, Data2: 0x769B, Data3: 0x4821, Data4: ( 0xA9,0x49,0x28,0x4A,0x65,0x47,0xE8,0x73 ) // 438DE12D-769B-4821-A949-284A6547E873
     ) 
 
-    public class INaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class INaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CINaturalMotionAnimation }
 
         public func get_DelayBehavior() throws -> UWP.AnimationDelayBehavior {
@@ -11014,7 +11022,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xF53ACB06, Data2: 0xCF6A, Data3: 0x4387, Data4: ( 0xA3,0xFE,0x52,0x21,0xF3,0xE7,0xE0,0xE0 ) // F53ACB06-CF6A-4387-A3FE-5221F3E7E0E0
     ) 
 
-    public class INaturalMotionAnimationFactory: WindowsFoundation.IInspectable {
+    public class INaturalMotionAnimationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CINaturalMotionAnimationFactory }
 
     }
@@ -11023,7 +11031,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - PathKeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.pathkeyframeanimation)
-public final class PathKeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class PathKeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IPathKeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIPathKeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -11082,7 +11090,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x9D0D18C9, Data2: 0x1576, Data3: 0x4B3F, Data4: ( 0xBE,0x60,0x1D,0x50,0x31,0xF5,0xE7,0x1B ) // 9D0D18C9-1576-4B3F-BE60-1D5031F5E71B
     ) 
 
-    public class IPathKeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IPathKeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIPathKeyFrameAnimation }
 
         public func InsertKeyFrame(_ normalizedProgressKey: Float, _ path: UWP.CompositionPath?) throws {
@@ -11103,7 +11111,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - PointLight
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.pointlight)
-public final class PointLight : UWP.CompositionLight {
+public final class PointLight : UWP.CompositionLight, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IPointLight
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIPointLight
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -11210,7 +11218,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xB18545B3, Data2: 0x0C5A, Data3: 0x4AB0, Data4: ( 0xBE,0xDC,0x4F,0x35,0x46,0x94,0x82,0x72 ) // B18545B3-0C5A-4AB0-BEDC-4F3546948272
     ) 
 
-    public class IPointLight: WindowsFoundation.IInspectable {
+    public class IPointLight: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIPointLight }
 
         public func get_Color() throws -> UWP.Color {
@@ -11304,7 +11312,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xEFE98F2C, Data2: 0x0678, Data3: 0x4F69, Data4: ( 0xB1,0x64,0xA8,0x10,0xD9,0x95,0xBC,0xB7 ) // EFE98F2C-0678-4F69-B164-A810D995BCB7
     ) 
 
-    public class IPointLight2: WindowsFoundation.IInspectable {
+    public class IPointLight2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIPointLight2 }
 
         public func get_Intensity() throws -> Float {
@@ -11327,7 +11335,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x4C0A8367, Data2: 0xD4E9, Data3: 0x468A, Data4: ( 0x87,0xAE,0x7B,0xA4,0x3A,0xB2,0x94,0x85 ) // 4C0A8367-D4E9-468A-87AE-7BA43AB29485
     ) 
 
-    public class IPointLight3: WindowsFoundation.IInspectable {
+    public class IPointLight3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIPointLight3 }
 
         public func get_MinAttenuationCutoff() throws -> Float {
@@ -11364,7 +11372,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - QuaternionKeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.quaternionkeyframeanimation)
-public final class QuaternionKeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class QuaternionKeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IQuaternionKeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -11423,7 +11431,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x404E5835, Data2: 0xECF6, Data3: 0x4240, Data4: ( 0x85,0x20,0x67,0x12,0x79,0xCF,0x36,0xBC ) // 404E5835-ECF6-4240-8520-671279CF36BC
     ) 
 
-    public class IQuaternionKeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IQuaternionKeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation }
 
         public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Quaternion) throws {
@@ -11444,7 +11452,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - RedirectVisual
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.redirectvisual)
-public final class RedirectVisual : UWP.ContainerVisual {
+public final class RedirectVisual : UWP.ContainerVisual, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IRedirectVisual
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIRedirectVisual
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -11499,7 +11507,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x8CC6E340, Data2: 0x8B75, Data3: 0x5422, Data4: ( 0xB0,0x6F,0x09,0xFF,0xE9,0xF8,0x61,0x7E ) // 8CC6E340-8B75-5422-B06F-09FFE9F8617E
     ) 
 
-    public class IRedirectVisual: WindowsFoundation.IInspectable {
+    public class IRedirectVisual: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIRedirectVisual }
 
         public func get_Source() throws -> UWP.Visual? {
@@ -11523,7 +11531,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - ScalarKeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.scalarkeyframeanimation)
-public final class ScalarKeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class ScalarKeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IScalarKeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIScalarKeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -11582,7 +11590,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xAE288FA9, Data2: 0x252C, Data3: 0x4B95, Data4: ( 0xA7,0x25,0xBF,0x85,0xE3,0x80,0x00,0xA1 ) // AE288FA9-252C-4B95-A725-BF85E38000A1
     ) 
 
-    public class IScalarKeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IScalarKeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIScalarKeyFrameAnimation }
 
         public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: Float) throws {
@@ -11603,7 +11611,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - ScalarNaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.scalarnaturalmotionanimation)
-open class ScalarNaturalMotionAnimation : UWP.NaturalMotionAnimation {
+open class ScalarNaturalMotionAnimation : UWP.NaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IScalarNaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIScalarNaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -11630,7 +11638,7 @@ open class ScalarNaturalMotionAnimation : UWP.NaturalMotionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScalarNaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.IScalarNaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.ScalarNaturalMotionAnimation")
+    private static nonisolated(unsafe) var _IScalarNaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.IScalarNaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.ScalarNaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.scalarnaturalmotionanimation.finalvalue)
     public var finalValue : Float? {
@@ -11694,7 +11702,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x94A94581, Data2: 0xBF92, Data3: 0x495B, Data4: ( 0xB5,0xBD,0xD2,0xC6,0x59,0x43,0x07,0x37 ) // 94A94581-BF92-495B-B5BD-D2C659430737
     ) 
 
-    public class IScalarNaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class IScalarNaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIScalarNaturalMotionAnimation }
 
         public func get_FinalValue() throws -> Float? {
@@ -11751,7 +11759,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x835AA4FC, Data2: 0x671C, Data3: 0x41DD, Data4: ( 0xAF,0x48,0xAE,0x8D,0xEF,0x8B,0x15,0x29 ) // 835AA4FC-671C-41DD-AF48-AE8DEF8B1529
     ) 
 
-    public class IScalarNaturalMotionAnimationFactory: WindowsFoundation.IInspectable {
+    public class IScalarNaturalMotionAnimationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIScalarNaturalMotionAnimationFactory }
 
     }
@@ -11760,7 +11768,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - ShapeVisual
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.shapevisual)
-public final class ShapeVisual : UWP.ContainerVisual {
+public final class ShapeVisual : UWP.ContainerVisual, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IShapeVisual
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIShapeVisual
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -11820,7 +11828,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xF2BD13C3, Data2: 0xBA7E, Data3: 0x4B0F, Data4: ( 0x91,0x26,0xFF,0xB7,0x53,0x6B,0x81,0x76 ) // F2BD13C3-BA7E-4B0F-9126-FFB7536B8176
     ) 
 
-    public class IShapeVisual: WindowsFoundation.IInspectable {
+    public class IShapeVisual: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIShapeVisual }
 
         public func get_Shapes() throws -> UWP.CompositionShapeCollection? {
@@ -11853,7 +11861,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - SpotLight
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.spotlight)
-public final class SpotLight : UWP.CompositionLight {
+public final class SpotLight : UWP.CompositionLight, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ISpotLight
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CISpotLight
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12002,7 +12010,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x5A9FE273, Data2: 0x44A1, Data3: 0x4F95, Data4: ( 0xA4,0x22,0x8F,0xA5,0x11,0x6B,0xDB,0x44 ) // 5A9FE273-44A1-4F95-A422-8FA5116BDB44
     ) 
 
-    public class ISpotLight: WindowsFoundation.IInspectable {
+    public class ISpotLight: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpotLight }
 
         public func get_ConstantAttenuation() throws -> Float {
@@ -12180,7 +12188,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x64EE615E, Data2: 0x0686, Data3: 0x4DEA, Data4: ( 0xA9,0xE8,0xBC,0x3A,0x8C,0x70,0x14,0x59 ) // 64EE615E-0686-4DEA-A9E8-BC3A8C701459
     ) 
 
-    public class ISpotLight2: WindowsFoundation.IInspectable {
+    public class ISpotLight2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpotLight2 }
 
         public func get_InnerConeIntensity() throws -> Float {
@@ -12217,7 +12225,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xE4D03EEA, Data2: 0x131F, Data3: 0x480E, Data4: ( 0x85,0x9E,0xB8,0x27,0x05,0xB7,0x43,0x60 ) // E4D03EEA-131F-480E-859E-B82705B74360
     ) 
 
-    public class ISpotLight3: WindowsFoundation.IInspectable {
+    public class ISpotLight3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpotLight3 }
 
         public func get_MinAttenuationCutoff() throws -> Float {
@@ -12254,7 +12262,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - SpringScalarNaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.springscalarnaturalmotionanimation)
-public final class SpringScalarNaturalMotionAnimation : UWP.ScalarNaturalMotionAnimation {
+public final class SpringScalarNaturalMotionAnimation : UWP.ScalarNaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ISpringScalarNaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CISpringScalarNaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12315,7 +12323,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0572A95F, Data2: 0x37F9, Data3: 0x4FBE, Data4: ( 0xB8,0x7B,0x5C,0xD0,0x3A,0x89,0x50,0x1C ) // 0572A95F-37F9-4FBE-B87B-5CD03A89501C
     ) 
 
-    public class ISpringScalarNaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class ISpringScalarNaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpringScalarNaturalMotionAnimation }
 
         public func get_DampingRatio() throws -> Float {
@@ -12352,7 +12360,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - SpringVector2NaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.springvector2naturalmotionanimation)
-public final class SpringVector2NaturalMotionAnimation : UWP.Vector2NaturalMotionAnimation {
+public final class SpringVector2NaturalMotionAnimation : UWP.Vector2NaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ISpringVector2NaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CISpringVector2NaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12413,7 +12421,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x23F494B5, Data2: 0xEE73, Data3: 0x4F0F, Data4: ( 0xA4,0x23,0x40,0x2B,0x94,0x6D,0xF4,0xB3 ) // 23F494B5-EE73-4F0F-A423-402B946DF4B3
     ) 
 
-    public class ISpringVector2NaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class ISpringVector2NaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpringVector2NaturalMotionAnimation }
 
         public func get_DampingRatio() throws -> Float {
@@ -12450,7 +12458,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - SpringVector3NaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.springvector3naturalmotionanimation)
-public final class SpringVector3NaturalMotionAnimation : UWP.Vector3NaturalMotionAnimation {
+public final class SpringVector3NaturalMotionAnimation : UWP.Vector3NaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ISpringVector3NaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CISpringVector3NaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12511,7 +12519,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x6C8749DF, Data2: 0xD57B, Data3: 0x4794, Data4: ( 0x8E,0x2D,0xCE,0xCB,0x11,0xE1,0x94,0xE5 ) // 6C8749DF-D57B-4794-8E2D-CECB11E194E5
     ) 
 
-    public class ISpringVector3NaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class ISpringVector3NaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpringVector3NaturalMotionAnimation }
 
         public func get_DampingRatio() throws -> Float {
@@ -12548,7 +12556,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - SpriteVisual
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.spritevisual)
-public final class SpriteVisual : UWP.ContainerVisual {
+public final class SpriteVisual : UWP.ContainerVisual, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.ISpriteVisual
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CISpriteVisual
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12611,7 +12619,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x08E05581, Data2: 0x1AD1, Data3: 0x4F97, Data4: ( 0x97,0x57,0x40,0x2D,0x76,0xE4,0x23,0x3B ) // 08E05581-1AD1-4F97-9757-402D76E4233B
     ) 
 
-    public class ISpriteVisual: WindowsFoundation.IInspectable {
+    public class ISpriteVisual: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpriteVisual }
 
         public func get_Brush() throws -> UWP.CompositionBrush? {
@@ -12635,7 +12643,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x588C9664, Data2: 0x997A, Data3: 0x4850, Data4: ( 0x91,0xFE,0x53,0xCB,0x58,0xF8,0x1C,0xE9 ) // 588C9664-997A-4850-91FE-53CB58F81CE9
     ) 
 
-    public class ISpriteVisual2: WindowsFoundation.IInspectable {
+    public class ISpriteVisual2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CISpriteVisual2 }
 
         public func get_Shadow() throws -> UWP.CompositionShadow? {
@@ -12659,7 +12667,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - StepEasingFunction
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.stepeasingfunction)
-public final class StepEasingFunction : UWP.CompositionEasingFunction {
+public final class StepEasingFunction : UWP.CompositionEasingFunction, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IStepEasingFunction
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIStepEasingFunction
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12738,7 +12746,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xD0CAA74B, Data2: 0x560C, Data3: 0x4A0B, Data4: ( 0xA5,0xF6,0x20,0x6C,0xA8,0xC3,0xEC,0xD6 ) // D0CAA74B-560C-4A0B-A5F6-206CA8C3ECD6
     ) 
 
-    public class IStepEasingFunction: WindowsFoundation.IInspectable {
+    public class IStepEasingFunction: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIStepEasingFunction }
 
         public func get_FinalStep() throws -> Int32 {
@@ -12817,7 +12825,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - Vector2KeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.vector2keyframeanimation)
-public final class Vector2KeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class Vector2KeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVector2KeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVector2KeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12876,7 +12884,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xDF414515, Data2: 0x4E29, Data3: 0x4F11, Data4: ( 0xB5,0x5E,0xBF,0x2A,0x6E,0xB3,0x62,0x94 ) // DF414515-4E29-4F11-B55E-BF2A6EB36294
     ) 
 
-    public class IVector2KeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IVector2KeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVector2KeyFrameAnimation }
 
         public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector2) throws {
@@ -12897,7 +12905,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - Vector2NaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.vector2naturalmotionanimation)
-open class Vector2NaturalMotionAnimation : UWP.NaturalMotionAnimation {
+open class Vector2NaturalMotionAnimation : UWP.NaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVector2NaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVector2NaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12924,7 +12932,7 @@ open class Vector2NaturalMotionAnimation : UWP.NaturalMotionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVector2NaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.IVector2NaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.Vector2NaturalMotionAnimation")
+    private static nonisolated(unsafe) var _IVector2NaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.IVector2NaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.Vector2NaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.vector2naturalmotionanimation.finalvalue)
     public var finalValue : WindowsFoundation.Vector2? {
@@ -12988,7 +12996,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x0F3E0B7D, Data2: 0xE512, Data3: 0x479D, Data4: ( 0xA0,0x0C,0x77,0xC9,0x3A,0x30,0xA3,0x95 ) // 0F3E0B7D-E512-479D-A00C-77C93A30A395
     ) 
 
-    public class IVector2NaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class IVector2NaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVector2NaturalMotionAnimation }
 
         public func get_FinalValue() throws -> WindowsFoundation.Vector2? {
@@ -13045,7 +13053,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x8C74FF61, Data2: 0x0761, Data3: 0x48A2, Data4: ( 0xBD,0xDB,0x6A,0xFC,0xC5,0x2B,0x89,0xD8 ) // 8C74FF61-0761-48A2-BDDB-6AFCC52B89D8
     ) 
 
-    public class IVector2NaturalMotionAnimationFactory: WindowsFoundation.IInspectable {
+    public class IVector2NaturalMotionAnimationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVector2NaturalMotionAnimationFactory }
 
     }
@@ -13054,7 +13062,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - Vector3KeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.vector3keyframeanimation)
-public final class Vector3KeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class Vector3KeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVector3KeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVector3KeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -13113,7 +13121,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xC8039DAA, Data2: 0xA281, Data3: 0x43C2, Data4: ( 0xA7,0x3D,0xB6,0x8E,0x3C,0x53,0x3C,0x40 ) // C8039DAA-A281-43C2-A73D-B68E3C533C40
     ) 
 
-    public class IVector3KeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IVector3KeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVector3KeyFrameAnimation }
 
         public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector3) throws {
@@ -13134,7 +13142,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - Vector3NaturalMotionAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.vector3naturalmotionanimation)
-open class Vector3NaturalMotionAnimation : UWP.NaturalMotionAnimation {
+open class Vector3NaturalMotionAnimation : UWP.NaturalMotionAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVector3NaturalMotionAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVector3NaturalMotionAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -13161,7 +13169,7 @@ open class Vector3NaturalMotionAnimation : UWP.NaturalMotionAnimation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVector3NaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.IVector3NaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.Vector3NaturalMotionAnimation")
+    private static nonisolated(unsafe) var _IVector3NaturalMotionAnimationFactory : __ABI_Windows_UI_Composition.IVector3NaturalMotionAnimationFactory =  try! RoGetActivationFactory("Windows.UI.Composition.Vector3NaturalMotionAnimation")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.vector3naturalmotionanimation.finalvalue)
     public var finalValue : WindowsFoundation.Vector3? {
@@ -13225,7 +13233,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x9C17042C, Data2: 0xE2CA, Data3: 0x45AD, Data4: ( 0x96,0x9E,0x4E,0x78,0xB7,0xB9,0xAD,0x41 ) // 9C17042C-E2CA-45AD-969E-4E78B7B9AD41
     ) 
 
-    public class IVector3NaturalMotionAnimation: WindowsFoundation.IInspectable {
+    public class IVector3NaturalMotionAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVector3NaturalMotionAnimation }
 
         public func get_FinalValue() throws -> WindowsFoundation.Vector3? {
@@ -13282,7 +13290,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x21A81D2F, Data2: 0x0880, Data3: 0x457B, Data4: ( 0xAC,0x87,0xB6,0x09,0x01,0x8C,0x87,0x6D ) // 21A81D2F-0880-457B-AC87-B609018C876D
     ) 
 
-    public class IVector3NaturalMotionAnimationFactory: WindowsFoundation.IInspectable {
+    public class IVector3NaturalMotionAnimationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVector3NaturalMotionAnimationFactory }
 
     }
@@ -13291,7 +13299,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - Vector4KeyFrameAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.vector4keyframeanimation)
-public final class Vector4KeyFrameAnimation : UWP.KeyFrameAnimation {
+public final class Vector4KeyFrameAnimation : UWP.KeyFrameAnimation, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVector4KeyFrameAnimation
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVector4KeyFrameAnimation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -13350,7 +13358,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x2457945B, Data2: 0xADDD, Data3: 0x4385, Data4: ( 0x96,0x06,0xB6,0xA3,0xD5,0xE4,0xE1,0xB9 ) // 2457945B-ADDD-4385-9606-B6A3D5E4E1B9
     ) 
 
-    public class IVector4KeyFrameAnimation: WindowsFoundation.IInspectable {
+    public class IVector4KeyFrameAnimation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVector4KeyFrameAnimation }
 
         public func InsertKeyFrame(_ normalizedProgressKey: Float, _ value: WindowsFoundation.Vector4) throws {
@@ -13371,7 +13379,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - Visual
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.visual)
-open class Visual : UWP.CompositionObject {
+open class Visual : UWP.CompositionObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVisual
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVisual
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -13398,7 +13406,7 @@ open class Visual : UWP.CompositionObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IVisualFactory : __ABI_Windows_UI_Composition.IVisualFactory =  try! RoGetActivationFactory("Windows.UI.Composition.Visual")
+    private static nonisolated(unsafe) var _IVisualFactory : __ABI_Windows_UI_Composition.IVisualFactory =  try! RoGetActivationFactory("Windows.UI.Composition.Visual")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.visual.anchorpoint)
     public var anchorPoint : WindowsFoundation.Vector2 {
@@ -13565,7 +13573,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x117E202D, Data2: 0xA859, Data3: 0x4C89, Data4: ( 0x87,0x3B,0xC2,0xAA,0x56,0x67,0x88,0xE3 ) // 117E202D-A859-4C89-873B-C2AA566788E3
     ) 
 
-    public class IVisual: WindowsFoundation.IInspectable {
+    public class IVisual: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVisual }
 
         public func get_AnchorPoint() throws -> WindowsFoundation.Vector2 {
@@ -13808,7 +13816,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x3052B611, Data2: 0x56C3, Data3: 0x4C3E, Data4: ( 0x8B,0xF3,0xF6,0xE1,0xAD,0x47,0x3F,0x06 ) // 3052B611-56C3-4C3E-8BF3-F6E1AD473F06
     ) 
 
-    public class IVisual2: WindowsFoundation.IInspectable {
+    public class IVisual2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVisual2 }
 
         public func get_ParentForTransform() throws -> UWP.Visual? {
@@ -13860,7 +13868,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0xAD0FF93E, Data2: 0xB502, Data3: 0x4EB5, Data4: ( 0x87,0xB4,0x9A,0x38,0xA7,0x1D,0x01,0x37 ) // AD0FF93E-B502-4EB5-87B4-9A38A71D0137
     ) 
 
-    public class IVisualFactory: WindowsFoundation.IInspectable {
+    public class IVisualFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVisualFactory }
 
     }
@@ -13869,7 +13877,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - VisualCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.visualcollection)
-public final class VisualCollection : UWP.CompositionObject, IIterable {
+public final class VisualCollection : UWP.CompositionObject, @unchecked Sendable, IIterable {
     public typealias T = Visual?
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVisualCollection
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVisualCollection
@@ -13964,7 +13972,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x8B745505, Data2: 0xFD3E, Data3: 0x4A98, Data4: ( 0x84,0xA8,0xE9,0x49,0x46,0x8C,0x6B,0xCB ) // 8B745505-FD3E-4A98-84A8-E949468C6BCB
     ) 
 
-    public class IVisualCollection: WindowsFoundation.IInspectable {
+    public class IVisualCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVisualCollection }
 
         public func get_Count() throws -> Int32 {
@@ -14017,7 +14025,7 @@ extension __ABI_Windows_UI_Composition {
 // MARK: - VisualUnorderedCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.composition.visualunorderedcollection)
-public final class VisualUnorderedCollection : UWP.CompositionObject, IIterable {
+public final class VisualUnorderedCollection : UWP.CompositionObject, @unchecked Sendable, IIterable {
     public typealias T = Visual?
     private typealias SwiftABI = __ABI_Windows_UI_Composition.IVisualUnorderedCollection
     private typealias CABI = __x_ABI_CWindows_CUI_CComposition_CIVisualUnorderedCollection
@@ -14097,7 +14105,7 @@ extension __ABI_Windows_UI_Composition {
         Data1: 0x338FAA70, Data2: 0x54C8, Data3: 0x40A7, Data4: ( 0x80,0x29,0xC9,0xCE,0xEB,0x0A,0xA2,0x50 ) // 338FAA70-54C8-40A7-8029-C9CEEB0AA250
     ) 
 
-    public class IVisualUnorderedCollection: WindowsFoundation.IInspectable {
+    public class IVisualUnorderedCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CComposition_CIVisualUnorderedCollection }
 
         public func get_Count() throws -> Int32 {

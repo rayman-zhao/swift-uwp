@@ -7,7 +7,7 @@ import CWinRT
 // MARK: - HttpCacheDirectiveHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcachedirectiveheadervaluecollection)
-public final class HttpCacheDirectiveHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpCacheDirectiveHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpNameValueHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpCacheDirectiveHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection
@@ -201,7 +201,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x9A586B89, Data2: 0xD5D0, Data3: 0x4FBE, Data4: ( 0xBD,0x9D,0xB5,0xB3,0x63,0x68,0x11,0xB4 ) // 9A586B89-D5D0-4FBE-BD9D-B5B3636811B4
     ) 
 
-    public class IHttpCacheDirectiveHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpCacheDirectiveHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCacheDirectiveHeaderValueCollection }
 
         public func get_MaxAge() throws -> WindowsFoundation.TimeSpan? {
@@ -294,7 +294,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpChallengeHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervalue)
-public final class HttpChallengeHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpChallengeHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpChallengeHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -388,7 +388,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x393361AF, Data2: 0x0F7D, Data3: 0x4820, Data4: ( 0x9F,0xDD,0xA2,0xB9,0x56,0xEE,0xAE,0xAB ) // 393361AF-0F7D-4820-9FDD-A2B956EEAEAB
     ) 
 
-    public class IHttpChallengeHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpChallengeHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue }
 
         public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
@@ -402,19 +402,23 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_Scheme() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scheme(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Token() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Token(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -424,7 +428,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xC452C451, Data2: 0xD99C, Data3: 0x40AA, Data4: ( 0x93,0x99,0x90,0xEE,0xB9,0x8F,0xC6,0x13 ) // C452C451-D99C-40AA-9399-90EEB98FC613
     ) 
 
-    public class IHttpChallengeHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpChallengeHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueFactory }
 
         public func CreateFromScheme(_ scheme: String) throws -> IHttpChallengeHeaderValue {
@@ -454,7 +458,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xF3D38A72, Data2: 0xFC01, Data3: 0x4D01, Data4: ( 0xA0,0x08,0xFC,0xB7,0xC4,0x59,0xD6,0x35 ) // F3D38A72-FC01-4D01-A008-FCB7C459D635
     ) 
 
-    public class IHttpChallengeHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpChallengeHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpChallengeHeaderValue? {
@@ -471,6 +475,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _challengeHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValue>?
+            defer {
+                _ = _challengeHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_challengeHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_challengeHeaderValueAbi, &succeeded))
             }
@@ -484,7 +491,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpChallengeHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpchallengeheadervaluecollection)
-public final class HttpChallengeHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpChallengeHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpChallengeHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpChallengeHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection
@@ -654,7 +661,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xCA9E5F81, Data2: 0xAEE0, Data3: 0x4353, Data4: ( 0xA1,0x0B,0xE6,0x25,0xBA,0xBD,0x64,0xC2 ) // CA9E5F81-AEE0-4353-A10B-E625BABD64C2
     ) 
 
-    public class IHttpChallengeHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpChallengeHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpChallengeHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -679,7 +686,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpConnectionOptionHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervalue)
-public final class HttpConnectionOptionHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpConnectionOptionHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpConnectionOptionHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -759,15 +766,17 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xCB4AF27A, Data2: 0x4E90, Data3: 0x45EB, Data4: ( 0x8D,0xCD,0xFD,0x14,0x08,0xF4,0xC4,0x4F ) // CB4AF27A-4E90-45EB-8DCD-FD1408F4C44F
     ) 
 
-    public class IHttpConnectionOptionHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpConnectionOptionHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue }
 
         public func get_Token() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Token(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -777,7 +786,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xD93CCC1E, Data2: 0x0B7D, Data3: 0x4C3F, Data4: ( 0xA5,0x8D,0xA2,0xA1,0xBD,0xEA,0xBC,0x0A ) // D93CCC1E-0B7D-4C3F-A58D-A2A1BDEABC0A
     ) 
 
-    public class IHttpConnectionOptionHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpConnectionOptionHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueFactory }
 
         public func Create(_ token: String) throws -> IHttpConnectionOptionHeaderValue {
@@ -796,7 +805,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xAAA75D37, Data2: 0xA946, Data3: 0x4B1F, Data4: ( 0x85,0xAF,0x48,0xB6,0x8B,0x3C,0x50,0xBD ) // AAA75D37-A946-4B1F-85AF-48B68B3C50BD
     ) 
 
-    public class IHttpConnectionOptionHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpConnectionOptionHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpConnectionOptionHeaderValue? {
@@ -813,6 +822,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _connectionOptionHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValue>?
+            defer {
+                _ = _connectionOptionHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_connectionOptionHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_connectionOptionHeaderValueAbi, &succeeded))
             }
@@ -826,7 +838,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpConnectionOptionHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpconnectionoptionheadervaluecollection)
-public final class HttpConnectionOptionHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpConnectionOptionHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpConnectionOptionHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpConnectionOptionHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection
@@ -996,7 +1008,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xE4F56C1D, Data2: 0x5142, Data3: 0x4E00, Data4: ( 0x8E,0x0F,0x01,0x95,0x09,0x33,0x76,0x29 ) // E4F56C1D-5142-4E00-8E0F-019509337629
     ) 
 
-    public class IHttpConnectionOptionHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpConnectionOptionHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpConnectionOptionHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -1021,7 +1033,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpContentCodingHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervalue)
-public final class HttpContentCodingHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpContentCodingHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpContentCodingHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1101,15 +1113,17 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xBCF7F92A, Data2: 0x9376, Data3: 0x4D85, Data4: ( 0xBC,0xCC,0x9F,0x4F,0x9A,0xCA,0xB4,0x34 ) // BCF7F92A-9376-4D85-BCCC-9F4F9ACAB434
     ) 
 
-    public class IHttpContentCodingHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue }
 
         public func get_ContentCoding() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentCoding(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1119,7 +1133,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xC53D2BD7, Data2: 0x332B, Data3: 0x4350, Data4: ( 0x85,0x10,0x2E,0x67,0xA2,0x28,0x9A,0x5A ) // C53D2BD7-332B-4350-8510-2E67A2289A5A
     ) 
 
-    public class IHttpContentCodingHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueFactory }
 
         public func Create(_ contentCoding: String) throws -> IHttpContentCodingHeaderValue {
@@ -1138,7 +1152,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x94D8602E, Data2: 0xF9BF, Data3: 0x42F7, Data4: ( 0xAA,0x46,0xED,0x27,0x2A,0x41,0xE2,0x12 ) // 94D8602E-F9BF-42F7-AA46-ED272A41E212
     ) 
 
-    public class IHttpContentCodingHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpContentCodingHeaderValue? {
@@ -1155,6 +1169,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _contentCodingHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValue>?
+            defer {
+                _ = _contentCodingHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_contentCodingHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentCodingHeaderValueAbi, &succeeded))
             }
@@ -1168,7 +1185,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpContentCodingHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingheadervaluecollection)
-public final class HttpContentCodingHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpContentCodingHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpContentCodingHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpContentCodingHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection
@@ -1338,7 +1355,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x7D221721, Data2: 0xA6DB, Data3: 0x436E, Data4: ( 0x8E,0x83,0x91,0x59,0x61,0x92,0x81,0x9C ) // 7D221721-A6DB-436E-8E83-91596192819C
     ) 
 
-    public class IHttpContentCodingHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -1363,7 +1380,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpContentCodingWithQualityHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervalue)
-public final class HttpContentCodingWithQualityHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpContentCodingWithQualityHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpContentCodingWithQualityHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1452,15 +1469,17 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x94531CD5, Data2: 0x8B13, Data3: 0x4D73, Data4: ( 0x86,0x51,0xF7,0x6B,0x38,0xF8,0x84,0x95 ) // 94531CD5-8B13-4D73-8651-F76B38F88495
     ) 
 
-    public class IHttpContentCodingWithQualityHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingWithQualityHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue }
 
         public func get_ContentCoding() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentCoding(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1479,7 +1498,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xC45EEE1A, Data2: 0xC553, Data3: 0x46FC, Data4: ( 0xAD,0xE2,0xD7,0x5C,0x1D,0x53,0xDF,0x7B ) // C45EEE1A-C553-46FC-ADE2-D75C1D53DF7B
     ) 
 
-    public class IHttpContentCodingWithQualityHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingWithQualityHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueFactory }
 
         public func CreateFromValue(_ contentCoding: String) throws -> IHttpContentCodingWithQualityHeaderValue {
@@ -1508,7 +1527,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xE8C9357C, Data2: 0x8F89, Data3: 0x4801, Data4: ( 0x8E,0x75,0x4C,0x9A,0xBF,0xC3,0xDE,0x71 ) // E8C9357C-8F89-4801-8E75-4C9ABFC3DE71
     ) 
 
-    public class IHttpContentCodingWithQualityHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingWithQualityHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpContentCodingWithQualityHeaderValue? {
@@ -1525,6 +1544,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _contentCodingWithQualityHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValue>?
+            defer {
+                _ = _contentCodingWithQualityHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_contentCodingWithQualityHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentCodingWithQualityHeaderValueAbi, &succeeded))
             }
@@ -1538,7 +1560,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpContentCodingWithQualityHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentcodingwithqualityheadervaluecollection)
-public final class HttpContentCodingWithQualityHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpContentCodingWithQualityHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpContentCodingWithQualityHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpContentCodingWithQualityHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection
@@ -1708,7 +1730,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x7C0D753E, Data2: 0xE899, Data3: 0x4378, Data4: ( 0xB5,0xC8,0x41,0x2D,0x82,0x07,0x11,0xCC ) // 7C0D753E-E899-4378-B5C8-412D820711CC
     ) 
 
-    public class IHttpContentCodingWithQualityHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpContentCodingWithQualityHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentCodingWithQualityHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -1733,7 +1755,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpContentDispositionHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentdispositionheadervalue)
-public final class HttpContentDispositionHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpContentDispositionHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpContentDispositionHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1843,15 +1865,17 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xF2A2EEDC, Data2: 0x2629, Data3: 0x4B49, Data4: ( 0x99,0x08,0x96,0xA1,0x68,0xE9,0x36,0x5E ) // F2A2EEDC-2629-4B49-9908-96A168E9365E
     ) 
 
-    public class IHttpContentDispositionHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpContentDispositionHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue }
 
         public func get_DispositionType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DispositionType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1864,10 +1888,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_FileName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1880,10 +1906,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_FileNameStar() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FileNameStar(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1896,10 +1924,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1942,7 +1972,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x9915BBC4, Data2: 0x456C, Data3: 0x4E81, Data4: ( 0x82,0x95,0xB2,0xAB,0x3C,0xBC,0xF5,0x45 ) // 9915BBC4-456C-4E81-8295-B2AB3CBCF545
     ) 
 
-    public class IHttpContentDispositionHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpContentDispositionHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValueFactory }
 
         public func Create(_ dispositionType: String) throws -> IHttpContentDispositionHeaderValue {
@@ -1961,7 +1991,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x29C56067, Data2: 0x5A37, Data3: 0x46E4, Data4: ( 0xB0,0x74,0xC5,0x17,0x7D,0x69,0xCA,0x66 ) // 29C56067-5A37-46E4-B074-C5177D69CA66
     ) 
 
-    public class IHttpContentDispositionHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpContentDispositionHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpContentDispositionHeaderValue? {
@@ -1978,6 +2008,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _contentDispositionHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValue>?
+            defer {
+                _ = _contentDispositionHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_contentDispositionHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentDispositionHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentDispositionHeaderValueAbi, &succeeded))
             }
@@ -1991,7 +2024,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpContentHeaderCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentheadercollection)
-public final class HttpContentHeaderCollection : WinRTClass, IMap, IIterable, WindowsFoundation.IStringable {
+public final class HttpContentHeaderCollection : WinRTClass, @unchecked Sendable, IMap, IIterable, WindowsFoundation.IStringable {
     public typealias K = String
     public typealias V = String
     public typealias T = WindowsFoundation.AnyIKeyValuePair<String, String>?
@@ -2170,7 +2203,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x40612A44, Data2: 0x47AE, Data3: 0x4B7E, Data4: ( 0x91,0x24,0x69,0x62,0x8B,0x64,0xAA,0x18 ) // 40612A44-47AE-4B7E-9124-69628B64AA18
     ) 
 
-    public class IHttpContentHeaderCollection: WindowsFoundation.IInspectable {
+    public class IHttpContentHeaderCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentHeaderCollection }
 
         public func get_ContentDisposition() throws -> UWP.HttpContentDispositionHeaderValue? {
@@ -2343,7 +2376,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpContentRangeHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcontentrangeheadervalue)
-public final class HttpContentRangeHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpContentRangeHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpContentRangeHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2447,7 +2480,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x04D967D3, Data2: 0xA4F6, Data3: 0x495C, Data4: ( 0x95,0x30,0x85,0x79,0xFC,0xBA,0x8A,0xA9 ) // 04D967D3-A4F6-495C-9530-8579FCBA8AA9
     ) 
 
-    public class IHttpContentRangeHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpContentRangeHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue }
 
         public func get_FirstBytePosition() throws -> UInt64? {
@@ -2479,10 +2512,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_Unit() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Unit(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2499,7 +2534,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x3F5BD691, Data2: 0xA03C, Data3: 0x4456, Data4: ( 0x9A,0x6F,0xEF,0x27,0xEC,0xD0,0x3C,0xAE ) // 3F5BD691-A03C-4456-9A6F-EF27ECD03CAE
     ) 
 
-    public class IHttpContentRangeHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpContentRangeHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueFactory }
 
         public func CreateFromLength(_ length: UInt64) throws -> IHttpContentRangeHeaderValue {
@@ -2535,7 +2570,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x80A346CA, Data2: 0x174C, Data3: 0x4FAE, Data4: ( 0x82,0x1C,0x13,0x4C,0xD2,0x94,0xAA,0x38 ) // 80A346CA-174C-4FAE-821C-134CD294AA38
     ) 
 
-    public class IHttpContentRangeHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpContentRangeHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpContentRangeHeaderValue? {
@@ -2552,6 +2587,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _contentRangeHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValue>?
+            defer {
+                _ = _contentRangeHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_contentRangeHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpContentRangeHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_contentRangeHeaderValueAbi, &succeeded))
             }
@@ -2565,7 +2603,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpCookiePairHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervalue)
-public final class HttpCookiePairHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpCookiePairHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpCookiePairHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2655,24 +2693,28 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xCBD46217, Data2: 0x4B29, Data3: 0x412B, Data4: ( 0xBD,0x90,0xB3,0xD8,0x14,0xAB,0x8E,0x1B ) // CBD46217-4B29-412B-BD90-B3D814AB8E1B
     ) 
 
-    public class IHttpCookiePairHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpCookiePairHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Value() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2689,7 +2731,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x635E326F, Data2: 0x146F, Data3: 0x4F56, Data4: ( 0xAA,0x21,0x2C,0xB7,0xD6,0xD5,0x8B,0x1E ) // 635E326F-146F-4F56-AA21-2CB7D6D58B1E
     ) 
 
-    public class IHttpCookiePairHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpCookiePairHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueFactory }
 
         public func CreateFromName(_ name: String) throws -> IHttpCookiePairHeaderValue {
@@ -2719,7 +2761,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x6E866D48, Data2: 0x06AF, Data3: 0x4462, Data4: ( 0x81,0x58,0x99,0x38,0x8D,0x5D,0xCA,0x81 ) // 6E866D48-06AF-4462-8158-99388D5DCA81
     ) 
 
-    public class IHttpCookiePairHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpCookiePairHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpCookiePairHeaderValue? {
@@ -2736,6 +2778,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _cookiePairHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValue>?
+            defer {
+                _ = _cookiePairHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_cookiePairHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_cookiePairHeaderValueAbi, &succeeded))
             }
@@ -2749,7 +2794,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpCookiePairHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcookiepairheadervaluecollection)
-public final class HttpCookiePairHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpCookiePairHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpCookiePairHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpCookiePairHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection
@@ -2919,7 +2964,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xF3F44350, Data2: 0x581E, Data3: 0x4ECC, Data4: ( 0x9F,0x59,0xE5,0x07,0xD0,0x4F,0x06,0xE6 ) // F3F44350-581E-4ECC-9F59-E507D04F06E6
     ) 
 
-    public class IHttpCookiePairHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpCookiePairHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCookiePairHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -2944,7 +2989,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpCredentialsHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpcredentialsheadervalue)
-public final class HttpCredentialsHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpCredentialsHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpCredentialsHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3038,7 +3083,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xC34CC3CB, Data2: 0x542E, Data3: 0x4177, Data4: ( 0xA6,0xC7,0xB6,0x74,0xCE,0x19,0x3F,0xBF ) // C34CC3CB-542E-4177-A6C7-B674CE193FBF
     ) 
 
-    public class IHttpCredentialsHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpCredentialsHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue }
 
         public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
@@ -3052,19 +3097,23 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_Scheme() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Scheme(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Token() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Token(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -3074,7 +3123,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xF21D9E91, Data2: 0x4D1C, Data3: 0x4182, Data4: ( 0xBF,0xD1,0x34,0x47,0x0A,0x62,0xF9,0x50 ) // F21D9E91-4D1C-4182-BFD1-34470A62F950
     ) 
 
-    public class IHttpCredentialsHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpCredentialsHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValueFactory }
 
         public func CreateFromScheme(_ scheme: String) throws -> IHttpCredentialsHeaderValue {
@@ -3104,7 +3153,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xA69B2BE6, Data2: 0xCE8C, Data3: 0x4443, Data4: ( 0xA3,0x5A,0x1B,0x72,0x7B,0x13,0x10,0x36 ) // A69B2BE6-CE8C-4443-A35A-1B727B131036
     ) 
 
-    public class IHttpCredentialsHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpCredentialsHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpCredentialsHeaderValue? {
@@ -3121,6 +3170,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _credentialsHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValue>?
+            defer {
+                _ = _credentialsHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_credentialsHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpCredentialsHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_credentialsHeaderValueAbi, &succeeded))
             }
@@ -3134,7 +3186,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpDateOrDeltaHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpdateordeltaheadervalue)
-public final class HttpDateOrDeltaHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpDateOrDeltaHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpDateOrDeltaHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3214,7 +3266,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xEAFCAA6A, Data2: 0xC4DC, Data3: 0x49E2, Data4: ( 0xA2,0x7D,0x04,0x3A,0xDF,0x58,0x67,0xA3 ) // EAFCAA6A-C4DC-49E2-A27D-043ADF5867A3
     ) 
 
-    public class IHttpDateOrDeltaHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpDateOrDeltaHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue }
 
         public func get_Date() throws -> WindowsFoundation.DateTime? {
@@ -3241,7 +3293,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x7C2659A8, Data2: 0x6672, Data3: 0x4E90, Data4: ( 0x9A,0x9A,0xF3,0x97,0x66,0xF7,0xF5,0x76 ) // 7C2659A8-6672-4E90-9A9A-F39766F7F576
     ) 
 
-    public class IHttpDateOrDeltaHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpDateOrDeltaHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpDateOrDeltaHeaderValue? {
@@ -3258,6 +3310,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _dateOrDeltaHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValue>?
+            defer {
+                _ = _dateOrDeltaHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_dateOrDeltaHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpDateOrDeltaHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_dateOrDeltaHeaderValueAbi, &succeeded))
             }
@@ -3271,7 +3326,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpExpectationHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervalue)
-public final class HttpExpectationHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpExpectationHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpExpectationHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3366,24 +3421,28 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x4CE585CD, Data2: 0x3A99, Data3: 0x43AF, Data4: ( 0xA2,0xE6,0xEC,0x23,0x2F,0xEA,0x96,0x58 ) // 4CE585CD-3A99-43AF-A2E6-EC232FEA9658
     ) 
 
-    public class IHttpExpectationHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpExpectationHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Value() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -3409,7 +3468,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x4EA275CB, Data2: 0xD53E, Data3: 0x4868, Data4: ( 0x88,0x56,0x1E,0x21,0xA5,0x03,0x0D,0xC0 ) // 4EA275CB-D53E-4868-8856-1E21A5030DC0
     ) 
 
-    public class IHttpExpectationHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpExpectationHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueFactory }
 
         public func CreateFromName(_ name: String) throws -> IHttpExpectationHeaderValue {
@@ -3439,7 +3498,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x3019ABE2, Data2: 0xCFE5, Data3: 0x473B, Data4: ( 0xA5,0x7F,0xFB,0xA5,0xB1,0x4E,0xB2,0x57 ) // 3019ABE2-CFE5-473B-A57F-FBA5B14EB257
     ) 
 
-    public class IHttpExpectationHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpExpectationHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpExpectationHeaderValue? {
@@ -3456,6 +3515,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _expectationHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValue>?
+            defer {
+                _ = _expectationHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_expectationHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_expectationHeaderValueAbi, &succeeded))
             }
@@ -3469,7 +3531,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpExpectationHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpexpectationheadervaluecollection)
-public final class HttpExpectationHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpExpectationHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpExpectationHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpExpectationHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection
@@ -3639,7 +3701,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xE78521B3, Data2: 0xA0E2, Data3: 0x4AC4, Data4: ( 0x9E,0x66,0x79,0x70,0x6C,0xB9,0xFD,0x58 ) // E78521B3-A0E2-4AC4-9E66-79706CB9FD58
     ) 
 
-    public class IHttpExpectationHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpExpectationHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpExpectationHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -3664,7 +3726,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpLanguageHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguageheadervaluecollection)
-public final class HttpLanguageHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpLanguageHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = UWP.Language?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpLanguageHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection
@@ -3834,7 +3896,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x9EBD7CA3, Data2: 0x8219, Data3: 0x44F6, Data4: ( 0x99,0x02,0x8C,0x56,0xDF,0xD3,0x34,0x0C ) // 9EBD7CA3-8219-44F6-9902-8C56DFD3340C
     ) 
 
-    public class IHttpLanguageHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpLanguageHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -3859,7 +3921,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpLanguageRangeWithQualityHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervalue)
-public final class HttpLanguageRangeWithQualityHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpLanguageRangeWithQualityHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpLanguageRangeWithQualityHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3948,15 +4010,17 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x7256E102, Data2: 0x0080, Data3: 0x4DB4, Data4: ( 0xA0,0x83,0x7D,0xE7,0xB2,0xE5,0xBA,0x4C ) // 7256E102-0080-4DB4-A083-7DE7B2E5BA4C
     ) 
 
-    public class IHttpLanguageRangeWithQualityHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpLanguageRangeWithQualityHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue }
 
         public func get_LanguageRange() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_LanguageRange(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -3975,7 +4039,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x7BB83970, Data2: 0x780F, Data3: 0x4C83, Data4: ( 0x9F,0xE4,0xDC,0x30,0x87,0xF6,0xBD,0x55 ) // 7BB83970-780F-4C83-9FE4-DC3087F6BD55
     ) 
 
-    public class IHttpLanguageRangeWithQualityHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpLanguageRangeWithQualityHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueFactory }
 
         public func CreateFromLanguageRange(_ languageRange: String) throws -> IHttpLanguageRangeWithQualityHeaderValue {
@@ -4004,7 +4068,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x2541E146, Data2: 0xF308, Data3: 0x46F5, Data4: ( 0xB6,0x95,0x42,0xF5,0x40,0x24,0xEC,0x68 ) // 2541E146-F308-46F5-B695-42F54024EC68
     ) 
 
-    public class IHttpLanguageRangeWithQualityHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpLanguageRangeWithQualityHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpLanguageRangeWithQualityHeaderValue? {
@@ -4021,6 +4085,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _languageRangeWithQualityHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValue>?
+            defer {
+                _ = _languageRangeWithQualityHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_languageRangeWithQualityHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_languageRangeWithQualityHeaderValueAbi, &succeeded))
             }
@@ -4034,7 +4101,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpLanguageRangeWithQualityHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httplanguagerangewithqualityheadervaluecollection)
-public final class HttpLanguageRangeWithQualityHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpLanguageRangeWithQualityHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpLanguageRangeWithQualityHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpLanguageRangeWithQualityHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection
@@ -4204,7 +4271,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x885D5ABD, Data2: 0x4B4F, Data3: 0x480A, Data4: ( 0x89,0xCE,0x8A,0xED,0xCE,0xE6,0xE3,0xA0 ) // 885D5ABD-4B4F-480A-89CE-8AEDCEE6E3A0
     ) 
 
-    public class IHttpLanguageRangeWithQualityHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpLanguageRangeWithQualityHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpLanguageRangeWithQualityHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -4229,7 +4296,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpMediaTypeHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypeheadervalue)
-public final class HttpMediaTypeHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpMediaTypeHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpMediaTypeHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4321,15 +4388,17 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x16B28533, Data2: 0xE728, Data3: 0x4FCB, Data4: ( 0xBD,0xB0,0x08,0xA4,0x31,0xA1,0x48,0x44 ) // 16B28533-E728-4FCB-BDB0-08A431A14844
     ) 
 
-    public class IHttpMediaTypeHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpMediaTypeHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue }
 
         public func get_CharSet() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharSet(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -4342,10 +4411,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_MediaType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -4371,7 +4442,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xBED747A8, Data2: 0xCD17, Data3: 0x42DD, Data4: ( 0x93,0x67,0xAB,0x9C,0x5B,0x56,0xDD,0x7D ) // BED747A8-CD17-42DD-9367-AB9C5B56DD7D
     ) 
 
-    public class IHttpMediaTypeHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpMediaTypeHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValueFactory }
 
         public func Create(_ mediaType: String) throws -> IHttpMediaTypeHeaderValue {
@@ -4390,7 +4461,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xE04D83DF, Data2: 0x1D41, Data3: 0x4D8C, Data4: ( 0xA2,0xDE,0x6F,0xD2,0xED,0x87,0x39,0x9B ) // E04D83DF-1D41-4D8C-A2DE-6FD2ED87399B
     ) 
 
-    public class IHttpMediaTypeHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpMediaTypeHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpMediaTypeHeaderValue? {
@@ -4407,6 +4478,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _mediaTypeHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValue>?
+            defer {
+                _ = _mediaTypeHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_mediaTypeHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_mediaTypeHeaderValueAbi, &succeeded))
             }
@@ -4420,7 +4494,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpMediaTypeWithQualityHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervalue)
-public final class HttpMediaTypeWithQualityHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpMediaTypeWithQualityHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpMediaTypeWithQualityHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4522,15 +4596,17 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x188D5E32, Data2: 0x76BE, Data3: 0x44A0, Data4: ( 0xB1,0xCD,0x20,0x74,0xBD,0xED,0x2D,0xDE ) // 188D5E32-76BE-44A0-B1CD-2074BDED2DDE
     ) 
 
-    public class IHttpMediaTypeWithQualityHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpMediaTypeWithQualityHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue }
 
         public func get_CharSet() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharSet(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -4543,10 +4619,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_MediaType() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MediaType(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -4589,7 +4667,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x4C6D20F4, Data2: 0x9457, Data3: 0x44E6, Data4: ( 0xA3,0x23,0xD1,0x22,0xB9,0x58,0x78,0x0B ) // 4C6D20F4-9457-44E6-A323-D122B958780B
     ) 
 
-    public class IHttpMediaTypeWithQualityHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpMediaTypeWithQualityHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueFactory }
 
         public func CreateFromMediaType(_ mediaType: String) throws -> IHttpMediaTypeWithQualityHeaderValue {
@@ -4618,7 +4696,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x5B070CD9, Data2: 0xB560, Data3: 0x4FC8, Data4: ( 0x98,0x35,0x7E,0x6C,0x0A,0x65,0x7B,0x24 ) // 5B070CD9-B560-4FC8-9835-7E6C0A657B24
     ) 
 
-    public class IHttpMediaTypeWithQualityHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpMediaTypeWithQualityHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpMediaTypeWithQualityHeaderValue? {
@@ -4635,6 +4713,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _mediaTypeWithQualityHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValue>?
+            defer {
+                _ = _mediaTypeWithQualityHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_mediaTypeWithQualityHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_mediaTypeWithQualityHeaderValueAbi, &succeeded))
             }
@@ -4648,7 +4729,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpMediaTypeWithQualityHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmediatypewithqualityheadervaluecollection)
-public final class HttpMediaTypeWithQualityHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpMediaTypeWithQualityHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpMediaTypeWithQualityHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpMediaTypeWithQualityHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection
@@ -4818,7 +4899,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x3C0C6B73, Data2: 0x1342, Data3: 0x4587, Data4: ( 0xA0,0x56,0x18,0xD0,0x2F,0xF6,0x71,0x65 ) // 3C0C6B73-1342-4587-A056-18D02FF67165
     ) 
 
-    public class IHttpMediaTypeWithQualityHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpMediaTypeWithQualityHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMediaTypeWithQualityHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -4843,7 +4924,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpMethodHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpmethodheadervaluecollection)
-public final class HttpMethodHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpMethodHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = UWP.HttpMethod?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpMethodHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection
@@ -5013,7 +5094,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x43BC3FF4, Data2: 0x6119, Data3: 0x4ADF, Data4: ( 0x93,0x8C,0x34,0xBF,0xFF,0xCF,0x92,0xED ) // 43BC3FF4-6119-4ADF-938C-34BFFFCF92ED
     ) 
 
-    public class IHttpMethodHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpMethodHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpMethodHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -5038,7 +5119,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpNameValueHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpnamevalueheadervalue)
-public final class HttpNameValueHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpNameValueHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpNameValueHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5128,24 +5209,28 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xD8BA7463, Data2: 0x5B9A, Data3: 0x4D1B, Data4: ( 0x93,0xF9,0xAA,0x5B,0x44,0xEC,0xFD,0xDF ) // D8BA7463-5B9A-4D1B-93F9-AA5B44ECFDDF
     ) 
 
-    public class IHttpNameValueHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpNameValueHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Value() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -5162,7 +5247,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x770E2267, Data2: 0xCBF8, Data3: 0x4736, Data4: ( 0xA9,0x25,0x93,0xFB,0xE1,0x0C,0x7C,0xA8 ) // 770E2267-CBF8-4736-A925-93FBE10C7CA8
     ) 
 
-    public class IHttpNameValueHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpNameValueHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValueFactory }
 
         public func CreateFromName(_ name: String) throws -> IHttpNameValueHeaderValue {
@@ -5192,7 +5277,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xFFD4030F, Data2: 0x1130, Data3: 0x4152, Data4: ( 0x86,0x59,0x25,0x69,0x09,0xA9,0xD1,0x15 ) // FFD4030F-1130-4152-8659-256909A9D115
     ) 
 
-    public class IHttpNameValueHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpNameValueHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpNameValueHeaderValue? {
@@ -5209,6 +5294,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _nameValueHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValue>?
+            defer {
+                _ = _nameValueHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_nameValueHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpNameValueHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_nameValueHeaderValueAbi, &succeeded))
             }
@@ -5222,7 +5310,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpProductHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductheadervalue)
-public final class HttpProductHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpProductHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpProductHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5311,24 +5399,28 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xF4FEEE03, Data2: 0xEBD4, Data3: 0x4160, Data4: ( 0xB9,0xFF,0x80,0x7C,0x51,0x83,0xB6,0xE6 ) // F4FEEE03-EBD4-4160-B9FF-807C5183B6E6
     ) 
 
-    public class IHttpProductHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpProductHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_Version() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Version(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -5338,7 +5430,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x611AA4F5, Data2: 0x82BC, Data3: 0x42FB, Data4: ( 0x97,0x7B,0xDC,0x00,0x53,0x6E,0x5E,0x86 ) // 611AA4F5-82BC-42FB-977B-DC00536E5E86
     ) 
 
-    public class IHttpProductHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpProductHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValueFactory }
 
         public func CreateFromName(_ productName: String) throws -> IHttpProductHeaderValue {
@@ -5368,7 +5460,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x90C33E29, Data2: 0xBEFC, Data3: 0x4337, Data4: ( 0xBE,0x62,0x49,0xF0,0x97,0x97,0x5F,0x53 ) // 90C33E29-BEFC-4337-BE62-49F097975F53
     ) 
 
-    public class IHttpProductHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpProductHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpProductHeaderValue? {
@@ -5385,6 +5477,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _productHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValue>?
+            defer {
+                _ = _productHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_productHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_productHeaderValueAbi, &succeeded))
             }
@@ -5398,7 +5493,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpProductInfoHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervalue)
-public final class HttpProductInfoHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpProductInfoHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpProductInfoHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5487,7 +5582,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x1B1A8732, Data2: 0x4C35, Data3: 0x486A, Data4: ( 0x96,0x6F,0x64,0x64,0x89,0x19,0x8E,0x4D ) // 1B1A8732-4C35-486A-966F-646489198E4D
     ) 
 
-    public class IHttpProductInfoHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpProductInfoHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue }
 
         public func get_Product() throws -> UWP.HttpProductHeaderValue? {
@@ -5501,10 +5596,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_Comment() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Comment(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -5514,7 +5611,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x24220FBE, Data2: 0xEABE, Data3: 0x4464, Data4: ( 0xB4,0x60,0xEC,0x01,0x0B,0x7C,0x41,0xE2 ) // 24220FBE-EABE-4464-B460-EC010B7C41E2
     ) 
 
-    public class IHttpProductInfoHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpProductInfoHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueFactory }
 
         public func CreateFromComment(_ productComment: String) throws -> IHttpProductInfoHeaderValue {
@@ -5544,7 +5641,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xDB7FD857, Data2: 0x327A, Data3: 0x4E73, Data4: ( 0x81,0xE5,0x70,0x59,0xA3,0x02,0xB0,0x42 ) // DB7FD857-327A-4E73-81E5-7059A302B042
     ) 
 
-    public class IHttpProductInfoHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpProductInfoHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpProductInfoHeaderValue? {
@@ -5561,6 +5658,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _productInfoHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValue>?
+            defer {
+                _ = _productInfoHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_productInfoHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_productInfoHeaderValueAbi, &succeeded))
             }
@@ -5574,7 +5674,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpProductInfoHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpproductinfoheadervaluecollection)
-public final class HttpProductInfoHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpProductInfoHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpProductInfoHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpProductInfoHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection
@@ -5744,7 +5844,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x877DF74A, Data2: 0xD69B, Data3: 0x44F8, Data4: ( 0xAD,0x4F,0x45,0x3A,0xF9,0xC4,0x2E,0xD0 ) // 877DF74A-D69B-44F8-AD4F-453AF9C42ED0
     ) 
 
-    public class IHttpProductInfoHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpProductInfoHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpProductInfoHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {
@@ -5769,7 +5869,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpRequestHeaderCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httprequestheadercollection)
-public final class HttpRequestHeaderCollection : WinRTClass, IMap, IIterable, WindowsFoundation.IStringable {
+public final class HttpRequestHeaderCollection : WinRTClass, @unchecked Sendable, IMap, IIterable, WindowsFoundation.IStringable {
     public typealias K = String
     public typealias V = String
     public typealias T = WindowsFoundation.AnyIKeyValuePair<String, String>?
@@ -5984,7 +6084,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xAF40329B, Data2: 0xB544, Data3: 0x469B, Data4: ( 0x86,0xB9,0xAC,0x3D,0x46,0x6F,0xEA,0x36 ) // AF40329B-B544-469B-86B9-AC3D466FEA36
     ) 
 
-    public class IHttpRequestHeaderCollection: WindowsFoundation.IInspectable {
+    public class IHttpRequestHeaderCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection }
 
         public func get_Accept() throws -> UWP.HttpMediaTypeWithQualityHeaderValueCollection? {
@@ -6084,10 +6184,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_From() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpRequestHeaderCollection.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_From(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6236,7 +6338,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpResponseHeaderCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httpresponseheadercollection)
-public final class HttpResponseHeaderCollection : WinRTClass, IMap, IIterable, WindowsFoundation.IStringable {
+public final class HttpResponseHeaderCollection : WinRTClass, @unchecked Sendable, IMap, IIterable, WindowsFoundation.IStringable {
     public typealias K = String
     public typealias V = String
     public typealias T = WindowsFoundation.AnyIKeyValuePair<String, String>?
@@ -6406,7 +6508,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x7A990969, Data2: 0xFA3F, Data3: 0x41ED, Data4: ( 0xAA,0xC6,0xBF,0x95,0x79,0x75,0xC1,0x6B ) // 7A990969-FA3F-41ED-AAC6-BF957975C16B
     ) 
 
-    public class IHttpResponseHeaderCollection: WindowsFoundation.IInspectable {
+    public class IHttpResponseHeaderCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpResponseHeaderCollection }
 
         public func get_Age() throws -> WindowsFoundation.TimeSpan? {
@@ -6551,7 +6653,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpTransferCodingHeaderValue
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervalue)
-public final class HttpTransferCodingHeaderValue : WinRTClass, WindowsFoundation.IStringable {
+public final class HttpTransferCodingHeaderValue : WinRTClass, @unchecked Sendable, WindowsFoundation.IStringable {
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpTransferCodingHeaderValue
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6636,7 +6738,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x436F32F9, Data2: 0x3DED, Data3: 0x42BD, Data4: ( 0xB3,0x8A,0x54,0x96,0xA2,0x51,0x1C,0xE6 ) // 436F32F9-3DED-42BD-B38A-5496A2511CE6
     ) 
 
-    public class IHttpTransferCodingHeaderValue: WindowsFoundation.IInspectable {
+    public class IHttpTransferCodingHeaderValue: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue }
 
         public func get_Parameters() throws -> WindowsFoundation.AnyIVector<UWP.HttpNameValueHeaderValue?>? {
@@ -6650,10 +6752,12 @@ extension __ABI_Windows_Web_Http_Headers {
 
         public func get_Value() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6663,7 +6767,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0xBB62DFFC, Data2: 0xE361, Data3: 0x4F08, Data4: ( 0x8E,0x4F,0xC9,0xE7,0x23,0xDE,0x70,0x3B ) // BB62DFFC-E361-4F08-8E4F-C9E723DE703B
     ) 
 
-    public class IHttpTransferCodingHeaderValueFactory: WindowsFoundation.IInspectable {
+    public class IHttpTransferCodingHeaderValueFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueFactory }
 
         public func Create(_ input: String) throws -> IHttpTransferCodingHeaderValue {
@@ -6682,7 +6786,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x6AB8892A, Data2: 0x1A98, Data3: 0x4D32, Data4: ( 0xA9,0x06,0x74,0x70,0xA9,0x87,0x5C,0xE5 ) // 6AB8892A-1A98-4D32-A906-7470A9875CE5
     ) 
 
-    public class IHttpTransferCodingHeaderValueStatics: WindowsFoundation.IInspectable {
+    public class IHttpTransferCodingHeaderValueStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueStatics }
 
         public func Parse(_ input: String) throws -> UWP.HttpTransferCodingHeaderValue? {
@@ -6699,6 +6803,9 @@ extension __ABI_Windows_Web_Http_Headers {
             var succeeded: boolean = 0
             let _input = try! HString(input)
             var _transferCodingHeaderValueAbi: UnsafeMutablePointer<__x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValue>?
+            defer {
+                _ = _transferCodingHeaderValueAbi?.pointee.lpVtbl.pointee.Release(_transferCodingHeaderValueAbi)
+            }
             _ = try perform(as: __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.TryParse(pThis, _input.get(), &_transferCodingHeaderValueAbi, &succeeded))
             }
@@ -6712,7 +6819,7 @@ extension __ABI_Windows_Web_Http_Headers {
 // MARK: - HttpTransferCodingHeaderValueCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.web.http.headers.httptransfercodingheadervaluecollection)
-public final class HttpTransferCodingHeaderValueCollection : WinRTClass, IVector, IIterable, WindowsFoundation.IStringable {
+public final class HttpTransferCodingHeaderValueCollection : WinRTClass, @unchecked Sendable, IVector, IIterable, WindowsFoundation.IStringable {
     public typealias T = HttpTransferCodingHeaderValue?
     private typealias SwiftABI = __ABI_Windows_Web_Http_Headers.IHttpTransferCodingHeaderValueCollection
     private typealias CABI = __x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection
@@ -6882,7 +6989,7 @@ extension __ABI_Windows_Web_Http_Headers {
         Data1: 0x202C8C34, Data2: 0x2C03, Data3: 0x49B8, Data4: ( 0x96,0x65,0x73,0xE2,0x7C,0xB2,0xFC,0x79 ) // 202C8C34-2C03-49B8-9665-73E27CB2FC79
     ) 
 
-    public class IHttpTransferCodingHeaderValueCollection: WindowsFoundation.IInspectable {
+    public class IHttpTransferCodingHeaderValueCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CWeb_CHttp_CHeaders_CIHttpTransferCodingHeaderValueCollection }
 
         public func ParseAdd(_ input: String) throws {

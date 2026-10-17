@@ -89,7 +89,7 @@ extension __IMPL_Windows_UI_Input {
         }
     }
 
-    fileprivate class IPointerPointTransformImpl: IPointerPointTransform, WinRTAbiImpl {
+    fileprivate class IPointerPointTransformImpl: IPointerPointTransform, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IPointerPointTransformBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -121,7 +121,7 @@ extension __ABI_Windows_UI_Input {
         Data1: 0x4D5FE14F, Data2: 0xB87C, Data3: 0x4028, Data4: ( 0xBC,0x9C,0x59,0xE9,0x94,0x7F,0xB0,0x56 ) // 4D5FE14F-B87C-4028-BC9C-59E9947FB056
     ) 
 
-    public class IPointerPointTransform: WindowsFoundation.IInspectable {
+    public class IPointerPointTransform: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointTransform }
 
         open func get_Inverse() throws -> UWP.AnyIPointerPointTransform? {
@@ -153,7 +153,7 @@ extension __ABI_Windows_UI_Input {
 
     }
 
-    internal static var IPointerPointTransformVTable: __x_ABI_CWindows_CUI_CInput_CIPointerPointTransformVtbl = .init(
+    internal static nonisolated(unsafe) var IPointerPointTransformVTable: __x_ABI_CWindows_CUI_CInput_CIPointerPointTransformVtbl = .init(
         QueryInterface: { IPointerPointTransformWrapper.queryInterface($0, $1, $2) },
         AddRef: { IPointerPointTransformWrapper.addRef($0) },
         Release: { IPointerPointTransformWrapper.release($0) },
@@ -225,7 +225,7 @@ public class IPointerPointTransformMaker: MakeFromAbi {
 // MARK: - PointerPoint
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpoint)
-public final class PointerPoint : WinRTClass {
+public final class PointerPoint : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Input.IPointerPoint
     private typealias CABI = __x_ABI_CWindows_CUI_CInput_CIPointerPoint
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -335,7 +335,7 @@ extension __ABI_Windows_UI_Input {
         Data1: 0xE995317D, Data2: 0x7296, Data3: 0x42D9, Data4: ( 0x82,0x33,0xC5,0xBE,0x73,0xB7,0x4A,0x4A ) // E995317D-7296-42D9-8233-C5BE73B74A4A
     ) 
 
-    public class IPointerPoint: WindowsFoundation.IInspectable {
+    public class IPointerPoint: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPoint }
 
         public func get_PointerDevice() throws -> UWP.PointerDevice? {
@@ -410,7 +410,7 @@ extension __ABI_Windows_UI_Input {
         Data1: 0xA506638D, Data2: 0x2A1A, Data3: 0x413E, Data4: ( 0xBC,0x75,0x9F,0x38,0x38,0x1C,0xC0,0x69 ) // A506638D-2A1A-413E-BC75-9F38381CC069
     ) 
 
-    public class IPointerPointStatics: WindowsFoundation.IInspectable {
+    public class IPointerPointStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointStatics }
 
         public func GetCurrentPoint(_ pointerId: UInt32) throws -> UWP.PointerPoint? {
@@ -459,7 +459,7 @@ extension __ABI_Windows_UI_Input {
 // MARK: - PointerPointProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.input.pointerpointproperties)
-public final class PointerPointProperties : WinRTClass {
+public final class PointerPointProperties : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Input.IPointerPointProperties
     private typealias CABI = __x_ABI_CWindows_CUI_CInput_CIPointerPointProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -635,7 +635,7 @@ extension __ABI_Windows_UI_Input {
         Data1: 0xC79D8A4B, Data2: 0xC163, Data3: 0x4EE7, Data4: ( 0x80,0x3F,0x67,0xCE,0x79,0xF9,0x97,0x2D ) // C79D8A4B-C163-4EE7-803F-67CE79F9972D
     ) 
 
-    public class IPointerPointProperties: WindowsFoundation.IInspectable {
+    public class IPointerPointProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointProperties }
 
         public func get_Pressure() throws -> Float {
@@ -836,7 +836,7 @@ extension __ABI_Windows_UI_Input {
         Data1: 0x22C3433A, Data2: 0xC83B, Data3: 0x41C0, Data4: ( 0xA2,0x96,0x5E,0x23,0x2D,0x64,0xD6,0xAF ) // 22C3433A-C83B-41C0-A296-5E232D64D6AF
     ) 
 
-    public class IPointerPointProperties2: WindowsFoundation.IInspectable {
+    public class IPointerPointProperties2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CInput_CIPointerPointProperties2 }
 
         public func get_ZDistance() throws -> Float? {

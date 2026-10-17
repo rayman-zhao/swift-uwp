@@ -246,6 +246,8 @@ extension CorePhysicalKeyStatus: WinRTBridgeable {
     public static func from(abi: ABI) -> Self {
         .init(repeatCount: abi.RepeatCount, scanCode: abi.ScanCode, isExtendedKey: .init(from: abi.IsExtendedKey), isMenuKeyDown: .init(from: abi.IsMenuKeyDown), wasKeyDown: .init(from: abi.WasKeyDown), isKeyReleased: .init(from: abi.IsKeyReleased))
     }
+    public static func release(abi: ABI) {
+    }
     public func toABI() -> ABI {
         __ABI_Windows_UI_Core._ABI_CorePhysicalKeyStatus(from: self).detach()
     }
@@ -267,10 +269,12 @@ extension __ABI_Windows_UI_Core {
 
         public func detach() -> __x_ABI_CWindows_CUI_CCore_CCorePhysicalKeyStatus {
             let result = val
+            val = .init()
             return result
         }
 
         deinit {
+            UWP.CorePhysicalKeyStatus.release(abi: val)
         }
     }
 }
@@ -309,7 +313,7 @@ extension __x_ABI_CWindows_CUI_CCore_CCoreProximityEvaluation {
 }
 // MARK: - DispatchedHandler
 
-public typealias DispatchedHandler = () throws -> ()
+public typealias DispatchedHandler = @Sendable () throws -> ()
 
 // MARK: - DispatchedHandler Internals
 
@@ -336,7 +340,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xD1F276C4, Data2: 0x98D8, Data3: 0x4636, Data4: ( 0xBF,0x49,0xEB,0x79,0x50,0x75,0x48,0xE9 ) // D1F276C4-98D8-4636-BF49-EB79507548E9
     ) 
 
-    public class DispatchedHandler: WindowsFoundation.IUnknown {
+    public class DispatchedHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIDispatchedHandler }
 
         open func Invoke() throws {
@@ -349,7 +353,7 @@ extension __ABI_Windows_UI_Core {
 
 
     typealias DispatchedHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_UI_Core.DispatchedHandlerBridge>
-    internal static var DispatchedHandlerVTable: __x_ABI_CWindows_CUI_CCore_CIDispatchedHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var DispatchedHandlerVTable: __x_ABI_CWindows_CUI_CCore_CIDispatchedHandlerVtbl = .init(
         QueryInterface: { DispatchedHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DispatchedHandlerWrapper.addRef($0) },
         Release: { DispatchedHandlerWrapper.release($0) },
@@ -371,7 +375,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CWindows_CUI_CCore_CI
 
 // MARK: - IdleDispatchedHandler
 
-public typealias IdleDispatchedHandler = (IdleDispatchedHandlerArgs?) throws -> ()
+public typealias IdleDispatchedHandler = @Sendable (IdleDispatchedHandlerArgs?) throws -> ()
 
 // MARK: - IdleDispatchedHandler Internals
 
@@ -398,7 +402,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xA42B0C24, Data2: 0x7F21, Data3: 0x4ABC, Data4: ( 0x99,0xC1,0x8F,0x01,0x00,0x7F,0x08,0x80 ) // A42B0C24-7F21-4ABC-99C1-8F01007F0880
     ) 
 
-    public class IdleDispatchedHandler: WindowsFoundation.IUnknown {
+    public class IdleDispatchedHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandler }
 
         open func Invoke(_ e: UWP.IdleDispatchedHandlerArgs?) throws {
@@ -411,7 +415,7 @@ extension __ABI_Windows_UI_Core {
 
 
     typealias IdleDispatchedHandlerWrapper = InterfaceWrapperBase<__IMPL_Windows_UI_Core.IdleDispatchedHandlerBridge>
-    internal static var IdleDispatchedHandlerVTable: __x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var IdleDispatchedHandlerVTable: __x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerVtbl = .init(
         QueryInterface: { IdleDispatchedHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { IdleDispatchedHandlerWrapper.addRef($0) },
         Release: { IdleDispatchedHandlerWrapper.release($0) },
@@ -471,7 +475,7 @@ extension __IMPL_Windows_UI_Core {
         }
     }
 
-    fileprivate class ICoreAcceleratorKeysImpl: ICoreAcceleratorKeys, WinRTAbiImpl {
+    fileprivate class ICoreAcceleratorKeysImpl: ICoreAcceleratorKeys, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICoreAcceleratorKeysBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -501,7 +505,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x9FFDF7F5, Data2: 0xB8C9, Data3: 0x4EF0, Data4: ( 0xB7,0xD2,0x1D,0xE6,0x26,0x56,0x1F,0xC8 ) // 9FFDF7F5-B8C9-4EF0-B7D2-1DE626561FC8
     ) 
 
-    public class ICoreAcceleratorKeys: WindowsFoundation.IInspectable {
+    public class ICoreAcceleratorKeys: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreAcceleratorKeys }
 
         open func add_AcceleratorKeyActivated(_ handler: TypedEventHandler<UWP.CoreDispatcher?, UWP.AcceleratorKeyEventArgs?>?) throws -> EventRegistrationToken {
@@ -522,7 +526,7 @@ extension __ABI_Windows_UI_Core {
 
     }
 
-    internal static var ICoreAcceleratorKeysVTable: __x_ABI_CWindows_CUI_CCore_CICoreAcceleratorKeysVtbl = .init(
+    internal static nonisolated(unsafe) var ICoreAcceleratorKeysVTable: __x_ABI_CWindows_CUI_CCore_CICoreAcceleratorKeysVtbl = .init(
         QueryInterface: { ICoreAcceleratorKeysWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICoreAcceleratorKeysWrapper.addRef($0) },
         Release: { ICoreAcceleratorKeysWrapper.release($0) },
@@ -619,7 +623,7 @@ extension __IMPL_Windows_UI_Core {
         }
     }
 
-    fileprivate class ICorePointerRedirectorImpl: ICorePointerRedirector, WinRTAbiImpl {
+    fileprivate class ICorePointerRedirectorImpl: ICorePointerRedirector, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICorePointerRedirectorBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -675,7 +679,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x8F9D0C94, Data2: 0x5688, Data3: 0x4B0C, Data4: ( 0xA9,0xF1,0xF9,0x31,0xF7,0xFA,0x3D,0xC3 ) // 8F9D0C94-5688-4B0C-A9F1-F931F7FA3DC3
     ) 
 
-    public class ICorePointerRedirector: WindowsFoundation.IInspectable {
+    public class ICorePointerRedirector: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICorePointerRedirector }
 
         open func add_PointerRoutedAway(_ handler: TypedEventHandler<UWP.AnyICorePointerRedirector?, UWP.PointerEventArgs?>?) throws -> EventRegistrationToken {
@@ -728,7 +732,7 @@ extension __ABI_Windows_UI_Core {
 
     }
 
-    internal static var ICorePointerRedirectorVTable: __x_ABI_CWindows_CUI_CCore_CICorePointerRedirectorVtbl = .init(
+    internal static nonisolated(unsafe) var ICorePointerRedirectorVTable: __x_ABI_CWindows_CUI_CCore_CICorePointerRedirectorVtbl = .init(
         QueryInterface: { ICorePointerRedirectorWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICorePointerRedirectorWrapper.addRef($0) },
         Release: { ICorePointerRedirectorWrapper.release($0) },
@@ -913,7 +917,7 @@ extension __IMPL_Windows_UI_Core {
         }
     }
 
-    fileprivate class ICoreWindowImpl: ICoreWindow, WinRTAbiImpl {
+    fileprivate class ICoreWindowImpl: ICoreWindow, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICoreWindowBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1229,7 +1233,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x79B9D5F2, Data2: 0x879E, Data3: 0x4B89, Data4: ( 0xB7,0x98,0x79,0xE4,0x75,0x98,0x03,0x0C ) // 79B9D5F2-879E-4B89-B798-79E47598030C
     ) 
 
-    public class ICoreWindow: WindowsFoundation.IInspectable {
+    public class ICoreWindow: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow }
 
         open func get_AutomationHostProvider() throws -> Any? {
@@ -1640,7 +1644,7 @@ extension __ABI_Windows_UI_Core {
 
     }
 
-    internal static var ICoreWindowVTable: __x_ABI_CWindows_CUI_CCore_CICoreWindowVtbl = .init(
+    internal static nonisolated(unsafe) var ICoreWindowVTable: __x_ABI_CWindows_CUI_CCore_CICoreWindowVtbl = .init(
         QueryInterface: { ICoreWindowWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICoreWindowWrapper.addRef($0) },
         Release: { ICoreWindowWrapper.release($0) },
@@ -2111,7 +2115,7 @@ extension __IMPL_Windows_UI_Core {
         }
     }
 
-    fileprivate class ICoreWindowEventArgsImpl: ICoreWindowEventArgs, WinRTAbiImpl {
+    fileprivate class ICoreWindowEventArgsImpl: ICoreWindowEventArgs, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICoreWindowEventArgsBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2134,7 +2138,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x272B1EF3, Data2: 0xC633, Data3: 0x4DA5, Data4: ( 0xA2,0x6C,0xC6,0xD0,0xF5,0x6B,0x29,0xDA ) // 272B1EF3-C633-4DA5-A26C-C6D0F56B29DA
     ) 
 
-    public class ICoreWindowEventArgs: WindowsFoundation.IInspectable {
+    public class ICoreWindowEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs }
 
         open func get_Handled() throws -> Bool {
@@ -2153,7 +2157,7 @@ extension __ABI_Windows_UI_Core {
 
     }
 
-    internal static var ICoreWindowEventArgsVTable: __x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgsVtbl = .init(
+    internal static nonisolated(unsafe) var ICoreWindowEventArgsVTable: __x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgsVtbl = .init(
         QueryInterface: { ICoreWindowEventArgsWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICoreWindowEventArgsWrapper.addRef($0) },
         Release: { ICoreWindowEventArgsWrapper.release($0) },
@@ -2209,7 +2213,7 @@ public class ICoreWindowEventArgsMaker: MakeFromAbi {
 // MARK: - AcceleratorKeyEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.acceleratorkeyeventargs)
-public final class AcceleratorKeyEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class AcceleratorKeyEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IAcceleratorKeyEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2291,7 +2295,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xFF1C4C4A, Data2: 0x9287, Data3: 0x470B, Data4: ( 0x83,0x6E,0x90,0x86,0xE3,0x12,0x6A,0xDE ) // FF1C4C4A-9287-470B-836E-9086E3126ADE
     ) 
 
-    public class IAcceleratorKeyEventArgs: WindowsFoundation.IInspectable {
+    public class IAcceleratorKeyEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs }
 
         public func get_EventType() throws -> UWP.CoreAcceleratorKeyEventType {
@@ -2324,15 +2328,17 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xD300A9F6, Data2: 0x2F7E, Data3: 0x4873, Data4: ( 0xA5,0x55,0x16,0x6E,0x59,0x6E,0xE1,0xC5 ) // D300A9F6-2F7E-4873-A555-166E596EE1C5
     ) 
 
-    public class IAcceleratorKeyEventArgs2: WindowsFoundation.IInspectable {
+    public class IAcceleratorKeyEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs2 }
 
         public func get_DeviceId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIAcceleratorKeyEventArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2342,7 +2348,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - AutomationProviderRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.automationproviderrequestedeventargs)
-public final class AutomationProviderRequestedEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class AutomationProviderRequestedEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IAutomationProviderRequestedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2408,7 +2414,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x961FF258, Data2: 0x21BF, Data3: 0x4B42, Data4: ( 0xA2,0x98,0xFA,0x47,0x9D,0x4C,0x52,0xE2 ) // 961FF258-21BF-4B42-A298-FA479D4C52E2
     ) 
 
-    public class IAutomationProviderRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IAutomationProviderRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIAutomationProviderRequestedEventArgs }
 
         public func get_AutomationProvider() throws -> Any? {
@@ -2434,7 +2440,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - CharacterReceivedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.characterreceivedeventargs)
-public final class CharacterReceivedEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class CharacterReceivedEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.ICharacterReceivedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2504,7 +2510,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xC584659F, Data2: 0x99B2, Data3: 0x4BCC, Data4: ( 0xBD,0x33,0x04,0xE6,0x3F,0x42,0x90,0x2E ) // C584659F-99B2-4BCC-BD33-04E63F42902E
     ) 
 
-    public class ICharacterReceivedEventArgs: WindowsFoundation.IInspectable {
+    public class ICharacterReceivedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICharacterReceivedEventArgs }
 
         public func get_KeyCode() throws -> UInt32 {
@@ -2529,7 +2535,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - ClosestInteractiveBoundsRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.closestinteractiveboundsrequestedeventargs)
-public final class ClosestInteractiveBoundsRequestedEventArgs : WinRTClass {
+public final class ClosestInteractiveBoundsRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IClosestInteractiveBoundsRequestedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2594,7 +2600,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x347C11D7, Data2: 0xF6F8, Data3: 0x40E3, Data4: ( 0xB2,0x9F,0xAE,0x50,0xD3,0xE8,0x64,0x86 ) // 347C11D7-F6F8-40E3-B29F-AE50D3E86486
     ) 
 
-    public class IClosestInteractiveBoundsRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IClosestInteractiveBoundsRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIClosestInteractiveBoundsRequestedEventArgs }
 
         public func get_PointerPosition() throws -> WindowsFoundation.Point {
@@ -2633,7 +2639,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - CoreCursor
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corecursor)
-public final class CoreCursor : WinRTClass {
+public final class CoreCursor : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Core.ICoreCursor
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreCursor
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2697,7 +2703,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x96893ACF, Data2: 0x111D, Data3: 0x442C, Data4: ( 0x8A,0x77,0xB8,0x79,0x92,0xF8,0xE2,0xD6 ) // 96893ACF-111D-442C-8A77-B87992F8E2D6
     ) 
 
-    public class ICoreCursor: WindowsFoundation.IInspectable {
+    public class ICoreCursor: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreCursor }
 
         public func get_Id() throws -> UInt32 {
@@ -2722,7 +2728,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xF6359621, Data2: 0xA79D, Data3: 0x4ED3, Data4: ( 0x8C,0x32,0xA9,0xEF,0x9D,0x6B,0x76,0xA4 ) // F6359621-A79D-4ED3-8C32-A9EF9D6B76A4
     ) 
 
-    public class ICoreCursorFactory: WindowsFoundation.IInspectable {
+    public class ICoreCursorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreCursorFactory }
 
         public func CreateCursor(_ type: UWP.CoreCursorType, _ id: UInt32) throws -> ICoreCursor {
@@ -2740,7 +2746,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - CoreDispatcher
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.coredispatcher)
-public final class CoreDispatcher : WinRTClass, ICoreAcceleratorKeys {
+public final class CoreDispatcher : WinRTClass, @unchecked Sendable, ICoreAcceleratorKeys {
     private typealias SwiftABI = __ABI_Windows_UI_Core.ICoreDispatcher
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreDispatcher
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2862,7 +2868,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x60DB2FA8, Data2: 0xB705, Data3: 0x4FDE, Data4: ( 0xA7,0xD6,0xEB,0xBB,0x18,0x91,0xD3,0x9E ) // 60DB2FA8-B705-4FDE-A7D6-EBBB1891D39E
     ) 
 
-    public class ICoreDispatcher: WindowsFoundation.IInspectable {
+    public class ICoreDispatcher: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreDispatcher }
 
         public func get_HasThreadAccess() throws -> Bool {
@@ -2907,7 +2913,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xBAFAECAD, Data2: 0x484D, Data3: 0x41BE, Data4: ( 0xBA,0x80,0x1D,0x58,0xC6,0x52,0x63,0xEA ) // BAFAECAD-484D-41BE-BA80-1D58C65263EA
     ) 
 
-    public class ICoreDispatcherWithTaskPriority: WindowsFoundation.IInspectable {
+    public class ICoreDispatcherWithTaskPriority: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreDispatcherWithTaskPriority }
 
         public func get_CurrentPriority() throws -> UWP.CoreDispatcherPriority {
@@ -2952,7 +2958,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x6F5E63C7, Data2: 0xE3AA, Data3: 0x4EAE, Data4: ( 0xB0,0xE0,0xDC,0xF3,0x21,0xCA,0x4B,0x2F ) // 6F5E63C7-E3AA-4EAE-B0E0-DCF321CA4B2F
     ) 
 
-    public class ICoreDispatcher2: WindowsFoundation.IInspectable {
+    public class ICoreDispatcher2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreDispatcher2 }
 
         public func TryRunAsync(_ priority: UWP.CoreDispatcherPriority, _ agileCallback: UWP.DispatchedHandler?) throws -> WindowsFoundation.AnyIAsyncOperation<Bool>? {
@@ -2983,7 +2989,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - CoreWindow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindow)
-public final class CoreWindow : WinRTClass, ICoreWindow, ICorePointerRedirector {
+public final class CoreWindow : WinRTClass, @unchecked Sendable, ICoreWindow, ICorePointerRedirector {
     private typealias SwiftABI = __ABI_Windows_UI_Core.ICoreWindow
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreWindow
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3451,7 +3457,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x7C2B1B85, Data2: 0x6917, Data3: 0x4361, Data4: ( 0x9C,0x02,0x0D,0x9E,0x3A,0x42,0x0B,0x95 ) // 7C2B1B85-6917-4361-9C02-0D9E3A420B95
     ) 
 
-    public class ICoreWindow2: WindowsFoundation.IInspectable {
+    public class ICoreWindow2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow2 }
 
         public func put_PointerPosition(_ value: WindowsFoundation.Point) throws {
@@ -3466,7 +3472,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x32C20DD8, Data2: 0xFAEF, Data3: 0x4375, Data4: ( 0xA2,0xAB,0x32,0x64,0x0E,0x48,0x15,0xC7 ) // 32C20DD8-FAEF-4375-A2AB-32640E4815C7
     ) 
 
-    public class ICoreWindow3: WindowsFoundation.IInspectable {
+    public class ICoreWindow3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow3 }
 
         public func add_ClosestInteractiveBoundsRequested(_ handler: TypedEventHandler<UWP.CoreWindow?, UWP.ClosestInteractiveBoundsRequestedEventArgs?>?) throws -> EventRegistrationToken {
@@ -3487,10 +3493,12 @@ extension __ABI_Windows_UI_Core {
 
         public func GetCurrentKeyEventDeviceId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CICoreWindow3.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetCurrentKeyEventDeviceId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -3500,7 +3508,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x35CAF0D0, Data2: 0x47F0, Data3: 0x436C, Data4: ( 0xAF,0x97,0x0D,0xD8,0x8F,0x6F,0x5F,0x02 ) // 35CAF0D0-47F0-436C-AF97-0DD88F6F5F02
     ) 
 
-    public class ICoreWindow4: WindowsFoundation.IInspectable {
+    public class ICoreWindow4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow4 }
 
         public func add_ResizeStarted(_ handler: TypedEventHandler<UWP.CoreWindow?, Any?>?) throws -> EventRegistrationToken {
@@ -3541,7 +3549,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x4B4AE1E1, Data2: 0x2E6D, Data3: 0x4EAA, Data4: ( 0xBD,0xA1,0x1C,0x5C,0xC1,0xBE,0xE1,0x41 ) // 4B4AE1E1-2E6D-4EAA-BDA1-1C5CC1BEE141
     ) 
 
-    public class ICoreWindow5: WindowsFoundation.IInspectable {
+    public class ICoreWindow5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindow5 }
 
         public func get_DispatcherQueue() throws -> UWP.DispatcherQueue? {
@@ -3567,7 +3575,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x9AC40241, Data2: 0x3575, Data3: 0x4C3B, Data4: ( 0xAF,0x66,0xE8,0xC5,0x29,0xD4,0xD0,0x6C ) // 9AC40241-3575-4C3B-AF66-E8C529D4D06C
     ) 
 
-    public class ICoreWindowWithContext: WindowsFoundation.IInspectable {
+    public class ICoreWindowWithContext: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext }
 
         public func get_UIContext() throws -> UWP.UIContext? {
@@ -3585,7 +3593,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x4D239005, Data2: 0x3C2A, Data3: 0x41B1, Data4: ( 0x90,0x22,0x53,0x6B,0xB9,0xCF,0x93,0xB1 ) // 4D239005-3C2A-41B1-9022-536BB9CF93B1
     ) 
 
-    public class ICoreWindowStatic: WindowsFoundation.IInspectable {
+    public class ICoreWindowStatic: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CICoreWindowStatic }
 
         public func GetForCurrentThread() throws -> UWP.CoreWindow? {
@@ -3603,7 +3611,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - CoreWindowEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.corewindoweventargs)
-public final class CoreWindowEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class CoreWindowEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.ICoreWindowEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CICoreWindowEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3661,7 +3669,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - IdleDispatchedHandlerArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.idledispatchedhandlerargs)
-public final class IdleDispatchedHandlerArgs : WinRTClass {
+public final class IdleDispatchedHandlerArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IIdleDispatchedHandlerArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3715,7 +3723,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x98BB6A24, Data2: 0xDC1C, Data3: 0x43CB, Data4: ( 0xB4,0xED,0xD1,0xC0,0xEB,0x23,0x91,0xF3 ) // 98BB6A24-DC1C-43CB-B4ED-D1C0EB2391F3
     ) 
 
-    public class IIdleDispatchedHandlerArgs: WindowsFoundation.IInspectable {
+    public class IIdleDispatchedHandlerArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs }
 
         public func get_IsDispatcherIdle() throws -> Bool {
@@ -3732,7 +3740,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - InputEnabledEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.inputenabledeventargs)
-public final class InputEnabledEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class InputEnabledEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IInputEnabledEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIInputEnabledEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3797,7 +3805,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x80371D4F, Data2: 0x2FD8, Data3: 0x4C24, Data4: ( 0xAA,0x86,0x31,0x63,0xA8,0x7B,0x4E,0x5A ) // 80371D4F-2FD8-4C24-AA86-3163A87B4E5A
     ) 
 
-    public class IInputEnabledEventArgs: WindowsFoundation.IInspectable {
+    public class IInputEnabledEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIInputEnabledEventArgs }
 
         public func get_InputEnabled() throws -> Bool {
@@ -3814,7 +3822,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - KeyEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.keyeventargs)
-public final class KeyEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class KeyEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IKeyEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIKeyEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3891,7 +3899,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x5FF5E930, Data2: 0x2544, Data3: 0x4A17, Data4: ( 0xBD,0x78,0x1F,0x2F,0xDE,0xBB,0x10,0x6B ) // 5FF5E930-2544-4A17-BD78-1F2FDEBB106B
     ) 
 
-    public class IKeyEventArgs: WindowsFoundation.IInspectable {
+    public class IKeyEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIKeyEventArgs }
 
         public func get_VirtualKey() throws -> UWP.VirtualKey {
@@ -3916,15 +3924,17 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x583ADD98, Data2: 0x0790, Data3: 0x4571, Data4: ( 0x9B,0x12,0x64,0x5E,0xF9,0xD7,0x9E,0x42 ) // 583ADD98-0790-4571-9B12-645EF9D79E42
     ) 
 
-    public class IKeyEventArgs2: WindowsFoundation.IInspectable {
+    public class IKeyEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIKeyEventArgs2 }
 
         public func get_DeviceId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CUI_CCore_CIKeyEventArgs2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -3934,7 +3944,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - PointerEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.pointereventargs)
-public final class PointerEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class PointerEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IPointerEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIPointerEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4009,7 +4019,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x920D9CB1, Data2: 0xA5FC, Data3: 0x4A21, Data4: ( 0x8C,0x09,0x49,0xDF,0xE6,0xFF,0xE2,0x5F ) // 920D9CB1-A5FC-4A21-8C09-49DFE6FFE25F
     ) 
 
-    public class IPointerEventArgs: WindowsFoundation.IInspectable {
+    public class IPointerEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIPointerEventArgs }
 
         public func get_CurrentPoint() throws -> UWP.PointerPoint? {
@@ -4044,7 +4054,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - TouchHitTestingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.touchhittestingeventargs)
-public final class TouchHitTestingEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class TouchHitTestingEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.ITouchHitTestingEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4130,7 +4140,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x22F3B823, Data2: 0x0B7C, Data3: 0x424E, Data4: ( 0x9D,0xF7,0x33,0xD4,0xF9,0x62,0x93,0x1B ) // 22F3B823-0B7C-424E-9DF7-33D4F962931B
     ) 
 
-    public class ITouchHitTestingEventArgs: WindowsFoundation.IInspectable {
+    public class ITouchHitTestingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CITouchHitTestingEventArgs }
 
         public func get_ProximityEvaluation() throws -> UWP.CoreProximityEvaluation {
@@ -4187,7 +4197,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - VisibilityChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.visibilitychangedeventargs)
-public final class VisibilityChangedEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class VisibilityChangedEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IVisibilityChangedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIVisibilityChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4252,7 +4262,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0xBF9918EA, Data2: 0xD801, Data3: 0x4564, Data4: ( 0xA4,0x95,0xB1,0xE8,0x4F,0x8A,0xD0,0x85 ) // BF9918EA-D801-4564-A495-B1E84F8AD085
     ) 
 
-    public class IVisibilityChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IVisibilityChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIVisibilityChangedEventArgs }
 
         public func get_Visible() throws -> Bool {
@@ -4269,7 +4279,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - WindowActivatedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.windowactivatedeventargs)
-public final class WindowActivatedEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class WindowActivatedEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IWindowActivatedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIWindowActivatedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4334,7 +4344,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x179D65E7, Data2: 0x4658, Data3: 0x4CB6, Data4: ( 0xAA,0x13,0x41,0xD0,0x94,0xEA,0x25,0x5E ) // 179D65E7-4658-4CB6-AA13-41D094EA255E
     ) 
 
-    public class IWindowActivatedEventArgs: WindowsFoundation.IInspectable {
+    public class IWindowActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIWindowActivatedEventArgs }
 
         public func get_WindowActivationState() throws -> UWP.CoreWindowActivationState {
@@ -4351,7 +4361,7 @@ extension __ABI_Windows_UI_Core {
 // MARK: - WindowSizeChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.core.windowsizechangedeventargs)
-public final class WindowSizeChangedEventArgs : WinRTClass, ICoreWindowEventArgs {
+public final class WindowSizeChangedEventArgs : WinRTClass, @unchecked Sendable, ICoreWindowEventArgs {
     private typealias SwiftABI = __ABI_Windows_UI_Core.IWindowSizeChangedEventArgs
     private typealias CABI = __x_ABI_CWindows_CUI_CCore_CIWindowSizeChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4416,7 +4426,7 @@ extension __ABI_Windows_UI_Core {
         Data1: 0x5A200EC7, Data2: 0x0426, Data3: 0x47DC, Data4: ( 0xB8,0x6C,0x6F,0x47,0x59,0x15,0xE4,0x51 ) // 5A200EC7-0426-47DC-B86C-6F475915E451
     ) 
 
-    public class IWindowSizeChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IWindowSizeChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CCore_CIWindowSizeChangedEventArgs }
 
         public func get_Size() throws -> WindowsFoundation.Size {

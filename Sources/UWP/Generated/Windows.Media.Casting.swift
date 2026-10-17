@@ -82,7 +82,7 @@ extension UWP.CastingPlaybackTypes: @retroactive Hashable, @retroactive Codable,
 // MARK: - CastingConnection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnection)
-public final class CastingConnection : WinRTClass, WindowsFoundation.IClosable {
+public final class CastingConnection : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingConnection
     private typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingConnection
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -193,7 +193,7 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xCD951653, Data2: 0xC2F1, Data3: 0x4498, Data4: ( 0x8B,0x78,0x5F,0xB4,0xCD,0x36,0x40,0xDD ) // CD951653-C2F1-4498-8B78-5FB4CD3640DD
     ) 
 
-    public class ICastingConnection: WindowsFoundation.IInspectable {
+    public class ICastingConnection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingConnection }
 
         public func get_State() throws -> UWP.CastingConnectionState {
@@ -284,7 +284,7 @@ extension __ABI_Windows_Media_Casting {
 // MARK: - CastingConnectionErrorOccurredEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingconnectionerroroccurredeventargs)
-public final class CastingConnectionErrorOccurredEventArgs : WinRTClass {
+public final class CastingConnectionErrorOccurredEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingConnectionErrorOccurredEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -343,7 +343,7 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xA7FB3C69, Data2: 0x8719, Data3: 0x4F00, Data4: ( 0x81,0xFB,0x96,0x18,0x63,0xC7,0x9A,0x32 ) // A7FB3C69-8719-4F00-81FB-961863C79A32
     ) 
 
-    public class ICastingConnectionErrorOccurredEventArgs: WindowsFoundation.IInspectable {
+    public class ICastingConnectionErrorOccurredEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs }
 
         public func get_ErrorStatus() throws -> UWP.CastingConnectionErrorStatus {
@@ -356,10 +356,12 @@ extension __ABI_Windows_Media_Casting {
 
         public func get_Message() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingConnectionErrorOccurredEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Message(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -369,7 +371,7 @@ extension __ABI_Windows_Media_Casting {
 // MARK: - CastingDevice
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevice)
-public final class CastingDevice : WinRTClass {
+public final class CastingDevice : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingDevice
     private typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevice
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -464,24 +466,28 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xDE721C83, Data2: 0x4A43, Data3: 0x4AD1, Data4: ( 0xA6,0xD2,0x24,0x92,0xA7,0x96,0xC3,0xF2 ) // DE721C83-4A43-4AD1-A6D2-2492A796C3F2
     ) 
 
-    public class ICastingDevice: WindowsFoundation.IInspectable {
+    public class ICastingDevice: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevice }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
         public func get_FriendlyName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDevice.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FriendlyName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -518,15 +524,17 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xE7D958D7, Data2: 0x4D13, Data3: 0x4237, Data4: ( 0xA3,0x65,0x4C,0x4F,0x6A,0x4C,0xFD,0x2F ) // E7D958D7-4D13-4237-A365-4C4F6A4CFD2F
     ) 
 
-    public class ICastingDeviceStatics: WindowsFoundation.IInspectable {
+    public class ICastingDeviceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics }
 
         public func GetDeviceSelector(_ type: UWP.CastingPlaybackTypes) throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetDeviceSelector(pThis, type, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -564,7 +572,7 @@ extension __ABI_Windows_Media_Casting {
 // MARK: - CastingDevicePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepicker)
-public final class CastingDevicePicker : WinRTClass {
+public final class CastingDevicePicker : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingDevicePicker
     private typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -669,7 +677,7 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xDCD39924, Data2: 0x0591, Data3: 0x49BE, Data4: ( 0xAA,0xCB,0x4B,0x82,0xEE,0x75,0x6A,0x95 ) // DCD39924-0591-49BE-AACB-4B82EE756A95
     ) 
 
-    public class ICastingDevicePicker: WindowsFoundation.IInspectable {
+    public class ICastingDevicePicker: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevicePicker }
 
         public func get_Filter() throws -> UWP.CastingDevicePickerFilter? {
@@ -746,7 +754,7 @@ extension __ABI_Windows_Media_Casting {
 // MARK: - CastingDevicePickerFilter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdevicepickerfilter)
-public final class CastingDevicePickerFilter : WinRTClass {
+public final class CastingDevicePickerFilter : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingDevicePickerFilter
     private typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -818,7 +826,7 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xBE8C619C, Data2: 0xB563, Data3: 0x4354, Data4: ( 0xAE,0x33,0x9F,0xDA,0xAD,0x8C,0x62,0x91 ) // BE8C619C-B563-4354-AE33-9FDAAD8C6291
     ) 
 
-    public class ICastingDevicePickerFilter: WindowsFoundation.IInspectable {
+    public class ICastingDevicePickerFilter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDevicePickerFilter }
 
         public func get_SupportsAudio() throws -> Bool {
@@ -878,7 +886,7 @@ extension __ABI_Windows_Media_Casting {
 // MARK: - CastingDeviceSelectedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingdeviceselectedeventargs)
-public final class CastingDeviceSelectedEventArgs : WinRTClass {
+public final class CastingDeviceSelectedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingDeviceSelectedEventArgs
     private typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -932,7 +940,7 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xDC439E86, Data2: 0xDD57, Data3: 0x4D0D, Data4: ( 0x94,0x00,0xAF,0x45,0xE4,0xFB,0x36,0x63 ) // DC439E86-DD57-4D0D-9400-AF45E4FB3663
     ) 
 
-    public class ICastingDeviceSelectedEventArgs: WindowsFoundation.IInspectable {
+    public class ICastingDeviceSelectedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingDeviceSelectedEventArgs }
 
         public func get_SelectedCastingDevice() throws -> UWP.CastingDevice? {
@@ -950,7 +958,7 @@ extension __ABI_Windows_Media_Casting {
 // MARK: - CastingSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.casting.castingsource)
-public final class CastingSource : WinRTClass {
+public final class CastingSource : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Casting.ICastingSource
     private typealias CABI = __x_ABI_CWindows_CMedia_CCasting_CICastingSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1005,7 +1013,7 @@ extension __ABI_Windows_Media_Casting {
         Data1: 0xF429EA72, Data2: 0x3467, Data3: 0x47E6, Data4: ( 0xA0,0x27,0x52,0x29,0x23,0xE9,0xD7,0x27 ) // F429EA72-3467-47E6-A027-522923E9D727
     ) 
 
-    public class ICastingSource: WindowsFoundation.IInspectable {
+    public class ICastingSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCasting_CICastingSource }
 
         public func get_PreferredSourceUri() throws -> WindowsFoundation.Uri? {

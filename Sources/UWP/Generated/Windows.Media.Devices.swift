@@ -527,7 +527,7 @@ extension __IMPL_Windows_Media_Devices {
         }
     }
 
-    fileprivate class IMediaDeviceControllerImpl: IMediaDeviceController, WinRTAbiImpl {
+    fileprivate class IMediaDeviceControllerImpl: IMediaDeviceController, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IMediaDeviceControllerBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -559,7 +559,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xF6F8F5CE, Data2: 0x209A, Data3: 0x48FB, Data4: ( 0x86,0xFC,0xD4,0x45,0x78,0xF3,0x17,0xE6 ) // F6F8F5CE-209A-48FB-86FC-D44578F317E6
     ) 
 
-    public class IMediaDeviceController: WindowsFoundation.IInspectable {
+    public class IMediaDeviceController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceController }
 
         open func GetAvailableMediaStreamProperties(_ mediaStreamType: UWP.MediaStreamType) throws -> WindowsFoundation.AnyIVectorView<UWP.AnyIMediaEncodingProperties?>? {
@@ -593,7 +593,7 @@ extension __ABI_Windows_Media_Devices {
 
     }
 
-    internal static var IMediaDeviceControllerVTable: __x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControllerVtbl = .init(
+    internal static nonisolated(unsafe) var IMediaDeviceControllerVTable: __x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControllerVtbl = .init(
         QueryInterface: { IMediaDeviceControllerWrapper.queryInterface($0, $1, $2) },
         AddRef: { IMediaDeviceControllerWrapper.addRef($0) },
         Release: { IMediaDeviceControllerWrapper.release($0) },
@@ -669,7 +669,7 @@ public class IMediaDeviceControllerMaker: MakeFromAbi {
 // MARK: - AdvancedPhotoCaptureSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.advancedphotocapturesettings)
-public final class AdvancedPhotoCaptureSettings : WinRTClass {
+public final class AdvancedPhotoCaptureSettings : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IAdvancedPhotoCaptureSettings
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoCaptureSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -729,7 +729,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x08F3863A, Data2: 0x0018, Data3: 0x445B, Data4: ( 0x93,0xD2,0x64,0x6D,0x1C,0x5E,0xD0,0x5C ) // 08F3863A-0018-445B-93D2-646D1C5ED05C
     ) 
 
-    public class IAdvancedPhotoCaptureSettings: WindowsFoundation.IInspectable {
+    public class IAdvancedPhotoCaptureSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoCaptureSettings }
 
         public func get_Mode() throws -> UWP.AdvancedPhotoMode {
@@ -752,7 +752,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - AdvancedPhotoControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.advancedphotocontrol)
-public final class AdvancedPhotoControl : WinRTClass {
+public final class AdvancedPhotoControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IAdvancedPhotoControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -821,7 +821,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xC5B15486, Data2: 0x9001, Data3: 0x4682, Data4: ( 0x93,0x09,0x68,0xEA,0xE0,0x08,0x0E,0xEC ) // C5B15486-9001-4682-9309-68EAE0080EEC
     ) 
 
-    public class IAdvancedPhotoControl: WindowsFoundation.IInspectable {
+    public class IAdvancedPhotoControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedPhotoControl }
 
         public func get_Supported() throws -> Bool {
@@ -861,7 +861,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - AudioDeviceController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.audiodevicecontroller)
-public final class AudioDeviceController : WinRTClass, IMediaDeviceController {
+public final class AudioDeviceController : WinRTClass, @unchecked Sendable, IMediaDeviceController {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IAudioDeviceController
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIAudioDeviceController
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -942,7 +942,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xEDD4A388, Data2: 0x79C7, Data3: 0x4F7C, Data4: ( 0x90,0xE8,0xEF,0x93,0x4B,0x21,0x58,0x0A ) // EDD4A388-79C7-4F7C-90E8-EF934B21580A
     ) 
 
-    public class IAudioDeviceController: WindowsFoundation.IInspectable {
+    public class IAudioDeviceController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAudioDeviceController }
 
         public func put_Muted(_ value: Bool) throws {
@@ -979,7 +979,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - ExposureCompensationControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol)
-public final class ExposureCompensationControl : WinRTClass {
+public final class ExposureCompensationControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IExposureCompensationControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIExposureCompensationControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1058,7 +1058,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x81C8E834, Data2: 0xDCEC, Data3: 0x4011, Data4: ( 0xA6,0x10,0x1F,0x38,0x47,0xE6,0x4A,0xCA ) // 81C8E834-DCEC-4011-A610-1F3847E64ACA
     ) 
 
-    public class IExposureCompensationControl: WindowsFoundation.IInspectable {
+    public class IExposureCompensationControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIExposureCompensationControl }
 
         public func get_Supported() throws -> Bool {
@@ -1116,7 +1116,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - ExposureControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurecontrol)
-public final class ExposureControl : WinRTClass {
+public final class ExposureControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IExposureControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIExposureControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1205,7 +1205,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x09E8CBE2, Data2: 0xAD96, Data3: 0x4F28, Data4: ( 0xA0,0xE0,0x96,0xED,0x7E,0x1B,0x5F,0xD2 ) // 09E8CBE2-AD96-4F28-A0E0-96ED7E1B5FD2
     ) 
 
-    public class IExposureControl: WindowsFoundation.IInspectable {
+    public class IExposureControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIExposureControl }
 
         public func get_Supported() throws -> Bool {
@@ -1280,7 +1280,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - ExposurePriorityVideoControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.exposurepriorityvideocontrol)
-public final class ExposurePriorityVideoControl : WinRTClass {
+public final class ExposurePriorityVideoControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IExposurePriorityVideoControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIExposurePriorityVideoControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1340,7 +1340,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x2CB240A3, Data2: 0x5168, Data3: 0x4271, Data4: ( 0x9E,0xA5,0x47,0x62,0x1A,0x98,0xA3,0x52 ) // 2CB240A3-5168-4271-9EA5-47621A98A352
     ) 
 
-    public class IExposurePriorityVideoControl: WindowsFoundation.IInspectable {
+    public class IExposurePriorityVideoControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIExposurePriorityVideoControl }
 
         public func get_Supported() throws -> Bool {
@@ -1371,7 +1371,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - FlashControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.flashcontrol)
-public final class FlashControl : WinRTClass {
+public final class FlashControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IFlashControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIFlashControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1472,7 +1472,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xDEF41DBE, Data2: 0x7D68, Data3: 0x45E3, Data4: ( 0x8C,0x0F,0xBE,0x7B,0xB3,0x28,0x37,0xD0 ) // DEF41DBE-7D68-45E3-8C0F-BE7BB32837D0
     ) 
 
-    public class IFlashControl: WindowsFoundation.IInspectable {
+    public class IFlashControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIFlashControl }
 
         public func get_Supported() throws -> Bool {
@@ -1561,7 +1561,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x7D29CC9E, Data2: 0x75E1, Data3: 0x4AF7, Data4: ( 0xBD,0x7D,0x4E,0x38,0xE1,0xC0,0x6C,0xD6 ) // 7D29CC9E-75E1-4AF7-BD7D-4E38E1C06CD6
     ) 
 
-    public class IFlashControl2: WindowsFoundation.IInspectable {
+    public class IFlashControl2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIFlashControl2 }
 
         public func get_AssistantLightSupported() throws -> Bool {
@@ -1592,7 +1592,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - FocusControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focuscontrol)
-public final class FocusControl : WinRTClass {
+public final class FocusControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IFocusControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIFocusControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1748,7 +1748,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xC0D889F6, Data2: 0x5228, Data3: 0x4453, Data4: ( 0xB1,0x53,0x85,0x60,0x65,0x92,0xB2,0x38 ) // C0D889F6-5228-4453-B153-85606592B238
     ) 
 
-    public class IFocusControl: WindowsFoundation.IInspectable {
+    public class IFocusControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIFocusControl }
 
         public func get_Supported() throws -> Bool {
@@ -1850,7 +1850,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x3F7CFF48, Data2: 0xC534, Data3: 0x4E9E, Data4: ( 0x94,0xC3,0x52,0xEF,0x2A,0xFD,0x5D,0x07 ) // 3F7CFF48-C534-4E9E-94C3-52EF2AFD5D07
     ) 
 
-    public class IFocusControl2: WindowsFoundation.IInspectable {
+    public class IFocusControl2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIFocusControl2 }
 
         public func get_FocusChangedSupported() throws -> Bool {
@@ -1942,7 +1942,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - FocusSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.focussettings)
-public final class FocusSettings : WinRTClass {
+public final class FocusSettings : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IFocusSettings
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIFocusSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2032,7 +2032,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x79958F6B, Data2: 0x3263, Data3: 0x4275, Data4: ( 0x85,0xD6,0xAE,0xAE,0x89,0x1C,0x96,0xEE ) // 79958F6B-3263-4275-85D6-AEAE891C96EE
     ) 
 
-    public class IFocusSettings: WindowsFoundation.IInspectable {
+    public class IFocusSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIFocusSettings }
 
         public func get_Mode() throws -> UWP.FocusMode {
@@ -2131,7 +2131,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - HdrVideoControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.hdrvideocontrol)
-public final class HdrVideoControl : WinRTClass {
+public final class HdrVideoControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IHdrVideoControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIHdrVideoControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2196,7 +2196,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x55D8E2D0, Data2: 0x30C0, Data3: 0x43BF, Data4: ( 0x9B,0x9A,0x97,0x99,0xD7,0x0C,0xED,0x94 ) // 55D8E2D0-30C0-43BF-9B9A-9799D70CED94
     ) 
 
-    public class IHdrVideoControl: WindowsFoundation.IInspectable {
+    public class IHdrVideoControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIHdrVideoControl }
 
         public func get_Supported() throws -> Bool {
@@ -2236,7 +2236,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - InfraredTorchControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.infraredtorchcontrol)
-public final class InfraredTorchControl : WinRTClass {
+public final class InfraredTorchControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IInfraredTorchControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIInfraredTorchControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2322,7 +2322,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x1CBA2C83, Data2: 0x6CB6, Data3: 0x5A04, Data4: ( 0xA6,0xFC,0x3B,0xE7,0xB3,0x3F,0xF0,0x56 ) // 1CBA2C83-6CB6-5A04-A6FC-3BE7B33FF056
     ) 
 
-    public class IInfraredTorchControl: WindowsFoundation.IInspectable {
+    public class IInfraredTorchControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIInfraredTorchControl }
 
         public func get_IsSupported() throws -> Bool {
@@ -2400,7 +2400,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - IsoSpeedControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.isospeedcontrol)
-public final class IsoSpeedControl : WinRTClass {
+public final class IsoSpeedControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IIsoSpeedControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIIsoSpeedControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2506,7 +2506,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x27B6C322, Data2: 0x25AD, Data3: 0x4F1B, Data4: ( 0xAA,0xAB,0x52,0x4A,0xB3,0x76,0xCA,0x33 ) // 27B6C322-25AD-4F1B-AAAB-524AB376CA33
     ) 
 
-    public class IIsoSpeedControl: WindowsFoundation.IInspectable {
+    public class IIsoSpeedControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIIsoSpeedControl }
 
         public func get_Supported() throws -> Bool {
@@ -2549,7 +2549,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x6F1578F2, Data2: 0x6D77, Data3: 0x4F8A, Data4: ( 0x8C,0x2F,0x61,0x30,0xB6,0x39,0x50,0x53 ) // 6F1578F2-6D77-4F8A-8C2F-6130B6395053
     ) 
 
-    public class IIsoSpeedControl2: WindowsFoundation.IInspectable {
+    public class IIsoSpeedControl2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIIsoSpeedControl2 }
 
         public func get_Min() throws -> UInt32 {
@@ -2616,7 +2616,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - LowLagPhotoControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotocontrol)
-public final class LowLagPhotoControl : WinRTClass {
+public final class LowLagPhotoControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.ILowLagPhotoControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2698,7 +2698,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x6D5C4DD0, Data2: 0xFADF, Data3: 0x415D, Data4: ( 0xAE,0xE6,0x3B,0xAA,0x52,0x93,0x00,0xC9 ) // 6D5C4DD0-FADF-415D-AEE6-3BAA529300C9
     ) 
 
-    public class ILowLagPhotoControl: WindowsFoundation.IInspectable {
+    public class ILowLagPhotoControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoControl }
 
         public func GetHighestConcurrentFrameRate(_ captureProperties: UWP.AnyIMediaEncodingProperties?) throws -> UWP.MediaRatio? {
@@ -2777,7 +2777,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - LowLagPhotoSequenceControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.lowlagphotosequencecontrol)
-public final class LowLagPhotoSequenceControl : WinRTClass {
+public final class LowLagPhotoSequenceControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.ILowLagPhotoSequenceControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoSequenceControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2886,7 +2886,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x3DCF909D, Data2: 0x6D16, Data3: 0x409C, Data4: ( 0xBA,0xFE,0xB9,0xA5,0x94,0xC6,0xFD,0xE6 ) // 3DCF909D-6D16-409C-BAFE-B9A594C6FDE6
     ) 
 
-    public class ILowLagPhotoSequenceControl: WindowsFoundation.IInspectable {
+    public class ILowLagPhotoSequenceControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CILowLagPhotoSequenceControl }
 
         public func get_Supported() throws -> Bool {
@@ -3017,7 +3017,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - MediaDeviceControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrol)
-public final class MediaDeviceControl : WinRTClass {
+public final class MediaDeviceControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IMediaDeviceControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3091,7 +3091,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xEFA8DFA9, Data2: 0x6F75, Data3: 0x4863, Data4: ( 0xBA,0x0B,0x58,0x3F,0x30,0x36,0xB4,0xDE ) // EFA8DFA9-6F75-4863-BA0B-583F3036B4DE
     ) 
 
-    public class IMediaDeviceControl: WindowsFoundation.IInspectable {
+    public class IMediaDeviceControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControl }
 
         public func get_Capabilities() throws -> UWP.MediaDeviceControlCapabilities? {
@@ -3143,7 +3143,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - MediaDeviceControlCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.mediadevicecontrolcapabilities)
-public final class MediaDeviceControlCapabilities : WinRTClass {
+public final class MediaDeviceControlCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IMediaDeviceControlCapabilities
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControlCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3222,7 +3222,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x23005816, Data2: 0xEB85, Data3: 0x43E2, Data4: ( 0xB9,0x2B,0x82,0x40,0xD5,0xEE,0x70,0xEC ) // 23005816-EB85-43E2-B92B-8240D5EE70EC
     ) 
 
-    public class IMediaDeviceControlCapabilities: WindowsFoundation.IInspectable {
+    public class IMediaDeviceControlCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIMediaDeviceControlCapabilities }
 
         public func get_Supported() throws -> Bool {
@@ -3279,7 +3279,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - OpticalImageStabilizationControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.opticalimagestabilizationcontrol)
-public final class OpticalImageStabilizationControl : WinRTClass {
+public final class OpticalImageStabilizationControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IOpticalImageStabilizationControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIOpticalImageStabilizationControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3344,7 +3344,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xBFAD9C1D, Data2: 0x00BC, Data3: 0x423B, Data4: ( 0x8E,0xB2,0xA0,0x17,0x8C,0xA9,0x42,0x47 ) // BFAD9C1D-00BC-423B-8EB2-A0178CA94247
     ) 
 
-    public class IOpticalImageStabilizationControl: WindowsFoundation.IInspectable {
+    public class IOpticalImageStabilizationControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIOpticalImageStabilizationControl }
 
         public func get_Supported() throws -> Bool {
@@ -3384,7 +3384,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - PhotoConfirmationControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.photoconfirmationcontrol)
-public final class PhotoConfirmationControl : WinRTClass {
+public final class PhotoConfirmationControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IPhotoConfirmationControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIPhotoConfirmationControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3450,7 +3450,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xC8F3F363, Data2: 0xFF5E, Data3: 0x4582, Data4: ( 0xA9,0xA8,0x05,0x50,0xF8,0x5A,0x4A,0x76 ) // C8F3F363-FF5E-4582-A9A8-0550F85A4A76
     ) 
 
-    public class IPhotoConfirmationControl: WindowsFoundation.IInspectable {
+    public class IPhotoConfirmationControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIPhotoConfirmationControl }
 
         public func get_Supported() throws -> Bool {
@@ -3495,7 +3495,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - RegionOfInterest
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionofinterest)
-public final class RegionOfInterest : WinRTClass {
+public final class RegionOfInterest : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IRegionOfInterest
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIRegionOfInterest
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3593,7 +3593,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xE5ECC834, Data2: 0xCE66, Data3: 0x4E05, Data4: ( 0xA7,0x8F,0xCF,0x39,0x1A,0x5E,0xC2,0xD1 ) // E5ECC834-CE66-4E05-A78F-CF391A5EC2D1
     ) 
 
-    public class IRegionOfInterest: WindowsFoundation.IInspectable {
+    public class IRegionOfInterest: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIRegionOfInterest }
 
         public func get_AutoFocusEnabled() throws -> Bool {
@@ -3658,7 +3658,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x19FE2A91, Data2: 0x73AA, Data3: 0x4D51, Data4: ( 0x8A,0x9D,0x56,0xCC,0xF7,0xDB,0x7F,0x54 ) // 19FE2A91-73AA-4D51-8A9D-56CCF7DB7F54
     ) 
 
-    public class IRegionOfInterest2: WindowsFoundation.IInspectable {
+    public class IRegionOfInterest2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIRegionOfInterest2 }
 
         public func get_Type() throws -> UWP.RegionOfInterestType {
@@ -3709,7 +3709,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - RegionsOfInterestControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.regionsofinterestcontrol)
-public final class RegionsOfInterestControl : WinRTClass {
+public final class RegionsOfInterestControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IRegionsOfInterestControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIRegionsOfInterestControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3793,7 +3793,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xC323F527, Data2: 0xAB0B, Data3: 0x4558, Data4: ( 0x8B,0x5B,0xDF,0x56,0x93,0xDB,0x03,0x78 ) // C323F527-AB0B-4558-8B5B-DF5693DB0378
     ) 
 
-    public class IRegionsOfInterestControl: WindowsFoundation.IInspectable {
+    public class IRegionsOfInterestControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIRegionsOfInterestControl }
 
         public func get_MaxRegions() throws -> UInt32 {
@@ -3865,7 +3865,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - SceneModeControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.scenemodecontrol)
-public final class SceneModeControl : WinRTClass {
+public final class SceneModeControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.ISceneModeControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CISceneModeControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3929,7 +3929,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xD48E5AF7, Data2: 0x8D59, Data3: 0x4854, Data4: ( 0x8C,0x62,0x12,0xC7,0x0B,0xA8,0x9B,0x7C ) // D48E5AF7-8D59-4854-8C62-12C70BA89B7C
     ) 
 
-    public class ISceneModeControl: WindowsFoundation.IInspectable {
+    public class ISceneModeControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CISceneModeControl }
 
         public func get_SupportedModes() throws -> WindowsFoundation.AnyIVectorView<UWP.CaptureSceneMode>? {
@@ -3964,7 +3964,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - TorchControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.torchcontrol)
-public final class TorchControl : WinRTClass {
+public final class TorchControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.ITorchControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CITorchControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4035,7 +4035,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xA6053665, Data2: 0x8250, Data3: 0x416C, Data4: ( 0x91,0x9A,0x72,0x42,0x96,0xAF,0xA3,0x06 ) // A6053665-8250-416C-919A-724296AFA306
     ) 
 
-    public class ITorchControl: WindowsFoundation.IInspectable {
+    public class ITorchControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CITorchControl }
 
         public func get_Supported() throws -> Bool {
@@ -4088,7 +4088,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - VideoDeviceController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontroller)
-public final class VideoDeviceController : WinRTClass, IMediaDeviceController {
+public final class VideoDeviceController : WinRTClass, @unchecked Sendable, IMediaDeviceController {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IVideoDeviceController
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceController
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4383,7 +4383,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x99555575, Data2: 0x2E2E, Data3: 0x40B8, Data4: ( 0xB6,0xC7,0xF8,0x2D,0x10,0x01,0x32,0x10 ) // 99555575-2E2E-40B8-B6C7-F82D10013210
     ) 
 
-    public class IVideoDeviceController: WindowsFoundation.IInspectable {
+    public class IVideoDeviceController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceController }
 
         public func get_Brightness() throws -> UWP.MediaDeviceControl? {
@@ -4507,7 +4507,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xDE6FF4D3, Data2: 0x2B96, Data3: 0x4583, Data4: ( 0x80,0xAB,0xB5,0xB0,0x1D,0xC6,0xA8,0xD7 ) // DE6FF4D3-2B96-4583-80AB-B5B01DC6A8D7
     ) 
 
-    public class IAdvancedVideoCaptureDeviceController: WindowsFoundation.IInspectable {
+    public class IAdvancedVideoCaptureDeviceController: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController }
 
         public func SetDeviceProperty(_ propertyId: String, _ propertyValue: Any?) throws {
@@ -4535,7 +4535,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x8BB94F8F, Data2: 0xF11A, Data3: 0x43DB, Data4: ( 0xB4,0x02,0x11,0x93,0x0B,0x80,0xAE,0x56 ) // 8BB94F8F-F11A-43DB-B402-11930B80AE56
     ) 
 
-    public class IAdvancedVideoCaptureDeviceController2: WindowsFoundation.IInspectable {
+    public class IAdvancedVideoCaptureDeviceController2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController2 }
 
         public func get_LowLagPhotoSequence() throws -> UWP.LowLagPhotoSequenceControl? {
@@ -4657,7 +4657,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xA98B8F34, Data2: 0xEE0D, Data3: 0x470C, Data4: ( 0xB9,0xF0,0x42,0x29,0xC4,0xBB,0xD0,0x89 ) // A98B8F34-EE0D-470C-B9F0-4229C4BBD089
     ) 
 
-    public class IAdvancedVideoCaptureDeviceController3: WindowsFoundation.IInspectable {
+    public class IAdvancedVideoCaptureDeviceController3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController3 }
 
         public func get_VariablePhotoSequenceController() throws -> UWP.VariablePhotoSequenceController? {
@@ -4693,7 +4693,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xEA9FBFAF, Data2: 0xD371, Data3: 0x41C3, Data4: ( 0x9A,0x17,0x82,0x4A,0x87,0xEB,0xDF,0xD2 ) // EA9FBFAF-D371-41C3-9A17-824A87EBDFD2
     ) 
 
-    public class IAdvancedVideoCaptureDeviceController4: WindowsFoundation.IInspectable {
+    public class IAdvancedVideoCaptureDeviceController4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController4 }
 
         public func get_ExposurePriorityVideoControl() throws -> UWP.ExposurePriorityVideoControl? {
@@ -4752,15 +4752,17 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x33512B17, Data2: 0xB9CB, Data3: 0x4A23, Data4: ( 0xB8,0x75,0xF9,0xEA,0xAB,0x53,0x54,0x92 ) // 33512B17-B9CB-4A23-B875-F9EAAB535492
     ) 
 
-    public class IAdvancedVideoCaptureDeviceController5: WindowsFoundation.IInspectable {
+    public class IAdvancedVideoCaptureDeviceController5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController5 }
 
         public func get_Id() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController5.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Id(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -4818,7 +4820,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xB6563A53, Data2: 0x68A1, Data3: 0x44B7, Data4: ( 0x9F,0x89,0xB5,0xFA,0x97,0xAC,0x0C,0xBE ) // B6563A53-68A1-44B7-9F89-B5FA97AC0CBE
     ) 
 
-    public class IAdvancedVideoCaptureDeviceController6: WindowsFoundation.IInspectable {
+    public class IAdvancedVideoCaptureDeviceController6: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController6 }
 
         public func get_VideoTemporalDenoisingControl() throws -> UWP.VideoTemporalDenoisingControl? {
@@ -4836,7 +4838,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x8D2927F0, Data2: 0xA054, Data3: 0x50E7, Data4: ( 0xB7,0xDF,0x7C,0x04,0x23,0x4D,0x10,0xF0 ) // 8D2927F0-A054-50E7-B7DF-7C04234D10F0
     ) 
 
-    public class IAdvancedVideoCaptureDeviceController7: WindowsFoundation.IInspectable {
+    public class IAdvancedVideoCaptureDeviceController7: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIAdvancedVideoCaptureDeviceController7 }
 
         public func get_InfraredTorchControl() throws -> UWP.InfraredTorchControl? {
@@ -4854,7 +4856,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - VideoDeviceControllerGetDevicePropertyResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videodevicecontrollergetdevicepropertyresult)
-public final class VideoDeviceControllerGetDevicePropertyResult : WinRTClass {
+public final class VideoDeviceControllerGetDevicePropertyResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IVideoDeviceControllerGetDevicePropertyResult
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceControllerGetDevicePropertyResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4913,7 +4915,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0xC5D88395, Data2: 0x6ED5, Data3: 0x4790, Data4: ( 0x8B,0x5D,0x0E,0xF1,0x39,0x35,0xD0,0xF8 ) // C5D88395-6ED5-4790-8B5D-0EF13935D0F8
     ) 
 
-    public class IVideoDeviceControllerGetDevicePropertyResult: WindowsFoundation.IInspectable {
+    public class IVideoDeviceControllerGetDevicePropertyResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIVideoDeviceControllerGetDevicePropertyResult }
 
         public func get_Status() throws -> UWP.VideoDeviceControllerGetDevicePropertyStatus {
@@ -4939,7 +4941,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - VideoTemporalDenoisingControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.videotemporaldenoisingcontrol)
-public final class VideoTemporalDenoisingControl : WinRTClass {
+public final class VideoTemporalDenoisingControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IVideoTemporalDenoisingControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIVideoTemporalDenoisingControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5004,7 +5006,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x7AB34735, Data2: 0x3E2A, Data3: 0x4A32, Data4: ( 0xBA,0xFF,0x43,0x58,0xC4,0xFB,0xDD,0x57 ) // 7AB34735-3E2A-4A32-BAFF-4358C4FBDD57
     ) 
 
-    public class IVideoTemporalDenoisingControl: WindowsFoundation.IInspectable {
+    public class IVideoTemporalDenoisingControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIVideoTemporalDenoisingControl }
 
         public func get_Supported() throws -> Bool {
@@ -5044,7 +5046,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - WhiteBalanceControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.whitebalancecontrol)
-public final class WhiteBalanceControl : WinRTClass {
+public final class WhiteBalanceControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IWhiteBalanceControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIWhiteBalanceControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5133,7 +5135,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x781F047E, Data2: 0x7162, Data3: 0x49C8, Data4: ( 0xA8,0xF9,0x94,0x81,0xC5,0x65,0x36,0x3E ) // 781F047E-7162-49C8-A8F9-9481C565363E
     ) 
 
-    public class IWhiteBalanceControl: WindowsFoundation.IInspectable {
+    public class IWhiteBalanceControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIWhiteBalanceControl }
 
         public func get_Supported() throws -> Bool {
@@ -5208,7 +5210,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - ZoomControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomcontrol)
-public final class ZoomControl : WinRTClass {
+public final class ZoomControl : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IZoomControl
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIZoomControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5300,7 +5302,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x3A1E0B12, Data2: 0x32DA, Data3: 0x4C17, Data4: ( 0xBF,0xD7,0x8D,0x0C,0x73,0xC8,0xF5,0xA5 ) // 3A1E0B12-32DA-4C17-BFD7-8D0C73C8F5A5
     ) 
 
-    public class IZoomControl: WindowsFoundation.IInspectable {
+    public class IZoomControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIZoomControl }
 
         public func get_Supported() throws -> Bool {
@@ -5355,7 +5357,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x69843DB0, Data2: 0x2E99, Data3: 0x4641, Data4: ( 0x85,0x29,0x18,0x4F,0x31,0x9D,0x16,0x71 ) // 69843DB0-2E99-4641-8529-184F319D1671
     ) 
 
-    public class IZoomControl2: WindowsFoundation.IInspectable {
+    public class IZoomControl2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIZoomControl2 }
 
         public func get_SupportedModes() throws -> WindowsFoundation.AnyIVectorView<UWP.ZoomTransitionMode>? {
@@ -5387,7 +5389,7 @@ extension __ABI_Windows_Media_Devices {
 // MARK: - ZoomSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.devices.zoomsettings)
-public final class ZoomSettings : WinRTClass {
+public final class ZoomSettings : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Devices.IZoomSettings
     private typealias CABI = __x_ABI_CWindows_CMedia_CDevices_CIZoomSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5453,7 +5455,7 @@ extension __ABI_Windows_Media_Devices {
         Data1: 0x6AD66B24, Data2: 0x14B4, Data3: 0x4BFD, Data4: ( 0xB1,0x8F,0x88,0xFE,0x24,0x46,0x3B,0x52 ) // 6AD66B24-14B4-4BFD-B18F-88FE24463B52
     ) 
 
-    public class IZoomSettings: WindowsFoundation.IInspectable {
+    public class IZoomSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CDevices_CIZoomSettings }
 
         public func get_Mode() throws -> UWP.ZoomTransitionMode {

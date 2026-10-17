@@ -109,7 +109,7 @@ extension __x_ABI_CWindows_CDevices_CInput_CPointerDeviceUsage {
 // MARK: - KeyboardCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.keyboardcapabilities)
-public final class KeyboardCapabilities : WinRTClass {
+public final class KeyboardCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IKeyboardCapabilities
     private typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -168,7 +168,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0x3A3F9B56, Data2: 0x6798, Data3: 0x4BBC, Data4: ( 0x83,0x3E,0x0F,0x34,0xB1,0x7C,0x65,0xFF ) // 3A3F9B56-6798-4BBC-833E-0F34B17C65FF
     ) 
 
-    public class IKeyboardCapabilities: WindowsFoundation.IInspectable {
+    public class IKeyboardCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIKeyboardCapabilities }
 
         public func get_KeyboardPresent() throws -> Int32 {
@@ -185,7 +185,7 @@ extension __ABI_Windows_Devices_Input {
 // MARK: - MouseCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousecapabilities)
-public final class MouseCapabilities : WinRTClass {
+public final class MouseCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IMouseCapabilities
     private typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -264,7 +264,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0xBCA5E023, Data2: 0x7DD9, Data3: 0x4B6B, Data4: ( 0x9A,0x92,0x55,0xD4,0x3C,0xB3,0x8F,0x73 ) // BCA5E023-7DD9-4B6B-9A92-55D43CB38F73
     ) 
 
-    public class IMouseCapabilities: WindowsFoundation.IInspectable {
+    public class IMouseCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseCapabilities }
 
         public func get_MousePresent() throws -> Int32 {
@@ -313,7 +313,7 @@ extension __ABI_Windows_Devices_Input {
 // MARK: - MouseDevice
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mousedevice)
-public final class MouseDevice : WinRTClass {
+public final class MouseDevice : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IMouseDevice
     private typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseDevice
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -381,7 +381,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0x88EDF458, Data2: 0xF2C8, Data3: 0x49F4, Data4: ( 0xBE,0x1F,0xC2,0x56,0xB3,0x88,0xBC,0x11 ) // 88EDF458-F2C8-49F4-BE1F-C256B388BC11
     ) 
 
-    public class IMouseDevice: WindowsFoundation.IInspectable {
+    public class IMouseDevice: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseDevice }
 
         public func add_MouseMoved(_ handler: TypedEventHandler<UWP.MouseDevice?, UWP.MouseEventArgs?>?) throws -> EventRegistrationToken {
@@ -406,7 +406,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0x484A9045, Data2: 0x6D70, Data3: 0x49DB, Data4: ( 0x8E,0x68,0x46,0xFF,0xBD,0x17,0xD3,0x8D ) // 484A9045-6D70-49DB-8E68-46FFBD17D38D
     ) 
 
-    public class IMouseDeviceStatics: WindowsFoundation.IInspectable {
+    public class IMouseDeviceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseDeviceStatics }
 
         public func GetForCurrentView() throws -> UWP.MouseDevice? {
@@ -424,7 +424,7 @@ extension __ABI_Windows_Devices_Input {
 // MARK: - MouseEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.mouseeventargs)
-public final class MouseEventArgs : WinRTClass {
+public final class MouseEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IMouseEventArgs
     private typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -478,7 +478,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0xF625AA5D, Data2: 0x2354, Data3: 0x4CC7, Data4: ( 0x92,0x30,0x96,0x94,0x1C,0x96,0x9F,0xDE ) // F625AA5D-2354-4CC7-9230-96941C969FDE
     ) 
 
-    public class IMouseEventArgs: WindowsFoundation.IInspectable {
+    public class IMouseEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIMouseEventArgs }
 
         public func get_MouseDelta() throws -> UWP.MouseDelta {
@@ -495,7 +495,7 @@ extension __ABI_Windows_Devices_Input {
 // MARK: - PenDevice
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pendevice)
-public final class PenDevice : WinRTClass {
+public final class PenDevice : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IPenDevice
     private typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIPenDevice
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -555,7 +555,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0x31856EBA, Data2: 0xA738, Data3: 0x5A8C, Data4: ( 0xB8,0xF6,0xF9,0x7E,0xF6,0x8D,0x18,0xEF ) // 31856EBA-A738-5A8C-B8F6-F97EF68D18EF
     ) 
 
-    public class IPenDevice: WindowsFoundation.IInspectable {
+    public class IPenDevice: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPenDevice }
 
         public func get_PenId() throws -> Foundation.UUID {
@@ -572,7 +572,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0x9DFBBE01, Data2: 0x0966, Data3: 0x5180, Data4: ( 0xBC,0xB4,0xB8,0x50,0x60,0xE3,0x94,0x79 ) // 9DFBBE01-0966-5180-BCB4-B85060E39479
     ) 
 
-    public class IPenDeviceStatics: WindowsFoundation.IInspectable {
+    public class IPenDeviceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPenDeviceStatics }
 
         public func GetFromPointerId(_ pointerId: UInt32) throws -> UWP.PenDevice? {
@@ -590,7 +590,7 @@ extension __ABI_Windows_Devices_Input {
 // MARK: - PointerDevice
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.pointerdevice)
-public final class PointerDevice : WinRTClass {
+public final class PointerDevice : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.IPointerDevice
     private typealias CABI = __x_ABI_CWindows_CDevices_CInput_CIPointerDevice
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -687,7 +687,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0x93C9BAFC, Data2: 0xEBCB, Data3: 0x467E, Data4: ( 0x82,0xC6,0x27,0x6F,0xEA,0xE3,0x6B,0x5A ) // 93C9BAFC-EBCB-467E-82C6-276FEAE36B5A
     ) 
 
-    public class IPointerDevice: WindowsFoundation.IInspectable {
+    public class IPointerDevice: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice }
 
         public func get_PointerDeviceType() throws -> UWP.PointerDeviceType {
@@ -745,7 +745,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0xF8A6D2A0, Data2: 0xC484, Data3: 0x489F, Data4: ( 0xAE,0x3E,0x30,0xD2,0xEE,0x1F,0xFD,0x3E ) // F8A6D2A0-C484-489F-AE3E-30D2EE1FFD3E
     ) 
 
-    public class IPointerDevice2: WindowsFoundation.IInspectable {
+    public class IPointerDevice2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDevice2 }
 
         public func get_MaxPointersWithZDistance() throws -> UInt32 {
@@ -762,7 +762,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0xD8B89AA1, Data2: 0xD1C6, Data3: 0x416E, Data4: ( 0xBD,0x8D,0x57,0x90,0x91,0x4D,0xC5,0x63 ) // D8B89AA1-D1C6-416E-BD8D-5790914DC563
     ) 
 
-    public class IPointerDeviceStatics: WindowsFoundation.IInspectable {
+    public class IPointerDeviceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CIPointerDeviceStatics }
 
         public func GetPointerDevice(_ pointerId: UInt32) throws -> UWP.PointerDevice? {
@@ -789,7 +789,7 @@ extension __ABI_Windows_Devices_Input {
 // MARK: - TouchCapabilities
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.devices.input.touchcapabilities)
-public final class TouchCapabilities : WinRTClass {
+public final class TouchCapabilities : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Devices_Input.ITouchCapabilities
     private typealias CABI = __x_ABI_CWindows_CDevices_CInput_CITouchCapabilities
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -853,7 +853,7 @@ extension __ABI_Windows_Devices_Input {
         Data1: 0x20DD55F9, Data2: 0x13F1, Data3: 0x46C8, Data4: ( 0x92,0x85,0x2C,0x05,0xFA,0x3E,0xDA,0x6F ) // 20DD55F9-13F1-46C8-9285-2C05FA3EDA6F
     ) 
 
-    public class ITouchCapabilities: WindowsFoundation.IInspectable {
+    public class ITouchCapabilities: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CDevices_CInput_CITouchCapabilities }
 
         public func get_TouchPresent() throws -> Int32 {

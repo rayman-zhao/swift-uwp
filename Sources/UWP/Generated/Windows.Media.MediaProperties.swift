@@ -198,7 +198,7 @@ extension __IMPL_Windows_Media_MediaProperties {
         }
     }
 
-    fileprivate class IMediaEncodingPropertiesImpl: IMediaEncodingProperties, WinRTAbiImpl {
+    fileprivate class IMediaEncodingPropertiesImpl: IMediaEncodingProperties, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IMediaEncodingPropertiesBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -231,7 +231,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xB4002AF6, Data2: 0xACD4, Data3: 0x4E5A, Data4: ( 0xA2,0x4B,0x5D,0x74,0x98,0xA8,0xB8,0xC4 ) // B4002AF6-ACD4-4E5A-A24B-5D7498A8B8C4
     ) 
 
-    public class IMediaEncodingProperties: WindowsFoundation.IInspectable {
+    public class IMediaEncodingProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProperties }
 
         open func get_Properties() throws -> UWP.MediaPropertySet? {
@@ -245,10 +245,12 @@ extension __ABI_Windows_Media_MediaProperties {
 
         open func get_Type() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -261,16 +263,18 @@ extension __ABI_Windows_Media_MediaProperties {
 
         open func get_Subtype() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtype(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
     }
 
-    internal static var IMediaEncodingPropertiesVTable: __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingPropertiesVtbl = .init(
+    internal static nonisolated(unsafe) var IMediaEncodingPropertiesVTable: __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingPropertiesVtbl = .init(
         QueryInterface: { IMediaEncodingPropertiesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IMediaEncodingPropertiesWrapper.addRef($0) },
         Release: { IMediaEncodingPropertiesWrapper.release($0) },
@@ -340,7 +344,7 @@ public class IMediaEncodingPropertiesMaker: MakeFromAbi {
 // MARK: - AudioEncodingProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.audioencodingproperties)
-public final class AudioEncodingProperties : WinRTClass, IMediaEncodingProperties {
+public final class AudioEncodingProperties : WinRTClass, @unchecked Sendable, IMediaEncodingProperties {
     private typealias SwiftABI = __ABI_Windows_Media_MediaProperties.IAudioEncodingProperties
     private typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -502,7 +506,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x62BC7A16, Data2: 0x005C, Data3: 0x4B3B, Data4: ( 0x8A,0x0B,0x0A,0x09,0x0E,0x96,0x87,0xF3 ) // 62BC7A16-005C-4B3B-8A0B-0A090E9687F3
     ) 
 
-    public class IAudioEncodingProperties: WindowsFoundation.IInspectable {
+    public class IAudioEncodingProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingProperties }
 
         public func put_Bitrate(_ value: UInt32) throws {
@@ -567,7 +571,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x98F10D79, Data2: 0x13EA, Data3: 0x49FF, Data4: ( 0xBE,0x70,0x26,0x73,0xDB,0x69,0x70,0x2C ) // 98F10D79-13EA-49FF-BE70-2673DB69702C
     ) 
 
-    public class IAudioEncodingPropertiesWithFormatUserData: WindowsFoundation.IInspectable {
+    public class IAudioEncodingPropertiesWithFormatUserData: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingPropertiesWithFormatUserData }
 
         public func SetFormatUserData(_ value: [UInt8]) throws {
@@ -580,10 +584,12 @@ extension __ABI_Windows_Media_MediaProperties {
 
         public func GetFormatUserData(_ value: inout [UInt8]) throws {
             var _value: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(_value.start)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingPropertiesWithFormatUserData.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFormatUserData(pThis, &_value.count, &_value.start))
             }
-            defer { CoTaskMemFree(_value.start) }
             value = .from(abi: _value)
         }
 
@@ -593,7 +599,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xC45D54DA, Data2: 0x80BD, Data3: 0x4C23, Data4: ( 0x80,0xD5,0x72,0xD4,0xA1,0x81,0xE8,0x94 ) // C45D54DA-80BD-4C23-80D5-72D4A181E894
     ) 
 
-    public class IAudioEncodingProperties2: WindowsFoundation.IInspectable {
+    public class IAudioEncodingProperties2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingProperties2 }
 
         public func get_IsSpatial() throws -> Bool {
@@ -610,7 +616,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x87600341, Data2: 0x748C, Data3: 0x4F8D, Data4: ( 0xB0,0xFD,0x10,0xCA,0xF0,0x8F,0xF0,0x87 ) // 87600341-748C-4F8D-B0FD-10CAF08FF087
     ) 
 
-    public class IAudioEncodingProperties3: WindowsFoundation.IInspectable {
+    public class IAudioEncodingProperties3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingProperties3 }
 
         public func Copy() throws -> UWP.AudioEncodingProperties? {
@@ -628,7 +634,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x0CAD332C, Data2: 0xEBE9, Data3: 0x4527, Data4: ( 0xB3,0x6D,0xE4,0x2A,0x13,0xCF,0x38,0xDB ) // 0CAD332C-EBE9-4527-B36D-E42A13CF38DB
     ) 
 
-    public class IAudioEncodingPropertiesStatics: WindowsFoundation.IInspectable {
+    public class IAudioEncodingPropertiesStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingPropertiesStatics }
 
         public func CreateAac(_ sampleRate: UInt32, _ channelCount: UInt32, _ bitrate: UInt32) throws -> UWP.AudioEncodingProperties? {
@@ -682,7 +688,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x7489316F, Data2: 0x77A0, Data3: 0x433D, Data4: ( 0x8E,0xD5,0x40,0x40,0x28,0x0E,0x86,0x65 ) // 7489316F-77A0-433D-8ED5-4040280E8665
     ) 
 
-    public class IAudioEncodingPropertiesStatics2: WindowsFoundation.IInspectable {
+    public class IAudioEncodingPropertiesStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIAudioEncodingPropertiesStatics2 }
 
         public func CreateAlac(_ sampleRate: UInt32, _ channelCount: UInt32, _ bitsPerSample: UInt32) throws -> UWP.AudioEncodingProperties? {
@@ -709,7 +715,7 @@ extension __ABI_Windows_Media_MediaProperties {
 // MARK: - ContainerEncodingProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.containerencodingproperties)
-public final class ContainerEncodingProperties : WinRTClass, IMediaEncodingProperties {
+public final class ContainerEncodingProperties : WinRTClass, @unchecked Sendable, IMediaEncodingProperties {
     private typealias SwiftABI = __ABI_Windows_Media_MediaProperties.IContainerEncodingProperties
     private typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIContainerEncodingProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -791,7 +797,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x59AC2A57, Data2: 0xB32A, Data3: 0x479E, Data4: ( 0x8A,0x61,0x4B,0x7F,0x2E,0x9E,0x7E,0xA0 ) // 59AC2A57-B32A-479E-8A61-4B7F2E9E7EA0
     ) 
 
-    public class IContainerEncodingProperties: WindowsFoundation.IInspectable {
+    public class IContainerEncodingProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIContainerEncodingProperties }
 
     }
@@ -800,7 +806,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xB272C029, Data2: 0xAE26, Data3: 0x4819, Data4: ( 0xBA,0xAD,0xAD,0x7A,0x49,0xB0,0xA8,0x76 ) // B272C029-AE26-4819-BAAD-AD7A49B0A876
     ) 
 
-    public class IContainerEncodingProperties2: WindowsFoundation.IInspectable {
+    public class IContainerEncodingProperties2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIContainerEncodingProperties2 }
 
         public func Copy() throws -> UWP.ContainerEncodingProperties? {
@@ -818,7 +824,7 @@ extension __ABI_Windows_Media_MediaProperties {
 // MARK: - MediaEncodingProfile
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.mediaencodingprofile)
-public final class MediaEncodingProfile : WinRTClass {
+public final class MediaEncodingProfile : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_MediaProperties.IMediaEncodingProfile
     private typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfile
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -987,7 +993,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xE7DBF5A8, Data2: 0x1DB9, Data3: 0x4783, Data4: ( 0x87,0x6B,0x3D,0xFE,0x12,0xAC,0xFD,0xB3 ) // E7DBF5A8-1DB9-4783-876B-3DFE12ACFDB3
     ) 
 
-    public class IMediaEncodingProfile: WindowsFoundation.IInspectable {
+    public class IMediaEncodingProfile: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfile }
 
         public func put_Audio(_ value: UWP.AudioEncodingProperties?) throws {
@@ -1041,7 +1047,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x349B3E0A, Data2: 0x4035, Data3: 0x488E, Data4: ( 0x98,0x77,0x85,0x63,0x28,0x65,0xED,0x10 ) // 349B3E0A-4035-488E-9877-85632865ED10
     ) 
 
-    public class IMediaEncodingProfile2: WindowsFoundation.IInspectable {
+    public class IMediaEncodingProfile2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfile2 }
 
         public func SetAudioTracks(_ value: WindowsFoundation.AnyIIterable<UWP.AudioStreamDescriptor?>?) throws {
@@ -1084,7 +1090,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xBA6EBE88, Data2: 0x7570, Data3: 0x4E69, Data4: ( 0xAC,0xCF,0x56,0x11,0xAD,0x01,0x5F,0x88 ) // BA6EBE88-7570-4E69-ACCF-5611AD015F88
     ) 
 
-    public class IMediaEncodingProfile3: WindowsFoundation.IInspectable {
+    public class IMediaEncodingProfile3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfile3 }
 
         public func SetTimedMetadataTracks(_ value: WindowsFoundation.AnyIIterable<UWP.TimedMetadataStreamDescriptor?>?) throws {
@@ -1110,7 +1116,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x197F352C, Data2: 0x2EDE, Data3: 0x4A45, Data4: ( 0xA8,0x96,0x81,0x7A,0x48,0x54,0xF8,0xFE ) // 197F352C-2EDE-4A45-A896-817A4854F8FE
     ) 
 
-    public class IMediaEncodingProfileStatics: WindowsFoundation.IInspectable {
+    public class IMediaEncodingProfileStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfileStatics }
 
         public func CreateM4a(_ quality: UWP.AudioEncodingQuality) throws -> UWP.MediaEncodingProfile? {
@@ -1186,7 +1192,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xCE8DE74F, Data2: 0x6AF4, Data3: 0x4288, Data4: ( 0x8F,0xE2,0x79,0xAD,0xF1,0xF7,0x9A,0x43 ) // CE8DE74F-6AF4-4288-8FE2-79ADF1F79A43
     ) 
 
-    public class IMediaEncodingProfileStatics2: WindowsFoundation.IInspectable {
+    public class IMediaEncodingProfileStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfileStatics2 }
 
         public func CreateWav(_ quality: UWP.AudioEncodingQuality) throws -> UWP.MediaEncodingProfile? {
@@ -1213,7 +1219,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x90DAC5AA, Data2: 0xCF76, Data3: 0x4294, Data4: ( 0xA9,0xED,0x1A,0x14,0x20,0xF5,0x1F,0x6B ) // 90DAC5AA-CF76-4294-A9ED-1A1420F51F6B
     ) 
 
-    public class IMediaEncodingProfileStatics3: WindowsFoundation.IInspectable {
+    public class IMediaEncodingProfileStatics3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProfileStatics3 }
 
         public func CreateAlac(_ quality: UWP.AudioEncodingQuality) throws -> UWP.MediaEncodingProfile? {
@@ -1249,7 +1255,7 @@ extension __ABI_Windows_Media_MediaProperties {
 // MARK: - MediaPropertySet
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.mediapropertyset)
-public final class MediaPropertySet : WinRTClass, IMap, IIterable {
+public final class MediaPropertySet : WinRTClass, @unchecked Sendable, IMap, IIterable {
     public typealias K = Foundation.UUID
     public typealias V = Any?
     public typealias T = WindowsFoundation.AnyIKeyValuePair<Foundation.UUID, Any?>?
@@ -1351,7 +1357,7 @@ extension __ABI_Windows_Media_MediaProperties {
 // MARK: - MediaRatio
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.mediaratio)
-public final class MediaRatio : WinRTClass {
+public final class MediaRatio : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_MediaProperties.IMediaRatio
     private typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaRatio
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1412,7 +1418,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xD2D0FEE5, Data2: 0x8929, Data3: 0x401D, Data4: ( 0xAC,0x78,0x7D,0x35,0x7E,0x37,0x81,0x63 ) // D2D0FEE5-8929-401D-AC78-7D357E378163
     ) 
 
-    public class IMediaRatio: WindowsFoundation.IInspectable {
+    public class IMediaRatio: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIMediaRatio }
 
         public func put_Numerator(_ value: UInt32) throws {
@@ -1449,7 +1455,7 @@ extension __ABI_Windows_Media_MediaProperties {
 // MARK: - TimedMetadataEncodingProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.timedmetadataencodingproperties)
-public final class TimedMetadataEncodingProperties : WinRTClass, IMediaEncodingProperties {
+public final class TimedMetadataEncodingProperties : WinRTClass, @unchecked Sendable, IMediaEncodingProperties {
     private typealias SwiftABI = __ABI_Windows_Media_MediaProperties.IMediaEncodingProperties
     private typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIMediaEncodingProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1539,7 +1545,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x51CD30D3, Data2: 0xD690, Data3: 0x4CFA, Data4: ( 0x97,0xF4,0x4A,0x39,0x8E,0x9D,0xB4,0x20 ) // 51CD30D3-D690-4CFA-97F4-4A398E9DB420
     ) 
 
-    public class ITimedMetadataEncodingProperties: WindowsFoundation.IInspectable {
+    public class ITimedMetadataEncodingProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CITimedMetadataEncodingProperties }
 
         public func SetFormatUserData(_ value: [UInt8]) throws {
@@ -1552,10 +1558,12 @@ extension __ABI_Windows_Media_MediaProperties {
 
         public func GetFormatUserData(_ value: inout [UInt8]) throws {
             var _value: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(_value.start)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CMediaProperties_CITimedMetadataEncodingProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFormatUserData(pThis, &_value.count, &_value.start))
             }
-            defer { CoTaskMemFree(_value.start) }
             value = .from(abi: _value)
         }
 
@@ -1574,7 +1582,7 @@ extension __ABI_Windows_Media_MediaProperties {
 // MARK: - VideoEncodingProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.mediaproperties.videoencodingproperties)
-public final class VideoEncodingProperties : WinRTClass, IMediaEncodingProperties {
+public final class VideoEncodingProperties : WinRTClass, @unchecked Sendable, IMediaEncodingProperties {
     private typealias SwiftABI = __ABI_Windows_Media_MediaProperties.IVideoEncodingProperties
     private typealias CABI = __x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1738,7 +1746,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x76EE6C9A, Data2: 0x37C2, Data3: 0x4F2A, Data4: ( 0x88,0x0A,0x12,0x82,0xBB,0xB4,0x37,0x3D ) // 76EE6C9A-37C2-4F2A-880A-1282BBB4373D
     ) 
 
-    public class IVideoEncodingProperties: WindowsFoundation.IInspectable {
+    public class IVideoEncodingProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties }
 
         public func put_Bitrate(_ value: UInt32) throws {
@@ -1807,7 +1815,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xF743A1EF, Data2: 0xD465, Data3: 0x4290, Data4: ( 0xA9,0x4B,0xEF,0x0F,0x15,0x28,0xF8,0xE3 ) // F743A1EF-D465-4290-A94B-EF0F1528F8E3
     ) 
 
-    public class IVideoEncodingProperties2: WindowsFoundation.IInspectable {
+    public class IVideoEncodingProperties2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties2 }
 
         public func SetFormatUserData(_ value: [UInt8]) throws {
@@ -1820,10 +1828,12 @@ extension __ABI_Windows_Media_MediaProperties {
 
         public func GetFormatUserData(_ value: inout [UInt8]) throws {
             var _value: WinRTArrayAbi<UINT8> = (0, nil)
+            defer {
+                CoTaskMemFree(_value.start)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFormatUserData(pThis, &_value.count, &_value.start))
             }
-            defer { CoTaskMemFree(_value.start) }
             value = .from(abi: _value)
         }
 
@@ -1847,7 +1857,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x386BCDC4, Data2: 0x873A, Data3: 0x479F, Data4: ( 0xB3,0xEB,0x56,0xC1,0xFC,0xBE,0xC6,0xD7 ) // 386BCDC4-873A-479F-B3EB-56C1FCBEC6D7
     ) 
 
-    public class IVideoEncodingProperties3: WindowsFoundation.IInspectable {
+    public class IVideoEncodingProperties3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties3 }
 
         public func get_StereoscopicVideoPackingMode() throws -> UWP.StereoscopicVideoPackingMode {
@@ -1864,7 +1874,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x724EF014, Data2: 0xC10C, Data3: 0x40F2, Data4: ( 0x9D,0x72,0x3E,0xE1,0x3B,0x45,0xFA,0x8E ) // 724EF014-C10C-40F2-9D72-3EE13B45FA8E
     ) 
 
-    public class IVideoEncodingProperties4: WindowsFoundation.IInspectable {
+    public class IVideoEncodingProperties4: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties4 }
 
         public func get_SphericalVideoFrameFormat() throws -> UWP.SphericalVideoFrameFormat {
@@ -1881,7 +1891,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x4959080F, Data2: 0x272F, Data3: 0x4ECE, Data4: ( 0xA4,0xDF,0xC0,0xCC,0xDB,0x33,0xD8,0x40 ) // 4959080F-272F-4ECE-A4DF-C0CCDB33D840
     ) 
 
-    public class IVideoEncodingProperties5: WindowsFoundation.IInspectable {
+    public class IVideoEncodingProperties5: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingProperties5 }
 
         public func Copy() throws -> UWP.VideoEncodingProperties? {
@@ -1899,7 +1909,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0x3CE14D44, Data2: 0x1DC5, Data3: 0x43DB, Data4: ( 0x9F,0x38,0xEB,0xEB,0xF9,0x01,0x52,0xCB ) // 3CE14D44-1DC5-43DB-9F38-EBEBF90152CB
     ) 
 
-    public class IVideoEncodingPropertiesStatics: WindowsFoundation.IInspectable {
+    public class IVideoEncodingPropertiesStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingPropertiesStatics }
 
         public func CreateH264() throws -> UWP.VideoEncodingProperties? {
@@ -1936,7 +1946,7 @@ extension __ABI_Windows_Media_MediaProperties {
         Data1: 0xCF1EBD5D, Data2: 0x49FE, Data3: 0x4D00, Data4: ( 0xB5,0x9A,0xCF,0xA4,0xDF,0xC5,0x19,0x44 ) // CF1EBD5D-49FE-4D00-B59A-CFA4DFC51944
     ) 
 
-    public class IVideoEncodingPropertiesStatics2: WindowsFoundation.IInspectable {
+    public class IVideoEncodingPropertiesStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CMediaProperties_CIVideoEncodingPropertiesStatics2 }
 
         public func CreateHevc() throws -> UWP.VideoEncodingProperties? {

@@ -37,7 +37,7 @@ extension UWP.ViewSizePreference: @retroactive Hashable, @retroactive Codable, @
 // MARK: - ActivationViewSwitcher
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.viewmanagement.activationviewswitcher)
-public final class ActivationViewSwitcher : WinRTClass {
+public final class ActivationViewSwitcher : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_UI_ViewManagement.IActivationViewSwitcher
     private typealias CABI = __x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -101,7 +101,7 @@ extension __ABI_Windows_UI_ViewManagement {
         Data1: 0xDCA71BB6, Data2: 0x7350, Data3: 0x492B, Data4: ( 0xAA,0xC7,0xC8,0xA1,0x3D,0x72,0x24,0xAD ) // DCA71BB6-7350-492B-AAC7-C8A13D7224AD
     ) 
 
-    public class IActivationViewSwitcher: WindowsFoundation.IInspectable {
+    public class IActivationViewSwitcher: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CUI_CViewManagement_CIActivationViewSwitcher }
 
         public func ShowAsStandaloneAsync(_ viewId: Int32) throws -> WindowsFoundation.AnyIAsyncAction? {

@@ -73,7 +73,7 @@ extension UWP.PowerlineFrequency: @retroactive Hashable, @retroactive Codable, @
 // MARK: - MediaCaptureVideoProfileMediaDescription
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.media.capture.mediacapturevideoprofilemediadescription)
-public final class MediaCaptureVideoProfileMediaDescription : WinRTClass {
+public final class MediaCaptureVideoProfileMediaDescription : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Windows_Media_Capture.IMediaCaptureVideoProfileMediaDescription
     private typealias CABI = __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -159,7 +159,7 @@ extension __ABI_Windows_Media_Capture {
         Data1: 0x8012AFEF, Data2: 0xB691, Data3: 0x49FF, Data4: ( 0x83,0xF2,0xC1,0xE7,0x6E,0xAA,0xEA,0x1B ) // 8012AFEF-B691-49FF-83F2-C1E76EAAEA1B
     ) 
 
-    public class IMediaCaptureVideoProfileMediaDescription: WindowsFoundation.IInspectable {
+    public class IMediaCaptureVideoProfileMediaDescription: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription }
 
         public func get_Width() throws -> UInt32 {
@@ -208,15 +208,17 @@ extension __ABI_Windows_Media_Capture {
         Data1: 0xC6A6EF13, Data2: 0x322D, Data3: 0x413A, Data4: ( 0xB8,0x5A,0x68,0xA8,0x8E,0x02,0xF4,0xE9 ) // C6A6EF13-322D-413A-B85A-68A88E02F4E9
     ) 
 
-    public class IMediaCaptureVideoProfileMediaDescription2: WindowsFoundation.IInspectable {
+    public class IMediaCaptureVideoProfileMediaDescription2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription2 }
 
         public func get_Subtype() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CMedia_CCapture_CIMediaCaptureVideoProfileMediaDescription2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtype(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 

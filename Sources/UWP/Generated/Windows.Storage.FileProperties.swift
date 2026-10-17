@@ -194,7 +194,7 @@ extension __IMPL_Windows_Storage_FileProperties {
         }
     }
 
-    fileprivate class IStorageItemExtraPropertiesImpl: IStorageItemExtraProperties, WinRTAbiImpl {
+    fileprivate class IStorageItemExtraPropertiesImpl: IStorageItemExtraProperties, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IStorageItemExtraPropertiesBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -226,7 +226,7 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0xC54361B2, Data2: 0x54CD, Data3: 0x432B, Data4: ( 0xBD,0xBC,0x4B,0x19,0xC4,0xB4,0x70,0xD7 ) // C54361B2-54CD-432B-BDBC-4B19C4B470D7
     ) 
 
-    public class IStorageItemExtraProperties: WindowsFoundation.IInspectable {
+    public class IStorageItemExtraProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraProperties }
 
         open func RetrievePropertiesAsync(_ propertiesToRetrieve: WindowsFoundation.AnyIIterable<String>?) throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIMap<String, Any?>?>? {
@@ -262,7 +262,7 @@ extension __ABI_Windows_Storage_FileProperties {
 
     }
 
-    internal static var IStorageItemExtraPropertiesVTable: __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraPropertiesVtbl = .init(
+    internal static nonisolated(unsafe) var IStorageItemExtraPropertiesVTable: __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemExtraPropertiesVtbl = .init(
         QueryInterface: { IStorageItemExtraPropertiesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStorageItemExtraPropertiesWrapper.addRef($0) },
         Release: { IStorageItemExtraPropertiesWrapper.release($0) },
@@ -336,7 +336,7 @@ public class IStorageItemExtraPropertiesMaker: MakeFromAbi {
 // MARK: - BasicProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties)
-public final class BasicProperties : WinRTClass, IStorageItemExtraProperties {
+public final class BasicProperties : WinRTClass, @unchecked Sendable, IStorageItemExtraProperties {
     private typealias SwiftABI = __ABI_Windows_Storage_FileProperties.IBasicProperties
     private typealias CABI = __x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -420,7 +420,7 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0xD05D55DB, Data2: 0x785E, Data3: 0x4A66, Data4: ( 0xBE,0x02,0x9B,0xEE,0xC5,0x8A,0xEA,0x81 ) // D05D55DB-785E-4A66-BE02-9BEEC58AEA81
     ) 
 
-    public class IBasicProperties: WindowsFoundation.IInspectable {
+    public class IBasicProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIBasicProperties }
 
         public func get_Size() throws -> UInt64 {
@@ -453,7 +453,7 @@ extension __ABI_Windows_Storage_FileProperties {
 // MARK: - DocumentProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.documentproperties)
-public final class DocumentProperties : WinRTClass, IStorageItemExtraProperties {
+public final class DocumentProperties : WinRTClass, @unchecked Sendable, IStorageItemExtraProperties {
     private typealias SwiftABI = __ABI_Windows_Storage_FileProperties.IDocumentProperties
     private typealias CABI = __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -544,7 +544,7 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0x7EAB19BC, Data2: 0x1821, Data3: 0x4923, Data4: ( 0xB4,0xA9,0x0A,0xEA,0x40,0x4D,0x00,0x70 ) // 7EAB19BC-1821-4923-B4A9-0AEA404D0070
     ) 
 
-    public class IDocumentProperties: WindowsFoundation.IInspectable {
+    public class IDocumentProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties }
 
         public func get_Author() throws -> WindowsFoundation.AnyIVector<String>? {
@@ -558,10 +558,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -583,10 +585,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Comment() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIDocumentProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Comment(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -603,7 +607,7 @@ extension __ABI_Windows_Storage_FileProperties {
 // MARK: - ImageProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.imageproperties)
-public final class ImageProperties : WinRTClass, IStorageItemExtraProperties {
+public final class ImageProperties : WinRTClass, @unchecked Sendable, IStorageItemExtraProperties {
     private typealias SwiftABI = __ABI_Windows_Storage_FileProperties.IImageProperties
     private typealias CABI = __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -737,7 +741,7 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0x523C9424, Data2: 0xFCFF, Data3: 0x4275, Data4: ( 0xAF,0xEE,0xEC,0xDB,0x9A,0xB4,0x79,0x73 ) // 523C9424-FCFF-4275-AFEE-ECDB9AB47973
     ) 
 
-    public class IImageProperties: WindowsFoundation.IInspectable {
+    public class IImageProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties }
 
         public func get_Rating() throws -> UInt32 {
@@ -795,10 +799,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -829,10 +835,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_CameraManufacturer() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CameraManufacturer(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -845,10 +853,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_CameraModel() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIImageProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CameraModel(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -882,7 +892,7 @@ extension __ABI_Windows_Storage_FileProperties {
 // MARK: - MusicProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.musicproperties)
-public final class MusicProperties : WinRTClass, IStorageItemExtraProperties {
+public final class MusicProperties : WinRTClass, @unchecked Sendable, IStorageItemExtraProperties {
     private typealias SwiftABI = __ABI_Windows_Storage_FileProperties.IMusicProperties
     private typealias CABI = __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1040,15 +1050,17 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0xBC8AAB62, Data2: 0x66EC, Data3: 0x419A, Data4: ( 0xBC,0x5D,0xCA,0x65,0xA4,0xCB,0x46,0xDA ) // BC8AAB62-66EC-419A-BC5D-CA65A4CB46DA
     ) 
 
-    public class IMusicProperties: WindowsFoundation.IInspectable {
+    public class IMusicProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties }
 
         public func get_Album() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Album(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1061,10 +1073,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Artist() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Artist(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1100,10 +1114,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1146,10 +1162,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_AlbumArtist() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AlbumArtist(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1180,10 +1198,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Subtitle() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtitle(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1205,10 +1225,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Publisher() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIMusicProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Publisher(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1248,7 +1270,7 @@ extension __ABI_Windows_Storage_FileProperties {
 // MARK: - StorageItemContentProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties)
-public final class StorageItemContentProperties : WinRTClass, IStorageItemExtraProperties {
+public final class StorageItemContentProperties : WinRTClass, @unchecked Sendable, IStorageItemExtraProperties {
     private typealias SwiftABI = __ABI_Windows_Storage_FileProperties.IStorageItemContentProperties
     private typealias CABI = __x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1337,7 +1359,7 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0x05294BAD, Data2: 0xBC38, Data3: 0x48BF, Data4: ( 0x85,0xD7,0x77,0x0E,0x0E,0x2A,0xE0,0xBA ) // 05294BAD-BC38-48BF-85D7-770E0E2AE0BA
     ) 
 
-    public class IStorageItemContentProperties: WindowsFoundation.IInspectable {
+    public class IStorageItemContentProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIStorageItemContentProperties }
 
         public func GetMusicPropertiesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<UWP.MusicProperties?>? {
@@ -1382,7 +1404,7 @@ extension __ABI_Windows_Storage_FileProperties {
 // MARK: - StorageItemThumbnail
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemthumbnail)
-public final class StorageItemThumbnail : WinRTClass, WindowsFoundation.IClosable, UWP.IInputStream, UWP.IOutputStream, UWP.IRandomAccessStream, UWP.IContentTypeProvider, UWP.IRandomAccessStreamWithContentType {
+public final class StorageItemThumbnail : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable, UWP.IInputStream, UWP.IOutputStream, UWP.IRandomAccessStream, UWP.IContentTypeProvider, UWP.IRandomAccessStreamWithContentType {
     private typealias SwiftABI = __ABI_Windows_Storage_Streams.IRandomAccessStreamWithContentType
     private typealias CABI = __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamWithContentType
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1532,7 +1554,7 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0x693DD42F, Data2: 0xDBE7, Data3: 0x49B5, Data4: ( 0xB3,0xB3,0x28,0x93,0xAC,0x5D,0x34,0x23 ) // 693DD42F-DBE7-49B5-B3B3-2893AC5D3423
     ) 
 
-    public class IThumbnailProperties: WindowsFoundation.IInspectable {
+    public class IThumbnailProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIThumbnailProperties }
 
         public func get_OriginalWidth() throws -> UInt32 {
@@ -1573,7 +1595,7 @@ extension __ABI_Windows_Storage_FileProperties {
 // MARK: - VideoProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.storage.fileproperties.videoproperties)
-public final class VideoProperties : WinRTClass, IStorageItemExtraProperties {
+public final class VideoProperties : WinRTClass, @unchecked Sendable, IStorageItemExtraProperties {
     private typealias SwiftABI = __ABI_Windows_Storage_FileProperties.IVideoProperties
     private typealias CABI = __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1727,7 +1749,7 @@ extension __ABI_Windows_Storage_FileProperties {
         Data1: 0x719AE507, Data2: 0x68DE, Data3: 0x4DB8, Data4: ( 0x97,0xDE,0x49,0x99,0x8C,0x05,0x9F,0x2F ) // 719AE507-68DE-4DB8-97DE-49998C059F2F
     ) 
 
-    public class IVideoProperties: WindowsFoundation.IInspectable {
+    public class IVideoProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties }
 
         public func get_Rating() throws -> UInt32 {
@@ -1797,10 +1819,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1813,10 +1837,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Subtitle() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtitle(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1838,10 +1864,12 @@ extension __ABI_Windows_Storage_FileProperties {
 
         public func get_Publisher() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CWindows_CStorage_CFileProperties_CIVideoProperties.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Publisher(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
