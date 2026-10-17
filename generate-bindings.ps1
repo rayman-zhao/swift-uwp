@@ -11,6 +11,11 @@ function Get-PackageString {
         return "  <package id=""$($Package.Id)"" version=""$($Package.Version)"" />`n"
     }
 }
+
+# swiftwinrt is taken from a sibling checkout of the swift-winrt repo (built with
+# cmake --preset release && cmake --build --preset release) so that local generator
+# changes are picked up instead of the published TheBrowserCompany.SwiftWinRT package
+$SwiftWinRTExe = Join-Path $PSScriptRoot "..\swift-winrt\build\release\swiftwinrt\swiftwinrt.exe"
 function Restore-Nuget {
     param(
         [string]$PackagesDir
@@ -80,7 +85,6 @@ function Invoke-SwiftWinRT() {
     )
     $Projections = Get-Content -Path $PSScriptRoot\projections.json | ConvertFrom-Json
 
-    $SwiftWinRTVersion = Get-SwiftWinRTVersion
     # write generated bindings to a temp directory since swiftwinrt will generate all dependencies and the CWinRT
     $OutputLocation = Join-Path $PSScriptRoot ".generated"
     if (Test-Path $OutputLocation) {
@@ -117,7 +121,12 @@ function Invoke-SwiftWinRT() {
     # write rsp params to file
     $RspFile = Join-Path $PSScriptRoot "swift-winrt.rsp"
     $RspParams | Out-File -FilePath $RspFile -Encoding ascii
-    & $PackagesDir\TheBrowserCompany.SwiftWinRT.$SwiftWinRTVersion\bin\swiftwinrt.exe "@$RspFile"
+    if (-not (Test-Path $SwiftWinRTExe)) {
+        Write-Host "swiftwinrt.exe not found at $SwiftWinRTExe" -ForegroundColor Red
+        Write-Host "build it from the sibling swift-winrt checkout: cmake --preset release; cmake --build --preset release" -ForegroundColor Red
+        exit 1
+    }
+    & $SwiftWinRTExe "@$RspFile"
 
     if ($LASTEXITCODE -ne 0) {
         Write-Host "swiftwinrt failed with error code $LASTEXITCODE" -ForegroundColor Red
