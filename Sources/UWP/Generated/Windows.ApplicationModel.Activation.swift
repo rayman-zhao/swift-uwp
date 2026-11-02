@@ -725,6 +725,472 @@ public class IBackgroundActivatedEventArgsMaker: MakeFromAbi {
         return __IMPL_Windows_ApplicationModel_Activation.IBackgroundActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
     }
 }
+// MARK: - IFileActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs)
+public protocol IFileActivatedEventArgs : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs.files)
+    var files: WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>! { get }
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs.verb)
+    var verb: String { get }
+}
+
+extension IFileActivatedEventArgs {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIFileActivatedEventArgs = any IFileActivatedEventArgs
+
+// MARK: - IFileActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IFileActivatedEventArgsBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgs
+        public typealias SwiftProjection = AnyIFileActivatedEventArgs
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IFileActivatedEventArgsImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IFileActivatedEventArgsImpl: IFileActivatedEventArgs, WinRTAbiImpl, @unchecked Sendable {
+        fileprivate typealias Bridge = IFileActivatedEventArgsBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs.files)
+        fileprivate var files : WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>! {
+            get { try! _default.get_Files() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs.verb)
+        fileprivate var verb : String {
+            get { try! _default.get_Verb() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargs.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xBB2AFC33, Data2: 0x93B1, Data3: 0x42ED, Data4: ( 0x8B,0x26,0x23,0x6D,0xD9,0xC7,0x84,0x96 ) // BB2AFC33-93B1-42ED-8B26-236DD9C78496
+    ) 
+
+    public class IFileActivatedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs }
+
+        open func get_Files() throws -> WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Files(pThis, &valueAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CStorage__CIStorageItemWrapper.unwrapFrom(abi: value)
+        }
+
+        open func get_Verb() throws -> String {
+            var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Verb(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    internal static nonisolated(unsafe) var IFileActivatedEventArgsVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsVtbl = .init(
+        QueryInterface: { IFileActivatedEventArgsWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IFileActivatedEventArgsWrapper.addRef($0) },
+        Release: { IFileActivatedEventArgsWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IFileActivatedEventArgs").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_Files: {
+            guard let __unwrapped__instance = IFileActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.files
+            let valueWrapper = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CStorage__CIStorageItemWrapper(value)
+            valueWrapper?.copyTo($1)
+            return S_OK
+        },
+
+        get_Verb: {
+            guard let __unwrapped__instance = IFileActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.verb
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        }
+    )
+
+    public typealias IFileActivatedEventArgsWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IFileActivatedEventArgsBridge>
+}
+@_spi(WinRTInternal)
+public class IFileActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIFileActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgs = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IFileActivatedEventArgsBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IFileActivatedEventArgsWithCallerPackageFamilyName
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithcallerpackagefamilyname)
+public protocol IFileActivatedEventArgsWithCallerPackageFamilyName : IActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithcallerpackagefamilyname.callerpackagefamilyname)
+    var callerPackageFamilyName: String { get }
+}
+
+extension IFileActivatedEventArgsWithCallerPackageFamilyName {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIFileActivatedEventArgsWithCallerPackageFamilyName = any IFileActivatedEventArgsWithCallerPackageFamilyName
+
+// MARK: - IFileActivatedEventArgsWithCallerPackageFamilyName Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IFileActivatedEventArgsWithCallerPackageFamilyNameBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithCallerPackageFamilyName
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyName
+        public typealias SwiftProjection = AnyIFileActivatedEventArgsWithCallerPackageFamilyName
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IFileActivatedEventArgsWithCallerPackageFamilyNameImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyNameVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IFileActivatedEventArgsWithCallerPackageFamilyNameImpl: IFileActivatedEventArgsWithCallerPackageFamilyName, WinRTAbiImpl, @unchecked Sendable {
+        fileprivate typealias Bridge = IFileActivatedEventArgsWithCallerPackageFamilyNameBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithcallerpackagefamilyname.callerpackagefamilyname)
+        fileprivate var callerPackageFamilyName : String {
+            get { try! _default.get_CallerPackageFamilyName() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithcallerpackagefamilyname.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithcallerpackagefamilyname.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithcallerpackagefamilyname.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithCallerPackageFamilyName: WindowsFoundation.IID = .init(
+        Data1: 0x2D60F06B, Data2: 0xD25F, Data3: 0x4D25, Data4: ( 0x86,0x53,0xE1,0xC5,0xE1,0x10,0x83,0x09 ) // 2D60F06B-D25F-4D25-8653-E1C5E1108309
+    ) 
+
+    public class IFileActivatedEventArgsWithCallerPackageFamilyName: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithCallerPackageFamilyName }
+
+        open func get_CallerPackageFamilyName() throws -> String {
+            var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
+            _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithCallerPackageFamilyName.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CallerPackageFamilyName(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    internal static nonisolated(unsafe) var IFileActivatedEventArgsWithCallerPackageFamilyNameVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithCallerPackageFamilyNameVtbl = .init(
+        QueryInterface: { IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper.addRef($0) },
+        Release: { IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            $1!.pointee = 4
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithCallerPackageFamilyName").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_CallerPackageFamilyName: {
+            guard let __unwrapped__instance = IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.callerPackageFamilyName
+            $1?.initialize(to: try! HString(value).detach())
+            return S_OK
+        }
+    )
+
+    public typealias IFileActivatedEventArgsWithCallerPackageFamilyNameWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyNameBridge>
+}
+@_spi(WinRTInternal)
+public class IFileActivatedEventArgsWithCallerPackageFamilyNameMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIFileActivatedEventArgsWithCallerPackageFamilyName
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyName = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyNameBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
+// MARK: - IFileActivatedEventArgsWithNeighboringFiles
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles)
+public protocol IFileActivatedEventArgsWithNeighboringFiles : IActivatedEventArgs, IFileActivatedEventArgs {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles.neighboringfilesquery)
+    var neighboringFilesQuery: UWP.StorageFileQueryResult! { get }
+}
+
+extension IFileActivatedEventArgsWithNeighboringFiles {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFilesWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFilesWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWrapper.IID:
+                let wrapper = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIFileActivatedEventArgsWithNeighboringFiles = any IFileActivatedEventArgsWithNeighboringFiles
+
+// MARK: - IFileActivatedEventArgsWithNeighboringFiles Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum IFileActivatedEventArgsWithNeighboringFilesBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithNeighboringFiles
+        public typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFiles
+        public typealias SwiftProjection = AnyIFileActivatedEventArgsWithNeighboringFiles
+        public static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IFileActivatedEventArgsWithNeighboringFilesImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFilesVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IFileActivatedEventArgsWithNeighboringFilesImpl: IFileActivatedEventArgsWithNeighboringFiles, WinRTAbiImpl, @unchecked Sendable {
+        fileprivate typealias Bridge = IFileActivatedEventArgsWithNeighboringFilesBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles.neighboringfilesquery)
+        fileprivate var neighboringFilesQuery : UWP.StorageFileQueryResult! {
+            get { try! _default.get_NeighboringFilesQuery() }
+        }
+
+        private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles.kind)
+        fileprivate var kind : ActivationKind {
+            get { try! _IActivatedEventArgs.get_Kind() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles.previousexecutionstate)
+        fileprivate var previousExecutionState : ApplicationExecutionState {
+            get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles.splashscreen)
+        fileprivate var splashScreen : SplashScreen! {
+            get { try! _IActivatedEventArgs.get_SplashScreen() }
+        }
+
+        private lazy var _IFileActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgs! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles.files)
+        fileprivate var files : WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>! {
+            get { try! _IFileActivatedEventArgs.get_Files() }
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ifileactivatedeventargswithneighboringfiles.verb)
+        fileprivate var verb : String {
+            get { try! _IFileActivatedEventArgs.get_Verb() }
+        }
+
+    }
+
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+    private static let IID___x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithNeighboringFiles: WindowsFoundation.IID = .init(
+        Data1: 0x433BA1A4, Data2: 0xE1E2, Data3: 0x48FD, Data4: ( 0xB7,0xFC,0xB5,0xD6,0xEE,0xE6,0x50,0x33 ) // 433BA1A4-E1E2-48FD-B7FC-B5D6EEE65033
+    ) 
+
+    public class IFileActivatedEventArgsWithNeighboringFiles: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithNeighboringFiles }
+
+        open func get_NeighboringFilesQuery() throws -> UWP.StorageFileQueryResult? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithNeighboringFiles.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NeighboringFilesQuery(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Storage_Search.StorageFileQueryResultBridge.from(abi: value)
+        }
+
+    }
+
+    internal static nonisolated(unsafe) var IFileActivatedEventArgsWithNeighboringFilesVTable: __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgsWithNeighboringFilesVtbl = .init(
+        QueryInterface: { IFileActivatedEventArgsWithNeighboringFilesWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IFileActivatedEventArgsWithNeighboringFilesWrapper.addRef($0) },
+        Release: { IFileActivatedEventArgsWithNeighboringFilesWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 5).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFilesWrapper.IID
+            iids[3] = __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWrapper.IID
+            iids[4] = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWrapper.IID
+            $1!.pointee = 5
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithNeighboringFiles").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        get_NeighboringFilesQuery: {
+            guard let __unwrapped__instance = IFileActivatedEventArgsWithNeighboringFilesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let value = __unwrapped__instance.neighboringFilesQuery
+            value?.copyTo($1)
+            return S_OK
+        }
+    )
+
+    public typealias IFileActivatedEventArgsWithNeighboringFilesWrapper = InterfaceWrapperBase<__IMPL_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFilesBridge>
+}
+@_spi(WinRTInternal)
+public class IFileActivatedEventArgsWithNeighboringFilesMaker: MakeFromAbi {
+    public typealias SwiftType = AnyIFileActivatedEventArgsWithNeighboringFiles
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        let swiftAbi: __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFiles = try! abi.QueryInterface()
+        return __IMPL_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFilesBridge.from(abi: RawPointer(swiftAbi))!
+    }
+}
 // MARK: - ILaunchActivatedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.ilaunchactivatedeventargs)
@@ -1689,6 +2155,120 @@ public class BackgroundActivatedEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = BackgroundActivatedEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return BackgroundActivatedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_ApplicationModel_Activation {
+}
+// MARK: - FileActivatedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs)
+public final class FileActivatedEventArgs : WinRTClass, @unchecked Sendable, IActivatedEventArgs, IFileActivatedEventArgs, IFileActivatedEventArgsWithNeighboringFiles, IFileActivatedEventArgsWithCallerPackageFamilyName, IApplicationViewActivatedEventArgs, IViewSwitcherProvider, IActivatedEventArgsWithUser {
+    private typealias SwiftABI = __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgs
+    private typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private lazy var _IActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgs! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.kind)
+    public var kind : ActivationKind {
+        get { try! _IActivatedEventArgs.get_Kind() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.previousexecutionstate)
+    public var previousExecutionState : ApplicationExecutionState {
+        get { try! _IActivatedEventArgs.get_PreviousExecutionState() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.splashscreen)
+    public var splashScreen : SplashScreen! {
+        get { try! _IActivatedEventArgs.get_SplashScreen() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.files)
+    public var files : WindowsFoundation.AnyIVectorView<UWP.AnyIStorageItem?>! {
+        get { try! _default.get_Files() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.verb)
+    public var verb : String {
+        get { try! _default.get_Verb() }
+    }
+
+    private lazy var _IFileActivatedEventArgsWithNeighboringFiles: __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithNeighboringFiles! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.neighboringfilesquery)
+    public var neighboringFilesQuery : UWP.StorageFileQueryResult! {
+        get { try! _IFileActivatedEventArgsWithNeighboringFiles.get_NeighboringFilesQuery() }
+    }
+
+    private lazy var _IFileActivatedEventArgsWithCallerPackageFamilyName: __ABI_Windows_ApplicationModel_Activation.IFileActivatedEventArgsWithCallerPackageFamilyName! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.callerpackagefamilyname)
+    public var callerPackageFamilyName : String {
+        get { try! _IFileActivatedEventArgsWithCallerPackageFamilyName.get_CallerPackageFamilyName() }
+    }
+
+    private lazy var _IApplicationViewActivatedEventArgs: __ABI_Windows_ApplicationModel_Activation.IApplicationViewActivatedEventArgs! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.currentlyshownapplicationviewid)
+    public var currentlyShownApplicationViewId : Int32 {
+        get { try! _IApplicationViewActivatedEventArgs.get_CurrentlyShownApplicationViewId() }
+    }
+
+    private lazy var _IViewSwitcherProvider: __ABI_Windows_ApplicationModel_Activation.IViewSwitcherProvider! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.viewswitcher)
+    public var viewSwitcher : UWP.ActivationViewSwitcher! {
+        get { try! _IViewSwitcherProvider.get_ViewSwitcher() }
+    }
+
+    private lazy var _IActivatedEventArgsWithUser: __ABI_Windows_ApplicationModel_Activation.IActivatedEventArgsWithUser! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs.user)
+    public var user : UWP.User! {
+        get { try! _IActivatedEventArgsWithUser.get_User() }
+    }
+
+    deinit {
+        _IActivatedEventArgs = nil
+        _default = nil
+        _IFileActivatedEventArgsWithNeighboringFiles = nil
+        _IFileActivatedEventArgsWithCallerPackageFamilyName = nil
+        _IApplicationViewActivatedEventArgs = nil
+        _IViewSwitcherProvider = nil
+        _IActivatedEventArgsWithUser = nil
+    }
+}
+
+// MARK: - FileActivatedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_ApplicationModel_Activation {
+    public enum FileActivatedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = FileActivatedEventArgs
+        public typealias CABI = __x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CApplicationModel_CActivation_CIFileActivatedEventArgs>?) -> FileActivatedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class FileActivatedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = FileActivatedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return FileActivatedEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
