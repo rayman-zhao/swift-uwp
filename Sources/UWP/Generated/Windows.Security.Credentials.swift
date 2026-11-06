@@ -190,3 +190,148 @@ extension __ABI_Windows_Security_Credentials {
     }
 
 }
+// MARK: - PasswordVault
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordvault)
+public final class PasswordVault : WinRTClass, @unchecked Sendable {
+    private typealias SwiftABI = __ABI_Windows_Security_Credentials.IPasswordVault
+    private typealias CABI = __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Windows.Security.Credentials.PasswordVault")
+    override public init() {
+        super.init(try! Self._defaultFactory.ActivateInstance())
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordvault.add)
+    public func add(_ credential: PasswordCredential!) throws {
+        try _default.Add(credential)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordvault.remove)
+    public func remove(_ credential: PasswordCredential!) throws {
+        try _default.Remove(credential)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordvault.retrieve)
+    public func retrieve(_ resource: String, _ userName: String) throws -> PasswordCredential! {
+        try _default.Retrieve(resource, userName)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordvault.findallbyresource)
+    public func findAllByResource(_ resource: String) throws -> WindowsFoundation.AnyIVectorView<PasswordCredential?>! {
+        try _default.FindAllByResource(resource)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordvault.findallbyusername)
+    public func findAllByUserName(_ userName: String) throws -> WindowsFoundation.AnyIVectorView<PasswordCredential?>! {
+        try _default.FindAllByUserName(userName)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.security.credentials.passwordvault.retrieveall)
+    public func retrieveAll() throws -> WindowsFoundation.AnyIVectorView<PasswordCredential?>! {
+        try _default.RetrieveAll()
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - PasswordVault Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Windows_Security_Credentials {
+    public enum PasswordVaultBridge: AbiBridge {
+        public typealias SwiftProjection = PasswordVault
+        public typealias CABI = __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault
+        public static func from(abi: consuming ComPtr<__x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault>?) -> PasswordVault? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class PasswordVaultMaker: MakeFromAbi {
+    public typealias SwiftType = PasswordVault
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return PasswordVault(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Windows_Security_Credentials {
+    private static let IID___x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault: WindowsFoundation.IID = .init(
+        Data1: 0x61FD2C0B, Data2: 0xC8D4, Data3: 0x48C1, Data4: ( 0xA5,0x4F,0xBC,0x5A,0x64,0x20,0x5A,0xF2 ) // 61FD2C0B-C8D4-48C1-A54F-BC5A64205AF2
+    ) 
+
+    public class IPasswordVault: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault }
+
+        public func Add(_ credential: UWP.PasswordCredential?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Add(pThis, RawPointer(credential)))
+            }
+        }
+
+        public func Remove(_ credential: UWP.PasswordCredential?) throws {
+            _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Remove(pThis, RawPointer(credential)))
+            }
+        }
+
+        public func Retrieve(_ resource: String, _ userName: String) throws -> UWP.PasswordCredential? {
+            let (credential) = try ComPtrs.initialize { credentialAbi in
+                let _resource = try! HString(resource)
+                let _userName = try! HString(userName)
+                _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Retrieve(pThis, _resource.get(), _userName.get(), &credentialAbi))
+                }
+            }
+            return __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.from(abi: credential)
+        }
+
+        public func FindAllByResource(_ resource: String) throws -> WindowsFoundation.AnyIVectorView<UWP.PasswordCredential?>? {
+            let (credentials) = try ComPtrs.initialize { credentialsAbi in
+                let _resource = try! HString(resource)
+                _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllByResource(pThis, _resource.get(), &credentialsAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.unwrapFrom(abi: credentials)
+        }
+
+        public func FindAllByUserName(_ userName: String) throws -> WindowsFoundation.AnyIVectorView<UWP.PasswordCredential?>? {
+            let (credentials) = try ComPtrs.initialize { credentialsAbi in
+                let _userName = try! HString(userName)
+                _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindAllByUserName(pThis, _userName.get(), &credentialsAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.unwrapFrom(abi: credentials)
+        }
+
+        public func RetrieveAll() throws -> WindowsFoundation.AnyIVectorView<UWP.PasswordCredential?>? {
+            let (credentials) = try ComPtrs.initialize { credentialsAbi in
+                _ = try perform(as: __x_ABI_CWindows_CSecurity_CCredentials_CIPasswordVault.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.RetrieveAll(pThis, &credentialsAbi))
+                }
+            }
+            return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.unwrapFrom(abi: credentials)
+        }
+
+    }
+
+}

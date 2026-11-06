@@ -29,6 +29,7 @@
     "Windows.Media.Core.MediaSource",
     "Windows.Media.Playback.MediaPlayer",
     "Windows.Media.Render",
+    "Windows.Security.Credentials.PasswordVault",
     "Windows.Storage.Pickers",
     "Windows.Storage.Streams",
     "Windows.System.Diagnostics.SystemDiagnosticInfo",

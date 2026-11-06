@@ -13677,6 +13677,93 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CNetworking__CConnec
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential: WindowsFoundation.IID {
+    .init(Data1: 0x0d224a66, Data2: 0xbad5, Data3: 0x5ad5, Data4: ( 0x9a,0xde,0x1e,0x9f,0x5a,0x60,0xfe,0x73 ))// 0d224a66-bad5-5ad5-9ade-1e9f5a60fe73
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVTable: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.Security.Credentials.PasswordCredential>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge>
+public class IIterablePasswordCredential: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<UWP.PasswordCredential?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential
+    internal typealias SwiftABI = IIterablePasswordCredential
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<UWP.PasswordCredential?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialImpl : IIterable, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = UWP.PasswordCredential?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.PasswordCredential?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCryptography__CCertificates__CCertificate: WindowsFoundation.IID {
     .init(Data1: 0x0c7d1423, Data2: 0xe8fd, Data3: 0x5a91, Data4: ( 0xb5,0x5c,0x8b,0xfb,0xe7,0xac,0x2d,0x40 ))// 0c7d1423-e8fd-5a91-b55c-8bfbe7ac2d40
 }
@@ -30190,6 +30277,166 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CNetworking__CConnec
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
     fileprivate var current : UWP.ProviderNetworkUsage? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential: WindowsFoundation.IID {
+    .init(Data1: 0xb01093d8, Data2: 0x4f52, Data3: 0x50f0, Data4: ( 0x9a,0xa4,0xe2,0x26,0x39,0x11,0x11,0x62 ))// b01093d8-4f52-50f0-9aa4-e22639111162
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVTable: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.Security.Credentials.PasswordCredential>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [UWP.PasswordCredential?] = .from(abiBridge: __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge>
+public class IIteratorPasswordCredential: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential }
+
+    open func get_Current() throws -> UWP.PasswordCredential? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [UWP.PasswordCredential?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        var _itemsBuffer = Array<UnsafeMutablePointer<__x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential>?>(repeating: nil, count: items.count)
+        try _itemsBuffer.withUnsafeMutableBufferPointer { buffer in
+            let _items: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential>?> = (UInt32(buffer.count), buffer.baseAddress)
+            defer {
+                if let start = _items.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(_items.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+            }
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+            items = .from(abiBridge: __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential
+    internal typealias SwiftABI = IIteratorPasswordCredential
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<UWP.PasswordCredential?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialImpl : IIterator, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = UWP.PasswordCredential?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [UWP.PasswordCredential?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : UWP.PasswordCredential? {
         get { try! _default.get_Current() }
     }
 
@@ -54910,6 +55157,199 @@ fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CNetworking__CConn
     private lazy var _IIterable: IIterableProviderNetworkUsage! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.ProviderNetworkUsage?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential: WindowsFoundation.IID {
+    .init(Data1: 0x4e6185ad, Data2: 0xa6df, Data3: 0x5428, Data4: ( 0xaf,0xf5,0x17,0xe4,0x5f,0x3f,0x47,0x6f ))// 4e6185ad-a6df-5428-aff5-17e45f3f476f
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVTable: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Credentials.PasswordCredential>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.PasswordCredential? = __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.PasswordCredential?] = .from(abiBridge: __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge>
+public class IVectorViewPasswordCredential: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.PasswordCredential? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: UWP.PasswordCredential?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.PasswordCredential?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        var _itemsBuffer = Array<UnsafeMutablePointer<__x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential>?>(repeating: nil, count: items.count)
+        try _itemsBuffer.withUnsafeMutableBufferPointer { buffer in
+            let _items: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CWindows_CSecurity_CCredentials_CIPasswordCredential>?> = (UInt32(buffer.count), buffer.baseAddress)
+            defer {
+                if let start = _items.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(_items.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+            }
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+            items = .from(abiBridge: __IMPL_Windows_Security_Credentials.PasswordCredentialBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredential
+    internal typealias SwiftABI = IVectorViewPasswordCredential
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<UWP.PasswordCredential?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialImpl : IVectorView, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = UWP.PasswordCredential?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CSecurity__CCredentials__CPasswordCredentialBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.PasswordCredential? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: UWP.PasswordCredential?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.PasswordCredential?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterablePasswordCredential! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.PasswordCredential?>? {
         try! _IIterable.First()
     }
 
