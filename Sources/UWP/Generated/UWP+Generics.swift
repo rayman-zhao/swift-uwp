@@ -7848,6 +7848,93 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CApplicationModel__C
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0xcb0492b6, Data2: 0x4113, Data3: 0x55cf, Data4: ( 0xb2,0xc5,0x99,0xeb,0x42,0x8b,0xa4,0x93 ))// cb0492b6-4113-55cf-b2c5-99eb428ba493
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.Data.Json.IJsonValue>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IIterableIJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<UWP.AnyIJsonValue?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IIterableIJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<UWP.AnyIJsonValue?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IIterable, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = UWP.AnyIJsonValue?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.AnyIJsonValue?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CText__CTextSegment: WindowsFoundation.IID {
     .init(Data1: 0x5498f4f3, Data2: 0xcee4, Data3: 0x5b72, Data4: ( 0x97,0x29,0x81,0x5c,0x4a,0xd7,0xb9,0xdc ))// 5498f4f3-cee4-5b72-9729-815c4ad7b9dc
 }
@@ -8799,6 +8886,93 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, UWP.BackgroundTaskRegistrationGroup?>?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0xdfabb6e1, Data2: 0x0411, Data3: 0x5a8f, Data4: ( 0xaa,0x87,0x35,0x4e,0x71,0x10,0xf0,0x99 ))// dfabb6e1-0411-5a8f-aa87-354e7110f099
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Data.Json.IJsonValue>>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = UWP.__x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IIterableIKeyValuePairString_IJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IIterableIKeyValuePairString_IJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IIterable, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?>? {
         try! _default.First()
     }
 
@@ -19464,6 +19638,167 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CApplicationModel__C
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0x189eb512, Data2: 0x5a20, Data3: 0x5ec6, Data4: ( 0x98,0x66,0x60,0xaf,0x96,0xf0,0xd2,0x3b ))// 189eb512-5a20-5ec6-9866-60af96f0d23b
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.Data.Json.IJsonValue>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        let resultWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [UWP.AnyIJsonValue?] = .from(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IIteratorIJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func get_Current() throws -> UWP.AnyIJsonValue? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [UWP.AnyIJsonValue?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        var _itemsBuffer = Array<UnsafeMutablePointer<__x_ABI_CWindows_CData_CJson_CIJsonValue>?>(repeating: nil, count: items.count)
+        try _itemsBuffer.withUnsafeMutableBufferPointer { buffer in
+            let _items: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CWindows_CData_CJson_CIJsonValue>?> = (UInt32(buffer.count), buffer.baseAddress)
+            defer {
+                if let start = _items.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(_items.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+            }
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+            items = .from(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IIteratorIJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<UWP.AnyIJsonValue?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IIterator, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = UWP.AnyIJsonValue?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [UWP.AnyIJsonValue?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : UWP.AnyIJsonValue? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterator_1___x_ABI_CWindows__CData__CText__CTextSegment: WindowsFoundation.IID {
     .init(Data1: 0x645a39b4, Data2: 0xf001, Data3: 0x5272, Data4: ( 0x90,0x15,0xfb,0x4a,0x32,0x71,0x79,0xae ))// 645a39b4-f001-5272-9015-fb4a327179ae
 }
@@ -21196,6 +21531,167 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
     fileprivate var current : WindowsFoundation.AnyIKeyValuePair<String, UWP.BackgroundTaskRegistrationGroup?>? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0xf948eac5, Data2: 0x33eb, Data3: 0x50f5, Data4: ( 0xb5,0xaf,0xe7,0xce,0xcf,0x0e,0x45,0x01 ))// f948eac5-33eb-50f5-b5af-e7cecf0e4501
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Data.Json.IJsonValue>>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        let resultWrapper = UWP.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?] = .from(abiBridge: UWP.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: UWP.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IIteratorIKeyValuePairString_IJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func get_Current() throws -> WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        var _itemsBuffer = Array<UnsafeMutablePointer<__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue>?>(repeating: nil, count: items.count)
+        try _itemsBuffer.withUnsafeMutableBufferPointer { buffer in
+            let _items: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue>?> = (UInt32(buffer.count), buffer.baseAddress)
+            defer {
+                if let start = _items.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(_items.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+            }
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+            items = .from(abiBridge: UWP.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IIteratorIKeyValuePairString_IJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IIterator, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>? {
         get { try! _default.get_Current() }
     }
 
@@ -35465,6 +35961,117 @@ fileprivate class __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CApplica
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0x4deecc89, Data2: 0xb0b8, Data3: 0x5ee8, Data4: ( 0xa5,0x1d,0x1c,0x25,0xad,0x9a,0x5b,0x01 ))// 4deecc89-b0b8-5ee8-a51d-1c25ad9a5b01
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Data.Json.IJsonValue>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Key: {
+        guard let __unwrapped__instance = __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.key
+        $1?.initialize(to: try! HString(result).detach())
+        return S_OK
+    },
+
+    get_Value: {
+        guard let __unwrapped__instance = __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.value
+        let resultWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IKeyValuePairString_IJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func get_Key() throws -> String {
+        var result: HSTRING?
+        defer {
+            WindowsDeleteString(result)
+        }
+        _ = try perform(as: __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Key(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func get_Value() throws -> UWP.AnyIJsonValue? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &resultAbi))
+            }
+        }
+        return __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IKeyValuePairString_IJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IKeyValuePair, AbiInterfaceImpl, @unchecked Sendable {
+    typealias K = String
+    typealias V = UWP.AnyIJsonValue?
+    typealias Bridge = __x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ikeyvaluepair-2.key)
+    fileprivate var key : String {
+        get { try! _default.get_Key() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ikeyvaluepair-2.value)
+    fileprivate var value : UWP.AnyIJsonValue? {
+        get { try! _default.get_Value() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CText__CTextSegment: WindowsFoundation.IID {
     .init(Data1: 0x77b4daf4, Data2: 0x4f4f, Data3: 0x5568, Data4: ( 0x90,0xee,0x1a,0x32,0xcf,0x0c,0xaa,0xea ))// 77b4daf4-4f4f-5568-90ee-1a32cf0caaea
 }
@@ -37157,6 +37764,179 @@ fileprivate class __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CApplicationM
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0xeecd690c, Data2: 0x1ff3, Data3: 0x529f, Data4: ( 0x92,0x3f,0x9b,0x1c,0x31,0xfd,0x3d,0x0f ))// eecd690c-1ff3-529f-923f-9b1c31fd3d0f
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IMapView`2<String, Windows.Data.Json.IJsonValue>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    Lookup: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let key: String = .init(from: $1)
+        let result = __unwrapped__instance.lookup(key)
+        let resultWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(result)
+        resultWrapper?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    HasKey: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let key: String = .init(from: $1)
+        let result = __unwrapped__instance.hasKey(key)
+        $2?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    Split: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var first: WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>?
+        var second: WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>?
+        __unwrapped__instance.split(&first, &second)
+        let firstWrapper = UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper(first)
+        firstWrapper?.copyTo($1)
+        let secondWrapper = UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper(second)
+        secondWrapper?.copyTo($2)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IMapViewString_IJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func Lookup(_ key: String) throws -> UWP.AnyIJsonValue? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            let _key = try! HString(key)
+            _ = try perform(as: __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Lookup(pThis, _key.get(), &resultAbi))
+            }
+        }
+        return __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func HasKey(_ key: String) throws -> Bool {
+        var result: boolean = 0
+        let _key = try! HString(key)
+        _ = try perform(as: __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.HasKey(pThis, _key.get(), &result))
+        }
+        return .init(from: result)
+    }
+
+    open func Split(_ first: inout WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>?, _ second: inout WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>?) throws {
+        var _firstAbi: UnsafeMutablePointer<__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue>?
+        defer {
+            _ = _firstAbi?.pointee.lpVtbl.pointee.Release(_firstAbi)
+        }
+        var _secondAbi: UnsafeMutablePointer<__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue>?
+        defer {
+            _ = _secondAbi?.pointee.lpVtbl.pointee.Release(_secondAbi)
+        }
+        _ = try perform(as: __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Split(pThis, &_firstAbi, &_secondAbi))
+        }
+        first = UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.unwrapFrom(abi: ComPtr(_firstAbi))
+        second = UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.unwrapFrom(abi: ComPtr(_secondAbi))
+    }
+
+}
+
+internal enum __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IMapViewString_IJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IMapView, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?
+    typealias K = String
+    typealias V = UWP.AnyIJsonValue?
+    typealias Bridge = __x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imapview-2.lookup)
+    fileprivate func lookup(_ key: String) -> UWP.AnyIJsonValue? {
+        try! _default.Lookup(key)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imapview-2.haskey)
+    fileprivate func hasKey(_ key: String) -> Bool {
+        try! _default.HasKey(key)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imapview-2.split)
+    fileprivate func split(_ first: inout WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>?, _ second: inout WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>?) {
+        try! _default.Split(&first, &second)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imapview-2.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableIKeyValuePairString_IJsonValue! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imapview-2.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIMapView_2_HSTRING___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CText__CTextSegment: WindowsFoundation.IID {
     .init(Data1: 0x91d443d6, Data2: 0x3777, Data3: 0x5102, Data4: ( 0xb0,0xbc,0x3d,0x41,0x83,0xa2,0x6f,0xf9 ))// 91d443d6-3777-5102-b0bc-3d4183a26ff9
 }
@@ -38679,6 +39459,229 @@ fileprivate class __x_ABI_C__FIMap_2_HSTRING_HSTRINGImpl : IMap, AbiInterfaceImp
     private lazy var _IIterable: IIterableIKeyValuePairString_String! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, String>?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0xc9d9a725, Data2: 0x786b, Data3: 0x5113, Data4: ( 0xb4,0xb7,0x9b,0x61,0x76,0x4c,0x22,0x0b ))// c9d9a725-786b-5113-b4b7-9b61764c220b
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_C__FIKeyValuePair_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IMap`2<String, Windows.Data.Json.IJsonValue>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    Lookup: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let key: String = .init(from: $1)
+        let result = __unwrapped__instance.lookup(key)
+        let resultWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(result)
+        resultWrapper?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    HasKey: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let key: String = .init(from: $1)
+        let result = __unwrapped__instance.hasKey(key)
+        $2?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetView: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.getView()
+        let resultWrapper = UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    Insert: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let key: String = .init(from: $1)
+        let value: UWP.AnyIJsonValue? = __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: ComPtr($2))
+        let result = __unwrapped__instance.insert(key, value)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    Remove: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let key: String = .init(from: $1)
+        __unwrapped__instance.remove(key)
+        return S_OK
+    },
+
+    Clear: {
+        guard let __unwrapped__instance = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.clear()
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IMapString_IJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func Lookup(_ key: String) throws -> UWP.AnyIJsonValue? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            let _key = try! HString(key)
+            _ = try perform(as: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Lookup(pThis, _key.get(), &resultAbi))
+            }
+        }
+        return __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func HasKey(_ key: String) throws -> Bool {
+        var result: boolean = 0
+        let _key = try! HString(key)
+        _ = try perform(as: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.HasKey(pThis, _key.get(), &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetView() throws -> WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIMapView_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func Insert(_ key: String, _ value: UWP.AnyIJsonValue?) throws -> Bool {
+        var result: boolean = 0
+        let _key = try! HString(key)
+        let valueWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(value)
+        let _value = try! valueWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Insert(pThis, _key.get(), _value, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func Remove(_ key: String) throws {
+        let _key = try! HString(key)
+        _ = try perform(as: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Remove(pThis, _key.get()))
+        }
+    }
+
+    open func Clear() throws {
+        _ = try perform(as: __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+        }
+    }
+
+}
+
+internal enum __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IMapString_IJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIMap<String, UWP.AnyIJsonValue?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IMap, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?
+    typealias K = String
+    typealias V = UWP.AnyIJsonValue?
+    typealias Bridge = __x_ABI_C__FIMap_2_HSTRING___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.lookup)
+    fileprivate func lookup(_ key: String) -> UWP.AnyIJsonValue? {
+        try! _default.Lookup(key)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.haskey)
+    fileprivate func hasKey(_ key: String) -> Bool {
+        try! _default.HasKey(key)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.getview)
+    fileprivate func getView() -> WindowsFoundation.AnyIMapView<String, UWP.AnyIJsonValue?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.insert)
+    fileprivate func insert(_ key: String, _ value: UWP.AnyIJsonValue?) -> Bool {
+        try! _default.Insert(key, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.remove)
+    fileprivate func remove(_ key: String) {
+        try! _default.Remove(key)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.clear)
+    fileprivate func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableIKeyValuePairString_IJsonValue! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.imap-2.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.AnyIKeyValuePair<String, UWP.AnyIJsonValue?>?>? {
         try! _IIterable.First()
     }
 
@@ -44407,6 +45410,202 @@ fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CApplicationModel_
     private lazy var _IIterable: IIterablePackageContentGroup! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.PackageContentGroup?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0xcffabb0f, Data2: 0x6bc4, Data3: 0x5ff6, Data4: ( 0x9b,0x9e,0x7a,0x9d,0xf6,0xc6,0x87,0xc8 ))// cffabb0f-6bc4-5ff6-9b9e-7a9df6c687c8
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Windows.Data.Json.IJsonValue>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        let resultWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(result)
+        resultWrapper?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.AnyIJsonValue? = __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.AnyIJsonValue?] = .from(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IVectorViewIJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.AnyIJsonValue? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: UWP.AnyIJsonValue?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        let valueWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(value)
+        let _value = try! valueWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, _value, &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.AnyIJsonValue?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        var _itemsBuffer = Array<UnsafeMutablePointer<__x_ABI_CWindows_CData_CJson_CIJsonValue>?>(repeating: nil, count: items.count)
+        try _itemsBuffer.withUnsafeMutableBufferPointer { buffer in
+            let _items: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CWindows_CData_CJson_CIJsonValue>?> = (UInt32(buffer.count), buffer.baseAddress)
+            defer {
+                if let start = _items.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(_items.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+            }
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+            items = .from(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IVectorViewIJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<UWP.AnyIJsonValue?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IVectorView, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = UWP.AnyIJsonValue?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.AnyIJsonValue? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: UWP.AnyIJsonValue?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.AnyIJsonValue?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableIJsonValue! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.AnyIJsonValue?>? {
         try! _IIterable.First()
     }
 
@@ -64036,6 +65235,367 @@ fileprivate class __x_ABI_C__FIVector_1___x_ABI_CWindows__CApplicationModel__CPa
     private lazy var _IIterable: IIterablePackageContentGroup! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.PackageContentGroup?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue: WindowsFoundation.IID {
+    .init(Data1: 0xd44662bc, Data2: 0xdce3, Data3: 0x59a8, Data4: ( 0x92,0x72,0x4b,0x21,0x0f,0x33,0x90,0x8b ))// d44662bc-dce3-59a8-9272-4b210f33908b
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        iids[3] = UWP.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVector`1<Windows.Data.Json.IJsonValue>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        let resultWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(result)
+        resultWrapper?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    GetView: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.getView()
+        let resultWrapper = UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.AnyIJsonValue? = __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    SetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: UWP.AnyIJsonValue? = __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: ComPtr($2))
+        __unwrapped__instance.setAt(index, value)
+        return S_OK
+    },
+
+    InsertAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: UWP.AnyIJsonValue? = __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: ComPtr($2))
+        __unwrapped__instance.insertAt(index, value)
+        return S_OK
+    },
+
+    RemoveAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        __unwrapped__instance.removeAt(index)
+        return S_OK
+    },
+
+    Append: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: UWP.AnyIJsonValue? = __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: ComPtr($1))
+        __unwrapped__instance.append(value)
+        return S_OK
+    },
+
+    RemoveAtEnd: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.removeAtEnd()
+        return S_OK
+    },
+
+    Clear: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.clear()
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [UWP.AnyIJsonValue?] = .from(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    },
+
+    ReplaceAll: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let items: [UWP.AnyIJsonValue?] = .from(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self, abi: (count: $1, start: $2))
+        __unwrapped__instance.replaceAll(items)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper = InterfaceWrapperBase<UWP.__x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge>
+public class IVectorIJsonValue: WindowsFoundation.IInspectable, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue }
+
+    open func GetAt(_ index: UInt32) throws -> UWP.AnyIJsonValue? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __ABI_Windows_Data_Json.IJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func GetView() throws -> WindowsFoundation.AnyIVectorView<UWP.AnyIJsonValue?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
+            }
+        }
+        return UWP.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CData__CJson__CIJsonValueWrapper.unwrapFrom(abi: result)
+    }
+
+    open func IndexOf(_ value: UWP.AnyIJsonValue?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        let valueWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(value)
+        let _value = try! valueWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, _value, &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func SetAt(_ index: UInt32, _ value: UWP.AnyIJsonValue?) throws {
+        let valueWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(value)
+        let _value = try! valueWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.SetAt(pThis, index, _value))
+        }
+    }
+
+    open func InsertAt(_ index: UInt32, _ value: UWP.AnyIJsonValue?) throws {
+        let valueWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(value)
+        let _value = try! valueWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAt(pThis, index, _value))
+        }
+    }
+
+    open func RemoveAt(_ index: UInt32) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAt(pThis, index))
+        }
+    }
+
+    open func Append(_ value: UWP.AnyIJsonValue?) throws {
+        let valueWrapper = __ABI_Windows_Data_Json.IJsonValueWrapper(value)
+        let _value = try! valueWrapper?.toABI { $0 }
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Append(pThis, _value))
+        }
+    }
+
+    open func RemoveAtEnd() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAtEnd(pThis))
+        }
+    }
+
+    open func Clear() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+        }
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [UWP.AnyIJsonValue?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        var _itemsBuffer = Array<UnsafeMutablePointer<__x_ABI_CWindows_CData_CJson_CIJsonValue>?>(repeating: nil, count: items.count)
+        try _itemsBuffer.withUnsafeMutableBufferPointer { buffer in
+            let _items: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CWindows_CData_CJson_CIJsonValue>?> = (UInt32(buffer.count), buffer.baseAddress)
+            defer {
+                if let start = _items.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(_items.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+            }
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+            items = .from(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self, abi: _items)
+        }
+        return result
+    }
+
+    open func ReplaceAll(_ items: [UWP.AnyIJsonValue?]) throws {
+        try items.toABI(abiBridge: __IMPL_Windows_Data_Json.IJsonValueBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReplaceAll(pThis, _items.count, _items.start))
+            }
+        }
+    }
+
+}
+
+internal enum __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValue
+    internal typealias SwiftABI = IVectorIJsonValue
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVector<UWP.AnyIJsonValue?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueImpl : IVector, AbiInterfaceImpl, @unchecked Sendable {
+    typealias T = UWP.AnyIJsonValue?
+    typealias Bridge = __x_ABI_C__FIVector_1___x_ABI_CWindows__CData__CJson__CIJsonValueBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+        set(newValue) {
+            setAt(UInt32(position), newValue)
+        }
+    }
+
+    func removeLast() {
+        removeAtEnd()
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> UWP.AnyIJsonValue? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getview)
+    fileprivate func getView() -> WindowsFoundation.AnyIVectorView<UWP.AnyIJsonValue?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.indexof)
+    fileprivate func indexOf(_ value: UWP.AnyIJsonValue?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.setat)
+    fileprivate func setAt(_ index: UInt32, _ value: UWP.AnyIJsonValue?) {
+        try! _default.SetAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.insertat)
+    fileprivate func insertAt(_ index: UInt32, _ value: UWP.AnyIJsonValue?) {
+        try! _default.InsertAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeat)
+    fileprivate func removeAt(_ index: UInt32) {
+        try! _default.RemoveAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.append)
+    fileprivate func append(_ value: UWP.AnyIJsonValue?) {
+        try! _default.Append(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeatend)
+    fileprivate func removeAtEnd() {
+        try! _default.RemoveAtEnd()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.clear)
+    fileprivate func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [UWP.AnyIJsonValue?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.replaceall)
+    fileprivate func replaceAll(_ items: [UWP.AnyIJsonValue?]) {
+        try! _default.ReplaceAll(items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableIJsonValue! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<UWP.AnyIJsonValue?>? {
         try! _IIterable.First()
     }
 

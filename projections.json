@@ -13,6 +13,7 @@
     "Windows.ApplicationModel.DataTransfer",
     "Windows.ApplicationModel.DataTransfer.DragDrop",
     "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+    "Windows.Data.Json",
     "Windows.Devices.Input",
     "Windows.Foundation.IMemoryBufferReference",
     "Windows.Foundation.IPropertyValue",
